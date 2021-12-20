@@ -4530,6 +4530,11 @@ impl ::core::clone::Clone for PXE_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for PXE_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_ADDRESS").field("uFlags", &self.uFlags).field("Anonymous", &self.Anonymous).field("uAddrLen", &self.uAddrLen).field("uPort", &self.uPort).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PXE_ADDRESS {
     type Abi = Self;
 }
@@ -4611,6 +4616,11 @@ impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE {
         *self
     }
 }
+impl ::core::fmt::Debug for PXE_DHCPV6_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_DHCPV6_MESSAGE").field("MessageType", &self.MessageType).field("TransactionIDByte1", &self.TransactionIDByte1).field("TransactionIDByte2", &self.TransactionIDByte2).field("TransactionIDByte3", &self.TransactionIDByte3).field("Options", &self.Options).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_MESSAGE {
     type Abi = Self;
 }
@@ -4635,6 +4645,11 @@ impl ::core::marker::Copy for PXE_DHCPV6_MESSAGE_HEADER {}
 impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PXE_DHCPV6_MESSAGE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_DHCPV6_MESSAGE_HEADER").field("MessageType", &self.MessageType).field("Message", &self.Message).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_MESSAGE_HEADER {
@@ -4665,6 +4680,11 @@ impl ::core::clone::Clone for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
         *self
     }
 }
+impl ::core::fmt::Debug for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_DHCPV6_NESTED_RELAY_MESSAGE").field("pRelayMessage", &self.pRelayMessage).field("cbRelayMessage", &self.cbRelayMessage).field("pInterfaceIdOption", &self.pInterfaceIdOption).field("cbInterfaceIdOption", &self.cbInterfaceIdOption).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     type Abi = Self;
 }
@@ -4690,6 +4710,11 @@ impl ::core::marker::Copy for PXE_DHCPV6_OPTION {}
 impl ::core::clone::Clone for PXE_DHCPV6_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PXE_DHCPV6_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_DHCPV6_OPTION").field("OptionCode", &self.OptionCode).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_OPTION {
@@ -4721,6 +4746,11 @@ impl ::core::marker::Copy for PXE_DHCPV6_RELAY_MESSAGE {}
 impl ::core::clone::Clone for PXE_DHCPV6_RELAY_MESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PXE_DHCPV6_RELAY_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_DHCPV6_RELAY_MESSAGE").field("MessageType", &self.MessageType).field("HopCount", &self.HopCount).field("LinkAddress", &self.LinkAddress).field("PeerAddress", &self.PeerAddress).field("Options", &self.Options).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_RELAY_MESSAGE {
@@ -4771,6 +4801,28 @@ impl ::core::marker::Copy for PXE_DHCP_MESSAGE {}
 impl ::core::clone::Clone for PXE_DHCP_MESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PXE_DHCP_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_DHCP_MESSAGE")
+            .field("Operation", &self.Operation)
+            .field("HardwareAddressType", &self.HardwareAddressType)
+            .field("HardwareAddressLength", &self.HardwareAddressLength)
+            .field("HopCount", &self.HopCount)
+            .field("TransactionID", &self.TransactionID)
+            .field("SecondsSinceBoot", &self.SecondsSinceBoot)
+            .field("Reserved", &self.Reserved)
+            .field("ClientIpAddress", &self.ClientIpAddress)
+            .field("YourIpAddress", &self.YourIpAddress)
+            .field("BootstrapServerAddress", &self.BootstrapServerAddress)
+            .field("RelayAgentIpAddress", &self.RelayAgentIpAddress)
+            .field("HardwareAddress", &self.HardwareAddress)
+            .field("HostName", &self.HostName)
+            .field("BootFileName", &self.BootFileName)
+            .field("Anonymous", &self.Anonymous)
+            .field("Option", &self.Option)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PXE_DHCP_MESSAGE {
@@ -4826,6 +4878,11 @@ impl ::core::clone::Clone for PXE_DHCP_OPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for PXE_DHCP_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_DHCP_OPTION").field("OptionType", &self.OptionType).field("OptionLength", &self.OptionLength).field("OptionValue", &self.OptionValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PXE_DHCP_OPTION {
     type Abi = Self;
 }
@@ -4866,6 +4923,12 @@ impl ::core::marker::Copy for PXE_PROVIDER {}
 impl ::core::clone::Clone for PXE_PROVIDER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PXE_PROVIDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PXE_PROVIDER").field("uSizeOfStruct", &self.uSizeOfStruct).field("pwszName", &self.pwszName).field("pwszFilePath", &self.pwszFilePath).field("bIsCritical", &self.bIsCritical).field("uIndex", &self.uIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5394,6 +5457,11 @@ impl ::core::clone::Clone for TRANSPORTCLIENT_SESSION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for TRANSPORTCLIENT_SESSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSPORTCLIENT_SESSION_INFO").field("ulStructureLength", &self.ulStructureLength).field("ullFileSize", &self.ullFileSize).field("ulBlockSize", &self.ulBlockSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TRANSPORTCLIENT_SESSION_INFO {
     type Abi = Self;
 }
@@ -5735,6 +5803,12 @@ impl ::core::clone::Clone for WDS_CLI_CRED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WDS_CLI_CRED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WDS_CLI_CRED").field("pwszUserName", &self.pwszUserName).field("pwszDomain", &self.pwszDomain).field("pwszPassword", &self.pwszPassword).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WDS_CLI_CRED {
     type Abi = Self;
 }
@@ -5868,6 +5942,12 @@ impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WDS_TRANSPORTCLIENT_CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WDS_TRANSPORTCLIENT_CALLBACKS").field("SessionStart", &self.SessionStart).field("SessionStartEx", &self.SessionStartEx).field("ReceiveContents", &self.ReceiveContents).field("ReceiveMetadata", &self.ReceiveMetadata).field("SessionComplete", &self.SessionComplete).field("SessionNegotiate", &self.SessionNegotiate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WDS_TRANSPORTCLIENT_CALLBACKS {
     type Abi = Self;
 }
@@ -5912,6 +5992,12 @@ impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_REQUEST {}
 impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WDS_TRANSPORTCLIENT_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WDS_TRANSPORTCLIENT_REQUEST").field("ulLength", &self.ulLength).field("ulApiVersion", &self.ulApiVersion).field("ulAuthLevel", &self.ulAuthLevel).field("pwszServer", &self.pwszServer).field("pwszNamespace", &self.pwszNamespace).field("pwszObjectName", &self.pwszObjectName).field("ulCacheSize", &self.ulCacheSize).field("ulProtocol", &self.ulProtocol).field("pvProtocolData", &self.pvProtocolData).field("ulProtocolDataLength", &self.ulProtocolDataLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5962,6 +6048,12 @@ impl ::core::clone::Clone for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::fmt::Debug for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WDS_TRANSPORTPROVIDER_INIT_PARAMS").field("ulLength", &self.ulLength).field("ulMcServerVersion", &self.ulMcServerVersion).field("hRegistryKey", &self.hRegistryKey).field("hProvider", &self.hProvider).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     type Abi = Self;
 }
@@ -5989,6 +6081,11 @@ impl ::core::marker::Copy for WDS_TRANSPORTPROVIDER_SETTINGS {}
 impl ::core::clone::Clone for WDS_TRANSPORTPROVIDER_SETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WDS_TRANSPORTPROVIDER_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WDS_TRANSPORTPROVIDER_SETTINGS").field("ulLength", &self.ulLength).field("ulProviderVersion", &self.ulProviderVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WDS_TRANSPORTPROVIDER_SETTINGS {

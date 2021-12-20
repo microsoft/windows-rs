@@ -9883,6 +9883,12 @@ impl ::core::clone::Clone for KeyTime {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for KeyTime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KeyTime").field("TimeSpan", &self.TimeSpan).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for KeyTime {
     type Abi = Self;
 }
@@ -13387,6 +13393,12 @@ impl ::core::marker::Copy for RepeatBehavior {}
 impl ::core::clone::Clone for RepeatBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for RepeatBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RepeatBehavior").field("Count", &self.Count).field("Duration", &self.Duration).field("Type", &self.Type).finish()
     }
 }
 #[cfg(feature = "Foundation")]

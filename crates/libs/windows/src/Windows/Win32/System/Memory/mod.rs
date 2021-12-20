@@ -73,6 +73,11 @@ impl ::core::clone::Clone for CFG_CALL_TARGET_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CFG_CALL_TARGET_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CFG_CALL_TARGET_INFO").field("Offset", &self.Offset).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CFG_CALL_TARGET_INFO {
     type Abi = Self;
 }
@@ -549,6 +554,11 @@ impl ::core::clone::Clone for HEAP_SUMMARY {
         *self
     }
 }
+impl ::core::fmt::Debug for HEAP_SUMMARY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HEAP_SUMMARY").field("cb", &self.cb).field("cbAllocated", &self.cbAllocated).field("cbCommitted", &self.cbCommitted).field("cbReserved", &self.cbReserved).field("cbMaxReserve", &self.cbMaxReserve).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HEAP_SUMMARY {
     type Abi = Self;
 }
@@ -997,6 +1007,12 @@ impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MEMORY_BASIC_INFORMATION").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("PartitionId", &self.PartitionId).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
 }
@@ -1035,6 +1051,12 @@ impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION {
     }
 }
 #[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MEMORY_BASIC_INFORMATION").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
+    }
+}
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
 }
@@ -1069,6 +1091,11 @@ impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION32 {
         *self
     }
 }
+impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MEMORY_BASIC_INFORMATION32").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION32 {
     type Abi = Self;
 }
@@ -1100,6 +1127,11 @@ impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION64 {}
 impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION64 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MEMORY_BASIC_INFORMATION64").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("__alignment1", &self.__alignment1).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).field("__alignment2", &self.__alignment2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION64 {
@@ -1138,6 +1170,12 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MEM_EXTENDED_PARAMETER").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER {
     type Abi = Self;
 }
@@ -1167,6 +1205,12 @@ impl ::core::marker::Copy for MEM_EXTENDED_PARAMETER_0 {}
 impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MEM_EXTENDED_PARAMETER_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1570,6 +1614,12 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_HEAP_ENTRY").field("lpData", &self.lpData).field("cbData", &self.cbData).field("cbOverhead", &self.cbOverhead).field("iRegionIndex", &self.iRegionIndex).field("wFlags", &self.wFlags).field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROCESS_HEAP_ENTRY {
     type Abi = Self;
 }
@@ -1636,6 +1686,12 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_HEAP_ENTRY_0_0").field("hMem", &self.hMem).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROCESS_HEAP_ENTRY_0_0 {
     type Abi = Self;
 }
@@ -1668,6 +1724,12 @@ impl ::core::marker::Copy for PROCESS_HEAP_ENTRY_0_1 {}
 impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_HEAP_ENTRY_0_1").field("dwCommittedSize", &self.dwCommittedSize).field("dwUnCommittedSize", &self.dwUnCommittedSize).field("lpFirstBlock", &self.lpFirstBlock).field("lpLastBlock", &self.lpLastBlock).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2285,6 +2347,29 @@ impl ::core::clone::Clone for WIN32_MEMORY_PARTITION_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIN32_MEMORY_PARTITION_INFORMATION")
+            .field("Flags", &self.Flags)
+            .field("NumaNode", &self.NumaNode)
+            .field("Channel", &self.Channel)
+            .field("NumberOfNumaNodes", &self.NumberOfNumaNodes)
+            .field("ResidentAvailablePages", &self.ResidentAvailablePages)
+            .field("CommittedPages", &self.CommittedPages)
+            .field("CommitLimit", &self.CommitLimit)
+            .field("PeakCommitment", &self.PeakCommitment)
+            .field("TotalNumberOfPages", &self.TotalNumberOfPages)
+            .field("AvailablePages", &self.AvailablePages)
+            .field("ZeroPages", &self.ZeroPages)
+            .field("FreePages", &self.FreePages)
+            .field("StandbyPages", &self.StandbyPages)
+            .field("Reserved", &self.Reserved)
+            .field("MaximumCommitLimit", &self.MaximumCommitLimit)
+            .field("Reserved2", &self.Reserved2)
+            .field("PartitionId", &self.PartitionId)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_PARTITION_INFORMATION {
     type Abi = Self;
 }
@@ -2317,6 +2402,11 @@ impl ::core::clone::Clone for WIN32_MEMORY_RANGE_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for WIN32_MEMORY_RANGE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIN32_MEMORY_RANGE_ENTRY").field("VirtualAddress", &self.VirtualAddress).field("NumberOfBytes", &self.NumberOfBytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_RANGE_ENTRY {
     type Abi = Self;
 }
@@ -2344,6 +2434,11 @@ impl ::core::marker::Copy for WIN32_MEMORY_REGION_INFORMATION {}
 impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIN32_MEMORY_REGION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIN32_MEMORY_REGION_INFORMATION").field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("Anonymous", &self.Anonymous).field("RegionSize", &self.RegionSize).field("CommitSize", &self.CommitSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_REGION_INFORMATION {
@@ -2395,6 +2490,11 @@ impl ::core::marker::Copy for WIN32_MEMORY_REGION_INFORMATION_0_0 {}
 impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIN32_MEMORY_REGION_INFORMATION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIN32_MEMORY_REGION_INFORMATION_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_REGION_INFORMATION_0_0 {

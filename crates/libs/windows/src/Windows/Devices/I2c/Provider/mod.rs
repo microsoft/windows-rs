@@ -522,6 +522,11 @@ impl ::core::clone::Clone for ProviderI2cTransferResult {
         *self
     }
 }
+impl ::core::fmt::Debug for ProviderI2cTransferResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ProviderI2cTransferResult").field("Status", &self.Status).field("BytesTransferred", &self.BytesTransferred).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderI2cTransferResult {
     type Abi = Self;
 }

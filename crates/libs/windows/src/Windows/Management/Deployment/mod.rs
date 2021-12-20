@@ -1096,6 +1096,11 @@ impl ::core::clone::Clone for DeploymentProgress {
         *self
     }
 }
+impl ::core::fmt::Debug for DeploymentProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DeploymentProgress").field("state", &self.state).field("percentage", &self.percentage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeploymentProgress {
     type Abi = Self;
 }

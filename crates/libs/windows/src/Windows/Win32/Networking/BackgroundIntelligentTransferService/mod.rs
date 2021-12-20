@@ -93,6 +93,12 @@ impl ::core::clone::Clone for BG_AUTH_CREDENTIALS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BG_AUTH_CREDENTIALS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BG_AUTH_CREDENTIALS").field("Target", &self.Target).field("Scheme", &self.Scheme).field("Credentials", &self.Credentials).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BG_AUTH_CREDENTIALS {
     type Abi = Self;
 }
@@ -173,6 +179,12 @@ impl ::core::marker::Copy for BG_BASIC_CREDENTIALS {}
 impl ::core::clone::Clone for BG_BASIC_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BG_BASIC_CREDENTIALS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BG_BASIC_CREDENTIALS").field("UserName", &self.UserName).field("Password", &self.Password).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -517,6 +529,12 @@ impl ::core::clone::Clone for BG_FILE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BG_FILE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BG_FILE_INFO").field("RemoteName", &self.RemoteName).field("LocalName", &self.LocalName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BG_FILE_INFO {
     type Abi = Self;
 }
@@ -551,6 +569,12 @@ impl ::core::clone::Clone for BG_FILE_PROGRESS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BG_FILE_PROGRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BG_FILE_PROGRESS").field("BytesTotal", &self.BytesTotal).field("BytesTransferred", &self.BytesTransferred).field("Completed", &self.Completed).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BG_FILE_PROGRESS {
     type Abi = Self;
 }
@@ -578,6 +602,11 @@ impl ::core::marker::Copy for BG_FILE_RANGE {}
 impl ::core::clone::Clone for BG_FILE_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BG_FILE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BG_FILE_RANGE").field("InitialOffset", &self.InitialOffset).field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BG_FILE_RANGE {
@@ -636,6 +665,11 @@ impl ::core::clone::Clone for BG_JOB_PROGRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for BG_JOB_PROGRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BG_JOB_PROGRESS").field("BytesTotal", &self.BytesTotal).field("BytesTransferred", &self.BytesTransferred).field("FilesTotal", &self.FilesTotal).field("FilesTransferred", &self.FilesTransferred).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BG_JOB_PROGRESS {
     type Abi = Self;
 }
@@ -670,6 +704,11 @@ impl ::core::marker::Copy for BG_JOB_REPLY_PROGRESS {}
 impl ::core::clone::Clone for BG_JOB_REPLY_PROGRESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BG_JOB_REPLY_PROGRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BG_JOB_REPLY_PROGRESS").field("BytesTotal", &self.BytesTotal).field("BytesTransferred", &self.BytesTransferred).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BG_JOB_REPLY_PROGRESS {
@@ -720,6 +759,12 @@ impl ::core::marker::Copy for BG_JOB_TIMES {}
 impl ::core::clone::Clone for BG_JOB_TIMES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BG_JOB_TIMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BG_JOB_TIMES").field("CreationTime", &self.CreationTime).field("ModificationTime", &self.ModificationTime).field("TransferCompletionTime", &self.TransferCompletionTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -956,6 +1001,12 @@ pub struct FILESETINFO {
 impl ::core::clone::Clone for FILESETINFO {
     fn clone(&self) -> Self {
         Self { bstrRemoteFile: self.bstrRemoteFile.clone(), bstrLocalFile: self.bstrLocalFile.clone(), dwSizeHint: self.dwSizeHint }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILESETINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILESETINFO").field("bstrRemoteFile", &self.bstrRemoteFile).field("bstrLocalFile", &self.bstrLocalFile).field("dwSizeHint", &self.dwSizeHint).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

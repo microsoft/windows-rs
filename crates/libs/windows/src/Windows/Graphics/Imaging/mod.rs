@@ -42,6 +42,11 @@ impl ::core::clone::Clone for BitmapBounds {
         *self
     }
 }
+impl ::core::fmt::Debug for BitmapBounds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapBounds").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapBounds {
     type Abi = Self;
 }
@@ -1342,6 +1347,11 @@ impl ::core::clone::Clone for BitmapPlaneDescription {
         *self
     }
 }
+impl ::core::fmt::Debug for BitmapPlaneDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapPlaneDescription").field("StartIndex", &self.StartIndex).field("Width", &self.Width).field("Height", &self.Height).field("Stride", &self.Stride).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapPlaneDescription {
     type Abi = Self;
 }
@@ -1836,6 +1846,11 @@ impl ::core::marker::Copy for BitmapSize {}
 impl ::core::clone::Clone for BitmapSize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BitmapSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapSize").field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BitmapSize {

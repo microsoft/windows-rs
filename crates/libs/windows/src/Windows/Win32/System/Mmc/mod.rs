@@ -182,6 +182,12 @@ impl ::core::clone::Clone for CONTEXTMENUITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONTEXTMENUITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTEXTMENUITEM").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONTEXTMENUITEM {
     type Abi = Self;
 }
@@ -217,6 +223,12 @@ impl ::core::marker::Copy for CONTEXTMENUITEM2 {}
 impl ::core::clone::Clone for CONTEXTMENUITEM2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONTEXTMENUITEM2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTEXTMENUITEM2").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).field("strLanguageIndependentName", &self.strLanguageIndependentName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5231,6 +5243,11 @@ impl ::core::clone::Clone for MENUBUTTONDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MENUBUTTONDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUBUTTONDATA").field("idCommand", &self.idCommand).field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MENUBUTTONDATA {
     type Abi = Self;
 }
@@ -5262,6 +5279,12 @@ impl ::core::marker::Copy for MMCBUTTON {}
 impl ::core::clone::Clone for MMCBUTTON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMCBUTTON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMCBUTTON").field("nBitmap", &self.nBitmap).field("idCommand", &self.idCommand).field("fsState", &self.fsState).field("fsType", &self.fsType).field("lpButtonText", &self.lpButtonText).field("lpTooltipText", &self.lpTooltipText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5341,6 +5364,11 @@ impl ::core::clone::Clone for MMC_COLUMN_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MMC_COLUMN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_COLUMN_DATA").field("nColIndex", &self.nColIndex).field("dwFlags", &self.dwFlags).field("nWidth", &self.nWidth).field("ulReserved", &self.ulReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_COLUMN_DATA {
     type Abi = Self;
 }
@@ -5366,6 +5394,11 @@ impl ::core::marker::Copy for MMC_COLUMN_SET_DATA {}
 impl ::core::clone::Clone for MMC_COLUMN_SET_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MMC_COLUMN_SET_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_COLUMN_SET_DATA").field("cbSize", &self.cbSize).field("nNumCols", &self.nNumCols).field("pColData", &self.pColData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MMC_COLUMN_SET_DATA {
@@ -5437,6 +5470,12 @@ impl ::core::clone::Clone for MMC_EXPANDSYNC_STRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_EXPANDSYNC_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_EXPANDSYNC_STRUCT").field("bHandled", &self.bHandled).field("bExpanding", &self.bExpanding).field("hItem", &self.hItem).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_EXPANDSYNC_STRUCT {
     type Abi = Self;
 }
@@ -5473,6 +5512,12 @@ impl ::core::clone::Clone for MMC_EXT_VIEW_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_EXT_VIEW_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_EXT_VIEW_DATA").field("viewID", &self.viewID).field("pszURL", &self.pszURL).field("pszViewTitle", &self.pszViewTitle).field("pszTooltipText", &self.pszTooltipText).field("bReplacesDefaultView", &self.bReplacesDefaultView).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_EXT_VIEW_DATA {
     type Abi = Self;
 }
@@ -5504,6 +5549,12 @@ impl ::core::marker::Copy for MMC_FILTERDATA {}
 impl ::core::clone::Clone for MMC_FILTERDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_FILTERDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_FILTERDATA").field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("lValue", &self.lValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5562,6 +5613,12 @@ impl ::core::marker::Copy for MMC_LISTPAD_INFO {}
 impl ::core::clone::Clone for MMC_LISTPAD_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_LISTPAD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_LISTPAD_INFO").field("szTitle", &self.szTitle).field("szButtonText", &self.szButtonText).field("nCommandID", &self.nCommandID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5718,6 +5775,12 @@ impl ::core::clone::Clone for MMC_RESTORE_VIEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_RESTORE_VIEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_RESTORE_VIEW").field("dwSize", &self.dwSize).field("cookie", &self.cookie).field("pViewType", &self.pViewType).field("lViewOptions", &self.lViewOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_RESTORE_VIEW {
     type Abi = Self;
 }
@@ -5768,6 +5831,12 @@ impl ::core::clone::Clone for MMC_SNAPIN_PROPERTY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for MMC_SNAPIN_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_SNAPIN_PROPERTY").field("pszPropName", &self.pszPropName).field("varValue", &self.varValue).field("eAction", &self.eAction).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for MMC_SNAPIN_PROPERTY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -5798,6 +5867,11 @@ impl ::core::clone::Clone for MMC_SORT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MMC_SORT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_SORT_DATA").field("nColIndex", &self.nColIndex).field("dwSortOptions", &self.dwSortOptions).field("ulReserved", &self.ulReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_SORT_DATA {
     type Abi = Self;
 }
@@ -5823,6 +5897,11 @@ impl ::core::marker::Copy for MMC_SORT_SET_DATA {}
 impl ::core::clone::Clone for MMC_SORT_SET_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MMC_SORT_SET_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_SORT_SET_DATA").field("cbSize", &self.cbSize).field("nNumItems", &self.nNumItems).field("pSortData", &self.pSortData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MMC_SORT_SET_DATA {
@@ -5855,6 +5934,12 @@ impl ::core::marker::Copy for MMC_TASK {}
 impl ::core::clone::Clone for MMC_TASK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_TASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_TASK").field("sDisplayObject", &self.sDisplayObject).field("szText", &self.szText).field("szHelpString", &self.szHelpString).field("eActionType", &self.eActionType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5925,6 +6010,12 @@ impl ::core::clone::Clone for MMC_TASK_DISPLAY_BITMAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_BITMAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_TASK_DISPLAY_BITMAP").field("szMouseOverBitmap", &self.szMouseOverBitmap).field("szMouseOffBitmap", &self.szMouseOffBitmap).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_BITMAP {
     type Abi = Self;
 }
@@ -5955,6 +6046,12 @@ impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT {}
 impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_OBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_TASK_DISPLAY_OBJECT").field("eDisplayType", &self.eDisplayType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6025,6 +6122,12 @@ impl ::core::clone::Clone for MMC_TASK_DISPLAY_SYMBOL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_SYMBOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_TASK_DISPLAY_SYMBOL").field("szFontFamilyName", &self.szFontFamilyName).field("szURLtoEOT", &self.szURLtoEOT).field("szSymbolString", &self.szSymbolString).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_SYMBOL {
     type Abi = Self;
 }
@@ -6092,6 +6195,11 @@ impl ::core::marker::Copy for MMC_VISIBLE_COLUMNS {}
 impl ::core::clone::Clone for MMC_VISIBLE_COLUMNS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MMC_VISIBLE_COLUMNS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_VISIBLE_COLUMNS").field("nVisibleColumns", &self.nVisibleColumns).field("rgVisibleCols", &self.rgVisibleCols).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MMC_VISIBLE_COLUMNS {
@@ -6774,6 +6882,12 @@ impl ::core::clone::Clone for RDCOMPARE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RDCOMPARE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RDCOMPARE").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("nColumn", &self.nColumn).field("lUserParam", &self.lUserParam).field("prdch1", &self.prdch1).field("prdch2", &self.prdch2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RDCOMPARE {
     type Abi = Self;
 }
@@ -6805,6 +6919,12 @@ impl ::core::marker::Copy for RDITEMHDR {}
 impl ::core::clone::Clone for RDITEMHDR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RDITEMHDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RDITEMHDR").field("dwFlags", &self.dwFlags).field("cookie", &self.cookie).field("lpReserved", &self.lpReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6861,6 +6981,12 @@ impl ::core::clone::Clone for RESULTDATAITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULTDATAITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULTDATAITEM").field("mask", &self.mask).field("bScopeItem", &self.bScopeItem).field("itemID", &self.itemID).field("nIndex", &self.nIndex).field("nCol", &self.nCol).field("str", &self.str).field("nImage", &self.nImage).field("nState", &self.nState).field("lParam", &self.lParam).field("iIndent", &self.iIndent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESULTDATAITEM {
     type Abi = Self;
 }
@@ -6892,6 +7018,12 @@ impl ::core::marker::Copy for RESULTFINDINFO {}
 impl ::core::clone::Clone for RESULTFINDINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULTFINDINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULTFINDINFO").field("psz", &self.psz).field("nStart", &self.nStart).field("dwOptions", &self.dwOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6930,6 +7062,12 @@ impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO {
             dwMiscOptions: self.dwMiscOptions,
             Anonymous: self.Anonymous.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULT_VIEW_TYPE_INFO").field("pstrPersistableViewDescription", &self.pstrPersistableViewDescription).field("eViewType", &self.eViewType).field("dwMiscOptions", &self.dwMiscOptions).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6998,6 +7136,12 @@ impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULT_VIEW_TYPE_INFO_0_0").field("dwHTMLOptions", &self.dwHTMLOptions).field("pstrURL", &self.pstrURL).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_0 {
     type Abi = Self;
 }
@@ -7026,6 +7170,12 @@ pub struct RESULT_VIEW_TYPE_INFO_0_1 {
 impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_1 {
     fn clone(&self) -> Self {
         Self { dwOCXOptions: self.dwOCXOptions, pUnkControl: self.pUnkControl.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULT_VIEW_TYPE_INFO_0_1").field("dwOCXOptions", &self.dwOCXOptions).field("pUnkControl", &self.pUnkControl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7105,6 +7255,12 @@ impl ::core::clone::Clone for SCOPEDATAITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCOPEDATAITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCOPEDATAITEM").field("mask", &self.mask).field("displayname", &self.displayname).field("nImage", &self.nImage).field("nOpenImage", &self.nOpenImage).field("nState", &self.nState).field("cChildren", &self.cChildren).field("lParam", &self.lParam).field("relativeID", &self.relativeID).field("ID", &self.ID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCOPEDATAITEM {
     type Abi = Self;
 }
@@ -7133,6 +7289,11 @@ impl ::core::marker::Copy for SColumnSetID {}
 impl ::core::clone::Clone for SColumnSetID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SColumnSetID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SColumnSetID").field("dwFlags", &self.dwFlags).field("cBytes", &self.cBytes).field("id", &self.id).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SColumnSetID {
@@ -7183,6 +7344,12 @@ impl ::core::clone::Clone for SMMCDataObjects {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for SMMCDataObjects {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMMCDataObjects").field("count", &self.count).field("lpDataObject", &self.lpDataObject).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for SMMCDataObjects {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -7212,6 +7379,11 @@ impl ::core::clone::Clone for SMMCObjectTypes {
         *self
     }
 }
+impl ::core::fmt::Debug for SMMCObjectTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMMCObjectTypes").field("count", &self.count).field("guid", &self.guid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SMMCObjectTypes {
     type Abi = Self;
 }
@@ -7236,6 +7408,11 @@ impl ::core::marker::Copy for SNodeID {}
 impl ::core::clone::Clone for SNodeID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SNodeID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SNodeID").field("cBytes", &self.cBytes).field("id", &self.id).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SNodeID {
@@ -7263,6 +7440,11 @@ impl ::core::marker::Copy for SNodeID2 {}
 impl ::core::clone::Clone for SNodeID2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SNodeID2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SNodeID2").field("dwFlags", &self.dwFlags).field("cBytes", &self.cBytes).field("id", &self.id).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SNodeID2 {

@@ -195,6 +195,11 @@ impl ::core::clone::Clone for DispatcherQueueOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for DispatcherQueueOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DispatcherQueueOptions").field("dwSize", &self.dwSize).field("threadType", &self.threadType).field("apartmentType", &self.apartmentType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DispatcherQueueOptions {
     type Abi = Self;
 }
@@ -218,6 +223,11 @@ impl ::core::marker::Copy for EventRegistrationToken {}
 impl ::core::clone::Clone for EventRegistrationToken {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EventRegistrationToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EventRegistrationToken").field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EventRegistrationToken {
@@ -262,6 +272,12 @@ impl ::core::marker::Copy for HSTRING_HEADER {}
 impl ::core::clone::Clone for HSTRING_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSTRING_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSTRING_HEADER").field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3322,6 +3338,11 @@ impl ::core::marker::Copy for ServerInformation {}
 impl ::core::clone::Clone for ServerInformation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ServerInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ServerInformation").field("dwServerPid", &self.dwServerPid).field("dwServerTid", &self.dwServerTid).field("ui64ServerAddress", &self.ui64ServerAddress).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ServerInformation {

@@ -14,6 +14,11 @@ impl ::core::clone::Clone for D3DMATRIX {
         *self
     }
 }
+impl ::core::fmt::Debug for D3DMATRIX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3DMATRIX").field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3DMATRIX {
     type Abi = Self;
 }
@@ -80,6 +85,11 @@ impl ::core::clone::Clone for D3DMATRIX_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for D3DMATRIX_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3DMATRIX_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3DMATRIX_0_0 {
     type Abi = Self;
 }
@@ -105,6 +115,11 @@ impl ::core::marker::Copy for D3DVECTOR {}
 impl ::core::clone::Clone for D3DVECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3DVECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3DVECTOR").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3DVECTOR {
@@ -966,6 +981,12 @@ impl ::core::marker::Copy for D3D_SHADER_MACRO {}
 impl ::core::clone::Clone for D3D_SHADER_MACRO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D_SHADER_MACRO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D_SHADER_MACRO").field("Name", &self.Name).field("Definition", &self.Definition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

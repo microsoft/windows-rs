@@ -24,6 +24,11 @@ impl ::core::clone::Clone for BOID {
         *self
     }
 }
+impl ::core::fmt::Debug for BOID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BOID").field("rgb", &self.rgb).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BOID {
     type Abi = Self;
 }
@@ -4865,6 +4870,11 @@ impl ::core::clone::Clone for OLE_TM_CONFIG_PARAMS_V1 {
         *self
     }
 }
+impl ::core::fmt::Debug for OLE_TM_CONFIG_PARAMS_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLE_TM_CONFIG_PARAMS_V1").field("dwVersion", &self.dwVersion).field("dwcConcurrencyHint", &self.dwcConcurrencyHint).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OLE_TM_CONFIG_PARAMS_V1 {
     type Abi = Self;
 }
@@ -4891,6 +4901,11 @@ impl ::core::marker::Copy for OLE_TM_CONFIG_PARAMS_V2 {}
 impl ::core::clone::Clone for OLE_TM_CONFIG_PARAMS_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OLE_TM_CONFIG_PARAMS_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLE_TM_CONFIG_PARAMS_V2").field("dwVersion", &self.dwVersion).field("dwcConcurrencyHint", &self.dwcConcurrencyHint).field("applicationType", &self.applicationType).field("clusterResourceId", &self.clusterResourceId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OLE_TM_CONFIG_PARAMS_V2 {
@@ -4997,6 +5012,11 @@ impl ::core::clone::Clone for XACTOPT {
         *self
     }
 }
+impl ::core::fmt::Debug for XACTOPT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XACTOPT").field("ulTimeout", &self.ulTimeout).field("szDescription", &self.szDescription).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XACTOPT {
     type Abi = Self;
 }
@@ -5087,6 +5107,12 @@ impl ::core::clone::Clone for XACTSTATS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for XACTSTATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XACTSTATS").field("cOpen", &self.cOpen).field("cCommitting", &self.cCommitting).field("cCommitted", &self.cCommitted).field("cAborting", &self.cAborting).field("cAborted", &self.cAborted).field("cInDoubt", &self.cInDoubt).field("cHeuristicDecision", &self.cHeuristicDecision).field("timeTransactionsUp", &self.timeTransactionsUp).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for XACTSTATS {
     type Abi = Self;
 }
@@ -5133,6 +5159,11 @@ impl ::core::marker::Copy for XACTTRANSINFO {}
 impl ::core::clone::Clone for XACTTRANSINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XACTTRANSINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XACTTRANSINFO").field("uow", &self.uow).field("isoLevel", &self.isoLevel).field("isoFlags", &self.isoFlags).field("grfTCSupported", &self.grfTCSupported).field("grfRMSupported", &self.grfRMSupported).field("grfTCSupportedRetaining", &self.grfTCSupportedRetaining).field("grfRMSupportedRetaining", &self.grfRMSupportedRetaining).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XACTTRANSINFO {
@@ -5369,6 +5400,11 @@ impl ::core::clone::Clone for _ProxyConfigParams {
         *self
     }
 }
+impl ::core::fmt::Debug for _ProxyConfigParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_ProxyConfigParams").field("wcThreadsMax", &self.wcThreadsMax).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _ProxyConfigParams {
     type Abi = Self;
 }
@@ -5410,6 +5446,26 @@ impl ::core::clone::Clone for xa_switch_t {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for xa_switch_t {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("xa_switch_t")
+            .field("name", &self.name)
+            .field("flags", &self.flags)
+            .field("version", &self.version)
+            .field("xa_open_entry", &self.xa_open_entry)
+            .field("xa_close_entry", &self.xa_close_entry)
+            .field("xa_start_entry", &self.xa_start_entry)
+            .field("xa_end_entry", &self.xa_end_entry)
+            .field("xa_rollback_entry", &self.xa_rollback_entry)
+            .field("xa_prepare_entry", &self.xa_prepare_entry)
+            .field("xa_commit_entry", &self.xa_commit_entry)
+            .field("xa_recover_entry", &self.xa_recover_entry)
+            .field("xa_forget_entry", &self.xa_forget_entry)
+            .field("xa_complete_entry", &self.xa_complete_entry)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for xa_switch_t {
     type Abi = Self;
 }
@@ -5442,6 +5498,12 @@ impl ::core::marker::Copy for xid_t {}
 impl ::core::clone::Clone for xid_t {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for xid_t {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("xid_t").field("formatID", &self.formatID).field("gtrid_length", &self.gtrid_length).field("bqual_length", &self.bqual_length).field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

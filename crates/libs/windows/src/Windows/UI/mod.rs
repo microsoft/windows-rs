@@ -43,6 +43,11 @@ impl ::core::clone::Clone for Color {
         *self
     }
 }
+impl ::core::fmt::Debug for Color {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Color").field("A", &self.A).field("R", &self.R).field("G", &self.G).field("B", &self.B).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Color {
     type Abi = Self;
 }
@@ -1630,6 +1635,11 @@ impl ::core::marker::Copy for WindowId {}
 impl ::core::clone::Clone for WindowId {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WindowId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WindowId").field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WindowId {

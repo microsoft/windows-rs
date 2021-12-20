@@ -1182,6 +1182,11 @@ impl ::core::clone::Clone for CoreTextRange {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreTextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CoreTextRange").field("StartCaretPosition", &self.StartCaretPosition).field("EndCaretPosition", &self.EndCaretPosition).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreTextRange {
     type Abi = Self;
 }

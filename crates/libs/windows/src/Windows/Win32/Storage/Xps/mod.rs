@@ -100,6 +100,12 @@ impl ::core::clone::Clone for DOCINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOCINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOCINFOA").field("cbSize", &self.cbSize).field("lpszDocName", &self.lpszDocName).field("lpszOutput", &self.lpszOutput).field("lpszDatatype", &self.lpszDatatype).field("fwType", &self.fwType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DOCINFOA {
     type Abi = Self;
 }
@@ -136,6 +142,12 @@ impl ::core::clone::Clone for DOCINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOCINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOCINFOW").field("cbSize", &self.cbSize).field("lpszDocName", &self.lpszDocName).field("lpszOutput", &self.lpszOutput).field("lpszDatatype", &self.lpszDatatype).field("fwType", &self.fwType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DOCINFOW {
     type Abi = Self;
 }
@@ -168,6 +180,12 @@ impl ::core::marker::Copy for DRAWPATRECT {}
 impl ::core::clone::Clone for DRAWPATRECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRAWPATRECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRAWPATRECT").field("ptPosition", &self.ptPosition).field("ptSize", &self.ptSize).field("wStyle", &self.wStyle).field("wPattern", &self.wPattern).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9956,6 +9974,11 @@ impl ::core::clone::Clone for PSFEATURE_CUSTPAPER {
         *self
     }
 }
+impl ::core::fmt::Debug for PSFEATURE_CUSTPAPER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSFEATURE_CUSTPAPER").field("lOrientation", &self.lOrientation).field("lWidth", &self.lWidth).field("lHeight", &self.lHeight).field("lWidthOffset", &self.lWidthOffset).field("lHeightOffset", &self.lHeightOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSFEATURE_CUSTPAPER {
     type Abi = Self;
 }
@@ -9983,6 +10006,12 @@ impl ::core::marker::Copy for PSFEATURE_OUTPUT {}
 impl ::core::clone::Clone for PSFEATURE_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSFEATURE_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSFEATURE_OUTPUT").field("bPageIndependent", &self.bPageIndependent).field("bSetPageDevice", &self.bSetPageDevice).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10014,6 +10043,11 @@ impl ::core::marker::Copy for PSINJECTDATA {}
 impl ::core::clone::Clone for PSINJECTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PSINJECTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSINJECTDATA").field("DataBytes", &self.DataBytes).field("InjectionPoint", &self.InjectionPoint).field("PageNumber", &self.PageNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSINJECTDATA {
@@ -10181,6 +10215,11 @@ impl ::core::clone::Clone for XPS_COLOR {
         *self
     }
 }
+impl ::core::fmt::Debug for XPS_COLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_COLOR").field("colorType", &self.colorType).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_COLOR {
     type Abi = Self;
 }
@@ -10234,6 +10273,11 @@ impl ::core::clone::Clone for XPS_COLOR_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for XPS_COLOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_COLOR_0_0").field("channelCount", &self.channelCount).field("channels", &self.channels).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_COLOR_0_0 {
     type Abi = Self;
 }
@@ -10262,6 +10306,11 @@ impl ::core::clone::Clone for XPS_COLOR_0_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for XPS_COLOR_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_COLOR_0_1").field("alpha", &self.alpha).field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_COLOR_0_1 {
     type Abi = Self;
 }
@@ -10288,6 +10337,11 @@ impl ::core::marker::Copy for XPS_COLOR_0_2 {}
 impl ::core::clone::Clone for XPS_COLOR_0_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XPS_COLOR_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_COLOR_0_2").field("alpha", &self.alpha).field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XPS_COLOR_0_2 {
@@ -10328,6 +10382,11 @@ impl ::core::marker::Copy for XPS_DASH {}
 impl ::core::clone::Clone for XPS_DASH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XPS_DASH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_DASH").field("length", &self.length).field("gap", &self.gap).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XPS_DASH {
@@ -10562,6 +10621,11 @@ impl ::core::clone::Clone for XPS_GLYPH_INDEX {
         *self
     }
 }
+impl ::core::fmt::Debug for XPS_GLYPH_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_GLYPH_INDEX").field("index", &self.index).field("advanceWidth", &self.advanceWidth).field("horizontalOffset", &self.horizontalOffset).field("verticalOffset", &self.verticalOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_GLYPH_INDEX {
     type Abi = Self;
 }
@@ -10588,6 +10652,11 @@ impl ::core::marker::Copy for XPS_GLYPH_MAPPING {}
 impl ::core::clone::Clone for XPS_GLYPH_MAPPING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XPS_GLYPH_MAPPING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_GLYPH_MAPPING").field("unicodeStringStart", &self.unicodeStringStart).field("unicodeStringLength", &self.unicodeStringLength).field("glyphIndicesStart", &self.glyphIndicesStart).field("glyphIndicesLength", &self.glyphIndicesLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XPS_GLYPH_MAPPING {
@@ -10656,6 +10725,11 @@ impl ::core::clone::Clone for XPS_MATRIX {
         *self
     }
 }
+impl ::core::fmt::Debug for XPS_MATRIX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_MATRIX").field("m11", &self.m11).field("m12", &self.m12).field("m21", &self.m21).field("m22", &self.m22).field("m31", &self.m31).field("m32", &self.m32).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_MATRIX {
     type Abi = Self;
 }
@@ -10704,6 +10778,11 @@ impl ::core::clone::Clone for XPS_POINT {
         *self
     }
 }
+impl ::core::fmt::Debug for XPS_POINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_POINT").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_POINT {
     type Abi = Self;
 }
@@ -10730,6 +10809,11 @@ impl ::core::marker::Copy for XPS_RECT {}
 impl ::core::clone::Clone for XPS_RECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XPS_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_RECT").field("x", &self.x).field("y", &self.y).field("width", &self.width).field("height", &self.height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XPS_RECT {
@@ -10812,6 +10896,11 @@ impl ::core::marker::Copy for XPS_SIZE {}
 impl ::core::clone::Clone for XPS_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XPS_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_SIZE").field("width", &self.width).field("height", &self.height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XPS_SIZE {

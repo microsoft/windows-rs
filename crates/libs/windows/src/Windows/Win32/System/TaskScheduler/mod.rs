@@ -12,6 +12,11 @@ impl ::core::clone::Clone for DAILY {
         *self
     }
 }
+impl ::core::fmt::Debug for DAILY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DAILY").field("DaysInterval", &self.DaysInterval).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DAILY {
     type Abi = Self;
 }
@@ -8695,6 +8700,11 @@ impl ::core::clone::Clone for MONTHLYDATE {
         *self
     }
 }
+impl ::core::fmt::Debug for MONTHLYDATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONTHLYDATE").field("rgfDays", &self.rgfDays).field("rgfMonths", &self.rgfMonths).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MONTHLYDATE {
     type Abi = Self;
 }
@@ -8720,6 +8730,11 @@ impl ::core::marker::Copy for MONTHLYDOW {}
 impl ::core::clone::Clone for MONTHLYDOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MONTHLYDOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONTHLYDOW").field("wWhichWeek", &self.wWhichWeek).field("rgfDaysOfTheWeek", &self.rgfDaysOfTheWeek).field("rgfMonths", &self.rgfMonths).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MONTHLYDOW {
@@ -8967,6 +8982,29 @@ impl ::core::clone::Clone for TASK_TRIGGER {
         *self
     }
 }
+impl ::core::fmt::Debug for TASK_TRIGGER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TASK_TRIGGER")
+            .field("cbTriggerSize", &self.cbTriggerSize)
+            .field("Reserved1", &self.Reserved1)
+            .field("wBeginYear", &self.wBeginYear)
+            .field("wBeginMonth", &self.wBeginMonth)
+            .field("wBeginDay", &self.wBeginDay)
+            .field("wEndYear", &self.wEndYear)
+            .field("wEndMonth", &self.wEndMonth)
+            .field("wEndDay", &self.wEndDay)
+            .field("wStartHour", &self.wStartHour)
+            .field("wStartMinute", &self.wStartMinute)
+            .field("MinutesDuration", &self.MinutesDuration)
+            .field("MinutesInterval", &self.MinutesInterval)
+            .field("rgFlags", &self.rgFlags)
+            .field("TriggerType", &self.TriggerType)
+            .field("Type", &self.Type)
+            .field("Reserved2", &self.Reserved2)
+            .field("wRandomMinutesInterval", &self.wRandomMinutesInterval)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TASK_TRIGGER {
     type Abi = Self;
 }
@@ -9076,6 +9114,11 @@ impl ::core::marker::Copy for WEEKLY {}
 impl ::core::clone::Clone for WEEKLY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WEEKLY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEEKLY").field("WeeksInterval", &self.WeeksInterval).field("rgfDaysOfTheWeek", &self.rgfDaysOfTheWeek).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WEEKLY {

@@ -14820,6 +14820,11 @@ impl ::core::clone::Clone for SizeUInt32 {
         *self
     }
 }
+impl ::core::fmt::Debug for SizeUInt32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SizeUInt32").field("Width", &self.Width).field("Height", &self.Height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SizeUInt32 {
     type Abi = Self;
 }

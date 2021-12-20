@@ -28,6 +28,11 @@ impl ::core::clone::Clone for D3D11_RESOURCE_FLAGS {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D11_RESOURCE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D11_RESOURCE_FLAGS").field("BindFlags", &self.BindFlags).field("MiscFlags", &self.MiscFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("StructureByteStride", &self.StructureByteStride).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_RESOURCE_FLAGS {
     type Abi = Self;
 }

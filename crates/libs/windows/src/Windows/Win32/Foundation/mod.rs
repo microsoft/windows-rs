@@ -76,6 +76,11 @@ impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
         *self
     }
 }
+impl ::core::fmt::Debug for APP_LOCAL_DEVICE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APP_LOCAL_DEVICE_ID").field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for APP_LOCAL_DEVICE_ID {
     type Abi = Self;
 }
@@ -1507,6 +1512,11 @@ impl ::core::clone::Clone for DECIMAL {
         *self
     }
 }
+impl ::core::fmt::Debug for DECIMAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DECIMAL").field("wReserved", &self.wReserved).field("Anonymous1", &self.Anonymous1).field("Hi32", &self.Hi32).field("Anonymous2", &self.Anonymous2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DECIMAL {
     type Abi = Self;
 }
@@ -1559,6 +1569,11 @@ impl ::core::clone::Clone for DECIMAL_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DECIMAL_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DECIMAL_0_0").field("scale", &self.scale).field("sign", &self.sign).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DECIMAL_0_0 {
     type Abi = Self;
 }
@@ -1609,6 +1624,11 @@ impl ::core::marker::Copy for DECIMAL_1_0 {}
 impl ::core::clone::Clone for DECIMAL_1_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DECIMAL_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DECIMAL_1_0").field("Lo32", &self.Lo32).field("Mid32", &self.Mid32).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DECIMAL_1_0 {
@@ -3035,6 +3055,11 @@ impl ::core::clone::Clone for FILETIME {
         *self
     }
 }
+impl ::core::fmt::Debug for FILETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILETIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILETIME {
     type Abi = Self;
 }
@@ -3089,6 +3114,11 @@ impl ::core::marker::Copy for FLOAT128 {}
 impl ::core::clone::Clone for FLOAT128 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FLOAT128 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLOAT128").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FLOAT128 {
@@ -3968,6 +3998,11 @@ impl ::core::clone::Clone for HLSURF__ {
         *self
     }
 }
+impl ::core::fmt::Debug for HLSURF__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HLSURF__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HLSURF__ {
     type Abi = Self;
 }
@@ -3992,6 +4027,11 @@ impl ::core::marker::Copy for HSPRITE__ {}
 impl ::core::clone::Clone for HSPRITE__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HSPRITE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSPRITE__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HSPRITE__ {
@@ -4073,6 +4113,11 @@ impl ::core::marker::Copy for HSTR__ {}
 impl ::core::clone::Clone for HSTR__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HSTR__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSTR__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HSTR__ {
@@ -4170,6 +4215,11 @@ impl ::core::clone::Clone for HUMPD__ {
         *self
     }
 }
+impl ::core::fmt::Debug for HUMPD__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HUMPD__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HUMPD__ {
     type Abi = Self;
 }
@@ -4251,6 +4301,11 @@ impl ::core::marker::Copy for LUID {}
 impl ::core::clone::Clone for LUID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LUID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LUID {
@@ -5309,6 +5364,11 @@ impl ::core::clone::Clone for POINT {
         *self
     }
 }
+impl ::core::fmt::Debug for POINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINT").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for POINT {
     type Abi = Self;
 }
@@ -5335,6 +5395,11 @@ impl ::core::clone::Clone for POINTL {
         *self
     }
 }
+impl ::core::fmt::Debug for POINTL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTL").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for POINTL {
     type Abi = Self;
 }
@@ -5359,6 +5424,11 @@ impl ::core::marker::Copy for POINTS {}
 impl ::core::clone::Clone for POINTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for POINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTS").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for POINTS {
@@ -5619,6 +5689,11 @@ impl ::core::clone::Clone for RECT {
         *self
     }
 }
+impl ::core::fmt::Debug for RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RECT {
     type Abi = Self;
 }
@@ -5645,6 +5720,11 @@ impl ::core::marker::Copy for RECTL {}
 impl ::core::clone::Clone for RECTL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RECTL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECTL").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RECTL {
@@ -6546,6 +6626,11 @@ impl ::core::marker::Copy for SIZE {}
 impl ::core::clone::Clone for SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIZE").field("cx", &self.cx).field("cy", &self.cy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SIZE {
@@ -12424,6 +12509,11 @@ impl ::core::clone::Clone for SYSTEMTIME {
         *self
     }
 }
+impl ::core::fmt::Debug for SYSTEMTIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SYSTEMTIME {
     type Abi = Self;
 }
@@ -13535,6 +13625,11 @@ impl ::core::marker::Copy for UNICODE_STRING {}
 impl ::core::clone::Clone for UNICODE_STRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UNICODE_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UNICODE_STRING {

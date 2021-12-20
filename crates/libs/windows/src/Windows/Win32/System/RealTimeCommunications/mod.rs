@@ -9198,6 +9198,12 @@ impl ::core::clone::Clone for TRANSPORT_SETTING {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for TRANSPORT_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSPORT_SETTING").field("SettingId", &self.SettingId).field("Length", &self.Length).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for TRANSPORT_SETTING {
     type Abi = Self;
 }

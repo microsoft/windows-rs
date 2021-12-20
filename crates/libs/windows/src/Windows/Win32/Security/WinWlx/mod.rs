@@ -106,6 +106,12 @@ impl ::core::clone::Clone for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_CLIENT_CREDENTIALS_INFO_V1_0").field("dwType", &self.dwType).field("pszUserName", &self.pszUserName).field("pszDomain", &self.pszDomain).field("pszPassword", &self.pszPassword).field("fPromptForPassword", &self.fPromptForPassword).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     type Abi = Self;
 }
@@ -140,6 +146,12 @@ impl ::core::marker::Copy for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
 impl ::core::clone::Clone for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_CLIENT_CREDENTIALS_INFO_V2_0").field("dwType", &self.dwType).field("pszUserName", &self.pszUserName).field("pszDomain", &self.pszDomain).field("pszPassword", &self.pszPassword).field("fPromptForPassword", &self.fPromptForPassword).field("fDisconnectOnLogonFailure", &self.fDisconnectOnLogonFailure).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -203,6 +215,40 @@ impl ::core::clone::Clone for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0")
+            .field("dwType", &self.dwType)
+            .field("UserToken", &self.UserToken)
+            .field("LogonId", &self.LogonId)
+            .field("Quotas", &self.Quotas)
+            .field("UserName", &self.UserName)
+            .field("Domain", &self.Domain)
+            .field("LogonTime", &self.LogonTime)
+            .field("SmartCardLogon", &self.SmartCardLogon)
+            .field("ProfileLength", &self.ProfileLength)
+            .field("MessageType", &self.MessageType)
+            .field("LogonCount", &self.LogonCount)
+            .field("BadPasswordCount", &self.BadPasswordCount)
+            .field("ProfileLogonTime", &self.ProfileLogonTime)
+            .field("LogoffTime", &self.LogoffTime)
+            .field("KickOffTime", &self.KickOffTime)
+            .field("PasswordLastSet", &self.PasswordLastSet)
+            .field("PasswordCanChange", &self.PasswordCanChange)
+            .field("PasswordMustChange", &self.PasswordMustChange)
+            .field("LogonScript", &self.LogonScript)
+            .field("HomeDirectory", &self.HomeDirectory)
+            .field("FullName", &self.FullName)
+            .field("ProfilePath", &self.ProfilePath)
+            .field("HomeDirectoryDrive", &self.HomeDirectoryDrive)
+            .field("LogonServer", &self.LogonServer)
+            .field("UserFlags", &self.UserFlags)
+            .field("PrivateDataLen", &self.PrivateDataLen)
+            .field("PrivateData", &self.PrivateData)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     type Abi = Self;
 }
@@ -245,6 +291,12 @@ impl ::core::marker::Copy for WLX_DESKTOP {}
 impl ::core::clone::Clone for WLX_DESKTOP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+impl ::core::fmt::Debug for WLX_DESKTOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_DESKTOP").field("Size", &self.Size).field("Flags", &self.Flags).field("hDesktop", &self.hDesktop).field("pszDesktopName", &self.pszDesktopName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
@@ -298,6 +350,26 @@ impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_DISPATCH_VERSION_1_0")
+            .field("WlxUseCtrlAltDel", &self.WlxUseCtrlAltDel)
+            .field("WlxSetContextPointer", &self.WlxSetContextPointer)
+            .field("WlxSasNotify", &self.WlxSasNotify)
+            .field("WlxSetTimeout", &self.WlxSetTimeout)
+            .field("WlxAssignShellProtection", &self.WlxAssignShellProtection)
+            .field("WlxMessageBox", &self.WlxMessageBox)
+            .field("WlxDialogBox", &self.WlxDialogBox)
+            .field("WlxDialogBoxParam", &self.WlxDialogBoxParam)
+            .field("WlxDialogBoxIndirect", &self.WlxDialogBoxIndirect)
+            .field("WlxDialogBoxIndirectParam", &self.WlxDialogBoxIndirectParam)
+            .field("WlxSwitchDesktopToUser", &self.WlxSwitchDesktopToUser)
+            .field("WlxSwitchDesktopToWinlogon", &self.WlxSwitchDesktopToWinlogon)
+            .field("WlxChangePasswordNotify", &self.WlxChangePasswordNotify)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_0 {
     type Abi = Self;
 }
@@ -343,6 +415,30 @@ impl ::core::marker::Copy for WLX_DISPATCH_VERSION_1_1 {}
 impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_DISPATCH_VERSION_1_1")
+            .field("WlxUseCtrlAltDel", &self.WlxUseCtrlAltDel)
+            .field("WlxSetContextPointer", &self.WlxSetContextPointer)
+            .field("WlxSasNotify", &self.WlxSasNotify)
+            .field("WlxSetTimeout", &self.WlxSetTimeout)
+            .field("WlxAssignShellProtection", &self.WlxAssignShellProtection)
+            .field("WlxMessageBox", &self.WlxMessageBox)
+            .field("WlxDialogBox", &self.WlxDialogBox)
+            .field("WlxDialogBoxParam", &self.WlxDialogBoxParam)
+            .field("WlxDialogBoxIndirect", &self.WlxDialogBoxIndirect)
+            .field("WlxDialogBoxIndirectParam", &self.WlxDialogBoxIndirectParam)
+            .field("WlxSwitchDesktopToUser", &self.WlxSwitchDesktopToUser)
+            .field("WlxSwitchDesktopToWinlogon", &self.WlxSwitchDesktopToWinlogon)
+            .field("WlxChangePasswordNotify", &self.WlxChangePasswordNotify)
+            .field("WlxGetSourceDesktop", &self.WlxGetSourceDesktop)
+            .field("WlxSetReturnDesktop", &self.WlxSetReturnDesktop)
+            .field("WlxCreateUserDesktop", &self.WlxCreateUserDesktop)
+            .field("WlxChangePasswordNotifyEx", &self.WlxChangePasswordNotifyEx)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -392,6 +488,31 @@ impl ::core::marker::Copy for WLX_DISPATCH_VERSION_1_2 {}
 impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_DISPATCH_VERSION_1_2")
+            .field("WlxUseCtrlAltDel", &self.WlxUseCtrlAltDel)
+            .field("WlxSetContextPointer", &self.WlxSetContextPointer)
+            .field("WlxSasNotify", &self.WlxSasNotify)
+            .field("WlxSetTimeout", &self.WlxSetTimeout)
+            .field("WlxAssignShellProtection", &self.WlxAssignShellProtection)
+            .field("WlxMessageBox", &self.WlxMessageBox)
+            .field("WlxDialogBox", &self.WlxDialogBox)
+            .field("WlxDialogBoxParam", &self.WlxDialogBoxParam)
+            .field("WlxDialogBoxIndirect", &self.WlxDialogBoxIndirect)
+            .field("WlxDialogBoxIndirectParam", &self.WlxDialogBoxIndirectParam)
+            .field("WlxSwitchDesktopToUser", &self.WlxSwitchDesktopToUser)
+            .field("WlxSwitchDesktopToWinlogon", &self.WlxSwitchDesktopToWinlogon)
+            .field("WlxChangePasswordNotify", &self.WlxChangePasswordNotify)
+            .field("WlxGetSourceDesktop", &self.WlxGetSourceDesktop)
+            .field("WlxSetReturnDesktop", &self.WlxSetReturnDesktop)
+            .field("WlxCreateUserDesktop", &self.WlxCreateUserDesktop)
+            .field("WlxChangePasswordNotifyEx", &self.WlxChangePasswordNotifyEx)
+            .field("WlxCloseUserDesktop", &self.WlxCloseUserDesktop)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -448,6 +569,38 @@ impl ::core::marker::Copy for WLX_DISPATCH_VERSION_1_3 {}
 impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_DISPATCH_VERSION_1_3")
+            .field("WlxUseCtrlAltDel", &self.WlxUseCtrlAltDel)
+            .field("WlxSetContextPointer", &self.WlxSetContextPointer)
+            .field("WlxSasNotify", &self.WlxSasNotify)
+            .field("WlxSetTimeout", &self.WlxSetTimeout)
+            .field("WlxAssignShellProtection", &self.WlxAssignShellProtection)
+            .field("WlxMessageBox", &self.WlxMessageBox)
+            .field("WlxDialogBox", &self.WlxDialogBox)
+            .field("WlxDialogBoxParam", &self.WlxDialogBoxParam)
+            .field("WlxDialogBoxIndirect", &self.WlxDialogBoxIndirect)
+            .field("WlxDialogBoxIndirectParam", &self.WlxDialogBoxIndirectParam)
+            .field("WlxSwitchDesktopToUser", &self.WlxSwitchDesktopToUser)
+            .field("WlxSwitchDesktopToWinlogon", &self.WlxSwitchDesktopToWinlogon)
+            .field("WlxChangePasswordNotify", &self.WlxChangePasswordNotify)
+            .field("WlxGetSourceDesktop", &self.WlxGetSourceDesktop)
+            .field("WlxSetReturnDesktop", &self.WlxSetReturnDesktop)
+            .field("WlxCreateUserDesktop", &self.WlxCreateUserDesktop)
+            .field("WlxChangePasswordNotifyEx", &self.WlxChangePasswordNotifyEx)
+            .field("WlxCloseUserDesktop", &self.WlxCloseUserDesktop)
+            .field("WlxSetOption", &self.WlxSetOption)
+            .field("WlxGetOption", &self.WlxGetOption)
+            .field("WlxWin31Migrate", &self.WlxWin31Migrate)
+            .field("WlxQueryClientCredentials", &self.WlxQueryClientCredentials)
+            .field("WlxQueryInetConnectorCredentials", &self.WlxQueryInetConnectorCredentials)
+            .field("WlxDisconnect", &self.WlxDisconnect)
+            .field("WlxQueryTerminalServicesData", &self.WlxQueryTerminalServicesData)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -509,6 +662,40 @@ impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_DISPATCH_VERSION_1_4")
+            .field("WlxUseCtrlAltDel", &self.WlxUseCtrlAltDel)
+            .field("WlxSetContextPointer", &self.WlxSetContextPointer)
+            .field("WlxSasNotify", &self.WlxSasNotify)
+            .field("WlxSetTimeout", &self.WlxSetTimeout)
+            .field("WlxAssignShellProtection", &self.WlxAssignShellProtection)
+            .field("WlxMessageBox", &self.WlxMessageBox)
+            .field("WlxDialogBox", &self.WlxDialogBox)
+            .field("WlxDialogBoxParam", &self.WlxDialogBoxParam)
+            .field("WlxDialogBoxIndirect", &self.WlxDialogBoxIndirect)
+            .field("WlxDialogBoxIndirectParam", &self.WlxDialogBoxIndirectParam)
+            .field("WlxSwitchDesktopToUser", &self.WlxSwitchDesktopToUser)
+            .field("WlxSwitchDesktopToWinlogon", &self.WlxSwitchDesktopToWinlogon)
+            .field("WlxChangePasswordNotify", &self.WlxChangePasswordNotify)
+            .field("WlxGetSourceDesktop", &self.WlxGetSourceDesktop)
+            .field("WlxSetReturnDesktop", &self.WlxSetReturnDesktop)
+            .field("WlxCreateUserDesktop", &self.WlxCreateUserDesktop)
+            .field("WlxChangePasswordNotifyEx", &self.WlxChangePasswordNotifyEx)
+            .field("WlxCloseUserDesktop", &self.WlxCloseUserDesktop)
+            .field("WlxSetOption", &self.WlxSetOption)
+            .field("WlxGetOption", &self.WlxGetOption)
+            .field("WlxWin31Migrate", &self.WlxWin31Migrate)
+            .field("WlxQueryClientCredentials", &self.WlxQueryClientCredentials)
+            .field("WlxQueryInetConnectorCredentials", &self.WlxQueryInetConnectorCredentials)
+            .field("WlxDisconnect", &self.WlxDisconnect)
+            .field("WlxQueryTerminalServicesData", &self.WlxQueryTerminalServicesData)
+            .field("WlxQueryConsoleSwitchCredentials", &self.WlxQueryConsoleSwitchCredentials)
+            .field("WlxQueryTsLogonCredentials", &self.WlxQueryTsLogonCredentials)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for WLX_DISPATCH_VERSION_1_4 {
     type Abi = Self;
 }
@@ -554,6 +741,12 @@ impl ::core::clone::Clone for WLX_MPR_NOTIFY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WLX_MPR_NOTIFY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_MPR_NOTIFY_INFO").field("pszUserName", &self.pszUserName).field("pszDomain", &self.pszDomain).field("pszPassword", &self.pszPassword).field("pszOldPassword", &self.pszOldPassword).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_MPR_NOTIFY_INFO {
     type Abi = Self;
 }
@@ -590,6 +783,12 @@ impl ::core::marker::Copy for WLX_NOTIFICATION_INFO {}
 impl ::core::clone::Clone for WLX_NOTIFICATION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+impl ::core::fmt::Debug for WLX_NOTIFICATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_NOTIFICATION_INFO").field("Size", &self.Size).field("Flags", &self.Flags).field("UserName", &self.UserName).field("Domain", &self.Domain).field("WindowStation", &self.WindowStation).field("hToken", &self.hToken).field("hDesktop", &self.hDesktop).field("pStatusCallback", &self.pStatusCallback).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
@@ -648,6 +847,12 @@ impl ::core::clone::Clone for WLX_PROFILE_V1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WLX_PROFILE_V1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_PROFILE_V1_0").field("dwType", &self.dwType).field("pszProfile", &self.pszProfile).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_PROFILE_V1_0 {
     type Abi = Self;
 }
@@ -682,6 +887,12 @@ impl ::core::marker::Copy for WLX_PROFILE_V2_0 {}
 impl ::core::clone::Clone for WLX_PROFILE_V2_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WLX_PROFILE_V2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_PROFILE_V2_0").field("dwType", &self.dwType).field("pszProfile", &self.pszProfile).field("pszPolicy", &self.pszPolicy).field("pszNetworkDefaultUserProfile", &self.pszNetworkDefaultUserProfile).field("pszServerName", &self.pszServerName).field("pszEnvironment", &self.pszEnvironment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -772,6 +983,12 @@ impl ::core::clone::Clone for WLX_SC_NOTIFICATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WLX_SC_NOTIFICATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_SC_NOTIFICATION_INFO").field("pszCard", &self.pszCard).field("pszReader", &self.pszReader).field("pszContainer", &self.pszContainer).field("pszCryptoProvider", &self.pszCryptoProvider).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_SC_NOTIFICATION_INFO {
     type Abi = Self;
 }
@@ -808,6 +1025,11 @@ impl ::core::marker::Copy for WLX_TERMINAL_SERVICES_DATA {}
 impl ::core::clone::Clone for WLX_TERMINAL_SERVICES_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WLX_TERMINAL_SERVICES_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WLX_TERMINAL_SERVICES_DATA").field("ProfilePath", &self.ProfilePath).field("HomeDir", &self.HomeDir).field("HomeDirDrive", &self.HomeDirDrive).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WLX_TERMINAL_SERVICES_DATA {

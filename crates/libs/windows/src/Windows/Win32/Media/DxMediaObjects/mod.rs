@@ -129,6 +129,12 @@ impl ::core::clone::Clone for DMO_MEDIA_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DMO_MEDIA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DMO_MEDIA_TYPE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -159,6 +165,11 @@ impl ::core::clone::Clone for DMO_OUTPUT_DATA_BUFFER {
         Self { pBuffer: self.pBuffer.clone(), dwStatus: self.dwStatus, rtTimestamp: self.rtTimestamp, rtTimelength: self.rtTimelength }
     }
 }
+impl ::core::fmt::Debug for DMO_OUTPUT_DATA_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_OUTPUT_DATA_BUFFER").field("pBuffer", &self.pBuffer).field("dwStatus", &self.dwStatus).field("rtTimestamp", &self.rtTimestamp).field("rtTimelength", &self.rtTimelength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMO_OUTPUT_DATA_BUFFER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -183,6 +194,11 @@ impl ::core::marker::Copy for DMO_PARTIAL_MEDIATYPE {}
 impl ::core::clone::Clone for DMO_PARTIAL_MEDIATYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMO_PARTIAL_MEDIATYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_PARTIAL_MEDIATYPE").field("type", &self.r#type).field("subtype", &self.subtype).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMO_PARTIAL_MEDIATYPE {

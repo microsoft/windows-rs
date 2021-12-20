@@ -11,6 +11,11 @@ impl ::core::clone::Clone for DDP_FILE_EXTENT {
         *self
     }
 }
+impl ::core::fmt::Debug for DDP_FILE_EXTENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDP_FILE_EXTENT").field("Length", &self.Length).field("Offset", &self.Offset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DDP_FILE_EXTENT {
     type Abi = Self;
 }
@@ -47,6 +52,11 @@ impl ::core::clone::Clone for DEDUP_CHUNK_INFO_HASH32 {
         *self
     }
 }
+impl ::core::fmt::Debug for DEDUP_CHUNK_INFO_HASH32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEDUP_CHUNK_INFO_HASH32").field("ChunkFlags", &self.ChunkFlags).field("ChunkOffsetInStream", &self.ChunkOffsetInStream).field("ChunkSize", &self.ChunkSize).field("HashVal", &self.HashVal).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEDUP_CHUNK_INFO_HASH32 {
     type Abi = Self;
 }
@@ -72,6 +82,11 @@ impl ::core::marker::Copy for DEDUP_CONTAINER_EXTENT {}
 impl ::core::clone::Clone for DEDUP_CONTAINER_EXTENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEDUP_CONTAINER_EXTENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEDUP_CONTAINER_EXTENT").field("ContainerIndex", &self.ContainerIndex).field("StartOffset", &self.StartOffset).field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEDUP_CONTAINER_EXTENT {
@@ -113,6 +128,11 @@ impl ::core::marker::Copy for DedupChunk {}
 impl ::core::clone::Clone for DedupChunk {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DedupChunk {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DedupChunk").field("Hash", &self.Hash).field("Flags", &self.Flags).field("LogicalSize", &self.LogicalSize).field("DataSize", &self.DataSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DedupChunk {
@@ -197,6 +217,11 @@ impl ::core::clone::Clone for DedupHash {
         *self
     }
 }
+impl ::core::fmt::Debug for DedupHash {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DedupHash").field("Hash", &self.Hash).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DedupHash {
     type Abi = Self;
 }
@@ -233,6 +258,12 @@ impl ::core::clone::Clone for DedupStream {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DedupStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DedupStream").field("Path", &self.Path).field("Offset", &self.Offset).field("Length", &self.Length).field("ChunkCount", &self.ChunkCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DedupStream {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -261,6 +292,11 @@ impl ::core::marker::Copy for DedupStreamEntry {}
 impl ::core::clone::Clone for DedupStreamEntry {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DedupStreamEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DedupStreamEntry").field("Hash", &self.Hash).field("LogicalSize", &self.LogicalSize).field("Offset", &self.Offset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DedupStreamEntry {

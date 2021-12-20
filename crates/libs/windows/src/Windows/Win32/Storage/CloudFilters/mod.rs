@@ -99,6 +99,32 @@ impl ::core::clone::Clone for CF_CALLBACK_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
+impl ::core::fmt::Debug for CF_CALLBACK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_INFO")
+            .field("StructSize", &self.StructSize)
+            .field("ConnectionKey", &self.ConnectionKey)
+            .field("CallbackContext", &self.CallbackContext)
+            .field("VolumeGuidName", &self.VolumeGuidName)
+            .field("VolumeDosName", &self.VolumeDosName)
+            .field("VolumeSerialNumber", &self.VolumeSerialNumber)
+            .field("SyncRootFileId", &self.SyncRootFileId)
+            .field("SyncRootIdentity", &self.SyncRootIdentity)
+            .field("SyncRootIdentityLength", &self.SyncRootIdentityLength)
+            .field("FileId", &self.FileId)
+            .field("FileSize", &self.FileSize)
+            .field("FileIdentity", &self.FileIdentity)
+            .field("FileIdentityLength", &self.FileIdentityLength)
+            .field("NormalizedPath", &self.NormalizedPath)
+            .field("TransferKey", &self.TransferKey)
+            .field("PriorityHint", &self.PriorityHint)
+            .field("CorrelationVector", &self.CorrelationVector)
+            .field("ProcessInfo", &self.ProcessInfo)
+            .field("RequestKey", &self.RequestKey)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_INFO {
     type Abi = Self;
 }
@@ -137,6 +163,12 @@ impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS {}
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS").field("ParamSize", &self.ParamSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -216,6 +248,12 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_0").field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0 {
     type Abi = Self;
 }
@@ -281,6 +319,12 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_0_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_0_0_0").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     type Abi = Self;
 }
@@ -310,6 +354,12 @@ impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_1 {}
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_1").field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -346,6 +396,12 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_2").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_2 {
     type Abi = Self;
 }
@@ -376,6 +432,12 @@ impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_3 {}
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_3").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -411,6 +473,12 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_4").field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_4 {
     type Abi = Self;
 }
@@ -440,6 +508,12 @@ impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_5 {}
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_5").field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -481,6 +555,12 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_6").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).field("OptionalFileOffset", &self.OptionalFileOffset).field("OptionalLength", &self.OptionalLength).field("LastDehydrationTime", &self.LastDehydrationTime).field("LastDehydrationReason", &self.LastDehydrationReason).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_6 {
     type Abi = Self;
 }
@@ -514,6 +594,12 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_7 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_7").field("Flags", &self.Flags).field("Pattern", &self.Pattern).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_7 {
     type Abi = Self;
 }
@@ -543,6 +629,12 @@ impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_8 {}
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_8 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_8").field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -579,6 +671,12 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_9 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_9").field("Flags", &self.Flags).field("SourcePath", &self.SourcePath).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_9 {
     type Abi = Self;
 }
@@ -609,6 +707,12 @@ impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_10 {}
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_10 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_10").field("Flags", &self.Flags).field("TargetPath", &self.TargetPath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -646,6 +750,12 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_11 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_11 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_PARAMETERS_0_11").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_11 {
     type Abi = Self;
 }
@@ -676,6 +786,12 @@ impl ::core::marker::Copy for CF_CALLBACK_REGISTRATION {}
 impl ::core::clone::Clone for CF_CALLBACK_REGISTRATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
+impl ::core::fmt::Debug for CF_CALLBACK_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_CALLBACK_REGISTRATION").field("Type", &self.Type).field("Callback", &self.Callback).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
@@ -795,6 +911,11 @@ impl ::core::clone::Clone for CF_FILE_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_FILE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_FILE_RANGE").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_FILE_RANGE {
     type Abi = Self;
 }
@@ -822,6 +943,12 @@ impl ::core::marker::Copy for CF_FS_METADATA {}
 impl ::core::clone::Clone for CF_FS_METADATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl ::core::fmt::Debug for CF_FS_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_FS_METADATA").field("BasicInfo", &self.BasicInfo).field("FileSize", &self.FileSize).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -864,6 +991,11 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_HYDRATION_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_HYDRATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY {
     type Abi = Self;
 }
@@ -901,6 +1033,11 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY_MODIFIER_USHORT {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER_USHORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_HYDRATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
 }
@@ -934,6 +1071,11 @@ impl ::core::marker::Copy for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
 impl ::core::clone::Clone for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY_USHORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_HYDRATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
@@ -1043,6 +1185,12 @@ impl ::core::clone::Clone for CF_OPERATION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
+impl ::core::fmt::Debug for CF_OPERATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_INFO").field("StructSize", &self.StructSize).field("Type", &self.Type).field("ConnectionKey", &self.ConnectionKey).field("TransferKey", &self.TransferKey).field("CorrelationVector", &self.CorrelationVector).field("SyncStatus", &self.SyncStatus).field("RequestKey", &self.RequestKey).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_INFO {
     type Abi = Self;
 }
@@ -1073,6 +1221,12 @@ impl ::core::marker::Copy for CF_OPERATION_PARAMETERS {}
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS").field("ParamSize", &self.ParamSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -1150,6 +1304,12 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS_0_0").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Offset", &self.Offset).field("Length", &self.Length).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_0 {
     type Abi = Self;
 }
@@ -1182,6 +1342,12 @@ impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_1 {}
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS_0_1").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -1218,6 +1384,12 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS_0_2").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_2 {
     type Abi = Self;
 }
@@ -1248,6 +1420,12 @@ impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_3 {}
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS_0_3").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -1283,6 +1461,12 @@ impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_4 {}
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS_0_4").field("Flags", &self.Flags).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -1322,6 +1506,12 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_5 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS_0_5").field("Flags", &self.Flags).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).field("ReturnedLength", &self.ReturnedLength).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_5 {
     type Abi = Self;
 }
@@ -1355,6 +1545,12 @@ impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_6 {}
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS_0_6").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -1392,6 +1588,12 @@ impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_7 {}
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_7 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_OPERATION_PARAMETERS_0_7").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("PlaceholderTotalCount", &self.PlaceholderTotalCount).field("PlaceholderArray", &self.PlaceholderArray).field("PlaceholderCount", &self.PlaceholderCount).field("EntriesProcessed", &self.EntriesProcessed).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -1480,6 +1682,11 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_BASIC_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_PLACEHOLDER_BASIC_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_PLACEHOLDER_BASIC_INFO").field("PinState", &self.PinState).field("InSyncState", &self.InSyncState).field("FileId", &self.FileId).field("SyncRootFileId", &self.SyncRootFileId).field("FileIdentityLength", &self.FileIdentityLength).field("FileIdentity", &self.FileIdentity).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_BASIC_INFO {
     type Abi = Self;
 }
@@ -1524,6 +1731,12 @@ impl ::core::marker::Copy for CF_PLACEHOLDER_CREATE_INFO {}
 impl ::core::clone::Clone for CF_PLACEHOLDER_CREATE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+impl ::core::fmt::Debug for CF_PLACEHOLDER_CREATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_PLACEHOLDER_CREATE_INFO").field("RelativeFileName", &self.RelativeFileName).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("Flags", &self.Flags).field("Result", &self.Result).field("CreateUsn", &self.CreateUsn).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -1590,6 +1803,22 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_STANDARD_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_PLACEHOLDER_STANDARD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_PLACEHOLDER_STANDARD_INFO")
+            .field("OnDiskDataSize", &self.OnDiskDataSize)
+            .field("ValidatedDataSize", &self.ValidatedDataSize)
+            .field("ModifiedDataSize", &self.ModifiedDataSize)
+            .field("PropertiesSize", &self.PropertiesSize)
+            .field("PinState", &self.PinState)
+            .field("InSyncState", &self.InSyncState)
+            .field("FileId", &self.FileId)
+            .field("SyncRootFileId", &self.SyncRootFileId)
+            .field("FileIdentityLength", &self.FileIdentityLength)
+            .field("FileIdentity", &self.FileIdentity)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STANDARD_INFO {
     type Abi = Self;
 }
@@ -1635,6 +1864,11 @@ impl ::core::clone::Clone for CF_PLATFORM_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_PLATFORM_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_PLATFORM_INFO").field("BuildNumber", &self.BuildNumber).field("RevisionNumber", &self.RevisionNumber).field("IntegrationNumber", &self.IntegrationNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_PLATFORM_INFO {
     type Abi = Self;
 }
@@ -1659,6 +1893,11 @@ impl ::core::marker::Copy for CF_POPULATION_POLICY {}
 impl ::core::clone::Clone for CF_POPULATION_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CF_POPULATION_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_POPULATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY {
@@ -1688,6 +1927,11 @@ impl ::core::marker::Copy for CF_POPULATION_POLICY_MODIFIER_USHORT {}
 impl ::core::clone::Clone for CF_POPULATION_POLICY_MODIFIER_USHORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CF_POPULATION_POLICY_MODIFIER_USHORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_POPULATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
@@ -1723,6 +1967,11 @@ impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY_USHORT {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_POPULATION_POLICY_PRIMARY_USHORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_POPULATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
 }
@@ -1755,6 +2004,12 @@ impl ::core::marker::Copy for CF_PROCESS_INFO {}
 impl ::core::clone::Clone for CF_PROCESS_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_PROCESS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_PROCESS_INFO").field("StructSize", &self.StructSize).field("ProcessId", &self.ProcessId).field("ImagePath", &self.ImagePath).field("PackageName", &self.PackageName).field("ApplicationId", &self.ApplicationId).field("CommandLine", &self.CommandLine).field("SessionId", &self.SessionId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1821,6 +2076,11 @@ impl ::core::clone::Clone for CF_SYNC_POLICIES {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_SYNC_POLICIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_SYNC_POLICIES").field("StructSize", &self.StructSize).field("Hydration", &self.Hydration).field("Population", &self.Population).field("InSync", &self.InSync).field("HardLink", &self.HardLink).field("PlaceholderManagement", &self.PlaceholderManagement).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_SYNC_POLICIES {
     type Abi = Self;
 }
@@ -1881,6 +2141,12 @@ impl ::core::clone::Clone for CF_SYNC_REGISTRATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CF_SYNC_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_SYNC_REGISTRATION").field("StructSize", &self.StructSize).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).field("SyncRootIdentity", &self.SyncRootIdentity).field("SyncRootIdentityLength", &self.SyncRootIdentityLength).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("ProviderId", &self.ProviderId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_SYNC_REGISTRATION {
     type Abi = Self;
 }
@@ -1907,6 +2173,11 @@ impl ::core::marker::Copy for CF_SYNC_ROOT_BASIC_INFO {}
 impl ::core::clone::Clone for CF_SYNC_ROOT_BASIC_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CF_SYNC_ROOT_BASIC_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_SYNC_ROOT_BASIC_INFO").field("SyncRootFileId", &self.SyncRootFileId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_BASIC_INFO {
@@ -1944,6 +2215,11 @@ impl ::core::clone::Clone for CF_SYNC_ROOT_PROVIDER_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_SYNC_ROOT_PROVIDER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_SYNC_ROOT_PROVIDER_INFO").field("ProviderStatus", &self.ProviderStatus).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_PROVIDER_INFO {
     type Abi = Self;
 }
@@ -1978,6 +2254,22 @@ impl ::core::clone::Clone for CF_SYNC_ROOT_STANDARD_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CF_SYNC_ROOT_STANDARD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_SYNC_ROOT_STANDARD_INFO")
+            .field("SyncRootFileId", &self.SyncRootFileId)
+            .field("HydrationPolicy", &self.HydrationPolicy)
+            .field("PopulationPolicy", &self.PopulationPolicy)
+            .field("InSyncPolicy", &self.InSyncPolicy)
+            .field("HardLinkPolicy", &self.HardLinkPolicy)
+            .field("ProviderStatus", &self.ProviderStatus)
+            .field("ProviderName", &self.ProviderName)
+            .field("ProviderVersion", &self.ProviderVersion)
+            .field("SyncRootIdentityLength", &self.SyncRootIdentityLength)
+            .field("SyncRootIdentity", &self.SyncRootIdentity)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_STANDARD_INFO {
     type Abi = Self;
 }
@@ -2006,6 +2298,11 @@ impl ::core::marker::Copy for CF_SYNC_STATUS {}
 impl ::core::clone::Clone for CF_SYNC_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CF_SYNC_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CF_SYNC_STATUS").field("StructSize", &self.StructSize).field("Code", &self.Code).field("DescriptionOffset", &self.DescriptionOffset).field("DescriptionLength", &self.DescriptionLength).field("DeviceIdOffset", &self.DeviceIdOffset).field("DeviceIdLength", &self.DeviceIdLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CF_SYNC_STATUS {

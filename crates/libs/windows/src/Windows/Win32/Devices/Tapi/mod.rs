@@ -544,6 +544,11 @@ impl ::core::clone::Clone for HDRVCALL__ {
         *self
     }
 }
+impl ::core::fmt::Debug for HDRVCALL__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HDRVCALL__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HDRVCALL__ {
     type Abi = Self;
 }
@@ -567,6 +572,11 @@ impl ::core::marker::Copy for HDRVDIALOGINSTANCE__ {}
 impl ::core::clone::Clone for HDRVDIALOGINSTANCE__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HDRVDIALOGINSTANCE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HDRVDIALOGINSTANCE__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HDRVDIALOGINSTANCE__ {
@@ -594,6 +604,11 @@ impl ::core::clone::Clone for HDRVLINE__ {
         *self
     }
 }
+impl ::core::fmt::Debug for HDRVLINE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HDRVLINE__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HDRVLINE__ {
     type Abi = Self;
 }
@@ -617,6 +632,11 @@ impl ::core::marker::Copy for HDRVMSPLINE__ {}
 impl ::core::clone::Clone for HDRVMSPLINE__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HDRVMSPLINE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HDRVMSPLINE__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HDRVMSPLINE__ {
@@ -644,6 +664,11 @@ impl ::core::clone::Clone for HDRVPHONE__ {
         *self
     }
 }
+impl ::core::fmt::Debug for HDRVPHONE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HDRVPHONE__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HDRVPHONE__ {
     type Abi = Self;
 }
@@ -667,6 +692,11 @@ impl ::core::marker::Copy for HPROVIDER__ {}
 impl ::core::clone::Clone for HPROVIDER__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HPROVIDER__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HPROVIDER__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HPROVIDER__ {
@@ -694,6 +724,11 @@ impl ::core::clone::Clone for HTAPICALL__ {
         *self
     }
 }
+impl ::core::fmt::Debug for HTAPICALL__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTAPICALL__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTAPICALL__ {
     type Abi = Self;
 }
@@ -719,6 +754,11 @@ impl ::core::clone::Clone for HTAPILINE__ {
         *self
     }
 }
+impl ::core::fmt::Debug for HTAPILINE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTAPILINE__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTAPILINE__ {
     type Abi = Self;
 }
@@ -742,6 +782,11 @@ impl ::core::marker::Copy for HTAPIPHONE__ {}
 impl ::core::clone::Clone for HTAPIPHONE__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTAPIPHONE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTAPIPHONE__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTAPIPHONE__ {
@@ -16164,6 +16209,69 @@ impl ::core::clone::Clone for LINEADDRESSCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEADDRESSCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEADDRESSCAPS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwLineDeviceID", &self.dwLineDeviceID)
+            .field("dwAddressSize", &self.dwAddressSize)
+            .field("dwAddressOffset", &self.dwAddressOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwAddressSharing", &self.dwAddressSharing)
+            .field("dwAddressStates", &self.dwAddressStates)
+            .field("dwCallInfoStates", &self.dwCallInfoStates)
+            .field("dwCallerIDFlags", &self.dwCallerIDFlags)
+            .field("dwCalledIDFlags", &self.dwCalledIDFlags)
+            .field("dwConnectedIDFlags", &self.dwConnectedIDFlags)
+            .field("dwRedirectionIDFlags", &self.dwRedirectionIDFlags)
+            .field("dwRedirectingIDFlags", &self.dwRedirectingIDFlags)
+            .field("dwCallStates", &self.dwCallStates)
+            .field("dwDialToneModes", &self.dwDialToneModes)
+            .field("dwBusyModes", &self.dwBusyModes)
+            .field("dwSpecialInfo", &self.dwSpecialInfo)
+            .field("dwDisconnectModes", &self.dwDisconnectModes)
+            .field("dwMaxNumActiveCalls", &self.dwMaxNumActiveCalls)
+            .field("dwMaxNumOnHoldCalls", &self.dwMaxNumOnHoldCalls)
+            .field("dwMaxNumOnHoldPendingCalls", &self.dwMaxNumOnHoldPendingCalls)
+            .field("dwMaxNumConference", &self.dwMaxNumConference)
+            .field("dwMaxNumTransConf", &self.dwMaxNumTransConf)
+            .field("dwAddrCapFlags", &self.dwAddrCapFlags)
+            .field("dwCallFeatures", &self.dwCallFeatures)
+            .field("dwRemoveFromConfCaps", &self.dwRemoveFromConfCaps)
+            .field("dwRemoveFromConfState", &self.dwRemoveFromConfState)
+            .field("dwTransferModes", &self.dwTransferModes)
+            .field("dwParkModes", &self.dwParkModes)
+            .field("dwForwardModes", &self.dwForwardModes)
+            .field("dwMaxForwardEntries", &self.dwMaxForwardEntries)
+            .field("dwMaxSpecificEntries", &self.dwMaxSpecificEntries)
+            .field("dwMinFwdNumRings", &self.dwMinFwdNumRings)
+            .field("dwMaxFwdNumRings", &self.dwMaxFwdNumRings)
+            .field("dwMaxCallCompletions", &self.dwMaxCallCompletions)
+            .field("dwCallCompletionConds", &self.dwCallCompletionConds)
+            .field("dwCallCompletionModes", &self.dwCallCompletionModes)
+            .field("dwNumCompletionMessages", &self.dwNumCompletionMessages)
+            .field("dwCompletionMsgTextEntrySize", &self.dwCompletionMsgTextEntrySize)
+            .field("dwCompletionMsgTextSize", &self.dwCompletionMsgTextSize)
+            .field("dwCompletionMsgTextOffset", &self.dwCompletionMsgTextOffset)
+            .field("dwAddressFeatures", &self.dwAddressFeatures)
+            .field("dwPredictiveAutoTransferStates", &self.dwPredictiveAutoTransferStates)
+            .field("dwNumCallTreatments", &self.dwNumCallTreatments)
+            .field("dwCallTreatmentListSize", &self.dwCallTreatmentListSize)
+            .field("dwCallTreatmentListOffset", &self.dwCallTreatmentListOffset)
+            .field("dwDeviceClassesSize", &self.dwDeviceClassesSize)
+            .field("dwDeviceClassesOffset", &self.dwDeviceClassesOffset)
+            .field("dwMaxCallDataSize", &self.dwMaxCallDataSize)
+            .field("dwCallFeatures2", &self.dwCallFeatures2)
+            .field("dwMaxNoAnswerTimeout", &self.dwMaxNoAnswerTimeout)
+            .field("dwConnectedModes", &self.dwConnectedModes)
+            .field("dwOfferingModes", &self.dwOfferingModes)
+            .field("dwAvailableMediaModes", &self.dwAvailableMediaModes)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEADDRESSCAPS {
     type Abi = Self;
 }
@@ -16236,6 +16344,28 @@ impl ::core::clone::Clone for LINEADDRESSSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEADDRESSSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEADDRESSSTATUS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwNumInUse", &self.dwNumInUse)
+            .field("dwNumActiveCalls", &self.dwNumActiveCalls)
+            .field("dwNumOnHoldCalls", &self.dwNumOnHoldCalls)
+            .field("dwNumOnHoldPendCalls", &self.dwNumOnHoldPendCalls)
+            .field("dwAddressFeatures", &self.dwAddressFeatures)
+            .field("dwNumRingsNoAnswer", &self.dwNumRingsNoAnswer)
+            .field("dwForwardNumEntries", &self.dwForwardNumEntries)
+            .field("dwForwardSize", &self.dwForwardSize)
+            .field("dwForwardOffset", &self.dwForwardOffset)
+            .field("dwTerminalModesSize", &self.dwTerminalModesSize)
+            .field("dwTerminalModesOffset", &self.dwTerminalModesOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEADDRESSSTATUS {
     type Abi = Self;
 }
@@ -16301,6 +16431,11 @@ impl ::core::clone::Clone for LINEAGENTACTIVITYENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEAGENTACTIVITYENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTACTIVITYENTRY").field("dwID", &self.dwID).field("dwNameSize", &self.dwNameSize).field("dwNameOffset", &self.dwNameOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEAGENTACTIVITYENTRY {
     type Abi = Self;
 }
@@ -16329,6 +16464,11 @@ impl ::core::marker::Copy for LINEAGENTACTIVITYLIST {}
 impl ::core::clone::Clone for LINEAGENTACTIVITYLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEAGENTACTIVITYLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTACTIVITYLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwNumEntries", &self.dwNumEntries).field("dwListSize", &self.dwListSize).field("dwListOffset", &self.dwListOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEAGENTACTIVITYLIST {
@@ -16370,6 +16510,27 @@ impl ::core::clone::Clone for LINEAGENTCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEAGENTCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTCAPS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwAgentHandlerInfoSize", &self.dwAgentHandlerInfoSize)
+            .field("dwAgentHandlerInfoOffset", &self.dwAgentHandlerInfoOffset)
+            .field("dwCapsVersion", &self.dwCapsVersion)
+            .field("dwFeatures", &self.dwFeatures)
+            .field("dwStates", &self.dwStates)
+            .field("dwNextStates", &self.dwNextStates)
+            .field("dwMaxNumGroupEntries", &self.dwMaxNumGroupEntries)
+            .field("dwAgentStatusMessages", &self.dwAgentStatusMessages)
+            .field("dwNumAgentExtensionIDs", &self.dwNumAgentExtensionIDs)
+            .field("dwAgentExtensionIDListSize", &self.dwAgentExtensionIDListSize)
+            .field("dwAgentExtensionIDListOffset", &self.dwAgentExtensionIDListOffset)
+            .field("ProxyGUID", &self.ProxyGUID)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEAGENTCAPS {
     type Abi = Self;
 }
@@ -16399,6 +16560,11 @@ impl ::core::marker::Copy for LINEAGENTENTRY {}
 impl ::core::clone::Clone for LINEAGENTENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEAGENTENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTENTRY").field("hAgent", &self.hAgent).field("dwNameSize", &self.dwNameSize).field("dwNameOffset", &self.dwNameOffset).field("dwIDSize", &self.dwIDSize).field("dwIDOffset", &self.dwIDOffset).field("dwPINSize", &self.dwPINSize).field("dwPINOffset", &self.dwPINOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEAGENTENTRY {
@@ -16440,6 +16606,11 @@ impl ::core::clone::Clone for LINEAGENTGROUPENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEAGENTGROUPENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTGROUPENTRY").field("GroupID", &self.GroupID).field("dwNameSize", &self.dwNameSize).field("dwNameOffset", &self.dwNameOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEAGENTGROUPENTRY {
     type Abi = Self;
 }
@@ -16466,6 +16637,11 @@ impl ::core::marker::Copy for LINEAGENTGROUPENTRY_0 {}
 impl ::core::clone::Clone for LINEAGENTGROUPENTRY_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEAGENTGROUPENTRY_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTGROUPENTRY_0").field("dwGroupID1", &self.dwGroupID1).field("dwGroupID2", &self.dwGroupID2).field("dwGroupID3", &self.dwGroupID3).field("dwGroupID4", &self.dwGroupID4).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEAGENTGROUPENTRY_0 {
@@ -16496,6 +16672,11 @@ impl ::core::marker::Copy for LINEAGENTGROUPLIST {}
 impl ::core::clone::Clone for LINEAGENTGROUPLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEAGENTGROUPLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTGROUPLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwNumEntries", &self.dwNumEntries).field("dwListSize", &self.dwListSize).field("dwListOffset", &self.dwListOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEAGENTGROUPLIST {
@@ -16539,6 +16720,26 @@ impl ::core::clone::Clone for LINEAGENTINFO {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEAGENTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTINFO")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwAgentState", &self.dwAgentState)
+            .field("dwNextAgentState", &self.dwNextAgentState)
+            .field("dwMeasurementPeriod", &self.dwMeasurementPeriod)
+            .field("cyOverallCallRate", &self.cyOverallCallRate)
+            .field("dwNumberOfACDCalls", &self.dwNumberOfACDCalls)
+            .field("dwNumberOfIncomingCalls", &self.dwNumberOfIncomingCalls)
+            .field("dwNumberOfOutgoingCalls", &self.dwNumberOfOutgoingCalls)
+            .field("dwTotalACDTalkTime", &self.dwTotalACDTalkTime)
+            .field("dwTotalACDCallTime", &self.dwTotalACDCallTime)
+            .field("dwTotalACDWrapUpTime", &self.dwTotalACDWrapUpTime)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEAGENTINFO {
     type Abi = Self;
 }
@@ -16572,6 +16773,11 @@ impl ::core::clone::Clone for LINEAGENTLIST {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEAGENTLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwNumEntries", &self.dwNumEntries).field("dwListSize", &self.dwListSize).field("dwListOffset", &self.dwListOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEAGENTLIST {
     type Abi = Self;
 }
@@ -16598,6 +16804,11 @@ impl ::core::marker::Copy for LINEAGENTSESSIONENTRY {}
 impl ::core::clone::Clone for LINEAGENTSESSIONENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEAGENTSESSIONENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTSESSIONENTRY").field("hAgentSession", &self.hAgentSession).field("hAgent", &self.hAgent).field("GroupID", &self.GroupID).field("dwWorkingAddressID", &self.dwWorkingAddressID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEAGENTSESSIONENTRY {
@@ -16645,6 +16856,30 @@ impl ::core::clone::Clone for LINEAGENTSESSIONINFO {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEAGENTSESSIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTSESSIONINFO")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwAgentSessionState", &self.dwAgentSessionState)
+            .field("dwNextAgentSessionState", &self.dwNextAgentSessionState)
+            .field("dateSessionStartTime", &self.dateSessionStartTime)
+            .field("dwSessionDuration", &self.dwSessionDuration)
+            .field("dwNumberOfCalls", &self.dwNumberOfCalls)
+            .field("dwTotalTalkTime", &self.dwTotalTalkTime)
+            .field("dwAverageTalkTime", &self.dwAverageTalkTime)
+            .field("dwTotalCallTime", &self.dwTotalCallTime)
+            .field("dwAverageCallTime", &self.dwAverageCallTime)
+            .field("dwTotalWrapUpTime", &self.dwTotalWrapUpTime)
+            .field("dwAverageWrapUpTime", &self.dwAverageWrapUpTime)
+            .field("cyACDCallRate", &self.cyACDCallRate)
+            .field("dwLongestTimeToAnswer", &self.dwLongestTimeToAnswer)
+            .field("dwAverageTimeToAnswer", &self.dwAverageTimeToAnswer)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEAGENTSESSIONINFO {
     type Abi = Self;
 }
@@ -16676,6 +16911,11 @@ impl ::core::marker::Copy for LINEAGENTSESSIONLIST {}
 impl ::core::clone::Clone for LINEAGENTSESSIONLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEAGENTSESSIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTSESSIONLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwNumEntries", &self.dwNumEntries).field("dwListSize", &self.dwListSize).field("dwListOffset", &self.dwListOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEAGENTSESSIONLIST {
@@ -16768,6 +17008,26 @@ impl ::core::clone::Clone for LINEAGENTSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEAGENTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAGENTSTATUS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwNumEntries", &self.dwNumEntries)
+            .field("dwGroupListSize", &self.dwGroupListSize)
+            .field("dwGroupListOffset", &self.dwGroupListOffset)
+            .field("dwState", &self.dwState)
+            .field("dwNextState", &self.dwNextState)
+            .field("dwActivityID", &self.dwActivityID)
+            .field("dwActivitySize", &self.dwActivitySize)
+            .field("dwActivityOffset", &self.dwActivityOffset)
+            .field("dwAgentFeatures", &self.dwAgentFeatures)
+            .field("dwValidStates", &self.dwValidStates)
+            .field("dwValidNextStates", &self.dwValidNextStates)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEAGENTSTATUS {
     type Abi = Self;
 }
@@ -16830,6 +17090,22 @@ impl ::core::marker::Copy for LINEAPPINFO {}
 impl ::core::clone::Clone for LINEAPPINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEAPPINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEAPPINFO")
+            .field("dwMachineNameSize", &self.dwMachineNameSize)
+            .field("dwMachineNameOffset", &self.dwMachineNameOffset)
+            .field("dwUserNameSize", &self.dwUserNameSize)
+            .field("dwUserNameOffset", &self.dwUserNameOffset)
+            .field("dwModuleFilenameSize", &self.dwModuleFilenameSize)
+            .field("dwModuleFilenameOffset", &self.dwModuleFilenameOffset)
+            .field("dwFriendlyNameSize", &self.dwFriendlyNameSize)
+            .field("dwFriendlyNameOffset", &self.dwFriendlyNameOffset)
+            .field("dwMediaModes", &self.dwMediaModes)
+            .field("dwAddressID", &self.dwAddressID)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEAPPINFO {
@@ -17062,6 +17338,90 @@ impl ::core::clone::Clone for LINECALLINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for LINECALLINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINECALLINFO")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("hLine", &self.hLine)
+            .field("dwLineDeviceID", &self.dwLineDeviceID)
+            .field("dwAddressID", &self.dwAddressID)
+            .field("dwBearerMode", &self.dwBearerMode)
+            .field("dwRate", &self.dwRate)
+            .field("dwMediaMode", &self.dwMediaMode)
+            .field("dwAppSpecific", &self.dwAppSpecific)
+            .field("dwCallID", &self.dwCallID)
+            .field("dwRelatedCallID", &self.dwRelatedCallID)
+            .field("dwCallParamFlags", &self.dwCallParamFlags)
+            .field("dwCallStates", &self.dwCallStates)
+            .field("dwMonitorDigitModes", &self.dwMonitorDigitModes)
+            .field("dwMonitorMediaModes", &self.dwMonitorMediaModes)
+            .field("DialParams", &self.DialParams)
+            .field("dwOrigin", &self.dwOrigin)
+            .field("dwReason", &self.dwReason)
+            .field("dwCompletionID", &self.dwCompletionID)
+            .field("dwNumOwners", &self.dwNumOwners)
+            .field("dwNumMonitors", &self.dwNumMonitors)
+            .field("dwCountryCode", &self.dwCountryCode)
+            .field("dwTrunk", &self.dwTrunk)
+            .field("dwCallerIDFlags", &self.dwCallerIDFlags)
+            .field("dwCallerIDSize", &self.dwCallerIDSize)
+            .field("dwCallerIDOffset", &self.dwCallerIDOffset)
+            .field("dwCallerIDNameSize", &self.dwCallerIDNameSize)
+            .field("dwCallerIDNameOffset", &self.dwCallerIDNameOffset)
+            .field("dwCalledIDFlags", &self.dwCalledIDFlags)
+            .field("dwCalledIDSize", &self.dwCalledIDSize)
+            .field("dwCalledIDOffset", &self.dwCalledIDOffset)
+            .field("dwCalledIDNameSize", &self.dwCalledIDNameSize)
+            .field("dwCalledIDNameOffset", &self.dwCalledIDNameOffset)
+            .field("dwConnectedIDFlags", &self.dwConnectedIDFlags)
+            .field("dwConnectedIDSize", &self.dwConnectedIDSize)
+            .field("dwConnectedIDOffset", &self.dwConnectedIDOffset)
+            .field("dwConnectedIDNameSize", &self.dwConnectedIDNameSize)
+            .field("dwConnectedIDNameOffset", &self.dwConnectedIDNameOffset)
+            .field("dwRedirectionIDFlags", &self.dwRedirectionIDFlags)
+            .field("dwRedirectionIDSize", &self.dwRedirectionIDSize)
+            .field("dwRedirectionIDOffset", &self.dwRedirectionIDOffset)
+            .field("dwRedirectionIDNameSize", &self.dwRedirectionIDNameSize)
+            .field("dwRedirectionIDNameOffset", &self.dwRedirectionIDNameOffset)
+            .field("dwRedirectingIDFlags", &self.dwRedirectingIDFlags)
+            .field("dwRedirectingIDSize", &self.dwRedirectingIDSize)
+            .field("dwRedirectingIDOffset", &self.dwRedirectingIDOffset)
+            .field("dwRedirectingIDNameSize", &self.dwRedirectingIDNameSize)
+            .field("dwRedirectingIDNameOffset", &self.dwRedirectingIDNameOffset)
+            .field("dwAppNameSize", &self.dwAppNameSize)
+            .field("dwAppNameOffset", &self.dwAppNameOffset)
+            .field("dwDisplayableAddressSize", &self.dwDisplayableAddressSize)
+            .field("dwDisplayableAddressOffset", &self.dwDisplayableAddressOffset)
+            .field("dwCalledPartySize", &self.dwCalledPartySize)
+            .field("dwCalledPartyOffset", &self.dwCalledPartyOffset)
+            .field("dwCommentSize", &self.dwCommentSize)
+            .field("dwCommentOffset", &self.dwCommentOffset)
+            .field("dwDisplaySize", &self.dwDisplaySize)
+            .field("dwDisplayOffset", &self.dwDisplayOffset)
+            .field("dwUserUserInfoSize", &self.dwUserUserInfoSize)
+            .field("dwUserUserInfoOffset", &self.dwUserUserInfoOffset)
+            .field("dwHighLevelCompSize", &self.dwHighLevelCompSize)
+            .field("dwHighLevelCompOffset", &self.dwHighLevelCompOffset)
+            .field("dwLowLevelCompSize", &self.dwLowLevelCompSize)
+            .field("dwLowLevelCompOffset", &self.dwLowLevelCompOffset)
+            .field("dwChargingInfoSize", &self.dwChargingInfoSize)
+            .field("dwChargingInfoOffset", &self.dwChargingInfoOffset)
+            .field("dwTerminalModesSize", &self.dwTerminalModesSize)
+            .field("dwTerminalModesOffset", &self.dwTerminalModesOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwCallTreatment", &self.dwCallTreatment)
+            .field("dwCallDataSize", &self.dwCallDataSize)
+            .field("dwCallDataOffset", &self.dwCallDataOffset)
+            .field("dwSendingFlowspecSize", &self.dwSendingFlowspecSize)
+            .field("dwSendingFlowspecOffset", &self.dwSendingFlowspecOffset)
+            .field("dwReceivingFlowspecSize", &self.dwReceivingFlowspecSize)
+            .field("dwReceivingFlowspecOffset", &self.dwReceivingFlowspecOffset)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINECALLINFO {
     type Abi = Self;
 }
@@ -17152,6 +17512,11 @@ impl ::core::marker::Copy for LINECALLLIST {}
 impl ::core::clone::Clone for LINECALLLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINECALLLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINECALLLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwCallsNumEntries", &self.dwCallsNumEntries).field("dwCallsSize", &self.dwCallsSize).field("dwCallsOffset", &self.dwCallsOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINECALLLIST {
@@ -17247,6 +17612,53 @@ impl ::core::marker::Copy for LINECALLPARAMS {}
 impl ::core::clone::Clone for LINECALLPARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINECALLPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINECALLPARAMS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwBearerMode", &self.dwBearerMode)
+            .field("dwMinRate", &self.dwMinRate)
+            .field("dwMaxRate", &self.dwMaxRate)
+            .field("dwMediaMode", &self.dwMediaMode)
+            .field("dwCallParamFlags", &self.dwCallParamFlags)
+            .field("dwAddressMode", &self.dwAddressMode)
+            .field("dwAddressID", &self.dwAddressID)
+            .field("DialParams", &self.DialParams)
+            .field("dwOrigAddressSize", &self.dwOrigAddressSize)
+            .field("dwOrigAddressOffset", &self.dwOrigAddressOffset)
+            .field("dwDisplayableAddressSize", &self.dwDisplayableAddressSize)
+            .field("dwDisplayableAddressOffset", &self.dwDisplayableAddressOffset)
+            .field("dwCalledPartySize", &self.dwCalledPartySize)
+            .field("dwCalledPartyOffset", &self.dwCalledPartyOffset)
+            .field("dwCommentSize", &self.dwCommentSize)
+            .field("dwCommentOffset", &self.dwCommentOffset)
+            .field("dwUserUserInfoSize", &self.dwUserUserInfoSize)
+            .field("dwUserUserInfoOffset", &self.dwUserUserInfoOffset)
+            .field("dwHighLevelCompSize", &self.dwHighLevelCompSize)
+            .field("dwHighLevelCompOffset", &self.dwHighLevelCompOffset)
+            .field("dwLowLevelCompSize", &self.dwLowLevelCompSize)
+            .field("dwLowLevelCompOffset", &self.dwLowLevelCompOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwPredictiveAutoTransferStates", &self.dwPredictiveAutoTransferStates)
+            .field("dwTargetAddressSize", &self.dwTargetAddressSize)
+            .field("dwTargetAddressOffset", &self.dwTargetAddressOffset)
+            .field("dwSendingFlowspecSize", &self.dwSendingFlowspecSize)
+            .field("dwSendingFlowspecOffset", &self.dwSendingFlowspecOffset)
+            .field("dwReceivingFlowspecSize", &self.dwReceivingFlowspecSize)
+            .field("dwReceivingFlowspecOffset", &self.dwReceivingFlowspecOffset)
+            .field("dwDeviceClassSize", &self.dwDeviceClassSize)
+            .field("dwDeviceClassOffset", &self.dwDeviceClassOffset)
+            .field("dwDeviceConfigSize", &self.dwDeviceConfigSize)
+            .field("dwDeviceConfigOffset", &self.dwDeviceConfigOffset)
+            .field("dwCallDataSize", &self.dwCallDataSize)
+            .field("dwCallDataOffset", &self.dwCallDataOffset)
+            .field("dwNoAnswerTimeout", &self.dwNoAnswerTimeout)
+            .field("dwCallingPartyIDSize", &self.dwCallingPartyIDSize)
+            .field("dwCallingPartyIDOffset", &self.dwCallingPartyIDOffset)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINECALLPARAMS {
@@ -17382,6 +17794,24 @@ impl ::core::clone::Clone for LINECALLSTATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LINECALLSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINECALLSTATUS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwCallState", &self.dwCallState)
+            .field("dwCallStateMode", &self.dwCallStateMode)
+            .field("dwCallPrivilege", &self.dwCallPrivilege)
+            .field("dwCallFeatures", &self.dwCallFeatures)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwCallFeatures2", &self.dwCallFeatures2)
+            .field("tStateEntryTime", &self.tStateEntryTime)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LINECALLSTATUS {
     type Abi = Self;
 }
@@ -17410,6 +17840,11 @@ impl ::core::marker::Copy for LINECALLTREATMENTENTRY {}
 impl ::core::clone::Clone for LINECALLTREATMENTENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINECALLTREATMENTENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINECALLTREATMENTENTRY").field("dwCallTreatmentID", &self.dwCallTreatmentID).field("dwCallTreatmentNameSize", &self.dwCallTreatmentNameSize).field("dwCallTreatmentNameOffset", &self.dwCallTreatmentNameOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINECALLTREATMENTENTRY {
@@ -17453,6 +17888,23 @@ impl ::core::marker::Copy for LINECARDENTRY {}
 impl ::core::clone::Clone for LINECARDENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINECARDENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINECARDENTRY")
+            .field("dwPermanentCardID", &self.dwPermanentCardID)
+            .field("dwCardNameSize", &self.dwCardNameSize)
+            .field("dwCardNameOffset", &self.dwCardNameOffset)
+            .field("dwCardNumberDigits", &self.dwCardNumberDigits)
+            .field("dwSameAreaRuleSize", &self.dwSameAreaRuleSize)
+            .field("dwSameAreaRuleOffset", &self.dwSameAreaRuleOffset)
+            .field("dwLongDistanceRuleSize", &self.dwLongDistanceRuleSize)
+            .field("dwLongDistanceRuleOffset", &self.dwLongDistanceRuleOffset)
+            .field("dwInternationalRuleSize", &self.dwInternationalRuleSize)
+            .field("dwInternationalRuleOffset", &self.dwInternationalRuleOffset)
+            .field("dwOptions", &self.dwOptions)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINECARDENTRY {
@@ -17504,6 +17956,23 @@ impl ::core::clone::Clone for LINECOUNTRYENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for LINECOUNTRYENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINECOUNTRYENTRY")
+            .field("dwCountryID", &self.dwCountryID)
+            .field("dwCountryCode", &self.dwCountryCode)
+            .field("dwNextCountryID", &self.dwNextCountryID)
+            .field("dwCountryNameSize", &self.dwCountryNameSize)
+            .field("dwCountryNameOffset", &self.dwCountryNameOffset)
+            .field("dwSameAreaRuleSize", &self.dwSameAreaRuleSize)
+            .field("dwSameAreaRuleOffset", &self.dwSameAreaRuleOffset)
+            .field("dwLongDistanceRuleSize", &self.dwLongDistanceRuleSize)
+            .field("dwLongDistanceRuleOffset", &self.dwLongDistanceRuleOffset)
+            .field("dwInternationalRuleSize", &self.dwInternationalRuleSize)
+            .field("dwInternationalRuleOffset", &self.dwInternationalRuleOffset)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINECOUNTRYENTRY {
     type Abi = Self;
 }
@@ -17532,6 +18001,11 @@ impl ::core::marker::Copy for LINECOUNTRYLIST {}
 impl ::core::clone::Clone for LINECOUNTRYLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINECOUNTRYLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINECOUNTRYLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwNumCountries", &self.dwNumCountries).field("dwCountryListSize", &self.dwCountryListSize).field("dwCountryListOffset", &self.dwCountryListOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINECOUNTRYLIST {
@@ -17641,6 +18115,67 @@ impl ::core::clone::Clone for LINEDEVCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEDEVCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEDEVCAPS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwProviderInfoSize", &self.dwProviderInfoSize)
+            .field("dwProviderInfoOffset", &self.dwProviderInfoOffset)
+            .field("dwSwitchInfoSize", &self.dwSwitchInfoSize)
+            .field("dwSwitchInfoOffset", &self.dwSwitchInfoOffset)
+            .field("dwPermanentLineID", &self.dwPermanentLineID)
+            .field("dwLineNameSize", &self.dwLineNameSize)
+            .field("dwLineNameOffset", &self.dwLineNameOffset)
+            .field("dwStringFormat", &self.dwStringFormat)
+            .field("dwAddressModes", &self.dwAddressModes)
+            .field("dwNumAddresses", &self.dwNumAddresses)
+            .field("dwBearerModes", &self.dwBearerModes)
+            .field("dwMaxRate", &self.dwMaxRate)
+            .field("dwMediaModes", &self.dwMediaModes)
+            .field("dwGenerateToneModes", &self.dwGenerateToneModes)
+            .field("dwGenerateToneMaxNumFreq", &self.dwGenerateToneMaxNumFreq)
+            .field("dwGenerateDigitModes", &self.dwGenerateDigitModes)
+            .field("dwMonitorToneMaxNumFreq", &self.dwMonitorToneMaxNumFreq)
+            .field("dwMonitorToneMaxNumEntries", &self.dwMonitorToneMaxNumEntries)
+            .field("dwMonitorDigitModes", &self.dwMonitorDigitModes)
+            .field("dwGatherDigitsMinTimeout", &self.dwGatherDigitsMinTimeout)
+            .field("dwGatherDigitsMaxTimeout", &self.dwGatherDigitsMaxTimeout)
+            .field("dwMedCtlDigitMaxListSize", &self.dwMedCtlDigitMaxListSize)
+            .field("dwMedCtlMediaMaxListSize", &self.dwMedCtlMediaMaxListSize)
+            .field("dwMedCtlToneMaxListSize", &self.dwMedCtlToneMaxListSize)
+            .field("dwMedCtlCallStateMaxListSize", &self.dwMedCtlCallStateMaxListSize)
+            .field("dwDevCapFlags", &self.dwDevCapFlags)
+            .field("dwMaxNumActiveCalls", &self.dwMaxNumActiveCalls)
+            .field("dwAnswerMode", &self.dwAnswerMode)
+            .field("dwRingModes", &self.dwRingModes)
+            .field("dwLineStates", &self.dwLineStates)
+            .field("dwUUIAcceptSize", &self.dwUUIAcceptSize)
+            .field("dwUUIAnswerSize", &self.dwUUIAnswerSize)
+            .field("dwUUIMakeCallSize", &self.dwUUIMakeCallSize)
+            .field("dwUUIDropSize", &self.dwUUIDropSize)
+            .field("dwUUISendUserUserInfoSize", &self.dwUUISendUserUserInfoSize)
+            .field("dwUUICallInfoSize", &self.dwUUICallInfoSize)
+            .field("MinDialParams", &self.MinDialParams)
+            .field("MaxDialParams", &self.MaxDialParams)
+            .field("DefaultDialParams", &self.DefaultDialParams)
+            .field("dwNumTerminals", &self.dwNumTerminals)
+            .field("dwTerminalCapsSize", &self.dwTerminalCapsSize)
+            .field("dwTerminalCapsOffset", &self.dwTerminalCapsOffset)
+            .field("dwTerminalTextEntrySize", &self.dwTerminalTextEntrySize)
+            .field("dwTerminalTextSize", &self.dwTerminalTextSize)
+            .field("dwTerminalTextOffset", &self.dwTerminalTextOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwLineFeatures", &self.dwLineFeatures)
+            .field("dwSettableDevStatus", &self.dwSettableDevStatus)
+            .field("dwDeviceClassesSize", &self.dwDeviceClassesSize)
+            .field("dwDeviceClassesOffset", &self.dwDeviceClassesOffset)
+            .field("PermanentLineGuid", &self.PermanentLineGuid)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEDEVCAPS {
     type Abi = Self;
 }
@@ -17737,6 +18272,34 @@ impl ::core::clone::Clone for LINEDEVSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEDEVSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEDEVSTATUS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwNumOpens", &self.dwNumOpens)
+            .field("dwOpenMediaModes", &self.dwOpenMediaModes)
+            .field("dwNumActiveCalls", &self.dwNumActiveCalls)
+            .field("dwNumOnHoldCalls", &self.dwNumOnHoldCalls)
+            .field("dwNumOnHoldPendCalls", &self.dwNumOnHoldPendCalls)
+            .field("dwLineFeatures", &self.dwLineFeatures)
+            .field("dwNumCallCompletions", &self.dwNumCallCompletions)
+            .field("dwRingMode", &self.dwRingMode)
+            .field("dwSignalLevel", &self.dwSignalLevel)
+            .field("dwBatteryLevel", &self.dwBatteryLevel)
+            .field("dwRoamMode", &self.dwRoamMode)
+            .field("dwDevStatusFlags", &self.dwDevStatusFlags)
+            .field("dwTerminalModesSize", &self.dwTerminalModesSize)
+            .field("dwTerminalModesOffset", &self.dwTerminalModesOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwAvailableMediaModes", &self.dwAvailableMediaModes)
+            .field("dwAppInfoSize", &self.dwAppInfoSize)
+            .field("dwAppInfoOffset", &self.dwAppInfoOffset)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEDEVSTATUS {
     type Abi = Self;
 }
@@ -17771,6 +18334,11 @@ impl ::core::marker::Copy for LINEDIALPARAMS {}
 impl ::core::clone::Clone for LINEDIALPARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEDIALPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEDIALPARAMS").field("dwDialPause", &self.dwDialPause).field("dwDialSpeed", &self.dwDialSpeed).field("dwDigitDuration", &self.dwDigitDuration).field("dwWaitForDialtone", &self.dwWaitForDialtone).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEDIALPARAMS {
@@ -18063,6 +18631,11 @@ impl ::core::clone::Clone for LINEEXTENSIONID {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEEXTENSIONID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEEXTENSIONID").field("dwExtensionID0", &self.dwExtensionID0).field("dwExtensionID1", &self.dwExtensionID1).field("dwExtensionID2", &self.dwExtensionID2).field("dwExtensionID3", &self.dwExtensionID3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEEXTENSIONID {
     type Abi = Self;
 }
@@ -18111,6 +18684,11 @@ impl ::core::clone::Clone for LINEFORWARD {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEFORWARD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEFORWARD").field("dwForwardMode", &self.dwForwardMode).field("dwCallerAddressSize", &self.dwCallerAddressSize).field("dwCallerAddressOffset", &self.dwCallerAddressOffset).field("dwDestCountryCode", &self.dwDestCountryCode).field("dwDestAddressSize", &self.dwDestAddressSize).field("dwDestAddressOffset", &self.dwDestAddressOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEFORWARD {
     type Abi = Self;
 }
@@ -18136,6 +18714,11 @@ impl ::core::marker::Copy for LINEFORWARDLIST {}
 impl ::core::clone::Clone for LINEFORWARDLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEFORWARDLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEFORWARDLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNumEntries", &self.dwNumEntries).field("ForwardList", &self.ForwardList).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEFORWARDLIST {
@@ -18216,6 +18799,11 @@ impl ::core::clone::Clone for LINEGENERATETONE {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEGENERATETONE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEGENERATETONE").field("dwFrequency", &self.dwFrequency).field("dwCadenceOn", &self.dwCadenceOn).field("dwCadenceOff", &self.dwCadenceOff).field("dwVolume", &self.dwVolume).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEGENERATETONE {
     type Abi = Self;
 }
@@ -18259,6 +18847,12 @@ impl ::core::marker::Copy for LINEINITIALIZEEXPARAMS {}
 impl ::core::clone::Clone for LINEINITIALIZEEXPARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LINEINITIALIZEEXPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEINITIALIZEEXPARAMS").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwOptions", &self.dwOptions).field("Handles", &self.Handles).field("dwCompletionKey", &self.dwCompletionKey).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18339,6 +18933,29 @@ impl ::core::clone::Clone for LINELOCATIONENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for LINELOCATIONENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINELOCATIONENTRY")
+            .field("dwPermanentLocationID", &self.dwPermanentLocationID)
+            .field("dwLocationNameSize", &self.dwLocationNameSize)
+            .field("dwLocationNameOffset", &self.dwLocationNameOffset)
+            .field("dwCountryCode", &self.dwCountryCode)
+            .field("dwCityCodeSize", &self.dwCityCodeSize)
+            .field("dwCityCodeOffset", &self.dwCityCodeOffset)
+            .field("dwPreferredCardID", &self.dwPreferredCardID)
+            .field("dwLocalAccessCodeSize", &self.dwLocalAccessCodeSize)
+            .field("dwLocalAccessCodeOffset", &self.dwLocalAccessCodeOffset)
+            .field("dwLongDistanceAccessCodeSize", &self.dwLongDistanceAccessCodeSize)
+            .field("dwLongDistanceAccessCodeOffset", &self.dwLongDistanceAccessCodeOffset)
+            .field("dwTollPrefixListSize", &self.dwTollPrefixListSize)
+            .field("dwTollPrefixListOffset", &self.dwTollPrefixListOffset)
+            .field("dwCountryID", &self.dwCountryID)
+            .field("dwOptions", &self.dwOptions)
+            .field("dwCancelCallWaitingSize", &self.dwCancelCallWaitingSize)
+            .field("dwCancelCallWaitingOffset", &self.dwCancelCallWaitingOffset)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINELOCATIONENTRY {
     type Abi = Self;
 }
@@ -18369,6 +18986,11 @@ impl ::core::clone::Clone for LINEMEDIACONTROLCALLSTATE {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEMEDIACONTROLCALLSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEMEDIACONTROLCALLSTATE").field("dwCallStates", &self.dwCallStates).field("dwMediaControl", &self.dwMediaControl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEMEDIACONTROLCALLSTATE {
     type Abi = Self;
 }
@@ -18396,6 +19018,11 @@ impl ::core::clone::Clone for LINEMEDIACONTROLDIGIT {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEMEDIACONTROLDIGIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEMEDIACONTROLDIGIT").field("dwDigit", &self.dwDigit).field("dwDigitModes", &self.dwDigitModes).field("dwMediaControl", &self.dwMediaControl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEMEDIACONTROLDIGIT {
     type Abi = Self;
 }
@@ -18421,6 +19048,11 @@ impl ::core::marker::Copy for LINEMEDIACONTROLMEDIA {}
 impl ::core::clone::Clone for LINEMEDIACONTROLMEDIA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEMEDIACONTROLMEDIA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEMEDIACONTROLMEDIA").field("dwMediaModes", &self.dwMediaModes).field("dwDuration", &self.dwDuration).field("dwMediaControl", &self.dwMediaControl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEMEDIACONTROLMEDIA {
@@ -18451,6 +19083,11 @@ impl ::core::marker::Copy for LINEMEDIACONTROLTONE {}
 impl ::core::clone::Clone for LINEMEDIACONTROLTONE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEMEDIACONTROLTONE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEMEDIACONTROLTONE").field("dwAppSpecific", &self.dwAppSpecific).field("dwDuration", &self.dwDuration).field("dwFrequency1", &self.dwFrequency1).field("dwFrequency2", &self.dwFrequency2).field("dwFrequency3", &self.dwFrequency3).field("dwMediaControl", &self.dwMediaControl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEMEDIACONTROLTONE {
@@ -18535,6 +19172,11 @@ impl ::core::clone::Clone for LINEMESSAGE {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEMESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEMESSAGE").field("hDevice", &self.hDevice).field("dwMessageID", &self.dwMessageID).field("dwCallbackInstance", &self.dwCallbackInstance).field("dwParam1", &self.dwParam1).field("dwParam2", &self.dwParam2).field("dwParam3", &self.dwParam3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEMESSAGE {
     type Abi = Self;
 }
@@ -18562,6 +19204,11 @@ impl ::core::marker::Copy for LINEMONITORTONE {}
 impl ::core::clone::Clone for LINEMONITORTONE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEMONITORTONE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEMONITORTONE").field("dwAppSpecific", &self.dwAppSpecific).field("dwDuration", &self.dwDuration).field("dwFrequency1", &self.dwFrequency1).field("dwFrequency2", &self.dwFrequency2).field("dwFrequency3", &self.dwFrequency3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEMONITORTONE {
@@ -18603,6 +19250,11 @@ impl ::core::clone::Clone for LINEPROVIDERENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEPROVIDERENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROVIDERENTRY").field("dwPermanentProviderID", &self.dwPermanentProviderID).field("dwProviderFilenameSize", &self.dwProviderFilenameSize).field("dwProviderFilenameOffset", &self.dwProviderFilenameOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEPROVIDERENTRY {
     type Abi = Self;
 }
@@ -18631,6 +19283,11 @@ impl ::core::marker::Copy for LINEPROVIDERLIST {}
 impl ::core::clone::Clone for LINEPROVIDERLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEPROVIDERLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROVIDERLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwNumProviders", &self.dwNumProviders).field("dwProviderListSize", &self.dwProviderListSize).field("dwProviderListOffset", &self.dwProviderListOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEPROVIDERLIST {
@@ -18666,6 +19323,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST {}
 impl ::core::clone::Clone for LINEPROXYREQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST").field("dwSize", &self.dwSize).field("dwClientMachineNameSize", &self.dwClientMachineNameSize).field("dwClientMachineNameOffset", &self.dwClientMachineNameOffset).field("dwClientUserNameSize", &self.dwClientUserNameSize).field("dwClientUserNameOffset", &self.dwClientUserNameOffset).field("dwClientAppAPIVersion", &self.dwClientAppAPIVersion).field("dwRequestType", &self.dwRequestType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18755,6 +19418,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_0 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_0").field("dwAddressID", &self.dwAddressID).field("dwAgentExtensionIDIndex", &self.dwAgentExtensionIDIndex).field("dwSize", &self.dwSize).field("Params", &self.Params).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_0 {
     type Abi = Self;
 }
@@ -18789,6 +19458,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_1 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_1").field("hAgentSession", &self.hAgentSession).field("dwAgentPINSize", &self.dwAgentPINSize).field("dwAgentPINOffset", &self.dwAgentPINOffset).field("hAgent", &self.hAgent).field("GroupID", &self.GroupID).field("dwWorkingAddressID", &self.dwWorkingAddressID).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18828,6 +19503,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_2").field("hAgent", &self.hAgent).field("dwAgentIDSize", &self.dwAgentIDSize).field("dwAgentIDOffset", &self.dwAgentIDOffset).field("dwAgentPINSize", &self.dwAgentPINSize).field("dwAgentPINOffset", &self.dwAgentPINOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_2 {
     type Abi = Self;
 }
@@ -18858,6 +19539,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_3 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_3").field("dwAddressID", &self.dwAddressID).field("ActivityList", &self.ActivityList).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18894,6 +19581,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_4").field("dwAddressID", &self.dwAddressID).field("AgentCaps", &self.AgentCaps).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_4 {
     type Abi = Self;
 }
@@ -18924,6 +19617,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_5 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_5").field("dwAddressID", &self.dwAddressID).field("GroupList", &self.GroupList).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18960,6 +19659,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_6 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_6").field("hAgent", &self.hAgent).field("AgentInfo", &self.AgentInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_6 {
     type Abi = Self;
 }
@@ -18990,6 +19695,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_7 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_7 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_7").field("hAgentSession", &self.hAgentSession).field("SessionInfo", &self.SessionInfo).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19026,6 +19737,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_8 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_8").field("hAgent", &self.hAgent).field("SessionList", &self.SessionList).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_8 {
     type Abi = Self;
 }
@@ -19059,6 +19776,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_9 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_9").field("dwAddressID", &self.dwAddressID).field("AgentStatus", &self.AgentStatus).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_9 {
     type Abi = Self;
 }
@@ -19088,6 +19811,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_10 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_10 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_10").field("GroupList", &self.GroupList).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19124,6 +19853,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_11 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_11 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_11").field("dwQueueID", &self.dwQueueID).field("QueueInfo", &self.QueueInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_11 {
     type Abi = Self;
 }
@@ -19154,6 +19889,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_12 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_12 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_12 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_12").field("GroupID", &self.GroupID).field("QueueList", &self.QueueList).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19190,6 +19931,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_13 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_13 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_13").field("dwAddressID", &self.dwAddressID).field("dwActivityID", &self.dwActivityID).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_13 {
     type Abi = Self;
 }
@@ -19223,6 +19970,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_14 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_14 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_14").field("dwAddressID", &self.dwAddressID).field("GroupList", &self.GroupList).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_14 {
     type Abi = Self;
 }
@@ -19253,6 +20006,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_15 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_15 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_15 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_15").field("hAgent", &self.hAgent).field("dwMeasurementPeriod", &self.dwMeasurementPeriod).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19290,6 +20049,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_16 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_16").field("hAgentSession", &self.hAgentSession).field("dwAgentSessionState", &self.dwAgentSessionState).field("dwNextAgentSessionState", &self.dwNextAgentSessionState).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_16 {
     type Abi = Self;
 }
@@ -19321,6 +20086,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_17 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_17 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_17 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_17").field("hAgent", &self.hAgent).field("dwAgentState", &self.dwAgentState).field("dwNextAgentState", &self.dwNextAgentState).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19358,6 +20129,12 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_18 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_18 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_18").field("dwAddressID", &self.dwAddressID).field("dwAgentState", &self.dwAgentState).field("dwNextAgentState", &self.dwNextAgentState).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_18 {
     type Abi = Self;
 }
@@ -19388,6 +20165,12 @@ impl ::core::marker::Copy for LINEPROXYREQUEST_0_19 {}
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_19 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for LINEPROXYREQUEST_0_19 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUEST_0_19").field("dwQueueID", &self.dwQueueID).field("dwMeasurementPeriod", &self.dwMeasurementPeriod).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19422,6 +20205,11 @@ impl ::core::marker::Copy for LINEPROXYREQUESTLIST {}
 impl ::core::clone::Clone for LINEPROXYREQUESTLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEPROXYREQUESTLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEPROXYREQUESTLIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwNumEntries", &self.dwNumEntries).field("dwListSize", &self.dwListSize).field("dwListOffset", &self.dwListOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEPROXYREQUESTLIST {
@@ -19505,6 +20293,11 @@ impl ::core::clone::Clone for LINEQUEUEENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEQUEUEENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEQUEUEENTRY").field("dwQueueID", &self.dwQueueID).field("dwNameSize", &self.dwNameSize).field("dwNameOffset", &self.dwNameOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEQUEUEENTRY {
     type Abi = Self;
 }
@@ -19542,6 +20335,25 @@ impl ::core::clone::Clone for LINEQUEUEINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for LINEQUEUEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEQUEUEINFO")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwMeasurementPeriod", &self.dwMeasurementPeriod)
+            .field("dwTotalCallsQueued", &self.dwTotalCallsQueued)
+            .field("dwCurrentCallsQueued", &self.dwCurrentCallsQueued)
+            .field("dwTotalCallsAbandoned", &self.dwTotalCallsAbandoned)
+            .field("dwTotalCallsFlowedIn", &self.dwTotalCallsFlowedIn)
+            .field("dwTotalCallsFlowedOut", &self.dwTotalCallsFlowedOut)
+            .field("dwLongestEverWaitTime", &self.dwLongestEverWaitTime)
+            .field("dwCurrentLongestWaitTime", &self.dwCurrentLongestWaitTime)
+            .field("dwAverageWaitTime", &self.dwAverageWaitTime)
+            .field("dwFinalDisposition", &self.dwFinalDisposition)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINEQUEUEINFO {
     type Abi = Self;
 }
@@ -19570,6 +20382,11 @@ impl ::core::marker::Copy for LINEQUEUELIST {}
 impl ::core::clone::Clone for LINEQUEUELIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINEQUEUELIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEQUEUELIST").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwNumEntries", &self.dwNumEntries).field("dwListSize", &self.dwListSize).field("dwListOffset", &self.dwListOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINEQUEUELIST {
@@ -19616,6 +20433,12 @@ impl ::core::clone::Clone for LINEREQMAKECALL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LINEREQMAKECALL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEREQMAKECALL").field("szDestAddress", &self.szDestAddress).field("szAppName", &self.szAppName).field("szCalledParty", &self.szCalledParty).field("szComment", &self.szComment).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LINEREQMAKECALL {
     type Abi = Self;
 }
@@ -19654,6 +20477,12 @@ impl ::core::marker::Copy for LINEREQMEDIACALL {}
 impl ::core::clone::Clone for LINEREQMEDIACALL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LINEREQMEDIACALL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINEREQMEDIACALL").field("hWnd", &self.hWnd).field("wRequestID", &self.wRequestID).field("szDeviceClass", &self.szDeviceClass).field("ucDeviceID", &self.ucDeviceID).field("dwSize", &self.dwSize).field("dwSecure", &self.dwSecure).field("szDestAddress", &self.szDestAddress).field("szAppName", &self.szAppName).field("szCalledParty", &self.szCalledParty).field("szComment", &self.szComment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19711,6 +20540,11 @@ impl ::core::marker::Copy for LINETERMCAPS {}
 impl ::core::clone::Clone for LINETERMCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINETERMCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINETERMCAPS").field("dwTermDev", &self.dwTermDev).field("dwTermModes", &self.dwTermModes).field("dwTermSharing", &self.dwTermSharing).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINETERMCAPS {
@@ -19794,6 +20628,23 @@ impl ::core::clone::Clone for LINETRANSLATECAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for LINETRANSLATECAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINETRANSLATECAPS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwNumLocations", &self.dwNumLocations)
+            .field("dwLocationListSize", &self.dwLocationListSize)
+            .field("dwLocationListOffset", &self.dwLocationListOffset)
+            .field("dwCurrentLocationID", &self.dwCurrentLocationID)
+            .field("dwNumCards", &self.dwNumCards)
+            .field("dwCardListSize", &self.dwCardListSize)
+            .field("dwCardListOffset", &self.dwCardListOffset)
+            .field("dwCurrentPreferredCardID", &self.dwCurrentPreferredCardID)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LINETRANSLATECAPS {
     type Abi = Self;
 }
@@ -19834,6 +20685,22 @@ impl ::core::marker::Copy for LINETRANSLATEOUTPUT {}
 impl ::core::clone::Clone for LINETRANSLATEOUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LINETRANSLATEOUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINETRANSLATEOUTPUT")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwDialableStringSize", &self.dwDialableStringSize)
+            .field("dwDialableStringOffset", &self.dwDialableStringOffset)
+            .field("dwDisplayableStringSize", &self.dwDisplayableStringSize)
+            .field("dwDisplayableStringOffset", &self.dwDisplayableStringOffset)
+            .field("dwCurrentCountry", &self.dwCurrentCountry)
+            .field("dwDestCountry", &self.dwDestCountry)
+            .field("dwTranslateResults", &self.dwTranslateResults)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for LINETRANSLATEOUTPUT {
@@ -20013,6 +20880,12 @@ impl ::core::clone::Clone for MSP_EVENT_INFO {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO").field("dwSize", &self.dwSize).field("Event", &self.Event).field("hCall", &self.hCall).field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -20081,6 +20954,12 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO_0_0").field("Type", &self.Type).field("pTerminal", &self.pTerminal).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -20109,6 +20988,12 @@ pub struct MSP_EVENT_INFO_0_1 {
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_1 {
     fn clone(&self) -> Self {
         Self { pASRTerminal: self.pASRTerminal.clone(), hrErrorCode: self.hrErrorCode }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO_0_1").field("pASRTerminal", &self.pASRTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20143,6 +21028,12 @@ pub struct MSP_EVENT_INFO_0_2 {
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_2 {
     fn clone(&self) -> Self {
         Self { Type: self.Type, Cause: self.Cause, pStream: self.pStream.clone(), pTerminal: self.pTerminal.clone(), hrError: self.hrError }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO_0_2").field("Type", &self.Type).field("Cause", &self.Cause).field("pStream", &self.pStream).field("pTerminal", &self.pTerminal).field("hrError", &self.hrError).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20186,6 +21077,12 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO_0_3").field("pParentFileTerminal", &self.pParentFileTerminal).field("pFileTrack", &self.pFileTrack).field("TerminalMediaState", &self.TerminalMediaState).field("ftecEventCause", &self.ftecEventCause).field("hrErrorCode", &self.hrErrorCode).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_3 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -20217,6 +21114,12 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO_0_4").field("pEvent", &self.pEvent).field("lEventCode", &self.lEventCode).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_4 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -20245,6 +21148,12 @@ pub struct MSP_EVENT_INFO_0_5 {
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_5 {
     fn clone(&self) -> Self {
         Self { pToneTerminal: self.pToneTerminal.clone(), hrErrorCode: self.hrErrorCode }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO_0_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO_0_5").field("pToneTerminal", &self.pToneTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20281,6 +21190,12 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_6 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO_0_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO_0_6").field("dwBufferSize", &self.dwBufferSize).field("pBuffer", &self.pBuffer).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_6 {
     type Abi = Self;
 }
@@ -20309,6 +21224,12 @@ pub struct MSP_EVENT_INFO_0_7 {
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
     fn clone(&self) -> Self {
         Self { pTTSTerminal: self.pTTSTerminal.clone(), hrErrorCode: self.hrErrorCode }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MSP_EVENT_INFO_0_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSP_EVENT_INFO_0_7").field("pTTSTerminal", &self.pTTSTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20346,6 +21267,12 @@ impl ::core::marker::Copy for NSID {}
 impl ::core::clone::Clone for NSID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NSID").field("dwSize", &self.dwSize).field("uchType", &self.uchType).field("xtype", &self.xtype).field("lTime", &self.lTime).field("address", &self.address).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20545,6 +21472,22 @@ impl ::core::clone::Clone for PHONEBUTTONINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PHONEBUTTONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHONEBUTTONINFO")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwButtonMode", &self.dwButtonMode)
+            .field("dwButtonFunction", &self.dwButtonFunction)
+            .field("dwButtonTextSize", &self.dwButtonTextSize)
+            .field("dwButtonTextOffset", &self.dwButtonTextOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwButtonState", &self.dwButtonState)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PHONEBUTTONINFO {
     type Abi = Self;
 }
@@ -20635,6 +21578,58 @@ impl ::core::marker::Copy for PHONECAPS {}
 impl ::core::clone::Clone for PHONECAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PHONECAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHONECAPS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwProviderInfoSize", &self.dwProviderInfoSize)
+            .field("dwProviderInfoOffset", &self.dwProviderInfoOffset)
+            .field("dwPhoneInfoSize", &self.dwPhoneInfoSize)
+            .field("dwPhoneInfoOffset", &self.dwPhoneInfoOffset)
+            .field("dwPermanentPhoneID", &self.dwPermanentPhoneID)
+            .field("dwPhoneNameSize", &self.dwPhoneNameSize)
+            .field("dwPhoneNameOffset", &self.dwPhoneNameOffset)
+            .field("dwStringFormat", &self.dwStringFormat)
+            .field("dwPhoneStates", &self.dwPhoneStates)
+            .field("dwHookSwitchDevs", &self.dwHookSwitchDevs)
+            .field("dwHandsetHookSwitchModes", &self.dwHandsetHookSwitchModes)
+            .field("dwSpeakerHookSwitchModes", &self.dwSpeakerHookSwitchModes)
+            .field("dwHeadsetHookSwitchModes", &self.dwHeadsetHookSwitchModes)
+            .field("dwVolumeFlags", &self.dwVolumeFlags)
+            .field("dwGainFlags", &self.dwGainFlags)
+            .field("dwDisplayNumRows", &self.dwDisplayNumRows)
+            .field("dwDisplayNumColumns", &self.dwDisplayNumColumns)
+            .field("dwNumRingModes", &self.dwNumRingModes)
+            .field("dwNumButtonLamps", &self.dwNumButtonLamps)
+            .field("dwButtonModesSize", &self.dwButtonModesSize)
+            .field("dwButtonModesOffset", &self.dwButtonModesOffset)
+            .field("dwButtonFunctionsSize", &self.dwButtonFunctionsSize)
+            .field("dwButtonFunctionsOffset", &self.dwButtonFunctionsOffset)
+            .field("dwLampModesSize", &self.dwLampModesSize)
+            .field("dwLampModesOffset", &self.dwLampModesOffset)
+            .field("dwNumSetData", &self.dwNumSetData)
+            .field("dwSetDataSize", &self.dwSetDataSize)
+            .field("dwSetDataOffset", &self.dwSetDataOffset)
+            .field("dwNumGetData", &self.dwNumGetData)
+            .field("dwGetDataSize", &self.dwGetDataSize)
+            .field("dwGetDataOffset", &self.dwGetDataOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwDeviceClassesSize", &self.dwDeviceClassesSize)
+            .field("dwDeviceClassesOffset", &self.dwDeviceClassesOffset)
+            .field("dwPhoneFeatures", &self.dwPhoneFeatures)
+            .field("dwSettableHandsetHookSwitchModes", &self.dwSettableHandsetHookSwitchModes)
+            .field("dwSettableSpeakerHookSwitchModes", &self.dwSettableSpeakerHookSwitchModes)
+            .field("dwSettableHeadsetHookSwitchModes", &self.dwSettableHeadsetHookSwitchModes)
+            .field("dwMonitoredHandsetHookSwitchModes", &self.dwMonitoredHandsetHookSwitchModes)
+            .field("dwMonitoredSpeakerHookSwitchModes", &self.dwMonitoredSpeakerHookSwitchModes)
+            .field("dwMonitoredHeadsetHookSwitchModes", &self.dwMonitoredHeadsetHookSwitchModes)
+            .field("PermanentPhoneGuid", &self.PermanentPhoneGuid)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PHONECAPS {
@@ -20771,6 +21766,11 @@ impl ::core::clone::Clone for PHONEEXTENSIONID {
         *self
     }
 }
+impl ::core::fmt::Debug for PHONEEXTENSIONID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHONEEXTENSIONID").field("dwExtensionID0", &self.dwExtensionID0).field("dwExtensionID1", &self.dwExtensionID1).field("dwExtensionID2", &self.dwExtensionID2).field("dwExtensionID3", &self.dwExtensionID3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PHONEEXTENSIONID {
     type Abi = Self;
 }
@@ -20885,6 +21885,12 @@ impl ::core::clone::Clone for PHONEINITIALIZEEXPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PHONEINITIALIZEEXPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHONEINITIALIZEEXPARAMS").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwOptions", &self.dwOptions).field("Handles", &self.Handles).field("dwCompletionKey", &self.dwCompletionKey).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PHONEINITIALIZEEXPARAMS {
     type Abi = Self;
 }
@@ -20965,6 +21971,11 @@ impl ::core::marker::Copy for PHONEMESSAGE {}
 impl ::core::clone::Clone for PHONEMESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PHONEMESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHONEMESSAGE").field("hDevice", &self.hDevice).field("dwMessageID", &self.dwMessageID).field("dwCallbackInstance", &self.dwCallbackInstance).field("dwParam1", &self.dwParam1).field("dwParam2", &self.dwParam2).field("dwParam3", &self.dwParam3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PHONEMESSAGE {
@@ -21067,6 +22078,38 @@ impl ::core::marker::Copy for PHONESTATUS {}
 impl ::core::clone::Clone for PHONESTATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PHONESTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PHONESTATUS")
+            .field("dwTotalSize", &self.dwTotalSize)
+            .field("dwNeededSize", &self.dwNeededSize)
+            .field("dwUsedSize", &self.dwUsedSize)
+            .field("dwStatusFlags", &self.dwStatusFlags)
+            .field("dwNumOwners", &self.dwNumOwners)
+            .field("dwNumMonitors", &self.dwNumMonitors)
+            .field("dwRingMode", &self.dwRingMode)
+            .field("dwRingVolume", &self.dwRingVolume)
+            .field("dwHandsetHookSwitchMode", &self.dwHandsetHookSwitchMode)
+            .field("dwHandsetVolume", &self.dwHandsetVolume)
+            .field("dwHandsetGain", &self.dwHandsetGain)
+            .field("dwSpeakerHookSwitchMode", &self.dwSpeakerHookSwitchMode)
+            .field("dwSpeakerVolume", &self.dwSpeakerVolume)
+            .field("dwSpeakerGain", &self.dwSpeakerGain)
+            .field("dwHeadsetHookSwitchMode", &self.dwHeadsetHookSwitchMode)
+            .field("dwHeadsetVolume", &self.dwHeadsetVolume)
+            .field("dwHeadsetGain", &self.dwHeadsetGain)
+            .field("dwDisplaySize", &self.dwDisplaySize)
+            .field("dwDisplayOffset", &self.dwDisplayOffset)
+            .field("dwLampModesSize", &self.dwLampModesSize)
+            .field("dwLampModesOffset", &self.dwLampModesOffset)
+            .field("dwOwnerNameSize", &self.dwOwnerNameSize)
+            .field("dwOwnerNameOffset", &self.dwOwnerNameOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwPhoneFeatures", &self.dwPhoneFeatures)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PHONESTATUS {
@@ -21427,6 +22470,11 @@ impl ::core::clone::Clone for STnefProblem {
         *self
     }
 }
+impl ::core::fmt::Debug for STnefProblem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STnefProblem").field("ulComponent", &self.ulComponent).field("ulAttribute", &self.ulAttribute).field("ulPropTag", &self.ulPropTag).field("scode", &self.scode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STnefProblem {
     type Abi = Self;
 }
@@ -21451,6 +22499,11 @@ impl ::core::marker::Copy for STnefProblemArray {}
 impl ::core::clone::Clone for STnefProblemArray {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STnefProblemArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STnefProblemArray").field("cProblem", &self.cProblem).field("aProblem", &self.aProblem).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STnefProblemArray {
@@ -21570,6 +22623,11 @@ impl ::core::clone::Clone for TAPI_CUSTOMTONE {
         *self
     }
 }
+impl ::core::fmt::Debug for TAPI_CUSTOMTONE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TAPI_CUSTOMTONE").field("dwFrequency", &self.dwFrequency).field("dwCadenceOn", &self.dwCadenceOn).field("dwCadenceOff", &self.dwCadenceOff).field("dwVolume", &self.dwVolume).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TAPI_CUSTOMTONE {
     type Abi = Self;
 }
@@ -21597,6 +22655,11 @@ impl ::core::marker::Copy for TAPI_DETECTTONE {}
 impl ::core::clone::Clone for TAPI_DETECTTONE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TAPI_DETECTTONE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TAPI_DETECTTONE").field("dwAppSpecific", &self.dwAppSpecific).field("dwDuration", &self.dwDuration).field("dwFrequency1", &self.dwFrequency1).field("dwFrequency2", &self.dwFrequency2).field("dwFrequency3", &self.dwFrequency3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TAPI_DETECTTONE {
@@ -22165,6 +23228,12 @@ impl ::core::clone::Clone for TUISPICREATEDIALOGINSTANCEPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TUISPICREATEDIALOGINSTANCEPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TUISPICREATEDIALOGINSTANCEPARAMS").field("dwRequestID", &self.dwRequestID).field("hdDlgInst", &self.hdDlgInst).field("htDlgInst", &self.htDlgInst).field("lpszUIDLLName", &self.lpszUIDLLName).field("lpParams", &self.lpParams).field("dwSize", &self.dwSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TUISPICREATEDIALOGINSTANCEPARAMS {
     type Abi = Self;
 }
@@ -22208,6 +23277,11 @@ impl ::core::clone::Clone for VARSTRING {
         *self
     }
 }
+impl ::core::fmt::Debug for VARSTRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VARSTRING").field("dwTotalSize", &self.dwTotalSize).field("dwNeededSize", &self.dwNeededSize).field("dwUsedSize", &self.dwUsedSize).field("dwStringFormat", &self.dwStringFormat).field("dwStringSize", &self.dwStringSize).field("dwStringOffset", &self.dwStringOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VARSTRING {
     type Abi = Self;
 }
@@ -22238,6 +23312,12 @@ impl ::core::marker::Copy for _ADDR_ALIAS {}
 impl ::core::clone::Clone for _ADDR_ALIAS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for _ADDR_ALIAS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_ADDR_ALIAS").field("rgchName", &self.rgchName).field("rgchEName", &self.rgchEName).field("rgchSrvr", &self.rgchSrvr).field("dibDetail", &self.dibDetail).field("type", &self.r#type).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22275,6 +23355,11 @@ impl ::core::clone::Clone for _dtr {
         *self
     }
 }
+impl ::core::fmt::Debug for _dtr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_dtr").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wDayOfWeek", &self.wDayOfWeek).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _dtr {
     type Abi = Self;
 }
@@ -22304,6 +23389,11 @@ impl ::core::clone::Clone for _renddata {
         *self
     }
 }
+impl ::core::fmt::Debug for _renddata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_renddata").field("atyp", &self.atyp).field("ulPosition", &self.ulPosition).field("dxWidth", &self.dxWidth).field("dyHeight", &self.dyHeight).field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _renddata {
     type Abi = Self;
 }
@@ -22330,6 +23420,11 @@ impl ::core::marker::Copy for _trp {}
 impl ::core::clone::Clone for _trp {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _trp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_trp").field("trpid", &self.trpid).field("cbgrtrp", &self.cbgrtrp).field("cch", &self.cch).field("cbRgb", &self.cbRgb).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _trp {
@@ -25144,6 +26239,11 @@ impl ::core::clone::Clone for linereqmakecallW_tag {
         *self
     }
 }
+impl ::core::fmt::Debug for linereqmakecallW_tag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("linereqmakecallW_tag").field("szDestAddress", &self.szDestAddress).field("szAppName", &self.szAppName).field("szCalledParty", &self.szCalledParty).field("szComment", &self.szComment).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for linereqmakecallW_tag {
     type Abi = Self;
 }
@@ -25179,6 +26279,12 @@ impl ::core::marker::Copy for linereqmediacallW_tag {}
 impl ::core::clone::Clone for linereqmediacallW_tag {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for linereqmediacallW_tag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("linereqmediacallW_tag").field("hWnd", &self.hWnd).field("wRequestID", &self.wRequestID).field("szDeviceClass", &self.szDeviceClass).field("ucDeviceID", &self.ucDeviceID).field("dwSize", &self.dwSize).field("dwSecure", &self.dwSecure).field("szDestAddress", &self.szDestAddress).field("szAppName", &self.szAppName).field("szCalledParty", &self.szCalledParty).field("szComment", &self.szComment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

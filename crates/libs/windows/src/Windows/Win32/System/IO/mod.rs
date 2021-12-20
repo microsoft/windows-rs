@@ -170,6 +170,12 @@ impl ::core::clone::Clone for OVERLAPPED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OVERLAPPED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OVERLAPPED").field("Internal", &self.Internal).field("InternalHigh", &self.InternalHigh).field("Anonymous", &self.Anonymous).field("hEvent", &self.hEvent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OVERLAPPED {
     type Abi = Self;
 }
@@ -236,6 +242,12 @@ impl ::core::clone::Clone for OVERLAPPED_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OVERLAPPED_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OVERLAPPED_0_0").field("Offset", &self.Offset).field("OffsetHigh", &self.OffsetHigh).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OVERLAPPED_0_0 {
     type Abi = Self;
 }
@@ -268,6 +280,12 @@ impl ::core::marker::Copy for OVERLAPPED_ENTRY {}
 impl ::core::clone::Clone for OVERLAPPED_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OVERLAPPED_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OVERLAPPED_ENTRY").field("lpCompletionKey", &self.lpCompletionKey).field("lpOverlapped", &self.lpOverlapped).field("Internal", &self.Internal).field("dwNumberOfBytesTransferred", &self.dwNumberOfBytesTransferred).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

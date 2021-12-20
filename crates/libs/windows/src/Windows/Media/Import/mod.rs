@@ -1771,6 +1771,11 @@ impl ::core::clone::Clone for PhotoImportProgress {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoImportProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PhotoImportProgress").field("ItemsImported", &self.ItemsImported).field("TotalItemsToImport", &self.TotalItemsToImport).field("BytesImported", &self.BytesImported).field("TotalBytesToImport", &self.TotalBytesToImport).field("ImportProgress", &self.ImportProgress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportProgress {
     type Abi = Self;
 }

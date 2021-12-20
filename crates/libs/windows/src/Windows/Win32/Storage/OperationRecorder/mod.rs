@@ -12,6 +12,11 @@ impl ::core::clone::Clone for OPERATION_END_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for OPERATION_END_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPERATION_END_PARAMETERS").field("Version", &self.Version).field("OperationId", &self.OperationId).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPERATION_END_PARAMETERS {
     type Abi = Self;
 }
@@ -45,6 +50,11 @@ impl ::core::marker::Copy for OPERATION_START_PARAMETERS {}
 impl ::core::clone::Clone for OPERATION_START_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPERATION_START_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPERATION_START_PARAMETERS").field("Version", &self.Version).field("OperationId", &self.OperationId).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPERATION_START_PARAMETERS {

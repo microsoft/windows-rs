@@ -49,6 +49,12 @@ impl ::core::clone::Clone for BitmapDescription {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for BitmapDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("AlphaMode", &self.AlphaMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for BitmapDescription {
     type Abi = Self;
 }
@@ -79,6 +85,12 @@ pub struct CollectionElementValue {
 impl ::core::clone::Clone for CollectionElementValue {
     fn clone(&self) -> Self {
         Self { Index: self.Index, ValueType: self.ValueType.clone(), Value: self.Value.clone(), MetadataBits: self.MetadataBits }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CollectionElementValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CollectionElementValue").field("Index", &self.Index).field("ValueType", &self.ValueType).field("Value", &self.Value).field("MetadataBits", &self.MetadataBits).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -113,6 +125,12 @@ pub struct EnumType {
 impl ::core::clone::Clone for EnumType {
     fn clone(&self) -> Self {
         Self { Name: self.Name.clone(), ValueInts: self.ValueInts, ValueStrings: self.ValueStrings }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for EnumType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EnumType").field("Name", &self.Name).field("ValueInts", &self.ValueInts).field("ValueStrings", &self.ValueStrings).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -997,6 +1015,11 @@ impl ::core::clone::Clone for ParentChildRelation {
         *self
     }
 }
+impl ::core::fmt::Debug for ParentChildRelation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ParentChildRelation").field("Parent", &self.Parent).field("Child", &self.Child).field("ChildIndex", &self.ChildIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ParentChildRelation {
     type Abi = Self;
 }
@@ -1025,6 +1048,12 @@ pub struct PropertyChainSource {
 impl ::core::clone::Clone for PropertyChainSource {
     fn clone(&self) -> Self {
         Self { Handle: self.Handle, TargetType: self.TargetType.clone(), Name: self.Name.clone(), Source: self.Source, SrcInfo: self.SrcInfo.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PropertyChainSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PropertyChainSource").field("Handle", &self.Handle).field("TargetType", &self.TargetType).field("Name", &self.Name).field("Source", &self.Source).field("SrcInfo", &self.SrcInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1075,6 +1104,12 @@ impl ::core::clone::Clone for PropertyChainValue {
             PropertyName: self.PropertyName.clone(),
             PropertyChainIndex: self.PropertyChainIndex,
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PropertyChainValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PropertyChainValue").field("Index", &self.Index).field("Type", &self.Type).field("DeclaringType", &self.DeclaringType).field("ValueType", &self.ValueType).field("ItemType", &self.ItemType).field("Value", &self.Value).field("Overridden", &self.Overridden).field("MetadataBits", &self.MetadataBits).field("PropertyName", &self.PropertyName).field("PropertyChainIndex", &self.PropertyChainIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1130,6 +1165,12 @@ impl ::core::clone::Clone for SourceInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SourceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SourceInfo").field("FileName", &self.FileName).field("LineNumber", &self.LineNumber).field("ColumnNumber", &self.ColumnNumber).field("CharPosition", &self.CharPosition).field("Hash", &self.Hash).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SourceInfo {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1161,6 +1202,12 @@ pub struct VisualElement {
 impl ::core::clone::Clone for VisualElement {
     fn clone(&self) -> Self {
         Self { Handle: self.Handle, SrcInfo: self.SrcInfo.clone(), Type: self.Type.clone(), Name: self.Name.clone(), NumChildren: self.NumChildren }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VisualElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VisualElement").field("Handle", &self.Handle).field("SrcInfo", &self.SrcInfo).field("Type", &self.Type).field("Name", &self.Name).field("NumChildren", &self.NumChildren).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

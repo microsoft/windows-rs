@@ -828,6 +828,12 @@ impl ::core::clone::Clone for UI_EVENTPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UI_EVENTPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UI_EVENTPARAMS").field("EventType", &self.EventType).field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UI_EVENTPARAMS {
     type Abi = Self;
 }
@@ -895,6 +901,12 @@ impl ::core::marker::Copy for UI_EVENTPARAMS_COMMAND {}
 impl ::core::clone::Clone for UI_EVENTPARAMS_COMMAND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UI_EVENTPARAMS_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UI_EVENTPARAMS_COMMAND").field("CommandID", &self.CommandID).field("CommandName", &self.CommandName).field("ParentCommandID", &self.ParentCommandID).field("ParentCommandName", &self.ParentCommandName).field("SelectionIndex", &self.SelectionIndex).field("Location", &self.Location).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

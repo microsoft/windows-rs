@@ -9611,6 +9611,12 @@ impl ::core::clone::Clone for MseTimeRange {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for MseTimeRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MseTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for MseTimeRange {
     type Abi = Self;
 }
@@ -11471,6 +11477,11 @@ impl ::core::clone::Clone for TimedTextDouble {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextDouble {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedTextDouble").field("Value", &self.Value).field("Unit", &self.Unit).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextDouble {
     type Abi = Self;
 }
@@ -11689,6 +11700,11 @@ impl ::core::clone::Clone for TimedTextPadding {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextPadding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedTextPadding").field("Before", &self.Before).field("After", &self.After).field("Start", &self.Start).field("End", &self.End).field("Unit", &self.Unit).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextPadding {
     type Abi = Self;
 }
@@ -11720,6 +11736,11 @@ impl ::core::marker::Copy for TimedTextPoint {}
 impl ::core::clone::Clone for TimedTextPoint {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedTextPoint").field("X", &self.X).field("Y", &self.Y).field("Unit", &self.Unit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextPoint {
@@ -12226,6 +12247,11 @@ impl ::core::marker::Copy for TimedTextSize {}
 impl ::core::clone::Clone for TimedTextSize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedTextSize").field("Height", &self.Height).field("Width", &self.Width).field("Unit", &self.Unit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextSize {

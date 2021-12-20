@@ -25,6 +25,25 @@ impl ::core::clone::Clone for CALLFRAMEINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALLFRAMEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALLFRAMEINFO")
+            .field("iMethod", &self.iMethod)
+            .field("fHasInValues", &self.fHasInValues)
+            .field("fHasInOutValues", &self.fHasInOutValues)
+            .field("fHasOutValues", &self.fHasOutValues)
+            .field("fDerivesFromIDispatch", &self.fDerivesFromIDispatch)
+            .field("cInInterfacesMax", &self.cInInterfacesMax)
+            .field("cInOutInterfacesMax", &self.cInOutInterfacesMax)
+            .field("cOutInterfacesMax", &self.cOutInterfacesMax)
+            .field("cTopLevelInInterfaces", &self.cTopLevelInInterfaces)
+            .field("iid", &self.iid)
+            .field("cMethod", &self.cMethod)
+            .field("cParams", &self.cParams)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CALLFRAMEINFO {
     type Abi = Self;
 }
@@ -57,6 +76,12 @@ impl ::core::marker::Copy for CALLFRAMEPARAMINFO {}
 impl ::core::clone::Clone for CALLFRAMEPARAMINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALLFRAMEPARAMINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALLFRAMEPARAMINFO").field("fIn", &self.fIn).field("fOut", &self.fOut).field("stackOffset", &self.stackOffset).field("cbParam", &self.cbParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -119,6 +144,12 @@ impl ::core::clone::Clone for CALLFRAME_MARSHALCONTEXT {
             punkReserved: self.punkReserved.clone(),
             guidTransferSyntax: self.guidTransferSyntax,
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALLFRAME_MARSHALCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALLFRAME_MARSHALCONTEXT").field("fIn", &self.fIn).field("dwDestContext", &self.dwDestContext).field("pvDestContext", &self.pvDestContext).field("punkReserved", &self.punkReserved).field("guidTransferSyntax", &self.guidTransferSyntax).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

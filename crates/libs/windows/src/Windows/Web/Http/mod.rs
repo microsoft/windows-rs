@@ -2673,6 +2673,12 @@ impl ::core::clone::Clone for HttpProgress {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for HttpProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HttpProgress").field("Stage", &self.Stage).field("BytesSent", &self.BytesSent).field("TotalBytesToSend", &self.TotalBytesToSend).field("BytesReceived", &self.BytesReceived).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("Retries", &self.Retries).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for HttpProgress {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }

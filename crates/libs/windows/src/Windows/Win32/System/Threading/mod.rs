@@ -13,6 +13,11 @@ impl ::core::clone::Clone for APP_MEMORY_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for APP_MEMORY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APP_MEMORY_INFORMATION").field("AvailableCommit", &self.AvailableCommit).field("PrivateCommitUsage", &self.PrivateCommitUsage).field("PeakPrivateCommitUsage", &self.PeakPrivateCommitUsage).field("TotalCommitUsage", &self.TotalCommitUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for APP_MEMORY_INFORMATION {
     type Abi = Self;
 }
@@ -2241,6 +2246,11 @@ impl ::core::clone::Clone for IO_COUNTERS {
         *self
     }
 }
+impl ::core::fmt::Debug for IO_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IO_COUNTERS").field("ReadOperationCount", &self.ReadOperationCount).field("WriteOperationCount", &self.WriteOperationCount).field("OtherOperationCount", &self.OtherOperationCount).field("ReadTransferCount", &self.ReadTransferCount).field("WriteTransferCount", &self.WriteTransferCount).field("OtherTransferCount", &self.OtherTransferCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IO_COUNTERS {
     type Abi = Self;
 }
@@ -2663,6 +2673,11 @@ impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for MEMORY_PRIORITY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MEMORY_PRIORITY_INFORMATION").field("MemoryPriority", &self.MemoryPriority).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MEMORY_PRIORITY_INFORMATION {
     type Abi = Self;
 }
@@ -2923,6 +2938,32 @@ impl ::core::clone::Clone for PEB {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for PEB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEB")
+            .field("Reserved1", &self.Reserved1)
+            .field("BeingDebugged", &self.BeingDebugged)
+            .field("Reserved2", &self.Reserved2)
+            .field("Reserved3", &self.Reserved3)
+            .field("Ldr", &self.Ldr)
+            .field("ProcessParameters", &self.ProcessParameters)
+            .field("Reserved4", &self.Reserved4)
+            .field("AtlThunkSListPtr", &self.AtlThunkSListPtr)
+            .field("Reserved5", &self.Reserved5)
+            .field("Reserved6", &self.Reserved6)
+            .field("Reserved7", &self.Reserved7)
+            .field("Reserved8", &self.Reserved8)
+            .field("AtlThunkSListPtr32", &self.AtlThunkSListPtr32)
+            .field("Reserved9", &self.Reserved9)
+            .field("Reserved10", &self.Reserved10)
+            .field("PostProcessInitRoutine", &self.PostProcessInitRoutine)
+            .field("Reserved11", &self.Reserved11)
+            .field("Reserved12", &self.Reserved12)
+            .field("SessionId", &self.SessionId)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for PEB {
     type Abi = Self;
 }
@@ -2954,6 +2995,12 @@ impl ::core::marker::Copy for PEB_LDR_DATA {}
 impl ::core::clone::Clone for PEB_LDR_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::fmt::Debug for PEB_LDR_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PEB_LDR_DATA").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("InMemoryOrderModuleList", &self.InMemoryOrderModuleList).finish()
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -3134,6 +3181,12 @@ impl ::core::clone::Clone for PROCESS_BASIC_INFORMATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for PROCESS_BASIC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_BASIC_INFORMATION").field("Reserved1", &self.Reserved1).field("PebBaseAddress", &self.PebBaseAddress).field("Reserved2", &self.Reserved2).field("UniqueProcessId", &self.UniqueProcessId).field("Reserved3", &self.Reserved3).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for PROCESS_BASIC_INFORMATION {
     type Abi = Self;
 }
@@ -3235,6 +3288,11 @@ impl ::core::clone::Clone for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
         *self
     }
 }
+impl ::core::fmt::Debug for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGET").field("TargetAddress", &self.TargetAddress).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     type Abi = Self;
 }
@@ -3261,6 +3319,11 @@ impl ::core::marker::Copy for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATIO
 impl ::core::clone::Clone for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION").field("NumberOfTargets", &self.NumberOfTargets).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Targets", &self.Targets).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
@@ -3290,6 +3353,11 @@ impl ::core::clone::Clone for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE").field("BaseAddress", &self.BaseAddress).field("Size", &self.Size).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     type Abi = Self;
 }
@@ -3316,6 +3384,11 @@ impl ::core::marker::Copy for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATIO
 impl ::core::clone::Clone for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION").field("NumberOfRanges", &self.NumberOfRanges).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Ranges", &self.Ranges).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
@@ -3347,6 +3420,12 @@ impl ::core::marker::Copy for PROCESS_INFORMATION {}
 impl ::core::clone::Clone for PROCESS_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROCESS_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_INFORMATION").field("hProcess", &self.hProcess).field("hThread", &self.hThread).field("dwProcessId", &self.dwProcessId).field("dwThreadId", &self.dwThreadId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3403,6 +3482,11 @@ impl ::core::clone::Clone for PROCESS_LEAP_SECOND_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PROCESS_LEAP_SECOND_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_LEAP_SECOND_INFO").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_LEAP_SECOND_INFO {
     type Abi = Self;
 }
@@ -3434,6 +3518,11 @@ impl ::core::clone::Clone for PROCESS_MACHINE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for PROCESS_MACHINE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_MACHINE_INFORMATION").field("ProcessMachine", &self.ProcessMachine).field("Res0", &self.Res0).field("MachineAttributes", &self.MachineAttributes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_MACHINE_INFORMATION {
     type Abi = Self;
 }
@@ -3460,6 +3549,11 @@ impl ::core::marker::Copy for PROCESS_MEMORY_EXHAUSTION_INFO {}
 impl ::core::clone::Clone for PROCESS_MEMORY_EXHAUSTION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_MEMORY_EXHAUSTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_MEMORY_EXHAUSTION_INFO").field("Version", &self.Version).field("Reserved", &self.Reserved).field("Type", &self.Type).field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MEMORY_EXHAUSTION_INFO {
@@ -3545,6 +3639,11 @@ impl ::core::clone::Clone for PROCESS_POWER_THROTTLING_STATE {
         *self
     }
 }
+impl ::core::fmt::Debug for PROCESS_POWER_THROTTLING_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_POWER_THROTTLING_STATE").field("Version", &self.Version).field("ControlMask", &self.ControlMask).field("StateMask", &self.StateMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_POWER_THROTTLING_STATE {
     type Abi = Self;
 }
@@ -3590,6 +3689,11 @@ impl ::core::marker::Copy for PROCESS_PROTECTION_LEVEL_INFORMATION {}
 impl ::core::clone::Clone for PROCESS_PROTECTION_LEVEL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_PROTECTION_LEVEL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_PROTECTION_LEVEL_INFORMATION").field("ProtectionLevel", &self.ProtectionLevel).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_PROTECTION_LEVEL_INFORMATION {
@@ -3814,6 +3918,12 @@ impl ::core::clone::Clone for REASON_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REASON_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REASON_CONTEXT").field("Version", &self.Version).field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REASON_CONTEXT {
     type Abi = Self;
 }
@@ -3882,6 +3992,12 @@ impl ::core::clone::Clone for REASON_CONTEXT_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REASON_CONTEXT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REASON_CONTEXT_0_0").field("LocalizedReasonModule", &self.LocalizedReasonModule).field("LocalizedReasonId", &self.LocalizedReasonId).field("ReasonStringCount", &self.ReasonStringCount).field("ReasonStrings", &self.ReasonStrings).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REASON_CONTEXT_0_0 {
     type Abi = Self;
 }
@@ -3914,6 +4030,11 @@ impl ::core::clone::Clone for RTL_BARRIER {
         *self
     }
 }
+impl ::core::fmt::Debug for RTL_BARRIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RTL_BARRIER").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RTL_BARRIER {
     type Abi = Self;
 }
@@ -3937,6 +4058,11 @@ impl ::core::marker::Copy for RTL_CONDITION_VARIABLE {}
 impl ::core::clone::Clone for RTL_CONDITION_VARIABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RTL_CONDITION_VARIABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RTL_CONDITION_VARIABLE").field("Ptr", &self.Ptr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RTL_CONDITION_VARIABLE {
@@ -3970,6 +4096,12 @@ impl ::core::marker::Copy for RTL_CRITICAL_SECTION {}
 impl ::core::clone::Clone for RTL_CRITICAL_SECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for RTL_CRITICAL_SECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RTL_CRITICAL_SECTION").field("DebugInfo", &self.DebugInfo).field("LockCount", &self.LockCount).field("RecursionCount", &self.RecursionCount).field("OwningThread", &self.OwningThread).field("LockSemaphore", &self.LockSemaphore).field("SpinCount", &self.SpinCount).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4010,6 +4142,12 @@ impl ::core::marker::Copy for RTL_CRITICAL_SECTION_DEBUG {}
 impl ::core::clone::Clone for RTL_CRITICAL_SECTION_DEBUG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for RTL_CRITICAL_SECTION_DEBUG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RTL_CRITICAL_SECTION_DEBUG").field("Type", &self.Type).field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex).field("CriticalSection", &self.CriticalSection).field("ProcessLocksList", &self.ProcessLocksList).field("EntryCount", &self.EntryCount).field("ContentionCount", &self.ContentionCount).field("Flags", &self.Flags).field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh).field("SpareWORD", &self.SpareWORD).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4066,6 +4204,11 @@ impl ::core::clone::Clone for RTL_SRWLOCK {
         *self
     }
 }
+impl ::core::fmt::Debug for RTL_SRWLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RTL_SRWLOCK").field("Ptr", &self.Ptr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RTL_SRWLOCK {
     type Abi = Self;
 }
@@ -4113,6 +4256,12 @@ impl ::core::marker::Copy for RTL_USER_PROCESS_PARAMETERS {}
 impl ::core::clone::Clone for RTL_USER_PROCESS_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RTL_USER_PROCESS_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RTL_USER_PROCESS_PARAMETERS").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("ImagePathName", &self.ImagePathName).field("CommandLine", &self.CommandLine).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4298,6 +4447,31 @@ impl ::core::clone::Clone for STARTUPINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STARTUPINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STARTUPINFOA")
+            .field("cb", &self.cb)
+            .field("lpReserved", &self.lpReserved)
+            .field("lpDesktop", &self.lpDesktop)
+            .field("lpTitle", &self.lpTitle)
+            .field("dwX", &self.dwX)
+            .field("dwY", &self.dwY)
+            .field("dwXSize", &self.dwXSize)
+            .field("dwYSize", &self.dwYSize)
+            .field("dwXCountChars", &self.dwXCountChars)
+            .field("dwYCountChars", &self.dwYCountChars)
+            .field("dwFillAttribute", &self.dwFillAttribute)
+            .field("dwFlags", &self.dwFlags)
+            .field("wShowWindow", &self.wShowWindow)
+            .field("cbReserved2", &self.cbReserved2)
+            .field("lpReserved2", &self.lpReserved2)
+            .field("hStdInput", &self.hStdInput)
+            .field("hStdOutput", &self.hStdOutput)
+            .field("hStdError", &self.hStdError)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STARTUPINFOA {
     type Abi = Self;
 }
@@ -4331,6 +4505,12 @@ impl ::core::clone::Clone for STARTUPINFOEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STARTUPINFOEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STARTUPINFOEXA").field("StartupInfo", &self.StartupInfo).field("lpAttributeList", &self.lpAttributeList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STARTUPINFOEXA {
     type Abi = Self;
 }
@@ -4361,6 +4541,12 @@ impl ::core::marker::Copy for STARTUPINFOEXW {}
 impl ::core::clone::Clone for STARTUPINFOEXW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STARTUPINFOEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STARTUPINFOEXW").field("StartupInfo", &self.StartupInfo).field("lpAttributeList", &self.lpAttributeList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4410,6 +4596,31 @@ impl ::core::marker::Copy for STARTUPINFOW {}
 impl ::core::clone::Clone for STARTUPINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STARTUPINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STARTUPINFOW")
+            .field("cb", &self.cb)
+            .field("lpReserved", &self.lpReserved)
+            .field("lpDesktop", &self.lpDesktop)
+            .field("lpTitle", &self.lpTitle)
+            .field("dwX", &self.dwX)
+            .field("dwY", &self.dwY)
+            .field("dwXSize", &self.dwXSize)
+            .field("dwYSize", &self.dwYSize)
+            .field("dwXCountChars", &self.dwXCountChars)
+            .field("dwYCountChars", &self.dwYCountChars)
+            .field("dwFillAttribute", &self.dwFillAttribute)
+            .field("dwFlags", &self.dwFlags)
+            .field("wShowWindow", &self.wShowWindow)
+            .field("cbReserved2", &self.cbReserved2)
+            .field("lpReserved2", &self.lpReserved2)
+            .field("hStdInput", &self.hStdInput)
+            .field("hStdOutput", &self.hStdOutput)
+            .field("hStdError", &self.hStdError)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5294,6 +5505,11 @@ impl ::core::clone::Clone for THREAD_POWER_THROTTLING_STATE {
         *self
     }
 }
+impl ::core::fmt::Debug for THREAD_POWER_THROTTLING_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("THREAD_POWER_THROTTLING_STATE").field("Version", &self.Version).field("ControlMask", &self.ControlMask).field("StateMask", &self.StateMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for THREAD_POWER_THROTTLING_STATE {
     type Abi = Self;
 }
@@ -5352,6 +5568,11 @@ impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
         *self
     }
 }
+impl ::core::fmt::Debug for TP_CALLBACK_ENVIRON_V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TP_CALLBACK_ENVIRON_V3").field("Version", &self.Version).field("Pool", &self.Pool).field("CleanupGroup", &self.CleanupGroup).field("CleanupGroupCancelCallback", &self.CleanupGroupCancelCallback).field("RaceDll", &self.RaceDll).field("ActivationContext", &self.ActivationContext).field("FinalizationCallback", &self.FinalizationCallback).field("u", &self.u).field("CallbackPriority", &self.CallbackPriority).field("Size", &self.Size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3 {
     type Abi = Self;
 }
@@ -5405,6 +5626,11 @@ impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TP_CALLBACK_ENVIRON_V3_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TP_CALLBACK_ENVIRON_V3_1_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3_1_0 {
     type Abi = Self;
 }
@@ -5445,6 +5671,11 @@ impl ::core::marker::Copy for TP_POOL_STACK_INFORMATION {}
 impl ::core::clone::Clone for TP_POOL_STACK_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TP_POOL_STACK_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TP_POOL_STACK_INFORMATION").field("StackReserve", &self.StackReserve).field("StackCommit", &self.StackCommit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TP_POOL_STACK_INFORMATION {
@@ -5634,6 +5865,12 @@ impl ::core::clone::Clone for UMS_SCHEDULER_STARTUP_INFO {
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::fmt::Debug for UMS_SCHEDULER_STARTUP_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UMS_SCHEDULER_STARTUP_INFO").field("UmsVersion", &self.UmsVersion).field("CompletionList", &self.CompletionList).field("SchedulerProc", &self.SchedulerProc).field("SchedulerParam", &self.SchedulerParam).finish()
+    }
+}
+#[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::core::Abi for UMS_SCHEDULER_STARTUP_INFO {
     type Abi = Self;
 }
@@ -5661,6 +5898,11 @@ impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION {}
 impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UMS_SYSTEM_THREAD_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UMS_SYSTEM_THREAD_INFORMATION").field("UmsVersion", &self.UmsVersion).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION {
@@ -5712,6 +5954,11 @@ impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
 impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UMS_SYSTEM_THREAD_INFORMATION_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION_0_0 {

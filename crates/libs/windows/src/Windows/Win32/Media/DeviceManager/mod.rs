@@ -6213,6 +6213,11 @@ impl ::core::clone::Clone for MTP_COMMAND_DATA_IN {
         *self
     }
 }
+impl ::core::fmt::Debug for MTP_COMMAND_DATA_IN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MTP_COMMAND_DATA_IN").field("OpCode", &self.OpCode).field("NumParams", &self.NumParams).field("Params", &self.Params).field("NextPhase", &self.NextPhase).field("CommandWriteDataSize", &self.CommandWriteDataSize).field("CommandWriteData", &self.CommandWriteData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_IN {
     type Abi = Self;
 }
@@ -6240,6 +6245,11 @@ impl ::core::marker::Copy for MTP_COMMAND_DATA_OUT {}
 impl ::core::clone::Clone for MTP_COMMAND_DATA_OUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MTP_COMMAND_DATA_OUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MTP_COMMAND_DATA_OUT").field("ResponseCode", &self.ResponseCode).field("NumParams", &self.NumParams).field("Params", &self.Params).field("CommandReadDataSize", &self.CommandReadDataSize).field("CommandReadData", &self.CommandReadData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_OUT {
@@ -6282,6 +6292,11 @@ impl ::core::marker::Copy for OPAQUECOMMAND {}
 impl ::core::clone::Clone for OPAQUECOMMAND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPAQUECOMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPAQUECOMMAND").field("guidCommand", &self.guidCommand).field("dwDataLen", &self.dwDataLen).field("pData", &self.pData).field("abMAC", &self.abMAC).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPAQUECOMMAND {
@@ -6330,6 +6345,11 @@ impl ::core::marker::Copy for WMDMDATETIME {}
 impl ::core::clone::Clone for WMDMDATETIME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WMDMDATETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDMDATETIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMDMDATETIME {
@@ -6468,6 +6488,11 @@ impl ::core::clone::Clone for WMDMID {
         *self
     }
 }
+impl ::core::fmt::Debug for WMDMID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDMID").field("cbSize", &self.cbSize).field("dwVendorID", &self.dwVendorID).field("pID", &self.pID).field("SerialNumberLength", &self.SerialNumberLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WMDMID {
     type Abi = Self;
 }
@@ -6512,6 +6537,12 @@ impl ::core::clone::Clone for WMDMMetadataView {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WMDMMetadataView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDMMetadataView").field("pwszViewName", &self.pwszViewName).field("nDepth", &self.nDepth).field("ppwszTags", &self.ppwszTags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WMDMMetadataView {
     type Abi = Self;
 }
@@ -6544,6 +6575,11 @@ impl ::core::marker::Copy for WMDMRIGHTS {}
 impl ::core::clone::Clone for WMDMRIGHTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WMDMRIGHTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDMRIGHTS").field("cbSize", &self.cbSize).field("dwContentType", &self.dwContentType).field("fuFlags", &self.fuFlags).field("fuRights", &self.fuRights).field("dwAppSec", &self.dwAppSec).field("dwPlaybackCount", &self.dwPlaybackCount).field("ExpirationDate", &self.ExpirationDate).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMDMRIGHTS {
@@ -6912,6 +6948,12 @@ impl ::core::clone::Clone for WMDM_FORMAT_CAPABILITY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::fmt::Debug for WMDM_FORMAT_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDM_FORMAT_CAPABILITY").field("nPropConfig", &self.nPropConfig).field("pConfigs", &self.pConfigs).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for WMDM_FORMAT_CAPABILITY {
     type Abi = Self;
 }
@@ -6986,6 +7028,12 @@ impl ::core::clone::Clone for WMDM_PROP_CONFIG {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::fmt::Debug for WMDM_PROP_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDM_PROP_CONFIG").field("nPreference", &self.nPreference).field("nPropDesc", &self.nPropDesc).field("pPropDesc", &self.pPropDesc).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for WMDM_PROP_CONFIG {
     type Abi = Self;
 }
@@ -7015,6 +7063,12 @@ pub struct WMDM_PROP_DESC {
 impl ::core::clone::Clone for WMDM_PROP_DESC {
     fn clone(&self) -> Self {
         Self { pwszPropName: self.pwszPropName, ValidValuesForm: self.ValidValuesForm, ValidValues: self.ValidValues.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::fmt::Debug for WMDM_PROP_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDM_PROP_DESC").field("pwszPropName", &self.pwszPropName).field("ValidValuesForm", &self.ValidValuesForm).field("ValidValues", &self.ValidValues).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -7082,6 +7136,12 @@ impl ::core::clone::Clone for WMDM_PROP_VALUES_ENUM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::fmt::Debug for WMDM_PROP_VALUES_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDM_PROP_VALUES_ENUM").field("cEnumValues", &self.cEnumValues).field("pValues", &self.pValues).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for WMDM_PROP_VALUES_ENUM {
     type Abi = Self;
 }
@@ -7111,6 +7171,12 @@ pub struct WMDM_PROP_VALUES_RANGE {
 impl ::core::clone::Clone for WMDM_PROP_VALUES_RANGE {
     fn clone(&self) -> Self {
         Self { rangeMin: self.rangeMin.clone(), rangeMax: self.rangeMax.clone(), rangeStep: self.rangeStep.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::fmt::Debug for WMDM_PROP_VALUES_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDM_PROP_VALUES_RANGE").field("rangeMin", &self.rangeMin).field("rangeMax", &self.rangeMax).field("rangeStep", &self.rangeStep).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -7322,6 +7388,12 @@ impl ::core::clone::Clone for WMFILECAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WMFILECAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMFILECAPABILITIES").field("pwszMimeType", &self.pwszMimeType).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WMFILECAPABILITIES {
     type Abi = Self;
 }
@@ -7360,6 +7432,11 @@ impl ::core::clone::Clone for _BITMAPINFOHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for _BITMAPINFOHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_BITMAPINFOHEADER").field("biSize", &self.biSize).field("biWidth", &self.biWidth).field("biHeight", &self.biHeight).field("biPlanes", &self.biPlanes).field("biBitCount", &self.biBitCount).field("biCompression", &self.biCompression).field("biSizeImage", &self.biSizeImage).field("biXPelsPerMeter", &self.biXPelsPerMeter).field("biYPelsPerMeter", &self.biYPelsPerMeter).field("biClrUsed", &self.biClrUsed).field("biClrImportant", &self.biClrImportant).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _BITMAPINFOHEADER {
     type Abi = Self;
 }
@@ -7391,6 +7468,12 @@ impl ::core::marker::Copy for _VIDEOINFOHEADER {}
 impl ::core::clone::Clone for _VIDEOINFOHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for _VIDEOINFOHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_VIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7428,6 +7511,11 @@ impl ::core::clone::Clone for _WAVEFORMATEX {
         *self
     }
 }
+impl ::core::fmt::Debug for _WAVEFORMATEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_WAVEFORMATEX").field("wFormatTag", &self.wFormatTag).field("nChannels", &self.nChannels).field("nSamplesPerSec", &self.nSamplesPerSec).field("nAvgBytesPerSec", &self.nAvgBytesPerSec).field("nBlockAlign", &self.nBlockAlign).field("wBitsPerSample", &self.wBitsPerSample).field("cbSize", &self.cbSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _WAVEFORMATEX {
     type Abi = Self;
 }
@@ -7455,6 +7543,12 @@ impl ::core::marker::Copy for __MACINFO {}
 impl ::core::clone::Clone for __MACINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for __MACINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__MACINFO").field("fUsed", &self.fUsed).field("abMacState", &self.abMacState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

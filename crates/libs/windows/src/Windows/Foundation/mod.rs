@@ -541,6 +541,11 @@ impl ::core::clone::Clone for DateTime {
         *self
     }
 }
+impl ::core::fmt::Debug for DateTime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DateTime").field("UniversalTime", &self.UniversalTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DateTime {
     type Abi = Self;
 }
@@ -835,6 +840,11 @@ impl ::core::marker::Copy for EventRegistrationToken {}
 impl ::core::clone::Clone for EventRegistrationToken {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EventRegistrationToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EventRegistrationToken").field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EventRegistrationToken {
@@ -3848,6 +3858,11 @@ impl ::core::clone::Clone for Point {
         *self
     }
 }
+impl ::core::fmt::Debug for Point {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Point").field("X", &self.X).field("Y", &self.Y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Point {
     type Abi = Self;
 }
@@ -4234,6 +4249,11 @@ impl ::core::clone::Clone for Rect {
         *self
     }
 }
+impl ::core::fmt::Debug for Rect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Rect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Rect {
     type Abi = Self;
 }
@@ -4266,6 +4286,11 @@ impl ::core::clone::Clone for Size {
         *self
     }
 }
+impl ::core::fmt::Debug for Size {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Size").field("Width", &self.Width).field("Height", &self.Height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Size {
     type Abi = Self;
 }
@@ -4295,6 +4320,11 @@ impl ::core::marker::Copy for TimeSpan {}
 impl ::core::clone::Clone for TimeSpan {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimeSpan {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimeSpan").field("Duration", &self.Duration).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimeSpan {

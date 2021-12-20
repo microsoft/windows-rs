@@ -98,6 +98,12 @@ impl ::core::clone::Clone for DXGI_ADAPTER_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_ADAPTER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_ADAPTER_DESC").field("Description", &self.Description).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DedicatedVideoMemory", &self.DedicatedVideoMemory).field("DedicatedSystemMemory", &self.DedicatedSystemMemory).field("SharedSystemMemory", &self.SharedSystemMemory).field("AdapterLuid", &self.AdapterLuid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_ADAPTER_DESC {
     type Abi = Self;
 }
@@ -136,6 +142,12 @@ impl ::core::marker::Copy for DXGI_ADAPTER_DESC1 {}
 impl ::core::clone::Clone for DXGI_ADAPTER_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_ADAPTER_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_ADAPTER_DESC1").field("Description", &self.Description).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DedicatedVideoMemory", &self.DedicatedVideoMemory).field("DedicatedSystemMemory", &self.DedicatedSystemMemory).field("SharedSystemMemory", &self.SharedSystemMemory).field("AdapterLuid", &self.AdapterLuid).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -182,6 +194,25 @@ impl ::core::clone::Clone for DXGI_ADAPTER_DESC2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_ADAPTER_DESC2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_ADAPTER_DESC2")
+            .field("Description", &self.Description)
+            .field("VendorId", &self.VendorId)
+            .field("DeviceId", &self.DeviceId)
+            .field("SubSysId", &self.SubSysId)
+            .field("Revision", &self.Revision)
+            .field("DedicatedVideoMemory", &self.DedicatedVideoMemory)
+            .field("DedicatedSystemMemory", &self.DedicatedSystemMemory)
+            .field("SharedSystemMemory", &self.SharedSystemMemory)
+            .field("AdapterLuid", &self.AdapterLuid)
+            .field("Flags", &self.Flags)
+            .field("GraphicsPreemptionGranularity", &self.GraphicsPreemptionGranularity)
+            .field("ComputePreemptionGranularity", &self.ComputePreemptionGranularity)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_ADAPTER_DESC2 {
     type Abi = Self;
 }
@@ -222,6 +253,25 @@ impl ::core::marker::Copy for DXGI_ADAPTER_DESC3 {}
 impl ::core::clone::Clone for DXGI_ADAPTER_DESC3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_ADAPTER_DESC3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_ADAPTER_DESC3")
+            .field("Description", &self.Description)
+            .field("VendorId", &self.VendorId)
+            .field("DeviceId", &self.DeviceId)
+            .field("SubSysId", &self.SubSysId)
+            .field("Revision", &self.Revision)
+            .field("DedicatedVideoMemory", &self.DedicatedVideoMemory)
+            .field("DedicatedSystemMemory", &self.DedicatedSystemMemory)
+            .field("SharedSystemMemory", &self.SharedSystemMemory)
+            .field("AdapterLuid", &self.AdapterLuid)
+            .field("Flags", &self.Flags)
+            .field("GraphicsPreemptionGranularity", &self.GraphicsPreemptionGranularity)
+            .field("ComputePreemptionGranularity", &self.ComputePreemptionGranularity)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -309,6 +359,11 @@ impl ::core::clone::Clone for DXGI_DECODE_SWAP_CHAIN_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_DECODE_SWAP_CHAIN_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_DECODE_SWAP_CHAIN_DESC").field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_DECODE_SWAP_CHAIN_DESC {
     type Abi = Self;
 }
@@ -333,6 +388,11 @@ impl ::core::marker::Copy for DXGI_DISPLAY_COLOR_SPACE {}
 impl ::core::clone::Clone for DXGI_DISPLAY_COLOR_SPACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_DISPLAY_COLOR_SPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_DISPLAY_COLOR_SPACE").field("PrimaryCoordinates", &self.PrimaryCoordinates).field("WhitePoints", &self.WhitePoints).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_DISPLAY_COLOR_SPACE {
@@ -450,6 +510,11 @@ impl ::core::clone::Clone for DXGI_FRAME_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_FRAME_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_FRAME_STATISTICS").field("PresentCount", &self.PresentCount).field("PresentRefreshCount", &self.PresentRefreshCount).field("SyncRefreshCount", &self.SyncRefreshCount).field("SyncQPCTime", &self.SyncQPCTime).field("SyncGPUTime", &self.SyncGPUTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_FRAME_STATISTICS {
     type Abi = Self;
 }
@@ -479,6 +544,11 @@ impl ::core::marker::Copy for DXGI_FRAME_STATISTICS_MEDIA {}
 impl ::core::clone::Clone for DXGI_FRAME_STATISTICS_MEDIA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_FRAME_STATISTICS_MEDIA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_FRAME_STATISTICS_MEDIA").field("PresentCount", &self.PresentCount).field("PresentRefreshCount", &self.PresentRefreshCount).field("SyncRefreshCount", &self.SyncRefreshCount).field("SyncQPCTime", &self.SyncQPCTime).field("SyncGPUTime", &self.SyncGPUTime).field("CompositionMode", &self.CompositionMode).field("ApprovedPresentDuration", &self.ApprovedPresentDuration).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_FRAME_STATISTICS_MEDIA {
@@ -541,6 +611,11 @@ impl ::core::clone::Clone for DXGI_HDR_METADATA_HDR10 {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_HDR_METADATA_HDR10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_HDR_METADATA_HDR10").field("RedPrimary", &self.RedPrimary).field("GreenPrimary", &self.GreenPrimary).field("BluePrimary", &self.BluePrimary).field("WhitePoint", &self.WhitePoint).field("MaxMasteringLuminance", &self.MaxMasteringLuminance).field("MinMasteringLuminance", &self.MinMasteringLuminance).field("MaxContentLightLevel", &self.MaxContentLightLevel).field("MaxFrameAverageLightLevel", &self.MaxFrameAverageLightLevel).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_HDR_METADATA_HDR10 {
     type Abi = Self;
 }
@@ -564,6 +639,11 @@ impl ::core::marker::Copy for DXGI_HDR_METADATA_HDR10PLUS {}
 impl ::core::clone::Clone for DXGI_HDR_METADATA_HDR10PLUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_HDR_METADATA_HDR10PLUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_HDR_METADATA_HDR10PLUS").field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_HDR_METADATA_HDR10PLUS {
@@ -602,6 +682,11 @@ impl ::core::clone::Clone for DXGI_INFO_QUEUE_FILTER {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_INFO_QUEUE_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_INFO_QUEUE_FILTER").field("AllowList", &self.AllowList).field("DenyList", &self.DenyList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_FILTER {
     type Abi = Self;
 }
@@ -632,6 +717,11 @@ impl ::core::clone::Clone for DXGI_INFO_QUEUE_FILTER_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_INFO_QUEUE_FILTER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_INFO_QUEUE_FILTER_DESC").field("NumCategories", &self.NumCategories).field("pCategoryList", &self.pCategoryList).field("NumSeverities", &self.NumSeverities).field("pSeverityList", &self.pSeverityList).field("NumIDs", &self.NumIDs).field("pIDList", &self.pIDList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_FILTER_DESC {
     type Abi = Self;
 }
@@ -660,6 +750,11 @@ impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE {}
 impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_INFO_QUEUE_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_INFO_QUEUE_MESSAGE").field("Producer", &self.Producer).field("Category", &self.Category).field("Severity", &self.Severity).field("ID", &self.ID).field("pDescription", &self.pDescription).field("DescriptionByteLength", &self.DescriptionByteLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_MESSAGE {
@@ -726,6 +821,11 @@ impl ::core::clone::Clone for DXGI_MAPPED_RECT {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_MAPPED_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_MAPPED_RECT").field("Pitch", &self.Pitch).field("pBits", &self.pBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_MAPPED_RECT {
     type Abi = Self;
 }
@@ -760,6 +860,11 @@ impl ::core::marker::Copy for DXGI_MATRIX_3X2_F {}
 impl ::core::clone::Clone for DXGI_MATRIX_3X2_F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_MATRIX_3X2_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_MATRIX_3X2_F").field("_11", &self._11).field("_12", &self._12).field("_21", &self._21).field("_22", &self._22).field("_31", &self._31).field("_32", &self._32).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_MATRIX_3X2_F {
@@ -802,6 +907,12 @@ impl ::core::marker::Copy for DXGI_MODE_DESC1 {}
 impl ::core::clone::Clone for DXGI_MODE_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_MODE_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_MODE_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("RefreshRate", &self.RefreshRate).field("Format", &self.Format).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).field("Stereo", &self.Stereo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1531,6 +1642,12 @@ impl ::core::clone::Clone for DXGI_OUTDUPL_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_DESC").field("ModeDesc", &self.ModeDesc).field("Rotation", &self.Rotation).field("DesktopImageInSystemMemory", &self.DesktopImageInSystemMemory).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_DESC {
     type Abi = Self;
 }
@@ -1574,6 +1691,21 @@ impl ::core::clone::Clone for DXGI_OUTDUPL_FRAME_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_FRAME_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_FRAME_INFO")
+            .field("LastPresentTime", &self.LastPresentTime)
+            .field("LastMouseUpdateTime", &self.LastMouseUpdateTime)
+            .field("AccumulatedFrames", &self.AccumulatedFrames)
+            .field("RectsCoalesced", &self.RectsCoalesced)
+            .field("ProtectedContentMaskedOut", &self.ProtectedContentMaskedOut)
+            .field("PointerPosition", &self.PointerPosition)
+            .field("TotalMetadataBufferSize", &self.TotalMetadataBufferSize)
+            .field("PointerShapeBufferSize", &self.PointerShapeBufferSize)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_FRAME_INFO {
     type Abi = Self;
 }
@@ -1604,6 +1736,12 @@ impl ::core::marker::Copy for DXGI_OUTDUPL_MOVE_RECT {}
 impl ::core::clone::Clone for DXGI_OUTDUPL_MOVE_RECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_MOVE_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_MOVE_RECT").field("SourcePoint", &self.SourcePoint).field("DestinationRect", &self.DestinationRect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1640,6 +1778,12 @@ impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_POSITION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_POINTER_POSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_POINTER_POSITION").field("Position", &self.Position).field("Visible", &self.Visible).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_POINTER_POSITION {
     type Abi = Self;
 }
@@ -1673,6 +1817,12 @@ impl ::core::marker::Copy for DXGI_OUTDUPL_POINTER_SHAPE_INFO {}
 impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTDUPL_POINTER_SHAPE_INFO").field("Type", &self.Type).field("Width", &self.Width).field("Height", &self.Height).field("Pitch", &self.Pitch).field("HotSpot", &self.HotSpot).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1720,6 +1870,12 @@ impl ::core::clone::Clone for DXGI_OUTPUT_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DXGI_OUTPUT_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTPUT_DESC").field("DeviceName", &self.DeviceName).field("DesktopCoordinates", &self.DesktopCoordinates).field("AttachedToDesktop", &self.AttachedToDesktop).field("Rotation", &self.Rotation).field("Monitor", &self.Monitor).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DXGI_OUTPUT_DESC {
     type Abi = Self;
 }
@@ -1762,6 +1918,27 @@ impl ::core::marker::Copy for DXGI_OUTPUT_DESC1 {}
 impl ::core::clone::Clone for DXGI_OUTPUT_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DXGI_OUTPUT_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_OUTPUT_DESC1")
+            .field("DeviceName", &self.DeviceName)
+            .field("DesktopCoordinates", &self.DesktopCoordinates)
+            .field("AttachedToDesktop", &self.AttachedToDesktop)
+            .field("Rotation", &self.Rotation)
+            .field("Monitor", &self.Monitor)
+            .field("BitsPerColor", &self.BitsPerColor)
+            .field("ColorSpace", &self.ColorSpace)
+            .field("RedPrimary", &self.RedPrimary)
+            .field("GreenPrimary", &self.GreenPrimary)
+            .field("BluePrimary", &self.BluePrimary)
+            .field("WhitePoint", &self.WhitePoint)
+            .field("MinLuminance", &self.MinLuminance)
+            .field("MaxLuminance", &self.MaxLuminance)
+            .field("MaxFullFrameLuminance", &self.MaxFullFrameLuminance)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1816,6 +1993,12 @@ impl ::core::clone::Clone for DXGI_PRESENT_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_PRESENT_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_PRESENT_PARAMETERS").field("DirtyRectsCount", &self.DirtyRectsCount).field("pDirtyRects", &self.pDirtyRects).field("pScrollRect", &self.pScrollRect).field("pScrollOffset", &self.pScrollOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXGI_PRESENT_PARAMETERS {
     type Abi = Self;
 }
@@ -1857,6 +2040,11 @@ impl ::core::marker::Copy for DXGI_QUERY_VIDEO_MEMORY_INFO {}
 impl ::core::clone::Clone for DXGI_QUERY_VIDEO_MEMORY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXGI_QUERY_VIDEO_MEMORY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_QUERY_VIDEO_MEMORY_INFO").field("Budget", &self.Budget).field("CurrentUsage", &self.CurrentUsage).field("AvailableForReservation", &self.AvailableForReservation).field("CurrentReservation", &self.CurrentReservation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_QUERY_VIDEO_MEMORY_INFO {
@@ -1915,6 +2103,11 @@ impl ::core::clone::Clone for DXGI_RGBA {
         *self
     }
 }
+impl ::core::fmt::Debug for DXGI_RGBA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_RGBA").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_RGBA {
     type Abi = Self;
 }
@@ -1949,6 +2142,12 @@ impl ::core::marker::Copy for DXGI_SHARED_RESOURCE {}
 impl ::core::clone::Clone for DXGI_SHARED_RESOURCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXGI_SHARED_RESOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SHARED_RESOURCE").field("Handle", &self.Handle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1988,6 +2187,12 @@ impl ::core::marker::Copy for DXGI_SURFACE_DESC {}
 impl ::core::clone::Clone for DXGI_SURFACE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for DXGI_SURFACE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SURFACE_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2036,6 +2241,12 @@ impl ::core::clone::Clone for DXGI_SWAP_CHAIN_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SWAP_CHAIN_DESC").field("BufferDesc", &self.BufferDesc).field("SampleDesc", &self.SampleDesc).field("BufferUsage", &self.BufferUsage).field("BufferCount", &self.BufferCount).field("OutputWindow", &self.OutputWindow).field("Windowed", &self.Windowed).field("SwapEffect", &self.SwapEffect).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for DXGI_SWAP_CHAIN_DESC {
     type Abi = Self;
 }
@@ -2075,6 +2286,12 @@ impl ::core::marker::Copy for DXGI_SWAP_CHAIN_DESC1 {}
 impl ::core::clone::Clone for DXGI_SWAP_CHAIN_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SWAP_CHAIN_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("Stereo", &self.Stereo).field("SampleDesc", &self.SampleDesc).field("BufferUsage", &self.BufferUsage).field("BufferCount", &self.BufferCount).field("Scaling", &self.Scaling).field("SwapEffect", &self.SwapEffect).field("AlphaMode", &self.AlphaMode).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2138,6 +2355,12 @@ impl ::core::marker::Copy for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {}
 impl ::core::clone::Clone for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXGI_SWAP_CHAIN_FULLSCREEN_DESC").field("RefreshRate", &self.RefreshRate).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).field("Windowed", &self.Windowed).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]

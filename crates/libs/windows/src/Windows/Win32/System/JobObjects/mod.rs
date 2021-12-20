@@ -202,6 +202,12 @@ impl ::core::clone::Clone for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_ASSOCIATE_COMPLETION_PORT").field("CompletionKey", &self.CompletionKey).field("CompletionPort", &self.CompletionPort).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     type Abi = Self;
 }
@@ -237,6 +243,20 @@ impl ::core::clone::Clone for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_BASIC_ACCOUNTING_INFORMATION")
+            .field("TotalUserTime", &self.TotalUserTime)
+            .field("TotalKernelTime", &self.TotalKernelTime)
+            .field("ThisPeriodTotalUserTime", &self.ThisPeriodTotalUserTime)
+            .field("ThisPeriodTotalKernelTime", &self.ThisPeriodTotalKernelTime)
+            .field("TotalPageFaultCount", &self.TotalPageFaultCount)
+            .field("TotalProcesses", &self.TotalProcesses)
+            .field("ActiveProcesses", &self.ActiveProcesses)
+            .field("TotalTerminatedProcesses", &self.TotalTerminatedProcesses)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     type Abi = Self;
 }
@@ -264,6 +284,12 @@ impl ::core::marker::Copy for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Threading")]
+impl ::core::fmt::Debug for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION").field("BasicInfo", &self.BasicInfo).field("IoInfo", &self.IoInfo).finish()
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
@@ -303,6 +329,21 @@ impl ::core::clone::Clone for JOBOBJECT_BASIC_LIMIT_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for JOBOBJECT_BASIC_LIMIT_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_BASIC_LIMIT_INFORMATION")
+            .field("PerProcessUserTimeLimit", &self.PerProcessUserTimeLimit)
+            .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
+            .field("LimitFlags", &self.LimitFlags)
+            .field("MinimumWorkingSetSize", &self.MinimumWorkingSetSize)
+            .field("MaximumWorkingSetSize", &self.MaximumWorkingSetSize)
+            .field("ActiveProcessLimit", &self.ActiveProcessLimit)
+            .field("Affinity", &self.Affinity)
+            .field("PriorityClass", &self.PriorityClass)
+            .field("SchedulingClass", &self.SchedulingClass)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_LIMIT_INFORMATION {
     type Abi = Self;
 }
@@ -330,6 +371,11 @@ impl ::core::clone::Clone for JOBOBJECT_BASIC_PROCESS_ID_LIST {
         *self
     }
 }
+impl ::core::fmt::Debug for JOBOBJECT_BASIC_PROCESS_ID_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_BASIC_PROCESS_ID_LIST").field("NumberOfAssignedProcesses", &self.NumberOfAssignedProcesses).field("NumberOfProcessIdsInList", &self.NumberOfProcessIdsInList).field("ProcessIdList", &self.ProcessIdList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_PROCESS_ID_LIST {
     type Abi = Self;
 }
@@ -353,6 +399,11 @@ impl ::core::marker::Copy for JOBOBJECT_BASIC_UI_RESTRICTIONS {}
 impl ::core::clone::Clone for JOBOBJECT_BASIC_UI_RESTRICTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_BASIC_UI_RESTRICTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_BASIC_UI_RESTRICTIONS").field("UIRestrictionsClass", &self.UIRestrictionsClass).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_UI_RESTRICTIONS {
@@ -379,6 +430,11 @@ impl ::core::marker::Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_CPU_RATE_CONTROL_INFORMATION").field("ControlFlags", &self.ControlFlags).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
@@ -434,6 +490,11 @@ impl ::core::clone::Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0").field("MinRate", &self.MinRate).field("MaxRate", &self.MaxRate).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     type Abi = Self;
 }
@@ -457,6 +518,11 @@ impl ::core::marker::Copy for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_END_OF_JOB_TIME_INFORMATION").field("EndOfJobTimeAction", &self.EndOfJobTimeAction).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
@@ -490,6 +556,12 @@ impl ::core::marker::Copy for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Threading")]
+impl ::core::fmt::Debug for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_EXTENDED_LIMIT_INFORMATION").field("BasicLimitInformation", &self.BasicLimitInformation).field("IoInfo", &self.IoInfo).field("ProcessMemoryLimit", &self.ProcessMemoryLimit).field("JobMemoryLimit", &self.JobMemoryLimit).field("PeakProcessMemoryUsed", &self.PeakProcessMemoryUsed).field("PeakJobMemoryUsed", &self.PeakJobMemoryUsed).finish()
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
@@ -531,6 +603,11 @@ impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_IO_ATTRIBUTION_INFORMATION").field("ControlFlags", &self.ControlFlags).field("ReadStats", &self.ReadStats).field("WriteStats", &self.WriteStats).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     type Abi = Self;
 }
@@ -557,6 +634,11 @@ impl ::core::marker::Copy for JOBOBJECT_IO_ATTRIBUTION_STATS {}
 impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_IO_ATTRIBUTION_STATS").field("IoCount", &self.IoCount).field("TotalNonOverlappedQueueTime", &self.TotalNonOverlappedQueueTime).field("TotalNonOverlappedServiceTime", &self.TotalNonOverlappedServiceTime).field("TotalSize", &self.TotalSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_IO_ATTRIBUTION_STATS {
@@ -590,6 +672,12 @@ impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION").field("MaxIops", &self.MaxIops).field("MaxBandwidth", &self.MaxBandwidth).field("ReservationIops", &self.ReservationIops).field("VolumeName", &self.VolumeName).field("BaseIoSize", &self.BaseIoSize).field("ControlFlags", &self.ControlFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -628,6 +716,12 @@ impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {}
 impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE").field("MaxIops", &self.MaxIops).field("MaxBandwidth", &self.MaxBandwidth).field("ReservationIops", &self.ReservationIops).field("VolumeName", &self.VolumeName).field("BaseIoSize", &self.BaseIoSize).field("ControlFlags", &self.ControlFlags).field("VolumeNameLength", &self.VolumeNameLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -672,6 +766,26 @@ impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {}
 impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2")
+            .field("MaxIops", &self.MaxIops)
+            .field("MaxBandwidth", &self.MaxBandwidth)
+            .field("ReservationIops", &self.ReservationIops)
+            .field("VolumeName", &self.VolumeName)
+            .field("BaseIoSize", &self.BaseIoSize)
+            .field("ControlFlags", &self.ControlFlags)
+            .field("VolumeNameLength", &self.VolumeNameLength)
+            .field("CriticalReservationIops", &self.CriticalReservationIops)
+            .field("ReservationBandwidth", &self.ReservationBandwidth)
+            .field("CriticalReservationBandwidth", &self.CriticalReservationBandwidth)
+            .field("MaxTimePercent", &self.MaxTimePercent)
+            .field("ReservationTimePercent", &self.ReservationTimePercent)
+            .field("CriticalReservationTimePercent", &self.CriticalReservationTimePercent)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -725,6 +839,32 @@ impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3")
+            .field("MaxIops", &self.MaxIops)
+            .field("MaxBandwidth", &self.MaxBandwidth)
+            .field("ReservationIops", &self.ReservationIops)
+            .field("VolumeName", &self.VolumeName)
+            .field("BaseIoSize", &self.BaseIoSize)
+            .field("ControlFlags", &self.ControlFlags)
+            .field("VolumeNameLength", &self.VolumeNameLength)
+            .field("CriticalReservationIops", &self.CriticalReservationIops)
+            .field("ReservationBandwidth", &self.ReservationBandwidth)
+            .field("CriticalReservationBandwidth", &self.CriticalReservationBandwidth)
+            .field("MaxTimePercent", &self.MaxTimePercent)
+            .field("ReservationTimePercent", &self.ReservationTimePercent)
+            .field("CriticalReservationTimePercent", &self.CriticalReservationTimePercent)
+            .field("SoftMaxIops", &self.SoftMaxIops)
+            .field("SoftMaxBandwidth", &self.SoftMaxBandwidth)
+            .field("SoftMaxTimePercent", &self.SoftMaxTimePercent)
+            .field("LimitExcessNotifyIops", &self.LimitExcessNotifyIops)
+            .field("LimitExcessNotifyBandwidth", &self.LimitExcessNotifyBandwidth)
+            .field("LimitExcessNotifyTimePercent", &self.LimitExcessNotifyTimePercent)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     type Abi = Self;
 }
@@ -751,6 +891,11 @@ impl ::core::marker::Copy for JOBOBJECT_JOBSET_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_JOBSET_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_JOBSET_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_JOBSET_INFORMATION").field("MemberLevel", &self.MemberLevel).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_JOBSET_INFORMATION {
@@ -787,6 +932,24 @@ impl ::core::marker::Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_LIMIT_VIOLATION_INFORMATION")
+            .field("LimitFlags", &self.LimitFlags)
+            .field("ViolationLimitFlags", &self.ViolationLimitFlags)
+            .field("IoReadBytes", &self.IoReadBytes)
+            .field("IoReadBytesLimit", &self.IoReadBytesLimit)
+            .field("IoWriteBytes", &self.IoWriteBytes)
+            .field("IoWriteBytesLimit", &self.IoWriteBytesLimit)
+            .field("PerJobUserTime", &self.PerJobUserTime)
+            .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
+            .field("JobMemory", &self.JobMemory)
+            .field("JobMemoryLimit", &self.JobMemoryLimit)
+            .field("RateControlTolerance", &self.RateControlTolerance)
+            .field("RateControlToleranceLimit", &self.RateControlToleranceLimit)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
@@ -828,6 +991,29 @@ impl ::core::marker::Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {}
 impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2")
+            .field("LimitFlags", &self.LimitFlags)
+            .field("ViolationLimitFlags", &self.ViolationLimitFlags)
+            .field("IoReadBytes", &self.IoReadBytes)
+            .field("IoReadBytesLimit", &self.IoReadBytesLimit)
+            .field("IoWriteBytes", &self.IoWriteBytes)
+            .field("IoWriteBytesLimit", &self.IoWriteBytesLimit)
+            .field("PerJobUserTime", &self.PerJobUserTime)
+            .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
+            .field("JobMemory", &self.JobMemory)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("Anonymous3", &self.Anonymous3)
+            .field("JobLowMemoryLimit", &self.JobLowMemoryLimit)
+            .field("IoRateControlTolerance", &self.IoRateControlTolerance)
+            .field("IoRateControlToleranceLimit", &self.IoRateControlToleranceLimit)
+            .field("NetRateControlTolerance", &self.NetRateControlTolerance)
+            .field("NetRateControlToleranceLimit", &self.NetRateControlToleranceLimit)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
@@ -935,6 +1121,11 @@ impl ::core::clone::Clone for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_NET_RATE_CONTROL_INFORMATION").field("MaxBandwidth", &self.MaxBandwidth).field("ControlFlags", &self.ControlFlags).field("DscpTag", &self.DscpTag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     type Abi = Self;
 }
@@ -964,6 +1155,11 @@ impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION").field("IoReadBytesLimit", &self.IoReadBytesLimit).field("IoWriteBytesLimit", &self.IoWriteBytesLimit).field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit).field("JobMemoryLimit", &self.JobMemoryLimit).field("RateControlTolerance", &self.RateControlTolerance).field("RateControlToleranceInterval", &self.RateControlToleranceInterval).field("LimitFlags", &self.LimitFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
@@ -1000,6 +1196,24 @@ impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {}
 impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2")
+            .field("IoReadBytesLimit", &self.IoReadBytesLimit)
+            .field("IoWriteBytesLimit", &self.IoWriteBytesLimit)
+            .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("Anonymous3", &self.Anonymous3)
+            .field("LimitFlags", &self.LimitFlags)
+            .field("IoRateControlTolerance", &self.IoRateControlTolerance)
+            .field("JobLowMemoryLimit", &self.JobLowMemoryLimit)
+            .field("IoRateControlToleranceInterval", &self.IoRateControlToleranceInterval)
+            .field("NetRateControlTolerance", &self.NetRateControlTolerance)
+            .field("NetRateControlToleranceInterval", &self.NetRateControlToleranceInterval)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
@@ -1126,6 +1340,12 @@ impl ::core::marker::Copy for JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_SECURITY_LIMIT_INFORMATION").field("SecurityLimitFlags", &self.SecurityLimitFlags).field("JobToken", &self.JobToken).field("SidsToDisable", &self.SidsToDisable).field("PrivilegesToDelete", &self.PrivilegesToDelete).field("RestrictedSids", &self.RestrictedSids).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1288,6 +1508,12 @@ impl ::core::marker::Copy for JOB_SET_ARRAY {}
 impl ::core::clone::Clone for JOB_SET_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JOB_SET_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOB_SET_ARRAY").field("JobHandle", &self.JobHandle).field("MemberLevel", &self.MemberLevel).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

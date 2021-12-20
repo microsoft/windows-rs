@@ -573,6 +573,11 @@ impl ::core::clone::Clone for Matrix3D {
         *self
     }
 }
+impl ::core::fmt::Debug for Matrix3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Matrix3D").field("M11", &self.M11).field("M12", &self.M12).field("M13", &self.M13).field("M14", &self.M14).field("M21", &self.M21).field("M22", &self.M22).field("M23", &self.M23).field("M24", &self.M24).field("M31", &self.M31).field("M32", &self.M32).field("M33", &self.M33).field("M34", &self.M34).field("OffsetX", &self.OffsetX).field("OffsetY", &self.OffsetY).field("OffsetZ", &self.OffsetZ).field("M44", &self.M44).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Matrix3D {
     type Abi = Self;
 }

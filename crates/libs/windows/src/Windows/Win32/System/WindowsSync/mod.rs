@@ -925,6 +925,12 @@ impl ::core::clone::Clone for ID_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ID_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ID_PARAMETERS").field("dwSize", &self.dwSize).field("replicaId", &self.replicaId).field("itemId", &self.itemId).field("changeUnitId", &self.changeUnitId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ID_PARAMETERS {
     type Abi = Self;
 }
@@ -955,6 +961,12 @@ impl ::core::marker::Copy for ID_PARAMETER_PAIR {}
 impl ::core::clone::Clone for ID_PARAMETER_PAIR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ID_PARAMETER_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ID_PARAMETER_PAIR").field("fIsVariable", &self.fIsVariable).field("cbIdSize", &self.cbIdSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6839,6 +6851,12 @@ impl ::core::clone::Clone for SYNC_FILTER_CHANGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SYNC_FILTER_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYNC_FILTER_CHANGE").field("fMoveIn", &self.fMoveIn).field("moveVersion", &self.moveVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SYNC_FILTER_CHANGE {
     type Abi = Self;
 }
@@ -6896,6 +6914,11 @@ impl ::core::marker::Copy for SYNC_RANGE {}
 impl ::core::clone::Clone for SYNC_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SYNC_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYNC_RANGE").field("pbClosedLowerBound", &self.pbClosedLowerBound).field("pbClosedUpperBound", &self.pbClosedUpperBound).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SYNC_RANGE {
@@ -6964,6 +6987,11 @@ impl ::core::clone::Clone for SYNC_SESSION_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for SYNC_SESSION_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYNC_SESSION_STATISTICS").field("dwChangesApplied", &self.dwChangesApplied).field("dwChangesFailed", &self.dwChangesFailed).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SYNC_SESSION_STATISTICS {
     type Abi = Self;
 }
@@ -6994,6 +7022,11 @@ impl ::core::clone::Clone for SYNC_TIME {
         *self
     }
 }
+impl ::core::fmt::Debug for SYNC_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYNC_TIME").field("dwDate", &self.dwDate).field("dwTime", &self.dwTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SYNC_TIME {
     type Abi = Self;
 }
@@ -7018,6 +7051,11 @@ impl ::core::marker::Copy for SYNC_VERSION {}
 impl ::core::clone::Clone for SYNC_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SYNC_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYNC_VERSION").field("dwLastUpdatingReplicaKey", &self.dwLastUpdatingReplicaKey).field("ullTickCount", &self.ullTickCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SYNC_VERSION {
@@ -7059,6 +7097,12 @@ impl ::core::clone::Clone for SyncProviderConfigUIConfiguration {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SyncProviderConfigUIConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SyncProviderConfigUIConfiguration").field("dwVersion", &self.dwVersion).field("guidInstanceId", &self.guidInstanceId).field("clsidConfigUI", &self.clsidConfigUI).field("guidContentType", &self.guidContentType).field("dwCapabilities", &self.dwCapabilities).field("dwSupportedArchitecture", &self.dwSupportedArchitecture).field("fIsGlobal", &self.fIsGlobal).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SyncProviderConfigUIConfiguration {
     type Abi = Self;
 }
@@ -7091,6 +7135,11 @@ impl ::core::marker::Copy for SyncProviderConfiguration {}
 impl ::core::clone::Clone for SyncProviderConfiguration {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SyncProviderConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SyncProviderConfiguration").field("dwVersion", &self.dwVersion).field("guidInstanceId", &self.guidInstanceId).field("clsidProvider", &self.clsidProvider).field("guidConfigUIInstanceId", &self.guidConfigUIInstanceId).field("guidContentType", &self.guidContentType).field("dwCapabilities", &self.dwCapabilities).field("dwSupportedArchitecture", &self.dwSupportedArchitecture).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SyncProviderConfiguration {

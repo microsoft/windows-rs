@@ -17,6 +17,12 @@ impl ::core::clone::Clone for APP_CACHE_DOWNLOAD_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for APP_CACHE_DOWNLOAD_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APP_CACHE_DOWNLOAD_ENTRY").field("pwszUrl", &self.pwszUrl).field("dwEntryType", &self.dwEntryType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for APP_CACHE_DOWNLOAD_ENTRY {
     type Abi = Self;
 }
@@ -47,6 +53,12 @@ impl ::core::marker::Copy for APP_CACHE_DOWNLOAD_LIST {}
 impl ::core::clone::Clone for APP_CACHE_DOWNLOAD_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for APP_CACHE_DOWNLOAD_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APP_CACHE_DOWNLOAD_LIST").field("dwEntryCount", &self.dwEntryCount).field("pEntries", &self.pEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -102,6 +114,12 @@ impl ::core::clone::Clone for APP_CACHE_GROUP_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for APP_CACHE_GROUP_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APP_CACHE_GROUP_INFO").field("pwszManifestUrl", &self.pwszManifestUrl).field("ftLastAccessTime", &self.ftLastAccessTime).field("ullSize", &self.ullSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for APP_CACHE_GROUP_INFO {
     type Abi = Self;
 }
@@ -132,6 +150,12 @@ impl ::core::marker::Copy for APP_CACHE_GROUP_LIST {}
 impl ::core::clone::Clone for APP_CACHE_GROUP_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for APP_CACHE_GROUP_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APP_CACHE_GROUP_LIST").field("dwAppCacheGroupCount", &self.dwAppCacheGroupCount).field("pAppCacheGroups", &self.pAppCacheGroups).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -208,6 +232,12 @@ impl ::core::marker::Copy for AUTO_PROXY_SCRIPT_BUFFER {}
 impl ::core::clone::Clone for AUTO_PROXY_SCRIPT_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTO_PROXY_SCRIPT_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTO_PROXY_SCRIPT_BUFFER").field("dwStructSize", &self.dwStructSize).field("lpszScriptBuffer", &self.lpszScriptBuffer).field("dwScriptBufferSize", &self.dwScriptBufferSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -506,6 +536,11 @@ impl ::core::clone::Clone for AutoProxyHelperFunctions {
         *self
     }
 }
+impl ::core::fmt::Debug for AutoProxyHelperFunctions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AutoProxyHelperFunctions").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutoProxyHelperFunctions {
     type Abi = Self;
 }
@@ -537,6 +572,11 @@ impl ::core::marker::Copy for AutoProxyHelperVtbl {}
 impl ::core::clone::Clone for AutoProxyHelperVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutoProxyHelperVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AutoProxyHelperVtbl").field("IsResolvable", &self.IsResolvable).field("GetIPAddress", &self.GetIPAddress).field("ResolveHostName", &self.ResolveHostName).field("IsInNet", &self.IsInNet).field("IsResolvableEx", &self.IsResolvableEx).field("GetIPAddressEx", &self.GetIPAddressEx).field("ResolveHostNameEx", &self.ResolveHostNameEx).field("IsInNetEx", &self.IsInNetEx).field("SortIpList", &self.SortIpList).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutoProxyHelperVtbl {
@@ -753,6 +793,12 @@ impl ::core::clone::Clone for COOKIE_DLG_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COOKIE_DLG_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COOKIE_DLG_INFO").field("pszServer", &self.pszServer).field("pic", &self.pic).field("dwStopWarning", &self.dwStopWarning).field("cx", &self.cx).field("cy", &self.cy).field("pszHeader", &self.pszHeader).field("dwOperation", &self.dwOperation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COOKIE_DLG_INFO {
     type Abi = Self;
 }
@@ -864,6 +910,12 @@ impl ::core::marker::Copy for CookieDecision {}
 impl ::core::clone::Clone for CookieDecision {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CookieDecision {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CookieDecision").field("dwCookieState", &self.dwCookieState).field("fAllowSession", &self.fAllowSession).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2124,6 +2176,11 @@ impl ::core::clone::Clone for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_ABSTRACT_ATTRIBUTE_TYPE").field("ShortAbstract", &self.ShortAbstract).field("AbstractFile", &self.AbstractFile).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2150,6 +2207,11 @@ impl ::core::clone::Clone for GOPHER_ADMIN_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_ADMIN_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_ADMIN_ATTRIBUTE_TYPE").field("Comment", &self.Comment).field("EmailAddress", &self.EmailAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_ADMIN_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2174,6 +2236,11 @@ impl ::core::marker::Copy for GOPHER_ASK_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for GOPHER_ASK_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GOPHER_ASK_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_ASK_ATTRIBUTE_TYPE").field("QuestionType", &self.QuestionType).field("QuestionText", &self.QuestionText).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GOPHER_ASK_ATTRIBUTE_TYPE {
@@ -2243,6 +2310,12 @@ impl ::core::marker::Copy for GOPHER_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for GOPHER_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GOPHER_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_ATTRIBUTE_TYPE").field("CategoryId", &self.CategoryId).field("AttributeId", &self.AttributeId).field("AttributeType", &self.AttributeType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2347,6 +2420,12 @@ impl ::core::clone::Clone for GOPHER_FIND_DATAA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GOPHER_FIND_DATAA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_FIND_DATAA").field("DisplayString", &self.DisplayString).field("GopherType", &self.GopherType).field("SizeLow", &self.SizeLow).field("SizeHigh", &self.SizeHigh).field("LastModificationTime", &self.LastModificationTime).field("Locator", &self.Locator).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GOPHER_FIND_DATAA {
     type Abi = Self;
 }
@@ -2384,6 +2463,12 @@ impl ::core::clone::Clone for GOPHER_FIND_DATAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GOPHER_FIND_DATAW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_FIND_DATAW").field("DisplayString", &self.DisplayString).field("GopherType", &self.GopherType).field("SizeLow", &self.SizeLow).field("SizeHigh", &self.SizeHigh).field("LastModificationTime", &self.LastModificationTime).field("Locator", &self.Locator).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GOPHER_FIND_DATAW {
     type Abi = Self;
 }
@@ -2417,6 +2502,11 @@ impl ::core::clone::Clone for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE").field("DegreesNorth", &self.DegreesNorth).field("MinutesNorth", &self.MinutesNorth).field("SecondsNorth", &self.SecondsNorth).field("DegreesEast", &self.DegreesEast).field("MinutesEast", &self.MinutesEast).field("SecondsEast", &self.SecondsEast).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2440,6 +2530,11 @@ impl ::core::marker::Copy for GOPHER_LOCATION_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for GOPHER_LOCATION_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GOPHER_LOCATION_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_LOCATION_ATTRIBUTE_TYPE").field("Location", &self.Location).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GOPHER_LOCATION_ATTRIBUTE_TYPE {
@@ -2471,6 +2566,12 @@ impl ::core::clone::Clone for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_MOD_DATE_ATTRIBUTE_TYPE").field("DateAndTime", &self.DateAndTime).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2499,6 +2600,11 @@ impl ::core::clone::Clone for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_ORGANIZATION_ATTRIBUTE_TYPE").field("Organization", &self.Organization).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2524,6 +2630,11 @@ impl ::core::clone::Clone for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_PROVIDER_ATTRIBUTE_TYPE").field("Provider", &self.Provider).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2547,6 +2658,11 @@ impl ::core::marker::Copy for GOPHER_SCORE_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for GOPHER_SCORE_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GOPHER_SCORE_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_SCORE_ATTRIBUTE_TYPE").field("Score", &self.Score).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GOPHER_SCORE_ATTRIBUTE_TYPE {
@@ -2575,6 +2691,11 @@ impl ::core::clone::Clone for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE").field("LowerBound", &self.LowerBound).field("UpperBound", &self.UpperBound).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2598,6 +2719,11 @@ impl ::core::marker::Copy for GOPHER_SITE_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for GOPHER_SITE_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GOPHER_SITE_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_SITE_ATTRIBUTE_TYPE").field("Site", &self.Site).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GOPHER_SITE_ATTRIBUTE_TYPE {
@@ -2625,6 +2751,11 @@ impl ::core::clone::Clone for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_TIMEZONE_ATTRIBUTE_TYPE").field("Zone", &self.Zone).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2648,6 +2779,11 @@ impl ::core::marker::Copy for GOPHER_TTL_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for GOPHER_TTL_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GOPHER_TTL_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_TTL_ATTRIBUTE_TYPE").field("Ttl", &self.Ttl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GOPHER_TTL_ATTRIBUTE_TYPE {
@@ -2725,6 +2861,11 @@ impl ::core::clone::Clone for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_UNKNOWN_ATTRIBUTE_TYPE").field("Text", &self.Text).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2751,6 +2892,12 @@ impl ::core::marker::Copy for GOPHER_VERONICA_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for GOPHER_VERONICA_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GOPHER_VERONICA_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_VERONICA_ATTRIBUTE_TYPE").field("TreeWalk", &self.TreeWalk).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2782,6 +2929,11 @@ impl ::core::clone::Clone for GOPHER_VERSION_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for GOPHER_VERSION_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_VERSION_ATTRIBUTE_TYPE").field("Version", &self.Version).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_VERSION_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2807,6 +2959,11 @@ impl ::core::marker::Copy for GOPHER_VIEW_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for GOPHER_VIEW_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GOPHER_VIEW_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GOPHER_VIEW_ATTRIBUTE_TYPE").field("ContentType", &self.ContentType).field("Language", &self.Language).field("Size", &self.Size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GOPHER_VIEW_ATTRIBUTE_TYPE {
@@ -3228,6 +3385,12 @@ impl ::core::clone::Clone for HTTP_PUSH_NOTIFICATION_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_PUSH_NOTIFICATION_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_PUSH_NOTIFICATION_STATUS").field("ChannelStatusValid", &self.ChannelStatusValid).field("ChannelStatus", &self.ChannelStatus).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_PUSH_NOTIFICATION_STATUS {
     type Abi = Self;
 }
@@ -3255,6 +3418,11 @@ impl ::core::marker::Copy for HTTP_PUSH_TRANSPORT_SETTING {}
 impl ::core::clone::Clone for HTTP_PUSH_TRANSPORT_SETTING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_PUSH_TRANSPORT_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_PUSH_TRANSPORT_SETTING").field("TransportSettingId", &self.TransportSettingId).field("BrokerEventId", &self.BrokerEventId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_PUSH_TRANSPORT_SETTING {
@@ -3502,6 +3670,11 @@ impl ::core::clone::Clone for HTTP_REQUEST_TIMES {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_REQUEST_TIMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_TIMES").field("cTimes", &self.cTimes).field("rgTimes", &self.rgTimes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMES {
     type Abi = Self;
 }
@@ -3530,6 +3703,11 @@ impl ::core::marker::Copy for HTTP_WEB_SOCKET_ASYNC_RESULT {}
 impl ::core::clone::Clone for HTTP_WEB_SOCKET_ASYNC_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_WEB_SOCKET_ASYNC_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_WEB_SOCKET_ASYNC_RESULT").field("AsyncResult", &self.AsyncResult).field("Operation", &self.Operation).field("BufferType", &self.BufferType).field("dwBytesTransferred", &self.dwBytesTransferred).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_WEB_SOCKET_ASYNC_RESULT {
@@ -4270,6 +4448,11 @@ impl ::core::clone::Clone for INTERNET_ASYNC_RESULT {
         *self
     }
 }
+impl ::core::fmt::Debug for INTERNET_ASYNC_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_ASYNC_RESULT").field("dwResult", &self.dwResult).field("dwError", &self.dwError).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_ASYNC_RESULT {
     type Abi = Self;
 }
@@ -4296,6 +4479,11 @@ impl ::core::marker::Copy for INTERNET_AUTH_NOTIFY_DATA {}
 impl ::core::clone::Clone for INTERNET_AUTH_NOTIFY_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INTERNET_AUTH_NOTIFY_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_AUTH_NOTIFY_DATA").field("cbStruct", &self.cbStruct).field("dwOptions", &self.dwOptions).field("pfnNotify", &self.pfnNotify).field("dwContext", &self.dwContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_AUTH_NOTIFY_DATA {
@@ -4368,6 +4556,12 @@ impl ::core::clone::Clone for INTERNET_BUFFERSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_BUFFERSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_BUFFERSA").field("dwStructSize", &self.dwStructSize).field("Next", &self.Next).field("lpcszHeader", &self.lpcszHeader).field("dwHeadersLength", &self.dwHeadersLength).field("dwHeadersTotal", &self.dwHeadersTotal).field("lpvBuffer", &self.lpvBuffer).field("dwBufferLength", &self.dwBufferLength).field("dwBufferTotal", &self.dwBufferTotal).field("dwOffsetLow", &self.dwOffsetLow).field("dwOffsetHigh", &self.dwOffsetHigh).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_BUFFERSA {
     type Abi = Self;
 }
@@ -4409,6 +4603,12 @@ impl ::core::clone::Clone for INTERNET_BUFFERSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_BUFFERSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_BUFFERSW").field("dwStructSize", &self.dwStructSize).field("Next", &self.Next).field("lpcszHeader", &self.lpcszHeader).field("dwHeadersLength", &self.dwHeadersLength).field("dwHeadersTotal", &self.dwHeadersTotal).field("lpvBuffer", &self.lpvBuffer).field("dwBufferLength", &self.dwBufferLength).field("dwBufferTotal", &self.dwBufferTotal).field("dwOffsetLow", &self.dwOffsetLow).field("dwOffsetHigh", &self.dwOffsetHigh).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_BUFFERSW {
     type Abi = Self;
 }
@@ -4447,6 +4647,12 @@ impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOA {}
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_CONFIG_INFOA").field("dwStructSize", &self.dwStructSize).field("dwContainer", &self.dwContainer).field("dwQuota", &self.dwQuota).field("dwReserved4", &self.dwReserved4).field("fPerUser", &self.fPerUser).field("dwSyncMode", &self.dwSyncMode).field("dwNumCachePaths", &self.dwNumCachePaths).field("Anonymous", &self.Anonymous).field("dwNormalUsage", &self.dwNormalUsage).field("dwExemptUsage", &self.dwExemptUsage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4516,6 +4722,12 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_INFOA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_CONFIG_INFOA_0_0").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     type Abi = Self;
 }
@@ -4554,6 +4766,12 @@ impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW {}
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_CONFIG_INFOW").field("dwStructSize", &self.dwStructSize).field("dwContainer", &self.dwContainer).field("dwQuota", &self.dwQuota).field("dwReserved4", &self.dwReserved4).field("fPerUser", &self.fPerUser).field("dwSyncMode", &self.dwSyncMode).field("dwNumCachePaths", &self.dwNumCachePaths).field("Anonymous", &self.Anonymous).field("dwNormalUsage", &self.dwNormalUsage).field("dwExemptUsage", &self.dwExemptUsage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4623,6 +4841,12 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_INFOW_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_CONFIG_INFOW_0_0").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     type Abi = Self;
 }
@@ -4656,6 +4880,12 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_CONFIG_PATH_ENTRYA").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     type Abi = Self;
 }
@@ -4683,6 +4913,11 @@ impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_PATH_ENTRYW {}
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_CONFIG_PATH_ENTRYW").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
@@ -4722,6 +4957,12 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONTAINER_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_CONTAINER_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_CONTAINER_INFOA").field("dwCacheVersion", &self.dwCacheVersion).field("lpszName", &self.lpszName).field("lpszCachePrefix", &self.lpszCachePrefix).field("lpszVolumeLabel", &self.lpszVolumeLabel).field("lpszVolumeTitle", &self.lpszVolumeTitle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONTAINER_INFOA {
     type Abi = Self;
 }
@@ -4755,6 +4996,12 @@ impl ::core::marker::Copy for INTERNET_CACHE_CONTAINER_INFOW {}
 impl ::core::clone::Clone for INTERNET_CACHE_CONTAINER_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_CONTAINER_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_CONTAINER_INFOW").field("dwCacheVersion", &self.dwCacheVersion).field("lpszName", &self.lpszName).field("lpszCachePrefix", &self.lpszCachePrefix).field("lpszVolumeLabel", &self.lpszVolumeLabel).field("lpszVolumeTitle", &self.lpszVolumeTitle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4814,6 +5061,29 @@ impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOA {}
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_ENTRY_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_ENTRY_INFOA")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("lpszSourceUrlName", &self.lpszSourceUrlName)
+            .field("lpszLocalFileName", &self.lpszLocalFileName)
+            .field("CacheEntryType", &self.CacheEntryType)
+            .field("dwUseCount", &self.dwUseCount)
+            .field("dwHitRate", &self.dwHitRate)
+            .field("dwSizeLow", &self.dwSizeLow)
+            .field("dwSizeHigh", &self.dwSizeHigh)
+            .field("LastModifiedTime", &self.LastModifiedTime)
+            .field("ExpireTime", &self.ExpireTime)
+            .field("LastAccessTime", &self.LastAccessTime)
+            .field("LastSyncTime", &self.LastSyncTime)
+            .field("lpHeaderInfo", &self.lpHeaderInfo)
+            .field("dwHeaderInfoSize", &self.dwHeaderInfoSize)
+            .field("lpszFileExtension", &self.lpszFileExtension)
+            .field("Anonymous", &self.Anonymous)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4894,6 +5164,29 @@ impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOW {}
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_ENTRY_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_ENTRY_INFOW")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("lpszSourceUrlName", &self.lpszSourceUrlName)
+            .field("lpszLocalFileName", &self.lpszLocalFileName)
+            .field("CacheEntryType", &self.CacheEntryType)
+            .field("dwUseCount", &self.dwUseCount)
+            .field("dwHitRate", &self.dwHitRate)
+            .field("dwSizeLow", &self.dwSizeLow)
+            .field("dwSizeHigh", &self.dwSizeHigh)
+            .field("LastModifiedTime", &self.LastModifiedTime)
+            .field("ExpireTime", &self.ExpireTime)
+            .field("LastAccessTime", &self.LastAccessTime)
+            .field("LastSyncTime", &self.LastSyncTime)
+            .field("lpHeaderInfo", &self.lpHeaderInfo)
+            .field("dwHeaderInfoSize", &self.dwHeaderInfoSize)
+            .field("lpszFileExtension", &self.lpszFileExtension)
+            .field("Anonymous", &self.Anonymous)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4980,6 +5273,12 @@ impl ::core::clone::Clone for INTERNET_CACHE_GROUP_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_GROUP_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_GROUP_INFOA").field("dwGroupSize", &self.dwGroupSize).field("dwGroupFlags", &self.dwGroupFlags).field("dwGroupType", &self.dwGroupType).field("dwDiskUsage", &self.dwDiskUsage).field("dwDiskQuota", &self.dwDiskQuota).field("dwOwnerStorage", &self.dwOwnerStorage).field("szGroupName", &self.szGroupName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_GROUP_INFOA {
     type Abi = Self;
 }
@@ -5014,6 +5313,11 @@ impl ::core::clone::Clone for INTERNET_CACHE_GROUP_INFOW {
         *self
     }
 }
+impl ::core::fmt::Debug for INTERNET_CACHE_GROUP_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_GROUP_INFOW").field("dwGroupSize", &self.dwGroupSize).field("dwGroupFlags", &self.dwGroupFlags).field("dwGroupType", &self.dwGroupType).field("dwDiskUsage", &self.dwDiskUsage).field("dwDiskQuota", &self.dwDiskQuota).field("dwOwnerStorage", &self.dwOwnerStorage).field("szGroupName", &self.szGroupName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_GROUP_INFOW {
     type Abi = Self;
 }
@@ -5043,6 +5347,12 @@ impl ::core::marker::Copy for INTERNET_CACHE_TIMESTAMPS {}
 impl ::core::clone::Clone for INTERNET_CACHE_TIMESTAMPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CACHE_TIMESTAMPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CACHE_TIMESTAMPS").field("ftExpires", &self.ftExpires).field("ftLastModified", &self.ftLastModified).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5080,6 +5390,12 @@ impl ::core::marker::Copy for INTERNET_CALLBACK_COOKIE {}
 impl ::core::clone::Clone for INTERNET_CALLBACK_COOKIE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CALLBACK_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CALLBACK_COOKIE").field("pcwszName", &self.pcwszName).field("pcwszValue", &self.pcwszValue).field("pcwszDomain", &self.pcwszDomain).field("pcwszPath", &self.pcwszPath).field("ftExpires", &self.ftExpires).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5122,6 +5438,12 @@ impl ::core::clone::Clone for INTERNET_CERTIFICATE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CERTIFICATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CERTIFICATE_INFO").field("ftExpiry", &self.ftExpiry).field("ftStart", &self.ftStart).field("lpszSubjectInfo", &self.lpszSubjectInfo).field("lpszIssuerInfo", &self.lpszIssuerInfo).field("lpszProtocolName", &self.lpszProtocolName).field("lpszSignatureAlgName", &self.lpszSignatureAlgName).field("lpszEncryptionAlgName", &self.lpszEncryptionAlgName).field("dwKeySize", &self.dwKeySize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CERTIFICATE_INFO {
     type Abi = Self;
 }
@@ -5149,6 +5471,11 @@ impl ::core::marker::Copy for INTERNET_CONNECTED_INFO {}
 impl ::core::clone::Clone for INTERNET_CONNECTED_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INTERNET_CONNECTED_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CONNECTED_INFO").field("dwConnectedState", &self.dwConnectedState).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_CONNECTED_INFO {
@@ -5208,6 +5535,12 @@ impl ::core::clone::Clone for INTERNET_COOKIE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_COOKIE").field("cbSize", &self.cbSize).field("pszName", &self.pszName).field("pszData", &self.pszData).field("pszDomain", &self.pszDomain).field("pszPath", &self.pszPath).field("pftExpires", &self.pftExpires).field("dwFlags", &self.dwFlags).field("pszUrl", &self.pszUrl).field("pszP3PPolicy", &self.pszP3PPolicy).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_COOKIE {
     type Abi = Self;
 }
@@ -5243,6 +5576,12 @@ impl ::core::marker::Copy for INTERNET_COOKIE2 {}
 impl ::core::clone::Clone for INTERNET_COOKIE2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_COOKIE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_COOKIE2").field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).field("pwszDomain", &self.pwszDomain).field("pwszPath", &self.pwszPath).field("dwFlags", &self.dwFlags).field("ftExpires", &self.ftExpires).field("fExpiresSet", &self.fExpiresSet).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5336,6 +5675,12 @@ impl ::core::clone::Clone for INTERNET_CREDENTIALS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CREDENTIALS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CREDENTIALS").field("lpcwszHostName", &self.lpcwszHostName).field("dwPort", &self.dwPort).field("dwScheme", &self.dwScheme).field("lpcwszUrl", &self.lpcwszUrl).field("lpcwszRealm", &self.lpcwszRealm).field("fAuthIdentity", &self.fAuthIdentity).field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CREDENTIALS {
     type Abi = Self;
 }
@@ -5402,6 +5747,12 @@ impl ::core::clone::Clone for INTERNET_CREDENTIALS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_CREDENTIALS_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_CREDENTIALS_0_0").field("lpcwszUserName", &self.lpcwszUserName).field("lpcwszPassword", &self.lpcwszPassword).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CREDENTIALS_0_0 {
     type Abi = Self;
 }
@@ -5453,6 +5804,11 @@ impl ::core::clone::Clone for INTERNET_DIAGNOSTIC_SOCKET_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for INTERNET_DIAGNOSTIC_SOCKET_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_DIAGNOSTIC_SOCKET_INFO").field("Socket", &self.Socket).field("SourcePort", &self.SourcePort).field("DestPort", &self.DestPort).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_DIAGNOSTIC_SOCKET_INFO {
     type Abi = Self;
 }
@@ -5491,6 +5847,12 @@ impl ::core::clone::Clone for INTERNET_DOWNLOAD_MODE_HANDLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_DOWNLOAD_MODE_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_DOWNLOAD_MODE_HANDLE").field("pcwszFileName", &self.pcwszFileName).field("phFile", &self.phFile).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_DOWNLOAD_MODE_HANDLE {
     type Abi = Self;
 }
@@ -5518,6 +5880,11 @@ impl ::core::marker::Copy for INTERNET_END_BROWSER_SESSION_DATA {}
 impl ::core::clone::Clone for INTERNET_END_BROWSER_SESSION_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INTERNET_END_BROWSER_SESSION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_END_BROWSER_SESSION_DATA").field("lpBuffer", &self.lpBuffer).field("dwBufferLength", &self.dwBufferLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_END_BROWSER_SESSION_DATA {
@@ -6102,6 +6469,12 @@ impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_PER_CONN_OPTIONA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_PER_CONN_OPTIONA").field("dwOption", &self.dwOption).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTIONA {
     type Abi = Self;
 }
@@ -6166,6 +6539,12 @@ impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONW {}
 impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_PER_CONN_OPTIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_PER_CONN_OPTIONW").field("dwOption", &self.dwOption).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6239,6 +6618,12 @@ impl ::core::clone::Clone for INTERNET_PER_CONN_OPTION_LISTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_PER_CONN_OPTION_LISTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_PER_CONN_OPTION_LISTA").field("dwSize", &self.dwSize).field("pszConnection", &self.pszConnection).field("dwOptionCount", &self.dwOptionCount).field("dwOptionError", &self.dwOptionError).field("pOptions", &self.pOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTION_LISTA {
     type Abi = Self;
 }
@@ -6272,6 +6657,12 @@ impl ::core::marker::Copy for INTERNET_PER_CONN_OPTION_LISTW {}
 impl ::core::clone::Clone for INTERNET_PER_CONN_OPTION_LISTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_PER_CONN_OPTION_LISTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_PER_CONN_OPTION_LISTW").field("dwSize", &self.dwSize).field("pszConnection", &self.pszConnection).field("dwOptionCount", &self.dwOptionCount).field("dwOptionError", &self.dwOptionError).field("pOptions", &self.pOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6310,6 +6701,11 @@ impl ::core::clone::Clone for INTERNET_PREFETCH_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for INTERNET_PREFETCH_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_PREFETCH_STATUS").field("dwStatus", &self.dwStatus).field("dwSize", &self.dwSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_PREFETCH_STATUS {
     type Abi = Self;
 }
@@ -6337,6 +6733,11 @@ impl ::core::marker::Copy for INTERNET_PROXY_INFO {}
 impl ::core::clone::Clone for INTERNET_PROXY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INTERNET_PROXY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_PROXY_INFO").field("dwAccessType", &self.dwAccessType).field("lpszProxy", &self.lpszProxy).field("lpszProxyBypass", &self.lpszProxyBypass).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_PROXY_INFO {
@@ -6425,6 +6826,12 @@ impl ::core::clone::Clone for INTERNET_SECURITY_CONNECTION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+impl ::core::fmt::Debug for INTERNET_SECURITY_CONNECTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_SECURITY_CONNECTION_INFO").field("dwSize", &self.dwSize).field("fSecure", &self.fSecure).field("connectionInfo", &self.connectionInfo).field("cipherInfo", &self.cipherInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 unsafe impl ::windows::core::Abi for INTERNET_SECURITY_CONNECTION_INFO {
     type Abi = Self;
 }
@@ -6460,6 +6867,12 @@ impl ::core::marker::Copy for INTERNET_SECURITY_INFO {}
 impl ::core::clone::Clone for INTERNET_SECURITY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for INTERNET_SECURITY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_SECURITY_INFO").field("dwSize", &self.dwSize).field("pCertificate", &self.pCertificate).field("pcCertChain", &self.pcCertChain).field("connectionInfo", &self.connectionInfo).field("cipherInfo", &self.cipherInfo).field("pcUnverifiedCertChain", &self.pcUnverifiedCertChain).field("channelBindingToken", &self.channelBindingToken).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
@@ -6499,6 +6912,12 @@ impl ::core::marker::Copy for INTERNET_SERVER_CONNECTION_STATE {}
 impl ::core::clone::Clone for INTERNET_SERVER_CONNECTION_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERNET_SERVER_CONNECTION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_SERVER_CONNECTION_STATE").field("lpcwszHostName", &self.lpcwszHostName).field("fProxy", &self.fProxy).field("dwCounter", &self.dwCounter).field("dwConnectionLimit", &self.dwConnectionLimit).field("dwAvailableCreates", &self.dwAvailableCreates).field("dwAvailableKeepAlives", &self.dwAvailableKeepAlives).field("dwActiveConnections", &self.dwActiveConnections).field("dwWaiters", &self.dwWaiters).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6657,6 +7076,11 @@ impl ::core::marker::Copy for INTERNET_VERSION_INFO {}
 impl ::core::clone::Clone for INTERNET_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INTERNET_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERNET_VERSION_INFO").field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_VERSION_INFO {
@@ -6845,6 +7269,12 @@ impl ::core::marker::Copy for IncomingCookieState {}
 impl ::core::clone::Clone for IncomingCookieState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IncomingCookieState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IncomingCookieState").field("cSession", &self.cSession).field("cPersistent", &self.cPersistent).field("cAccepted", &self.cAccepted).field("cLeashed", &self.cLeashed).field("cDowngraded", &self.cDowngraded).field("cBlocked", &self.cBlocked).field("pszLocation", &self.pszLocation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7194,6 +7624,12 @@ impl ::core::marker::Copy for InternetCookieHistory {}
 impl ::core::clone::Clone for InternetCookieHistory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for InternetCookieHistory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InternetCookieHistory").field("fAccepted", &self.fAccepted).field("fLeashed", &self.fLeashed).field("fDowngraded", &self.fDowngraded).field("fRejected", &self.fRejected).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8601,6 +9037,12 @@ impl ::core::clone::Clone for OutgoingCookieState {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OutgoingCookieState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OutgoingCookieState").field("cSent", &self.cSent).field("cSuppressed", &self.cSuppressed).field("pszLocation", &self.pszLocation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OutgoingCookieState {
     type Abi = Self;
 }
@@ -8744,6 +9186,12 @@ impl ::core::marker::Copy for ProofOfPossessionCookieInfo {}
 impl ::core::clone::Clone for ProofOfPossessionCookieInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ProofOfPossessionCookieInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ProofOfPossessionCookieInfo").field("name", &self.name).field("data", &self.data).field("flags", &self.flags).field("p3pHeader", &self.p3pHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9203,6 +9651,28 @@ impl ::core::clone::Clone for URLCACHE_ENTRY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for URLCACHE_ENTRY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("URLCACHE_ENTRY_INFO")
+            .field("pwszSourceUrlName", &self.pwszSourceUrlName)
+            .field("pwszLocalFileName", &self.pwszLocalFileName)
+            .field("dwCacheEntryType", &self.dwCacheEntryType)
+            .field("dwUseCount", &self.dwUseCount)
+            .field("dwHitRate", &self.dwHitRate)
+            .field("dwSizeLow", &self.dwSizeLow)
+            .field("dwSizeHigh", &self.dwSizeHigh)
+            .field("ftLastModifiedTime", &self.ftLastModifiedTime)
+            .field("ftExpireTime", &self.ftExpireTime)
+            .field("ftLastAccessTime", &self.ftLastAccessTime)
+            .field("ftLastSyncTime", &self.ftLastSyncTime)
+            .field("pbHeaderInfo", &self.pbHeaderInfo)
+            .field("cbHeaderInfoSize", &self.cbHeaderInfoSize)
+            .field("pbExtraData", &self.pbExtraData)
+            .field("cbExtraDataSize", &self.cbExtraDataSize)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for URLCACHE_ENTRY_INFO {
     type Abi = Self;
 }
@@ -9263,6 +9733,28 @@ impl ::core::clone::Clone for URL_COMPONENTSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for URL_COMPONENTSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("URL_COMPONENTSA")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("lpszScheme", &self.lpszScheme)
+            .field("dwSchemeLength", &self.dwSchemeLength)
+            .field("nScheme", &self.nScheme)
+            .field("lpszHostName", &self.lpszHostName)
+            .field("dwHostNameLength", &self.dwHostNameLength)
+            .field("nPort", &self.nPort)
+            .field("lpszUserName", &self.lpszUserName)
+            .field("dwUserNameLength", &self.dwUserNameLength)
+            .field("lpszPassword", &self.lpszPassword)
+            .field("dwPasswordLength", &self.dwPasswordLength)
+            .field("lpszUrlPath", &self.lpszUrlPath)
+            .field("dwUrlPathLength", &self.dwUrlPathLength)
+            .field("lpszExtraInfo", &self.lpszExtraInfo)
+            .field("dwExtraInfoLength", &self.dwExtraInfoLength)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for URL_COMPONENTSA {
     type Abi = Self;
 }
@@ -9306,6 +9798,28 @@ impl ::core::marker::Copy for URL_COMPONENTSW {}
 impl ::core::clone::Clone for URL_COMPONENTSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for URL_COMPONENTSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("URL_COMPONENTSW")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("lpszScheme", &self.lpszScheme)
+            .field("dwSchemeLength", &self.dwSchemeLength)
+            .field("nScheme", &self.nScheme)
+            .field("lpszHostName", &self.lpszHostName)
+            .field("dwHostNameLength", &self.dwHostNameLength)
+            .field("nPort", &self.nPort)
+            .field("lpszUserName", &self.lpszUserName)
+            .field("dwUserNameLength", &self.dwUserNameLength)
+            .field("lpszPassword", &self.lpszPassword)
+            .field("dwPasswordLength", &self.dwPasswordLength)
+            .field("lpszUrlPath", &self.lpszUrlPath)
+            .field("dwUrlPathLength", &self.dwUrlPathLength)
+            .field("lpszExtraInfo", &self.lpszExtraInfo)
+            .field("dwExtraInfoLength", &self.dwExtraInfoLength)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9703,6 +10217,12 @@ impl ::core::clone::Clone for WININET_PROXY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WININET_PROXY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WININET_PROXY_INFO").field("fProxy", &self.fProxy).field("fBypass", &self.fBypass).field("ProxyScheme", &self.ProxyScheme).field("pwszProxy", &self.pwszProxy).field("ProxyPort", &self.ProxyPort).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WININET_PROXY_INFO {
     type Abi = Self;
 }
@@ -9733,6 +10253,12 @@ impl ::core::marker::Copy for WININET_PROXY_INFO_LIST {}
 impl ::core::clone::Clone for WININET_PROXY_INFO_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WININET_PROXY_INFO_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WININET_PROXY_INFO_LIST").field("dwProxyInfoCount", &self.dwProxyInfoCount).field("pProxyInfo", &self.pProxyInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

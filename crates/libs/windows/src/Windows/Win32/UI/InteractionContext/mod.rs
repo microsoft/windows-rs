@@ -52,6 +52,11 @@ impl ::core::clone::Clone for CROSS_SLIDE_PARAMETER {
         *self
     }
 }
+impl ::core::fmt::Debug for CROSS_SLIDE_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CROSS_SLIDE_PARAMETER").field("threshold", &self.threshold).field("distance", &self.distance).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CROSS_SLIDE_PARAMETER {
     type Abi = Self;
 }
@@ -284,6 +289,11 @@ impl ::core::clone::Clone for INTERACTION_ARGUMENTS_CROSS_SLIDE {
         *self
     }
 }
+impl ::core::fmt::Debug for INTERACTION_ARGUMENTS_CROSS_SLIDE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERACTION_ARGUMENTS_CROSS_SLIDE").field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_CROSS_SLIDE {
     type Abi = Self;
 }
@@ -312,6 +322,11 @@ impl ::core::clone::Clone for INTERACTION_ARGUMENTS_MANIPULATION {
         *self
     }
 }
+impl ::core::fmt::Debug for INTERACTION_ARGUMENTS_MANIPULATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERACTION_ARGUMENTS_MANIPULATION").field("delta", &self.delta).field("cumulative", &self.cumulative).field("velocity", &self.velocity).field("railsState", &self.railsState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_MANIPULATION {
     type Abi = Self;
 }
@@ -335,6 +350,11 @@ impl ::core::marker::Copy for INTERACTION_ARGUMENTS_TAP {}
 impl ::core::clone::Clone for INTERACTION_ARGUMENTS_TAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INTERACTION_ARGUMENTS_TAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERACTION_ARGUMENTS_TAP").field("count", &self.count).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_TAP {
@@ -421,6 +441,11 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_CONFIGURATION {
         *self
     }
 }
+impl ::core::fmt::Debug for INTERACTION_CONTEXT_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERACTION_CONTEXT_CONFIGURATION").field("interactionId", &self.interactionId).field("enable", &self.enable).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_CONFIGURATION {
     type Abi = Self;
 }
@@ -452,6 +477,12 @@ impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT {}
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::fmt::Debug for INTERACTION_CONTEXT_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERACTION_CONTEXT_OUTPUT").field("interactionId", &self.interactionId).field("interactionFlags", &self.interactionFlags).field("inputType", &self.inputType).field("x", &self.x).field("y", &self.y).field("arguments", &self.arguments).finish()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -525,6 +556,12 @@ impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT2 {}
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::fmt::Debug for INTERACTION_CONTEXT_OUTPUT2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERACTION_CONTEXT_OUTPUT2").field("interactionId", &self.interactionId).field("interactionFlags", &self.interactionFlags).field("inputType", &self.inputType).field("contactCount", &self.contactCount).field("currentContactCount", &self.currentContactCount).field("x", &self.x).field("y", &self.y).field("arguments", &self.arguments).finish()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -662,6 +699,11 @@ impl ::core::clone::Clone for MANIPULATION_TRANSFORM {
         *self
     }
 }
+impl ::core::fmt::Debug for MANIPULATION_TRANSFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MANIPULATION_TRANSFORM").field("translationX", &self.translationX).field("translationY", &self.translationY).field("scale", &self.scale).field("expansion", &self.expansion).field("rotation", &self.rotation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MANIPULATION_TRANSFORM {
     type Abi = Self;
 }
@@ -688,6 +730,11 @@ impl ::core::marker::Copy for MANIPULATION_VELOCITY {}
 impl ::core::clone::Clone for MANIPULATION_VELOCITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MANIPULATION_VELOCITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MANIPULATION_VELOCITY").field("velocityX", &self.velocityX).field("velocityY", &self.velocityY).field("velocityExpansion", &self.velocityExpansion).field("velocityAngular", &self.velocityAngular).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MANIPULATION_VELOCITY {

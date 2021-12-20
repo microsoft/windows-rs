@@ -53,6 +53,12 @@ impl ::core::clone::Clone for RESTOREPOINTINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESTOREPOINTINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESTOREPOINTINFOA").field("dwEventType", &self.dwEventType).field("dwRestorePtType", &self.dwRestorePtType).field("llSequenceNumber", &self.llSequenceNumber).field("szDescription", &self.szDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFOA {
     type Abi = Self;
 }
@@ -82,6 +88,11 @@ impl ::core::marker::Copy for RESTOREPOINTINFOW {}
 impl ::core::clone::Clone for RESTOREPOINTINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RESTOREPOINTINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESTOREPOINTINFOW").field("dwEventType", &self.dwEventType).field("dwRestorePtType", &self.dwRestorePtType).field("llSequenceNumber", &self.llSequenceNumber).field("szDescription", &self.szDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFOW {
@@ -162,6 +173,11 @@ impl ::core::clone::Clone for STATEMGRSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for STATEMGRSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STATEMGRSTATUS").field("nStatus", &self.nStatus).field("llSequenceNumber", &self.llSequenceNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STATEMGRSTATUS {
     type Abi = Self;
 }
@@ -198,6 +214,12 @@ impl ::core::marker::Copy for _RESTOREPTINFOEX {}
 impl ::core::clone::Clone for _RESTOREPTINFOEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for _RESTOREPTINFOEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_RESTOREPTINFOEX").field("ftCreation", &self.ftCreation).field("dwEventType", &self.dwEventType).field("dwRestorePtType", &self.dwRestorePtType).field("dwRPNum", &self.dwRPNum).field("szDescription", &self.szDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

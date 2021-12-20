@@ -3039,6 +3039,12 @@ impl ::core::clone::Clone for REQUESTBODY_GetStatus {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REQUESTBODY_GetStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REQUESTBODY_GetStatus").field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REQUESTBODY_GetStatus {
     type Abi = Self;
 }
@@ -3069,6 +3075,12 @@ impl ::core::marker::Copy for REQUESTBODY_Renew {}
 impl ::core::clone::Clone for REQUESTBODY_Renew {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REQUESTBODY_Renew {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REQUESTBODY_Renew").field("Expires", &self.Expires).field("Any", &self.Any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3108,6 +3120,12 @@ impl ::core::clone::Clone for REQUESTBODY_Subscribe {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REQUESTBODY_Subscribe {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REQUESTBODY_Subscribe").field("EndTo", &self.EndTo).field("Delivery", &self.Delivery).field("Expires", &self.Expires).field("Filter", &self.Filter).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REQUESTBODY_Subscribe {
     type Abi = Self;
 }
@@ -3140,6 +3158,12 @@ impl ::core::clone::Clone for REQUESTBODY_Unsubscribe {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REQUESTBODY_Unsubscribe {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REQUESTBODY_Unsubscribe").field("any", &self.any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REQUESTBODY_Unsubscribe {
     type Abi = Self;
 }
@@ -3169,6 +3193,12 @@ impl ::core::marker::Copy for RESPONSEBODY_GetMetadata {}
 impl ::core::clone::Clone for RESPONSEBODY_GetMetadata {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESPONSEBODY_GetMetadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESPONSEBODY_GetMetadata").field("Metadata", &self.Metadata).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3205,6 +3235,12 @@ impl ::core::clone::Clone for RESPONSEBODY_GetStatus {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESPONSEBODY_GetStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESPONSEBODY_GetStatus").field("expires", &self.expires).field("any", &self.any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESPONSEBODY_GetStatus {
     type Abi = Self;
 }
@@ -3235,6 +3271,12 @@ impl ::core::marker::Copy for RESPONSEBODY_Renew {}
 impl ::core::clone::Clone for RESPONSEBODY_Renew {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESPONSEBODY_Renew {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESPONSEBODY_Renew").field("expires", &self.expires).field("any", &self.any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3272,6 +3314,12 @@ impl ::core::clone::Clone for RESPONSEBODY_Subscribe {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESPONSEBODY_Subscribe {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESPONSEBODY_Subscribe").field("SubscriptionManager", &self.SubscriptionManager).field("expires", &self.expires).field("any", &self.any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESPONSEBODY_Subscribe {
     type Abi = Self;
 }
@@ -3304,6 +3352,12 @@ impl ::core::marker::Copy for RESPONSEBODY_SubscriptionEnd {}
 impl ::core::clone::Clone for RESPONSEBODY_SubscriptionEnd {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESPONSEBODY_SubscriptionEnd {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESPONSEBODY_SubscriptionEnd").field("SubscriptionManager", &self.SubscriptionManager).field("Status", &self.Status).field("Reason", &self.Reason).field("Any", &self.Any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3728,6 +3782,11 @@ impl ::core::clone::Clone for WSDUdpRetransmitParams {
         *self
     }
 }
+impl ::core::fmt::Debug for WSDUdpRetransmitParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDUdpRetransmitParams").field("ulSendDelay", &self.ulSendDelay).field("ulRepeat", &self.ulRepeat).field("ulRepeatMinDelay", &self.ulRepeatMinDelay).field("ulRepeatMaxDelay", &self.ulRepeatMaxDelay).field("ulRepeatUpperDelay", &self.ulRepeatUpperDelay).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSDUdpRetransmitParams {
     type Abi = Self;
 }
@@ -3896,6 +3955,12 @@ impl ::core::clone::Clone for WSDXML_ATTRIBUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_ATTRIBUTE").field("Element", &self.Element).field("Next", &self.Next).field("Name", &self.Name).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSDXML_ATTRIBUTE {
     type Abi = Self;
 }
@@ -3932,6 +3997,12 @@ impl ::core::clone::Clone for WSDXML_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_ELEMENT").field("Node", &self.Node).field("Name", &self.Name).field("FirstAttribute", &self.FirstAttribute).field("FirstChild", &self.FirstChild).field("PrefixMappings", &self.PrefixMappings).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSDXML_ELEMENT {
     type Abi = Self;
 }
@@ -3965,6 +4036,12 @@ impl ::core::clone::Clone for WSDXML_ELEMENT_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_ELEMENT_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_ELEMENT_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSDXML_ELEMENT_LIST {
     type Abi = Self;
 }
@@ -3995,6 +4072,12 @@ impl ::core::marker::Copy for WSDXML_NAME {}
 impl ::core::clone::Clone for WSDXML_NAME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_NAME").field("Space", &self.Space).field("LocalName", &self.LocalName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4034,6 +4117,12 @@ impl ::core::clone::Clone for WSDXML_NAMESPACE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_NAMESPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_NAMESPACE").field("Uri", &self.Uri).field("PreferredPrefix", &self.PreferredPrefix).field("Names", &self.Names).field("NamesCount", &self.NamesCount).field("Encoding", &self.Encoding).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSDXML_NAMESPACE {
     type Abi = Self;
 }
@@ -4070,6 +4159,12 @@ impl ::core::marker::Copy for WSDXML_NODE {}
 impl ::core::clone::Clone for WSDXML_NODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_NODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_NODE").field("Type", &self.Type).field("Parent", &self.Parent).field("Next", &self.Next).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4204,6 +4299,12 @@ impl ::core::clone::Clone for WSDXML_PREFIX_MAPPING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_PREFIX_MAPPING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_PREFIX_MAPPING").field("Refs", &self.Refs).field("Next", &self.Next).field("Space", &self.Space).field("Prefix", &self.Prefix).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSDXML_PREFIX_MAPPING {
     type Abi = Self;
 }
@@ -4237,6 +4338,12 @@ impl ::core::clone::Clone for WSDXML_TEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_TEXT").field("Node", &self.Node).field("Text", &self.Text).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSDXML_TEXT {
     type Abi = Self;
 }
@@ -4267,6 +4374,12 @@ impl ::core::marker::Copy for WSDXML_TYPE {}
 impl ::core::clone::Clone for WSDXML_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSDXML_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSDXML_TYPE").field("Uri", &self.Uri).field("Table", &self.Table).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4304,6 +4417,12 @@ impl ::core::clone::Clone for WSD_APP_SEQUENCE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_APP_SEQUENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_APP_SEQUENCE").field("InstanceId", &self.InstanceId).field("SequenceId", &self.SequenceId).field("MessageNumber", &self.MessageNumber).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_APP_SEQUENCE {
     type Abi = Self;
 }
@@ -4337,6 +4456,12 @@ impl ::core::clone::Clone for WSD_BYE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_BYE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_BYE").field("EndpointReference", &self.EndpointReference).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_BYE {
     type Abi = Self;
 }
@@ -4366,6 +4491,11 @@ impl ::core::clone::Clone for WSD_CONFIG_ADDRESSES {
         *self
     }
 }
+impl ::core::fmt::Debug for WSD_CONFIG_ADDRESSES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_CONFIG_ADDRESSES").field("addresses", &self.addresses).field("dwAddressCount", &self.dwAddressCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSD_CONFIG_ADDRESSES {
     type Abi = Self;
 }
@@ -4391,6 +4521,11 @@ impl ::core::marker::Copy for WSD_CONFIG_PARAM {}
 impl ::core::clone::Clone for WSD_CONFIG_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WSD_CONFIG_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_CONFIG_PARAM").field("configParamType", &self.configParamType).field("pConfigData", &self.pConfigData).field("dwConfigDataSize", &self.dwConfigDataSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSD_CONFIG_PARAM {
@@ -4461,6 +4596,12 @@ impl ::core::clone::Clone for WSD_DATETIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_DATETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_DATETIME").field("isPositive", &self.isPositive).field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("millisecond", &self.millisecond).field("TZIsLocal", &self.TZIsLocal).field("TZIsPositive", &self.TZIsPositive).field("TZHour", &self.TZHour).field("TZMinute", &self.TZMinute).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_DATETIME {
     type Abi = Self;
 }
@@ -4497,6 +4638,12 @@ impl ::core::marker::Copy for WSD_DURATION {}
 impl ::core::clone::Clone for WSD_DURATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_DURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_DURATION").field("isPositive", &self.isPositive).field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("millisecond", &self.millisecond).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4537,6 +4684,12 @@ impl ::core::clone::Clone for WSD_ENDPOINT_REFERENCE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_ENDPOINT_REFERENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_ENDPOINT_REFERENCE").field("Address", &self.Address).field("ReferenceProperties", &self.ReferenceProperties).field("ReferenceParameters", &self.ReferenceParameters).field("PortType", &self.PortType).field("ServiceName", &self.ServiceName).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_ENDPOINT_REFERENCE {
     type Abi = Self;
 }
@@ -4567,6 +4720,12 @@ impl ::core::marker::Copy for WSD_ENDPOINT_REFERENCE_LIST {}
 impl ::core::clone::Clone for WSD_ENDPOINT_REFERENCE_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_ENDPOINT_REFERENCE_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_ENDPOINT_REFERENCE_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4614,6 +4773,12 @@ impl ::core::clone::Clone for WSD_EVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_EVENT").field("Hr", &self.Hr).field("EventType", &self.EventType).field("DispatchTag", &self.DispatchTag).field("HandlerContext", &self.HandlerContext).field("Soap", &self.Soap).field("Operation", &self.Operation).field("MessageParameters", &self.MessageParameters).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -4645,6 +4810,12 @@ impl ::core::marker::Copy for WSD_EVENTING_DELIVERY_MODE {}
 impl ::core::clone::Clone for WSD_EVENTING_DELIVERY_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_EVENTING_DELIVERY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_EVENTING_DELIVERY_MODE").field("Mode", &self.Mode).field("Push", &self.Push).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4680,6 +4851,12 @@ impl ::core::clone::Clone for WSD_EVENTING_DELIVERY_MODE_PUSH {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_EVENTING_DELIVERY_MODE_PUSH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_EVENTING_DELIVERY_MODE_PUSH").field("NotifyTo", &self.NotifyTo).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_EVENTING_DELIVERY_MODE_PUSH {
     type Abi = Self;
 }
@@ -4710,6 +4887,12 @@ impl ::core::marker::Copy for WSD_EVENTING_EXPIRES {}
 impl ::core::clone::Clone for WSD_EVENTING_EXPIRES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_EVENTING_EXPIRES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_EVENTING_EXPIRES").field("Duration", &self.Duration).field("DateTime", &self.DateTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4747,6 +4930,12 @@ impl ::core::clone::Clone for WSD_EVENTING_FILTER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_EVENTING_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_EVENTING_FILTER").field("Dialect", &self.Dialect).field("FilterAction", &self.FilterAction).field("Data", &self.Data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_EVENTING_FILTER {
     type Abi = Self;
 }
@@ -4776,6 +4965,12 @@ impl ::core::marker::Copy for WSD_EVENTING_FILTER_ACTION {}
 impl ::core::clone::Clone for WSD_EVENTING_FILTER_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_EVENTING_FILTER_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_EVENTING_FILTER_ACTION").field("Actions", &self.Actions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4811,6 +5006,12 @@ impl ::core::clone::Clone for WSD_HANDLER_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_HANDLER_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_HANDLER_CONTEXT").field("Handler", &self.Handler).field("PVoid", &self.PVoid).field("Unknown", &self.Unknown).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_HANDLER_CONTEXT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -4841,6 +5042,12 @@ impl ::core::marker::Copy for WSD_HEADER_RELATESTO {}
 impl ::core::clone::Clone for WSD_HEADER_RELATESTO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_HEADER_RELATESTO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_HEADER_RELATESTO").field("RelationshipType", &self.RelationshipType).field("MessageID", &self.MessageID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4881,6 +5088,12 @@ impl ::core::clone::Clone for WSD_HELLO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_HELLO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_HELLO").field("EndpointReference", &self.EndpointReference).field("Types", &self.Types).field("Scopes", &self.Scopes).field("XAddrs", &self.XAddrs).field("MetadataVersion", &self.MetadataVersion).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_HELLO {
     type Abi = Self;
 }
@@ -4911,6 +5124,12 @@ impl ::core::marker::Copy for WSD_HOST_METADATA {}
 impl ::core::clone::Clone for WSD_HOST_METADATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_HOST_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_HOST_METADATA").field("Host", &self.Host).field("Hosted", &self.Hosted).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4947,6 +5166,12 @@ impl ::core::clone::Clone for WSD_LOCALIZED_STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_LOCALIZED_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_LOCALIZED_STRING").field("lang", &self.lang).field("String", &self.String).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_LOCALIZED_STRING {
     type Abi = Self;
 }
@@ -4977,6 +5202,12 @@ impl ::core::marker::Copy for WSD_LOCALIZED_STRING_LIST {}
 impl ::core::clone::Clone for WSD_LOCALIZED_STRING_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_LOCALIZED_STRING_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_LOCALIZED_STRING_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5017,6 +5248,12 @@ impl ::core::clone::Clone for WSD_METADATA_SECTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_METADATA_SECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_METADATA_SECTION").field("Dialect", &self.Dialect).field("Identifier", &self.Identifier).field("Data", &self.Data).field("MetadataReference", &self.MetadataReference).field("Location", &self.Location).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_METADATA_SECTION {
     type Abi = Self;
 }
@@ -5047,6 +5284,12 @@ impl ::core::marker::Copy for WSD_METADATA_SECTION_LIST {}
 impl ::core::clone::Clone for WSD_METADATA_SECTION_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_METADATA_SECTION_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_METADATA_SECTION_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5083,6 +5326,12 @@ impl ::core::clone::Clone for WSD_NAME_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_NAME_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_NAME_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_NAME_LIST {
     type Abi = Self;
 }
@@ -5114,6 +5363,12 @@ impl ::core::marker::Copy for WSD_OPERATION {}
 impl ::core::clone::Clone for WSD_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_OPERATION").field("RequestType", &self.RequestType).field("ResponseType", &self.ResponseType).field("RequestStubFunction", &self.RequestStubFunction).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5152,6 +5407,12 @@ impl ::core::clone::Clone for WSD_PORT_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_PORT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_PORT_TYPE").field("EncodedName", &self.EncodedName).field("OperationCount", &self.OperationCount).field("Operations", &self.Operations).field("ProtocolType", &self.ProtocolType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_PORT_TYPE {
     type Abi = Self;
 }
@@ -5183,6 +5444,12 @@ impl ::core::marker::Copy for WSD_PROBE {}
 impl ::core::clone::Clone for WSD_PROBE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_PROBE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_PROBE").field("Types", &self.Types).field("Scopes", &self.Scopes).field("Any", &self.Any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5223,6 +5490,12 @@ impl ::core::clone::Clone for WSD_PROBE_MATCH {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_PROBE_MATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_PROBE_MATCH").field("EndpointReference", &self.EndpointReference).field("Types", &self.Types).field("Scopes", &self.Scopes).field("XAddrs", &self.XAddrs).field("MetadataVersion", &self.MetadataVersion).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_PROBE_MATCH {
     type Abi = Self;
 }
@@ -5256,6 +5529,12 @@ impl ::core::clone::Clone for WSD_PROBE_MATCHES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_PROBE_MATCHES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_PROBE_MATCHES").field("ProbeMatch", &self.ProbeMatch).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_PROBE_MATCHES {
     type Abi = Self;
 }
@@ -5286,6 +5565,12 @@ impl ::core::marker::Copy for WSD_PROBE_MATCH_LIST {}
 impl ::core::clone::Clone for WSD_PROBE_MATCH_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_PROBE_MATCH_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_PROBE_MATCH_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5333,6 +5618,12 @@ impl ::core::clone::Clone for WSD_REFERENCE_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_REFERENCE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_REFERENCE_PARAMETERS").field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_REFERENCE_PARAMETERS {
     type Abi = Self;
 }
@@ -5362,6 +5653,12 @@ impl ::core::marker::Copy for WSD_REFERENCE_PROPERTIES {}
 impl ::core::clone::Clone for WSD_REFERENCE_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_REFERENCE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_REFERENCE_PROPERTIES").field("Any", &self.Any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5399,6 +5696,12 @@ impl ::core::clone::Clone for WSD_RELATIONSHIP_METADATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_RELATIONSHIP_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_RELATIONSHIP_METADATA").field("Type", &self.Type).field("Data", &self.Data).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_RELATIONSHIP_METADATA {
     type Abi = Self;
 }
@@ -5429,6 +5732,12 @@ impl ::core::marker::Copy for WSD_RESOLVE {}
 impl ::core::clone::Clone for WSD_RESOLVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_RESOLVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_RESOLVE").field("EndpointReference", &self.EndpointReference).field("Any", &self.Any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5469,6 +5778,12 @@ impl ::core::clone::Clone for WSD_RESOLVE_MATCH {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_RESOLVE_MATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_RESOLVE_MATCH").field("EndpointReference", &self.EndpointReference).field("Types", &self.Types).field("Scopes", &self.Scopes).field("XAddrs", &self.XAddrs).field("MetadataVersion", &self.MetadataVersion).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_RESOLVE_MATCH {
     type Abi = Self;
 }
@@ -5502,6 +5817,12 @@ impl ::core::clone::Clone for WSD_RESOLVE_MATCHES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_RESOLVE_MATCHES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_RESOLVE_MATCHES").field("ResolveMatch", &self.ResolveMatch).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_RESOLVE_MATCHES {
     type Abi = Self;
 }
@@ -5532,6 +5853,12 @@ impl ::core::marker::Copy for WSD_SCOPES {}
 impl ::core::clone::Clone for WSD_SCOPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SCOPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SCOPES").field("MatchBy", &self.MatchBy).field("Scopes", &self.Scopes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5574,6 +5901,12 @@ impl ::core::clone::Clone for WSD_SECURITY_CERT_VALIDATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for WSD_SECURITY_CERT_VALIDATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SECURITY_CERT_VALIDATION").field("certMatchArray", &self.certMatchArray).field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount).field("hCertMatchStore", &self.hCertMatchStore).field("hCertIssuerStore", &self.hCertIssuerStore).field("dwCertCheckOptions", &self.dwCertCheckOptions).field("pszCNGHashAlgId", &self.pszCNGHashAlgId).field("pbCertHash", &self.pbCertHash).field("dwCertHashSize", &self.dwCertHashSize).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for WSD_SECURITY_CERT_VALIDATION {
     type Abi = Self;
 }
@@ -5607,6 +5940,12 @@ impl ::core::marker::Copy for WSD_SECURITY_CERT_VALIDATION_V1 {}
 impl ::core::clone::Clone for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for WSD_SECURITY_CERT_VALIDATION_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SECURITY_CERT_VALIDATION_V1").field("certMatchArray", &self.certMatchArray).field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount).field("hCertMatchStore", &self.hCertMatchStore).field("hCertIssuerStore", &self.hCertIssuerStore).field("dwCertCheckOptions", &self.dwCertCheckOptions).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -5649,6 +5988,12 @@ impl ::core::clone::Clone for WSD_SECURITY_SIGNATURE_VALIDATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for WSD_SECURITY_SIGNATURE_VALIDATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SECURITY_SIGNATURE_VALIDATION").field("signingCertArray", &self.signingCertArray).field("dwSigningCertArrayCount", &self.dwSigningCertArrayCount).field("hSigningCertStore", &self.hSigningCertStore).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for WSD_SECURITY_SIGNATURE_VALIDATION {
     type Abi = Self;
 }
@@ -5684,6 +6029,12 @@ impl ::core::clone::Clone for WSD_SERVICE_METADATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SERVICE_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SERVICE_METADATA").field("EndpointReference", &self.EndpointReference).field("Types", &self.Types).field("ServiceId", &self.ServiceId).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_SERVICE_METADATA {
     type Abi = Self;
 }
@@ -5714,6 +6065,12 @@ impl ::core::marker::Copy for WSD_SERVICE_METADATA_LIST {}
 impl ::core::clone::Clone for WSD_SERVICE_METADATA_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SERVICE_METADATA_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SERVICE_METADATA_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5753,6 +6110,12 @@ impl ::core::clone::Clone for WSD_SOAP_FAULT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SOAP_FAULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SOAP_FAULT").field("Code", &self.Code).field("Reason", &self.Reason).field("Node", &self.Node).field("Role", &self.Role).field("Detail", &self.Detail).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_SOAP_FAULT {
     type Abi = Self;
 }
@@ -5783,6 +6146,12 @@ impl ::core::marker::Copy for WSD_SOAP_FAULT_CODE {}
 impl ::core::clone::Clone for WSD_SOAP_FAULT_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SOAP_FAULT_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SOAP_FAULT_CODE").field("Value", &self.Value).field("Subcode", &self.Subcode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5818,6 +6187,12 @@ impl ::core::clone::Clone for WSD_SOAP_FAULT_REASON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SOAP_FAULT_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SOAP_FAULT_REASON").field("Text", &self.Text).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_SOAP_FAULT_REASON {
     type Abi = Self;
 }
@@ -5848,6 +6223,12 @@ impl ::core::marker::Copy for WSD_SOAP_FAULT_SUBCODE {}
 impl ::core::clone::Clone for WSD_SOAP_FAULT_SUBCODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SOAP_FAULT_SUBCODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SOAP_FAULT_SUBCODE").field("Value", &self.Value).field("Subcode", &self.Subcode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5891,6 +6272,12 @@ impl ::core::clone::Clone for WSD_SOAP_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SOAP_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SOAP_HEADER").field("To", &self.To).field("Action", &self.Action).field("MessageID", &self.MessageID).field("RelatesTo", &self.RelatesTo).field("ReplyTo", &self.ReplyTo).field("From", &self.From).field("FaultTo", &self.FaultTo).field("AppSequence", &self.AppSequence).field("AnyHeaders", &self.AnyHeaders).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_SOAP_HEADER {
     type Abi = Self;
 }
@@ -5922,6 +6309,12 @@ impl ::core::marker::Copy for WSD_SOAP_MESSAGE {}
 impl ::core::clone::Clone for WSD_SOAP_MESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SOAP_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SOAP_MESSAGE").field("Header", &self.Header).field("Body", &self.Body).field("BodyType", &self.BodyType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5961,6 +6354,12 @@ impl ::core::clone::Clone for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_SYNCHRONOUS_RESPONSE_CONTEXT").field("hr", &self.hr).field("eventHandle", &self.eventHandle).field("messageParameters", &self.messageParameters).field("results", &self.results).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -5993,6 +6392,12 @@ impl ::core::marker::Copy for WSD_THIS_DEVICE_METADATA {}
 impl ::core::clone::Clone for WSD_THIS_DEVICE_METADATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_THIS_DEVICE_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_THIS_DEVICE_METADATA").field("FriendlyName", &self.FriendlyName).field("FirmwareVersion", &self.FirmwareVersion).field("SerialNumber", &self.SerialNumber).field("Any", &self.Any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6034,6 +6439,12 @@ impl ::core::clone::Clone for WSD_THIS_MODEL_METADATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_THIS_MODEL_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_THIS_MODEL_METADATA").field("Manufacturer", &self.Manufacturer).field("ManufacturerUrl", &self.ManufacturerUrl).field("ModelName", &self.ModelName).field("ModelNumber", &self.ModelNumber).field("ModelUrl", &self.ModelUrl).field("PresentationUrl", &self.PresentationUrl).field("Any", &self.Any).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_THIS_MODEL_METADATA {
     type Abi = Self;
 }
@@ -6063,6 +6474,12 @@ impl ::core::marker::Copy for WSD_UNKNOWN_LOOKUP {}
 impl ::core::clone::Clone for WSD_UNKNOWN_LOOKUP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_UNKNOWN_LOOKUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_UNKNOWN_LOOKUP").field("Any", &self.Any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6096,6 +6513,12 @@ impl ::core::marker::Copy for WSD_URI_LIST {}
 impl ::core::clone::Clone for WSD_URI_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSD_URI_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSD_URI_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

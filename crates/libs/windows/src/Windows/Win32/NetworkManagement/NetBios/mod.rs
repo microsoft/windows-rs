@@ -12,6 +12,11 @@ impl ::core::clone::Clone for ACTION_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for ACTION_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTION_HEADER").field("transport_id", &self.transport_id).field("action_code", &self.action_code).field("reserved", &self.reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ACTION_HEADER {
     type Abi = Self;
 }
@@ -63,6 +68,39 @@ impl ::core::clone::Clone for ADAPTER_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for ADAPTER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADAPTER_STATUS")
+            .field("adapter_address", &self.adapter_address)
+            .field("rev_major", &self.rev_major)
+            .field("reserved0", &self.reserved0)
+            .field("adapter_type", &self.adapter_type)
+            .field("rev_minor", &self.rev_minor)
+            .field("duration", &self.duration)
+            .field("frmr_recv", &self.frmr_recv)
+            .field("frmr_xmit", &self.frmr_xmit)
+            .field("iframe_recv_err", &self.iframe_recv_err)
+            .field("xmit_aborts", &self.xmit_aborts)
+            .field("xmit_success", &self.xmit_success)
+            .field("recv_success", &self.recv_success)
+            .field("iframe_xmit_err", &self.iframe_xmit_err)
+            .field("recv_buff_unavail", &self.recv_buff_unavail)
+            .field("t1_timeouts", &self.t1_timeouts)
+            .field("ti_timeouts", &self.ti_timeouts)
+            .field("reserved1", &self.reserved1)
+            .field("free_ncbs", &self.free_ncbs)
+            .field("max_cfg_ncbs", &self.max_cfg_ncbs)
+            .field("max_ncbs", &self.max_ncbs)
+            .field("xmit_buf_unavail", &self.xmit_buf_unavail)
+            .field("max_dgram_size", &self.max_dgram_size)
+            .field("pending_sess", &self.pending_sess)
+            .field("max_cfg_sess", &self.max_cfg_sess)
+            .field("max_sess", &self.max_sess)
+            .field("max_sess_pkt_size", &self.max_sess_pkt_size)
+            .field("name_count", &self.name_count)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ADAPTER_STATUS {
     type Abi = Self;
 }
@@ -103,6 +141,11 @@ impl ::core::clone::Clone for FIND_NAME_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for FIND_NAME_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FIND_NAME_BUFFER").field("length", &self.length).field("access_control", &self.access_control).field("frame_control", &self.frame_control).field("destination_addr", &self.destination_addr).field("source_addr", &self.source_addr).field("routing_info", &self.routing_info).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FIND_NAME_BUFFER {
     type Abi = Self;
 }
@@ -128,6 +171,11 @@ impl ::core::marker::Copy for FIND_NAME_HEADER {}
 impl ::core::clone::Clone for FIND_NAME_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FIND_NAME_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FIND_NAME_HEADER").field("node_count", &self.node_count).field("reserved", &self.reserved).field("unique_group", &self.unique_group).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FIND_NAME_HEADER {
@@ -162,6 +210,11 @@ impl ::core::clone::Clone for LANA_ENUM {
         *self
     }
 }
+impl ::core::fmt::Debug for LANA_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LANA_ENUM").field("length", &self.length).field("lana", &self.lana).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LANA_ENUM {
     type Abi = Self;
 }
@@ -191,6 +244,11 @@ impl ::core::marker::Copy for NAME_BUFFER {}
 impl ::core::clone::Clone for NAME_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NAME_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NAME_BUFFER").field("name", &self.name).field("name_num", &self.name_num).field("name_flags", &self.name_flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NAME_BUFFER {
@@ -238,6 +296,29 @@ impl ::core::marker::Copy for NCB {}
 impl ::core::clone::Clone for NCB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NCB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NCB")
+            .field("ncb_command", &self.ncb_command)
+            .field("ncb_retcode", &self.ncb_retcode)
+            .field("ncb_lsn", &self.ncb_lsn)
+            .field("ncb_num", &self.ncb_num)
+            .field("ncb_buffer", &self.ncb_buffer)
+            .field("ncb_length", &self.ncb_length)
+            .field("ncb_callname", &self.ncb_callname)
+            .field("ncb_name", &self.ncb_name)
+            .field("ncb_rto", &self.ncb_rto)
+            .field("ncb_sto", &self.ncb_sto)
+            .field("ncb_post", &self.ncb_post)
+            .field("ncb_lana_num", &self.ncb_lana_num)
+            .field("ncb_cmd_cplt", &self.ncb_cmd_cplt)
+            .field("ncb_reserve", &self.ncb_reserve)
+            .field("ncb_event", &self.ncb_event)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -291,6 +372,29 @@ impl ::core::marker::Copy for NCB {}
 impl ::core::clone::Clone for NCB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NCB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NCB")
+            .field("ncb_command", &self.ncb_command)
+            .field("ncb_retcode", &self.ncb_retcode)
+            .field("ncb_lsn", &self.ncb_lsn)
+            .field("ncb_num", &self.ncb_num)
+            .field("ncb_buffer", &self.ncb_buffer)
+            .field("ncb_length", &self.ncb_length)
+            .field("ncb_callname", &self.ncb_callname)
+            .field("ncb_name", &self.ncb_name)
+            .field("ncb_rto", &self.ncb_rto)
+            .field("ncb_sto", &self.ncb_sto)
+            .field("ncb_post", &self.ncb_post)
+            .field("ncb_lana_num", &self.ncb_lana_num)
+            .field("ncb_cmd_cplt", &self.ncb_cmd_cplt)
+            .field("ncb_reserve", &self.ncb_reserve)
+            .field("ncb_event", &self.ncb_event)
+            .finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -484,6 +588,11 @@ impl ::core::clone::Clone for SESSION_BUFFER {
         *self
     }
 }
+impl ::core::fmt::Debug for SESSION_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SESSION_BUFFER").field("lsn", &self.lsn).field("state", &self.state).field("local_name", &self.local_name).field("remote_name", &self.remote_name).field("rcvs_outstanding", &self.rcvs_outstanding).field("sends_outstanding", &self.sends_outstanding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SESSION_BUFFER {
     type Abi = Self;
 }
@@ -512,6 +621,11 @@ impl ::core::marker::Copy for SESSION_HEADER {}
 impl ::core::clone::Clone for SESSION_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SESSION_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SESSION_HEADER").field("sess_name", &self.sess_name).field("num_sess", &self.num_sess).field("rcv_dg_outstanding", &self.rcv_dg_outstanding).field("rcv_any_outstanding", &self.rcv_any_outstanding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SESSION_HEADER {

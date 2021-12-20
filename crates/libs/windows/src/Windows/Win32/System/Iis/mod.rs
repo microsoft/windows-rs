@@ -529,6 +529,12 @@ impl ::core::clone::Clone for CERT_CONTEXT_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for CERT_CONTEXT_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CERT_CONTEXT_EX").field("CertContext", &self.CertContext).field("cbAllocated", &self.cbAllocated).field("dwCertificateFlags", &self.dwCertificateFlags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for CERT_CONTEXT_EX {
     type Abi = Self;
 }
@@ -566,6 +572,12 @@ pub struct CONFIGURATION_ENTRY {
 impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     fn clone(&self) -> Self {
         Self { bstrKey: self.bstrKey.clone(), bstrValue: self.bstrValue.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONFIGURATION_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONFIGURATION_ENTRY").field("bstrKey", &self.bstrKey).field("bstrValue", &self.bstrValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -662,6 +674,30 @@ impl ::core::marker::Copy for EXTENSION_CONTROL_BLOCK {}
 impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EXTENSION_CONTROL_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTENSION_CONTROL_BLOCK")
+            .field("cbSize", &self.cbSize)
+            .field("dwVersion", &self.dwVersion)
+            .field("ConnID", &self.ConnID)
+            .field("dwHttpStatusCode", &self.dwHttpStatusCode)
+            .field("lpszLogData", &self.lpszLogData)
+            .field("lpszMethod", &self.lpszMethod)
+            .field("lpszQueryString", &self.lpszQueryString)
+            .field("lpszPathInfo", &self.lpszPathInfo)
+            .field("lpszPathTranslated", &self.lpszPathTranslated)
+            .field("cbTotalBytes", &self.cbTotalBytes)
+            .field("cbAvailable", &self.cbAvailable)
+            .field("lpbData", &self.lpbData)
+            .field("lpszContentType", &self.lpszContentType)
+            .field("GetServerVariable", &self.GetServerVariable)
+            .field("WriteClient", &self.WriteClient)
+            .field("ReadClient", &self.ReadClient)
+            .field("ServerSupportFunction", &self.ServerSupportFunction)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -769,6 +805,12 @@ impl ::core::clone::Clone for HSE_CUSTOM_ERROR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_CUSTOM_ERROR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_CUSTOM_ERROR_INFO").field("pszStatus", &self.pszStatus).field("uHttpSubError", &self.uHttpSubError).field("fAsync", &self.fAsync).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_CUSTOM_ERROR_INFO {
     type Abi = Self;
 }
@@ -806,6 +848,12 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_EXEC_UNICODE_URL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_UNICODE_URL_INFO").field("pszUrl", &self.pszUrl).field("pszMethod", &self.pszMethod).field("pszChildHeaders", &self.pszChildHeaders).field("pUserInfo", &self.pUserInfo).field("pEntity", &self.pEntity).field("dwExecUrlFlags", &self.dwExecUrlFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_EXEC_UNICODE_URL_INFO {
     type Abi = Self;
 }
@@ -840,6 +888,12 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_USER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_EXEC_UNICODE_URL_USER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_UNICODE_URL_USER_INFO").field("hImpersonationToken", &self.hImpersonationToken).field("pszCustomUserName", &self.pszCustomUserName).field("pszCustomAuthType", &self.pszCustomAuthType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_EXEC_UNICODE_URL_USER_INFO {
     type Abi = Self;
 }
@@ -869,6 +923,11 @@ impl ::core::marker::Copy for HSE_EXEC_URL_ENTITY_INFO {}
 impl ::core::clone::Clone for HSE_EXEC_URL_ENTITY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HSE_EXEC_URL_ENTITY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_URL_ENTITY_INFO").field("cbAvailable", &self.cbAvailable).field("lpbData", &self.lpbData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_ENTITY_INFO {
@@ -911,6 +970,12 @@ impl ::core::clone::Clone for HSE_EXEC_URL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_EXEC_URL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_URL_INFO").field("pszUrl", &self.pszUrl).field("pszMethod", &self.pszMethod).field("pszChildHeaders", &self.pszChildHeaders).field("pUserInfo", &self.pUserInfo).field("pEntity", &self.pEntity).field("dwExecUrlFlags", &self.dwExecUrlFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_INFO {
     type Abi = Self;
 }
@@ -945,6 +1010,11 @@ impl ::core::clone::Clone for HSE_EXEC_URL_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for HSE_EXEC_URL_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_URL_STATUS").field("uHttpStatusCode", &self.uHttpStatusCode).field("uHttpSubStatus", &self.uHttpSubStatus).field("dwWin32Error", &self.dwWin32Error).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_STATUS {
     type Abi = Self;
 }
@@ -973,6 +1043,12 @@ impl ::core::marker::Copy for HSE_EXEC_URL_USER_INFO {}
 impl ::core::clone::Clone for HSE_EXEC_URL_USER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_EXEC_URL_USER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_EXEC_URL_USER_INFO").field("hImpersonationToken", &self.hImpersonationToken).field("pszCustomUserName", &self.pszCustomUserName).field("pszCustomAuthType", &self.pszCustomAuthType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1116,6 +1192,12 @@ impl ::core::clone::Clone for HSE_RESPONSE_VECTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_RESPONSE_VECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_RESPONSE_VECTOR").field("dwFlags", &self.dwFlags).field("pszStatus", &self.pszStatus).field("pszHeaders", &self.pszHeaders).field("nElementCount", &self.nElementCount).field("lpElementArray", &self.lpElementArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_RESPONSE_VECTOR {
     type Abi = Self;
 }
@@ -1149,6 +1231,12 @@ impl ::core::marker::Copy for HSE_SEND_HEADER_EX_INFO {}
 impl ::core::clone::Clone for HSE_SEND_HEADER_EX_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_SEND_HEADER_EX_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_SEND_HEADER_EX_INFO").field("pszStatus", &self.pszStatus).field("pszHeader", &self.pszHeader).field("cchStatus", &self.cchStatus).field("cchHeader", &self.cchHeader).field("fKeepConn", &self.fKeepConn).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1206,6 +1294,12 @@ impl ::core::clone::Clone for HSE_TF_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_TF_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_TF_INFO").field("pfnHseIO", &self.pfnHseIO).field("pContext", &self.pContext).field("hFile", &self.hFile).field("pszStatusCode", &self.pszStatusCode).field("BytesToWrite", &self.BytesToWrite).field("Offset", &self.Offset).field("pHead", &self.pHead).field("HeadLength", &self.HeadLength).field("pTail", &self.pTail).field("TailLength", &self.TailLength).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_TF_INFO {
     type Abi = Self;
 }
@@ -1241,6 +1335,12 @@ impl ::core::clone::Clone for HSE_TRACE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_TRACE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_TRACE_INFO").field("fTraceRequest", &self.fTraceRequest).field("TraceContextId", &self.TraceContextId).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_TRACE_INFO {
     type Abi = Self;
 }
@@ -1270,6 +1370,11 @@ impl ::core::marker::Copy for HSE_UNICODE_URL_MAPEX_INFO {}
 impl ::core::clone::Clone for HSE_UNICODE_URL_MAPEX_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HSE_UNICODE_URL_MAPEX_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_UNICODE_URL_MAPEX_INFO").field("lpszPath", &self.lpszPath).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HSE_UNICODE_URL_MAPEX_INFO {
@@ -1328,6 +1433,12 @@ impl ::core::clone::Clone for HSE_URL_MAPEX_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_URL_MAPEX_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_URL_MAPEX_INFO").field("lpszPath", &self.lpszPath).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_URL_MAPEX_INFO {
     type Abi = Self;
 }
@@ -1357,6 +1468,11 @@ impl ::core::marker::Copy for HSE_VECTOR_ELEMENT {}
 impl ::core::clone::Clone for HSE_VECTOR_ELEMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HSE_VECTOR_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_VECTOR_ELEMENT").field("ElementType", &self.ElementType).field("pvContext", &self.pvContext).field("cbOffset", &self.cbOffset).field("cbSize", &self.cbSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HSE_VECTOR_ELEMENT {
@@ -1390,6 +1506,12 @@ impl ::core::marker::Copy for HSE_VERSION_INFO {}
 impl ::core::clone::Clone for HSE_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSE_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSE_VERSION_INFO").field("dwExtensionVersion", &self.dwExtensionVersion).field("lpszExtensionDesc", &self.lpszExtensionDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1431,6 +1553,12 @@ impl ::core::clone::Clone for HTTP_FILTER_ACCESS_DENIED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_ACCESS_DENIED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_ACCESS_DENIED").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("dwReason", &self.dwReason).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_ACCESS_DENIED {
     type Abi = Self;
 }
@@ -1463,6 +1591,12 @@ impl ::core::marker::Copy for HTTP_FILTER_AUTHENT {}
 impl ::core::clone::Clone for HTTP_FILTER_AUTHENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_AUTHENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_AUTHENT").field("pszUser", &self.pszUser).field("cbUserBuff", &self.cbUserBuff).field("pszPassword", &self.pszPassword).field("cbPasswordBuff", &self.cbPasswordBuff).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1501,6 +1635,12 @@ impl ::core::marker::Copy for HTTP_FILTER_AUTH_COMPLETE_INFO {}
 impl ::core::clone::Clone for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_AUTH_COMPLETE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_AUTH_COMPLETE_INFO").field("GetHeader", &self.GetHeader).field("SetHeader", &self.SetHeader).field("AddHeader", &self.AddHeader).field("GetUserToken", &self.GetUserToken).field("HttpStatus", &self.HttpStatus).field("fResetAuth", &self.fResetAuth).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1546,6 +1686,24 @@ impl ::core::clone::Clone for HTTP_FILTER_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_CONTEXT")
+            .field("cbSize", &self.cbSize)
+            .field("Revision", &self.Revision)
+            .field("ServerContext", &self.ServerContext)
+            .field("ulReserved", &self.ulReserved)
+            .field("fIsSecurePort", &self.fIsSecurePort)
+            .field("pFilterContext", &self.pFilterContext)
+            .field("GetServerVariable", &self.GetServerVariable)
+            .field("AddResponseHeaders", &self.AddResponseHeaders)
+            .field("WriteClient", &self.WriteClient)
+            .field("AllocMem", &self.AllocMem)
+            .field("ServerSupportFunction", &self.ServerSupportFunction)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_CONTEXT {
     type Abi = Self;
 }
@@ -1588,6 +1746,24 @@ impl ::core::clone::Clone for HTTP_FILTER_LOG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_LOG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_LOG")
+            .field("pszClientHostName", &self.pszClientHostName)
+            .field("pszClientUserName", &self.pszClientUserName)
+            .field("pszServerName", &self.pszServerName)
+            .field("pszOperation", &self.pszOperation)
+            .field("pszTarget", &self.pszTarget)
+            .field("pszParameters", &self.pszParameters)
+            .field("dwHttpStatus", &self.dwHttpStatus)
+            .field("dwWin32Status", &self.dwWin32Status)
+            .field("dwBytesSent", &self.dwBytesSent)
+            .field("dwBytesRecvd", &self.dwBytesRecvd)
+            .field("msTimeForProcessing", &self.msTimeForProcessing)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_LOG {
     type Abi = Self;
 }
@@ -1620,6 +1796,11 @@ impl ::core::clone::Clone for HTTP_FILTER_PREPROC_HEADERS {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_FILTER_PREPROC_HEADERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_PREPROC_HEADERS").field("GetHeader", &self.GetHeader).field("SetHeader", &self.SetHeader).field("AddHeader", &self.AddHeader).field("HttpStatus", &self.HttpStatus).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_FILTER_PREPROC_HEADERS {
     type Abi = Self;
 }
@@ -1646,6 +1827,11 @@ impl ::core::marker::Copy for HTTP_FILTER_RAW_DATA {}
 impl ::core::clone::Clone for HTTP_FILTER_RAW_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_FILTER_RAW_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_RAW_DATA").field("pvInData", &self.pvInData).field("cbInData", &self.cbInData).field("cbInBuffer", &self.cbInBuffer).field("dwReserved", &self.dwReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_FILTER_RAW_DATA {
@@ -1676,6 +1862,12 @@ impl ::core::marker::Copy for HTTP_FILTER_URL_MAP {}
 impl ::core::clone::Clone for HTTP_FILTER_URL_MAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_URL_MAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_URL_MAP").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("cbPathBuff", &self.cbPathBuff).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1717,6 +1909,12 @@ impl ::core::clone::Clone for HTTP_FILTER_URL_MAP_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_URL_MAP_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_URL_MAP_EX").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("cbPathBuff", &self.cbPathBuff).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).field("pszScriptMapEntry", &self.pszScriptMapEntry).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_URL_MAP_EX {
     type Abi = Self;
 }
@@ -1752,6 +1950,12 @@ impl ::core::clone::Clone for HTTP_FILTER_VERSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_FILTER_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FILTER_VERSION").field("dwServerFilterVersion", &self.dwServerFilterVersion).field("dwFilterVersion", &self.dwFilterVersion).field("lpszFilterDesc", &self.lpszFilterDesc).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_FILTER_VERSION {
     type Abi = Self;
 }
@@ -1784,6 +1988,12 @@ impl ::core::marker::Copy for HTTP_TRACE_CONFIGURATION {}
 impl ::core::clone::Clone for HTTP_TRACE_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_TRACE_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TRACE_CONFIGURATION").field("pProviderGuid", &self.pProviderGuid).field("dwAreas", &self.dwAreas).field("dwVerbosity", &self.dwVerbosity).field("fProviderEnabled", &self.fProviderEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1831,6 +2041,26 @@ impl ::core::clone::Clone for HTTP_TRACE_EVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_TRACE_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TRACE_EVENT")
+            .field("pProviderGuid", &self.pProviderGuid)
+            .field("dwArea", &self.dwArea)
+            .field("pAreaGuid", &self.pAreaGuid)
+            .field("dwEvent", &self.dwEvent)
+            .field("pszEventName", &self.pszEventName)
+            .field("dwEventVersion", &self.dwEventVersion)
+            .field("dwVerbosity", &self.dwVerbosity)
+            .field("pActivityGuid", &self.pActivityGuid)
+            .field("pRelatedActivityGuid", &self.pRelatedActivityGuid)
+            .field("dwTimeStamp", &self.dwTimeStamp)
+            .field("dwFlags", &self.dwFlags)
+            .field("cEventItems", &self.cEventItems)
+            .field("pEventItems", &self.pEventItems)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_TRACE_EVENT {
     type Abi = Self;
 }
@@ -1866,6 +2096,12 @@ impl ::core::marker::Copy for HTTP_TRACE_EVENT_ITEM {}
 impl ::core::clone::Clone for HTTP_TRACE_EVENT_ITEM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_TRACE_EVENT_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TRACE_EVENT_ITEM").field("pszName", &self.pszName).field("dwDataType", &self.dwDataType).field("pbData", &self.pbData).field("cbData", &self.cbData).field("pszDataDescription", &self.pszDataDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3579,6 +3815,31 @@ impl ::core::clone::Clone for LOGGING_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LOGGING_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGGING_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("BytesSent", &self.BytesSent)
+            .field("BytesReceived", &self.BytesReceived)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("pszFullPath", &self.pszFullPath)
+            .field("dwElapsedMilliseconds", &self.dwElapsedMilliseconds)
+            .field("FtpStatus", &self.FtpStatus)
+            .field("FtpSubStatus", &self.FtpSubStatus)
+            .field("hrStatus", &self.hrStatus)
+            .field("pszInformation", &self.pszInformation)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LOGGING_PARAMETERS {
     type Abi = Self;
 }
@@ -4021,6 +4282,12 @@ impl ::core::marker::Copy for MD_CHANGE_OBJECT_W {}
 impl ::core::clone::Clone for MD_CHANGE_OBJECT_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MD_CHANGE_OBJECT_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MD_CHANGE_OBJECT_W").field("pszMDPath", &self.pszMDPath).field("dwMDChangeType", &self.dwMDChangeType).field("dwMDNumDataIDs", &self.dwMDNumDataIDs).field("pdwMDDataIDs", &self.pdwMDDataIDs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4934,6 +5201,11 @@ impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for METADATA_GETALL_INTERNAL_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METADATA_GETALL_INTERNAL_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("Anonymous", &self.Anonymous).field("dwMDDataTag", &self.dwMDDataTag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for METADATA_GETALL_INTERNAL_RECORD {
     type Abi = Self;
 }
@@ -4991,6 +5263,11 @@ impl ::core::clone::Clone for METADATA_GETALL_RECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for METADATA_GETALL_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METADATA_GETALL_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("dwMDDataOffset", &self.dwMDDataOffset).field("dwMDDataTag", &self.dwMDDataTag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for METADATA_GETALL_RECORD {
     type Abi = Self;
 }
@@ -5015,6 +5292,11 @@ impl ::core::marker::Copy for METADATA_HANDLE_INFO {}
 impl ::core::clone::Clone for METADATA_HANDLE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for METADATA_HANDLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METADATA_HANDLE_INFO").field("dwMDPermissions", &self.dwMDPermissions).field("dwMDSystemChangeNumber", &self.dwMDSystemChangeNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for METADATA_HANDLE_INFO {
@@ -5068,6 +5350,11 @@ impl ::core::marker::Copy for METADATA_RECORD {}
 impl ::core::clone::Clone for METADATA_RECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for METADATA_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METADATA_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("pbMDData", &self.pbMDData).field("dwMDDataTag", &self.dwMDDataTag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for METADATA_RECORD {
@@ -5162,6 +5449,33 @@ impl ::core::clone::Clone for POST_PROCESS_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POST_PROCESS_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POST_PROCESS_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("BytesSent", &self.BytesSent)
+            .field("BytesReceived", &self.BytesReceived)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("pszFullPath", &self.pszFullPath)
+            .field("pszPhysicalPath", &self.pszPhysicalPath)
+            .field("FtpStatus", &self.FtpStatus)
+            .field("FtpSubStatus", &self.FtpSubStatus)
+            .field("hrStatus", &self.hrStatus)
+            .field("SessionStartTime", &self.SessionStartTime)
+            .field("BytesSentPerSession", &self.BytesSentPerSession)
+            .field("BytesReceivedPerSession", &self.BytesReceivedPerSession)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for POST_PROCESS_PARAMETERS {
     type Abi = Self;
 }
@@ -5203,6 +5517,26 @@ impl ::core::marker::Copy for PRE_PROCESS_PARAMETERS {}
 impl ::core::clone::Clone for PRE_PROCESS_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRE_PROCESS_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRE_PROCESS_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("SessionStartTime", &self.SessionStartTime)
+            .field("BytesSentPerSession", &self.BytesSentPerSession)
+            .field("BytesReceivedPerSession", &self.BytesReceivedPerSession)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

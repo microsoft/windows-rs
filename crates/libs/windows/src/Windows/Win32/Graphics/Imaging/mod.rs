@@ -6442,6 +6442,12 @@ impl ::core::clone::Clone for WICBitmapPattern {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WICBitmapPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICBitmapPattern").field("Position", &self.Position).field("Length", &self.Length).field("Pattern", &self.Pattern).field("Mask", &self.Mask).field("EndOfStream", &self.EndOfStream).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WICBitmapPattern {
     type Abi = Self;
 }
@@ -6473,6 +6479,11 @@ impl ::core::clone::Clone for WICBitmapPlane {
         *self
     }
 }
+impl ::core::fmt::Debug for WICBitmapPlane {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICBitmapPlane").field("Format", &self.Format).field("pbBuffer", &self.pbBuffer).field("cbStride", &self.cbStride).field("cbBufferSize", &self.cbBufferSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICBitmapPlane {
     type Abi = Self;
 }
@@ -6498,6 +6509,11 @@ impl ::core::marker::Copy for WICBitmapPlaneDescription {}
 impl ::core::clone::Clone for WICBitmapPlaneDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICBitmapPlaneDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICBitmapPlaneDescription").field("Format", &self.Format).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICBitmapPlaneDescription {
@@ -6673,6 +6689,12 @@ impl ::core::clone::Clone for WICDdsFormatInfo {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for WICDdsFormatInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICDdsFormatInfo").field("DxgiFormat", &self.DxgiFormat).field("BytesPerBlock", &self.BytesPerBlock).field("BlockWidth", &self.BlockWidth).field("BlockHeight", &self.BlockHeight).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for WICDdsFormatInfo {
     type Abi = Self;
 }
@@ -6709,6 +6731,12 @@ impl ::core::marker::Copy for WICDdsParameters {}
 impl ::core::clone::Clone for WICDdsParameters {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for WICDdsParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICDdsParameters").field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("DxgiFormat", &self.DxgiFormat).field("Dimension", &self.Dimension).field("AlphaMode", &self.AlphaMode).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6863,6 +6891,12 @@ impl ::core::clone::Clone for WICImageParameters {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for WICImageParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICImageParameters").field("PixelFormat", &self.PixelFormat).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).field("Top", &self.Top).field("Left", &self.Left).field("PixelWidth", &self.PixelWidth).field("PixelHeight", &self.PixelHeight).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for WICImageParameters {
     type Abi = Self;
 }
@@ -6910,6 +6944,11 @@ impl ::core::clone::Clone for WICJpegFrameHeader {
         *self
     }
 }
+impl ::core::fmt::Debug for WICJpegFrameHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICJpegFrameHeader").field("Width", &self.Width).field("Height", &self.Height).field("TransferMatrix", &self.TransferMatrix).field("ScanType", &self.ScanType).field("cComponents", &self.cComponents).field("ComponentIdentifiers", &self.ComponentIdentifiers).field("SampleFactors", &self.SampleFactors).field("QuantizationTableIndices", &self.QuantizationTableIndices).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICJpegFrameHeader {
     type Abi = Self;
 }
@@ -6954,6 +6993,20 @@ impl ::core::marker::Copy for WICJpegScanHeader {}
 impl ::core::clone::Clone for WICJpegScanHeader {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICJpegScanHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICJpegScanHeader")
+            .field("cComponents", &self.cComponents)
+            .field("RestartInterval", &self.RestartInterval)
+            .field("ComponentSelectors", &self.ComponentSelectors)
+            .field("HuffmanTableIndices", &self.HuffmanTableIndices)
+            .field("StartSpectralSelection", &self.StartSpectralSelection)
+            .field("EndSpectralSelection", &self.EndSpectralSelection)
+            .field("SuccessiveApproximationHigh", &self.SuccessiveApproximationHigh)
+            .field("SuccessiveApproximationLow", &self.SuccessiveApproximationLow)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICJpegScanHeader {
@@ -7088,6 +7141,11 @@ impl ::core::clone::Clone for WICMetadataHeader {
         *self
     }
 }
+impl ::core::fmt::Debug for WICMetadataHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICMetadataHeader").field("Position", &self.Position).field("Length", &self.Length).field("Header", &self.Header).field("DataOffset", &self.DataOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICMetadataHeader {
     type Abi = Self;
 }
@@ -7115,6 +7173,11 @@ impl ::core::marker::Copy for WICMetadataPattern {}
 impl ::core::clone::Clone for WICMetadataPattern {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICMetadataPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICMetadataPattern").field("Position", &self.Position).field("Length", &self.Length).field("Pattern", &self.Pattern).field("Mask", &self.Mask).field("DataOffset", &self.DataOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICMetadataPattern {
@@ -7357,6 +7420,30 @@ impl ::core::clone::Clone for WICRawCapabilitiesInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for WICRawCapabilitiesInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICRawCapabilitiesInfo")
+            .field("cbSize", &self.cbSize)
+            .field("CodecMajorVersion", &self.CodecMajorVersion)
+            .field("CodecMinorVersion", &self.CodecMinorVersion)
+            .field("ExposureCompensationSupport", &self.ExposureCompensationSupport)
+            .field("ContrastSupport", &self.ContrastSupport)
+            .field("RGBWhitePointSupport", &self.RGBWhitePointSupport)
+            .field("NamedWhitePointSupport", &self.NamedWhitePointSupport)
+            .field("NamedWhitePointSupportMask", &self.NamedWhitePointSupportMask)
+            .field("KelvinWhitePointSupport", &self.KelvinWhitePointSupport)
+            .field("GammaSupport", &self.GammaSupport)
+            .field("TintSupport", &self.TintSupport)
+            .field("SaturationSupport", &self.SaturationSupport)
+            .field("SharpnessSupport", &self.SharpnessSupport)
+            .field("NoiseReductionSupport", &self.NoiseReductionSupport)
+            .field("DestinationColorProfileSupport", &self.DestinationColorProfileSupport)
+            .field("ToneCurveSupport", &self.ToneCurveSupport)
+            .field("RotationSupport", &self.RotationSupport)
+            .field("RenderModeSupport", &self.RenderModeSupport)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICRawCapabilitiesInfo {
     type Abi = Self;
 }
@@ -7443,6 +7530,11 @@ impl ::core::clone::Clone for WICRawToneCurve {
         *self
     }
 }
+impl ::core::fmt::Debug for WICRawToneCurve {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICRawToneCurve").field("cPoints", &self.cPoints).field("aPoints", &self.aPoints).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WICRawToneCurve {
     type Abi = Self;
 }
@@ -7467,6 +7559,11 @@ impl ::core::marker::Copy for WICRawToneCurvePoint {}
 impl ::core::clone::Clone for WICRawToneCurvePoint {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICRawToneCurvePoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICRawToneCurvePoint").field("Input", &self.Input).field("Output", &self.Output).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICRawToneCurvePoint {
@@ -7495,6 +7592,11 @@ impl ::core::marker::Copy for WICRect {}
 impl ::core::clone::Clone for WICRect {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WICRect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WICRect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WICRect {

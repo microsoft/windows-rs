@@ -7815,6 +7815,11 @@ impl ::core::clone::Clone for Matrix {
         *self
     }
 }
+impl ::core::fmt::Debug for Matrix {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Matrix").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("OffsetX", &self.OffsetX).field("OffsetY", &self.OffsetY).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Matrix {
     type Abi = Self;
 }

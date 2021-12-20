@@ -20,6 +20,11 @@ impl ::core::clone::Clone for ACPI_REAL_TIME {
         *self
     }
 }
+impl ::core::fmt::Debug for ACPI_REAL_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACPI_REAL_TIME").field("Year", &self.Year).field("Month", &self.Month).field("Day", &self.Day).field("Hour", &self.Hour).field("Minute", &self.Minute).field("Second", &self.Second).field("Valid", &self.Valid).field("Milliseconds", &self.Milliseconds).field("TimeZone", &self.TimeZone).field("DayLight", &self.DayLight).field("Reserved1", &self.Reserved1).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ACPI_REAL_TIME {
     type Abi = Self;
 }
@@ -58,6 +63,11 @@ impl ::core::clone::Clone for ADMINISTRATOR_POWER_POLICY {
         *self
     }
 }
+impl ::core::fmt::Debug for ADMINISTRATOR_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADMINISTRATOR_POWER_POLICY").field("MinSleep", &self.MinSleep).field("MaxSleep", &self.MaxSleep).field("MinVideoTimeout", &self.MinVideoTimeout).field("MaxVideoTimeout", &self.MaxVideoTimeout).field("MinSpindownTimeout", &self.MinSpindownTimeout).field("MaxSpindownTimeout", &self.MaxSpindownTimeout).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ADMINISTRATOR_POWER_POLICY {
     type Abi = Self;
 }
@@ -84,6 +94,11 @@ impl ::core::marker::Copy for BATTERY_CHARGER_STATUS {}
 impl ::core::clone::Clone for BATTERY_CHARGER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BATTERY_CHARGER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_CHARGER_STATUS").field("Type", &self.Type).field("VaData", &self.VaData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BATTERY_CHARGER_STATUS {
@@ -114,6 +129,11 @@ impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE {
         *self
     }
 }
+impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_CHARGING_SOURCE").field("Type", &self.Type).field("MaxCurrent", &self.MaxCurrent).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE {
     type Abi = Self;
 }
@@ -141,6 +161,12 @@ impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_INFORMATION {}
 impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_CHARGING_SOURCE_INFORMATION").field("Type", &self.Type).field("SourceOnline", &self.SourceOnline).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -203,6 +229,11 @@ impl ::core::clone::Clone for BATTERY_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for BATTERY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_INFORMATION").field("Capabilities", &self.Capabilities).field("Technology", &self.Technology).field("Reserved", &self.Reserved).field("Chemistry", &self.Chemistry).field("DesignedCapacity", &self.DesignedCapacity).field("FullChargedCapacity", &self.FullChargedCapacity).field("DefaultAlert1", &self.DefaultAlert1).field("DefaultAlert2", &self.DefaultAlert2).field("CriticalBias", &self.CriticalBias).field("CycleCount", &self.CycleCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BATTERY_INFORMATION {
     type Abi = Self;
 }
@@ -230,6 +261,11 @@ impl ::core::marker::Copy for BATTERY_MANUFACTURE_DATE {}
 impl ::core::clone::Clone for BATTERY_MANUFACTURE_DATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BATTERY_MANUFACTURE_DATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_MANUFACTURE_DATE").field("Day", &self.Day).field("Month", &self.Month).field("Year", &self.Year).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BATTERY_MANUFACTURE_DATE {
@@ -263,6 +299,11 @@ impl ::core::marker::Copy for BATTERY_QUERY_INFORMATION {}
 impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BATTERY_QUERY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_QUERY_INFORMATION").field("BatteryTag", &self.BatteryTag).field("InformationLevel", &self.InformationLevel).field("AtRate", &self.AtRate).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION {
@@ -311,6 +352,11 @@ impl ::core::clone::Clone for BATTERY_REPORTING_SCALE {
         *self
     }
 }
+impl ::core::fmt::Debug for BATTERY_REPORTING_SCALE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_REPORTING_SCALE").field("Granularity", &self.Granularity).field("Capacity", &self.Capacity).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BATTERY_REPORTING_SCALE {
     type Abi = Self;
 }
@@ -347,6 +393,11 @@ impl ::core::marker::Copy for BATTERY_SET_INFORMATION {}
 impl ::core::clone::Clone for BATTERY_SET_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BATTERY_SET_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_SET_INFORMATION").field("BatteryTag", &self.BatteryTag).field("InformationLevel", &self.InformationLevel).field("Buffer", &self.Buffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION {
@@ -390,6 +441,11 @@ impl ::core::marker::Copy for BATTERY_STATUS {}
 impl ::core::clone::Clone for BATTERY_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BATTERY_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_STATUS").field("PowerState", &self.PowerState).field("Capacity", &self.Capacity).field("Voltage", &self.Voltage).field("Rate", &self.Rate).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BATTERY_STATUS {
@@ -443,6 +499,11 @@ impl ::core::clone::Clone for BATTERY_USB_CHARGER_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for BATTERY_USB_CHARGER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_USB_CHARGER_STATUS").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("MaxCurrent", &self.MaxCurrent).field("Voltage", &self.Voltage).field("PortType", &self.PortType).field("PortId", &self.PortId).field("PowerSourceInformation", &self.PowerSourceInformation).field("OemCharger", &self.OemCharger).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BATTERY_USB_CHARGER_STATUS {
     type Abi = Self;
 }
@@ -476,6 +537,11 @@ impl ::core::clone::Clone for BATTERY_WAIT_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for BATTERY_WAIT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BATTERY_WAIT_STATUS").field("BatteryTag", &self.BatteryTag).field("Timeout", &self.Timeout).field("PowerState", &self.PowerState).field("LowCapacity", &self.LowCapacity).field("HighCapacity", &self.HighCapacity).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BATTERY_WAIT_STATUS {
     type Abi = Self;
 }
@@ -506,6 +572,11 @@ impl ::core::marker::Copy for CM_POWER_DATA {}
 impl ::core::clone::Clone for CM_POWER_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CM_POWER_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CM_POWER_DATA").field("PD_Size", &self.PD_Size).field("PD_MostRecentPowerState", &self.PD_MostRecentPowerState).field("PD_Capabilities", &self.PD_Capabilities).field("PD_D1Latency", &self.PD_D1Latency).field("PD_D2Latency", &self.PD_D2Latency).field("PD_D3Latency", &self.PD_D3Latency).field("PD_PowerStateMapping", &self.PD_PowerStateMapping).field("PD_DeepestSystemWake", &self.PD_DeepestSystemWake).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CM_POWER_DATA {
@@ -579,6 +650,11 @@ impl ::core::marker::Copy for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
 impl ::core::clone::Clone for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS").field("Callback", &self.Callback).field("Context", &self.Context).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
@@ -718,6 +794,11 @@ impl ::core::clone::Clone for EMI_CHANNEL_MEASUREMENT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for EMI_CHANNEL_MEASUREMENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMI_CHANNEL_MEASUREMENT_DATA").field("AbsoluteEnergy", &self.AbsoluteEnergy).field("AbsoluteTime", &self.AbsoluteTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMI_CHANNEL_MEASUREMENT_DATA {
     type Abi = Self;
 }
@@ -745,6 +826,11 @@ impl ::core::clone::Clone for EMI_CHANNEL_V2 {
         *self
     }
 }
+impl ::core::fmt::Debug for EMI_CHANNEL_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMI_CHANNEL_V2").field("MeasurementUnit", &self.MeasurementUnit).field("ChannelNameSize", &self.ChannelNameSize).field("ChannelName", &self.ChannelName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMI_CHANNEL_V2 {
     type Abi = Self;
 }
@@ -768,6 +854,11 @@ impl ::core::marker::Copy for EMI_MEASUREMENT_DATA_V2 {}
 impl ::core::clone::Clone for EMI_MEASUREMENT_DATA_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMI_MEASUREMENT_DATA_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMI_MEASUREMENT_DATA_V2").field("ChannelData", &self.ChannelData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_DATA_V2 {
@@ -797,6 +888,11 @@ impl ::core::marker::Copy for EMI_METADATA_SIZE {}
 impl ::core::clone::Clone for EMI_METADATA_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMI_METADATA_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMI_METADATA_SIZE").field("MetadataSize", &self.MetadataSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMI_METADATA_SIZE {
@@ -829,6 +925,11 @@ impl ::core::clone::Clone for EMI_METADATA_V1 {
         *self
     }
 }
+impl ::core::fmt::Debug for EMI_METADATA_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMI_METADATA_V1").field("MeasurementUnit", &self.MeasurementUnit).field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("MeteredHardwareNameSize", &self.MeteredHardwareNameSize).field("MeteredHardwareName", &self.MeteredHardwareName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMI_METADATA_V1 {
     type Abi = Self;
 }
@@ -858,6 +959,11 @@ impl ::core::clone::Clone for EMI_METADATA_V2 {
         *self
     }
 }
+impl ::core::fmt::Debug for EMI_METADATA_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMI_METADATA_V2").field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("ChannelCount", &self.ChannelCount).field("Channels", &self.Channels).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMI_METADATA_V2 {
     type Abi = Self;
 }
@@ -883,6 +989,11 @@ impl ::core::marker::Copy for EMI_VERSION {}
 impl ::core::clone::Clone for EMI_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMI_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMI_VERSION").field("EmiVersion", &self.EmiVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMI_VERSION {
@@ -954,6 +1065,11 @@ impl ::core::clone::Clone for GLOBAL_MACHINE_POWER_POLICY {
         *self
     }
 }
+impl ::core::fmt::Debug for GLOBAL_MACHINE_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GLOBAL_MACHINE_POWER_POLICY").field("Revision", &self.Revision).field("LidOpenWakeAc", &self.LidOpenWakeAc).field("LidOpenWakeDc", &self.LidOpenWakeDc).field("BroadcastCapacityResolution", &self.BroadcastCapacityResolution).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GLOBAL_MACHINE_POWER_POLICY {
     type Abi = Self;
 }
@@ -981,6 +1097,12 @@ impl ::core::marker::Copy for GLOBAL_POWER_POLICY {}
 impl ::core::clone::Clone for GLOBAL_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GLOBAL_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GLOBAL_POWER_POLICY").field("user", &self.user).field("mach", &self.mach).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1021,6 +1143,12 @@ impl ::core::marker::Copy for GLOBAL_USER_POWER_POLICY {}
 impl ::core::clone::Clone for GLOBAL_USER_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GLOBAL_USER_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GLOBAL_USER_POWER_POLICY").field("Revision", &self.Revision).field("PowerButtonAc", &self.PowerButtonAc).field("PowerButtonDc", &self.PowerButtonDc).field("SleepButtonAc", &self.SleepButtonAc).field("SleepButtonDc", &self.SleepButtonDc).field("LidCloseAc", &self.LidCloseAc).field("LidCloseDc", &self.LidCloseDc).field("DischargePolicy", &self.DischargePolicy).field("GlobalFlags", &self.GlobalFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1307,6 +1435,26 @@ impl ::core::clone::Clone for MACHINE_POWER_POLICY {
         *self
     }
 }
+impl ::core::fmt::Debug for MACHINE_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MACHINE_POWER_POLICY")
+            .field("Revision", &self.Revision)
+            .field("MinSleepAc", &self.MinSleepAc)
+            .field("MinSleepDc", &self.MinSleepDc)
+            .field("ReducedLatencySleepAc", &self.ReducedLatencySleepAc)
+            .field("ReducedLatencySleepDc", &self.ReducedLatencySleepDc)
+            .field("DozeTimeoutAc", &self.DozeTimeoutAc)
+            .field("DozeTimeoutDc", &self.DozeTimeoutDc)
+            .field("DozeS4TimeoutAc", &self.DozeS4TimeoutAc)
+            .field("DozeS4TimeoutDc", &self.DozeS4TimeoutDc)
+            .field("MinThrottleAc", &self.MinThrottleAc)
+            .field("MinThrottleDc", &self.MinThrottleDc)
+            .field("pad1", &self.pad1)
+            .field("OverThrottledAc", &self.OverThrottledAc)
+            .field("OverThrottledDc", &self.OverThrottledDc)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MACHINE_POWER_POLICY {
     type Abi = Self;
 }
@@ -1332,6 +1480,11 @@ impl ::core::marker::Copy for MACHINE_PROCESSOR_POWER_POLICY {}
 impl ::core::clone::Clone for MACHINE_PROCESSOR_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MACHINE_PROCESSOR_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MACHINE_PROCESSOR_POWER_POLICY").field("Revision", &self.Revision).field("ProcessorPolicyAc", &self.ProcessorPolicyAc).field("ProcessorPolicyDc", &self.ProcessorPolicyDc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MACHINE_PROCESSOR_POWER_POLICY {
@@ -1389,6 +1542,11 @@ impl ::core::clone::Clone for POWERBROADCAST_SETTING {
         *self
     }
 }
+impl ::core::fmt::Debug for POWERBROADCAST_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWERBROADCAST_SETTING").field("PowerSetting", &self.PowerSetting).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for POWERBROADCAST_SETTING {
     type Abi = Self;
 }
@@ -1434,6 +1592,11 @@ impl ::core::marker::Copy for POWER_ACTION_POLICY {}
 impl ::core::clone::Clone for POWER_ACTION_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for POWER_ACTION_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_ACTION_POLICY").field("Action", &self.Action).field("Flags", &self.Flags).field("EventCode", &self.EventCode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY {
@@ -1768,6 +1931,12 @@ impl ::core::clone::Clone for POWER_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_POLICY").field("user", &self.user).field("mach", &self.mach).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for POWER_POLICY {
     type Abi = Self;
 }
@@ -1819,6 +1988,11 @@ impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PROCESSOR_OBJECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESSOR_OBJECT_INFO").field("PhysicalID", &self.PhysicalID).field("PBlkAddress", &self.PBlkAddress).field("PBlkLength", &self.PBlkLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO {
     type Abi = Self;
 }
@@ -1845,6 +2019,11 @@ impl ::core::marker::Copy for PROCESSOR_OBJECT_INFO_EX {}
 impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESSOR_OBJECT_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESSOR_OBJECT_INFO_EX").field("PhysicalID", &self.PhysicalID).field("PBlkAddress", &self.PBlkAddress).field("PBlkLength", &self.PBlkLength).field("InitialApicId", &self.InitialApicId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO_EX {
@@ -1877,6 +2056,11 @@ impl ::core::clone::Clone for PROCESSOR_POWER_POLICY {
         *self
     }
 }
+impl ::core::fmt::Debug for PROCESSOR_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESSOR_POWER_POLICY").field("Revision", &self.Revision).field("DynamicThrottle", &self.DynamicThrottle).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).field("PolicyCount", &self.PolicyCount).field("Policy", &self.Policy).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY {
     type Abi = Self;
 }
@@ -1906,6 +2090,11 @@ impl ::core::marker::Copy for PROCESSOR_POWER_POLICY_INFO {}
 impl ::core::clone::Clone for PROCESSOR_POWER_POLICY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROCESSOR_POWER_POLICY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESSOR_POWER_POLICY_INFO").field("TimeCheck", &self.TimeCheck).field("DemoteLimit", &self.DemoteLimit).field("PromoteLimit", &self.PromoteLimit).field("DemotePercent", &self.DemotePercent).field("PromotePercent", &self.PromotePercent).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY_INFO {
@@ -2949,6 +3138,11 @@ impl ::core::clone::Clone for SET_POWER_SETTING_VALUE {
         *self
     }
 }
+impl ::core::fmt::Debug for SET_POWER_SETTING_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SET_POWER_SETTING_VALUE").field("Version", &self.Version).field("Guid", &self.Guid).field("PowerCondition", &self.PowerCondition).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SET_POWER_SETTING_VALUE {
     type Abi = Self;
 }
@@ -2986,6 +3180,25 @@ impl ::core::marker::Copy for SYSTEM_BATTERY_STATE {}
 impl ::core::clone::Clone for SYSTEM_BATTERY_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SYSTEM_BATTERY_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEM_BATTERY_STATE")
+            .field("AcOnLine", &self.AcOnLine)
+            .field("BatteryPresent", &self.BatteryPresent)
+            .field("Charging", &self.Charging)
+            .field("Discharging", &self.Discharging)
+            .field("Spare1", &self.Spare1)
+            .field("Tag", &self.Tag)
+            .field("MaxCapacity", &self.MaxCapacity)
+            .field("RemainingCapacity", &self.RemainingCapacity)
+            .field("Rate", &self.Rate)
+            .field("EstimatedTime", &self.EstimatedTime)
+            .field("DefaultAlert1", &self.DefaultAlert1)
+            .field("DefaultAlert2", &self.DefaultAlert2)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3053,6 +3266,46 @@ impl ::core::clone::Clone for SYSTEM_POWER_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SYSTEM_POWER_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEM_POWER_CAPABILITIES")
+            .field("PowerButtonPresent", &self.PowerButtonPresent)
+            .field("SleepButtonPresent", &self.SleepButtonPresent)
+            .field("LidPresent", &self.LidPresent)
+            .field("SystemS1", &self.SystemS1)
+            .field("SystemS2", &self.SystemS2)
+            .field("SystemS3", &self.SystemS3)
+            .field("SystemS4", &self.SystemS4)
+            .field("SystemS5", &self.SystemS5)
+            .field("HiberFilePresent", &self.HiberFilePresent)
+            .field("FullWake", &self.FullWake)
+            .field("VideoDimPresent", &self.VideoDimPresent)
+            .field("ApmPresent", &self.ApmPresent)
+            .field("UpsPresent", &self.UpsPresent)
+            .field("ThermalControl", &self.ThermalControl)
+            .field("ProcessorThrottle", &self.ProcessorThrottle)
+            .field("ProcessorMinThrottle", &self.ProcessorMinThrottle)
+            .field("ProcessorMaxThrottle", &self.ProcessorMaxThrottle)
+            .field("FastSystemS4", &self.FastSystemS4)
+            .field("Hiberboot", &self.Hiberboot)
+            .field("WakeAlarmPresent", &self.WakeAlarmPresent)
+            .field("AoAc", &self.AoAc)
+            .field("DiskSpinDown", &self.DiskSpinDown)
+            .field("HiberFileType", &self.HiberFileType)
+            .field("AoAcConnectivitySupported", &self.AoAcConnectivitySupported)
+            .field("spare3", &self.spare3)
+            .field("SystemBatteriesPresent", &self.SystemBatteriesPresent)
+            .field("BatteriesAreShortTerm", &self.BatteriesAreShortTerm)
+            .field("BatteryScale", &self.BatteryScale)
+            .field("AcOnLineWake", &self.AcOnLineWake)
+            .field("SoftLidWake", &self.SoftLidWake)
+            .field("RtcWake", &self.RtcWake)
+            .field("MinDeviceWakeState", &self.MinDeviceWakeState)
+            .field("DefaultLowLatencyWake", &self.DefaultLowLatencyWake)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SYSTEM_POWER_CAPABILITIES {
     type Abi = Self;
 }
@@ -3096,6 +3349,12 @@ impl ::core::marker::Copy for SYSTEM_POWER_LEVEL {}
 impl ::core::clone::Clone for SYSTEM_POWER_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SYSTEM_POWER_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEM_POWER_LEVEL").field("Enable", &self.Enable).field("Spare", &self.Spare).field("BatteryLevel", &self.BatteryLevel).field("PowerPolicy", &self.PowerPolicy).field("MinSystemState", &self.MinSystemState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3158,6 +3417,41 @@ impl ::core::clone::Clone for SYSTEM_POWER_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SYSTEM_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEM_POWER_POLICY")
+            .field("Revision", &self.Revision)
+            .field("PowerButton", &self.PowerButton)
+            .field("SleepButton", &self.SleepButton)
+            .field("LidClose", &self.LidClose)
+            .field("LidOpenWake", &self.LidOpenWake)
+            .field("Reserved", &self.Reserved)
+            .field("Idle", &self.Idle)
+            .field("IdleTimeout", &self.IdleTimeout)
+            .field("IdleSensitivity", &self.IdleSensitivity)
+            .field("DynamicThrottle", &self.DynamicThrottle)
+            .field("Spare2", &self.Spare2)
+            .field("MinSleep", &self.MinSleep)
+            .field("MaxSleep", &self.MaxSleep)
+            .field("ReducedLatencySleep", &self.ReducedLatencySleep)
+            .field("WinLogonFlags", &self.WinLogonFlags)
+            .field("Spare3", &self.Spare3)
+            .field("DozeS4Timeout", &self.DozeS4Timeout)
+            .field("BroadcastCapacityResolution", &self.BroadcastCapacityResolution)
+            .field("DischargePolicy", &self.DischargePolicy)
+            .field("VideoTimeout", &self.VideoTimeout)
+            .field("VideoDimDisplay", &self.VideoDimDisplay)
+            .field("VideoReserved", &self.VideoReserved)
+            .field("SpindownTimeout", &self.SpindownTimeout)
+            .field("OptimizeForPower", &self.OptimizeForPower)
+            .field("FanThrottleTolerance", &self.FanThrottleTolerance)
+            .field("ForcedThrottle", &self.ForcedThrottle)
+            .field("MinThrottle", &self.MinThrottle)
+            .field("OverThrottled", &self.OverThrottled)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SYSTEM_POWER_POLICY {
     type Abi = Self;
 }
@@ -3207,6 +3501,11 @@ impl ::core::marker::Copy for SYSTEM_POWER_STATUS {}
 impl ::core::clone::Clone for SYSTEM_POWER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SYSTEM_POWER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEM_POWER_STATUS").field("ACLineStatus", &self.ACLineStatus).field("BatteryFlag", &self.BatteryFlag).field("BatteryLifePercent", &self.BatteryLifePercent).field("SystemStatusFlag", &self.SystemStatusFlag).field("BatteryLifeTime", &self.BatteryLifeTime).field("BatteryFullLifeTime", &self.BatteryFullLifeTime).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATUS {
@@ -3324,6 +3623,12 @@ impl ::core::clone::Clone for THERMAL_EVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for THERMAL_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("THERMAL_EVENT").field("Version", &self.Version).field("Size", &self.Size).field("Type", &self.Type).field("Temperature", &self.Temperature).field("TripPointTemperature", &self.TripPointTemperature).field("Initiator", &self.Initiator).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for THERMAL_EVENT {
     type Abi = Self;
 }
@@ -3363,6 +3668,22 @@ impl ::core::clone::Clone for THERMAL_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for THERMAL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("THERMAL_INFORMATION")
+            .field("ThermalStamp", &self.ThermalStamp)
+            .field("ThermalConstant1", &self.ThermalConstant1)
+            .field("ThermalConstant2", &self.ThermalConstant2)
+            .field("Processors", &self.Processors)
+            .field("SamplingPeriod", &self.SamplingPeriod)
+            .field("CurrentTemperature", &self.CurrentTemperature)
+            .field("PassiveTripPoint", &self.PassiveTripPoint)
+            .field("CriticalTripPoint", &self.CriticalTripPoint)
+            .field("ActiveTripPointCount", &self.ActiveTripPointCount)
+            .field("ActiveTripPoint", &self.ActiveTripPoint)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for THERMAL_INFORMATION {
     type Abi = Self;
 }
@@ -3400,6 +3721,12 @@ impl ::core::clone::Clone for THERMAL_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for THERMAL_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("THERMAL_POLICY").field("Version", &self.Version).field("WaitForUpdate", &self.WaitForUpdate).field("Hibernate", &self.Hibernate).field("Critical", &self.Critical).field("ThermalStandby", &self.ThermalStandby).field("ActivationReasons", &self.ActivationReasons).field("PassiveLimit", &self.PassiveLimit).field("ActiveLevel", &self.ActiveLevel).field("OverThrottled", &self.OverThrottled).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for THERMAL_POLICY {
     type Abi = Self;
 }
@@ -3432,6 +3759,11 @@ impl ::core::marker::Copy for THERMAL_WAIT_READ {}
 impl ::core::clone::Clone for THERMAL_WAIT_READ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for THERMAL_WAIT_READ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("THERMAL_WAIT_READ").field("Timeout", &self.Timeout).field("LowTemperature", &self.LowTemperature).field("HighTemperature", &self.HighTemperature).finish()
     }
 }
 unsafe impl ::windows::core::Abi for THERMAL_WAIT_READ {
@@ -3501,6 +3833,35 @@ impl ::core::marker::Copy for USER_POWER_POLICY {}
 impl ::core::clone::Clone for USER_POWER_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USER_POWER_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USER_POWER_POLICY")
+            .field("Revision", &self.Revision)
+            .field("IdleAc", &self.IdleAc)
+            .field("IdleDc", &self.IdleDc)
+            .field("IdleTimeoutAc", &self.IdleTimeoutAc)
+            .field("IdleTimeoutDc", &self.IdleTimeoutDc)
+            .field("IdleSensitivityAc", &self.IdleSensitivityAc)
+            .field("IdleSensitivityDc", &self.IdleSensitivityDc)
+            .field("ThrottlePolicyAc", &self.ThrottlePolicyAc)
+            .field("ThrottlePolicyDc", &self.ThrottlePolicyDc)
+            .field("MaxSleepAc", &self.MaxSleepAc)
+            .field("MaxSleepDc", &self.MaxSleepDc)
+            .field("Reserved", &self.Reserved)
+            .field("VideoTimeoutAc", &self.VideoTimeoutAc)
+            .field("VideoTimeoutDc", &self.VideoTimeoutDc)
+            .field("SpindownTimeoutAc", &self.SpindownTimeoutAc)
+            .field("SpindownTimeoutDc", &self.SpindownTimeoutDc)
+            .field("OptimizeForPowerAc", &self.OptimizeForPowerAc)
+            .field("OptimizeForPowerDc", &self.OptimizeForPowerDc)
+            .field("FanThrottleToleranceAc", &self.FanThrottleToleranceAc)
+            .field("FanThrottleToleranceDc", &self.FanThrottleToleranceDc)
+            .field("ForcedThrottleAc", &self.ForcedThrottleAc)
+            .field("ForcedThrottleDc", &self.ForcedThrottleDc)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3576,6 +3937,11 @@ impl ::core::marker::Copy for WAKE_ALARM_INFORMATION {}
 impl ::core::clone::Clone for WAKE_ALARM_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WAKE_ALARM_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WAKE_ALARM_INFORMATION").field("TimerIdentifier", &self.TimerIdentifier).field("Timeout", &self.Timeout).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WAKE_ALARM_INFORMATION {

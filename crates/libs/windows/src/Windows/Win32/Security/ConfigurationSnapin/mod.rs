@@ -198,6 +198,11 @@ impl ::core::clone::Clone for SCESVC_ANALYSIS_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCESVC_ANALYSIS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_ANALYSIS_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_INFO {
     type Abi = Self;
 }
@@ -223,6 +228,11 @@ impl ::core::marker::Copy for SCESVC_ANALYSIS_LINE {}
 impl ::core::clone::Clone for SCESVC_ANALYSIS_LINE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCESVC_ANALYSIS_LINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_ANALYSIS_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_LINE {
@@ -258,6 +268,12 @@ impl ::core::clone::Clone for SCESVC_CALLBACK_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCESVC_CALLBACK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).field("pfQueryInfo", &self.pfQueryInfo).field("pfSetInfo", &self.pfSetInfo).field("pfFreeInfo", &self.pfFreeInfo).field("pfLogInfo", &self.pfLogInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCESVC_CALLBACK_INFO {
     type Abi = Self;
 }
@@ -287,6 +303,11 @@ impl ::core::clone::Clone for SCESVC_CONFIGURATION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCESVC_CONFIGURATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_CONFIGURATION_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_INFO {
     type Abi = Self;
 }
@@ -312,6 +333,11 @@ impl ::core::marker::Copy for SCESVC_CONFIGURATION_LINE {}
 impl ::core::clone::Clone for SCESVC_CONFIGURATION_LINE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCESVC_CONFIGURATION_LINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCESVC_CONFIGURATION_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_LINE {

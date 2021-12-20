@@ -3220,6 +3220,11 @@ impl ::core::clone::Clone for VSS_DIFF_AREA_PROP {
         *self
     }
 }
+impl ::core::fmt::Debug for VSS_DIFF_AREA_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_DIFF_AREA_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszDiffAreaVolumeName", &self.m_pwszDiffAreaVolumeName).field("m_llMaximumDiffSpace", &self.m_llMaximumDiffSpace).field("m_llAllocatedDiffSpace", &self.m_llAllocatedDiffSpace).field("m_llUsedDiffSpace", &self.m_llUsedDiffSpace).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_DIFF_AREA_PROP {
     type Abi = Self;
 }
@@ -3246,6 +3251,11 @@ impl ::core::marker::Copy for VSS_DIFF_VOLUME_PROP {}
 impl ::core::clone::Clone for VSS_DIFF_VOLUME_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VSS_DIFF_VOLUME_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_DIFF_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).field("m_llVolumeFreeSpace", &self.m_llVolumeFreeSpace).field("m_llVolumeTotalSpace", &self.m_llVolumeTotalSpace).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VSS_DIFF_VOLUME_PROP {
@@ -3480,6 +3490,11 @@ impl ::core::clone::Clone for VSS_MGMT_OBJECT_PROP {
         *self
     }
 }
+impl ::core::fmt::Debug for VSS_MGMT_OBJECT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_MGMT_OBJECT_PROP").field("Type", &self.Type).field("Obj", &self.Obj).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_PROP {
     type Abi = Self;
 }
@@ -3541,6 +3556,11 @@ impl ::core::marker::Copy for VSS_OBJECT_PROP {}
 impl ::core::clone::Clone for VSS_OBJECT_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VSS_OBJECT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_OBJECT_PROP").field("Type", &self.Type).field("Obj", &self.Obj).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VSS_OBJECT_PROP {
@@ -3677,6 +3697,11 @@ impl ::core::clone::Clone for VSS_PROVIDER_PROP {
         *self
     }
 }
+impl ::core::fmt::Debug for VSS_PROVIDER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_PROVIDER_PROP").field("m_ProviderId", &self.m_ProviderId).field("m_pwszProviderName", &self.m_pwszProviderName).field("m_eProviderType", &self.m_eProviderType).field("m_pwszProviderVersion", &self.m_pwszProviderVersion).field("m_ProviderVersionId", &self.m_ProviderVersionId).field("m_ClassId", &self.m_ClassId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_PROVIDER_PROP {
     type Abi = Self;
 }
@@ -3804,6 +3829,25 @@ impl ::core::marker::Copy for VSS_SNAPSHOT_PROP {}
 impl ::core::clone::Clone for VSS_SNAPSHOT_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VSS_SNAPSHOT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_SNAPSHOT_PROP")
+            .field("m_SnapshotId", &self.m_SnapshotId)
+            .field("m_SnapshotSetId", &self.m_SnapshotSetId)
+            .field("m_lSnapshotsCount", &self.m_lSnapshotsCount)
+            .field("m_pwszSnapshotDeviceObject", &self.m_pwszSnapshotDeviceObject)
+            .field("m_pwszOriginalVolumeName", &self.m_pwszOriginalVolumeName)
+            .field("m_pwszOriginatingMachine", &self.m_pwszOriginatingMachine)
+            .field("m_pwszServiceMachine", &self.m_pwszServiceMachine)
+            .field("m_pwszExposedName", &self.m_pwszExposedName)
+            .field("m_pwszExposedPath", &self.m_pwszExposedPath)
+            .field("m_ProviderId", &self.m_ProviderId)
+            .field("m_lSnapshotAttributes", &self.m_lSnapshotAttributes)
+            .field("m_tsCreationTimestamp", &self.m_tsCreationTimestamp)
+            .field("m_eStatus", &self.m_eStatus)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_PROP {
@@ -3940,6 +3984,11 @@ impl ::core::clone::Clone for VSS_VOLUME_PROP {
         *self
     }
 }
+impl ::core::fmt::Debug for VSS_VOLUME_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_VOLUME_PROP {
     type Abi = Self;
 }
@@ -3971,6 +4020,12 @@ impl ::core::marker::Copy for VSS_VOLUME_PROTECTION_INFO {}
 impl ::core::clone::Clone for VSS_VOLUME_PROTECTION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VSS_VOLUME_PROTECTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_VOLUME_PROTECTION_INFO").field("m_protectionLevel", &self.m_protectionLevel).field("m_volumeIsOfflineForProtection", &self.m_volumeIsOfflineForProtection).field("m_protectionFault", &self.m_protectionFault).field("m_failureStatus", &self.m_failureStatus).field("m_volumeHasUnusedDiffArea", &self.m_volumeHasUnusedDiffArea).field("m_reserved", &self.m_reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

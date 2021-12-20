@@ -19,6 +19,11 @@ impl ::core::clone::Clone for CONNECTION {
         *self
     }
 }
+impl ::core::fmt::Debug for CONNECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONNECTION").field("usSource", &self.usSource).field("usControl", &self.usControl).field("usDestination", &self.usDestination).field("usTransform", &self.usTransform).field("lScale", &self.lScale).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CONNECTION {
     type Abi = Self;
 }
@@ -43,6 +48,11 @@ impl ::core::marker::Copy for CONNECTIONLIST {}
 impl ::core::clone::Clone for CONNECTIONLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONNECTIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONNECTIONLIST").field("cbSize", &self.cbSize).field("cConnections", &self.cConnections).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONNECTIONLIST {
@@ -234,6 +244,11 @@ impl ::core::clone::Clone for DLSHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for DLSHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLSHEADER").field("cInstruments", &self.cInstruments).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DLSHEADER {
     type Abi = Self;
 }
@@ -260,6 +275,11 @@ impl ::core::marker::Copy for DLSID {}
 impl ::core::clone::Clone for DLSID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DLSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLSID").field("ulData1", &self.ulData1).field("usData2", &self.usData2).field("usData3", &self.usData3).field("abData4", &self.abData4).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DLSID {
@@ -295,6 +315,11 @@ impl ::core::marker::Copy for DLSVERSION {}
 impl ::core::clone::Clone for DLSVERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DLSVERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLSVERSION").field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DLSVERSION {
@@ -361,6 +386,11 @@ impl ::core::clone::Clone for DMUS_ARTICPARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_ARTICPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_ARTICPARAMS").field("LFO", &self.LFO).field("VolEG", &self.VolEG).field("PitchEG", &self.PitchEG).field("Misc", &self.Misc).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_ARTICPARAMS {
     type Abi = Self;
 }
@@ -385,6 +415,11 @@ impl ::core::marker::Copy for DMUS_ARTICULATION {}
 impl ::core::clone::Clone for DMUS_ARTICULATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_ARTICULATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_ARTICULATION").field("ulArt1Idx", &self.ulArt1Idx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_ARTICULATION {
@@ -414,6 +449,11 @@ impl ::core::clone::Clone for DMUS_ARTICULATION2 {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_ARTICULATION2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_ARTICULATION2").field("ulArtIdx", &self.ulArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulNextArtIdx", &self.ulNextArtIdx).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_ARTICULATION2 {
     type Abi = Self;
 }
@@ -440,6 +480,11 @@ impl ::core::marker::Copy for DMUS_BUFFERDESC {}
 impl ::core::clone::Clone for DMUS_BUFFERDESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_BUFFERDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_BUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidBufferFormat", &self.guidBufferFormat).field("cbBuffer", &self.cbBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_BUFFERDESC {
@@ -472,6 +517,11 @@ impl ::core::clone::Clone for DMUS_CLOCKINFO7 {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_CLOCKINFO7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_CLOCKINFO7").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO7 {
     type Abi = Self;
 }
@@ -499,6 +549,11 @@ impl ::core::marker::Copy for DMUS_CLOCKINFO8 {}
 impl ::core::clone::Clone for DMUS_CLOCKINFO8 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_CLOCKINFO8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_CLOCKINFO8").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO8 {
@@ -533,6 +588,11 @@ impl ::core::clone::Clone for DMUS_COPYRIGHT {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_COPYRIGHT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_COPYRIGHT").field("cbSize", &self.cbSize).field("byCopyright", &self.byCopyright).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_COPYRIGHT {
     type Abi = Self;
 }
@@ -561,6 +621,11 @@ impl ::core::marker::Copy for DMUS_DOWNLOADINFO {}
 impl ::core::clone::Clone for DMUS_DOWNLOADINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_DOWNLOADINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_DOWNLOADINFO").field("dwDLType", &self.dwDLType).field("dwDLId", &self.dwDLId).field("dwNumOffsetTableEntries", &self.dwNumOffsetTableEntries).field("cbSize", &self.cbSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_DOWNLOADINFO {
@@ -611,6 +676,11 @@ impl ::core::clone::Clone for DMUS_EVENTHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_EVENTHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_EVENTHEADER").field("cbEvent", &self.cbEvent).field("dwChannelGroup", &self.dwChannelGroup).field("rtDelta", &self.rtDelta).field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_EVENTHEADER {
     type Abi = Self;
 }
@@ -641,6 +711,11 @@ impl ::core::clone::Clone for DMUS_EXTENSIONCHUNK {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_EXTENSIONCHUNK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_EXTENSIONCHUNK").field("cbSize", &self.cbSize).field("ulNextExtCkIdx", &self.ulNextExtCkIdx).field("ExtCkID", &self.ExtCkID).field("byExtCk", &self.byExtCk).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_EXTENSIONCHUNK {
     type Abi = Self;
 }
@@ -669,6 +744,11 @@ impl ::core::marker::Copy for DMUS_INSTRUMENT {}
 impl ::core::clone::Clone for DMUS_INSTRUMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_INSTRUMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_INSTRUMENT").field("ulPatch", &self.ulPatch).field("ulFirstRegionIdx", &self.ulFirstRegionIdx).field("ulGlobalArtIdx", &self.ulGlobalArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulFlags", &self.ulFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_INSTRUMENT {
@@ -703,6 +783,11 @@ impl ::core::clone::Clone for DMUS_LFOPARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_LFOPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_LFOPARAMS").field("pcFrequency", &self.pcFrequency).field("tcDelay", &self.tcDelay).field("gcVolumeScale", &self.gcVolumeScale).field("pcPitchScale", &self.pcPitchScale).field("gcMWToVolume", &self.gcMWToVolume).field("pcMWToPitch", &self.pcMWToPitch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_LFOPARAMS {
     type Abi = Self;
 }
@@ -734,6 +819,11 @@ impl ::core::clone::Clone for DMUS_MSCPARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_MSCPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_MSCPARAMS").field("ptDefaultPan", &self.ptDefaultPan).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_MSCPARAMS {
     type Abi = Self;
 }
@@ -760,6 +850,11 @@ impl ::core::clone::Clone for DMUS_NOTERANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_NOTERANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_NOTERANGE").field("dwLowNote", &self.dwLowNote).field("dwHighNote", &self.dwHighNote).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_NOTERANGE {
     type Abi = Self;
 }
@@ -783,6 +878,11 @@ impl ::core::marker::Copy for DMUS_OFFSETTABLE {}
 impl ::core::clone::Clone for DMUS_OFFSETTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_OFFSETTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_OFFSETTABLE").field("ulOffsetTable", &self.ulOffsetTable).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_OFFSETTABLE {
@@ -846,6 +946,11 @@ impl ::core::clone::Clone for DMUS_PEGPARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_PEGPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_PEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).field("pcRange", &self.pcRange).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_PEGPARAMS {
     type Abi = Self;
 }
@@ -879,6 +984,11 @@ impl ::core::marker::Copy for DMUS_PORTCAPS {}
 impl ::core::clone::Clone for DMUS_PORTCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_PORTCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_PORTCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidPort", &self.guidPort).field("dwClass", &self.dwClass).field("dwType", &self.dwType).field("dwMemorySize", &self.dwMemorySize).field("dwMaxChannelGroups", &self.dwMaxChannelGroups).field("dwMaxVoices", &self.dwMaxVoices).field("dwMaxAudioChannels", &self.dwMaxAudioChannels).field("dwEffectFlags", &self.dwEffectFlags).field("wszDescription", &self.wszDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_PORTCAPS {
@@ -915,6 +1025,12 @@ impl ::core::marker::Copy for DMUS_PORTPARAMS8 {}
 impl ::core::clone::Clone for DMUS_PORTPARAMS8 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DMUS_PORTPARAMS8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_PORTPARAMS8").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).field("dwFeatures", &self.dwFeatures).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -979,6 +1095,11 @@ impl ::core::clone::Clone for DMUS_REGION {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_REGION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_REGION").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).field("ulRegionArtIdx", &self.ulRegionArtIdx).field("ulNextRegionIdx", &self.ulNextRegionIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("WaveLink", &self.WaveLink).field("WSMP", &self.WSMP).field("WLOOP", &self.WLOOP).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_REGION {
     type Abi = Self;
 }
@@ -1009,6 +1130,11 @@ impl ::core::marker::Copy for DMUS_SYNTHSTATS {}
 impl ::core::clone::Clone for DMUS_SYNTHSTATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_SYNTHSTATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_SYNTHSTATS").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS {
@@ -1042,6 +1168,11 @@ impl ::core::marker::Copy for DMUS_SYNTHSTATS8 {}
 impl ::core::clone::Clone for DMUS_SYNTHSTATS8 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_SYNTHSTATS8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_SYNTHSTATS8").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).field("dwSynthMemUse", &self.dwSynthMemUse).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS8 {
@@ -1088,6 +1219,11 @@ impl ::core::clone::Clone for DMUS_VEGPARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_VEGPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_VEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_VEGPARAMS {
     type Abi = Self;
 }
@@ -1115,6 +1251,12 @@ impl ::core::marker::Copy for DMUS_VOICE_STATE {}
 impl ::core::clone::Clone for DMUS_VOICE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DMUS_VOICE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_VOICE_STATE").field("bExists", &self.bExists).field("spPosition", &self.spPosition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1153,6 +1295,11 @@ impl ::core::clone::Clone for DMUS_WAVE {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_WAVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVE").field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulWaveDataIdx", &self.ulWaveDataIdx).field("WaveformatEx", &self.WaveformatEx).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_WAVE {
     type Abi = Self;
 }
@@ -1182,6 +1329,11 @@ impl ::core::clone::Clone for DMUS_WAVEARTDL {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_WAVEARTDL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVEARTDL").field("ulDownloadIdIdx", &self.ulDownloadIdIdx).field("ulBus", &self.ulBus).field("ulBuffers", &self.ulBuffers).field("ulMasterDLId", &self.ulMasterDLId).field("usOptions", &self.usOptions).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_WAVEARTDL {
     type Abi = Self;
 }
@@ -1208,6 +1360,11 @@ impl ::core::clone::Clone for DMUS_WAVEDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DMUS_WAVEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVEDATA").field("cbSize", &self.cbSize).field("byData", &self.byData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DMUS_WAVEDATA {
     type Abi = Self;
 }
@@ -1231,6 +1388,11 @@ impl ::core::marker::Copy for DMUS_WAVEDL {}
 impl ::core::clone::Clone for DMUS_WAVEDL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_WAVEDL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVEDL").field("cbWaveData", &self.cbWaveData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_WAVEDL {
@@ -1259,6 +1421,11 @@ impl ::core::marker::Copy for DMUS_WAVES_REVERB_PARAMS {}
 impl ::core::clone::Clone for DMUS_WAVES_REVERB_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_WAVES_REVERB_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVES_REVERB_PARAMS").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_WAVES_REVERB_PARAMS {
@@ -1368,6 +1535,12 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA").field("DeviceId", &self.DeviceId).field("DescriptionA", &self.DescriptionA).field("DescriptionW", &self.DescriptionW).field("ModuleA", &self.ModuleA).field("ModuleW", &self.ModuleW).field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("WaveDeviceId", &self.WaveDeviceId).field("Devnode", &self.Devnode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     type Abi = Self;
 }
@@ -1403,6 +1576,12 @@ impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1444,6 +1623,12 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     type Abi = Self;
 }
@@ -1474,6 +1659,12 @@ impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Callback", &self.Callback).field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1510,6 +1701,12 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Callback", &self.Callback).field("Context", &self.Context).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     type Abi = Self;
 }
@@ -1540,6 +1737,12 @@ impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Callback", &self.Callback).field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1577,6 +1780,12 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_D
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     type Abi = Self;
 }
@@ -1608,6 +1817,12 @@ impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_D
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2936,6 +3151,11 @@ impl ::core::clone::Clone for INSTHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for INSTHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTHEADER").field("cRegions", &self.cRegions).field("Locale", &self.Locale).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INSTHEADER {
     type Abi = Self;
 }
@@ -2971,6 +3191,11 @@ impl ::core::clone::Clone for MDEVICECAPSEX {
         *self
     }
 }
+impl ::core::fmt::Debug for MDEVICECAPSEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MDEVICECAPSEX").field("cbSize", &self.cbSize).field("pCaps", &self.pCaps).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MDEVICECAPSEX {
     type Abi = Self;
 }
@@ -2995,6 +3220,11 @@ impl ::core::marker::Copy for MIDILOCALE {}
 impl ::core::clone::Clone for MIDILOCALE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIDILOCALE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDILOCALE").field("ulBank", &self.ulBank).field("ulInstrument", &self.ulInstrument).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIDILOCALE {
@@ -3031,6 +3261,12 @@ impl ::core::clone::Clone for MIDIOPENDESC {
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
+impl ::core::fmt::Debug for MIDIOPENDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDIOPENDESC").field("hMidi", &self.hMidi).field("dwCallback", &self.dwCallback).field("dwInstance", &self.dwInstance).field("dnDevNode", &self.dnDevNode).field("cIds", &self.cIds).field("rgIds", &self.rgIds).finish()
+    }
+}
+#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::core::Abi for MIDIOPENDESC {
     type Abi = Self;
 }
@@ -3059,6 +3295,11 @@ impl ::core::clone::Clone for POOLCUE {
         *self
     }
 }
+impl ::core::fmt::Debug for POOLCUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POOLCUE").field("ulOffset", &self.ulOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for POOLCUE {
     type Abi = Self;
 }
@@ -3083,6 +3324,11 @@ impl ::core::marker::Copy for POOLTABLE {}
 impl ::core::clone::Clone for POOLTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for POOLTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POOLTABLE").field("cbSize", &self.cbSize).field("cCues", &self.cCues).finish()
     }
 }
 unsafe impl ::windows::core::Abi for POOLTABLE {
@@ -3117,6 +3363,11 @@ impl ::core::clone::Clone for RGNHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for RGNHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RGNHEADER").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RGNHEADER {
     type Abi = Self;
 }
@@ -3141,6 +3392,11 @@ impl ::core::marker::Copy for RGNRANGE {}
 impl ::core::clone::Clone for RGNRANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RGNRANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RGNRANGE").field("usLow", &self.usLow).field("usHigh", &self.usHigh).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RGNRANGE {
@@ -3176,6 +3432,11 @@ impl ::core::clone::Clone for Tag_DVAudInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for Tag_DVAudInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Tag_DVAudInfo").field("bAudStyle", &self.bAudStyle).field("bAudQu", &self.bAudQu).field("bNumAudPin", &self.bNumAudPin).field("wAvgSamplesPerPinPerFrm", &self.wAvgSamplesPerPinPerFrm).field("wBlkMode", &self.wBlkMode).field("wDIFMode", &self.wDIFMode).field("wBlkDiv", &self.wBlkDiv).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Tag_DVAudInfo {
     type Abi = Self;
 }
@@ -3202,6 +3463,11 @@ impl ::core::marker::Copy for WAVELINK {}
 impl ::core::clone::Clone for WAVELINK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WAVELINK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WAVELINK").field("fusOptions", &self.fusOptions).field("usPhaseGroup", &self.usPhaseGroup).field("ulChannel", &self.ulChannel).field("ulTableIndex", &self.ulTableIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WAVELINK {
@@ -3248,6 +3514,12 @@ impl ::core::clone::Clone for _DMUS_PORTPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for _DMUS_PORTPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_DMUS_PORTPARAMS").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for _DMUS_PORTPARAMS {
     type Abi = Self;
 }
@@ -3279,6 +3551,11 @@ impl ::core::clone::Clone for _rloop {
         *self
     }
 }
+impl ::core::fmt::Debug for _rloop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_rloop").field("cbSize", &self.cbSize).field("ulType", &self.ulType).field("ulStart", &self.ulStart).field("ulLength", &self.ulLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _rloop {
     type Abi = Self;
 }
@@ -3307,6 +3584,11 @@ impl ::core::marker::Copy for _rwsmp {}
 impl ::core::clone::Clone for _rwsmp {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _rwsmp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_rwsmp").field("cbSize", &self.cbSize).field("usUnityNote", &self.usUnityNote).field("sFineTune", &self.sFineTune).field("lAttenuation", &self.lAttenuation).field("fulOptions", &self.fulOptions).field("cSampleLoops", &self.cSampleLoops).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _rwsmp {

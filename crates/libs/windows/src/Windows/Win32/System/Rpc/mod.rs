@@ -15,6 +15,11 @@ impl ::core::clone::Clone for ARRAY_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for ARRAY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ARRAY_INFO").field("Dimension", &self.Dimension).field("BufferConformanceMark", &self.BufferConformanceMark).field("BufferVarianceMark", &self.BufferVarianceMark).field("MaxCountArray", &self.MaxCountArray).field("OffsetArray", &self.OffsetArray).field("ActualCountArray", &self.ActualCountArray).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ARRAY_INFO {
     type Abi = Self;
 }
@@ -39,6 +44,11 @@ impl ::core::marker::Copy for BinaryParam {}
 impl ::core::clone::Clone for BinaryParam {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BinaryParam {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BinaryParam").field("Buffer", &self.Buffer).field("Size", &self.Size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BinaryParam {
@@ -91,6 +101,11 @@ impl ::core::marker::Copy for COMM_FAULT_OFFSETS {}
 impl ::core::clone::Clone for COMM_FAULT_OFFSETS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMM_FAULT_OFFSETS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMM_FAULT_OFFSETS").field("CommOffset", &self.CommOffset).field("FaultOffset", &self.FaultOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMM_FAULT_OFFSETS {
@@ -208,6 +223,11 @@ impl ::core::clone::Clone for FULL_PTR_XLAT_TABLES {
         *self
     }
 }
+impl ::core::fmt::Debug for FULL_PTR_XLAT_TABLES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FULL_PTR_XLAT_TABLES").field("RefIdToPointer", &self.RefIdToPointer).field("PointerToRefId", &self.PointerToRefId).field("NextRefId", &self.NextRefId).field("XlatSide", &self.XlatSide).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FULL_PTR_XLAT_TABLES {
     type Abi = Self;
 }
@@ -236,6 +256,11 @@ impl ::core::clone::Clone for GENERIC_BINDING_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for GENERIC_BINDING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GENERIC_BINDING_INFO").field("pObj", &self.pObj).field("Size", &self.Size).field("pfnBind", &self.pfnBind).field("pfnUnbind", &self.pfnUnbind).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GENERIC_BINDING_INFO {
     type Abi = Self;
 }
@@ -262,6 +287,11 @@ impl ::core::marker::Copy for GENERIC_BINDING_ROUTINE_PAIR {}
 impl ::core::clone::Clone for GENERIC_BINDING_ROUTINE_PAIR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GENERIC_BINDING_ROUTINE_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GENERIC_BINDING_ROUTINE_PAIR").field("pfnBind", &self.pfnBind).field("pfnUnbind", &self.pfnUnbind).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GENERIC_BINDING_ROUTINE_PAIR {
@@ -970,6 +1000,22 @@ impl ::core::clone::Clone for I_RpcProxyCallbackInterface {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for I_RpcProxyCallbackInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("I_RpcProxyCallbackInterface")
+            .field("IsValidMachineFn", &self.IsValidMachineFn)
+            .field("GetClientAddressFn", &self.GetClientAddressFn)
+            .field("GetConnectionTimeoutFn", &self.GetConnectionTimeoutFn)
+            .field("PerformCalloutFn", &self.PerformCalloutFn)
+            .field("FreeCalloutStateFn", &self.FreeCalloutStateFn)
+            .field("GetClientSessionAndResourceUUIDFn", &self.GetClientSessionAndResourceUUIDFn)
+            .field("ProxyFilterIfFn", &self.ProxyFilterIfFn)
+            .field("RpcProxyUpdatePerfCounterFn", &self.RpcProxyUpdatePerfCounterFn)
+            .field("RpcProxyUpdatePerfCounterBackendServerFn", &self.RpcProxyUpdatePerfCounterBackendServerFn)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for I_RpcProxyCallbackInterface {
     type Abi = Self;
 }
@@ -1426,6 +1472,11 @@ impl ::core::clone::Clone for MALLOC_FREE_STRUCT {
         *self
     }
 }
+impl ::core::fmt::Debug for MALLOC_FREE_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MALLOC_FREE_STRUCT").field("pfnAllocate", &self.pfnAllocate).field("pfnFree", &self.pfnFree).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MALLOC_FREE_STRUCT {
     type Abi = Self;
 }
@@ -1475,6 +1526,11 @@ impl ::core::clone::Clone for MIDL_FORMAT_STRING {
         *self
     }
 }
+impl ::core::fmt::Debug for MIDL_FORMAT_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_FORMAT_STRING").field("Pad", &self.Pad).field("Format", &self.Format).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIDL_FORMAT_STRING {
     type Abi = Self;
 }
@@ -1504,6 +1560,11 @@ impl ::core::clone::Clone for MIDL_INTERCEPTION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for MIDL_INTERCEPTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_INTERCEPTION_INFO").field("Version", &self.Version).field("ProcString", &self.ProcString).field("ProcFormatOffsetTable", &self.ProcFormatOffsetTable).field("ProcCount", &self.ProcCount).field("TypeString", &self.TypeString).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIDL_INTERCEPTION_INFO {
     type Abi = Self;
 }
@@ -1528,6 +1589,11 @@ impl ::core::marker::Copy for MIDL_INTERFACE_METHOD_PROPERTIES {}
 impl ::core::clone::Clone for MIDL_INTERFACE_METHOD_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIDL_INTERFACE_METHOD_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_INTERFACE_METHOD_PROPERTIES").field("MethodCount", &self.MethodCount).field("MethodProperties", &self.MethodProperties).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIDL_INTERFACE_METHOD_PROPERTIES {
@@ -1556,6 +1622,11 @@ impl ::core::clone::Clone for MIDL_METHOD_PROPERTY {
         *self
     }
 }
+impl ::core::fmt::Debug for MIDL_METHOD_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_METHOD_PROPERTY").field("Id", &self.Id).field("Value", &self.Value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY {
     type Abi = Self;
 }
@@ -1580,6 +1651,11 @@ impl ::core::marker::Copy for MIDL_METHOD_PROPERTY_MAP {}
 impl ::core::clone::Clone for MIDL_METHOD_PROPERTY_MAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIDL_METHOD_PROPERTY_MAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_METHOD_PROPERTY_MAP").field("Count", &self.Count).field("Properties", &self.Properties).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY_MAP {
@@ -1618,6 +1694,12 @@ impl ::core::clone::Clone for MIDL_SERVER_INFO {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MIDL_SERVER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_SERVER_INFO").field("pStubDesc", &self.pStubDesc).field("DispatchTable", &self.DispatchTable).field("ProcString", &self.ProcString).field("FmtStringOffset", &self.FmtStringOffset).field("ThunkTable", &self.ThunkTable).field("pTransferSyntax", &self.pTransferSyntax).field("nCount", &self.nCount).field("pSyntaxInfo", &self.pSyntaxInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MIDL_SERVER_INFO {
     type Abi = Self;
 }
@@ -1652,6 +1734,12 @@ impl ::core::marker::Copy for MIDL_STUBLESS_PROXY_INFO {}
 impl ::core::clone::Clone for MIDL_STUBLESS_PROXY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MIDL_STUBLESS_PROXY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_STUBLESS_PROXY_INFO").field("pStubDesc", &self.pStubDesc).field("ProcFormatString", &self.ProcFormatString).field("FormatStringOffset", &self.FormatStringOffset).field("pTransferSyntax", &self.pTransferSyntax).field("nCount", &self.nCount).field("pSyntaxInfo", &self.pSyntaxInfo).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1703,6 +1791,33 @@ impl ::core::marker::Copy for MIDL_STUB_DESC {}
 impl ::core::clone::Clone for MIDL_STUB_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MIDL_STUB_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_STUB_DESC")
+            .field("RpcInterfaceInformation", &self.RpcInterfaceInformation)
+            .field("pfnAllocate", &self.pfnAllocate)
+            .field("pfnFree", &self.pfnFree)
+            .field("IMPLICIT_HANDLE_INFO", &self.IMPLICIT_HANDLE_INFO)
+            .field("apfnNdrRundownRoutines", &self.apfnNdrRundownRoutines)
+            .field("aGenericBindingRoutinePairs", &self.aGenericBindingRoutinePairs)
+            .field("apfnExprEval", &self.apfnExprEval)
+            .field("aXmitQuintuple", &self.aXmitQuintuple)
+            .field("pFormatTypes", &self.pFormatTypes)
+            .field("fCheckBounds", &self.fCheckBounds)
+            .field("Version", &self.Version)
+            .field("pMallocFreeStruct", &self.pMallocFreeStruct)
+            .field("MIDLVersion", &self.MIDLVersion)
+            .field("CommFaultOffsets", &self.CommFaultOffsets)
+            .field("aUserMarshalQuadruple", &self.aUserMarshalQuadruple)
+            .field("NotifyRoutineTable", &self.NotifyRoutineTable)
+            .field("mFlags", &self.mFlags)
+            .field("CsRoutineTables", &self.CsRoutineTables)
+            .field("ProxyServerInfo", &self.ProxyServerInfo)
+            .field("pExprInfo", &self.pExprInfo)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1888,6 +2003,72 @@ impl ::core::clone::Clone for MIDL_STUB_MESSAGE {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MIDL_STUB_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_STUB_MESSAGE")
+            .field("RpcMsg", &self.RpcMsg)
+            .field("Buffer", &self.Buffer)
+            .field("BufferStart", &self.BufferStart)
+            .field("BufferEnd", &self.BufferEnd)
+            .field("BufferMark", &self.BufferMark)
+            .field("BufferLength", &self.BufferLength)
+            .field("MemorySize", &self.MemorySize)
+            .field("Memory", &self.Memory)
+            .field("IsClient", &self.IsClient)
+            .field("Pad", &self.Pad)
+            .field("uFlags2", &self.uFlags2)
+            .field("ReuseBuffer", &self.ReuseBuffer)
+            .field("pAllocAllNodesContext", &self.pAllocAllNodesContext)
+            .field("pPointerQueueState", &self.pPointerQueueState)
+            .field("IgnoreEmbeddedPointers", &self.IgnoreEmbeddedPointers)
+            .field("PointerBufferMark", &self.PointerBufferMark)
+            .field("CorrDespIncrement", &self.CorrDespIncrement)
+            .field("uFlags", &self.uFlags)
+            .field("UniquePtrCount", &self.UniquePtrCount)
+            .field("MaxCount", &self.MaxCount)
+            .field("Offset", &self.Offset)
+            .field("ActualCount", &self.ActualCount)
+            .field("pfnAllocate", &self.pfnAllocate)
+            .field("pfnFree", &self.pfnFree)
+            .field("StackTop", &self.StackTop)
+            .field("pPresentedType", &self.pPresentedType)
+            .field("pTransmitType", &self.pTransmitType)
+            .field("SavedHandle", &self.SavedHandle)
+            .field("StubDesc", &self.StubDesc)
+            .field("FullPtrXlatTables", &self.FullPtrXlatTables)
+            .field("FullPtrRefId", &self.FullPtrRefId)
+            .field("PointerLength", &self.PointerLength)
+            .field("_bitfield", &self._bitfield)
+            .field("dwDestContext", &self.dwDestContext)
+            .field("pvDestContext", &self.pvDestContext)
+            .field("SavedContextHandles", &self.SavedContextHandles)
+            .field("ParamNumber", &self.ParamNumber)
+            .field("pRpcChannelBuffer", &self.pRpcChannelBuffer)
+            .field("pArrayInfo", &self.pArrayInfo)
+            .field("SizePtrCountArray", &self.SizePtrCountArray)
+            .field("SizePtrOffsetArray", &self.SizePtrOffsetArray)
+            .field("SizePtrLengthArray", &self.SizePtrLengthArray)
+            .field("pArgQueue", &self.pArgQueue)
+            .field("dwStubPhase", &self.dwStubPhase)
+            .field("LowStackMark", &self.LowStackMark)
+            .field("pAsyncMsg", &self.pAsyncMsg)
+            .field("pCorrInfo", &self.pCorrInfo)
+            .field("pCorrMemory", &self.pCorrMemory)
+            .field("pMemoryList", &self.pMemoryList)
+            .field("pCSInfo", &self.pCSInfo)
+            .field("ConformanceMark", &self.ConformanceMark)
+            .field("VarianceMark", &self.VarianceMark)
+            .field("Unused", &self.Unused)
+            .field("pContext", &self.pContext)
+            .field("ContextHandleHash", &self.ContextHandleHash)
+            .field("pUserMarshalList", &self.pUserMarshalList)
+            .field("Reserved51_3", &self.Reserved51_3)
+            .field("Reserved51_4", &self.Reserved51_4)
+            .field("Reserved51_5", &self.Reserved51_5)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MIDL_STUB_MESSAGE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1981,6 +2162,11 @@ impl ::core::clone::Clone for MIDL_SYNTAX_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for MIDL_SYNTAX_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_SYNTAX_INFO").field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("ProcString", &self.ProcString).field("FmtStringOffset", &self.FmtStringOffset).field("TypeString", &self.TypeString).field("aUserMarshalQuadruple", &self.aUserMarshalQuadruple).field("pMethodProperties", &self.pMethodProperties).field("pReserved2", &self.pReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIDL_SYNTAX_INFO {
     type Abi = Self;
 }
@@ -2006,6 +2192,11 @@ impl ::core::marker::Copy for MIDL_TYPE_PICKLING_INFO {}
 impl ::core::clone::Clone for MIDL_TYPE_PICKLING_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIDL_TYPE_PICKLING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_TYPE_PICKLING_INFO").field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIDL_TYPE_PICKLING_INFO {
@@ -2038,6 +2229,12 @@ impl ::core::marker::Copy for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
 impl ::core::clone::Clone for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIDL_WINRT_TYPE_SERIALIZATION_INFO").field("Version", &self.Version).field("TypeFormatString", &self.TypeFormatString).field("FormatStringSize", &self.FormatStringSize).field("TypeOffset", &self.TypeOffset).field("StubDesc", &self.StubDesc).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2208,6 +2405,11 @@ impl ::core::clone::Clone for NDR64_ARRAY_ELEMENT_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_ARRAY_ELEMENT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_ARRAY_ELEMENT_INFO").field("ElementMemSize", &self.ElementMemSize).field("Element", &self.Element).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_ARRAY_ELEMENT_INFO {
     type Abi = Self;
 }
@@ -2231,6 +2433,11 @@ impl ::core::marker::Copy for NDR64_ARRAY_FLAGS {}
 impl ::core::clone::Clone for NDR64_ARRAY_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_ARRAY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_ARRAY_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_ARRAY_FLAGS {
@@ -2286,6 +2493,11 @@ impl ::core::clone::Clone for NDR64_BIND_AND_NOTIFY_EXTENSION {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_BIND_AND_NOTIFY_EXTENSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_BIND_AND_NOTIFY_EXTENSION").field("Binding", &self.Binding).field("NotifyIndex", &self.NotifyIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_BIND_AND_NOTIFY_EXTENSION {
     type Abi = Self;
 }
@@ -2313,6 +2525,11 @@ impl ::core::marker::Copy for NDR64_BIND_CONTEXT {}
 impl ::core::clone::Clone for NDR64_BIND_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_BIND_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_BIND_CONTEXT").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("RoutineIndex", &self.RoutineIndex).field("Ordinal", &self.Ordinal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_BIND_CONTEXT {
@@ -2344,6 +2561,11 @@ impl ::core::clone::Clone for NDR64_BIND_GENERIC {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_BIND_GENERIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_BIND_GENERIC").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("RoutineIndex", &self.RoutineIndex).field("Size", &self.Size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_BIND_GENERIC {
     type Abi = Self;
 }
@@ -2370,6 +2592,11 @@ impl ::core::marker::Copy for NDR64_BIND_PRIMITIVE {}
 impl ::core::clone::Clone for NDR64_BIND_PRIMITIVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_BIND_PRIMITIVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_BIND_PRIMITIVE").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_BIND_PRIMITIVE {
@@ -2400,6 +2627,11 @@ impl ::core::marker::Copy for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
 impl ::core::clone::Clone for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_BOGUS_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("NumberDims", &self.NumberDims).field("NumberElements", &self.NumberElements).field("Element", &self.Element).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
@@ -2434,6 +2666,11 @@ impl ::core::clone::Clone for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_BOGUS_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).field("OriginalMemberLayout", &self.OriginalMemberLayout).field("OriginalPointerLayout", &self.OriginalPointerLayout).field("PointerLayout", &self.PointerLayout).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
 }
@@ -2462,6 +2699,11 @@ impl ::core::clone::Clone for NDR64_BUFFER_ALIGN_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_BUFFER_ALIGN_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_BUFFER_ALIGN_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_BUFFER_ALIGN_FORMAT {
     type Abi = Self;
 }
@@ -2485,6 +2727,11 @@ impl ::core::marker::Copy for NDR64_CONFORMANT_STRING_FORMAT {}
 impl ::core::clone::Clone for NDR64_CONFORMANT_STRING_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_CONFORMANT_STRING_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_CONFORMANT_STRING_FORMAT {
@@ -2515,6 +2762,11 @@ impl ::core::marker::Copy for NDR64_CONF_ARRAY_HEADER_FORMAT {}
 impl ::core::clone::Clone for NDR64_CONF_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_CONF_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONF_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ElementSize", &self.ElementSize).field("ConfDescriptor", &self.ConfDescriptor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_CONF_ARRAY_HEADER_FORMAT {
@@ -2550,6 +2802,11 @@ impl ::core::clone::Clone for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Dimensions", &self.Dimensions).field("MemorySize", &self.MemorySize).field("OriginalMemberLayout", &self.OriginalMemberLayout).field("OriginalPointerLayout", &self.OriginalPointerLayout).field("PointerLayout", &self.PointerLayout).field("ConfArrayDescription", &self.ConfArrayDescription).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
 }
@@ -2578,6 +2835,11 @@ impl ::core::marker::Copy for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
 impl ::core::clone::Clone for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONF_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).field("ArrayDescription", &self.ArrayDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
@@ -2611,6 +2873,11 @@ impl ::core::clone::Clone for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONF_VAR_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ElementSize", &self.ElementSize).field("ConfDescriptor", &self.ConfDescriptor).field("VarDescriptor", &self.VarDescriptor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     type Abi = Self;
 }
@@ -2637,6 +2904,11 @@ impl ::core::marker::Copy for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
 impl ::core::clone::Clone for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT").field("FixedArrayFormat", &self.FixedArrayFormat).field("ConfDescription", &self.ConfDescription).field("VarDescription", &self.VarDescription).field("OffsetDescription", &self.OffsetDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
@@ -2667,6 +2939,11 @@ impl ::core::clone::Clone for NDR64_CONSTANT_IID_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_CONSTANT_IID_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONSTANT_IID_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Guid", &self.Guid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_CONSTANT_IID_FORMAT {
     type Abi = Self;
 }
@@ -2690,6 +2967,11 @@ impl ::core::marker::Copy for NDR64_CONTEXT_HANDLE_FLAGS {}
 impl ::core::clone::Clone for NDR64_CONTEXT_HANDLE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_CONTEXT_HANDLE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONTEXT_HANDLE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_CONTEXT_HANDLE_FLAGS {
@@ -2720,6 +3002,11 @@ impl ::core::clone::Clone for NDR64_CONTEXT_HANDLE_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_CONTEXT_HANDLE_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_CONTEXT_HANDLE_FORMAT").field("FormatCode", &self.FormatCode).field("ContextFlags", &self.ContextFlags).field("RundownRoutineIndex", &self.RundownRoutineIndex).field("Ordinal", &self.Ordinal).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_CONTEXT_HANDLE_FORMAT {
     type Abi = Self;
 }
@@ -2746,6 +3033,11 @@ impl ::core::marker::Copy for NDR64_EMBEDDED_COMPLEX_FORMAT {}
 impl ::core::clone::Clone for NDR64_EMBEDDED_COMPLEX_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_EMBEDDED_COMPLEX_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_EMBEDDED_COMPLEX_FORMAT").field("FormatCode", &self.FormatCode).field("Reserve1", &self.Reserve1).field("Reserve2", &self.Reserve2).field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_EMBEDDED_COMPLEX_FORMAT {
@@ -2779,6 +3071,11 @@ impl ::core::clone::Clone for NDR64_ENCAPSULATED_UNION {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_ENCAPSULATED_UNION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_ENCAPSULATED_UNION").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("SwitchType", &self.SwitchType).field("MemoryOffset", &self.MemoryOffset).field("MemorySize", &self.MemorySize).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_ENCAPSULATED_UNION {
     type Abi = Self;
 }
@@ -2805,6 +3102,11 @@ impl ::core::marker::Copy for NDR64_EXPR_CONST32 {}
 impl ::core::clone::Clone for NDR64_EXPR_CONST32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_EXPR_CONST32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_EXPR_CONST32").field("ExprType", &self.ExprType).field("Reserved", &self.Reserved).field("Reserved1", &self.Reserved1).field("ConstValue", &self.ConstValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_EXPR_CONST32 {
@@ -2835,6 +3137,11 @@ impl ::core::clone::Clone for NDR64_EXPR_CONST64 {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_EXPR_CONST64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_EXPR_CONST64").field("ExprType", &self.ExprType).field("Reserved", &self.Reserved).field("Reserved1", &self.Reserved1).field("ConstValue", &self.ConstValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_EXPR_CONST64 {
     type Abi = Self;
 }
@@ -2860,6 +3167,11 @@ impl ::core::marker::Copy for NDR64_EXPR_NOOP {}
 impl ::core::clone::Clone for NDR64_EXPR_NOOP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_EXPR_NOOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_EXPR_NOOP").field("ExprType", &self.ExprType).field("Size", &self.Size).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_EXPR_NOOP {
@@ -2890,6 +3202,11 @@ impl ::core::clone::Clone for NDR64_EXPR_OPERATOR {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_EXPR_OPERATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_EXPR_OPERATOR").field("ExprType", &self.ExprType).field("Operator", &self.Operator).field("CastType", &self.CastType).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_EXPR_OPERATOR {
     type Abi = Self;
 }
@@ -2916,6 +3233,11 @@ impl ::core::marker::Copy for NDR64_EXPR_VAR {}
 impl ::core::clone::Clone for NDR64_EXPR_VAR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_EXPR_VAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_EXPR_VAR").field("ExprType", &self.ExprType).field("VarType", &self.VarType).field("Reserved", &self.Reserved).field("Offset", &self.Offset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_EXPR_VAR {
@@ -2957,6 +3279,11 @@ impl ::core::clone::Clone for NDR64_FIXED_REPEAT_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_FIXED_REPEAT_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_FIXED_REPEAT_FORMAT").field("RepeatFormat", &self.RepeatFormat).field("Iterations", &self.Iterations).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_FIXED_REPEAT_FORMAT {
     type Abi = Self;
 }
@@ -2986,6 +3313,11 @@ impl ::core::clone::Clone for NDR64_FIX_ARRAY_HEADER_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_FIX_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_FIX_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_FIX_ARRAY_HEADER_FORMAT {
     type Abi = Self;
 }
@@ -3009,6 +3341,11 @@ impl ::core::marker::Copy for NDR64_IID_FLAGS {}
 impl ::core::clone::Clone for NDR64_IID_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_IID_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_IID_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_IID_FLAGS {
@@ -3039,6 +3376,11 @@ impl ::core::clone::Clone for NDR64_IID_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_IID_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_IID_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("IIDDescriptor", &self.IIDDescriptor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_IID_FORMAT {
     type Abi = Self;
 }
@@ -3067,6 +3409,11 @@ impl ::core::clone::Clone for NDR64_MEMPAD_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_MEMPAD_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_MEMPAD_FORMAT").field("FormatCode", &self.FormatCode).field("Reserve1", &self.Reserve1).field("MemPad", &self.MemPad).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_MEMPAD_FORMAT {
     type Abi = Self;
 }
@@ -3091,6 +3438,11 @@ impl ::core::marker::Copy for NDR64_NON_CONFORMANT_STRING_FORMAT {}
 impl ::core::clone::Clone for NDR64_NON_CONFORMANT_STRING_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_NON_CONFORMANT_STRING_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_NON_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).field("TotalSize", &self.TotalSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_NON_CONFORMANT_STRING_FORMAT {
@@ -3124,6 +3476,11 @@ impl ::core::clone::Clone for NDR64_NON_ENCAPSULATED_UNION {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_NON_ENCAPSULATED_UNION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_NON_ENCAPSULATED_UNION").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("SwitchType", &self.SwitchType).field("MemorySize", &self.MemorySize).field("Switch", &self.Switch).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_NON_ENCAPSULATED_UNION {
     type Abi = Self;
 }
@@ -3152,6 +3509,11 @@ impl ::core::clone::Clone for NDR64_NO_REPEAT_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_NO_REPEAT_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_NO_REPEAT_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_NO_REPEAT_FORMAT {
     type Abi = Self;
 }
@@ -3175,6 +3537,11 @@ impl ::core::marker::Copy for NDR64_PARAM_FLAGS {}
 impl ::core::clone::Clone for NDR64_PARAM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_PARAM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_PARAM_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_PARAM_FLAGS {
@@ -3205,6 +3572,11 @@ impl ::core::clone::Clone for NDR64_PARAM_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_PARAM_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_PARAM_FORMAT").field("Type", &self.Type).field("Attributes", &self.Attributes).field("Reserved", &self.Reserved).field("StackOffset", &self.StackOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_PARAM_FORMAT {
     type Abi = Self;
 }
@@ -3228,6 +3600,11 @@ impl ::core::marker::Copy for NDR64_PIPE_FLAGS {}
 impl ::core::clone::Clone for NDR64_PIPE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_PIPE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_PIPE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_PIPE_FLAGS {
@@ -3261,6 +3638,11 @@ impl ::core::clone::Clone for NDR64_PIPE_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_PIPE_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_PIPE_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Type", &self.Type).field("MemorySize", &self.MemorySize).field("BufferSize", &self.BufferSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_PIPE_FORMAT {
     type Abi = Self;
 }
@@ -3289,6 +3671,11 @@ impl ::core::clone::Clone for NDR64_POINTER_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_POINTER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_POINTER_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Pointee", &self.Pointee).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_POINTER_FORMAT {
     type Abi = Self;
 }
@@ -3313,6 +3700,11 @@ impl ::core::marker::Copy for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
 impl ::core::clone::Clone for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_POINTER_INSTANCE_HEADER_FORMAT").field("Offset", &self.Offset).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
@@ -3340,6 +3732,11 @@ impl ::core::clone::Clone for NDR64_POINTER_REPEAT_FLAGS {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_POINTER_REPEAT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_POINTER_REPEAT_FLAGS").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_POINTER_REPEAT_FLAGS {
     type Abi = Self;
 }
@@ -3363,6 +3760,11 @@ impl ::core::marker::Copy for NDR64_PROC_FLAGS {}
 impl ::core::clone::Clone for NDR64_PROC_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_PROC_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_PROC_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_PROC_FLAGS {
@@ -3397,6 +3799,11 @@ impl ::core::clone::Clone for NDR64_PROC_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_PROC_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_PROC_FORMAT").field("Flags", &self.Flags).field("StackSize", &self.StackSize).field("ConstantClientBufferSize", &self.ConstantClientBufferSize).field("ConstantServerBufferSize", &self.ConstantServerBufferSize).field("RpcFlags", &self.RpcFlags).field("FloatDoubleMask", &self.FloatDoubleMask).field("NumberOfParams", &self.NumberOfParams).field("ExtensionSize", &self.ExtensionSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_PROC_FORMAT {
     type Abi = Self;
 }
@@ -3423,6 +3830,11 @@ impl ::core::marker::Copy for NDR64_RANGED_STRING_FORMAT {}
 impl ::core::clone::Clone for NDR64_RANGED_STRING_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_RANGED_STRING_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_RANGED_STRING_FORMAT").field("Header", &self.Header).field("Reserved", &self.Reserved).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_RANGED_STRING_FORMAT {
@@ -3452,6 +3864,11 @@ impl ::core::marker::Copy for NDR64_RANGE_FORMAT {}
 impl ::core::clone::Clone for NDR64_RANGE_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_RANGE_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_RANGE_FORMAT").field("FormatCode", &self.FormatCode).field("RangeType", &self.RangeType).field("Reserved", &self.Reserved).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_RANGE_FORMAT {
@@ -3487,6 +3904,11 @@ impl ::core::clone::Clone for NDR64_RANGE_PIPE_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_RANGE_PIPE_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_RANGE_PIPE_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Type", &self.Type).field("MemorySize", &self.MemorySize).field("BufferSize", &self.BufferSize).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_RANGE_PIPE_FORMAT {
     type Abi = Self;
 }
@@ -3517,6 +3939,11 @@ impl ::core::clone::Clone for NDR64_REPEAT_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_REPEAT_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_REPEAT_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Increment", &self.Increment).field("OffsetToArray", &self.OffsetToArray).field("NumberOfPointers", &self.NumberOfPointers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_REPEAT_FORMAT {
     type Abi = Self;
 }
@@ -3540,6 +3967,11 @@ impl ::core::marker::Copy for NDR64_RPC_FLAGS {}
 impl ::core::clone::Clone for NDR64_RPC_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_RPC_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_RPC_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_RPC_FLAGS {
@@ -3570,6 +4002,11 @@ impl ::core::clone::Clone for NDR64_SIMPLE_MEMBER_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_SIMPLE_MEMBER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_SIMPLE_MEMBER_FORMAT").field("FormatCode", &self.FormatCode).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_SIMPLE_MEMBER_FORMAT {
     type Abi = Self;
 }
@@ -3598,6 +4035,11 @@ impl ::core::clone::Clone for NDR64_SIMPLE_REGION_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_SIMPLE_REGION_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_SIMPLE_REGION_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("RegionSize", &self.RegionSize).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_SIMPLE_REGION_FORMAT {
     type Abi = Self;
 }
@@ -3624,6 +4066,11 @@ impl ::core::clone::Clone for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_SIZED_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).field("SizeDescription", &self.SizeDescription).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     type Abi = Self;
 }
@@ -3647,6 +4094,11 @@ impl ::core::marker::Copy for NDR64_STRING_FLAGS {}
 impl ::core::clone::Clone for NDR64_STRING_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_STRING_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_STRING_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_STRING_FLAGS {
@@ -3676,6 +4128,11 @@ impl ::core::clone::Clone for NDR64_STRING_HEADER_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_STRING_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_STRING_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("ElementSize", &self.ElementSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_STRING_HEADER_FORMAT {
     type Abi = Self;
 }
@@ -3699,6 +4156,11 @@ impl ::core::marker::Copy for NDR64_STRUCTURE_FLAGS {}
 impl ::core::clone::Clone for NDR64_STRUCTURE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_STRUCTURE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_STRUCTURE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_STRUCTURE_FLAGS {
@@ -3730,6 +4192,11 @@ impl ::core::clone::Clone for NDR64_STRUCTURE_HEADER_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_STRUCTURE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
 }
@@ -3757,6 +4224,11 @@ impl ::core::clone::Clone for NDR64_SYSTEM_HANDLE_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_SYSTEM_HANDLE_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_SYSTEM_HANDLE_FORMAT").field("FormatCode", &self.FormatCode).field("HandleType", &self.HandleType).field("DesiredAccess", &self.DesiredAccess).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_SYSTEM_HANDLE_FORMAT {
     type Abi = Self;
 }
@@ -3780,6 +4252,11 @@ impl ::core::marker::Copy for NDR64_TRANSMIT_AS_FLAGS {}
 impl ::core::clone::Clone for NDR64_TRANSMIT_AS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_TRANSMIT_AS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_TRANSMIT_AS_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_TRANSMIT_AS_FLAGS {
@@ -3814,6 +4291,11 @@ impl ::core::clone::Clone for NDR64_TRANSMIT_AS_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_TRANSMIT_AS_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_TRANSMIT_AS_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("RoutineIndex", &self.RoutineIndex).field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment).field("MemoryAlignment", &self.MemoryAlignment).field("PresentedTypeMemorySize", &self.PresentedTypeMemorySize).field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize).field("TransmittedType", &self.TransmittedType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_TRANSMIT_AS_FORMAT {
     type Abi = Self;
 }
@@ -3844,6 +4326,11 @@ impl ::core::clone::Clone for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_TYPE_STRICT_CONTEXT_HANDLE").field("FormatCode", &self.FormatCode).field("RealFormatCode", &self.RealFormatCode).field("Reserved", &self.Reserved).field("Type", &self.Type).field("CtxtFlags", &self.CtxtFlags).field("CtxtID", &self.CtxtID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     type Abi = Self;
 }
@@ -3869,6 +4356,11 @@ impl ::core::marker::Copy for NDR64_UNION_ARM {}
 impl ::core::clone::Clone for NDR64_UNION_ARM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_UNION_ARM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_UNION_ARM").field("CaseValue", &self.CaseValue).field("Type", &self.Type).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_UNION_ARM {
@@ -3899,6 +4391,11 @@ impl ::core::clone::Clone for NDR64_UNION_ARM_SELECTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_UNION_ARM_SELECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_UNION_ARM_SELECTOR").field("Reserved1", &self.Reserved1).field("Alignment", &self.Alignment).field("Reserved2", &self.Reserved2).field("Arms", &self.Arms).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_UNION_ARM_SELECTOR {
     type Abi = Self;
 }
@@ -3922,6 +4419,11 @@ impl ::core::marker::Copy for NDR64_USER_MARSHAL_FLAGS {}
 impl ::core::clone::Clone for NDR64_USER_MARSHAL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_USER_MARSHAL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_USER_MARSHAL_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_USER_MARSHAL_FLAGS {
@@ -3956,6 +4458,11 @@ impl ::core::clone::Clone for NDR64_USER_MARSHAL_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR64_USER_MARSHAL_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_USER_MARSHAL_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("RoutineIndex", &self.RoutineIndex).field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment).field("MemoryAlignment", &self.MemoryAlignment).field("UserTypeMemorySize", &self.UserTypeMemorySize).field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize).field("TransmittedType", &self.TransmittedType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR64_USER_MARSHAL_FORMAT {
     type Abi = Self;
 }
@@ -3985,6 +4492,11 @@ impl ::core::marker::Copy for NDR64_VAR_ARRAY_HEADER_FORMAT {}
 impl ::core::clone::Clone for NDR64_VAR_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR64_VAR_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR64_VAR_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("ElementSize", &self.ElementSize).field("VarDescriptor", &self.VarDescriptor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR64_VAR_ARRAY_HEADER_FORMAT {
@@ -4141,6 +4653,11 @@ impl ::core::clone::Clone for NDR_CS_ROUTINES {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR_CS_ROUTINES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR_CS_ROUTINES").field("pSizeConvertRoutines", &self.pSizeConvertRoutines).field("pTagGettingRoutines", &self.pTagGettingRoutines).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR_CS_ROUTINES {
     type Abi = Self;
 }
@@ -4167,6 +4684,11 @@ impl ::core::marker::Copy for NDR_CS_SIZE_CONVERT_ROUTINES {}
 impl ::core::clone::Clone for NDR_CS_SIZE_CONVERT_ROUTINES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR_CS_SIZE_CONVERT_ROUTINES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR_CS_SIZE_CONVERT_ROUTINES").field("pfnNetSize", &self.pfnNetSize).field("pfnToNetCs", &self.pfnToNetCs).field("pfnLocalSize", &self.pfnLocalSize).field("pfnFromNetCs", &self.pfnFromNetCs).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR_CS_SIZE_CONVERT_ROUTINES {
@@ -4197,6 +4719,11 @@ impl ::core::marker::Copy for NDR_EXPR_DESC {}
 impl ::core::clone::Clone for NDR_EXPR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NDR_EXPR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR_EXPR_DESC").field("pOffset", &self.pOffset).field("pFormatExpr", &self.pFormatExpr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR_EXPR_DESC {
@@ -4233,6 +4760,11 @@ impl ::core::clone::Clone for NDR_SCONTEXT_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for NDR_SCONTEXT_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR_SCONTEXT_1").field("pad", &self.pad).field("userContext", &self.userContext).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NDR_SCONTEXT_1 {
     type Abi = Self;
 }
@@ -4258,6 +4790,12 @@ pub struct NDR_USER_MARSHAL_INFO {
 impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO {
     fn clone(&self) -> Self {
         Self { InformationLevel: self.InformationLevel, Anonymous: self.Anonymous.clone() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for NDR_USER_MARSHAL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR_USER_MARSHAL_INFO").field("InformationLevel", &self.InformationLevel).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4330,6 +4868,12 @@ impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_LEVEL1 {
             pRpcChannelBuffer: self.pRpcChannelBuffer.clone(),
             Reserved: self.Reserved,
         }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for NDR_USER_MARSHAL_INFO_LEVEL1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDR_USER_MARSHAL_INFO_LEVEL1").field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).field("pfnAllocate", &self.pfnAllocate).field("pfnFree", &self.pfnFree).field("pRpcChannelBuffer", &self.pRpcChannelBuffer).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6969,6 +7513,26 @@ impl ::core::clone::Clone for RDR_CALLOUT_STATE {
         *self
     }
 }
+impl ::core::fmt::Debug for RDR_CALLOUT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RDR_CALLOUT_STATE")
+            .field("LastError", &self.LastError)
+            .field("LastEEInfo", &self.LastEEInfo)
+            .field("LastCalledStage", &self.LastCalledStage)
+            .field("ServerName", &self.ServerName)
+            .field("ServerPort", &self.ServerPort)
+            .field("RemoteUser", &self.RemoteUser)
+            .field("AuthType", &self.AuthType)
+            .field("ResourceTypePresent", &self.ResourceTypePresent)
+            .field("SessionIdPresent", &self.SessionIdPresent)
+            .field("InterfacePresent", &self.InterfacePresent)
+            .field("ResourceType", &self.ResourceType)
+            .field("SessionId", &self.SessionId)
+            .field("Interface", &self.Interface)
+            .field("CertContext", &self.CertContext)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RDR_CALLOUT_STATE {
     type Abi = Self;
 }
@@ -7089,6 +7653,12 @@ impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_ASYNC_NOTIFICATION_INFO_0").field("NotificationRoutine", &self.NotificationRoutine).field("hThread", &self.hThread).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
     type Abi = Self;
 }
@@ -7124,6 +7694,12 @@ impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_ASYNC_NOTIFICATION_INFO_1").field("hIOPort", &self.hIOPort).field("dwNumberOfBytesTransferred", &self.dwNumberOfBytesTransferred).field("dwCompletionKey", &self.dwCompletionKey).field("lpOverlapped", &self.lpOverlapped).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_1 {
     type Abi = Self;
 }
@@ -7154,6 +7730,12 @@ impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_2 {}
 impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_ASYNC_NOTIFICATION_INFO_2").field("hWnd", &self.hWnd).field("Msg", &self.Msg).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -7196,6 +7778,12 @@ impl ::core::marker::Copy for RPC_ASYNC_STATE {}
 impl ::core::clone::Clone for RPC_ASYNC_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::fmt::Debug for RPC_ASYNC_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_ASYNC_STATE").field("Size", &self.Size).field("Signature", &self.Signature).field("Lock", &self.Lock).field("Flags", &self.Flags).field("StubInfo", &self.StubInfo).field("UserInfo", &self.UserInfo).field("RuntimeInfo", &self.RuntimeInfo).field("Event", &self.Event).field("NotificationType", &self.NotificationType).field("u", &self.u).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -7242,6 +7830,11 @@ impl ::core::clone::Clone for RPC_BINDING_HANDLE_OPTIONS_V1 {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_BINDING_HANDLE_OPTIONS_V1").field("Version", &self.Version).field("Flags", &self.Flags).field("ComTimeout", &self.ComTimeout).field("CallTimeout", &self.CallTimeout).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_OPTIONS_V1 {
     type Abi = Self;
 }
@@ -7273,6 +7866,12 @@ impl ::core::marker::Copy for RPC_BINDING_HANDLE_SECURITY_V1_A {}
 impl ::core::clone::Clone for RPC_BINDING_HANDLE_SECURITY_V1_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_A").field("Version", &self.Version).field("ServerPrincName", &self.ServerPrincName).field("AuthnLevel", &self.AuthnLevel).field("AuthnSvc", &self.AuthnSvc).field("AuthIdentity", &self.AuthIdentity).field("SecurityQos", &self.SecurityQos).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7313,6 +7912,12 @@ impl ::core::clone::Clone for RPC_BINDING_HANDLE_SECURITY_V1_W {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_W").field("Version", &self.Version).field("ServerPrincName", &self.ServerPrincName).field("AuthnLevel", &self.AuthnLevel).field("AuthnSvc", &self.AuthnSvc).field("AuthIdentity", &self.AuthIdentity).field("SecurityQos", &self.SecurityQos).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_SECURITY_V1_W {
     type Abi = Self;
 }
@@ -7345,6 +7950,11 @@ impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
 impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_BINDING_HANDLE_TEMPLATE_V1_A").field("Version", &self.Version).field("Flags", &self.Flags).field("ProtocolSequence", &self.ProtocolSequence).field("NetworkAddress", &self.NetworkAddress).field("StringEndpoint", &self.StringEndpoint).field("u1", &self.u1).field("ObjectUuid", &self.ObjectUuid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
@@ -7403,6 +8013,11 @@ impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_BINDING_HANDLE_TEMPLATE_V1_W").field("Version", &self.Version).field("Flags", &self.Flags).field("ProtocolSequence", &self.ProtocolSequence).field("NetworkAddress", &self.NetworkAddress).field("StringEndpoint", &self.StringEndpoint).field("u1", &self.u1).field("ObjectUuid", &self.ObjectUuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     type Abi = Self;
 }
@@ -7454,6 +8069,11 @@ impl ::core::clone::Clone for RPC_BINDING_VECTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_BINDING_VECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_BINDING_VECTOR").field("Count", &self.Count).field("BindingH", &self.BindingH).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_BINDING_VECTOR {
     type Abi = Self;
 }
@@ -7503,6 +8123,22 @@ impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V1_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CALL_ATTRIBUTES_V1_A")
+            .field("Version", &self.Version)
+            .field("Flags", &self.Flags)
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
+            .field("ServerPrincipalName", &self.ServerPrincipalName)
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
+            .field("ClientPrincipalName", &self.ClientPrincipalName)
+            .field("AuthenticationLevel", &self.AuthenticationLevel)
+            .field("AuthenticationService", &self.AuthenticationService)
+            .field("NullSession", &self.NullSession)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V1_A {
     type Abi = Self;
 }
@@ -7540,6 +8176,22 @@ impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V1_W {}
 impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V1_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CALL_ATTRIBUTES_V1_W")
+            .field("Version", &self.Version)
+            .field("Flags", &self.Flags)
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
+            .field("ServerPrincipalName", &self.ServerPrincipalName)
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
+            .field("ClientPrincipalName", &self.ClientPrincipalName)
+            .field("AuthenticationLevel", &self.AuthenticationLevel)
+            .field("AuthenticationService", &self.AuthenticationService)
+            .field("NullSession", &self.NullSession)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7592,6 +8244,31 @@ impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V2_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CALL_ATTRIBUTES_V2_A")
+            .field("Version", &self.Version)
+            .field("Flags", &self.Flags)
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
+            .field("ServerPrincipalName", &self.ServerPrincipalName)
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
+            .field("ClientPrincipalName", &self.ClientPrincipalName)
+            .field("AuthenticationLevel", &self.AuthenticationLevel)
+            .field("AuthenticationService", &self.AuthenticationService)
+            .field("NullSession", &self.NullSession)
+            .field("KernelModeCaller", &self.KernelModeCaller)
+            .field("ProtocolSequence", &self.ProtocolSequence)
+            .field("IsClientLocal", &self.IsClientLocal)
+            .field("ClientPID", &self.ClientPID)
+            .field("CallStatus", &self.CallStatus)
+            .field("CallType", &self.CallType)
+            .field("CallLocalAddress", &self.CallLocalAddress)
+            .field("OpNum", &self.OpNum)
+            .field("InterfaceUuid", &self.InterfaceUuid)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V2_A {
     type Abi = Self;
 }
@@ -7638,6 +8315,31 @@ impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V2_W {}
 impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V2_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CALL_ATTRIBUTES_V2_W")
+            .field("Version", &self.Version)
+            .field("Flags", &self.Flags)
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
+            .field("ServerPrincipalName", &self.ServerPrincipalName)
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
+            .field("ClientPrincipalName", &self.ClientPrincipalName)
+            .field("AuthenticationLevel", &self.AuthenticationLevel)
+            .field("AuthenticationService", &self.AuthenticationService)
+            .field("NullSession", &self.NullSession)
+            .field("KernelModeCaller", &self.KernelModeCaller)
+            .field("ProtocolSequence", &self.ProtocolSequence)
+            .field("IsClientLocal", &self.IsClientLocal)
+            .field("ClientPID", &self.ClientPID)
+            .field("CallStatus", &self.CallStatus)
+            .field("CallType", &self.CallType)
+            .field("CallLocalAddress", &self.CallLocalAddress)
+            .field("OpNum", &self.OpNum)
+            .field("InterfaceUuid", &self.InterfaceUuid)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7692,6 +8394,33 @@ impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V3_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CALL_ATTRIBUTES_V3_A")
+            .field("Version", &self.Version)
+            .field("Flags", &self.Flags)
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
+            .field("ServerPrincipalName", &self.ServerPrincipalName)
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
+            .field("ClientPrincipalName", &self.ClientPrincipalName)
+            .field("AuthenticationLevel", &self.AuthenticationLevel)
+            .field("AuthenticationService", &self.AuthenticationService)
+            .field("NullSession", &self.NullSession)
+            .field("KernelModeCaller", &self.KernelModeCaller)
+            .field("ProtocolSequence", &self.ProtocolSequence)
+            .field("IsClientLocal", &self.IsClientLocal)
+            .field("ClientPID", &self.ClientPID)
+            .field("CallStatus", &self.CallStatus)
+            .field("CallType", &self.CallType)
+            .field("CallLocalAddress", &self.CallLocalAddress)
+            .field("OpNum", &self.OpNum)
+            .field("InterfaceUuid", &self.InterfaceUuid)
+            .field("ClientIdentifierBufferLength", &self.ClientIdentifierBufferLength)
+            .field("ClientIdentifier", &self.ClientIdentifier)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V3_A {
     type Abi = Self;
 }
@@ -7743,6 +8472,33 @@ impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V3_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CALL_ATTRIBUTES_V3_W")
+            .field("Version", &self.Version)
+            .field("Flags", &self.Flags)
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
+            .field("ServerPrincipalName", &self.ServerPrincipalName)
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
+            .field("ClientPrincipalName", &self.ClientPrincipalName)
+            .field("AuthenticationLevel", &self.AuthenticationLevel)
+            .field("AuthenticationService", &self.AuthenticationService)
+            .field("NullSession", &self.NullSession)
+            .field("KernelModeCaller", &self.KernelModeCaller)
+            .field("ProtocolSequence", &self.ProtocolSequence)
+            .field("IsClientLocal", &self.IsClientLocal)
+            .field("ClientPID", &self.ClientPID)
+            .field("CallStatus", &self.CallStatus)
+            .field("CallType", &self.CallType)
+            .field("CallLocalAddress", &self.CallLocalAddress)
+            .field("OpNum", &self.OpNum)
+            .field("InterfaceUuid", &self.InterfaceUuid)
+            .field("ClientIdentifierBufferLength", &self.ClientIdentifierBufferLength)
+            .field("ClientIdentifier", &self.ClientIdentifier)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V3_W {
     type Abi = Self;
 }
@@ -7774,6 +8530,11 @@ impl ::core::marker::Copy for RPC_CALL_LOCAL_ADDRESS_V1 {}
 impl ::core::clone::Clone for RPC_CALL_LOCAL_ADDRESS_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_CALL_LOCAL_ADDRESS_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CALL_LOCAL_ADDRESS_V1").field("Version", &self.Version).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).field("AddressFormat", &self.AddressFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_CALL_LOCAL_ADDRESS_V1 {
@@ -7812,6 +8573,11 @@ impl ::core::clone::Clone for RPC_CLIENT_INFORMATION1 {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_CLIENT_INFORMATION1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CLIENT_INFORMATION1").field("UserName", &self.UserName).field("ComputerName", &self.ComputerName).field("Privilege", &self.Privilege).field("AuthFlags", &self.AuthFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_CLIENT_INFORMATION1 {
     type Abi = Self;
 }
@@ -7843,6 +8609,11 @@ impl ::core::marker::Copy for RPC_CLIENT_INTERFACE {}
 impl ::core::clone::Clone for RPC_CLIENT_INTERFACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_CLIENT_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_CLIENT_INTERFACE").field("Length", &self.Length).field("InterfaceId", &self.InterfaceId).field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount).field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint).field("Reserved", &self.Reserved).field("InterpreterInfo", &self.InterpreterInfo).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_CLIENT_INTERFACE {
@@ -8037,6 +8808,12 @@ impl ::core::clone::Clone for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR").field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     type Abi = Self;
 }
@@ -8187,6 +8964,11 @@ impl ::core::clone::Clone for RPC_DISPATCH_TABLE {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_DISPATCH_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_DISPATCH_TABLE").field("DispatchTableCount", &self.DispatchTableCount).field("DispatchTable", &self.DispatchTable).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_DISPATCH_TABLE {
     type Abi = Self;
 }
@@ -8216,6 +8998,12 @@ impl ::core::marker::Copy for RPC_EE_INFO_PARAM {}
 impl ::core::clone::Clone for RPC_EE_INFO_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_EE_INFO_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_EE_INFO_PARAM").field("ParameterType", &self.ParameterType).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8288,6 +9076,11 @@ impl ::core::clone::Clone for RPC_ENDPOINT_TEMPLATEA {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_ENDPOINT_TEMPLATEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_ENDPOINT_TEMPLATEA").field("Version", &self.Version).field("ProtSeq", &self.ProtSeq).field("Endpoint", &self.Endpoint).field("SecurityDescriptor", &self.SecurityDescriptor).field("Backlog", &self.Backlog).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_ENDPOINT_TEMPLATEA {
     type Abi = Self;
 }
@@ -8317,6 +9110,11 @@ impl ::core::clone::Clone for RPC_ENDPOINT_TEMPLATEW {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_ENDPOINT_TEMPLATEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_ENDPOINT_TEMPLATEW").field("Version", &self.Version).field("ProtSeq", &self.ProtSeq).field("Endpoint", &self.Endpoint).field("SecurityDescriptor", &self.SecurityDescriptor).field("Backlog", &self.Backlog).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_ENDPOINT_TEMPLATEW {
     type Abi = Self;
 }
@@ -8342,6 +9140,11 @@ impl ::core::marker::Copy for RPC_ERROR_ENUM_HANDLE {}
 impl ::core::clone::Clone for RPC_ERROR_ENUM_HANDLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_ERROR_ENUM_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_ERROR_ENUM_HANDLE").field("Signature", &self.Signature).field("CurrentPos", &self.CurrentPos).field("Head", &self.Head).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_ERROR_ENUM_HANDLE {
@@ -8379,6 +9182,12 @@ impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO {}
 impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RPC_EXTENDED_ERROR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_EXTENDED_ERROR_INFO").field("Version", &self.Version).field("ComputerName", &self.ComputerName).field("ProcessID", &self.ProcessID).field("u", &self.u).field("GeneratingComponent", &self.GeneratingComponent).field("Status", &self.Status).field("DetectionLocation", &self.DetectionLocation).field("Flags", &self.Flags).field("NumberOfParameters", &self.NumberOfParameters).field("Parameters", &self.Parameters).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8468,6 +9277,11 @@ impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_A").field("TransportCredentials", &self.TransportCredentials).field("Flags", &self.Flags).field("AuthenticationTarget", &self.AuthenticationTarget).field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes).field("AuthnSchemes", &self.AuthnSchemes).field("ServerCertificateSubject", &self.ServerCertificateSubject).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     type Abi = Self;
 }
@@ -8499,6 +9313,21 @@ impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
 impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A")
+            .field("TransportCredentials", &self.TransportCredentials)
+            .field("Flags", &self.Flags)
+            .field("AuthenticationTarget", &self.AuthenticationTarget)
+            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
+            .field("AuthnSchemes", &self.AuthnSchemes)
+            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
+            .field("ProxyCredentials", &self.ProxyCredentials)
+            .field("NumberOfProxyAuthnSchemes", &self.NumberOfProxyAuthnSchemes)
+            .field("ProxyAuthnSchemes", &self.ProxyAuthnSchemes)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
@@ -8534,6 +9363,21 @@ impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W")
+            .field("TransportCredentials", &self.TransportCredentials)
+            .field("Flags", &self.Flags)
+            .field("AuthenticationTarget", &self.AuthenticationTarget)
+            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
+            .field("AuthnSchemes", &self.AuthnSchemes)
+            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
+            .field("ProxyCredentials", &self.ProxyCredentials)
+            .field("NumberOfProxyAuthnSchemes", &self.NumberOfProxyAuthnSchemes)
+            .field("ProxyAuthnSchemes", &self.ProxyAuthnSchemes)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     type Abi = Self;
 }
@@ -8565,6 +9409,21 @@ impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
 impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A")
+            .field("TransportCredentials", &self.TransportCredentials)
+            .field("Flags", &self.Flags)
+            .field("AuthenticationTarget", &self.AuthenticationTarget)
+            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
+            .field("AuthnSchemes", &self.AuthnSchemes)
+            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
+            .field("ProxyCredentials", &self.ProxyCredentials)
+            .field("NumberOfProxyAuthnSchemes", &self.NumberOfProxyAuthnSchemes)
+            .field("ProxyAuthnSchemes", &self.ProxyAuthnSchemes)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
@@ -8600,6 +9459,21 @@ impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W")
+            .field("TransportCredentials", &self.TransportCredentials)
+            .field("Flags", &self.Flags)
+            .field("AuthenticationTarget", &self.AuthenticationTarget)
+            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
+            .field("AuthnSchemes", &self.AuthnSchemes)
+            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
+            .field("ProxyCredentials", &self.ProxyCredentials)
+            .field("NumberOfProxyAuthnSchemes", &self.NumberOfProxyAuthnSchemes)
+            .field("ProxyAuthnSchemes", &self.ProxyAuthnSchemes)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     type Abi = Self;
 }
@@ -8628,6 +9502,11 @@ impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
 impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_W").field("TransportCredentials", &self.TransportCredentials).field("Flags", &self.Flags).field("AuthenticationTarget", &self.AuthenticationTarget).field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes).field("AuthnSchemes", &self.AuthnSchemes).field("ServerCertificateSubject", &self.ServerCertificateSubject).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
@@ -8671,6 +9550,11 @@ impl ::core::clone::Clone for RPC_IF_ID {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_IF_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_IF_ID").field("Uuid", &self.Uuid).field("VersMajor", &self.VersMajor).field("VersMinor", &self.VersMinor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_IF_ID {
     type Abi = Self;
 }
@@ -8695,6 +9579,11 @@ impl ::core::marker::Copy for RPC_IF_ID_VECTOR {}
 impl ::core::clone::Clone for RPC_IF_ID_VECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_IF_ID_VECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_IF_ID_VECTOR").field("Count", &self.Count).field("IfId", &self.IfId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_IF_ID_VECTOR {
@@ -8728,6 +9617,11 @@ impl ::core::marker::Copy for RPC_IMPORT_CONTEXT_P {}
 impl ::core::clone::Clone for RPC_IMPORT_CONTEXT_P {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_IMPORT_CONTEXT_P {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_IMPORT_CONTEXT_P").field("LookupContext", &self.LookupContext).field("ProposedHandle", &self.ProposedHandle).field("Bindings", &self.Bindings).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_IMPORT_CONTEXT_P {
@@ -8769,6 +9663,11 @@ impl ::core::clone::Clone for RPC_INTERFACE_TEMPLATEA {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_INTERFACE_TEMPLATEA").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("IfCallback", &self.IfCallback).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEA {
     type Abi = Self;
 }
@@ -8804,6 +9703,11 @@ impl ::core::clone::Clone for RPC_INTERFACE_TEMPLATEW {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_INTERFACE_TEMPLATEW").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("IfCallback", &self.IfCallback).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEW {
     type Abi = Self;
 }
@@ -8837,6 +9741,23 @@ impl ::core::marker::Copy for RPC_MESSAGE {}
 impl ::core::clone::Clone for RPC_MESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_MESSAGE")
+            .field("Handle", &self.Handle)
+            .field("DataRepresentation", &self.DataRepresentation)
+            .field("Buffer", &self.Buffer)
+            .field("BufferLength", &self.BufferLength)
+            .field("ProcNum", &self.ProcNum)
+            .field("TransferSyntax", &self.TransferSyntax)
+            .field("RpcInterfaceInformation", &self.RpcInterfaceInformation)
+            .field("ReservedForRuntime", &self.ReservedForRuntime)
+            .field("ManagerEpv", &self.ManagerEpv)
+            .field("ImportContext", &self.ImportContext)
+            .field("RpcFlags", &self.RpcFlags)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_MESSAGE {
@@ -8902,6 +9823,11 @@ impl ::core::clone::Clone for RPC_POLICY {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_POLICY").field("Length", &self.Length).field("EndpointFlags", &self.EndpointFlags).field("NICFlags", &self.NICFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_POLICY {
     type Abi = Self;
 }
@@ -8926,6 +9852,11 @@ impl ::core::marker::Copy for RPC_PROTSEQ_ENDPOINT {}
 impl ::core::clone::Clone for RPC_PROTSEQ_ENDPOINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_PROTSEQ_ENDPOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_PROTSEQ_ENDPOINT").field("RpcProtocolSequence", &self.RpcProtocolSequence).field("Endpoint", &self.Endpoint).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_PROTSEQ_ENDPOINT {
@@ -8962,6 +9893,11 @@ impl ::core::clone::Clone for RPC_PROTSEQ_VECTORA {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_PROTSEQ_VECTORA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_PROTSEQ_VECTORA").field("Count", &self.Count).field("Protseq", &self.Protseq).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_PROTSEQ_VECTORA {
     type Abi = Self;
 }
@@ -8986,6 +9922,11 @@ impl ::core::marker::Copy for RPC_PROTSEQ_VECTORW {}
 impl ::core::clone::Clone for RPC_PROTSEQ_VECTORW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_PROTSEQ_VECTORW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_PROTSEQ_VECTORW").field("Count", &self.Count).field("Protseq", &self.Protseq).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_PROTSEQ_VECTORW {
@@ -9044,6 +9985,12 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS {
     type Abi = Self;
 }
@@ -9078,6 +10025,12 @@ impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_A {}
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS_V2_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS_V2_A").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9147,6 +10100,12 @@ impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_W {}
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS_V2_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS_V2_W").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9220,6 +10179,12 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS_V3_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS_V3_A").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_A {
     type Abi = Self;
 }
@@ -9287,6 +10252,12 @@ impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_W {}
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS_V3_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS_V3_W").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9361,6 +10332,12 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS_V4_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS_V4_A").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).field("EffectiveOnly", &self.EffectiveOnly).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_A {
     type Abi = Self;
 }
@@ -9429,6 +10406,12 @@ impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_W {}
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS_V4_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS_V4_W").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).field("EffectiveOnly", &self.EffectiveOnly).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9504,6 +10487,12 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS_V5_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS_V5_A").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).field("EffectiveOnly", &self.EffectiveOnly).field("ServerSecurityDescriptor", &self.ServerSecurityDescriptor).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_A {
     type Abi = Self;
 }
@@ -9576,6 +10565,12 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for RPC_SECURITY_QOS_V5_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SECURITY_QOS_V5_W").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).field("EffectiveOnly", &self.EffectiveOnly).field("ServerSecurityDescriptor", &self.ServerSecurityDescriptor).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_W {
     type Abi = Self;
 }
@@ -9638,6 +10633,11 @@ impl ::core::clone::Clone for RPC_SEC_CONTEXT_KEY_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_SEC_CONTEXT_KEY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SEC_CONTEXT_KEY_INFO").field("EncryptAlgorithm", &self.EncryptAlgorithm).field("KeySize", &self.KeySize).field("SignatureAlgorithm", &self.SignatureAlgorithm).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_SEC_CONTEXT_KEY_INFO {
     type Abi = Self;
 }
@@ -9671,6 +10671,11 @@ impl ::core::clone::Clone for RPC_SERVER_INTERFACE {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_SERVER_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SERVER_INTERFACE").field("Length", &self.Length).field("InterfaceId", &self.InterfaceId).field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount).field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint).field("DefaultManagerEpv", &self.DefaultManagerEpv).field("InterpreterInfo", &self.InterpreterInfo).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_SERVER_INTERFACE {
     type Abi = Self;
 }
@@ -9697,6 +10702,11 @@ impl ::core::marker::Copy for RPC_STATS_VECTOR {}
 impl ::core::clone::Clone for RPC_STATS_VECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_STATS_VECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_STATS_VECTOR").field("Count", &self.Count).field("Stats", &self.Stats).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_STATS_VECTOR {
@@ -9927,6 +10937,11 @@ impl ::core::clone::Clone for RPC_SYNTAX_IDENTIFIER {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_SYNTAX_IDENTIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_SYNTAX_IDENTIFIER").field("SyntaxGUID", &self.SyntaxGUID).field("SyntaxVersion", &self.SyntaxVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_SYNTAX_IDENTIFIER {
     type Abi = Self;
 }
@@ -9962,6 +10977,11 @@ impl ::core::clone::Clone for RPC_TRANSFER_SYNTAX {
         *self
     }
 }
+impl ::core::fmt::Debug for RPC_TRANSFER_SYNTAX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_TRANSFER_SYNTAX").field("Uuid", &self.Uuid).field("VersMajor", &self.VersMajor).field("VersMinor", &self.VersMinor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_TRANSFER_SYNTAX {
     type Abi = Self;
 }
@@ -9990,6 +11010,11 @@ impl ::core::marker::Copy for RPC_VERSION {}
 impl ::core::clone::Clone for RPC_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RPC_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPC_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_VERSION {
@@ -13297,6 +14322,11 @@ impl ::core::clone::Clone for SCONTEXT_QUEUE {
         *self
     }
 }
+impl ::core::fmt::Debug for SCONTEXT_QUEUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCONTEXT_QUEUE").field("NumberOfObjects", &self.NumberOfObjects).field("ArrayOfObjects", &self.ArrayOfObjects).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCONTEXT_QUEUE {
     type Abi = Self;
 }
@@ -13334,6 +14364,11 @@ impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_A {
         *self
     }
 }
+impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SEC_WINNT_AUTH_IDENTITY_A").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_A {
     type Abi = Self;
 }
@@ -13363,6 +14398,11 @@ impl ::core::marker::Copy for SEC_WINNT_AUTH_IDENTITY_W {}
 impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SEC_WINNT_AUTH_IDENTITY_W").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_W {
@@ -13445,6 +14485,12 @@ impl ::core::clone::Clone for USER_MARSHAL_CB {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for USER_MARSHAL_CB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USER_MARSHAL_CB").field("Flags", &self.Flags).field("pStubMsg", &self.pStubMsg).field("pReserve", &self.pReserve).field("Signature", &self.Signature).field("CBType", &self.CBType).field("pFormat", &self.pFormat).field("pTypeFormat", &self.pTypeFormat).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for USER_MARSHAL_CB {
     type Abi = Self;
 }
@@ -13514,6 +14560,11 @@ impl ::core::clone::Clone for USER_MARSHAL_ROUTINE_QUADRUPLE {
         *self
     }
 }
+impl ::core::fmt::Debug for USER_MARSHAL_ROUTINE_QUADRUPLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USER_MARSHAL_ROUTINE_QUADRUPLE").field("pfnBufferSize", &self.pfnBufferSize).field("pfnMarshall", &self.pfnMarshall).field("pfnUnmarshall", &self.pfnUnmarshall).field("pfnFree", &self.pfnFree).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
     type Abi = Self;
 }
@@ -13542,6 +14593,11 @@ impl ::core::marker::Copy for UUID_VECTOR {}
 impl ::core::clone::Clone for UUID_VECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UUID_VECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UUID_VECTOR").field("Count", &self.Count).field("Uuid", &self.Uuid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UUID_VECTOR {
@@ -13739,6 +14795,12 @@ impl ::core::clone::Clone for XMIT_ROUTINE_QUINTUPLE {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for XMIT_ROUTINE_QUINTUPLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XMIT_ROUTINE_QUINTUPLE").field("pfnTranslateToXmit", &self.pfnTranslateToXmit).field("pfnTranslateFromXmit", &self.pfnTranslateFromXmit).field("pfnFreeXmit", &self.pfnFreeXmit).field("pfnFreeInst", &self.pfnFreeInst).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for XMIT_ROUTINE_QUINTUPLE {
     type Abi = Self;
 }
@@ -13772,6 +14834,11 @@ impl ::core::marker::Copy for _NDR_SCONTEXT {}
 impl ::core::clone::Clone for _NDR_SCONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _NDR_SCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_NDR_SCONTEXT").field("pad", &self.pad).field("userContext", &self.userContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _NDR_SCONTEXT {

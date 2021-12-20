@@ -4276,6 +4276,11 @@ impl ::core::clone::Clone for SmsEncodedLength {
         *self
     }
 }
+impl ::core::fmt::Debug for SmsEncodedLength {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SmsEncodedLength").field("SegmentCount", &self.SegmentCount).field("CharacterCountLastSegment", &self.CharacterCountLastSegment).field("CharactersPerSegment", &self.CharactersPerSegment).field("ByteCountLastSegment", &self.ByteCountLastSegment).field("BytesPerSegment", &self.BytesPerSegment).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmsEncodedLength {
     type Abi = Self;
 }

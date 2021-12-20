@@ -1434,6 +1434,11 @@ impl ::core::clone::Clone for XamlBinaryWriterErrorInformation {
         *self
     }
 }
+impl ::core::fmt::Debug for XamlBinaryWriterErrorInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XamlBinaryWriterErrorInformation").field("InputStreamIndex", &self.InputStreamIndex).field("LineNumber", &self.LineNumber).field("LinePosition", &self.LinePosition).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XamlBinaryWriterErrorInformation {
     type Abi = Self;
 }
@@ -1808,6 +1813,11 @@ pub struct XmlnsDefinition {
 impl ::core::clone::Clone for XmlnsDefinition {
     fn clone(&self) -> Self {
         Self { XmlNamespace: self.XmlNamespace.clone(), Namespace: self.Namespace.clone() }
+    }
+}
+impl ::core::fmt::Debug for XmlnsDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XmlnsDefinition").field("XmlNamespace", &self.XmlNamespace).field("Namespace", &self.Namespace).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XmlnsDefinition {

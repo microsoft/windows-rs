@@ -12,6 +12,11 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_AGGREGATE_BASIC_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("Type", &self.Type).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION {
     type Abi = Self;
 }
@@ -64,6 +69,11 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_AGGREGATE_BASIC_INFORMATION_0_0").field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     type Abi = Self;
 }
@@ -94,6 +104,11 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_AGGREGATE_BASIC_INFORMATION_0_1").field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     type Abi = Self;
 }
@@ -119,6 +134,11 @@ impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_AGGREGATE_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION {
@@ -176,6 +196,11 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_AGGREGATE_STANDARD_INFORMATION_0_0").field("Flags", &self.Flags).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     type Abi = Self;
 }
@@ -207,6 +232,11 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_AGGREGATE_STANDARD_INFORMATION_0_1").field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     type Abi = Self;
 }
@@ -234,6 +264,11 @@ impl ::core::marker::Copy for FILTER_FULL_INFORMATION {}
 impl ::core::clone::Clone for FILTER_FULL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILTER_FULL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_FULL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBuffer", &self.FilterNameBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILTER_FULL_INFORMATION {
@@ -270,6 +305,11 @@ impl ::core::clone::Clone for FILTER_MESSAGE_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for FILTER_MESSAGE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_MESSAGE_HEADER").field("ReplyLength", &self.ReplyLength).field("MessageId", &self.MessageId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILTER_MESSAGE_HEADER {
     type Abi = Self;
 }
@@ -302,6 +342,12 @@ impl ::core::clone::Clone for FILTER_REPLY_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FILTER_REPLY_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_REPLY_HEADER").field("Status", &self.Status).field("MessageId", &self.MessageId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FILTER_REPLY_HEADER {
     type Abi = Self;
 }
@@ -329,6 +375,11 @@ impl ::core::marker::Copy for FILTER_VOLUME_BASIC_INFORMATION {}
 impl ::core::clone::Clone for FILTER_VOLUME_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILTER_VOLUME_BASIC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_VOLUME_BASIC_INFORMATION").field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILTER_VOLUME_BASIC_INFORMATION {
@@ -365,6 +416,11 @@ impl ::core::marker::Copy for FILTER_VOLUME_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for FILTER_VOLUME_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILTER_VOLUME_STANDARD_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTER_VOLUME_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("FileSystemType", &self.FileSystemType).field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILTER_VOLUME_STANDARD_INFORMATION {
@@ -901,6 +957,11 @@ impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTANCE_AGGREGATE_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("Type", &self.Type).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     type Abi = Self;
 }
@@ -959,6 +1020,11 @@ impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0").field("Flags", &self.Flags).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).field("VolumeNameLength", &self.VolumeNameLength).field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("SupportedFeatures", &self.SupportedFeatures).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     type Abi = Self;
 }
@@ -995,6 +1061,24 @@ impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1")
+            .field("Flags", &self.Flags)
+            .field("FrameID", &self.FrameID)
+            .field("VolumeFileSystemType", &self.VolumeFileSystemType)
+            .field("InstanceNameLength", &self.InstanceNameLength)
+            .field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset)
+            .field("AltitudeLength", &self.AltitudeLength)
+            .field("AltitudeBufferOffset", &self.AltitudeBufferOffset)
+            .field("VolumeNameLength", &self.VolumeNameLength)
+            .field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset)
+            .field("FilterNameLength", &self.FilterNameLength)
+            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
+            .field("SupportedFeatures", &self.SupportedFeatures)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     type Abi = Self;
 }
@@ -1020,6 +1104,11 @@ impl ::core::marker::Copy for INSTANCE_BASIC_INFORMATION {}
 impl ::core::clone::Clone for INSTANCE_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INSTANCE_BASIC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTANCE_BASIC_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INSTANCE_BASIC_INFORMATION {
@@ -1053,6 +1142,21 @@ impl ::core::marker::Copy for INSTANCE_FULL_INFORMATION {}
 impl ::core::clone::Clone for INSTANCE_FULL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INSTANCE_FULL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTANCE_FULL_INFORMATION")
+            .field("NextEntryOffset", &self.NextEntryOffset)
+            .field("InstanceNameLength", &self.InstanceNameLength)
+            .field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset)
+            .field("AltitudeLength", &self.AltitudeLength)
+            .field("AltitudeBufferOffset", &self.AltitudeBufferOffset)
+            .field("VolumeNameLength", &self.VolumeNameLength)
+            .field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset)
+            .field("FilterNameLength", &self.FilterNameLength)
+            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for INSTANCE_FULL_INFORMATION {
@@ -1094,6 +1198,11 @@ impl ::core::marker::Copy for INSTANCE_PARTIAL_INFORMATION {}
 impl ::core::clone::Clone for INSTANCE_PARTIAL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INSTANCE_PARTIAL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTANCE_PARTIAL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INSTANCE_PARTIAL_INFORMATION {

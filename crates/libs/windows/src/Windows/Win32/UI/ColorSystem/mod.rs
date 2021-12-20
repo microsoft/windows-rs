@@ -135,6 +135,12 @@ impl ::core::clone::Clone for BlackInformation {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BlackInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BlackInformation").field("fBlackOnly", &self.fBlackOnly).field("blackWeight", &self.blackWeight).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BlackInformation {
     type Abi = Self;
 }
@@ -530,6 +536,11 @@ impl ::core::clone::Clone for CMYKCOLOR {
         *self
     }
 }
+impl ::core::fmt::Debug for CMYKCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CMYKCOLOR").field("cyan", &self.cyan).field("magenta", &self.magenta).field("yellow", &self.yellow).field("black", &self.black).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CMYKCOLOR {
     type Abi = Self;
 }
@@ -588,6 +599,11 @@ impl ::core::marker::Copy for COLOR_0 {}
 impl ::core::clone::Clone for COLOR_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COLOR_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COLOR_0").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COLOR_0 {
@@ -653,6 +669,32 @@ impl ::core::clone::Clone for COLORMATCHSETUPA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for COLORMATCHSETUPA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COLORMATCHSETUPA")
+            .field("dwSize", &self.dwSize)
+            .field("dwVersion", &self.dwVersion)
+            .field("dwFlags", &self.dwFlags)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("pSourceName", &self.pSourceName)
+            .field("pDisplayName", &self.pDisplayName)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("dwRenderIntent", &self.dwRenderIntent)
+            .field("dwProofingIntent", &self.dwProofingIntent)
+            .field("pMonitorProfile", &self.pMonitorProfile)
+            .field("ccMonitorProfile", &self.ccMonitorProfile)
+            .field("pPrinterProfile", &self.pPrinterProfile)
+            .field("ccPrinterProfile", &self.ccPrinterProfile)
+            .field("pTargetProfile", &self.pTargetProfile)
+            .field("ccTargetProfile", &self.ccTargetProfile)
+            .field("lpfnHook", &self.lpfnHook)
+            .field("lParam", &self.lParam)
+            .field("lpfnApplyCallback", &self.lpfnApplyCallback)
+            .field("lParamApplyCallback", &self.lParamApplyCallback)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for COLORMATCHSETUPA {
     type Abi = Self;
 }
@@ -700,6 +742,32 @@ impl ::core::marker::Copy for COLORMATCHSETUPW {}
 impl ::core::clone::Clone for COLORMATCHSETUPW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for COLORMATCHSETUPW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COLORMATCHSETUPW")
+            .field("dwSize", &self.dwSize)
+            .field("dwVersion", &self.dwVersion)
+            .field("dwFlags", &self.dwFlags)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("pSourceName", &self.pSourceName)
+            .field("pDisplayName", &self.pDisplayName)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("dwRenderIntent", &self.dwRenderIntent)
+            .field("dwProofingIntent", &self.dwProofingIntent)
+            .field("pMonitorProfile", &self.pMonitorProfile)
+            .field("ccMonitorProfile", &self.ccMonitorProfile)
+            .field("pPrinterProfile", &self.pPrinterProfile)
+            .field("ccPrinterProfile", &self.ccPrinterProfile)
+            .field("pTargetProfile", &self.pTargetProfile)
+            .field("ccTargetProfile", &self.ccTargetProfile)
+            .field("lpfnHook", &self.lpfnHook)
+            .field("lParam", &self.lParam)
+            .field("lpfnApplyCallback", &self.lpfnApplyCallback)
+            .field("lParamApplyCallback", &self.lParamApplyCallback)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1212,6 +1280,12 @@ impl ::core::clone::Clone for EMRCREATECOLORSPACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for EMRCREATECOLORSPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRCREATECOLORSPACE").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACE {
     type Abi = Self;
 }
@@ -1246,6 +1320,12 @@ impl ::core::marker::Copy for EMRCREATECOLORSPACEW {}
 impl ::core::clone::Clone for EMRCREATECOLORSPACEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for EMRCREATECOLORSPACEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRCREATECOLORSPACEW").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).field("dwFlags", &self.dwFlags).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1302,6 +1382,33 @@ impl ::core::clone::Clone for ENUMTYPEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUMTYPEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMTYPEA")
+            .field("dwSize", &self.dwSize)
+            .field("dwVersion", &self.dwVersion)
+            .field("dwFields", &self.dwFields)
+            .field("pDeviceName", &self.pDeviceName)
+            .field("dwMediaType", &self.dwMediaType)
+            .field("dwDitheringMode", &self.dwDitheringMode)
+            .field("dwResolution", &self.dwResolution)
+            .field("dwCMMType", &self.dwCMMType)
+            .field("dwClass", &self.dwClass)
+            .field("dwDataColorSpace", &self.dwDataColorSpace)
+            .field("dwConnectionSpace", &self.dwConnectionSpace)
+            .field("dwSignature", &self.dwSignature)
+            .field("dwPlatform", &self.dwPlatform)
+            .field("dwProfileFlags", &self.dwProfileFlags)
+            .field("dwManufacturer", &self.dwManufacturer)
+            .field("dwModel", &self.dwModel)
+            .field("dwAttributes", &self.dwAttributes)
+            .field("dwRenderingIntent", &self.dwRenderingIntent)
+            .field("dwCreator", &self.dwCreator)
+            .field("dwDeviceClass", &self.dwDeviceClass)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENUMTYPEA {
     type Abi = Self;
 }
@@ -1350,6 +1457,33 @@ impl ::core::marker::Copy for ENUMTYPEW {}
 impl ::core::clone::Clone for ENUMTYPEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUMTYPEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMTYPEW")
+            .field("dwSize", &self.dwSize)
+            .field("dwVersion", &self.dwVersion)
+            .field("dwFields", &self.dwFields)
+            .field("pDeviceName", &self.pDeviceName)
+            .field("dwMediaType", &self.dwMediaType)
+            .field("dwDitheringMode", &self.dwDitheringMode)
+            .field("dwResolution", &self.dwResolution)
+            .field("dwCMMType", &self.dwCMMType)
+            .field("dwClass", &self.dwClass)
+            .field("dwDataColorSpace", &self.dwDataColorSpace)
+            .field("dwConnectionSpace", &self.dwConnectionSpace)
+            .field("dwSignature", &self.dwSignature)
+            .field("dwPlatform", &self.dwPlatform)
+            .field("dwProfileFlags", &self.dwProfileFlags)
+            .field("dwManufacturer", &self.dwManufacturer)
+            .field("dwModel", &self.dwModel)
+            .field("dwAttributes", &self.dwAttributes)
+            .field("dwRenderingIntent", &self.dwRenderingIntent)
+            .field("dwCreator", &self.dwCreator)
+            .field("dwDeviceClass", &self.dwDeviceClass)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1491,6 +1625,11 @@ impl ::core::clone::Clone for GENERIC3CHANNEL {
         *self
     }
 }
+impl ::core::fmt::Debug for GENERIC3CHANNEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GENERIC3CHANNEL").field("ch1", &self.ch1).field("ch2", &self.ch2).field("ch3", &self.ch3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GENERIC3CHANNEL {
     type Abi = Self;
 }
@@ -1514,6 +1653,11 @@ impl ::core::marker::Copy for GRAYCOLOR {}
 impl ::core::clone::Clone for GRAYCOLOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GRAYCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GRAYCOLOR").field("gray", &self.gray).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GRAYCOLOR {
@@ -1546,6 +1690,11 @@ impl ::core::clone::Clone for GamutBoundaryDescription {
         *self
     }
 }
+impl ::core::fmt::Debug for GamutBoundaryDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GamutBoundaryDescription").field("pPrimaries", &self.pPrimaries).field("cNeutralSamples", &self.cNeutralSamples).field("pNeutralSamples", &self.pNeutralSamples).field("pReferenceShell", &self.pReferenceShell).field("pPlausibleShell", &self.pPlausibleShell).field("pPossibleShell", &self.pPossibleShell).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GamutBoundaryDescription {
     type Abi = Self;
 }
@@ -1576,6 +1725,11 @@ impl ::core::clone::Clone for GamutShell {
         *self
     }
 }
+impl ::core::fmt::Debug for GamutShell {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GamutShell").field("JMin", &self.JMin).field("JMax", &self.JMax).field("cVertices", &self.cVertices).field("cTriangles", &self.cTriangles).field("pVertices", &self.pVertices).field("pTriangles", &self.pTriangles).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GamutShell {
     type Abi = Self;
 }
@@ -1599,6 +1753,11 @@ impl ::core::marker::Copy for GamutShellTriangle {}
 impl ::core::clone::Clone for GamutShellTriangle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GamutShellTriangle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GamutShellTriangle").field("aVertexIndex", &self.aVertexIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GamutShellTriangle {
@@ -1926,6 +2085,11 @@ impl ::core::clone::Clone for HiFiCOLOR {
         *self
     }
 }
+impl ::core::fmt::Debug for HiFiCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HiFiCOLOR").field("channel", &self.channel).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HiFiCOLOR {
     type Abi = Self;
 }
@@ -2215,6 +2379,11 @@ impl ::core::clone::Clone for JChColorF {
         *self
     }
 }
+impl ::core::fmt::Debug for JChColorF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JChColorF").field("J", &self.J).field("C", &self.C).field("h", &self.h).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JChColorF {
     type Abi = Self;
 }
@@ -2240,6 +2409,11 @@ impl ::core::marker::Copy for JabColorF {}
 impl ::core::clone::Clone for JabColorF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JabColorF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JabColorF").field("J", &self.J).field("a", &self.a).field("b", &self.b).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JabColorF {
@@ -2277,6 +2451,12 @@ impl ::core::marker::Copy for LOGCOLORSPACEA {}
 impl ::core::clone::Clone for LOGCOLORSPACEA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for LOGCOLORSPACEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGCOLORSPACEA").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2321,6 +2501,12 @@ impl ::core::clone::Clone for LOGCOLORSPACEW {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for LOGCOLORSPACEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGCOLORSPACEW").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::core::Abi for LOGCOLORSPACEW {
     type Abi = Self;
 }
@@ -2354,6 +2540,11 @@ impl ::core::clone::Clone for LabCOLOR {
         *self
     }
 }
+impl ::core::fmt::Debug for LabCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LabCOLOR").field("L", &self.L).field("a", &self.a).field("b", &self.b).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LabCOLOR {
     type Abi = Self;
 }
@@ -2379,6 +2570,11 @@ impl ::core::marker::Copy for NAMEDCOLOR {}
 impl ::core::clone::Clone for NAMEDCOLOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NAMEDCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NAMEDCOLOR").field("dwIndex", &self.dwIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NAMEDCOLOR {
@@ -2408,6 +2604,11 @@ impl ::core::marker::Copy for NAMED_PROFILE_INFO {}
 impl ::core::clone::Clone for NAMED_PROFILE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NAMED_PROFILE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NAMED_PROFILE_INFO").field("dwFlags", &self.dwFlags).field("dwCount", &self.dwCount).field("dwCountDevCoordinates", &self.dwCountDevCoordinates).field("szPrefix", &self.szPrefix).field("szSuffix", &self.szSuffix).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NAMED_PROFILE_INFO {
@@ -2475,6 +2676,11 @@ impl ::core::clone::Clone for PROFILE {
         *self
     }
 }
+impl ::core::fmt::Debug for PROFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROFILE").field("dwType", &self.dwType).field("pProfileData", &self.pProfileData).field("cbDataSize", &self.cbDataSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROFILE {
     type Abi = Self;
 }
@@ -2517,6 +2723,30 @@ impl ::core::marker::Copy for PROFILEHEADER {}
 impl ::core::clone::Clone for PROFILEHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for PROFILEHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROFILEHEADER")
+            .field("phSize", &self.phSize)
+            .field("phCMMType", &self.phCMMType)
+            .field("phVersion", &self.phVersion)
+            .field("phClass", &self.phClass)
+            .field("phDataColorSpace", &self.phDataColorSpace)
+            .field("phConnectionSpace", &self.phConnectionSpace)
+            .field("phDateTime", &self.phDateTime)
+            .field("phSignature", &self.phSignature)
+            .field("phPlatform", &self.phPlatform)
+            .field("phProfileFlags", &self.phProfileFlags)
+            .field("phManufacturer", &self.phManufacturer)
+            .field("phModel", &self.phModel)
+            .field("phAttributes", &self.phAttributes)
+            .field("phRenderingIntent", &self.phRenderingIntent)
+            .field("phIlluminant", &self.phIlluminant)
+            .field("phCreator", &self.phCreator)
+            .field("phReserved", &self.phReserved)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2565,6 +2795,11 @@ impl ::core::clone::Clone for PrimaryJabColors {
         *self
     }
 }
+impl ::core::fmt::Debug for PrimaryJabColors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrimaryJabColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrimaryJabColors {
     type Abi = Self;
 }
@@ -2597,6 +2832,11 @@ impl ::core::clone::Clone for PrimaryXYZColors {
         *self
     }
 }
+impl ::core::fmt::Debug for PrimaryXYZColors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrimaryXYZColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrimaryXYZColors {
     type Abi = Self;
 }
@@ -2624,6 +2864,11 @@ impl ::core::marker::Copy for RGBCOLOR {}
 impl ::core::clone::Clone for RGBCOLOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RGBCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RGBCOLOR").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RGBCOLOR {
@@ -3033,6 +3278,12 @@ impl ::core::clone::Clone for WCS_DEVICE_MHC2_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WCS_DEVICE_MHC2_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCS_DEVICE_MHC2_CAPABILITIES").field("Size", &self.Size).field("SupportsMhc2", &self.SupportsMhc2).field("RegammaLutEntryCount", &self.RegammaLutEntryCount).field("CscXyzMatrixRows", &self.CscXyzMatrixRows).field("CscXyzMatrixColumns", &self.CscXyzMatrixColumns).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WCS_DEVICE_MHC2_CAPABILITIES {
     type Abi = Self;
 }
@@ -3063,6 +3314,12 @@ impl ::core::marker::Copy for WCS_DEVICE_VCGT_CAPABILITIES {}
 impl ::core::clone::Clone for WCS_DEVICE_VCGT_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WCS_DEVICE_VCGT_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCS_DEVICE_VCGT_CAPABILITIES").field("Size", &self.Size).field("SupportsVcgt", &self.SupportsVcgt).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3371,6 +3628,11 @@ impl ::core::clone::Clone for XYZCOLOR {
         *self
     }
 }
+impl ::core::fmt::Debug for XYZCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XYZCOLOR").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XYZCOLOR {
     type Abi = Self;
 }
@@ -3398,6 +3660,11 @@ impl ::core::clone::Clone for XYZColorF {
         *self
     }
 }
+impl ::core::fmt::Debug for XYZColorF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XYZColorF").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XYZColorF {
     type Abi = Self;
 }
@@ -3423,6 +3690,11 @@ impl ::core::marker::Copy for YxyCOLOR {}
 impl ::core::clone::Clone for YxyCOLOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for YxyCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("YxyCOLOR").field("Y", &self.Y).field("x", &self.x).field("y", &self.y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for YxyCOLOR {

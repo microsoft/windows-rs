@@ -39,6 +39,11 @@ impl ::core::clone::Clone for APOInitBaseStruct {
         *self
     }
 }
+impl ::core::fmt::Debug for APOInitBaseStruct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APOInitBaseStruct").field("cbSize", &self.cbSize).field("clsid", &self.clsid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for APOInitBaseStruct {
     type Abi = Self;
 }
@@ -73,6 +78,12 @@ impl ::core::clone::Clone for APOInitSystemEffects {
             pReserved: self.pReserved,
             pDeviceCollection: self.pDeviceCollection.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for APOInitSystemEffects {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APOInitSystemEffects").field("APOInit", &self.APOInit).field("pAPOEndpointProperties", &self.pAPOEndpointProperties).field("pAPOSystemEffectsProperties", &self.pAPOSystemEffectsProperties).field("pReserved", &self.pReserved).field("pDeviceCollection", &self.pDeviceCollection).finish()
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -124,6 +135,22 @@ impl ::core::clone::Clone for APOInitSystemEffects2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::fmt::Debug for APOInitSystemEffects2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APOInitSystemEffects2")
+            .field("APOInit", &self.APOInit)
+            .field("pAPOEndpointProperties", &self.pAPOEndpointProperties)
+            .field("pAPOSystemEffectsProperties", &self.pAPOSystemEffectsProperties)
+            .field("pReserved", &self.pReserved)
+            .field("pDeviceCollection", &self.pDeviceCollection)
+            .field("nSoftwareIoDeviceInCollection", &self.nSoftwareIoDeviceInCollection)
+            .field("nSoftwareIoConnectorIndex", &self.nSoftwareIoConnectorIndex)
+            .field("AudioProcessingMode", &self.AudioProcessingMode)
+            .field("InitializeForDiscoveryOnly", &self.InitializeForDiscoveryOnly)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for APOInitSystemEffects2 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -167,6 +194,21 @@ impl ::core::clone::Clone for APOInitSystemEffects3 {
             AudioProcessingMode: self.AudioProcessingMode,
             InitializeForDiscoveryOnly: self.InitializeForDiscoveryOnly,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::fmt::Debug for APOInitSystemEffects3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APOInitSystemEffects3")
+            .field("APOInit", &self.APOInit)
+            .field("pAPOEndpointProperties", &self.pAPOEndpointProperties)
+            .field("pServiceProvider", &self.pServiceProvider)
+            .field("pDeviceCollection", &self.pDeviceCollection)
+            .field("nSoftwareIoDeviceInCollection", &self.nSoftwareIoDeviceInCollection)
+            .field("nSoftwareIoConnectorIndex", &self.nSoftwareIoConnectorIndex)
+            .field("AudioProcessingMode", &self.AudioProcessingMode)
+            .field("InitializeForDiscoveryOnly", &self.InitializeForDiscoveryOnly)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -217,6 +259,11 @@ impl ::core::clone::Clone for APO_CONNECTION_DESCRIPTOR {
         Self { Type: self.Type, pBuffer: self.pBuffer, u32MaxFrameCount: self.u32MaxFrameCount, pFormat: self.pFormat.clone(), u32Signature: self.u32Signature }
     }
 }
+impl ::core::fmt::Debug for APO_CONNECTION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APO_CONNECTION_DESCRIPTOR").field("Type", &self.Type).field("pBuffer", &self.pBuffer).field("u32MaxFrameCount", &self.u32MaxFrameCount).field("pFormat", &self.pFormat).field("u32Signature", &self.u32Signature).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for APO_CONNECTION_DESCRIPTOR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -245,6 +292,11 @@ impl ::core::clone::Clone for APO_CONNECTION_PROPERTY {
         *self
     }
 }
+impl ::core::fmt::Debug for APO_CONNECTION_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APO_CONNECTION_PROPERTY").field("pBuffer", &self.pBuffer).field("u32ValidFrameCount", &self.u32ValidFrameCount).field("u32BufferFlags", &self.u32BufferFlags).field("u32Signature", &self.u32Signature).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for APO_CONNECTION_PROPERTY {
     type Abi = Self;
 }
@@ -269,6 +321,11 @@ impl ::core::marker::Copy for APO_CONNECTION_PROPERTY_V2 {}
 impl ::core::clone::Clone for APO_CONNECTION_PROPERTY_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for APO_CONNECTION_PROPERTY_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APO_CONNECTION_PROPERTY_V2").field("property", &self.property).field("u64QPCTime", &self.u64QPCTime).finish()
     }
 }
 unsafe impl ::windows::core::Abi for APO_CONNECTION_PROPERTY_V2 {
@@ -326,6 +383,12 @@ pub struct APO_NOTIFICATION {
 impl ::core::clone::Clone for APO_NOTIFICATION {
     fn clone(&self) -> Self {
         Self { r#type: self.r#type, Anonymous: self.Anonymous.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::fmt::Debug for APO_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APO_NOTIFICATION").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -387,6 +450,11 @@ pub struct APO_NOTIFICATION_DESCRIPTOR {
 impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         Self { r#type: self.r#type, Anonymous: self.Anonymous.clone() }
+    }
+}
+impl ::core::fmt::Debug for APO_NOTIFICATION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APO_NOTIFICATION_DESCRIPTOR").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION_DESCRIPTOR {
@@ -462,6 +530,25 @@ impl ::core::clone::Clone for APO_REG_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for APO_REG_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APO_REG_PROPERTIES")
+            .field("clsid", &self.clsid)
+            .field("Flags", &self.Flags)
+            .field("szFriendlyName", &self.szFriendlyName)
+            .field("szCopyrightInfo", &self.szCopyrightInfo)
+            .field("u32MajorVersion", &self.u32MajorVersion)
+            .field("u32MinorVersion", &self.u32MinorVersion)
+            .field("u32MinInputConnections", &self.u32MinInputConnections)
+            .field("u32MaxInputConnections", &self.u32MaxInputConnections)
+            .field("u32MinOutputConnections", &self.u32MinOutputConnections)
+            .field("u32MaxOutputConnections", &self.u32MaxOutputConnections)
+            .field("u32MaxInstances", &self.u32MaxInstances)
+            .field("u32NumAPOInterfaces", &self.u32NumAPOInterfaces)
+            .field("iidAPOInterfaceList", &self.iidAPOInterfaceList)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for APO_REG_PROPERTIES {
     type Abi = Self;
 }
@@ -490,6 +577,11 @@ pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
 impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         Self { device: self.device.clone() }
+    }
+}
+impl ::core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
@@ -521,6 +613,12 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION").field("endpoint", &self.endpoint).field("propertyStore", &self.propertyStore).field("propertyKey", &self.propertyKey).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -548,6 +646,11 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR 
         Self { device: self.device.clone() }
     }
 }
+impl ::core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -573,6 +676,12 @@ pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
 impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     fn clone(&self) -> Self {
         Self { endpoint: self.endpoint.clone(), volume: self.volume }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION").field("endpoint", &self.endpoint).field("volume", &self.volume).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -624,6 +733,12 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIO_SYSTEMEFFECT").field("id", &self.id).field("canSetState", &self.canSetState).field("state", &self.state).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECT {
     type Abi = Self;
 }
@@ -650,6 +765,11 @@ pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
 impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         Self { device: self.device.clone(), propertyStoreContext: self.propertyStoreContext }
+    }
+}
+impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).field("propertyStoreContext", &self.propertyStoreContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
@@ -689,6 +809,12 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION").field("endpoint", &self.endpoint).field("propertyStoreContext", &self.propertyStoreContext).field("propertyStoreType", &self.propertyStoreType).field("propertyStore", &self.propertyStore).field("propertyKey", &self.propertyKey).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -724,6 +850,12 @@ pub struct AudioFXExtensionParams {
 impl ::core::clone::Clone for AudioFXExtensionParams {
     fn clone(&self) -> Self {
         Self { AddPageParam: self.AddPageParam, pwstrEndpointID: self.pwstrEndpointID, pFxProperties: self.pFxProperties.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::fmt::Debug for AudioFXExtensionParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AudioFXExtensionParams").field("AddPageParam", &self.AddPageParam).field("pwstrEndpointID", &self.pwstrEndpointID).field("pFxProperties", &self.pFxProperties).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1850,6 +1982,11 @@ impl ::core::marker::Copy for UNCOMPRESSEDAUDIOFORMAT {}
 impl ::core::clone::Clone for UNCOMPRESSEDAUDIOFORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UNCOMPRESSEDAUDIOFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UNCOMPRESSEDAUDIOFORMAT").field("guidFormatType", &self.guidFormatType).field("dwSamplesPerFrame", &self.dwSamplesPerFrame).field("dwBytesPerSampleContainer", &self.dwBytesPerSampleContainer).field("dwValidBitsPerSample", &self.dwValidBitsPerSample).field("fFramesPerSecond", &self.fFramesPerSecond).field("dwChannelMask", &self.dwChannelMask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UNCOMPRESSEDAUDIOFORMAT {

@@ -1917,6 +1917,11 @@ impl ::core::clone::Clone for ImageScannerResolution {
         *self
     }
 }
+impl ::core::fmt::Debug for ImageScannerResolution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ImageScannerResolution").field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ImageScannerResolution {
     type Abi = Self;
 }

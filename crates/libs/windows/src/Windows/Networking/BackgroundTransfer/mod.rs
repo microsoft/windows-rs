@@ -14,6 +14,11 @@ impl ::core::clone::Clone for BackgroundDownloadProgress {
         *self
     }
 }
+impl ::core::fmt::Debug for BackgroundDownloadProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BackgroundDownloadProgress").field("BytesReceived", &self.BytesReceived).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("Status", &self.Status).field("HasResponseChanged", &self.HasResponseChanged).field("HasRestarted", &self.HasRestarted).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundDownloadProgress {
     type Abi = Self;
 }
@@ -757,6 +762,11 @@ impl ::core::clone::Clone for BackgroundTransferFileRange {
         *self
     }
 }
+impl ::core::fmt::Debug for BackgroundTransferFileRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BackgroundTransferFileRange").field("Offset", &self.Offset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTransferFileRange {
     type Abi = Self;
 }
@@ -1052,6 +1062,11 @@ impl ::core::marker::Copy for BackgroundUploadProgress {}
 impl ::core::clone::Clone for BackgroundUploadProgress {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BackgroundUploadProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BackgroundUploadProgress").field("BytesReceived", &self.BytesReceived).field("BytesSent", &self.BytesSent).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("TotalBytesToSend", &self.TotalBytesToSend).field("Status", &self.Status).field("HasResponseChanged", &self.HasResponseChanged).field("HasRestarted", &self.HasRestarted).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundUploadProgress {

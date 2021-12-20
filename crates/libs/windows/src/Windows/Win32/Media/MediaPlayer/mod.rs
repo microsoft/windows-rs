@@ -18294,6 +18294,11 @@ impl ::core::clone::Clone for TimedLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedLevel").field("frequency", &self.frequency).field("waveform", &self.waveform).field("state", &self.state).field("timeStamp", &self.timeStamp).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedLevel {
     type Abi = Self;
 }
@@ -18388,6 +18393,12 @@ pub struct WMPContextMenuInfo {
 impl ::core::clone::Clone for WMPContextMenuInfo {
     fn clone(&self) -> Self {
         Self { dwID: self.dwID, bstrMenuText: self.bstrMenuText.clone(), bstrHelpText: self.bstrHelpText.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WMPContextMenuInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMPContextMenuInfo").field("dwID", &self.dwID).field("bstrMenuText", &self.bstrMenuText).field("bstrHelpText", &self.bstrHelpText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18703,6 +18714,11 @@ impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
         *self
     }
 }
+impl ::core::fmt::Debug for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC").field("dwCurrentTransactionID", &self.dwCurrentTransactionID).field("dwReturnedObjectCount", &self.dwReturnedObjectCount).field("dwUnretrievedObjectCount", &self.dwUnretrievedObjectCount).field("dwDeletedObjectStartingOffset", &self.dwDeletedObjectStartingOffset).field("dwFlags", &self.dwFlags).field("wsObjectPathnameList", &self.wsObjectPathnameList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     type Abi = Self;
 }
@@ -18727,6 +18743,11 @@ impl ::core::marker::Copy for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {}
 impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE").field("dwChangesSinceTransactionID", &self.dwChangesSinceTransactionID).field("dwResultSetStartingIndex", &self.dwResultSetStartingIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {

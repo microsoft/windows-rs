@@ -29788,6 +29788,12 @@ impl ::core::clone::Clone for InkTrailPoint {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for InkTrailPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InkTrailPoint").field("Point", &self.Point).field("Radius", &self.Radius).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for InkTrailPoint {
     type Abi = Self;
 }

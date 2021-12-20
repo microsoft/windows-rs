@@ -310,6 +310,12 @@ impl ::core::clone::Clone for HandMeshVertex {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for HandMeshVertex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HandMeshVertex").field("Position", &self.Position).field("Normal", &self.Normal).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for HandMeshVertex {
     type Abi = Self;
 }
@@ -774,6 +780,12 @@ impl ::core::marker::Copy for JointPose {}
 impl ::core::clone::Clone for JointPose {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for JointPose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JointPose").field("Orientation", &self.Orientation).field("Position", &self.Position).field("Radius", &self.Radius).field("Accuracy", &self.Accuracy).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]

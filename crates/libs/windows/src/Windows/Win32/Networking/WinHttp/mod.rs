@@ -219,6 +219,11 @@ impl ::core::clone::Clone for HTTP_VERSION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_VERSION_INFO").field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_VERSION_INFO {
     type Abi = Self;
 }
@@ -302,6 +307,28 @@ impl ::core::clone::Clone for URL_COMPONENTS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for URL_COMPONENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("URL_COMPONENTS")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("lpszScheme", &self.lpszScheme)
+            .field("dwSchemeLength", &self.dwSchemeLength)
+            .field("nScheme", &self.nScheme)
+            .field("lpszHostName", &self.lpszHostName)
+            .field("dwHostNameLength", &self.dwHostNameLength)
+            .field("nPort", &self.nPort)
+            .field("lpszUserName", &self.lpszUserName)
+            .field("dwUserNameLength", &self.dwUserNameLength)
+            .field("lpszPassword", &self.lpszPassword)
+            .field("dwPasswordLength", &self.dwPasswordLength)
+            .field("lpszUrlPath", &self.lpszUrlPath)
+            .field("dwUrlPathLength", &self.dwUrlPathLength)
+            .field("lpszExtraInfo", &self.lpszExtraInfo)
+            .field("dwExtraInfoLength", &self.dwExtraInfoLength)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for URL_COMPONENTS {
     type Abi = Self;
 }
@@ -355,6 +382,11 @@ impl ::core::marker::Copy for WINHTTP_ASYNC_RESULT {}
 impl ::core::clone::Clone for WINHTTP_ASYNC_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINHTTP_ASYNC_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_ASYNC_RESULT").field("dwResult", &self.dwResult).field("dwError", &self.dwError).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINHTTP_ASYNC_RESULT {
@@ -424,6 +456,12 @@ impl ::core::marker::Copy for WINHTTP_AUTOPROXY_OPTIONS {}
 impl ::core::clone::Clone for WINHTTP_AUTOPROXY_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_AUTOPROXY_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_AUTOPROXY_OPTIONS").field("dwFlags", &self.dwFlags).field("dwAutoDetectFlags", &self.dwAutoDetectFlags).field("lpszAutoConfigUrl", &self.lpszAutoConfigUrl).field("lpvReserved", &self.lpvReserved).field("dwReserved", &self.dwReserved).field("fAutoLogonIfChallenged", &self.fAutoLogonIfChallenged).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -570,6 +608,12 @@ impl ::core::clone::Clone for WINHTTP_CERTIFICATE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_CERTIFICATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_CERTIFICATE_INFO").field("ftExpiry", &self.ftExpiry).field("ftStart", &self.ftStart).field("lpszSubjectInfo", &self.lpszSubjectInfo).field("lpszIssuerInfo", &self.lpszIssuerInfo).field("lpszProtocolName", &self.lpszProtocolName).field("lpszSignatureAlgName", &self.lpszSignatureAlgName).field("lpszEncryptionAlgName", &self.lpszEncryptionAlgName).field("dwKeySize", &self.dwKeySize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINHTTP_CERTIFICATE_INFO {
     type Abi = Self;
 }
@@ -597,6 +641,11 @@ impl ::core::marker::Copy for WINHTTP_CONNECTION_GROUP {}
 impl ::core::clone::Clone for WINHTTP_CONNECTION_GROUP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINHTTP_CONNECTION_GROUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_CONNECTION_GROUP").field("cConnections", &self.cConnections).field("guidGroup", &self.guidGroup).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_GROUP {
@@ -630,6 +679,13 @@ impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
 impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for WINHTTP_CONNECTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_CONNECTION_INFO").field("cbSize", &self.cbSize).field("LocalAddress", &self.LocalAddress).field("RemoteAddress", &self.RemoteAddress).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -671,6 +727,13 @@ impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
 impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for WINHTTP_CONNECTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_CONNECTION_INFO").field("cbSize", &self.cbSize).field("LocalAddress", &self.LocalAddress).field("RemoteAddress", &self.RemoteAddress).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -723,6 +786,12 @@ impl ::core::clone::Clone for WINHTTP_CREDS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_CREDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_CREDS").field("lpszUserName", &self.lpszUserName).field("lpszPassword", &self.lpszPassword).field("lpszRealm", &self.lpszRealm).field("dwAuthScheme", &self.dwAuthScheme).field("lpszHostName", &self.lpszHostName).field("dwPort", &self.dwPort).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINHTTP_CREDS {
     type Abi = Self;
 }
@@ -769,6 +838,12 @@ impl ::core::clone::Clone for WINHTTP_CREDS_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_CREDS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_CREDS_EX").field("lpszUserName", &self.lpszUserName).field("lpszPassword", &self.lpszPassword).field("lpszRealm", &self.lpszRealm).field("dwAuthScheme", &self.dwAuthScheme).field("lpszHostName", &self.lpszHostName).field("dwPort", &self.dwPort).field("lpszUrl", &self.lpszUrl).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINHTTP_CREDS_EX {
     type Abi = Self;
 }
@@ -801,6 +876,12 @@ impl ::core::marker::Copy for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {}
 impl ::core::clone::Clone for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_CURRENT_USER_IE_PROXY_CONFIG").field("fAutoDetect", &self.fAutoDetect).field("lpszAutoConfigUrl", &self.lpszAutoConfigUrl).field("lpszProxy", &self.lpszProxy).field("lpszProxyBypass", &self.lpszProxyBypass).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -866,6 +947,12 @@ impl ::core::marker::Copy for WINHTTP_EXTENDED_HEADER {}
 impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_EXTENDED_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_EXTENDED_HEADER").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -966,6 +1053,11 @@ impl ::core::clone::Clone for WINHTTP_FAILED_CONNECTION_RETRIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WINHTTP_FAILED_CONNECTION_RETRIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_FAILED_CONNECTION_RETRIES").field("dwMaxRetries", &self.dwMaxRetries).field("dwAllowedRetryConditions", &self.dwAllowedRetryConditions).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINHTTP_FAILED_CONNECTION_RETRIES {
     type Abi = Self;
 }
@@ -1052,6 +1144,12 @@ impl ::core::clone::Clone for WINHTTP_HOST_CONNECTION_GROUP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_HOST_CONNECTION_GROUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_HOST_CONNECTION_GROUP").field("pwszHost", &self.pwszHost).field("cConnectionGroups", &self.cConnectionGroups).field("pConnectionGroups", &self.pConnectionGroups).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINHTTP_HOST_CONNECTION_GROUP {
     type Abi = Self;
 }
@@ -1079,6 +1177,11 @@ impl ::core::marker::Copy for WINHTTP_HTTP2_RECEIVE_WINDOW {}
 impl ::core::clone::Clone for WINHTTP_HTTP2_RECEIVE_WINDOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINHTTP_HTTP2_RECEIVE_WINDOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_HTTP2_RECEIVE_WINDOW").field("ulStreamWindow", &self.ulStreamWindow).field("ulStreamWindowUpdateDelta", &self.ulStreamWindowUpdateDelta).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINHTTP_HTTP2_RECEIVE_WINDOW {
@@ -1125,6 +1228,12 @@ impl ::core::clone::Clone for WINHTTP_MATCH_CONNECTION_GUID {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for WINHTTP_MATCH_CONNECTION_GUID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_MATCH_CONNECTION_GUID").field("ConnectionGuid", &self.ConnectionGuid).field("ullFlags", &self.ullFlags).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for WINHTTP_MATCH_CONNECTION_GUID {
     type Abi = Self;
 }
@@ -1155,6 +1264,12 @@ impl ::core::marker::Copy for WINHTTP_MATCH_CONNECTION_GUID {}
 impl ::core::clone::Clone for WINHTTP_MATCH_CONNECTION_GUID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for WINHTTP_MATCH_CONNECTION_GUID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_MATCH_CONNECTION_GUID").field("ConnectionGuid", &self.ConnectionGuid).field("ullFlags", &self.ullFlags).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -1464,6 +1579,12 @@ impl ::core::clone::Clone for WINHTTP_PROXY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_PROXY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_PROXY_INFO").field("dwAccessType", &self.dwAccessType).field("lpszProxy", &self.lpszProxy).field("lpszProxyBypass", &self.lpszProxyBypass).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINHTTP_PROXY_INFO {
     type Abi = Self;
 }
@@ -1494,6 +1615,12 @@ impl ::core::marker::Copy for WINHTTP_PROXY_RESULT {}
 impl ::core::clone::Clone for WINHTTP_PROXY_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_PROXY_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_PROXY_RESULT").field("cEntries", &self.cEntries).field("pEntries", &self.pEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1533,6 +1660,12 @@ impl ::core::clone::Clone for WINHTTP_PROXY_RESULT_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_PROXY_RESULT_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_PROXY_RESULT_ENTRY").field("fProxy", &self.fProxy).field("fBypass", &self.fBypass).field("ProxyScheme", &self.ProxyScheme).field("pwszProxy", &self.pwszProxy).field("ProxyPort", &self.ProxyPort).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINHTTP_PROXY_RESULT_ENTRY {
     type Abi = Self;
 }
@@ -1565,6 +1698,12 @@ impl ::core::marker::Copy for WINHTTP_PROXY_RESULT_EX {}
 impl ::core::clone::Clone for WINHTTP_PROXY_RESULT_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_PROXY_RESULT_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_PROXY_RESULT_EX").field("cEntries", &self.cEntries).field("pEntries", &self.pEntries).field("hProxyDetectionHandle", &self.hProxyDetectionHandle).field("dwProxyInterfaceAffinity", &self.dwProxyInterfaceAffinity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1612,6 +1751,29 @@ impl ::core::marker::Copy for WINHTTP_PROXY_SETTINGS {}
 impl ::core::clone::Clone for WINHTTP_PROXY_SETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_PROXY_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_PROXY_SETTINGS")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCurrentSettingsVersion", &self.dwCurrentSettingsVersion)
+            .field("pwszConnectionName", &self.pwszConnectionName)
+            .field("pwszProxy", &self.pwszProxy)
+            .field("pwszProxyBypass", &self.pwszProxyBypass)
+            .field("pwszAutoconfigUrl", &self.pwszAutoconfigUrl)
+            .field("pwszAutoconfigSecondaryUrl", &self.pwszAutoconfigSecondaryUrl)
+            .field("dwAutoDiscoveryFlags", &self.dwAutoDiscoveryFlags)
+            .field("pwszLastKnownGoodAutoConfigUrl", &self.pwszLastKnownGoodAutoConfigUrl)
+            .field("dwAutoconfigReloadDelayMins", &self.dwAutoconfigReloadDelayMins)
+            .field("ftLastKnownDetectTime", &self.ftLastKnownDetectTime)
+            .field("dwDetectedInterfaceIpCount", &self.dwDetectedInterfaceIpCount)
+            .field("pdwDetectedInterfaceIp", &self.pdwDetectedInterfaceIp)
+            .field("cNetworkKeys", &self.cNetworkKeys)
+            .field("pNetworkKeys", &self.pNetworkKeys)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1675,6 +1837,12 @@ impl ::core::marker::Copy for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {}
 impl ::core::clone::Clone for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_QUERY_CONNECTION_GROUP_RESULT").field("cHosts", &self.cHosts).field("pHostConnectionGroups", &self.pHostConnectionGroups).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1859,6 +2027,12 @@ impl ::core::clone::Clone for WINHTTP_REQUEST_STATS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for WINHTTP_REQUEST_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_REQUEST_STATS").field("ullFlags", &self.ullFlags).field("ulIndex", &self.ulIndex).field("cStats", &self.cStats).field("rgullStats", &self.rgullStats).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STATS {
     type Abi = Self;
 }
@@ -1891,6 +2065,12 @@ impl ::core::marker::Copy for WINHTTP_REQUEST_STATS {}
 impl ::core::clone::Clone for WINHTTP_REQUEST_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for WINHTTP_REQUEST_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_REQUEST_STATS").field("ullFlags", &self.ullFlags).field("ulIndex", &self.ulIndex).field("cStats", &self.cStats).field("rgullStats", &self.rgullStats).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -1977,6 +2157,12 @@ impl ::core::clone::Clone for WINHTTP_REQUEST_TIMES {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for WINHTTP_REQUEST_TIMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_REQUEST_TIMES").field("cTimes", &self.cTimes).field("rgullTimes", &self.rgullTimes).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIMES {
     type Abi = Self;
 }
@@ -2007,6 +2193,12 @@ impl ::core::marker::Copy for WINHTTP_REQUEST_TIMES {}
 impl ::core::clone::Clone for WINHTTP_REQUEST_TIMES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for WINHTTP_REQUEST_TIMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_REQUEST_TIMES").field("cTimes", &self.cTimes).field("rgullTimes", &self.rgullTimes).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -2141,6 +2333,12 @@ impl ::core::clone::Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_RESOLVER_CACHE_CONFIG").field("ulMaxResolverCacheEntries", &self.ulMaxResolverCacheEntries).field("ulMaxCacheEntryAge", &self.ulMaxCacheEntryAge).field("ulMinCacheEntryTtl", &self.ulMinCacheEntryTtl).field("SecureDnsSetting", &self.SecureDnsSetting).field("ullConnResolutionWaitTime", &self.ullConnResolutionWaitTime).field("ullFlags", &self.ullFlags).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
     type Abi = Self;
 }
@@ -2175,6 +2373,12 @@ impl ::core::marker::Copy for WINHTTP_RESOLVER_CACHE_CONFIG {}
 impl ::core::clone::Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_RESOLVER_CACHE_CONFIG").field("ulMaxResolverCacheEntries", &self.ulMaxResolverCacheEntries).field("ulMaxCacheEntryAge", &self.ulMaxCacheEntryAge).field("ulMinCacheEntryTtl", &self.ulMinCacheEntryTtl).field("SecureDnsSetting", &self.SecureDnsSetting).field("ullConnResolutionWaitTime", &self.ullConnResolutionWaitTime).field("ullFlags", &self.ullFlags).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -2229,6 +2433,11 @@ impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_ASYNC_RESULT {}
 impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_WEB_SOCKET_ASYNC_RESULT").field("AsyncResult", &self.AsyncResult).field("Operation", &self.Operation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
@@ -2307,6 +2516,11 @@ impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_STATUS {}
 impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_WEB_SOCKET_STATUS").field("dwBytesTransferred", &self.dwBytesTransferred).field("eBufferType", &self.eBufferType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_STATUS {
@@ -3094,6 +3308,11 @@ impl ::core::marker::Copy for _WinHttpProxyNetworkKey {}
 impl ::core::clone::Clone for _WinHttpProxyNetworkKey {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _WinHttpProxyNetworkKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_WinHttpProxyNetworkKey").field("pbBuffer", &self.pbBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _WinHttpProxyNetworkKey {

@@ -31,6 +31,12 @@ impl ::core::clone::Clone for AsnAny {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AsnAny {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AsnAny").field("asnType", &self.asnType).field("asnValue", &self.asnValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AsnAny {
     type Abi = Self;
 }
@@ -103,6 +109,11 @@ impl ::core::clone::Clone for AsnObjectIdentifier {
         *self
     }
 }
+impl ::core::fmt::Debug for AsnObjectIdentifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AsnObjectIdentifier").field("idLength", &self.idLength).field("ids", &self.ids).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AsnObjectIdentifier {
     type Abi = Self;
 }
@@ -131,6 +142,12 @@ impl ::core::marker::Copy for AsnOctetString {}
 impl ::core::clone::Clone for AsnOctetString {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AsnOctetString {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AsnOctetString").field("stream", &self.stream).field("length", &self.length).field("dynamic", &self.dynamic).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1728,6 +1745,12 @@ impl ::core::clone::Clone for SnmpVarBind {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SnmpVarBind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SnmpVarBind").field("name", &self.name).field("value", &self.value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SnmpVarBind {
     type Abi = Self;
 }
@@ -1761,6 +1784,12 @@ impl ::core::clone::Clone for SnmpVarBindList {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SnmpVarBindList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SnmpVarBindList").field("list", &self.list).field("len", &self.len).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SnmpVarBindList {
     type Abi = Self;
 }
@@ -1790,6 +1819,11 @@ impl ::core::clone::Clone for smiCNTR64 {
         *self
     }
 }
+impl ::core::fmt::Debug for smiCNTR64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiCNTR64").field("hipart", &self.hipart).field("lopart", &self.lopart).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for smiCNTR64 {
     type Abi = Self;
 }
@@ -1814,6 +1848,11 @@ impl ::core::marker::Copy for smiOCTETS {}
 impl ::core::clone::Clone for smiOCTETS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for smiOCTETS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiOCTETS").field("len", &self.len).field("ptr", &self.ptr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for smiOCTETS {
@@ -1842,6 +1881,11 @@ impl ::core::clone::Clone for smiOID {
         *self
     }
 }
+impl ::core::fmt::Debug for smiOID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiOID").field("len", &self.len).field("ptr", &self.ptr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for smiOID {
     type Abi = Self;
 }
@@ -1866,6 +1910,11 @@ impl ::core::marker::Copy for smiVALUE {}
 impl ::core::clone::Clone for smiVALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for smiVALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiVALUE").field("syntax", &self.syntax).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for smiVALUE {
@@ -1928,6 +1977,12 @@ impl ::core::marker::Copy for smiVENDORINFO {}
 impl ::core::clone::Clone for smiVENDORINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for smiVENDORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("smiVENDORINFO").field("vendorName", &self.vendorName).field("vendorContact", &self.vendorContact).field("vendorVersionId", &self.vendorVersionId).field("vendorVersionDate", &self.vendorVersionDate).field("vendorEnterprise", &self.vendorEnterprise).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

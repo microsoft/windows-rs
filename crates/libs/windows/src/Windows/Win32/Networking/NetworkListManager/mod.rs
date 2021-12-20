@@ -1212,6 +1212,12 @@ impl ::core::clone::Clone for NLM_DATAPLAN_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLM_DATAPLAN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_DATAPLAN_STATUS").field("InterfaceGuid", &self.InterfaceGuid).field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("NextBillingCycle", &self.NextBillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NLM_DATAPLAN_STATUS {
     type Abi = Self;
 }
@@ -1297,6 +1303,11 @@ impl ::core::clone::Clone for NLM_SIMULATED_PROFILE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for NLM_SIMULATED_PROFILE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_SIMULATED_PROFILE_INFO").field("ProfileName", &self.ProfileName).field("cost", &self.cost).field("UsageInMegabytes", &self.UsageInMegabytes).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NLM_SIMULATED_PROFILE_INFO {
     type Abi = Self;
 }
@@ -1320,6 +1331,11 @@ impl ::core::marker::Copy for NLM_SOCKADDR {}
 impl ::core::clone::Clone for NLM_SOCKADDR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NLM_SOCKADDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_SOCKADDR").field("data", &self.data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NLM_SOCKADDR {
@@ -1351,6 +1367,12 @@ impl ::core::marker::Copy for NLM_USAGE_DATA {}
 impl ::core::clone::Clone for NLM_USAGE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLM_USAGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_USAGE_DATA").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

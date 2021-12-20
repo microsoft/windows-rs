@@ -601,6 +601,12 @@ impl ::core::clone::Clone for DEVPROPCOMPKEY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVPROPCOMPKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVPROPCOMPKEY").field("Key", &self.Key).field("Store", &self.Store).field("LocaleName", &self.LocaleName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVPROPCOMPKEY {
     type Abi = Self;
 }
@@ -636,6 +642,12 @@ impl ::core::clone::Clone for DEVPROPERTY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVPROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVPROPERTY").field("CompKey", &self.CompKey).field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVPROPERTY {
     type Abi = Self;
 }
@@ -665,6 +677,11 @@ impl ::core::marker::Copy for DEVPROPKEY {}
 impl ::core::clone::Clone for DEVPROPKEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVPROPKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVPROPKEY").field("fmtid", &self.fmtid).field("pid", &self.pid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVPROPKEY {

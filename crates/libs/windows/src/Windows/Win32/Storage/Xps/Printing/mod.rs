@@ -401,6 +401,11 @@ impl ::core::clone::Clone for PrintDocumentPackageStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintDocumentPackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrintDocumentPackageStatus").field("JobId", &self.JobId).field("CurrentDocument", &self.CurrentDocument).field("CurrentPage", &self.CurrentPage).field("CurrentPageTotal", &self.CurrentPageTotal).field("Completion", &self.Completion).field("PackageStatus", &self.PackageStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintDocumentPackageStatus {
     type Abi = Self;
 }
@@ -482,6 +487,11 @@ impl ::core::marker::Copy for XPS_JOB_STATUS {}
 impl ::core::clone::Clone for XPS_JOB_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XPS_JOB_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XPS_JOB_STATUS").field("jobId", &self.jobId).field("currentDocument", &self.currentDocument).field("currentPage", &self.currentPage).field("currentPageTotal", &self.currentPageTotal).field("completion", &self.completion).field("jobStatus", &self.jobStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XPS_JOB_STATUS {

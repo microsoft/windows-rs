@@ -33,6 +33,12 @@ impl ::core::clone::Clone for ACTRL_ACCESSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESSA").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_ACCESSA {
     type Abi = Self;
 }
@@ -63,6 +69,12 @@ impl ::core::marker::Copy for ACTRL_ACCESSW {}
 impl ::core::clone::Clone for ACTRL_ACCESSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESSW").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -103,6 +115,12 @@ impl ::core::clone::Clone for ACTRL_ACCESS_ENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRYA").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRYA {
     type Abi = Self;
 }
@@ -137,6 +155,12 @@ impl ::core::marker::Copy for ACTRL_ACCESS_ENTRYW {}
 impl ::core::clone::Clone for ACTRL_ACCESS_ENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRYW").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -183,6 +207,12 @@ impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_LISTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTA").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_LISTA {
     type Abi = Self;
 }
@@ -213,6 +243,12 @@ impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_LISTW {}
 impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_LISTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTW").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -249,6 +285,12 @@ impl ::core::clone::Clone for ACTRL_ACCESS_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_INFOA").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_ACCESS_INFOA {
     type Abi = Self;
 }
@@ -279,6 +321,12 @@ impl ::core::marker::Copy for ACTRL_ACCESS_INFOW {}
 impl ::core::clone::Clone for ACTRL_ACCESS_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_ACCESS_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_INFOW").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -325,6 +373,12 @@ impl ::core::clone::Clone for ACTRL_CONTROL_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_CONTROL_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_CONTROL_INFOA").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_CONTROL_INFOA {
     type Abi = Self;
 }
@@ -355,6 +409,12 @@ impl ::core::marker::Copy for ACTRL_CONTROL_INFOW {}
 impl ::core::clone::Clone for ACTRL_CONTROL_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_CONTROL_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_CONTROL_INFOW").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -451,6 +511,12 @@ impl ::core::marker::Copy for ACTRL_OVERLAPPED {}
 impl ::core::clone::Clone for ACTRL_OVERLAPPED {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_OVERLAPPED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_OVERLAPPED").field("Anonymous", &self.Anonymous).field("Reserved2", &self.Reserved2).field("hEvent", &self.hEvent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -571,6 +637,12 @@ impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_PROPERTY_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_PROPERTY_ENTRYA").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_PROPERTY_ENTRYA {
     type Abi = Self;
 }
@@ -602,6 +674,12 @@ impl ::core::marker::Copy for ACTRL_PROPERTY_ENTRYW {}
 impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTRL_PROPERTY_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_PROPERTY_ENTRYW").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -701,6 +779,11 @@ impl ::core::clone::Clone for AUDIT_IP_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for AUDIT_IP_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_IP_ADDRESS").field("pIpAddress", &self.pIpAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIT_IP_ADDRESS {
     type Abi = Self;
 }
@@ -729,6 +812,11 @@ impl ::core::clone::Clone for AUDIT_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for AUDIT_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_OBJECT_TYPE").field("ObjectType", &self.ObjectType).field("Flags", &self.Flags).field("Level", &self.Level).field("AccessMask", &self.AccessMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIT_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -754,6 +842,11 @@ impl ::core::marker::Copy for AUDIT_OBJECT_TYPES {}
 impl ::core::clone::Clone for AUDIT_OBJECT_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AUDIT_OBJECT_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_OBJECT_TYPES").field("Count", &self.Count).field("Flags", &self.Flags).field("pObjectTypes", &self.pObjectTypes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUDIT_OBJECT_TYPES {
@@ -786,6 +879,12 @@ impl ::core::marker::Copy for AUDIT_PARAM {}
 impl ::core::clone::Clone for AUDIT_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUDIT_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_PARAM").field("Type", &self.Type).field("Length", &self.Length).field("Flags", &self.Flags).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -896,6 +995,12 @@ impl ::core::clone::Clone for AUDIT_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUDIT_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_PARAMS").field("Length", &self.Length).field("Flags", &self.Flags).field("Count", &self.Count).field("Parameters", &self.Parameters).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUDIT_PARAMS {
     type Abi = Self;
 }
@@ -966,6 +1071,11 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_REPLY {
         *self
     }
 }
+impl ::core::fmt::Debug for AUTHZ_ACCESS_REPLY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_ACCESS_REPLY").field("ResultListLength", &self.ResultListLength).field("GrantedAccessMask", &self.GrantedAccessMask).field("SaclEvaluationResults", &self.SaclEvaluationResults).field("Error", &self.Error).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_REPLY {
     type Abi = Self;
 }
@@ -996,6 +1106,12 @@ impl ::core::marker::Copy for AUTHZ_ACCESS_REQUEST {}
 impl ::core::clone::Clone for AUTHZ_ACCESS_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_ACCESS_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_ACCESS_REQUEST").field("DesiredAccess", &self.DesiredAccess).field("PrincipalSelfSid", &self.PrincipalSelfSid).field("ObjectTypeList", &self.ObjectTypeList).field("ObjectTypeListLength", &self.ObjectTypeListLength).field("OptionalArguments", &self.OptionalArguments).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1045,6 +1161,11 @@ impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
         *self
     }
 }
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_AUDIT_EVENT_TYPE_LEGACY").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("ParameterCount", &self.ParameterCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     type Abi = Self;
 }
@@ -1076,6 +1197,12 @@ impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_OLD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_AUDIT_EVENT_TYPE_OLD").field("Version", &self.Version).field("dwFlags", &self.dwFlags).field("RefCount", &self.RefCount).field("hAudit", &self.hAudit).field("LinkId", &self.LinkId).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1132,6 +1259,11 @@ impl ::core::marker::Copy for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {}
 impl ::core::clone::Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
@@ -1222,6 +1354,12 @@ impl ::core::clone::Clone for AUTHZ_INIT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_INIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_INIT_INFO").field("version", &self.version).field("szResourceManagerName", &self.szResourceManagerName).field("pfnDynamicAccessCheck", &self.pfnDynamicAccessCheck).field("pfnComputeDynamicGroups", &self.pfnComputeDynamicGroups).field("pfnFreeDynamicGroups", &self.pfnFreeDynamicGroups).field("pfnGetCentralAccessPolicy", &self.pfnGetCentralAccessPolicy).field("pfnFreeCentralAccessPolicy", &self.pfnFreeCentralAccessPolicy).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_INIT_INFO {
     type Abi = Self;
 }
@@ -1256,6 +1394,12 @@ impl ::core::marker::Copy for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
 impl ::core::clone::Clone for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET").field("szObjectTypeName", &self.szObjectTypeName).field("dwOffset", &self.dwOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1308,6 +1452,12 @@ impl ::core::clone::Clone for AUTHZ_RPC_INIT_INFO_CLIENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_RPC_INIT_INFO_CLIENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_RPC_INIT_INFO_CLIENT").field("version", &self.version).field("ObjectUuid", &self.ObjectUuid).field("ProtSeq", &self.ProtSeq).field("NetworkAddr", &self.NetworkAddr).field("Endpoint", &self.Endpoint).field("Options", &self.Options).field("ServerSpn", &self.ServerSpn).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_RPC_INIT_INFO_CLIENT {
     type Abi = Self;
 }
@@ -1342,6 +1492,12 @@ impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTES_INFORMATION").field("Version", &self.Version).field("Reserved", &self.Reserved).field("AttributeCount", &self.AttributeCount).field("Attribute", &self.Attribute).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1420,6 +1576,12 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE").field("Version", &self.Version).field("pName", &self.pName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     type Abi = Self;
 }
@@ -1447,6 +1609,11 @@ impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE").field("pValue", &self.pValue).field("ValueLength", &self.ValueLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
@@ -1508,6 +1675,12 @@ impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_V1").field("pName", &self.pName).field("ValueType", &self.ValueType).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("ValueCount", &self.ValueCount).field("Values", &self.Values).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1599,6 +1772,22 @@ impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
 impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SOURCE_SCHEMA_REGISTRATION")
+            .field("dwFlags", &self.dwFlags)
+            .field("szEventSourceName", &self.szEventSourceName)
+            .field("szEventMessageFile", &self.szEventMessageFile)
+            .field("szEventSourceXmlSchemaFile", &self.szEventSourceXmlSchemaFile)
+            .field("szEventAccessStringsFile", &self.szEventAccessStringsFile)
+            .field("szExecutableImagePath", &self.szExecutableImagePath)
+            .field("Anonymous", &self.Anonymous)
+            .field("dwObjectTypeNameCount", &self.dwObjectTypeNameCount)
+            .field("ObjectTypeNames", &self.ObjectTypeNames)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2728,6 +2917,12 @@ impl ::core::clone::Clone for EXPLICIT_ACCESS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EXPLICIT_ACCESS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXPLICIT_ACCESS_A").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EXPLICIT_ACCESS_A {
     type Abi = Self;
 }
@@ -2763,6 +2958,12 @@ impl ::core::clone::Clone for EXPLICIT_ACCESS_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EXPLICIT_ACCESS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXPLICIT_ACCESS_W").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EXPLICIT_ACCESS_W {
     type Abi = Self;
 }
@@ -2789,6 +2990,11 @@ impl ::core::marker::Copy for FN_OBJECT_MGR_FUNCTIONS {}
 impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FN_OBJECT_MGR_FUNCTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FN_OBJECT_MGR_FUNCTIONS").field("Placeholder", &self.Placeholder).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FN_OBJECT_MGR_FUNCTIONS {
@@ -12673,6 +12879,12 @@ impl ::core::clone::Clone for INHERITED_FROMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INHERITED_FROMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INHERITED_FROMA").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INHERITED_FROMA {
     type Abi = Self;
 }
@@ -12703,6 +12915,12 @@ impl ::core::marker::Copy for INHERITED_FROMW {}
 impl ::core::clone::Clone for INHERITED_FROMW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INHERITED_FROMW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INHERITED_FROMW").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12782,6 +13000,12 @@ impl ::core::clone::Clone for OBJECTS_AND_NAME_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OBJECTS_AND_NAME_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_NAME_A").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OBJECTS_AND_NAME_A {
     type Abi = Self;
 }
@@ -12818,6 +13042,12 @@ impl ::core::clone::Clone for OBJECTS_AND_NAME_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OBJECTS_AND_NAME_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_NAME_W").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OBJECTS_AND_NAME_W {
     type Abi = Self;
 }
@@ -12847,6 +13077,11 @@ impl ::core::marker::Copy for OBJECTS_AND_SID {}
 impl ::core::clone::Clone for OBJECTS_AND_SID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OBJECTS_AND_SID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_SID").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectTypeGuid", &self.ObjectTypeGuid).field("InheritedObjectTypeGuid", &self.InheritedObjectTypeGuid).field("pSid", &self.pSid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OBJECTS_AND_SID {
@@ -13031,6 +13266,12 @@ impl ::core::clone::Clone for TRUSTEE_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRUSTEE_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRUSTEE_A").field("pMultipleTrustee", &self.pMultipleTrustee).field("MultipleTrusteeOperation", &self.MultipleTrusteeOperation).field("TrusteeForm", &self.TrusteeForm).field("TrusteeType", &self.TrusteeType).field("ptstrName", &self.ptstrName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TRUSTEE_A {
     type Abi = Self;
 }
@@ -13066,6 +13307,12 @@ impl ::core::clone::Clone for TRUSTEE_ACCESSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRUSTEE_ACCESSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRUSTEE_ACCESSA").field("lpProperty", &self.lpProperty).field("Access", &self.Access).field("fAccessFlags", &self.fAccessFlags).field("fReturnedAccess", &self.fReturnedAccess).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TRUSTEE_ACCESSA {
     type Abi = Self;
 }
@@ -13098,6 +13345,12 @@ impl ::core::marker::Copy for TRUSTEE_ACCESSW {}
 impl ::core::clone::Clone for TRUSTEE_ACCESSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRUSTEE_ACCESSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRUSTEE_ACCESSW").field("lpProperty", &self.lpProperty).field("Access", &self.Access).field("fAccessFlags", &self.fAccessFlags).field("fReturnedAccess", &self.fReturnedAccess).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13176,6 +13429,12 @@ impl ::core::marker::Copy for TRUSTEE_W {}
 impl ::core::clone::Clone for TRUSTEE_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRUSTEE_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRUSTEE_W").field("pMultipleTrustee", &self.pMultipleTrustee).field("MultipleTrusteeOperation", &self.MultipleTrusteeOperation).field("TrusteeForm", &self.TrusteeForm).field("TrusteeType", &self.TrusteeType).field("ptstrName", &self.ptstrName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

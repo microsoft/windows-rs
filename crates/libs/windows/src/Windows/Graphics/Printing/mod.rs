@@ -1594,6 +1594,12 @@ impl ::core::clone::Clone for PrintPageDescription {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for PrintPageDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrintPageDescription").field("PageSize", &self.PageSize).field("ImageableRect", &self.ImageableRect).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for PrintPageDescription {
     type Abi = Self;
 }

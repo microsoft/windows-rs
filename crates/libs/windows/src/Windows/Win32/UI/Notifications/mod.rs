@@ -69,6 +69,12 @@ impl ::core::clone::Clone for NOTIFICATION_USER_INPUT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NOTIFICATION_USER_INPUT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NOTIFICATION_USER_INPUT_DATA").field("Key", &self.Key).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NOTIFICATION_USER_INPUT_DATA {
     type Abi = Self;
 }

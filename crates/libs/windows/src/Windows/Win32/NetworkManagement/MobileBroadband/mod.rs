@@ -3252,6 +3252,12 @@ impl ::core::clone::Clone for MBN_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_CONTEXT").field("contextID", &self.contextID).field("contextType", &self.contextType).field("accessString", &self.accessString).field("userName", &self.userName).field("password", &self.password).field("compression", &self.compression).field("authType", &self.authType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_CONTEXT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3366,6 +3372,12 @@ impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_DEVICE_SERVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_DEVICE_SERVICE").field("deviceServiceID", &self.deviceServiceID).field("dataWriteSupported", &self.dataWriteSupported).field("dataReadSupported", &self.dataReadSupported).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3432,6 +3444,26 @@ impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_INTERFACE_CAPS")
+            .field("cellularClass", &self.cellularClass)
+            .field("voiceClass", &self.voiceClass)
+            .field("dataClass", &self.dataClass)
+            .field("customDataClass", &self.customDataClass)
+            .field("gsmBandClass", &self.gsmBandClass)
+            .field("cdmaBandClass", &self.cdmaBandClass)
+            .field("customBandClass", &self.customBandClass)
+            .field("smsCaps", &self.smsCaps)
+            .field("controlCaps", &self.controlCaps)
+            .field("deviceID", &self.deviceID)
+            .field("manufacturer", &self.manufacturer)
+            .field("model", &self.model)
+            .field("firmwareInfo", &self.firmwareInfo)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_INTERFACE_CAPS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3494,6 +3526,11 @@ impl ::core::marker::Copy for MBN_PIN_INFO {}
 impl ::core::clone::Clone for MBN_PIN_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MBN_PIN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PIN_INFO").field("pinState", &self.pinState).field("pinType", &self.pinType).field("attemptsRemaining", &self.attemptsRemaining).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MBN_PIN_INFO {
@@ -3564,6 +3601,12 @@ impl ::core::clone::Clone for MBN_PROVIDER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_PROVIDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PROVIDER").field("providerID", &self.providerID).field("providerState", &self.providerState).field("providerName", &self.providerName).field("dataClass", &self.dataClass).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MBN_PROVIDER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3594,6 +3637,12 @@ pub struct MBN_PROVIDER2 {
 impl ::core::clone::Clone for MBN_PROVIDER2 {
     fn clone(&self) -> Self {
         Self { provider: self.provider.clone(), cellularClass: self.cellularClass, signalStrength: self.signalStrength, signalError: self.signalError }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_PROVIDER2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PROVIDER2").field("provider", &self.provider).field("cellularClass", &self.cellularClass).field("signalStrength", &self.signalStrength).field("signalError", &self.signalError).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3766,6 +3815,11 @@ impl ::core::clone::Clone for MBN_SMS_FILTER {
         *self
     }
 }
+impl ::core::fmt::Debug for MBN_SMS_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_SMS_FILTER").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_SMS_FILTER {
     type Abi = Self;
 }
@@ -3820,6 +3874,11 @@ impl ::core::marker::Copy for MBN_SMS_STATUS_INFO {}
 impl ::core::clone::Clone for MBN_SMS_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MBN_SMS_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_SMS_STATUS_INFO").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MBN_SMS_STATUS_INFO {
@@ -3877,6 +3936,11 @@ impl ::core::clone::Clone for __DummyPinType__ {
         *self
     }
 }
+impl ::core::fmt::Debug for __DummyPinType__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__DummyPinType__").field("pinType", &self.pinType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for __DummyPinType__ {
     type Abi = Self;
 }
@@ -3913,6 +3977,26 @@ impl ::core::marker::Copy for __mbnapi_ReferenceRemainingTypes__ {}
 impl ::core::clone::Clone for __mbnapi_ReferenceRemainingTypes__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for __mbnapi_ReferenceRemainingTypes__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__mbnapi_ReferenceRemainingTypes__")
+            .field("bandClass", &self.bandClass)
+            .field("contextConstants", &self.contextConstants)
+            .field("ctrlCaps", &self.ctrlCaps)
+            .field("dataClass", &self.dataClass)
+            .field("interfaceCapsConstants", &self.interfaceCapsConstants)
+            .field("pinConstants", &self.pinConstants)
+            .field("providerConstants", &self.providerConstants)
+            .field("providerState", &self.providerState)
+            .field("registrationConstants", &self.registrationConstants)
+            .field("signalConstants", &self.signalConstants)
+            .field("smsCaps", &self.smsCaps)
+            .field("smsConstants", &self.smsConstants)
+            .field("wwaextSmsConstants", &self.wwaextSmsConstants)
+            .field("smsStatusFlag", &self.smsStatusFlag)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for __mbnapi_ReferenceRemainingTypes__ {

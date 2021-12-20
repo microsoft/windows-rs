@@ -24,6 +24,11 @@ impl ::core::clone::Clone for COMPOSITION_FRAME_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for COMPOSITION_FRAME_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITION_FRAME_STATS").field("startTime", &self.startTime).field("targetTime", &self.targetTime).field("framePeriod", &self.framePeriod).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for COMPOSITION_FRAME_STATS {
     type Abi = Self;
 }
@@ -50,6 +55,11 @@ impl ::core::marker::Copy for COMPOSITION_STATS {}
 impl ::core::clone::Clone for COMPOSITION_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMPOSITION_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITION_STATS").field("presentCount", &self.presentCount).field("refreshCount", &self.refreshCount).field("virtualRefreshCount", &self.virtualRefreshCount).field("time", &self.time).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMPOSITION_STATS {
@@ -87,6 +97,12 @@ impl ::core::clone::Clone for COMPOSITION_TARGET_ID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COMPOSITION_TARGET_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITION_TARGET_ID").field("displayAdapterLuid", &self.displayAdapterLuid).field("renderAdapterLuid", &self.renderAdapterLuid).field("vidPnSourceId", &self.vidPnSourceId).field("vidPnTargetId", &self.vidPnTargetId).field("uniqueId", &self.uniqueId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COMPOSITION_TARGET_ID {
     type Abi = Self;
 }
@@ -117,6 +133,11 @@ impl ::core::marker::Copy for COMPOSITION_TARGET_STATS {}
 impl ::core::clone::Clone for COMPOSITION_TARGET_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMPOSITION_TARGET_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPOSITION_TARGET_STATS").field("outstandingPresents", &self.outstandingPresents).field("presentTime", &self.presentTime).field("vblankDuration", &self.vblankDuration).field("presentedStats", &self.presentedStats).field("completedStats", &self.completedStats).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMPOSITION_TARGET_STATS {
@@ -193,6 +214,12 @@ impl ::core::marker::Copy for DCOMPOSITION_FRAME_STATISTICS {}
 impl ::core::clone::Clone for DCOMPOSITION_FRAME_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for DCOMPOSITION_FRAME_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCOMPOSITION_FRAME_STATISTICS").field("lastFrameTime", &self.lastFrameTime).field("currentCompositionRate", &self.currentCompositionRate).field("currentTime", &self.currentTime).field("timeFrequency", &self.timeFrequency).field("nextEstimatedFrameTime", &self.nextEstimatedFrameTime).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -384,6 +411,11 @@ impl ::core::marker::Copy for DCompositionInkTrailPoint {}
 impl ::core::clone::Clone for DCompositionInkTrailPoint {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DCompositionInkTrailPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCompositionInkTrailPoint").field("x", &self.x).field("y", &self.y).field("radius", &self.radius).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DCompositionInkTrailPoint {

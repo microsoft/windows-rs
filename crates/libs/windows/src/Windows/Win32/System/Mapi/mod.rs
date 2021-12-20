@@ -178,6 +178,12 @@ impl ::core::clone::Clone for MapiFileDesc {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MapiFileDesc {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MapiFileDesc").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiFileDesc {
     type Abi = Self;
 }
@@ -215,6 +221,12 @@ impl ::core::clone::Clone for MapiFileDescW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MapiFileDescW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MapiFileDescW").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiFileDescW {
     type Abi = Self;
 }
@@ -245,6 +257,11 @@ impl ::core::marker::Copy for MapiFileTagExt {}
 impl ::core::clone::Clone for MapiFileTagExt {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapiFileTagExt {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MapiFileTagExt").field("ulReserved", &self.ulReserved).field("cbTag", &self.cbTag).field("lpTag", &self.lpTag).field("cbEncoding", &self.cbEncoding).field("lpEncoding", &self.lpEncoding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapiFileTagExt {
@@ -284,6 +301,25 @@ impl ::core::marker::Copy for MapiMessage {}
 impl ::core::clone::Clone for MapiMessage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MapiMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MapiMessage")
+            .field("ulReserved", &self.ulReserved)
+            .field("lpszSubject", &self.lpszSubject)
+            .field("lpszNoteText", &self.lpszNoteText)
+            .field("lpszMessageType", &self.lpszMessageType)
+            .field("lpszDateReceived", &self.lpszDateReceived)
+            .field("lpszConversationID", &self.lpszConversationID)
+            .field("flFlags", &self.flFlags)
+            .field("lpOriginator", &self.lpOriginator)
+            .field("nRecipCount", &self.nRecipCount)
+            .field("lpRecips", &self.lpRecips)
+            .field("nFileCount", &self.nFileCount)
+            .field("lpFiles", &self.lpFiles)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -330,6 +366,25 @@ impl ::core::clone::Clone for MapiMessageW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MapiMessageW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MapiMessageW")
+            .field("ulReserved", &self.ulReserved)
+            .field("lpszSubject", &self.lpszSubject)
+            .field("lpszNoteText", &self.lpszNoteText)
+            .field("lpszMessageType", &self.lpszMessageType)
+            .field("lpszDateReceived", &self.lpszDateReceived)
+            .field("lpszConversationID", &self.lpszConversationID)
+            .field("flFlags", &self.flFlags)
+            .field("lpOriginator", &self.lpOriginator)
+            .field("nRecipCount", &self.nRecipCount)
+            .field("lpRecips", &self.lpRecips)
+            .field("nFileCount", &self.nFileCount)
+            .field("lpFiles", &self.lpFiles)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiMessageW {
     type Abi = Self;
 }
@@ -367,6 +422,12 @@ impl ::core::clone::Clone for MapiRecipDesc {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MapiRecipDesc {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MapiRecipDesc").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiRecipDesc {
     type Abi = Self;
 }
@@ -401,6 +462,12 @@ impl ::core::marker::Copy for MapiRecipDescW {}
 impl ::core::clone::Clone for MapiRecipDescW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MapiRecipDescW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MapiRecipDescW").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

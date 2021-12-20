@@ -45,6 +45,11 @@ impl ::core::clone::Clone for MCAST_CLIENT_UID {
         *self
     }
 }
+impl ::core::fmt::Debug for MCAST_CLIENT_UID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MCAST_CLIENT_UID").field("ClientUID", &self.ClientUID).field("ClientUIDLength", &self.ClientUIDLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MCAST_CLIENT_UID {
     type Abi = Self;
 }
@@ -77,6 +82,11 @@ impl ::core::clone::Clone for MCAST_LEASE_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for MCAST_LEASE_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MCAST_LEASE_REQUEST").field("LeaseStartTime", &self.LeaseStartTime).field("MaxLeaseStartTime", &self.MaxLeaseStartTime).field("LeaseDuration", &self.LeaseDuration).field("MinLeaseDuration", &self.MinLeaseDuration).field("ServerAddress", &self.ServerAddress).field("MinAddrCount", &self.MinAddrCount).field("AddrCount", &self.AddrCount).field("pAddrBuf", &self.pAddrBuf).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MCAST_LEASE_REQUEST {
     type Abi = Self;
 }
@@ -106,6 +116,11 @@ impl ::core::clone::Clone for MCAST_LEASE_RESPONSE {
         *self
     }
 }
+impl ::core::fmt::Debug for MCAST_LEASE_RESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MCAST_LEASE_RESPONSE").field("LeaseStartTime", &self.LeaseStartTime).field("LeaseEndTime", &self.LeaseEndTime).field("ServerAddress", &self.ServerAddress).field("AddrCount", &self.AddrCount).field("pAddrBuf", &self.pAddrBuf).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MCAST_LEASE_RESPONSE {
     type Abi = Self;
 }
@@ -131,6 +146,11 @@ impl ::core::marker::Copy for MCAST_SCOPE_CTX {}
 impl ::core::clone::Clone for MCAST_SCOPE_CTX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MCAST_SCOPE_CTX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MCAST_SCOPE_CTX").field("ScopeID", &self.ScopeID).field("Interface", &self.Interface).field("ServerID", &self.ServerID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCAST_SCOPE_CTX {
@@ -162,6 +182,12 @@ impl ::core::marker::Copy for MCAST_SCOPE_ENTRY {}
 impl ::core::clone::Clone for MCAST_SCOPE_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MCAST_SCOPE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MCAST_SCOPE_ENTRY").field("ScopeCtx", &self.ScopeCtx).field("LastAddr", &self.LastAddr).field("TTL", &self.TTL).field("ScopeDesc", &self.ScopeDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

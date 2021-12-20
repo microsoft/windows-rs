@@ -2043,6 +2043,11 @@ impl ::core::clone::Clone for Printing3DBufferDescription {
         *self
     }
 }
+impl ::core::fmt::Debug for Printing3DBufferDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Printing3DBufferDescription").field("Format", &self.Format).field("Stride", &self.Stride).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Printing3DBufferDescription {
     type Abi = Self;
 }

@@ -15,6 +15,11 @@ impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for APPLICATION_EVENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPLICATION_EVENT_DATA").field("cbApplicationEventData", &self.cbApplicationEventData).field("ApplicationId", &self.ApplicationId).field("EndpointId", &self.EndpointId).field("dwEventId", &self.dwEventId).field("cbEventData", &self.cbEventData).field("bEventData", &self.bEventData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for APPLICATION_EVENT_DATA {
     type Abi = Self;
 }
@@ -47,6 +52,11 @@ impl ::core::clone::Clone for CONTENT_MISSING_EVENT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for CONTENT_MISSING_EVENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTENT_MISSING_EVENT_DATA").field("cbContentMissingEventData", &self.cbContentMissingEventData).field("ApplicationId", &self.ApplicationId).field("EndpointId", &self.EndpointId).field("ContentId", &self.ContentId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CONTENT_MISSING_EVENT_DATA {
     type Abi = Self;
 }
@@ -71,6 +81,11 @@ impl ::core::marker::Copy for DEVICE_USER_CHANGE_EVENT_DATA {}
 impl ::core::clone::Clone for DEVICE_USER_CHANGE_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_USER_CHANGE_EVENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_USER_CHANGE_EVENT_DATA").field("cbDeviceUserChangeEventData", &self.cbDeviceUserChangeEventData).field("wszUser", &self.wszUser).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
@@ -99,6 +114,11 @@ impl ::core::marker::Copy for EVENT_DATA_HEADER {}
 impl ::core::clone::Clone for EVENT_DATA_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_DATA_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_DATA_HEADER").field("cbEventDataHeader", &self.cbEventDataHeader).field("guidEventType", &self.guidEventType).field("dwVersion", &self.dwVersion).field("cbEventDataSid", &self.cbEventDataSid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_DATA_HEADER {
@@ -918,6 +938,11 @@ impl ::core::clone::Clone for NEW_EVENT_DATA_AVAILABLE {
         *self
     }
 }
+impl ::core::fmt::Debug for NEW_EVENT_DATA_AVAILABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NEW_EVENT_DATA_AVAILABLE").field("cbNewEventDataAvailable", &self.cbNewEventDataAvailable).field("dwVersion", &self.dwVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NEW_EVENT_DATA_AVAILABLE {
     type Abi = Self;
 }
@@ -973,6 +998,11 @@ impl ::core::clone::Clone for SCF_CONTEXTMENU_EVENT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCF_CONTEXTMENU_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCF_CONTEXTMENU_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("PreviousItemId", &self.PreviousItemId).field("MenuPage", &self.MenuPage).field("MenuItemId", &self.MenuItemId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCF_CONTEXTMENU_EVENT {
     type Abi = Self;
 }
@@ -997,6 +1027,11 @@ impl ::core::marker::Copy for SCF_EVENT_HEADER {}
 impl ::core::clone::Clone for SCF_EVENT_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCF_EVENT_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCF_EVENT_HEADER").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCF_EVENT_HEADER {
@@ -1035,6 +1070,11 @@ impl ::core::clone::Clone for SCF_MENUACTION_EVENT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCF_MENUACTION_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCF_MENUACTION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).field("ItemId", &self.ItemId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCF_MENUACTION_EVENT {
     type Abi = Self;
 }
@@ -1060,6 +1100,11 @@ impl ::core::marker::Copy for SCF_NAVIGATION_EVENT {}
 impl ::core::clone::Clone for SCF_NAVIGATION_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCF_NAVIGATION_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCF_NAVIGATION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCF_NAVIGATION_EVENT {

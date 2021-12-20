@@ -12,6 +12,11 @@ impl ::core::clone::Clone for ACCEL {
         *self
     }
 }
+impl ::core::fmt::Debug for ACCEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACCEL").field("fVirt", &self.fVirt).field("key", &self.key).field("cmd", &self.cmd).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ACCEL {
     type Abi = Self;
 }
@@ -46,6 +51,12 @@ impl ::core::marker::Copy for ALTTABINFO {}
 impl ::core::clone::Clone for ALTTABINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ALTTABINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ALTTABINFO").field("cbSize", &self.cbSize).field("cItems", &self.cItems).field("cColumns", &self.cColumns).field("cRows", &self.cRows).field("iColFocus", &self.iColFocus).field("iRowFocus", &self.iRowFocus).field("cxItem", &self.cxItem).field("cyItem", &self.cyItem).field("ptStart", &self.ptStart).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -98,6 +109,11 @@ impl ::core::clone::Clone for ANIMATIONINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for ANIMATIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ANIMATIONINFO").field("cbSize", &self.cbSize).field("iMinAnimate", &self.iMinAnimate).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ANIMATIONINFO {
     type Abi = Self;
 }
@@ -144,6 +160,12 @@ impl ::core::marker::Copy for AUDIODESCRIPTION {}
 impl ::core::clone::Clone for AUDIODESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUDIODESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIODESCRIPTION").field("cbSize", &self.cbSize).field("Enabled", &self.Enabled).field("Locale", &self.Locale).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -493,6 +515,12 @@ impl ::core::clone::Clone for CBTACTIVATESTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CBTACTIVATESTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CBTACTIVATESTRUCT").field("fMouse", &self.fMouse).field("hWndActive", &self.hWndActive).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CBTACTIVATESTRUCT {
     type Abi = Self;
 }
@@ -526,6 +554,12 @@ impl ::core::clone::Clone for CBT_CREATEWNDA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CBT_CREATEWNDA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CBT_CREATEWNDA").field("lpcs", &self.lpcs).field("hwndInsertAfter", &self.hwndInsertAfter).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CBT_CREATEWNDA {
     type Abi = Self;
 }
@@ -556,6 +590,12 @@ impl ::core::marker::Copy for CBT_CREATEWNDW {}
 impl ::core::clone::Clone for CBT_CREATEWNDW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CBT_CREATEWNDW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CBT_CREATEWNDW").field("lpcs", &self.lpcs).field("hwndInsertAfter", &self.hwndInsertAfter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -672,6 +712,11 @@ impl ::core::clone::Clone for CHANGEFILTERSTRUCT {
         *self
     }
 }
+impl ::core::fmt::Debug for CHANGEFILTERSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANGEFILTERSTRUCT").field("cbSize", &self.cbSize).field("ExtStatus", &self.ExtStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CHANGEFILTERSTRUCT {
     type Abi = Self;
 }
@@ -707,6 +752,12 @@ impl ::core::marker::Copy for CLIENTCREATESTRUCT {}
 impl ::core::clone::Clone for CLIENTCREATESTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLIENTCREATESTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLIENTCREATESTRUCT").field("hWindowMenu", &self.hWindowMenu).field("idFirstChild", &self.idFirstChild).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -771,6 +822,12 @@ impl ::core::clone::Clone for CREATESTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREATESTRUCTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREATESTRUCTA").field("lpCreateParams", &self.lpCreateParams).field("hInstance", &self.hInstance).field("hMenu", &self.hMenu).field("hwndParent", &self.hwndParent).field("cy", &self.cy).field("cx", &self.cx).field("y", &self.y).field("x", &self.x).field("style", &self.style).field("lpszName", &self.lpszName).field("lpszClass", &self.lpszClass).field("dwExStyle", &self.dwExStyle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CREATESTRUCTA {
     type Abi = Self;
 }
@@ -811,6 +868,12 @@ impl ::core::marker::Copy for CREATESTRUCTW {}
 impl ::core::clone::Clone for CREATESTRUCTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREATESTRUCTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREATESTRUCTW").field("lpCreateParams", &self.lpCreateParams).field("hInstance", &self.hInstance).field("hMenu", &self.hMenu).field("hwndParent", &self.hwndParent).field("cy", &self.cy).field("cx", &self.cx).field("y", &self.y).field("x", &self.x).field("style", &self.style).field("lpszName", &self.lpszName).field("lpszClass", &self.lpszClass).field("dwExStyle", &self.dwExStyle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -867,6 +930,12 @@ impl ::core::clone::Clone for CURSORINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CURSORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CURSORINFO").field("cbSize", &self.cbSize).field("flags", &self.flags).field("hCursor", &self.hCursor).field("ptScreenPos", &self.ptScreenPos).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CURSORINFO {
     type Abi = Self;
 }
@@ -905,6 +974,11 @@ impl ::core::marker::Copy for CURSORSHAPE {}
 impl ::core::clone::Clone for CURSORSHAPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CURSORSHAPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CURSORSHAPE").field("xHotSpot", &self.xHotSpot).field("yHotSpot", &self.yHotSpot).field("cx", &self.cx).field("cy", &self.cy).field("cbWidth", &self.cbWidth).field("Planes", &self.Planes).field("BitsPixel", &self.BitsPixel).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CURSORSHAPE {
@@ -946,6 +1020,12 @@ impl ::core::clone::Clone for CWPRETSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CWPRETSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CWPRETSTRUCT").field("lResult", &self.lResult).field("lParam", &self.lParam).field("wParam", &self.wParam).field("message", &self.message).field("hwnd", &self.hwnd).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CWPRETSTRUCT {
     type Abi = Self;
 }
@@ -978,6 +1058,12 @@ impl ::core::marker::Copy for CWPSTRUCT {}
 impl ::core::clone::Clone for CWPSTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CWPSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CWPSTRUCT").field("lParam", &self.lParam).field("wParam", &self.wParam).field("message", &self.message).field("hwnd", &self.hwnd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1910,6 +1996,12 @@ impl ::core::clone::Clone for DEBUGHOOKINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEBUGHOOKINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUGHOOKINFO").field("idThread", &self.idThread).field("idThreadInstaller", &self.idThreadInstaller).field("lParam", &self.lParam).field("wParam", &self.wParam).field("code", &self.code).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEBUGHOOKINFO {
     type Abi = Self;
 }
@@ -2004,6 +2096,11 @@ impl ::core::clone::Clone for DLGITEMTEMPLATE {
         *self
     }
 }
+impl ::core::fmt::Debug for DLGITEMTEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLGITEMTEMPLATE").field("style", &self.style).field("dwExtendedStyle", &self.dwExtendedStyle).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("id", &self.id).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DLGITEMTEMPLATE {
     type Abi = Self;
 }
@@ -2036,6 +2133,11 @@ impl ::core::marker::Copy for DLGTEMPLATE {}
 impl ::core::clone::Clone for DLGTEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DLGTEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLGTEMPLATE").field("style", &self.style).field("dwExtendedStyle", &self.dwExtendedStyle).field("cdit", &self.cdit).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DLGTEMPLATE {
@@ -2095,6 +2197,12 @@ impl ::core::marker::Copy for DROPSTRUCT {}
 impl ::core::clone::Clone for DROPSTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DROPSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DROPSTRUCT").field("hwndSource", &self.hwndSource).field("hwndSink", &self.hwndSink).field("wFmt", &self.wFmt).field("dwData", &self.dwData).field("ptDrop", &self.ptDrop).field("dwControlData", &self.dwControlData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2704,6 +2812,12 @@ impl ::core::clone::Clone for EVENTMSG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENTMSG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENTMSG").field("message", &self.message).field("paramL", &self.paramL).field("paramH", &self.paramH).field("time", &self.time).field("hwnd", &self.hwnd).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EVENTMSG {
     type Abi = Self;
 }
@@ -3125,6 +3239,12 @@ impl ::core::clone::Clone for FLASHWINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FLASHWINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLASHWINFO").field("cbSize", &self.cbSize).field("hwnd", &self.hwnd).field("dwFlags", &self.dwFlags).field("uCount", &self.uCount).field("dwTimeout", &self.dwTimeout).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FLASHWINFO {
     type Abi = Self;
 }
@@ -3382,6 +3502,12 @@ impl ::core::marker::Copy for GUITHREADINFO {}
 impl ::core::clone::Clone for GUITHREADINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GUITHREADINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GUITHREADINFO").field("cbSize", &self.cbSize).field("flags", &self.flags).field("hwndActive", &self.hwndActive).field("hwndFocus", &self.hwndFocus).field("hwndCapture", &self.hwndCapture).field("hwndMenuOwner", &self.hwndMenuOwner).field("hwndMoveSize", &self.hwndMoveSize).field("hwndCaret", &self.hwndCaret).field("rcCaret", &self.rcCaret).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4785,6 +4911,12 @@ impl ::core::clone::Clone for HARDWAREHOOKSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HARDWAREHOOKSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HARDWAREHOOKSTRUCT").field("hwnd", &self.hwnd).field("message", &self.message).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HARDWAREHOOKSTRUCT {
     type Abi = Self;
 }
@@ -5089,6 +5221,12 @@ impl ::core::clone::Clone for ICONINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ICONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICONINFO").field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for ICONINFO {
     type Abi = Self;
 }
@@ -5126,6 +5264,12 @@ impl ::core::marker::Copy for ICONINFOEXA {}
 impl ::core::clone::Clone for ICONINFOEXA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ICONINFOEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICONINFOEXA").field("cbSize", &self.cbSize).field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).field("wResID", &self.wResID).field("szModName", &self.szModName).field("szResName", &self.szResName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5169,6 +5313,12 @@ impl ::core::clone::Clone for ICONINFOEXW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ICONINFOEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICONINFOEXW").field("cbSize", &self.cbSize).field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).field("wResID", &self.wResID).field("szModName", &self.szModName).field("szResName", &self.szResName).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for ICONINFOEXW {
     type Abi = Self;
 }
@@ -5205,6 +5355,12 @@ impl ::core::clone::Clone for ICONMETRICSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ICONMETRICSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICONMETRICSA").field("cbSize", &self.cbSize).field("iHorzSpacing", &self.iHorzSpacing).field("iVertSpacing", &self.iVertSpacing).field("iTitleWrap", &self.iTitleWrap).field("lfFont", &self.lfFont).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for ICONMETRICSA {
     type Abi = Self;
 }
@@ -5238,6 +5394,12 @@ impl ::core::marker::Copy for ICONMETRICSW {}
 impl ::core::clone::Clone for ICONMETRICSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICONMETRICSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICONMETRICSW").field("cbSize", &self.cbSize).field("iHorzSpacing", &self.iHorzSpacing).field("iVertSpacing", &self.iVertSpacing).field("iTitleWrap", &self.iTitleWrap).field("lfFont", &self.lfFont).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5478,6 +5640,12 @@ impl ::core::marker::Copy for IndexedResourceQualifier {}
 impl ::core::clone::Clone for IndexedResourceQualifier {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IndexedResourceQualifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IndexedResourceQualifier").field("name", &self.name).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5901,6 +6069,11 @@ impl ::core::marker::Copy for KBDLLHOOKSTRUCT {}
 impl ::core::clone::Clone for KBDLLHOOKSTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KBDLLHOOKSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBDLLHOOKSTRUCT").field("vkCode", &self.vkCode).field("scanCode", &self.scanCode).field("flags", &self.flags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KBDLLHOOKSTRUCT {
@@ -6459,6 +6632,12 @@ impl ::core::clone::Clone for MDICREATESTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MDICREATESTRUCTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MDICREATESTRUCTA").field("szClass", &self.szClass).field("szTitle", &self.szTitle).field("hOwner", &self.hOwner).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("style", &self.style).field("lParam", &self.lParam).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MDICREATESTRUCTA {
     type Abi = Self;
 }
@@ -6499,6 +6678,12 @@ impl ::core::clone::Clone for MDICREATESTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MDICREATESTRUCTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MDICREATESTRUCTW").field("szClass", &self.szClass).field("szTitle", &self.szTitle).field("hOwner", &self.hOwner).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("style", &self.style).field("lParam", &self.lParam).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MDICREATESTRUCTW {
     type Abi = Self;
 }
@@ -6530,6 +6715,12 @@ impl ::core::marker::Copy for MDINEXTMENU {}
 impl ::core::clone::Clone for MDINEXTMENU {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MDINEXTMENU {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MDINEXTMENU").field("hmenuIn", &self.hmenuIn).field("hmenuNext", &self.hmenuNext).field("hwndNext", &self.hwndNext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6571,6 +6762,12 @@ impl ::core::clone::Clone for MENUBARINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MENUBARINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUBARINFO").field("cbSize", &self.cbSize).field("rcBar", &self.rcBar).field("hMenu", &self.hMenu).field("hwndMenu", &self.hwndMenu).field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MENUBARINFO {
     type Abi = Self;
 }
@@ -6601,6 +6798,11 @@ impl ::core::marker::Copy for MENUGETOBJECTINFO {}
 impl ::core::clone::Clone for MENUGETOBJECTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MENUGETOBJECTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUGETOBJECTINFO").field("dwFlags", &self.dwFlags).field("uPos", &self.uPos).field("hmenu", &self.hmenu).field("riid", &self.riid).field("pvObj", &self.pvObj).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MENUGETOBJECTINFO {
@@ -6641,6 +6843,12 @@ impl ::core::marker::Copy for MENUINFO {}
 impl ::core::clone::Clone for MENUINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for MENUINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUINFO").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("dwStyle", &self.dwStyle).field("cyMax", &self.cyMax).field("hbrBack", &self.hbrBack).field("dwContextHelpID", &self.dwContextHelpID).field("dwMenuData", &self.dwMenuData).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6715,6 +6923,12 @@ impl ::core::clone::Clone for MENUITEMINFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for MENUITEMINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUITEMINFOA").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hSubMenu", &self.hSubMenu).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("dwTypeData", &self.dwTypeData).field("cch", &self.cch).field("hbmpItem", &self.hbmpItem).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for MENUITEMINFOA {
     type Abi = Self;
 }
@@ -6758,6 +6972,12 @@ impl ::core::clone::Clone for MENUITEMINFOW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for MENUITEMINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUITEMINFOW").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hSubMenu", &self.hSubMenu).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("dwTypeData", &self.dwTypeData).field("cch", &self.cch).field("hbmpItem", &self.hbmpItem).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for MENUITEMINFOW {
     type Abi = Self;
 }
@@ -6788,6 +7008,11 @@ impl ::core::clone::Clone for MENUITEMTEMPLATE {
         *self
     }
 }
+impl ::core::fmt::Debug for MENUITEMTEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUITEMTEMPLATE").field("mtOption", &self.mtOption).field("mtID", &self.mtID).field("mtString", &self.mtString).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MENUITEMTEMPLATE {
     type Abi = Self;
 }
@@ -6812,6 +7037,11 @@ impl ::core::marker::Copy for MENUITEMTEMPLATEHEADER {}
 impl ::core::clone::Clone for MENUITEMTEMPLATEHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MENUITEMTEMPLATEHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUITEMTEMPLATEHEADER").field("versionNumber", &self.versionNumber).field("offset", &self.offset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MENUITEMTEMPLATEHEADER {
@@ -7061,6 +7291,11 @@ impl ::core::clone::Clone for MESSAGE_RESOURCE_BLOCK {
         *self
     }
 }
+impl ::core::fmt::Debug for MESSAGE_RESOURCE_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MESSAGE_RESOURCE_BLOCK").field("LowId", &self.LowId).field("HighId", &self.HighId).field("OffsetToEntries", &self.OffsetToEntries).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_BLOCK {
     type Abi = Self;
 }
@@ -7085,6 +7320,11 @@ impl ::core::marker::Copy for MESSAGE_RESOURCE_DATA {}
 impl ::core::clone::Clone for MESSAGE_RESOURCE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MESSAGE_RESOURCE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MESSAGE_RESOURCE_DATA").field("NumberOfBlocks", &self.NumberOfBlocks).field("Blocks", &self.Blocks).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_DATA {
@@ -7112,6 +7352,11 @@ impl ::core::marker::Copy for MESSAGE_RESOURCE_ENTRY {}
 impl ::core::clone::Clone for MESSAGE_RESOURCE_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MESSAGE_RESOURCE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MESSAGE_RESOURCE_ENTRY").field("Length", &self.Length).field("Flags", &self.Flags).field("Text", &self.Text).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_ENTRY {
@@ -7143,6 +7388,11 @@ impl ::core::marker::Copy for MINIMIZEDMETRICS {}
 impl ::core::clone::Clone for MINIMIZEDMETRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MINIMIZEDMETRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MINIMIZEDMETRICS").field("cbSize", &self.cbSize).field("iWidth", &self.iWidth).field("iHorzGap", &self.iHorzGap).field("iVertGap", &self.iVertGap).field("iArrange", &self.iArrange).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIMIZEDMETRICS {
@@ -7187,6 +7437,12 @@ impl ::core::marker::Copy for MINMAXINFO {}
 impl ::core::clone::Clone for MINMAXINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MINMAXINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MINMAXINFO").field("ptReserved", &self.ptReserved).field("ptMaxSize", &self.ptMaxSize).field("ptMaxPosition", &self.ptMaxPosition).field("ptMinTrackSize", &self.ptMinTrackSize).field("ptMaxTrackSize", &self.ptMaxTrackSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7287,6 +7543,12 @@ impl ::core::clone::Clone for MOUSEHOOKSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MOUSEHOOKSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSEHOOKSTRUCT").field("pt", &self.pt).field("hwnd", &self.hwnd).field("wHitTestCode", &self.wHitTestCode).field("dwExtraInfo", &self.dwExtraInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCT {
     type Abi = Self;
 }
@@ -7317,6 +7579,12 @@ impl ::core::marker::Copy for MOUSEHOOKSTRUCTEX {}
 impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MOUSEHOOKSTRUCTEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSEHOOKSTRUCTEX").field("__AnonymousBase_winuser_L1166_C46", &self.__AnonymousBase_winuser_L1166_C46).field("mouseData", &self.mouseData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7369,6 +7637,12 @@ impl ::core::clone::Clone for MSG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MSG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSG").field("hwnd", &self.hwnd).field("message", &self.message).field("wParam", &self.wParam).field("lParam", &self.lParam).field("time", &self.time).field("pt", &self.pt).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MSG {
     type Abi = Self;
 }
@@ -7413,6 +7687,12 @@ impl ::core::clone::Clone for MSGBOXPARAMSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::fmt::Debug for MSGBOXPARAMSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSGBOXPARAMSA").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("lpfnMsgBoxCallback", &self.lpfnMsgBoxCallback).field("dwLanguageId", &self.dwLanguageId).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::core::Abi for MSGBOXPARAMSA {
     type Abi = Self;
 }
@@ -7451,6 +7731,12 @@ impl ::core::marker::Copy for MSGBOXPARAMSW {}
 impl ::core::clone::Clone for MSGBOXPARAMSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::fmt::Debug for MSGBOXPARAMSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSGBOXPARAMSW").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("lpfnMsgBoxCallback", &self.lpfnMsgBoxCallback).field("dwLanguageId", &self.dwLanguageId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -7521,6 +7807,12 @@ impl ::core::marker::Copy for MSLLHOOKSTRUCT {}
 impl ::core::clone::Clone for MSLLHOOKSTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MSLLHOOKSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSLLHOOKSTRUCT").field("pt", &self.pt).field("mouseData", &self.mouseData).field("flags", &self.flags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8099,6 +8391,11 @@ impl ::core::clone::Clone for MrmResourceIndexerHandle {
         *self
     }
 }
+impl ::core::fmt::Debug for MrmResourceIndexerHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MrmResourceIndexerHandle").field("handle", &self.handle).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MrmResourceIndexerHandle {
     type Abi = Self;
 }
@@ -8127,6 +8424,12 @@ impl ::core::marker::Copy for MrmResourceIndexerMessage {}
 impl ::core::clone::Clone for MrmResourceIndexerMessage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MrmResourceIndexerMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MrmResourceIndexerMessage").field("severity", &self.severity).field("id", &self.id).field("text", &self.text).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8209,6 +8512,12 @@ impl ::core::clone::Clone for NCCALCSIZE_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NCCALCSIZE_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NCCALCSIZE_PARAMS").field("rgrc", &self.rgrc).field("lppos", &self.lppos).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NCCALCSIZE_PARAMS {
     type Abi = Self;
 }
@@ -8276,6 +8585,29 @@ impl ::core::clone::Clone for NONCLIENTMETRICSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for NONCLIENTMETRICSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NONCLIENTMETRICSA")
+            .field("cbSize", &self.cbSize)
+            .field("iBorderWidth", &self.iBorderWidth)
+            .field("iScrollWidth", &self.iScrollWidth)
+            .field("iScrollHeight", &self.iScrollHeight)
+            .field("iCaptionWidth", &self.iCaptionWidth)
+            .field("iCaptionHeight", &self.iCaptionHeight)
+            .field("lfCaptionFont", &self.lfCaptionFont)
+            .field("iSmCaptionWidth", &self.iSmCaptionWidth)
+            .field("iSmCaptionHeight", &self.iSmCaptionHeight)
+            .field("lfSmCaptionFont", &self.lfSmCaptionFont)
+            .field("iMenuWidth", &self.iMenuWidth)
+            .field("iMenuHeight", &self.iMenuHeight)
+            .field("lfMenuFont", &self.lfMenuFont)
+            .field("lfStatusFont", &self.lfStatusFont)
+            .field("lfMessageFont", &self.lfMessageFont)
+            .field("iPaddedBorderWidth", &self.iPaddedBorderWidth)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for NONCLIENTMETRICSA {
     type Abi = Self;
 }
@@ -8320,6 +8652,29 @@ impl ::core::marker::Copy for NONCLIENTMETRICSW {}
 impl ::core::clone::Clone for NONCLIENTMETRICSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for NONCLIENTMETRICSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NONCLIENTMETRICSW")
+            .field("cbSize", &self.cbSize)
+            .field("iBorderWidth", &self.iBorderWidth)
+            .field("iScrollWidth", &self.iScrollWidth)
+            .field("iScrollHeight", &self.iScrollHeight)
+            .field("iCaptionWidth", &self.iCaptionWidth)
+            .field("iCaptionHeight", &self.iCaptionHeight)
+            .field("lfCaptionFont", &self.lfCaptionFont)
+            .field("iSmCaptionWidth", &self.iSmCaptionWidth)
+            .field("iSmCaptionHeight", &self.iSmCaptionHeight)
+            .field("lfSmCaptionFont", &self.lfSmCaptionFont)
+            .field("iMenuWidth", &self.iMenuWidth)
+            .field("iMenuHeight", &self.iMenuHeight)
+            .field("lfMenuFont", &self.lfMenuFont)
+            .field("lfStatusFont", &self.lfStatusFont)
+            .field("lfMessageFont", &self.lfMessageFont)
+            .field("iPaddedBorderWidth", &self.iPaddedBorderWidth)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9386,6 +9741,12 @@ impl ::core::clone::Clone for SCROLLBARINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCROLLBARINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCROLLBARINFO").field("cbSize", &self.cbSize).field("rcScrollBar", &self.rcScrollBar).field("dxyLineButton", &self.dxyLineButton).field("xyThumbTop", &self.xyThumbTop).field("xyThumbBottom", &self.xyThumbBottom).field("reserved", &self.reserved).field("rgstate", &self.rgstate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCROLLBARINFO {
     type Abi = Self;
 }
@@ -9428,6 +9789,11 @@ impl ::core::marker::Copy for SCROLLINFO {}
 impl ::core::clone::Clone for SCROLLINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCROLLINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCROLLINFO").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("nMin", &self.nMin).field("nMax", &self.nMax).field("nPage", &self.nPage).field("nPos", &self.nPos).field("nTrackPos", &self.nTrackPos).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCROLLINFO {
@@ -9562,6 +9928,12 @@ impl ::core::marker::Copy for SHELLHOOKINFO {}
 impl ::core::clone::Clone for SHELLHOOKINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SHELLHOOKINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SHELLHOOKINFO").field("hwnd", &self.hwnd).field("rc", &self.rc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9870,6 +10242,11 @@ impl ::core::marker::Copy for STYLESTRUCT {}
 impl ::core::clone::Clone for STYLESTRUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STYLESTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STYLESTRUCT").field("styleOld", &self.styleOld).field("styleNew", &self.styleNew).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STYLESTRUCT {
@@ -11745,6 +12122,12 @@ impl ::core::clone::Clone for TITLEBARINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TITLEBARINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TITLEBARINFO").field("cbSize", &self.cbSize).field("rcTitleBar", &self.rcTitleBar).field("rgstate", &self.rgstate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TITLEBARINFO {
     type Abi = Self;
 }
@@ -11777,6 +12160,12 @@ impl ::core::marker::Copy for TITLEBARINFOEX {}
 impl ::core::clone::Clone for TITLEBARINFOEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TITLEBARINFOEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TITLEBARINFOEX").field("cbSize", &self.cbSize).field("rcTitleBar", &self.rcTitleBar).field("rgstate", &self.rgstate).field("rgrect", &self.rgrect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11858,6 +12247,12 @@ impl ::core::marker::Copy for TPMPARAMS {}
 impl ::core::clone::Clone for TPMPARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TPMPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TPMPARAMS").field("cbSize", &self.cbSize).field("rcExclude", &self.rcExclude).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11947,6 +12342,11 @@ impl ::core::marker::Copy for TouchPredictionParameters {}
 impl ::core::clone::Clone for TouchPredictionParameters {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TouchPredictionParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TouchPredictionParameters").field("cbSize", &self.cbSize).field("dwLatency", &self.dwLatency).field("dwSampleTime", &self.dwSampleTime).field("bUseHWTimeStamp", &self.bUseHWTimeStamp).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TouchPredictionParameters {
@@ -12090,6 +12490,12 @@ impl ::core::marker::Copy for UPDATELAYEREDWINDOWINFO {}
 impl ::core::clone::Clone for UPDATELAYEREDWINDOWINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for UPDATELAYEREDWINDOWINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UPDATELAYEREDWINDOWINFO").field("cbSize", &self.cbSize).field("hdcDst", &self.hdcDst).field("pptDst", &self.pptDst).field("psize", &self.psize).field("hdcSrc", &self.hdcSrc).field("pptSrc", &self.pptSrc).field("crKey", &self.crKey).field("pblend", &self.pblend).field("dwFlags", &self.dwFlags).field("prcDirty", &self.prcDirty).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12258,6 +12664,12 @@ impl ::core::clone::Clone for WINDOWINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWINFO").field("cbSize", &self.cbSize).field("rcWindow", &self.rcWindow).field("rcClient", &self.rcClient).field("dwStyle", &self.dwStyle).field("dwExStyle", &self.dwExStyle).field("dwWindowStatus", &self.dwWindowStatus).field("cxWindowBorders", &self.cxWindowBorders).field("cyWindowBorders", &self.cyWindowBorders).field("atomWindowType", &self.atomWindowType).field("wCreatorVersion", &self.wCreatorVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINDOWINFO {
     type Abi = Self;
 }
@@ -12292,6 +12704,12 @@ impl ::core::marker::Copy for WINDOWPLACEMENT {}
 impl ::core::clone::Clone for WINDOWPLACEMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWPLACEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWPLACEMENT").field("length", &self.length).field("flags", &self.flags).field("showCmd", &self.showCmd).field("ptMinPosition", &self.ptMinPosition).field("ptMaxPosition", &self.ptMaxPosition).field("rcNormalPosition", &self.rcNormalPosition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12338,6 +12756,12 @@ impl ::core::marker::Copy for WINDOWPOS {}
 impl ::core::clone::Clone for WINDOWPOS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINDOWPOS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOWPOS").field("hwnd", &self.hwnd).field("hwndInsertAfter", &self.hwndInsertAfter).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("flags", &self.flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13112,6 +13536,12 @@ impl ::core::clone::Clone for WNDCLASSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WNDCLASSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNDCLASSA").field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSA {
     type Abi = Self;
 }
@@ -13152,6 +13582,12 @@ impl ::core::marker::Copy for WNDCLASSEXA {}
 impl ::core::clone::Clone for WNDCLASSEXA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WNDCLASSEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNDCLASSEXA").field("cbSize", &self.cbSize).field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13198,6 +13634,12 @@ impl ::core::clone::Clone for WNDCLASSEXW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WNDCLASSEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNDCLASSEXW").field("cbSize", &self.cbSize).field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSEXW {
     type Abi = Self;
 }
@@ -13236,6 +13678,12 @@ impl ::core::marker::Copy for WNDCLASSW {}
 impl ::core::clone::Clone for WNDCLASSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WNDCLASSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNDCLASSW").field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

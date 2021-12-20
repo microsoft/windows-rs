@@ -15,6 +15,11 @@ impl ::core::clone::Clone for BandwidthStatistics {
         *self
     }
 }
+impl ::core::fmt::Debug for BandwidthStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BandwidthStatistics").field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond).field("InboundBitsPerSecond", &self.InboundBitsPerSecond).field("OutboundBitsPerSecondInstability", &self.OutboundBitsPerSecondInstability).field("InboundBitsPerSecondInstability", &self.InboundBitsPerSecondInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BandwidthStatistics {
     type Abi = Self;
 }
@@ -3848,6 +3853,11 @@ impl ::core::marker::Copy for RoundTripTimeStatistics {}
 impl ::core::clone::Clone for RoundTripTimeStatistics {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RoundTripTimeStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RoundTripTimeStatistics").field("Variance", &self.Variance).field("Max", &self.Max).field("Min", &self.Min).field("Sum", &self.Sum).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RoundTripTimeStatistics {

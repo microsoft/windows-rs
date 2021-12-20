@@ -210,6 +210,11 @@ impl ::core::clone::Clone for MS_ADDINFO_BLOB {
         *self
     }
 }
+impl ::core::fmt::Debug for MS_ADDINFO_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MS_ADDINFO_BLOB").field("cbStruct", &self.cbStruct).field("cbMemObject", &self.cbMemObject).field("pbMemObject", &self.pbMemObject).field("cbMemSignedMsg", &self.cbMemSignedMsg).field("pbMemSignedMsg", &self.pbMemSignedMsg).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MS_ADDINFO_BLOB {
     type Abi = Self;
 }
@@ -238,6 +243,12 @@ impl ::core::marker::Copy for MS_ADDINFO_CATALOGMEMBER {}
 impl ::core::clone::Clone for MS_ADDINFO_CATALOGMEMBER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::fmt::Debug for MS_ADDINFO_CATALOGMEMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MS_ADDINFO_CATALOGMEMBER").field("cbStruct", &self.cbStruct).field("pStore", &self.pStore).field("pMember", &self.pMember).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
@@ -271,6 +282,12 @@ impl ::core::marker::Copy for MS_ADDINFO_FLAT {}
 impl ::core::clone::Clone for MS_ADDINFO_FLAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MS_ADDINFO_FLAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MS_ADDINFO_FLAT").field("cbStruct", &self.cbStruct).field("pIndirectData", &self.pIndirectData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -317,6 +334,25 @@ impl ::core::clone::Clone for SIP_ADD_NEWPROVIDER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SIP_ADD_NEWPROVIDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIP_ADD_NEWPROVIDER")
+            .field("cbStruct", &self.cbStruct)
+            .field("pgSubject", &self.pgSubject)
+            .field("pwszDLLFileName", &self.pwszDLLFileName)
+            .field("pwszMagicNumber", &self.pwszMagicNumber)
+            .field("pwszIsFunctionName", &self.pwszIsFunctionName)
+            .field("pwszGetFuncName", &self.pwszGetFuncName)
+            .field("pwszPutFuncName", &self.pwszPutFuncName)
+            .field("pwszCreateFuncName", &self.pwszCreateFuncName)
+            .field("pwszVerifyFuncName", &self.pwszVerifyFuncName)
+            .field("pwszRemoveFuncName", &self.pwszRemoveFuncName)
+            .field("pwszIsFunctionNameFmt2", &self.pwszIsFunctionNameFmt2)
+            .field("pwszGetCapFuncName", &self.pwszGetCapFuncName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SIP_ADD_NEWPROVIDER {
     type Abi = Self;
 }
@@ -356,6 +392,12 @@ impl ::core::clone::Clone for SIP_CAP_SET_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SIP_CAP_SET_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIP_CAP_SET_V2").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("isMultiSign", &self.isMultiSign).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SIP_CAP_SET_V2 {
     type Abi = Self;
 }
@@ -388,6 +430,12 @@ impl ::core::marker::Copy for SIP_CAP_SET_V3 {}
 impl ::core::clone::Clone for SIP_CAP_SET_V3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SIP_CAP_SET_V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIP_CAP_SET_V3").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("isMultiSign", &self.isMultiSign).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -466,6 +514,12 @@ impl ::core::clone::Clone for SIP_DISPATCH_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::fmt::Debug for SIP_DISPATCH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIP_DISPATCH_INFO").field("cbSize", &self.cbSize).field("hSIP", &self.hSIP).field("pfGet", &self.pfGet).field("pfPut", &self.pfPut).field("pfCreate", &self.pfCreate).field("pfVerify", &self.pfVerify).field("pfRemove", &self.pfRemove).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::core::Abi for SIP_DISPATCH_INFO {
     type Abi = Self;
 }
@@ -497,6 +551,12 @@ impl ::core::marker::Copy for SIP_INDIRECT_DATA {}
 impl ::core::clone::Clone for SIP_INDIRECT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SIP_INDIRECT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIP_INDIRECT_DATA").field("Data", &self.Data).field("DigestAlgorithm", &self.DigestAlgorithm).field("Digest", &self.Digest).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -548,6 +608,31 @@ impl ::core::marker::Copy for SIP_SUBJECTINFO {}
 impl ::core::clone::Clone for SIP_SUBJECTINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::fmt::Debug for SIP_SUBJECTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIP_SUBJECTINFO")
+            .field("cbSize", &self.cbSize)
+            .field("pgSubjectType", &self.pgSubjectType)
+            .field("hFile", &self.hFile)
+            .field("pwsFileName", &self.pwsFileName)
+            .field("pwsDisplayName", &self.pwsDisplayName)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwIntVersion", &self.dwIntVersion)
+            .field("hProv", &self.hProv)
+            .field("DigestAlgorithm", &self.DigestAlgorithm)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwEncodingType", &self.dwEncodingType)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("fdwCAPISettings", &self.fdwCAPISettings)
+            .field("fdwSecuritySettings", &self.fdwSecuritySettings)
+            .field("dwIndex", &self.dwIndex)
+            .field("dwUnionChoice", &self.dwUnionChoice)
+            .field("Anonymous", &self.Anonymous)
+            .field("pClientData", &self.pClientData)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

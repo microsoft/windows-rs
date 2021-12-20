@@ -756,6 +756,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE").field("Category", &self.Category).field("SubCategoryOUI", &self.SubCategoryOUI).field("SubCategory", &self.SubCategory).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     type Abi = Self;
 }
@@ -822,6 +827,11 @@ impl ::core::marker::Copy for WCN_VENDOR_EXTENSION_SPEC {}
 impl ::core::clone::Clone for WCN_VENDOR_EXTENSION_SPEC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WCN_VENDOR_EXTENSION_SPEC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCN_VENDOR_EXTENSION_SPEC").field("VendorId", &self.VendorId).field("SubType", &self.SubType).field("Index", &self.Index).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WCN_VENDOR_EXTENSION_SPEC {

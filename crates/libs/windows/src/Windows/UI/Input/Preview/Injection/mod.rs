@@ -1019,6 +1019,11 @@ impl ::core::clone::Clone for InjectedInputPoint {
         *self
     }
 }
+impl ::core::fmt::Debug for InjectedInputPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputPoint").field("PositionX", &self.PositionX).field("PositionY", &self.PositionY).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputPoint {
     type Abi = Self;
 }
@@ -1052,6 +1057,11 @@ impl ::core::marker::Copy for InjectedInputPointerInfo {}
 impl ::core::clone::Clone for InjectedInputPointerInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputPointerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputPointerInfo").field("PointerId", &self.PointerId).field("PointerOptions", &self.PointerOptions).field("PixelLocation", &self.PixelLocation).field("TimeOffsetInMilliseconds", &self.TimeOffsetInMilliseconds).field("PerformanceCount", &self.PerformanceCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputPointerInfo {
@@ -1125,6 +1135,11 @@ impl ::core::marker::Copy for InjectedInputRectangle {}
 impl ::core::clone::Clone for InjectedInputRectangle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputRectangle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputRectangle").field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).field("Right", &self.Right).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputRectangle {

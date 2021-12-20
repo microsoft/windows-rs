@@ -11903,6 +11903,11 @@ impl ::core::clone::Clone for MapZoomLevelRange {
         *self
     }
 }
+impl ::core::fmt::Debug for MapZoomLevelRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MapZoomLevelRange").field("Min", &self.Min).field("Max", &self.Max).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapZoomLevelRange {
     type Abi = Self;
 }

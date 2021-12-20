@@ -11,6 +11,11 @@ impl ::core::clone::Clone for BINARY_BLOB_CREDENTIAL_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for BINARY_BLOB_CREDENTIAL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BINARY_BLOB_CREDENTIAL_INFO").field("cbBlob", &self.cbBlob).field("pbBlob", &self.pbBlob).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BINARY_BLOB_CREDENTIAL_INFO {
     type Abi = Self;
 }
@@ -35,6 +40,11 @@ impl ::core::marker::Copy for CERT_CREDENTIAL_INFO {}
 impl ::core::clone::Clone for CERT_CREDENTIAL_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CERT_CREDENTIAL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CERT_CREDENTIAL_INFO").field("cbSize", &self.cbSize).field("rgbHashOfCert", &self.rgbHashOfCert).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CERT_CREDENTIAL_INFO {
@@ -76,6 +86,25 @@ impl ::core::marker::Copy for CREDENTIALA {}
 impl ::core::clone::Clone for CREDENTIALA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREDENTIALA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDENTIALA")
+            .field("Flags", &self.Flags)
+            .field("Type", &self.Type)
+            .field("TargetName", &self.TargetName)
+            .field("Comment", &self.Comment)
+            .field("LastWritten", &self.LastWritten)
+            .field("CredentialBlobSize", &self.CredentialBlobSize)
+            .field("CredentialBlob", &self.CredentialBlob)
+            .field("Persist", &self.Persist)
+            .field("AttributeCount", &self.AttributeCount)
+            .field("Attributes", &self.Attributes)
+            .field("TargetAlias", &self.TargetAlias)
+            .field("UserName", &self.UserName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -122,6 +151,25 @@ impl ::core::clone::Clone for CREDENTIALW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREDENTIALW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDENTIALW")
+            .field("Flags", &self.Flags)
+            .field("Type", &self.Type)
+            .field("TargetName", &self.TargetName)
+            .field("Comment", &self.Comment)
+            .field("LastWritten", &self.LastWritten)
+            .field("CredentialBlobSize", &self.CredentialBlobSize)
+            .field("CredentialBlob", &self.CredentialBlob)
+            .field("Persist", &self.Persist)
+            .field("AttributeCount", &self.AttributeCount)
+            .field("Attributes", &self.Attributes)
+            .field("TargetAlias", &self.TargetAlias)
+            .field("UserName", &self.UserName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CREDENTIALW {
     type Abi = Self;
 }
@@ -157,6 +205,12 @@ impl ::core::clone::Clone for CREDENTIAL_ATTRIBUTEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREDENTIAL_ATTRIBUTEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDENTIAL_ATTRIBUTEA").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEA {
     type Abi = Self;
 }
@@ -189,6 +243,12 @@ impl ::core::marker::Copy for CREDENTIAL_ATTRIBUTEW {}
 impl ::core::clone::Clone for CREDENTIAL_ATTRIBUTEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREDENTIAL_ATTRIBUTEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDENTIAL_ATTRIBUTEW").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -233,6 +293,12 @@ impl ::core::clone::Clone for CREDENTIAL_TARGET_INFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDENTIAL_TARGET_INFORMATIONA").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONA {
     type Abi = Self;
 }
@@ -271,6 +337,12 @@ impl ::core::marker::Copy for CREDENTIAL_TARGET_INFORMATIONW {}
 impl ::core::clone::Clone for CREDENTIAL_TARGET_INFORMATIONW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDENTIAL_TARGET_INFORMATIONW").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -318,6 +390,11 @@ impl ::core::clone::Clone for CREDSSP_CRED {
         *self
     }
 }
+impl ::core::fmt::Debug for CREDSSP_CRED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDSSP_CRED").field("Type", &self.Type).field("pSchannelCred", &self.pSchannelCred).field("pSpnegoCred", &self.pSpnegoCred).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CREDSSP_CRED {
     type Abi = Self;
 }
@@ -345,6 +422,11 @@ impl ::core::marker::Copy for CREDSSP_CRED_EX {}
 impl ::core::clone::Clone for CREDSSP_CRED_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CREDSSP_CRED_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDSSP_CRED_EX").field("Type", &self.Type).field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Cred", &self.Cred).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CREDSSP_CRED_EX {
@@ -450,6 +532,12 @@ impl ::core::clone::Clone for CREDUI_INFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for CREDUI_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDUI_INFOA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pszMessageText", &self.pszMessageText).field("pszCaptionText", &self.pszCaptionText).field("hbmBanner", &self.hbmBanner).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CREDUI_INFOA {
     type Abi = Self;
 }
@@ -483,6 +571,12 @@ impl ::core::marker::Copy for CREDUI_INFOW {}
 impl ::core::clone::Clone for CREDUI_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for CREDUI_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CREDUI_INFOW").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pszMessageText", &self.pszMessageText).field("pszCaptionText", &self.pszCaptionText).field("hbmBanner", &self.hbmBanner).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1446,6 +1540,11 @@ impl ::core::clone::Clone for KeyCredentialManagerInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for KeyCredentialManagerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KeyCredentialManagerInfo").field("containerId", &self.containerId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KeyCredentialManagerInfo {
     type Abi = Self;
 }
@@ -1553,6 +1652,36 @@ impl ::core::clone::Clone for OPENCARDNAMEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPENCARDNAMEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENCARDNAMEA")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hSCardContext", &self.hSCardContext)
+            .field("lpstrGroupNames", &self.lpstrGroupNames)
+            .field("nMaxGroupNames", &self.nMaxGroupNames)
+            .field("lpstrCardNames", &self.lpstrCardNames)
+            .field("nMaxCardNames", &self.nMaxCardNames)
+            .field("rgguidInterfaces", &self.rgguidInterfaces)
+            .field("cguidInterfaces", &self.cguidInterfaces)
+            .field("lpstrRdr", &self.lpstrRdr)
+            .field("nMaxRdr", &self.nMaxRdr)
+            .field("lpstrCard", &self.lpstrCard)
+            .field("nMaxCard", &self.nMaxCard)
+            .field("lpstrTitle", &self.lpstrTitle)
+            .field("dwFlags", &self.dwFlags)
+            .field("pvUserData", &self.pvUserData)
+            .field("dwShareMode", &self.dwShareMode)
+            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
+            .field("dwActiveProtocol", &self.dwActiveProtocol)
+            .field("lpfnConnect", &self.lpfnConnect)
+            .field("lpfnCheck", &self.lpfnCheck)
+            .field("lpfnDisconnect", &self.lpfnDisconnect)
+            .field("hCardHandle", &self.hCardHandle)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARDNAMEA {
     type Abi = Self;
 }
@@ -1607,6 +1736,36 @@ impl ::core::clone::Clone for OPENCARDNAMEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPENCARDNAMEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENCARDNAMEW")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hSCardContext", &self.hSCardContext)
+            .field("lpstrGroupNames", &self.lpstrGroupNames)
+            .field("nMaxGroupNames", &self.nMaxGroupNames)
+            .field("lpstrCardNames", &self.lpstrCardNames)
+            .field("nMaxCardNames", &self.nMaxCardNames)
+            .field("rgguidInterfaces", &self.rgguidInterfaces)
+            .field("cguidInterfaces", &self.cguidInterfaces)
+            .field("lpstrRdr", &self.lpstrRdr)
+            .field("nMaxRdr", &self.nMaxRdr)
+            .field("lpstrCard", &self.lpstrCard)
+            .field("nMaxCard", &self.nMaxCard)
+            .field("lpstrTitle", &self.lpstrTitle)
+            .field("dwFlags", &self.dwFlags)
+            .field("pvUserData", &self.pvUserData)
+            .field("dwShareMode", &self.dwShareMode)
+            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
+            .field("dwActiveProtocol", &self.dwActiveProtocol)
+            .field("lpfnConnect", &self.lpfnConnect)
+            .field("lpfnCheck", &self.lpfnCheck)
+            .field("lpfnDisconnect", &self.lpfnDisconnect)
+            .field("hCardHandle", &self.hCardHandle)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARDNAMEW {
     type Abi = Self;
 }
@@ -1653,6 +1812,31 @@ impl ::core::marker::Copy for OPENCARDNAME_EXA {}
 impl ::core::clone::Clone for OPENCARDNAME_EXA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OPENCARDNAME_EXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENCARDNAME_EXA")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("hSCardContext", &self.hSCardContext)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("dwFlags", &self.dwFlags)
+            .field("lpstrTitle", &self.lpstrTitle)
+            .field("lpstrSearchDesc", &self.lpstrSearchDesc)
+            .field("hIcon", &self.hIcon)
+            .field("pOpenCardSearchCriteria", &self.pOpenCardSearchCriteria)
+            .field("lpfnConnect", &self.lpfnConnect)
+            .field("pvUserData", &self.pvUserData)
+            .field("dwShareMode", &self.dwShareMode)
+            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
+            .field("lpstrRdr", &self.lpstrRdr)
+            .field("nMaxRdr", &self.nMaxRdr)
+            .field("lpstrCard", &self.lpstrCard)
+            .field("nMaxCard", &self.nMaxCard)
+            .field("dwActiveProtocol", &self.dwActiveProtocol)
+            .field("hCardHandle", &self.hCardHandle)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1705,6 +1889,31 @@ impl ::core::clone::Clone for OPENCARDNAME_EXW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OPENCARDNAME_EXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENCARDNAME_EXW")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("hSCardContext", &self.hSCardContext)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("dwFlags", &self.dwFlags)
+            .field("lpstrTitle", &self.lpstrTitle)
+            .field("lpstrSearchDesc", &self.lpstrSearchDesc)
+            .field("hIcon", &self.hIcon)
+            .field("pOpenCardSearchCriteria", &self.pOpenCardSearchCriteria)
+            .field("lpfnConnect", &self.lpfnConnect)
+            .field("pvUserData", &self.pvUserData)
+            .field("dwShareMode", &self.dwShareMode)
+            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
+            .field("lpstrRdr", &self.lpstrRdr)
+            .field("nMaxRdr", &self.nMaxRdr)
+            .field("lpstrCard", &self.lpstrCard)
+            .field("nMaxCard", &self.nMaxCard)
+            .field("dwActiveProtocol", &self.dwActiveProtocol)
+            .field("hCardHandle", &self.hCardHandle)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXW {
     type Abi = Self;
 }
@@ -1746,6 +1955,26 @@ impl ::core::marker::Copy for OPENCARD_SEARCH_CRITERIAA {}
 impl ::core::clone::Clone for OPENCARD_SEARCH_CRITERIAA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENCARD_SEARCH_CRITERIAA")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("lpstrGroupNames", &self.lpstrGroupNames)
+            .field("nMaxGroupNames", &self.nMaxGroupNames)
+            .field("rgguidInterfaces", &self.rgguidInterfaces)
+            .field("cguidInterfaces", &self.cguidInterfaces)
+            .field("lpstrCardNames", &self.lpstrCardNames)
+            .field("nMaxCardNames", &self.nMaxCardNames)
+            .field("lpfnCheck", &self.lpfnCheck)
+            .field("lpfnConnect", &self.lpfnConnect)
+            .field("lpfnDisconnect", &self.lpfnDisconnect)
+            .field("pvUserData", &self.pvUserData)
+            .field("dwShareMode", &self.dwShareMode)
+            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1793,6 +2022,26 @@ impl ::core::clone::Clone for OPENCARD_SEARCH_CRITERIAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENCARD_SEARCH_CRITERIAW")
+            .field("dwStructSize", &self.dwStructSize)
+            .field("lpstrGroupNames", &self.lpstrGroupNames)
+            .field("nMaxGroupNames", &self.nMaxGroupNames)
+            .field("rgguidInterfaces", &self.rgguidInterfaces)
+            .field("cguidInterfaces", &self.cguidInterfaces)
+            .field("lpstrCardNames", &self.lpstrCardNames)
+            .field("nMaxCardNames", &self.nMaxCardNames)
+            .field("lpfnCheck", &self.lpfnCheck)
+            .field("lpfnConnect", &self.lpfnConnect)
+            .field("lpfnDisconnect", &self.lpfnDisconnect)
+            .field("pvUserData", &self.pvUserData)
+            .field("dwShareMode", &self.dwShareMode)
+            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAW {
     type Abi = Self;
 }
@@ -1822,6 +2071,11 @@ impl ::core::marker::Copy for READER_SEL_REQUEST {}
 impl ::core::clone::Clone for READER_SEL_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for READER_SEL_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("READER_SEL_REQUEST").field("dwShareMode", &self.dwShareMode).field("dwPreferredProtocols", &self.dwPreferredProtocols).field("MatchType", &self.MatchType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST {
@@ -1880,6 +2134,11 @@ impl ::core::clone::Clone for READER_SEL_REQUEST_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for READER_SEL_REQUEST_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("READER_SEL_REQUEST_0_0").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbContainerNameOffset", &self.cbContainerNameOffset).field("cchContainerNameLength", &self.cchContainerNameLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).field("dwCspFlags", &self.dwCspFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_0 {
     type Abi = Self;
 }
@@ -1905,6 +2164,11 @@ impl ::core::marker::Copy for READER_SEL_REQUEST_0_1 {}
 impl ::core::clone::Clone for READER_SEL_REQUEST_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for READER_SEL_REQUEST_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("READER_SEL_REQUEST_0_1").field("cbSerialNumberOffset", &self.cbSerialNumberOffset).field("cbSerialNumberLength", &self.cbSerialNumberLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_1 {
@@ -1943,6 +2207,11 @@ impl ::core::clone::Clone for READER_SEL_RESPONSE {
         *self
     }
 }
+impl ::core::fmt::Debug for READER_SEL_RESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("READER_SEL_RESPONSE").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbCardNameOffset", &self.cbCardNameOffset).field("cchCardNameLength", &self.cchCardNameLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for READER_SEL_RESPONSE {
     type Abi = Self;
 }
@@ -1970,6 +2239,11 @@ impl ::core::marker::Copy for SCARD_ATRMASK {}
 impl ::core::clone::Clone for SCARD_ATRMASK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCARD_ATRMASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCARD_ATRMASK").field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).field("rgbMask", &self.rgbMask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCARD_ATRMASK {
@@ -2028,6 +2302,11 @@ impl ::core::marker::Copy for SCARD_IO_REQUEST {}
 impl ::core::clone::Clone for SCARD_IO_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCARD_IO_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCARD_IO_REQUEST").field("dwProtocol", &self.dwProtocol).field("cbPciLength", &self.cbPciLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCARD_IO_REQUEST {
@@ -2092,6 +2371,12 @@ impl ::core::clone::Clone for SCARD_READERSTATEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCARD_READERSTATEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCARD_READERSTATEA").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCARD_READERSTATEA {
     type Abi = Self;
 }
@@ -2126,6 +2411,12 @@ impl ::core::marker::Copy for SCARD_READERSTATEW {}
 impl ::core::clone::Clone for SCARD_READERSTATEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCARD_READERSTATEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCARD_READERSTATEW").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2243,6 +2534,11 @@ impl ::core::clone::Clone for SCARD_T0_COMMAND {
         *self
     }
 }
+impl ::core::fmt::Debug for SCARD_T0_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCARD_T0_COMMAND").field("bCla", &self.bCla).field("bIns", &self.bIns).field("bP1", &self.bP1).field("bP2", &self.bP2).field("bP3", &self.bP3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCARD_T0_COMMAND {
     type Abi = Self;
 }
@@ -2271,6 +2567,11 @@ impl ::core::marker::Copy for SCARD_T0_REQUEST {}
 impl ::core::clone::Clone for SCARD_T0_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCARD_T0_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCARD_T0_REQUEST").field("ioRequest", &self.ioRequest).field("bSw1", &self.bSw1).field("bSw2", &self.bSw2).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST {
@@ -2330,6 +2631,11 @@ impl ::core::marker::Copy for SCARD_T1_REQUEST {}
 impl ::core::clone::Clone for SCARD_T1_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCARD_T1_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCARD_T1_REQUEST").field("ioRequest", &self.ioRequest).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCARD_T1_REQUEST {
@@ -3497,6 +3803,11 @@ impl ::core::clone::Clone for SecHandle {
         *self
     }
 }
+impl ::core::fmt::Debug for SecHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SecHandle").field("dwLower", &self.dwLower).field("dwUpper", &self.dwUpper).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SecHandle {
     type Abi = Self;
 }
@@ -3521,6 +3832,11 @@ impl ::core::marker::Copy for SecPkgContext_ClientCreds {}
 impl ::core::clone::Clone for SecPkgContext_ClientCreds {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SecPkgContext_ClientCreds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SecPkgContext_ClientCreds").field("AuthBufferLen", &self.AuthBufferLen).field("AuthBuffer", &self.AuthBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SecPkgContext_ClientCreds {
@@ -3549,6 +3865,12 @@ impl ::core::marker::Copy for USERNAME_TARGET_CREDENTIAL_INFO {}
 impl ::core::clone::Clone for USERNAME_TARGET_CREDENTIAL_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USERNAME_TARGET_CREDENTIAL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USERNAME_TARGET_CREDENTIAL_INFO").field("UserName", &self.UserName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

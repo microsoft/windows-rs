@@ -89,6 +89,12 @@ impl ::core::clone::Clone for CHAR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHAR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHAR_INFO").field("Char", &self.Char).field("Attributes", &self.Attributes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHAR_INFO {
     type Abi = Self;
 }
@@ -171,6 +177,12 @@ impl ::core::clone::Clone for CONSOLE_CURSOR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONSOLE_CURSOR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_CURSOR_INFO").field("dwSize", &self.dwSize).field("bVisible", &self.bVisible).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONSOLE_CURSOR_INFO {
     type Abi = Self;
 }
@@ -198,6 +210,11 @@ impl ::core::marker::Copy for CONSOLE_FONT_INFO {}
 impl ::core::clone::Clone for CONSOLE_FONT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLE_FONT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_FONT_INFO").field("nFont", &self.nFont).field("dwFontSize", &self.dwFontSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONSOLE_FONT_INFO {
@@ -228,6 +245,11 @@ impl ::core::marker::Copy for CONSOLE_FONT_INFOEX {}
 impl ::core::clone::Clone for CONSOLE_FONT_INFOEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLE_FONT_INFOEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_FONT_INFOEX").field("cbSize", &self.cbSize).field("nFont", &self.nFont).field("dwFontSize", &self.dwFontSize).field("FontFamily", &self.FontFamily).field("FontWeight", &self.FontWeight).field("FaceName", &self.FaceName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONSOLE_FONT_INFOEX {
@@ -262,6 +284,11 @@ impl ::core::marker::Copy for CONSOLE_HISTORY_INFO {}
 impl ::core::clone::Clone for CONSOLE_HISTORY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLE_HISTORY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_HISTORY_INFO").field("cbSize", &self.cbSize).field("HistoryBufferSize", &self.HistoryBufferSize).field("NumberOfHistoryBuffers", &self.NumberOfHistoryBuffers).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONSOLE_HISTORY_INFO {
@@ -330,6 +357,11 @@ impl ::core::clone::Clone for CONSOLE_READCONSOLE_CONTROL {
         *self
     }
 }
+impl ::core::fmt::Debug for CONSOLE_READCONSOLE_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_READCONSOLE_CONTROL").field("nLength", &self.nLength).field("nInitialChars", &self.nInitialChars).field("dwCtrlWakeupMask", &self.dwCtrlWakeupMask).field("dwControlKeyState", &self.dwControlKeyState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CONSOLE_READCONSOLE_CONTROL {
     type Abi = Self;
 }
@@ -357,6 +389,11 @@ impl ::core::marker::Copy for CONSOLE_SCREEN_BUFFER_INFO {}
 impl ::core::clone::Clone for CONSOLE_SCREEN_BUFFER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_SCREEN_BUFFER_INFO").field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONSOLE_SCREEN_BUFFER_INFO {
@@ -396,6 +433,12 @@ impl ::core::clone::Clone for CONSOLE_SCREEN_BUFFER_INFOEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFOEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_SCREEN_BUFFER_INFOEX").field("cbSize", &self.cbSize).field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).field("wPopupAttributes", &self.wPopupAttributes).field("bFullscreenSupported", &self.bFullscreenSupported).field("ColorTable", &self.ColorTable).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONSOLE_SCREEN_BUFFER_INFOEX {
     type Abi = Self;
 }
@@ -424,6 +467,11 @@ impl ::core::marker::Copy for CONSOLE_SELECTION_INFO {}
 impl ::core::clone::Clone for CONSOLE_SELECTION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLE_SELECTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_SELECTION_INFO").field("dwFlags", &self.dwFlags).field("dwSelectionAnchor", &self.dwSelectionAnchor).field("srSelection", &self.srSelection).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONSOLE_SELECTION_INFO {
@@ -458,6 +506,11 @@ impl ::core::marker::Copy for COORD {}
 impl ::core::clone::Clone for COORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COORD").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COORD {
@@ -577,6 +630,12 @@ impl ::core::marker::Copy for FOCUS_EVENT_RECORD {}
 impl ::core::clone::Clone for FOCUS_EVENT_RECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FOCUS_EVENT_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FOCUS_EVENT_RECORD").field("bSetFocus", &self.bSetFocus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1257,6 +1316,12 @@ impl ::core::clone::Clone for INPUT_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INPUT_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INPUT_RECORD").field("EventType", &self.EventType).field("Event", &self.Event).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INPUT_RECORD {
     type Abi = Self;
 }
@@ -1332,6 +1397,12 @@ impl ::core::clone::Clone for KEY_EVENT_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for KEY_EVENT_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEY_EVENT_RECORD").field("bKeyDown", &self.bKeyDown).field("wRepeatCount", &self.wRepeatCount).field("wVirtualKeyCode", &self.wVirtualKeyCode).field("wVirtualScanCode", &self.wVirtualScanCode).field("uChar", &self.uChar).field("dwControlKeyState", &self.dwControlKeyState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KEY_EVENT_RECORD {
     type Abi = Self;
 }
@@ -1399,6 +1470,11 @@ impl ::core::clone::Clone for MENU_EVENT_RECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for MENU_EVENT_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENU_EVENT_RECORD").field("dwCommandId", &self.dwCommandId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MENU_EVENT_RECORD {
     type Abi = Self;
 }
@@ -1427,6 +1503,11 @@ impl ::core::marker::Copy for MOUSE_EVENT_RECORD {}
 impl ::core::clone::Clone for MOUSE_EVENT_RECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MOUSE_EVENT_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSE_EVENT_RECORD").field("dwMousePosition", &self.dwMousePosition).field("dwButtonState", &self.dwButtonState).field("dwControlKeyState", &self.dwControlKeyState).field("dwEventFlags", &self.dwEventFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MOUSE_EVENT_RECORD {
@@ -1671,6 +1752,11 @@ impl ::core::marker::Copy for SMALL_RECT {}
 impl ::core::clone::Clone for SMALL_RECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SMALL_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMALL_RECT").field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SMALL_RECT {
@@ -2036,6 +2122,11 @@ impl ::core::marker::Copy for WINDOW_BUFFER_SIZE_RECORD {}
 impl ::core::clone::Clone for WINDOW_BUFFER_SIZE_RECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINDOW_BUFFER_SIZE_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINDOW_BUFFER_SIZE_RECORD").field("dwSize", &self.dwSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINDOW_BUFFER_SIZE_RECORD {

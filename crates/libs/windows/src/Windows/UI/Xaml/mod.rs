@@ -1991,6 +1991,11 @@ impl ::core::clone::Clone for CornerRadius {
         *self
     }
 }
+impl ::core::fmt::Debug for CornerRadius {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CornerRadius").field("TopLeft", &self.TopLeft).field("TopRight", &self.TopRight).field("BottomRight", &self.BottomRight).field("BottomLeft", &self.BottomLeft).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CornerRadius {
     type Abi = Self;
 }
@@ -4463,6 +4468,12 @@ impl ::core::marker::Copy for Duration {}
 impl ::core::clone::Clone for Duration {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for Duration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Duration").field("TimeSpan", &self.TimeSpan).field("Type", &self.Type).finish()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -7192,6 +7203,11 @@ impl ::core::marker::Copy for GridLength {}
 impl ::core::clone::Clone for GridLength {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GridLength {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GridLength").field("Value", &self.Value).field("GridUnitType", &self.GridUnitType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GridLength {
@@ -14652,6 +14668,11 @@ impl ::core::marker::Copy for Thickness {}
 impl ::core::clone::Clone for Thickness {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Thickness {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Thickness").field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Thickness {

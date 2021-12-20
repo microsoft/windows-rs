@@ -65,6 +65,12 @@ impl ::core::clone::Clone for DIAG_SOCKADDR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAG_SOCKADDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAG_SOCKADDR").field("family", &self.family).field("data", &self.data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIAG_SOCKADDR {
     type Abi = Self;
 }
@@ -92,6 +98,11 @@ impl ::core::marker::Copy for DiagnosticsInfo {}
 impl ::core::clone::Clone for DiagnosticsInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DiagnosticsInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DiagnosticsInfo").field("cost", &self.cost).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DiagnosticsInfo {
@@ -122,6 +133,12 @@ impl ::core::marker::Copy for HELPER_ATTRIBUTE {}
 impl ::core::clone::Clone for HELPER_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HELPER_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HELPER_ATTRIBUTE").field("pwszName", &self.pwszName).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -205,6 +222,12 @@ impl ::core::clone::Clone for HYPOTHESIS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HYPOTHESIS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYPOTHESIS").field("pwszClassName", &self.pwszClassName).field("pwszDescription", &self.pwszDescription).field("celt", &self.celt).field("rgAttributes", &self.rgAttributes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HYPOTHESIS {
     type Abi = Self;
 }
@@ -238,6 +261,12 @@ impl ::core::clone::Clone for HelperAttributeInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HelperAttributeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HelperAttributeInfo").field("pwszName", &self.pwszName).field("type", &self.r#type).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HelperAttributeInfo {
     type Abi = Self;
 }
@@ -268,6 +297,12 @@ impl ::core::marker::Copy for HypothesisResult {}
 impl ::core::clone::Clone for HypothesisResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HypothesisResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HypothesisResult").field("hypothesis", &self.hypothesis).field("pathStatus", &self.pathStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -692,6 +727,12 @@ impl ::core::clone::Clone for LIFE_TIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LIFE_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIFE_TIME").field("startTime", &self.startTime).field("endTime", &self.endTime).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LIFE_TIME {
     type Abi = Self;
 }
@@ -984,6 +1025,11 @@ impl ::core::clone::Clone for OCTET_STRING {
         *self
     }
 }
+impl ::core::fmt::Debug for OCTET_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OCTET_STRING").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OCTET_STRING {
     type Abi = Self;
 }
@@ -1098,6 +1144,12 @@ impl ::core::clone::Clone for RepairInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RepairInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RepairInfo").field("guid", &self.guid).field("pwszClassName", &self.pwszClassName).field("pwszDescription", &self.pwszDescription).field("sidType", &self.sidType).field("cost", &self.cost).field("flags", &self.flags).field("scope", &self.scope).field("risk", &self.risk).field("UiInfo", &self.UiInfo).field("rootCauseIndex", &self.rootCauseIndex).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RepairInfo {
     type Abi = Self;
 }
@@ -1128,6 +1180,12 @@ impl ::core::marker::Copy for RepairInfoEx {}
 impl ::core::clone::Clone for RepairInfoEx {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RepairInfoEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RepairInfoEx").field("repair", &self.repair).field("repairRank", &self.repairRank).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1168,6 +1226,12 @@ impl ::core::clone::Clone for RootCauseInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RootCauseInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RootCauseInfo").field("pwszDescription", &self.pwszDescription).field("rootCauseID", &self.rootCauseID).field("rootCauseFlags", &self.rootCauseFlags).field("networkInterfaceID", &self.networkInterfaceID).field("pRepairs", &self.pRepairs).field("repairCount", &self.repairCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RootCauseInfo {
     type Abi = Self;
 }
@@ -1201,6 +1265,12 @@ impl ::core::marker::Copy for ShellCommandInfo {}
 impl ::core::clone::Clone for ShellCommandInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ShellCommandInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ShellCommandInfo").field("pwszOperation", &self.pwszOperation).field("pwszFile", &self.pwszFile).field("pwszParameters", &self.pwszParameters).field("pwszDirectory", &self.pwszDirectory).field("nShowCmd", &self.nShowCmd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1246,6 +1316,12 @@ impl ::core::marker::Copy for UiInfo {}
 impl ::core::clone::Clone for UiInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UiInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiInfo").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

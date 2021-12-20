@@ -121,6 +121,11 @@ impl ::core::clone::Clone for CrossSlideThresholds {
         *self
     }
 }
+impl ::core::fmt::Debug for CrossSlideThresholds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CrossSlideThresholds").field("SelectionStart", &self.SelectionStart).field("SpeedBumpStart", &self.SpeedBumpStart).field("SpeedBumpEnd", &self.SpeedBumpEnd).field("RearrangeStart", &self.RearrangeStart).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CrossSlideThresholds {
     type Abi = Self;
 }
@@ -3570,6 +3575,12 @@ impl ::core::clone::Clone for ManipulationDelta {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for ManipulationDelta {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ManipulationDelta").field("Translation", &self.Translation).field("Scale", &self.Scale).field("Rotation", &self.Rotation).field("Expansion", &self.Expansion).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for ManipulationDelta {
     type Abi = Self;
 }
@@ -3956,6 +3967,12 @@ impl ::core::marker::Copy for ManipulationVelocities {}
 impl ::core::clone::Clone for ManipulationVelocities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for ManipulationVelocities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ManipulationVelocities").field("Linear", &self.Linear).field("Angular", &self.Angular).field("Expansion", &self.Expansion).finish()
     }
 }
 #[cfg(feature = "Foundation")]

@@ -228,6 +228,12 @@ impl ::core::clone::Clone for IsolatedAppLauncherTelemetryParameters {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IsolatedAppLauncherTelemetryParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IsolatedAppLauncherTelemetryParameters").field("EnableForLaunch", &self.EnableForLaunch).field("CorrelationGUID", &self.CorrelationGUID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IsolatedAppLauncherTelemetryParameters {
     type Abi = Self;
 }

@@ -339,6 +339,11 @@ impl ::core::clone::Clone for MMTIME {
         *self
     }
 }
+impl ::core::fmt::Debug for MMTIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMTIME").field("wType", &self.wType).field("u", &self.u).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MMTIME {
     type Abi = Self;
 }
@@ -394,6 +399,11 @@ impl ::core::clone::Clone for MMTIME_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for MMTIME_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMTIME_0_0").field("songptrpos", &self.songptrpos).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MMTIME_0_0 {
     type Abi = Self;
 }
@@ -423,6 +433,11 @@ impl ::core::marker::Copy for MMTIME_0_1 {}
 impl ::core::clone::Clone for MMTIME_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MMTIME_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMTIME_0_1").field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).field("frame", &self.frame).field("fps", &self.fps).field("dummy", &self.dummy).field("pad", &self.pad).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MMTIME_0_1 {
@@ -549,6 +564,11 @@ impl ::core::clone::Clone for TIMECAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for TIMECAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TIMECAPS").field("wPeriodMin", &self.wPeriodMin).field("wPeriodMax", &self.wPeriodMax).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TIMECAPS {
     type Abi = Self;
 }
@@ -602,6 +622,11 @@ impl ::core::clone::Clone for TIMECODE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TIMECODE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TIMECODE_0").field("wFrameRate", &self.wFrameRate).field("wFrameFract", &self.wFrameFract).field("dwFrames", &self.dwFrames).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TIMECODE_0 {
     type Abi = Self;
 }
@@ -628,6 +653,11 @@ impl ::core::marker::Copy for TIMECODE_SAMPLE {}
 impl ::core::clone::Clone for TIMECODE_SAMPLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TIMECODE_SAMPLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TIMECODE_SAMPLE").field("qwTick", &self.qwTick).field("timecode", &self.timecode).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TIMECODE_SAMPLE {

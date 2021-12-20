@@ -1545,6 +1545,11 @@ impl ::core::clone::Clone for MILMatrixF {
         *self
     }
 }
+impl ::core::fmt::Debug for MILMatrixF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MILMatrixF").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MILMatrixF {
     type Abi = Self;
 }
@@ -1569,6 +1574,11 @@ impl ::core::marker::Copy for MilPoint2D {}
 impl ::core::clone::Clone for MilPoint2D {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MilPoint2D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MilPoint2D").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MilPoint2D {
@@ -1597,6 +1607,11 @@ impl ::core::marker::Copy for MilRectD {}
 impl ::core::clone::Clone for MilRectD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MilRectD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MilRectD").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MilRectD {

@@ -4588,6 +4588,11 @@ impl ::core::clone::Clone for GeneratorPosition {
         *self
     }
 }
+impl ::core::fmt::Debug for GeneratorPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GeneratorPosition").field("Index", &self.Index).field("Offset", &self.Offset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GeneratorPosition {
     type Abi = Self;
 }

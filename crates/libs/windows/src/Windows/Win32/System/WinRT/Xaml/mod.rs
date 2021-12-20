@@ -1162,6 +1162,11 @@ impl ::core::clone::Clone for TrackerHandle__ {
         *self
     }
 }
+impl ::core::fmt::Debug for TrackerHandle__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TrackerHandle__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TrackerHandle__ {
     type Abi = Self;
 }

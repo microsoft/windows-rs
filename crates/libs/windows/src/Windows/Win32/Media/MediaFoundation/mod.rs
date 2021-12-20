@@ -48,6 +48,11 @@ impl ::core::clone::Clone for ASF_FLAT_PICTURE {
         *self
     }
 }
+impl ::core::fmt::Debug for ASF_FLAT_PICTURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASF_FLAT_PICTURE").field("bPictureType", &self.bPictureType).field("dwDataLen", &self.dwDataLen).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ASF_FLAT_PICTURE {
     type Abi = Self;
 }
@@ -73,6 +78,11 @@ impl ::core::marker::Copy for ASF_FLAT_SYNCHRONISED_LYRICS {}
 impl ::core::clone::Clone for ASF_FLAT_SYNCHRONISED_LYRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ASF_FLAT_SYNCHRONISED_LYRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASF_FLAT_SYNCHRONISED_LYRICS").field("bTimeStampFormat", &self.bTimeStampFormat).field("bContentType", &self.bContentType).field("dwLyricsLen", &self.dwLyricsLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ASF_FLAT_SYNCHRONISED_LYRICS {
@@ -103,6 +113,11 @@ impl ::core::clone::Clone for ASF_INDEX_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for ASF_INDEX_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASF_INDEX_DESCRIPTOR").field("Identifier", &self.Identifier).field("cPerEntryBytes", &self.cPerEntryBytes).field("szDescription", &self.szDescription).field("dwInterval", &self.dwInterval).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ASF_INDEX_DESCRIPTOR {
     type Abi = Self;
 }
@@ -129,6 +144,11 @@ impl ::core::clone::Clone for ASF_INDEX_IDENTIFIER {
         *self
     }
 }
+impl ::core::fmt::Debug for ASF_INDEX_IDENTIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASF_INDEX_IDENTIFIER").field("guidIndexType", &self.guidIndexType).field("wStreamNumber", &self.wStreamNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ASF_INDEX_IDENTIFIER {
     type Abi = Self;
 }
@@ -153,6 +173,11 @@ impl ::core::marker::Copy for ASF_MUX_STATISTICS {}
 impl ::core::clone::Clone for ASF_MUX_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ASF_MUX_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASF_MUX_STATISTICS").field("cFramesWritten", &self.cFramesWritten).field("cFramesDropped", &self.cFramesDropped).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ASF_MUX_STATISTICS {
@@ -216,6 +241,31 @@ impl ::core::marker::Copy for AecQualityMetrics_Struct {}
 impl ::core::clone::Clone for AecQualityMetrics_Struct {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AecQualityMetrics_Struct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AecQualityMetrics_Struct")
+            .field("i64Timestamp", &self.i64Timestamp)
+            .field("ConvergenceFlag", &self.ConvergenceFlag)
+            .field("MicClippedFlag", &self.MicClippedFlag)
+            .field("MicSilenceFlag", &self.MicSilenceFlag)
+            .field("PstvFeadbackFlag", &self.PstvFeadbackFlag)
+            .field("SpkClippedFlag", &self.SpkClippedFlag)
+            .field("SpkMuteFlag", &self.SpkMuteFlag)
+            .field("GlitchFlag", &self.GlitchFlag)
+            .field("DoubleTalkFlag", &self.DoubleTalkFlag)
+            .field("uGlitchCount", &self.uGlitchCount)
+            .field("uMicClipCount", &self.uMicClipCount)
+            .field("fDuration", &self.fDuration)
+            .field("fTSVariance", &self.fTSVariance)
+            .field("fTSDriftRate", &self.fTSDriftRate)
+            .field("fVoiceLevel", &self.fVoiceLevel)
+            .field("fNoiseLevel", &self.fNoiseLevel)
+            .field("fERLE", &self.fERLE)
+            .field("fAvgERLE", &self.fAvgERLE)
+            .field("dwReserved", &self.dwReserved)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for AecQualityMetrics_Struct {
@@ -699,6 +749,11 @@ impl ::core::clone::Clone for CodecAPIEventData {
         *self
     }
 }
+impl ::core::fmt::Debug for CodecAPIEventData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CodecAPIEventData").field("guid", &self.guid).field("dataLength", &self.dataLength).field("reserved", &self.reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CodecAPIEventData {
     type Abi = Self;
 }
@@ -764,6 +819,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE").field("IOCoherent", &self.IOCoherent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     type Abi = Self;
 }
@@ -795,6 +856,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE").field("VideoDecoderHeapDesc", &self.VideoDecoderHeapDesc).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -830,6 +897,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1").field("VideoDecoderHeapDesc", &self.VideoDecoderHeapDesc).field("Protected", &self.Protected).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -872,6 +945,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("DecodeSample", &self.DecodeSample).field("OutputFormat", &self.OutputFormat).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("SupportFlags", &self.SupportFlags).field("ScaleSupport", &self.ScaleSupport).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     type Abi = Self;
 }
@@ -907,6 +986,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("FormatCount", &self.FormatCount).field("pOutputFormats", &self.pOutputFormats).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     type Abi = Self;
 }
@@ -935,6 +1020,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("FormatCount", &self.FormatCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
@@ -973,6 +1063,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM").field("NodeIndex", &self.NodeIndex).field("DecodeProfile", &self.DecodeProfile).field("Width", &self.Width).field("Height", &self.Height).field("DecodeFormat", &self.DecodeFormat).field("Components", &self.Components).field("BinCount", &self.BinCount).field("CounterBitDepth", &self.CounterBitDepth).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     type Abi = Self;
 }
@@ -1003,6 +1099,11 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES").field("NodeIndex", &self.NodeIndex).field("ProfileCount", &self.ProfileCount).field("pProfiles", &self.pProfiles).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     type Abi = Self;
 }
@@ -1027,6 +1128,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT").field("NodeIndex", &self.NodeIndex).field("ProfileCount", &self.ProfileCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
@@ -1054,6 +1160,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCE
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("SupportFlags", &self.SupportFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
@@ -1094,6 +1205,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("Width", &self.Width).field("Height", &self.Height).field("DecodeFormat", &self.DecodeFormat).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("SupportFlags", &self.SupportFlags).field("ConfigurationFlags", &self.ConfigurationFlags).field("DecodeTier", &self.DecodeTier).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     type Abi = Self;
 }
@@ -1125,6 +1242,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("IsSupported", &self.IsSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1164,6 +1287,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATI
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("Profile", &self.Profile).field("IsSupported", &self.IsSupported).field("CodecSupportLimits", &self.CodecSupportLimits).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     type Abi = Self;
 }
@@ -1197,6 +1326,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CON
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("Profile", &self.Profile).field("IsSupported", &self.IsSupported).field("PictureSupport", &self.PictureSupport).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1237,6 +1372,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_L
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("Profile", &self.Profile).field("Level", &self.Level).field("SubregionMode", &self.SubregionMode).field("IsSupported", &self.IsSupported).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     type Abi = Self;
 }
@@ -1269,6 +1410,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE").field("HeapDesc", &self.HeapDesc).field("IsSupported", &self.IsSupported).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1308,6 +1455,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("Profile", &self.Profile).field("Format", &self.Format).field("IsSupported", &self.IsSupported).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     type Abi = Self;
 }
@@ -1342,6 +1495,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MOD
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("Profile", &self.Profile).field("Level", &self.Level).field("IntraRefreshMode", &self.IntraRefreshMode).field("IsSupported", &self.IsSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1385,6 +1544,22 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION")
+            .field("NodeIndex", &self.NodeIndex)
+            .field("Codec", &self.Codec)
+            .field("ResolutionRatiosCount", &self.ResolutionRatiosCount)
+            .field("IsSupported", &self.IsSupported)
+            .field("MinResolutionSupported", &self.MinResolutionSupported)
+            .field("MaxResolutionSupported", &self.MaxResolutionSupported)
+            .field("ResolutionWidthMultipleRequirement", &self.ResolutionWidthMultipleRequirement)
+            .field("ResolutionHeightMultipleRequirement", &self.ResolutionHeightMultipleRequirement)
+            .field("pResolutionRatios", &self.pResolutionRatios)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     type Abi = Self;
 }
@@ -1413,6 +1588,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("ResolutionRatiosCount", &self.ResolutionRatiosCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
@@ -1446,6 +1626,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("Profile", &self.Profile).field("IsSupported", &self.IsSupported).field("MinSupportedLevel", &self.MinSupportedLevel).field("MaxSupportedLevel", &self.MaxSupportedLevel).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1484,6 +1670,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE").field("NodeIndex", &self.NodeIndex).field("Codec", &self.Codec).field("RateControlMode", &self.RateControlMode).field("IsSupported", &self.IsSupported).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     type Abi = Self;
 }
@@ -1513,6 +1705,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPOR
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS").field("MaxSubregionsNumber", &self.MaxSubregionsNumber).field("MaxIntraRefreshFrameDuration", &self.MaxIntraRefreshFrameDuration).field("SubregionBlockPixelsSize", &self.SubregionBlockPixelsSize).field("QPMapRegionPixelsSize", &self.QPMapRegionPixelsSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
@@ -1549,6 +1746,22 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREM
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS")
+            .field("NodeIndex", &self.NodeIndex)
+            .field("Codec", &self.Codec)
+            .field("Profile", &self.Profile)
+            .field("InputFormat", &self.InputFormat)
+            .field("PictureTargetResolution", &self.PictureTargetResolution)
+            .field("IsSupported", &self.IsSupported)
+            .field("CompressedBitstreamBufferAccessAlignment", &self.CompressedBitstreamBufferAccessAlignment)
+            .field("EncoderMetadataBufferAccessAlignment", &self.EncoderMetadataBufferAccessAlignment)
+            .field("MaxEncoderOutputMetadataBufferSize", &self.MaxEncoderOutputMetadataBufferSize)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1599,6 +1812,29 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT")
+            .field("NodeIndex", &self.NodeIndex)
+            .field("Codec", &self.Codec)
+            .field("InputFormat", &self.InputFormat)
+            .field("CodecConfiguration", &self.CodecConfiguration)
+            .field("CodecGopSequence", &self.CodecGopSequence)
+            .field("RateControl", &self.RateControl)
+            .field("IntraRefresh", &self.IntraRefresh)
+            .field("SubregionFrameEncoding", &self.SubregionFrameEncoding)
+            .field("ResolutionsListCount", &self.ResolutionsListCount)
+            .field("pResolutionList", &self.pResolutionList)
+            .field("MaxReferenceFramesInDPB", &self.MaxReferenceFramesInDPB)
+            .field("ValidationFlags", &self.ValidationFlags)
+            .field("SupportFlags", &self.SupportFlags)
+            .field("SuggestedProfile", &self.SuggestedProfile)
+            .field("SuggestedLevel", &self.SuggestedLevel)
+            .field("pResolutionDependentSupport", &self.pResolutionDependentSupport)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     type Abi = Self;
 }
@@ -1633,6 +1869,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS").field("NodeIndex", &self.NodeIndex).field("CommandCount", &self.CommandCount).field("pCommandInfos", &self.pCommandInfos).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     type Abi = Self;
 }
@@ -1660,6 +1902,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT").field("NodeIndex", &self.NodeIndex).field("CommandCount", &self.CommandCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
@@ -1694,6 +1941,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMET
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS").field("CommandId", &self.CommandId).field("Stage", &self.Stage).field("ParameterCount", &self.ParameterCount).field("pParameterInfos", &self.pParameterInfos).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     type Abi = Self;
 }
@@ -1723,6 +1976,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMET
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT").field("CommandId", &self.CommandId).field("Stage", &self.Stage).field("ParameterCount", &self.ParameterCount).field("ParameterPacking", &self.ParameterPacking).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
@@ -1755,6 +2013,11 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE").field("NodeIndex", &self.NodeIndex).field("CommandId", &self.CommandId).field("pCreationParameters", &self.pCreationParameters).field("CreationParametersSizeInBytes", &self.CreationParametersSizeInBytes).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     type Abi = Self;
 }
@@ -1783,6 +2046,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT").field("NodeIndex", &self.NodeIndex).field("CommandId", &self.CommandId).field("pInputData", &self.pInputData).field("InputDataSizeInBytes", &self.InputDataSizeInBytes).field("pOutputData", &self.pOutputData).field("OutputDataSizeInBytes", &self.OutputDataSizeInBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
@@ -1814,6 +2082,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT").field("NodeIndex", &self.NodeIndex).field("VideoDecodeSupport", &self.VideoDecodeSupport).field("VideoProcessSupport", &self.VideoProcessSupport).field("VideoEncodeSupport", &self.VideoEncodeSupport).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1853,6 +2127,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR").field("NodeIndex", &self.NodeIndex).field("InputFormat", &self.InputFormat).field("BlockSizeFlags", &self.BlockSizeFlags).field("PrecisionFlags", &self.PrecisionFlags).field("SizeRange", &self.SizeRange).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     type Abi = Self;
 }
@@ -1880,6 +2160,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTE
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES").field("NodeIndex", &self.NodeIndex).field("SupportFlags", &self.SupportFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
@@ -1920,6 +2205,23 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE")
+            .field("NodeIndex", &self.NodeIndex)
+            .field("InputFormat", &self.InputFormat)
+            .field("BlockSize", &self.BlockSize)
+            .field("Precision", &self.Precision)
+            .field("SizeRange", &self.SizeRange)
+            .field("Protected", &self.Protected)
+            .field("MotionVectorHeapMemoryPoolL0Size", &self.MotionVectorHeapMemoryPoolL0Size)
+            .field("MotionVectorHeapMemoryPoolL1Size", &self.MotionVectorHeapMemoryPoolL1Size)
+            .field("MotionEstimatorMemoryPoolL0Size", &self.MotionEstimatorMemoryPoolL0Size)
+            .field("MotionEstimatorMemoryPoolL1Size", &self.MotionEstimatorMemoryPoolL1Size)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     type Abi = Self;
 }
@@ -1954,6 +2256,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE").field("NodeMask", &self.NodeMask).field("pOutputStreamDesc", &self.pOutputStreamDesc).field("NumInputStreamDescs", &self.NumInputStreamDescs).field("pInputStreamDescs", &self.pInputStreamDescs).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1995,6 +2303,12 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1").field("NodeMask", &self.NodeMask).field("pOutputStreamDesc", &self.pOutputStreamDesc).field("NumInputStreamDescs", &self.NumInputStreamDescs).field("pInputStreamDescs", &self.pInputStreamDescs).field("Protected", &self.Protected).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     type Abi = Self;
 }
@@ -2024,6 +2338,11 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS").field("NodeIndex", &self.NodeIndex).field("MaxInputStreams", &self.MaxInputStreams).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     type Abi = Self;
 }
@@ -2048,6 +2367,11 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURC
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES").field("NodeIndex", &self.NodeIndex).field("SupportFlags", &self.SupportFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
@@ -2084,6 +2408,12 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO").field("NodeIndex", &self.NodeIndex).field("DeinterlaceMode", &self.DeinterlaceMode).field("Filters", &self.Filters).field("FeatureSupport", &self.FeatureSupport).field("InputFrameRate", &self.InputFrameRate).field("OutputFrameRate", &self.OutputFrameRate).field("EnableAutoProcessing", &self.EnableAutoProcessing).field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2130,6 +2460,28 @@ impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {}
 impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT")
+            .field("NodeIndex", &self.NodeIndex)
+            .field("InputSample", &self.InputSample)
+            .field("InputFieldType", &self.InputFieldType)
+            .field("InputStereoFormat", &self.InputStereoFormat)
+            .field("InputFrameRate", &self.InputFrameRate)
+            .field("OutputFormat", &self.OutputFormat)
+            .field("OutputStereoFormat", &self.OutputStereoFormat)
+            .field("OutputFrameRate", &self.OutputFrameRate)
+            .field("SupportFlags", &self.SupportFlags)
+            .field("ScaleSupport", &self.ScaleSupport)
+            .field("FeatureSupport", &self.FeatureSupport)
+            .field("DeinterlaceSupport", &self.DeinterlaceSupport)
+            .field("AutoProcessingSupport", &self.AutoProcessingSupport)
+            .field("FilterSupport", &self.FilterSupport)
+            .field("FilterRangeSupport", &self.FilterRangeSupport)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2224,6 +2576,12 @@ impl ::core::clone::Clone for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS").field("Status", &self.Status).field("NumMacroblocksAffected", &self.NumMacroblocksAffected).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     type Abi = Self;
 }
@@ -2253,6 +2611,11 @@ impl ::core::clone::Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
         Self { pMotionVectorHeap: self.pMotionVectorHeap.clone(), PixelWidth: self.PixelWidth, PixelHeight: self.PixelHeight }
     }
 }
+impl ::core::fmt::Debug for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT").field("pMotionVectorHeap", &self.pMotionVectorHeap).field("PixelWidth", &self.PixelWidth).field("PixelHeight", &self.PixelHeight).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2278,6 +2641,12 @@ pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
 impl ::core::clone::Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     fn clone(&self) -> Self {
         Self { pMotionVectorTexture2D: self.pMotionVectorTexture2D.clone(), MotionVectorCoordinate: self.MotionVectorCoordinate }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT").field("pMotionVectorTexture2D", &self.pMotionVectorTexture2D).field("MotionVectorCoordinate", &self.MotionVectorCoordinate).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2312,6 +2681,11 @@ impl ::core::clone::Clone for D3D12_RESOURCE_COORDINATE {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_RESOURCE_COORDINATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_RESOURCE_COORDINATE").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("SubresourceIndex", &self.SubresourceIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_COORDINATE {
     type Abi = Self;
 }
@@ -2336,6 +2710,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_DECODER_DESC {}
 impl ::core::clone::Clone for D3D12_VIDEO_DECODER_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODER_DESC").field("NodeMask", &self.NodeMask).field("Configuration", &self.Configuration).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODER_DESC {
@@ -2371,6 +2750,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_DECODER_HEAP_DESC {}
 impl ::core::clone::Clone for D3D12_VIDEO_DECODER_HEAP_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODER_HEAP_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODER_HEAP_DESC").field("NodeMask", &self.NodeMask).field("Configuration", &self.Configuration).field("DecodeWidth", &self.DecodeWidth).field("DecodeHeight", &self.DecodeHeight).field("Format", &self.Format).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("MaxDecodePictureBufferCount", &self.MaxDecodePictureBufferCount).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2416,6 +2801,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM").field("pBuffer", &self.pBuffer).field("Offset", &self.Offset).field("Size", &self.Size).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2444,6 +2835,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONFIGURATION {}
 impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_CONFIGURATION").field("DecodeProfile", &self.DecodeProfile).field("BitstreamEncryption", &self.BitstreamEncryption).field("InterlaceType", &self.InterlaceType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_CONFIGURATION {
@@ -2495,6 +2891,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS").field("Enable", &self.Enable).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresource", &self.ReferenceSubresource).field("OutputColorSpace", &self.OutputColorSpace).field("DecodeColorSpace", &self.DecodeColorSpace).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2539,6 +2941,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1").field("Enable", &self.Enable).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresource", &self.ReferenceSubresource).field("OutputColorSpace", &self.OutputColorSpace).field("DecodeColorSpace", &self.DecodeColorSpace).field("OutputWidth", &self.OutputWidth).field("OutputHeight", &self.OutputHeight).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2573,6 +2981,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {}
 impl ::core::clone::Clone for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_FRAME_ARGUMENT").field("Type", &self.Type).field("Size", &self.Size).field("pData", &self.pData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
@@ -2646,6 +3059,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS").field("NumFrameArguments", &self.NumFrameArguments).field("FrameArguments", &self.FrameArguments).field("ReferenceFrames", &self.ReferenceFrames).field("CompressedBitstream", &self.CompressedBitstream).field("pHeap", &self.pHeap).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2674,6 +3093,12 @@ pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
 impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     fn clone(&self) -> Self {
         Self { Offset: self.Offset, pBuffer: self.pBuffer.clone() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM").field("Offset", &self.Offset).field("pBuffer", &self.pBuffer).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2713,6 +3138,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS").field("pOutputTexture2D", &self.pOutputTexture2D).field("OutputSubresource", &self.OutputSubresource).field("ConversionArguments", &self.ConversionArguments).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2748,6 +3179,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
             ConversionArguments: self.ConversionArguments.clone(),
             Histograms: self.Histograms.clone(),
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1").field("pOutputTexture2D", &self.pOutputTexture2D).field("OutputSubresource", &self.OutputSubresource).field("ConversionArguments", &self.ConversionArguments).field("Histograms", &self.Histograms).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2803,6 +3240,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {}
 impl ::core::clone::Clone for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_DECODE_REFERENCE_FRAMES").field("NumTexture2Ds", &self.NumTexture2Ds).field("ppTexture2Ds", &self.ppTexture2Ds).field("pSubresources", &self.pSubresources).field("ppHeaps", &self.ppHeaps).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2869,6 +3312,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     type Abi = Self;
 }
@@ -2920,6 +3368,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264").field("ConfigurationFlags", &self.ConfigurationFlags).field("DirectModeConfig", &self.DirectModeConfig).field("DisableDeblockingFilterConfig", &self.DisableDeblockingFilterConfig).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
@@ -3007,6 +3460,19 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC")
+            .field("ConfigurationFlags", &self.ConfigurationFlags)
+            .field("MinLumaCodingUnitSize", &self.MinLumaCodingUnitSize)
+            .field("MaxLumaCodingUnitSize", &self.MaxLumaCodingUnitSize)
+            .field("MinLumaTransformUnitSize", &self.MinLumaTransformUnitSize)
+            .field("MaxLumaTransformUnitSize", &self.MaxLumaTransformUnitSize)
+            .field("max_transform_hierarchy_depth_inter", &self.max_transform_hierarchy_depth_inter)
+            .field("max_transform_hierarchy_depth_intra", &self.max_transform_hierarchy_depth_intra)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     type Abi = Self;
 }
@@ -3071,6 +3537,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     type Abi = Self;
 }
@@ -3123,6 +3594,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H2
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264").field("SupportFlags", &self.SupportFlags).field("DisableDeblockingFilterSupportedModes", &self.DisableDeblockingFilterSupportedModes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     type Abi = Self;
 }
@@ -3172,6 +3648,19 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HE
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC")
+            .field("SupportFlags", &self.SupportFlags)
+            .field("MinLumaCodingUnitSize", &self.MinLumaCodingUnitSize)
+            .field("MaxLumaCodingUnitSize", &self.MaxLumaCodingUnitSize)
+            .field("MinLumaTransformUnitSize", &self.MinLumaTransformUnitSize)
+            .field("MaxLumaTransformUnitSize", &self.MaxLumaTransformUnitSize)
+            .field("max_transform_hierarchy_depth_inter", &self.max_transform_hierarchy_depth_inter)
+            .field("max_transform_hierarchy_depth_intra", &self.max_transform_hierarchy_depth_intra)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     type Abi = Self;
 }
@@ -3218,6 +3707,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT 
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
@@ -3275,6 +3769,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264").field("MaxL0ReferencesForP", &self.MaxL0ReferencesForP).field("MaxL0ReferencesForB", &self.MaxL0ReferencesForB).field("MaxL1ReferencesForB", &self.MaxL1ReferencesForB).field("MaxLongTermReferences", &self.MaxLongTermReferences).field("MaxDPBCapacity", &self.MaxDPBCapacity).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     type Abi = Self;
 }
@@ -3304,6 +3803,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC").field("MaxL0ReferencesForP", &self.MaxL0ReferencesForP).field("MaxL0ReferencesForB", &self.MaxL0ReferencesForB).field("MaxL1ReferencesForB", &self.MaxL1ReferencesForB).field("MaxLongTermReferences", &self.MaxLongTermReferences).field("MaxDPBCapacity", &self.MaxDPBCapacity).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     type Abi = Self;
 }
@@ -3329,6 +3833,12 @@ pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     fn clone(&self) -> Self {
         Self { pBuffer: self.pBuffer.clone(), FrameStartOffset: self.FrameStartOffset }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM").field("pBuffer", &self.pBuffer).field("FrameStartOffset", &self.FrameStartOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3367,6 +3877,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_DESC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_DESC").field("NodeMask", &self.NodeMask).field("Flags", &self.Flags).field("EncodeCodec", &self.EncodeCodec).field("EncodeProfile", &self.EncodeProfile).field("InputFormat", &self.InputFormat).field("CodecConfiguration", &self.CodecConfiguration).field("MaxMotionEstimationPrecision", &self.MaxMotionEstimationPrecision).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3410,6 +3926,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS").field("SequenceControlDesc", &self.SequenceControlDesc).field("PictureControlDesc", &self.PictureControlDesc).field("pInputFrame", &self.pInputFrame).field("InputFrameSubresource", &self.InputFrameSubresource).field("CurrentFrameBitstreamMetadataSize", &self.CurrentFrameBitstreamMetadataSize).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3443,6 +3965,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
             ReconstructedPicture: self.ReconstructedPicture.clone(),
             EncoderOutputMetadata: self.EncoderOutputMetadata.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS").field("Bitstream", &self.Bitstream).field("ReconstructedPicture", &self.ReconstructedPicture).field("EncoderOutputMetadata", &self.EncoderOutputMetadata).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3491,6 +4019,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFF
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER").field("pBuffer", &self.pBuffer).field("Offset", &self.Offset).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3535,6 +4069,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA").field("bSize", &self.bSize).field("bStartOffset", &self.bStartOffset).field("bHeaderSize", &self.bHeaderSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
@@ -3588,6 +4127,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_HEAP_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_HEAP_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_HEAP_DESC").field("NodeMask", &self.NodeMask).field("Flags", &self.Flags).field("EncodeCodec", &self.EncodeCodec).field("EncodeProfile", &self.EncodeProfile).field("EncodeLevel", &self.EncodeLevel).field("ResolutionsListCount", &self.ResolutionsListCount).field("pResolutionList", &self.pResolutionList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_HEAP_DESC {
     type Abi = Self;
 }
@@ -3616,6 +4160,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_INTRA_REFRESH {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_INTRA_REFRESH").field("Mode", &self.Mode).field("IntraRefreshDuration", &self.IntraRefreshDuration).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
@@ -3720,6 +4269,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_LEVEL_SETTING").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     type Abi = Self;
 }
@@ -3772,6 +4326,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC").field("Level", &self.Level).field("Tier", &self.Tier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     type Abi = Self;
 }
@@ -3810,6 +4369,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_OUTPUT_METADATA").field("EncodeErrorFlags", &self.EncodeErrorFlags).field("EncodeStats", &self.EncodeStats).field("EncodedBitstreamWrittenBytesCount", &self.EncodedBitstreamWrittenBytesCount).field("WrittenSubregionsCount", &self.WrittenSubregionsCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     type Abi = Self;
 }
@@ -3840,6 +4404,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS").field("AverageQP", &self.AverageQP).field("IntraCodingUnitsCount", &self.IntraCodingUnitsCount).field("InterCodingUnitsCount", &self.InterCodingUnitsCount).field("SkipCodingUnitsCount", &self.SkipCodingUnitsCount).field("AverageMotionEstimationXDirection", &self.AverageMotionEstimationXDirection).field("AverageMotionEstimationYDirection", &self.AverageMotionEstimationYDirection).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     type Abi = Self;
 }
@@ -3867,6 +4436,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3956,6 +4531,35 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H26
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264")
+            .field("Flags", &self.Flags)
+            .field("FrameType", &self.FrameType)
+            .field("pic_parameter_set_id", &self.pic_parameter_set_id)
+            .field("idr_pic_id", &self.idr_pic_id)
+            .field("PictureOrderCountNumber", &self.PictureOrderCountNumber)
+            .field("FrameDecodingOrderNumber", &self.FrameDecodingOrderNumber)
+            .field("TemporalLayerIndex", &self.TemporalLayerIndex)
+            .field("List0ReferenceFramesCount", &self.List0ReferenceFramesCount)
+            .field("pList0ReferenceFrames", &self.pList0ReferenceFrames)
+            .field("List1ReferenceFramesCount", &self.List1ReferenceFramesCount)
+            .field("pList1ReferenceFrames", &self.pList1ReferenceFrames)
+            .field("ReferenceFramesReconPictureDescriptorsCount", &self.ReferenceFramesReconPictureDescriptorsCount)
+            .field("pReferenceFramesReconPictureDescriptors", &self.pReferenceFramesReconPictureDescriptors)
+            .field("adaptive_ref_pic_marking_mode_flag", &self.adaptive_ref_pic_marking_mode_flag)
+            .field("RefPicMarkingOperationsCommandsCount", &self.RefPicMarkingOperationsCommandsCount)
+            .field("pRefPicMarkingOperationsCommands", &self.pRefPicMarkingOperationsCommands)
+            .field("List0RefPicModificationsCount", &self.List0RefPicModificationsCount)
+            .field("pList0RefPicModifications", &self.pList0RefPicModifications)
+            .field("List1RefPicModificationsCount", &self.List1RefPicModificationsCount)
+            .field("pList1RefPicModifications", &self.pList1RefPicModifications)
+            .field("QPMapValuesCount", &self.QPMapValuesCount)
+            .field("pRateControlQPMap", &self.pRateControlQPMap)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     type Abi = Self;
 }
@@ -3992,6 +4596,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H26
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION").field("modification_of_pic_nums_idc", &self.modification_of_pic_nums_idc).field("abs_diff_pic_num_minus1", &self.abs_diff_pic_num_minus1).field("long_term_pic_num", &self.long_term_pic_num).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     type Abi = Self;
 }
@@ -4019,6 +4628,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H26
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION").field("memory_management_control_operation", &self.memory_management_control_operation).field("difference_of_pic_nums_minus1", &self.difference_of_pic_nums_minus1).field("long_term_pic_num", &self.long_term_pic_num).field("long_term_frame_idx", &self.long_term_frame_idx).field("max_long_term_frame_idx_plus1", &self.max_long_term_frame_idx_plus1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
@@ -4066,6 +4680,30 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEV
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC")
+            .field("Flags", &self.Flags)
+            .field("FrameType", &self.FrameType)
+            .field("slice_pic_parameter_set_id", &self.slice_pic_parameter_set_id)
+            .field("PictureOrderCountNumber", &self.PictureOrderCountNumber)
+            .field("TemporalLayerIndex", &self.TemporalLayerIndex)
+            .field("List0ReferenceFramesCount", &self.List0ReferenceFramesCount)
+            .field("pList0ReferenceFrames", &self.pList0ReferenceFrames)
+            .field("List1ReferenceFramesCount", &self.List1ReferenceFramesCount)
+            .field("pList1ReferenceFrames", &self.pList1ReferenceFrames)
+            .field("ReferenceFramesReconPictureDescriptorsCount", &self.ReferenceFramesReconPictureDescriptorsCount)
+            .field("pReferenceFramesReconPictureDescriptors", &self.pReferenceFramesReconPictureDescriptors)
+            .field("List0RefPicModificationsCount", &self.List0RefPicModificationsCount)
+            .field("pList0RefPicModifications", &self.pList0RefPicModifications)
+            .field("List1RefPicModificationsCount", &self.List1RefPicModificationsCount)
+            .field("pList1RefPicModifications", &self.pList1RefPicModifications)
+            .field("QPMapValuesCount", &self.QPMapValuesCount)
+            .field("pRateControlQPMap", &self.pRateControlQPMap)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     type Abi = Self;
 }
@@ -4107,6 +4745,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC").field("IntraRefreshFrameIndex", &self.IntraRefreshFrameIndex).field("Flags", &self.Flags).field("PictureControlCodecData", &self.PictureControlCodecData).field("ReferenceFrames", &self.ReferenceFrames).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     type Abi = Self;
 }
@@ -4140,6 +4784,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAY
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
@@ -4191,6 +4840,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAY
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
@@ -4247,6 +4901,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC").field("Width", &self.Width).field("Height", &self.Height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     type Abi = Self;
 }
@@ -4273,6 +4932,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC 
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC").field("WidthRatio", &self.WidthRatio).field("HeightRatio", &self.HeightRatio).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     type Abi = Self;
 }
@@ -4297,6 +4961,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PROFILE_DESC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PROFILE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_PROFILE_DESC").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PROFILE_DESC {
@@ -4371,6 +5040,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL").field("Mode", &self.Mode).field("Flags", &self.Flags).field("ConfigParams", &self.ConfigParams).field("TargetFrameRate", &self.TargetFrameRate).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     type Abi = Self;
 }
@@ -4405,6 +5080,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetBitRate", &self.TargetBitRate).field("VBVCapacity", &self.VBVCapacity).field("InitialVBVFullness", &self.InitialVBVFullness).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     type Abi = Self;
 }
@@ -4429,6 +5109,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PAR
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
@@ -4484,6 +5169,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP").field("ConstantQP_FullIntracodedFrame", &self.ConstantQP_FullIntracodedFrame).field("ConstantQP_InterPredictedFrame_PrevRefOnly", &self.ConstantQP_InterPredictedFrame_PrevRefOnly).field("ConstantQP_InterPredictedFrame_BiDirectionalRef", &self.ConstantQP_InterPredictedFrame_BiDirectionalRef).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
@@ -4545,6 +5235,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetAvgBitRate", &self.TargetAvgBitRate).field("PeakBitRate", &self.PeakBitRate).field("ConstantQualityTarget", &self.ConstantQualityTarget).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     type Abi = Self;
 }
@@ -4577,6 +5272,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetAvgBitRate", &self.TargetAvgBitRate).field("PeakBitRate", &self.PeakBitRate).field("VBVCapacity", &self.VBVCapacity).field("InitialVBVFullness", &self.InitialVBVFullness).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     type Abi = Self;
 }
@@ -4602,6 +5302,12 @@ pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     fn clone(&self) -> Self {
         Self { pReconstructedPicture: self.pReconstructedPicture.clone(), ReconstructedPictureSubresource: self.ReconstructedPictureSubresource }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE").field("pReconstructedPicture", &self.pReconstructedPicture).field("ReconstructedPictureSubresource", &self.ReconstructedPictureSubresource).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4642,6 +5348,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264").field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex).field("IsLongTermReference", &self.IsLongTermReference).field("LongTermPictureIdx", &self.LongTermPictureIdx).field("PictureOrderCountNumber", &self.PictureOrderCountNumber).field("FrameDecodingOrderNumber", &self.FrameDecodingOrderNumber).field("TemporalLayerIndex", &self.TemporalLayerIndex).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     type Abi = Self;
 }
@@ -4675,6 +5387,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC").field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex).field("IsRefUsedByCurrentPic", &self.IsRefUsedByCurrentPic).field("IsLongTermReference", &self.IsLongTermReference).field("PictureOrderCountNumber", &self.PictureOrderCountNumber).field("TemporalLayerIndex", &self.TemporalLayerIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4718,6 +5436,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMEN
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS").field("EncoderCodec", &self.EncoderCodec).field("EncoderProfile", &self.EncoderProfile).field("EncoderInputFormat", &self.EncoderInputFormat).field("EncodedPictureEffectiveResolution", &self.EncodedPictureEffectiveResolution).field("HWLayoutMetadata", &self.HWLayoutMetadata).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -4745,6 +5469,12 @@ pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     fn clone(&self) -> Self {
         Self { ResolvedLayoutMetadata: self.ResolvedLayoutMetadata.clone() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS").field("ResolvedLayoutMetadata", &self.ResolvedLayoutMetadata).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4783,6 +5513,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC").field("Flags", &self.Flags).field("IntraRefreshConfig", &self.IntraRefreshConfig).field("RateControl", &self.RateControl).field("PictureTargetResolution", &self.PictureTargetResolution).field("SelectedLayoutMode", &self.SelectedLayoutMode).field("FrameSubregionsLayoutData", &self.FrameSubregionsLayoutData).field("CodecGopSequence", &self.CodecGopSequence).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4827,6 +5563,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE").field("DataSize", &self.DataSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
@@ -4884,6 +5625,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264").field("GOPLength", &self.GOPLength).field("PPicturePeriod", &self.PPicturePeriod).field("pic_order_cnt_type", &self.pic_order_cnt_type).field("log2_max_frame_num_minus4", &self.log2_max_frame_num_minus4).field("log2_max_pic_order_cnt_lsb_minus4", &self.log2_max_pic_order_cnt_lsb_minus4).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     type Abi = Self;
 }
@@ -4909,6 +5655,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC").field("GOPLength", &self.GOPLength).field("PPicturePeriod", &self.PPicturePeriod).field("log2_max_pic_order_cnt_lsb_minus4", &self.log2_max_pic_order_cnt_lsb_minus4).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
@@ -5000,6 +5751,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_ENCODE_REFERENCE_FRAMES").field("NumTexture2Ds", &self.NumTexture2Ds).field("ppTexture2Ds", &self.ppTexture2Ds).field("pSubresources", &self.pSubresources).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     type Abi = Self;
 }
@@ -5027,6 +5784,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_DESC {}
 impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_EXTENSION_COMMAND_DESC").field("NodeMask", &self.NodeMask).field("CommandId", &self.CommandId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
@@ -5057,6 +5819,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_INFO {}
 impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_EXTENSION_COMMAND_INFO").field("CommandId", &self.CommandId).field("Name", &self.Name).field("CommandListSupportFlags", &self.CommandListSupportFlags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -5099,6 +5867,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {}
 impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO").field("Name", &self.Name).field("Type", &self.Type).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5183,6 +5957,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_FORMAT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_VIDEO_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_FORMAT").field("Format", &self.Format).field("ColorSpace", &self.ColorSpace).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_FORMAT {
     type Abi = Self;
 }
@@ -5237,6 +6017,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_DESC").field("NodeMask", &self.NodeMask).field("InputFormat", &self.InputFormat).field("BlockSize", &self.BlockSize).field("Precision", &self.Precision).field("SizeRange", &self.SizeRange).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     type Abi = Self;
 }
@@ -5277,6 +6063,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_INPUT").field("pInputTexture2D", &self.pInputTexture2D).field("InputSubresourceIndex", &self.InputSubresourceIndex).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresourceIndex", &self.ReferenceSubresourceIndex).field("pHintMotionVectorHeap", &self.pHintMotionVectorHeap).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -5302,6 +6094,11 @@ pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
 impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     fn clone(&self) -> Self {
         Self { pMotionVectorHeap: self.pMotionVectorHeap.clone() }
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT").field("pMotionVectorHeap", &self.pMotionVectorHeap).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
@@ -5361,6 +6158,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC").field("NodeMask", &self.NodeMask).field("InputFormat", &self.InputFormat).field("BlockSize", &self.BlockSize).field("Precision", &self.Precision).field("SizeRange", &self.SizeRange).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     type Abi = Self;
 }
@@ -5391,6 +6194,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {}
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_ALPHA_BLENDING").field("Enable", &self.Enable).field("Alpha", &self.Alpha).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5521,6 +6330,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_FILTER_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_FILTER_RANGE").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("Default", &self.Default).field("Multiplier", &self.Multiplier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_FILTER_RANGE {
     type Abi = Self;
 }
@@ -5547,6 +6361,12 @@ pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM {
     fn clone(&self) -> Self {
         Self { pTexture2D: self.pTexture2D.clone(), Subresource: self.Subresource, ReferenceSet: self.ReferenceSet }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM").field("pTexture2D", &self.pTexture2D).field("Subresource", &self.Subresource).field("ReferenceSet", &self.ReferenceSet).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5592,6 +6412,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS").field("InputStream", &self.InputStream).field("Transform", &self.Transform).field("Flags", &self.Flags).field("RateInfo", &self.RateInfo).field("FilterLevels", &self.FilterLevels).field("AlphaBlending", &self.AlphaBlending).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -5633,6 +6459,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
             AlphaBlending: self.AlphaBlending,
             FieldType: self.FieldType,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1").field("InputStream", &self.InputStream).field("Transform", &self.Transform).field("Flags", &self.Flags).field("RateInfo", &self.RateInfo).field("FilterLevels", &self.FilterLevels).field("AlphaBlending", &self.AlphaBlending).field("FieldType", &self.FieldType).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -5684,6 +6516,30 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC")
+            .field("Format", &self.Format)
+            .field("ColorSpace", &self.ColorSpace)
+            .field("SourceAspectRatio", &self.SourceAspectRatio)
+            .field("DestinationAspectRatio", &self.DestinationAspectRatio)
+            .field("FrameRate", &self.FrameRate)
+            .field("SourceSizeRange", &self.SourceSizeRange)
+            .field("DestinationSizeRange", &self.DestinationSizeRange)
+            .field("EnableOrientation", &self.EnableOrientation)
+            .field("FilterFlags", &self.FilterFlags)
+            .field("StereoFormat", &self.StereoFormat)
+            .field("FieldType", &self.FieldType)
+            .field("DeinterlaceMode", &self.DeinterlaceMode)
+            .field("EnableAlphaBlending", &self.EnableAlphaBlending)
+            .field("LumaKey", &self.LumaKey)
+            .field("NumPastFrames", &self.NumPastFrames)
+            .field("NumFutureFrames", &self.NumFutureFrames)
+            .field("EnableAutoProcessing", &self.EnableAutoProcessing)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     type Abi = Self;
 }
@@ -5721,6 +6577,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE").field("OutputIndex", &self.OutputIndex).field("InputFrameOrField", &self.InputFrameOrField).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     type Abi = Self;
 }
@@ -5749,6 +6610,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_LUMA_KEY {}
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_LUMA_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_LUMA_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_LUMA_KEY").field("Enable", &self.Enable).field("Lower", &self.Lower).field("Upper", &self.Upper).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5801,6 +6668,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_OUTPUT_STREAM").field("pTexture2D", &self.pTexture2D).field("Subresource", &self.Subresource).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -5829,6 +6702,12 @@ pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     fn clone(&self) -> Self {
         Self { OutputStream: self.OutputStream.clone(), TargetRectangle: self.TargetRectangle }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS").field("OutputStream", &self.OutputStream).field("TargetRectangle", &self.TargetRectangle).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -5870,6 +6749,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC").field("Format", &self.Format).field("ColorSpace", &self.ColorSpace).field("AlphaFillMode", &self.AlphaFillMode).field("AlphaFillModeSourceStreamIndex", &self.AlphaFillModeSourceStreamIndex).field("BackgroundColor", &self.BackgroundColor).field("FrameRate", &self.FrameRate).field("EnableStereo", &self.EnableStereo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     type Abi = Self;
 }
@@ -5904,6 +6789,12 @@ impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_REFERENCE_SET {}
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_REFERENCE_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_REFERENCE_SET").field("NumPastFrames", &self.NumPastFrames).field("ppPastFrames", &self.ppPastFrames).field("pPastSubresources", &self.pPastSubresources).field("NumFutureFrames", &self.NumFutureFrames).field("ppFutureFrames", &self.ppFutureFrames).field("pFutureSubresources", &self.pFutureSubresources).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5947,6 +6838,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_TRANSFORM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_TRANSFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_PROCESS_TRANSFORM").field("SourceRectangle", &self.SourceRectangle).field("DestinationRectangle", &self.DestinationRectangle).field("Orientation", &self.Orientation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_TRANSFORM {
     type Abi = Self;
 }
@@ -5987,6 +6884,12 @@ impl ::core::clone::Clone for D3D12_VIDEO_SAMPLE {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D12_VIDEO_SAMPLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_SAMPLE").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_SAMPLE {
     type Abi = Self;
 }
@@ -6014,6 +6917,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_SCALE_SUPPORT {}
 impl ::core::clone::Clone for D3D12_VIDEO_SCALE_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D12_VIDEO_SCALE_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_SCALE_SUPPORT").field("OutputSizeRange", &self.OutputSizeRange).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_SCALE_SUPPORT {
@@ -6052,6 +6960,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_SIZE_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D12_VIDEO_SIZE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D12_VIDEO_SIZE_RANGE").field("MaxWidth", &self.MaxWidth).field("MaxHeight", &self.MaxHeight).field("MinWidth", &self.MinWidth).field("MinHeight", &self.MinHeight).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_SIZE_RANGE {
     type Abi = Self;
 }
@@ -6082,6 +6995,12 @@ impl ::core::marker::Copy for D3DCONTENTPROTECTIONCAPS {}
 impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for D3DCONTENTPROTECTIONCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3DCONTENTPROTECTIONCAPS").field("Caps", &self.Caps).field("KeyExchangeType", &self.KeyExchangeType).field("BufferAlignmentStart", &self.BufferAlignmentStart).field("BlockAlignmentSize", &self.BlockAlignmentSize).field("ProtectedMemorySize", &self.ProtectedMemorySize).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -6121,6 +7040,12 @@ impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
     }
 }
 #[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for D3DCONTENTPROTECTIONCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3DCONTENTPROTECTIONCAPS").field("Caps", &self.Caps).field("KeyExchangeType", &self.KeyExchangeType).field("BufferAlignmentStart", &self.BufferAlignmentStart).field("BlockAlignmentSize", &self.BlockAlignmentSize).field("ProtectedMemorySize", &self.ProtectedMemorySize).finish()
+    }
+}
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
@@ -6149,6 +7074,11 @@ impl ::core::marker::Copy for D3DOVERLAYCAPS {}
 impl ::core::clone::Clone for D3DOVERLAYCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3DOVERLAYCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3DOVERLAYCAPS").field("Caps", &self.Caps).field("MaxOverlayDisplayWidth", &self.MaxOverlayDisplayWidth).field("MaxOverlayDisplayHeight", &self.MaxOverlayDisplayHeight).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3DOVERLAYCAPS {
@@ -6188,6 +7118,12 @@ impl ::core::clone::Clone for DEVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_INFO").field("pFriendlyDeviceName", &self.pFriendlyDeviceName).field("pUniqueDeviceName", &self.pUniqueDeviceName).field("pManufacturerName", &self.pManufacturerName).field("pModelName", &self.pModelName).field("pIconURL", &self.pIconURL).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVICE_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -6222,6 +7158,12 @@ impl ::core::marker::Copy for DIRTYRECT_INFO {}
 impl ::core::clone::Clone for DIRTYRECT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIRTYRECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIRTYRECT_INFO").field("FrameNumber", &self.FrameNumber).field("NumDirtyRects", &self.NumDirtyRects).field("DirtyRects", &self.DirtyRects).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6283,6 +7225,11 @@ impl ::core::clone::Clone for DXVA2_AES_CTR_IV {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_AES_CTR_IV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_AES_CTR_IV").field("IV", &self.IV).field("Count", &self.Count).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_AES_CTR_IV {
     type Abi = Self;
 }
@@ -6311,6 +7258,11 @@ impl ::core::clone::Clone for DXVA2_AYUVSample16 {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_AYUVSample16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_AYUVSample16").field("Cr", &self.Cr).field("Cb", &self.Cb).field("Y", &self.Y).field("Alpha", &self.Alpha).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_AYUVSample16 {
     type Abi = Self;
 }
@@ -6337,6 +7289,11 @@ impl ::core::marker::Copy for DXVA2_AYUVSample8 {}
 impl ::core::clone::Clone for DXVA2_AYUVSample8 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA2_AYUVSample8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_AYUVSample8").field("Cr", &self.Cr).field("Cb", &self.Cb).field("Y", &self.Y).field("Alpha", &self.Alpha).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_AYUVSample8 {
@@ -6400,6 +7357,29 @@ impl ::core::clone::Clone for DXVA2_ConfigPictureDecode {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_ConfigPictureDecode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_ConfigPictureDecode")
+            .field("guidConfigBitstreamEncryption", &self.guidConfigBitstreamEncryption)
+            .field("guidConfigMBcontrolEncryption", &self.guidConfigMBcontrolEncryption)
+            .field("guidConfigResidDiffEncryption", &self.guidConfigResidDiffEncryption)
+            .field("ConfigBitstreamRaw", &self.ConfigBitstreamRaw)
+            .field("ConfigMBcontrolRasterOrder", &self.ConfigMBcontrolRasterOrder)
+            .field("ConfigResidDiffHost", &self.ConfigResidDiffHost)
+            .field("ConfigSpatialResid8", &self.ConfigSpatialResid8)
+            .field("ConfigResid8Subtraction", &self.ConfigResid8Subtraction)
+            .field("ConfigSpatialHost8or9Clipping", &self.ConfigSpatialHost8or9Clipping)
+            .field("ConfigSpatialResidInterleaved", &self.ConfigSpatialResidInterleaved)
+            .field("ConfigIntraResidUnsigned", &self.ConfigIntraResidUnsigned)
+            .field("ConfigResidDiffAccelerator", &self.ConfigResidDiffAccelerator)
+            .field("ConfigHostInverseScan", &self.ConfigHostInverseScan)
+            .field("ConfigSpecificIDCT", &self.ConfigSpecificIDCT)
+            .field("Config4GroupedCoefs", &self.Config4GroupedCoefs)
+            .field("ConfigMinRenderTargetBuffCount", &self.ConfigMinRenderTargetBuffCount)
+            .field("ConfigDecoderSpecific", &self.ConfigDecoderSpecific)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_ConfigPictureDecode {
     type Abi = Self;
 }
@@ -6439,6 +7419,11 @@ impl ::core::clone::Clone for DXVA2_DecodeBufferDesc {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_DecodeBufferDesc {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_DecodeBufferDesc").field("CompressedBufferType", &self.CompressedBufferType).field("BufferIndex", &self.BufferIndex).field("DataOffset", &self.DataOffset).field("DataSize", &self.DataSize).field("FirstMBaddress", &self.FirstMBaddress).field("NumMBsInBuffer", &self.NumMBsInBuffer).field("Width", &self.Width).field("Height", &self.Height).field("Stride", &self.Stride).field("ReservedBits", &self.ReservedBits).field("pvPVPState", &self.pvPVPState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_DecodeBufferDesc {
     type Abi = Self;
 }
@@ -6464,6 +7449,11 @@ impl ::core::marker::Copy for DXVA2_DecodeExecuteParams {}
 impl ::core::clone::Clone for DXVA2_DecodeExecuteParams {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA2_DecodeExecuteParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_DecodeExecuteParams").field("NumCompBuffers", &self.NumCompBuffers).field("pCompressedBuffers", &self.pCompressedBuffers).field("pExtensionData", &self.pExtensionData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_DecodeExecuteParams {
@@ -6493,6 +7483,11 @@ impl ::core::marker::Copy for DXVA2_DecodeExtensionData {}
 impl ::core::clone::Clone for DXVA2_DecodeExtensionData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA2_DecodeExtensionData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_DecodeExtensionData").field("Function", &self.Function).field("pPrivateInputData", &self.pPrivateInputData).field("PrivateInputDataSize", &self.PrivateInputDataSize).field("pPrivateOutputData", &self.pPrivateOutputData).field("PrivateOutputDataSize", &self.PrivateOutputDataSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_DecodeExtensionData {
@@ -6574,6 +7569,11 @@ impl ::core::clone::Clone for DXVA2_ExtendedFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_ExtendedFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_ExtendedFormat").field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_ExtendedFormat {
     type Abi = Self;
 }
@@ -6623,6 +7623,11 @@ impl ::core::marker::Copy for DXVA2_ExtendedFormat_0_0 {}
 impl ::core::clone::Clone for DXVA2_ExtendedFormat_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA2_ExtendedFormat_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_ExtendedFormat_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_ExtendedFormat_0_0 {
@@ -6678,6 +7683,11 @@ impl ::core::clone::Clone for DXVA2_FilterValues {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_FilterValues {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_FilterValues").field("Level", &self.Level).field("Threshold", &self.Threshold).field("Radius", &self.Radius).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_FilterValues {
     type Abi = Self;
 }
@@ -6701,6 +7711,11 @@ impl ::core::marker::Copy for DXVA2_Fixed32 {}
 impl ::core::clone::Clone for DXVA2_Fixed32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA2_Fixed32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_Fixed32").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_Fixed32 {
@@ -6755,6 +7770,11 @@ impl ::core::clone::Clone for DXVA2_Fixed32_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_Fixed32_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_Fixed32_0_0").field("Fraction", &self.Fraction).field("Value", &self.Value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_Fixed32_0_0 {
     type Abi = Self;
 }
@@ -6779,6 +7799,11 @@ impl ::core::marker::Copy for DXVA2_Frequency {}
 impl ::core::clone::Clone for DXVA2_Frequency {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA2_Frequency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_Frequency").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_Frequency {
@@ -6889,6 +7914,11 @@ impl ::core::clone::Clone for DXVA2_ProcAmpValues {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_ProcAmpValues {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_ProcAmpValues").field("Brightness", &self.Brightness).field("Contrast", &self.Contrast).field("Hue", &self.Hue).field("Saturation", &self.Saturation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_ProcAmpValues {
     type Abi = Self;
 }
@@ -6963,6 +7993,11 @@ impl ::core::clone::Clone for DXVA2_ValueRange {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA2_ValueRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_ValueRange").field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).field("DefaultValue", &self.DefaultValue).field("StepSize", &self.StepSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_ValueRange {
     type Abi = Self;
 }
@@ -7018,6 +8053,12 @@ impl ::core::marker::Copy for DXVA2_VideoDesc {}
 impl ::core::clone::Clone for DXVA2_VideoDesc {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVA2_VideoDesc {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_VideoDesc").field("SampleWidth", &self.SampleWidth).field("SampleHeight", &self.SampleHeight).field("SampleFormat", &self.SampleFormat).field("Format", &self.Format).field("InputSampleFreq", &self.InputSampleFreq).field("OutputFrameFreq", &self.OutputFrameFreq).field("UABProtectionLevel", &self.UABProtectionLevel).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7142,6 +8183,26 @@ impl ::core::clone::Clone for DXVA2_VideoProcessBltParams {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVA2_VideoProcessBltParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_VideoProcessBltParams")
+            .field("TargetFrame", &self.TargetFrame)
+            .field("TargetRect", &self.TargetRect)
+            .field("ConstrictionSize", &self.ConstrictionSize)
+            .field("StreamingFlags", &self.StreamingFlags)
+            .field("BackgroundColor", &self.BackgroundColor)
+            .field("DestFormat", &self.DestFormat)
+            .field("ProcAmpValues", &self.ProcAmpValues)
+            .field("Alpha", &self.Alpha)
+            .field("NoiseFilterLuma", &self.NoiseFilterLuma)
+            .field("NoiseFilterChroma", &self.NoiseFilterChroma)
+            .field("DetailFilterLuma", &self.DetailFilterLuma)
+            .field("DetailFilterChroma", &self.DetailFilterChroma)
+            .field("DestData", &self.DestData)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVA2_VideoProcessBltParams {
     type Abi = Self;
 }
@@ -7180,6 +8241,23 @@ impl ::core::marker::Copy for DXVA2_VideoProcessorCaps {}
 impl ::core::clone::Clone for DXVA2_VideoProcessorCaps {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVA2_VideoProcessorCaps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_VideoProcessorCaps")
+            .field("DeviceCaps", &self.DeviceCaps)
+            .field("InputPool", &self.InputPool)
+            .field("NumForwardRefSamples", &self.NumForwardRefSamples)
+            .field("NumBackwardRefSamples", &self.NumBackwardRefSamples)
+            .field("Reserved", &self.Reserved)
+            .field("DeinterlaceTechnology", &self.DeinterlaceTechnology)
+            .field("ProcAmpControlCaps", &self.ProcAmpControlCaps)
+            .field("VideoProcessorOperations", &self.VideoProcessorOperations)
+            .field("NoiseFilterTechnology", &self.NoiseFilterTechnology)
+            .field("DetailFilterTechnology", &self.DetailFilterTechnology)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7236,6 +8314,12 @@ impl ::core::clone::Clone for DXVA2_VideoSample {
             PlanarAlpha: self.PlanarAlpha,
             SampleData: self.SampleData,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::fmt::Debug for DXVA2_VideoSample {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA2_VideoSample").field("Start", &self.Start).field("End", &self.End).field("SampleFormat", &self.SampleFormat).field("SrcSurface", &self.SrcSurface).field("SrcRect", &self.SrcRect).field("DstRect", &self.DstRect).field("Pal", &self.Pal).field("PlanarAlpha", &self.PlanarAlpha).field("SampleData", &self.SampleData).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -7303,6 +8387,11 @@ impl ::core::clone::Clone for DXVABufferInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVABufferInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVABufferInfo").field("pCompSurface", &self.pCompSurface).field("DataOffset", &self.DataOffset).field("DataSize", &self.DataSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVABufferInfo {
     type Abi = Self;
 }
@@ -7335,6 +8424,12 @@ impl ::core::marker::Copy for DXVACompBufferInfo {}
 impl ::core::clone::Clone for DXVACompBufferInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVACompBufferInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVACompBufferInfo").field("NumCompBuffers", &self.NumCompBuffers).field("WidthToCreate", &self.WidthToCreate).field("HeightToCreate", &self.HeightToCreate).field("BytesToAllocate", &self.BytesToAllocate).field("Usage", &self.Usage).field("Pool", &self.Pool).field("Format", &self.Format).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7375,6 +8470,11 @@ impl ::core::clone::Clone for DXVAHDETW_CREATEVIDEOPROCESSOR {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHDETW_CREATEVIDEOPROCESSOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHDETW_CREATEVIDEOPROCESSOR").field("pObject", &self.pObject).field("pD3D9Ex", &self.pD3D9Ex).field("VPGuid", &self.VPGuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHDETW_CREATEVIDEOPROCESSOR {
     type Abi = Self;
 }
@@ -7398,6 +8498,11 @@ impl ::core::marker::Copy for DXVAHDETW_DESTROYVIDEOPROCESSOR {}
 impl ::core::clone::Clone for DXVAHDETW_DESTROYVIDEOPROCESSOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVAHDETW_DESTROYVIDEOPROCESSOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHDETW_DESTROYVIDEOPROCESSOR").field("pObject", &self.pObject).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHDETW_DESTROYVIDEOPROCESSOR {
@@ -7433,6 +8538,12 @@ impl ::core::marker::Copy for DXVAHDETW_VIDEOPROCESSBLTHD {}
 impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSBLTHD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::fmt::Debug for DXVAHDETW_VIDEOPROCESSBLTHD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHDETW_VIDEOPROCESSBLTHD").field("pObject", &self.pObject).field("pOutputSurface", &self.pOutputSurface).field("TargetRect", &self.TargetRect).field("OutputFormat", &self.OutputFormat).field("ColorSpace", &self.ColorSpace).field("OutputFrame", &self.OutputFrame).field("StreamCount", &self.StreamCount).field("Enter", &self.Enter).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -7479,6 +8590,25 @@ impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::fmt::Debug for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHDETW_VIDEOPROCESSBLTHD_STREAM")
+            .field("pObject", &self.pObject)
+            .field("pInputSurface", &self.pInputSurface)
+            .field("SourceRect", &self.SourceRect)
+            .field("DestinationRect", &self.DestinationRect)
+            .field("InputFormat", &self.InputFormat)
+            .field("FrameFormat", &self.FrameFormat)
+            .field("ColorSpace", &self.ColorSpace)
+            .field("StreamNumber", &self.StreamNumber)
+            .field("OutputIndex", &self.OutputIndex)
+            .field("InputFrameOrField", &self.InputFrameOrField)
+            .field("PastFrames", &self.PastFrames)
+            .field("FutureFrames", &self.FutureFrames)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 unsafe impl ::windows::core::Abi for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     type Abi = Self;
 }
@@ -7511,6 +8641,12 @@ impl ::core::marker::Copy for DXVAHDETW_VIDEOPROCESSBLTSTATE {}
 impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSBLTSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHDETW_VIDEOPROCESSBLTSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHDETW_VIDEOPROCESSBLTSTATE").field("pObject", &self.pObject).field("State", &self.State).field("DataSize", &self.DataSize).field("SetState", &self.SetState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7547,6 +8683,12 @@ impl ::core::marker::Copy for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {}
 impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHDETW_VIDEOPROCESSSTREAMSTATE").field("pObject", &self.pObject).field("StreamNumber", &self.StreamNumber).field("State", &self.State).field("DataSize", &self.DataSize).field("SetState", &self.SetState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7594,6 +8736,29 @@ impl ::core::marker::Copy for DXVAHDSW_CALLBACKS {}
 impl ::core::clone::Clone for DXVAHDSW_CALLBACKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::fmt::Debug for DXVAHDSW_CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHDSW_CALLBACKS")
+            .field("CreateDevice", &self.CreateDevice)
+            .field("ProposeVideoPrivateFormat", &self.ProposeVideoPrivateFormat)
+            .field("GetVideoProcessorDeviceCaps", &self.GetVideoProcessorDeviceCaps)
+            .field("GetVideoProcessorOutputFormats", &self.GetVideoProcessorOutputFormats)
+            .field("GetVideoProcessorInputFormats", &self.GetVideoProcessorInputFormats)
+            .field("GetVideoProcessorCaps", &self.GetVideoProcessorCaps)
+            .field("GetVideoProcessorCustomRates", &self.GetVideoProcessorCustomRates)
+            .field("GetVideoProcessorFilterRange", &self.GetVideoProcessorFilterRange)
+            .field("DestroyDevice", &self.DestroyDevice)
+            .field("CreateVideoProcessor", &self.CreateVideoProcessor)
+            .field("SetVideoProcessBltState", &self.SetVideoProcessBltState)
+            .field("GetVideoProcessBltStatePrivate", &self.GetVideoProcessBltStatePrivate)
+            .field("SetVideoProcessStreamState", &self.SetVideoProcessStreamState)
+            .field("GetVideoProcessStreamStatePrivate", &self.GetVideoProcessStreamStatePrivate)
+            .field("VideoProcessBltHD", &self.VideoProcessBltHD)
+            .field("DestroyVideoProcessor", &self.DestroyVideoProcessor)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -7650,6 +8815,11 @@ impl ::core::clone::Clone for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_BLT_STATE_ALPHA_FILL_DATA").field("Mode", &self.Mode).field("StreamNumber", &self.StreamNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     type Abi = Self;
 }
@@ -7677,6 +8847,12 @@ impl ::core::marker::Copy for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {}
 impl ::core::clone::Clone for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA").field("YCbCr", &self.YCbCr).field("BackgroundColor", &self.BackgroundColor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7713,6 +8889,12 @@ impl ::core::clone::Clone for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_BLT_STATE_CONSTRICTION_DATA").field("Enable", &self.Enable).field("Size", &self.Size).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     type Abi = Self;
 }
@@ -7739,6 +8921,11 @@ impl ::core::marker::Copy for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {}
 impl ::core::clone::Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
@@ -7792,6 +8979,11 @@ impl ::core::clone::Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     type Abi = Self;
 }
@@ -7817,6 +9009,11 @@ impl ::core::marker::Copy for DXVAHD_BLT_STATE_PRIVATE_DATA {}
 impl ::core::clone::Clone for DXVAHD_BLT_STATE_PRIVATE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVAHD_BLT_STATE_PRIVATE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_BLT_STATE_PRIVATE_DATA").field("Guid", &self.Guid).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_PRIVATE_DATA {
@@ -7846,6 +9043,12 @@ impl ::core::marker::Copy for DXVAHD_BLT_STATE_TARGET_RECT_DATA {}
 impl ::core::clone::Clone for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_BLT_STATE_TARGET_RECT_DATA").field("Enable", &self.Enable).field("TargetRect", &self.TargetRect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7906,6 +9109,11 @@ impl ::core::clone::Clone for DXVAHD_COLOR_RGBA {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_COLOR_RGBA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_COLOR_RGBA").field("R", &self.R).field("G", &self.G).field("B", &self.B).field("A", &self.A).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_COLOR_RGBA {
     type Abi = Self;
 }
@@ -7932,6 +9140,11 @@ impl ::core::marker::Copy for DXVAHD_COLOR_YCbCrA {}
 impl ::core::clone::Clone for DXVAHD_COLOR_YCbCrA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVAHD_COLOR_YCbCrA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_COLOR_YCbCrA").field("Y", &self.Y).field("Cb", &self.Cb).field("Cr", &self.Cr).field("A", &self.A).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_COLOR_YCbCrA {
@@ -7965,6 +9178,11 @@ impl ::core::clone::Clone for DXVAHD_CONTENT_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_CONTENT_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_CONTENT_DESC").field("InputFrameFormat", &self.InputFrameFormat).field("InputFrameRate", &self.InputFrameRate).field("InputWidth", &self.InputWidth).field("InputHeight", &self.InputHeight).field("OutputFrameRate", &self.OutputFrameRate).field("OutputWidth", &self.OutputWidth).field("OutputHeight", &self.OutputHeight).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_CONTENT_DESC {
     type Abi = Self;
 }
@@ -7994,6 +9212,12 @@ impl ::core::marker::Copy for DXVAHD_CUSTOM_RATE_DATA {}
 impl ::core::clone::Clone for DXVAHD_CUSTOM_RATE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_CUSTOM_RATE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_CUSTOM_RATE_DATA").field("CustomRate", &self.CustomRate).field("OutputFrames", &self.OutputFrames).field("InputInterlaced", &self.InputInterlaced).field("InputFramesOrFields", &self.InputFramesOrFields).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8114,6 +9338,11 @@ impl ::core::clone::Clone for DXVAHD_FILTER_RANGE_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_FILTER_RANGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_FILTER_RANGE_DATA").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("Default", &self.Default).field("Multiplier", &self.Multiplier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_FILTER_RANGE_DATA {
     type Abi = Self;
 }
@@ -8202,6 +9431,11 @@ impl ::core::clone::Clone for DXVAHD_RATIONAL {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_RATIONAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_RATIONAL").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_RATIONAL {
     type Abi = Self;
 }
@@ -8242,6 +9476,12 @@ impl ::core::clone::Clone for DXVAHD_STREAM_DATA {
             pInputSurface: self.pInputSurface.clone(),
             ppFutureSurfaces: self.ppFutureSurfaces,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::fmt::Debug for DXVAHD_STREAM_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_DATA").field("Enable", &self.Enable).field("OutputIndex", &self.OutputIndex).field("InputFrameOrField", &self.InputFrameOrField).field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).field("ppPastSurfaces", &self.ppPastSurfaces).field("pInputSurface", &self.pInputSurface).field("ppFutureSurfaces", &self.ppFutureSurfaces).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -8316,6 +9556,12 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_ALPHA_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_ALPHA_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_ALPHA_DATA").field("Enable", &self.Enable).field("Alpha", &self.Alpha).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_ALPHA_DATA {
     type Abi = Self;
 }
@@ -8350,6 +9596,12 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA").field("Enable", &self.Enable).field("SourceAspectRatio", &self.SourceAspectRatio).field("DestinationAspectRatio", &self.DestinationAspectRatio).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     type Abi = Self;
 }
@@ -8379,6 +9631,12 @@ impl ::core::marker::Copy for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {}
 impl ::core::clone::Clone for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_D3DFORMAT_DATA").field("Format", &self.Format).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -8415,6 +9673,12 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA").field("Enable", &self.Enable).field("DestinationRect", &self.DestinationRect).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     type Abi = Self;
 }
@@ -8448,6 +9712,12 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_FILTER_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_FILTER_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_FILTER_DATA").field("Enable", &self.Enable).field("Level", &self.Level).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_FILTER_DATA {
     type Abi = Self;
 }
@@ -8476,6 +9746,11 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA").field("FrameFormat", &self.FrameFormat).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     type Abi = Self;
 }
@@ -8499,6 +9774,11 @@ impl ::core::marker::Copy for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {}
 impl ::core::clone::Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
@@ -8552,6 +9832,11 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     type Abi = Self;
 }
@@ -8580,6 +9865,12 @@ impl ::core::marker::Copy for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {}
 impl ::core::clone::Clone for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_LUMA_KEY_DATA").field("Enable", &self.Enable).field("Lower", &self.Lower).field("Upper", &self.Upper).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8617,6 +9908,12 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA").field("RepeatFrame", &self.RepeatFrame).field("OutputRate", &self.OutputRate).field("CustomRate", &self.CustomRate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     type Abi = Self;
 }
@@ -8646,6 +9943,11 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_PALETTE_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_PALETTE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_PALETTE_DATA").field("Count", &self.Count).field("pEntries", &self.pEntries).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_PALETTE_DATA {
     type Abi = Self;
 }
@@ -8671,6 +9973,11 @@ impl ::core::marker::Copy for DXVAHD_STREAM_STATE_PRIVATE_DATA {}
 impl ::core::clone::Clone for DXVAHD_STREAM_STATE_PRIVATE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_PRIVATE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_PRIVATE_DATA").field("Guid", &self.Guid).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_PRIVATE_DATA {
@@ -8706,6 +10013,12 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA").field("Enable", &self.Enable).field("ITelecineFlags", &self.ITelecineFlags).field("Frames", &self.Frames).field("InputField", &self.InputField).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     type Abi = Self;
 }
@@ -8736,6 +10049,12 @@ impl ::core::marker::Copy for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {}
 impl ::core::clone::Clone for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_STREAM_STATE_SOURCE_RECT_DATA").field("Enable", &self.Enable).field("SourceRect", &self.SourceRect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8780,6 +10099,11 @@ impl ::core::clone::Clone for DXVAHD_VPCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVAHD_VPCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_VPCAPS").field("VPGuid", &self.VPGuid).field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).field("ProcessorCaps", &self.ProcessorCaps).field("ITelecineCaps", &self.ITelecineCaps).field("CustomRateCount", &self.CustomRateCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_VPCAPS {
     type Abi = Self;
 }
@@ -8819,6 +10143,24 @@ impl ::core::clone::Clone for DXVAHD_VPDEVCAPS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVAHD_VPDEVCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAHD_VPDEVCAPS")
+            .field("DeviceType", &self.DeviceType)
+            .field("DeviceCaps", &self.DeviceCaps)
+            .field("FeatureCaps", &self.FeatureCaps)
+            .field("FilterCaps", &self.FilterCaps)
+            .field("InputFormatCaps", &self.InputFormatCaps)
+            .field("InputPool", &self.InputPool)
+            .field("OutputFormatCount", &self.OutputFormatCount)
+            .field("InputFormatCount", &self.InputFormatCount)
+            .field("VideoProcessorCount", &self.VideoProcessorCount)
+            .field("MaxInputStreams", &self.MaxInputStreams)
+            .field("MaxStreamStates", &self.MaxStreamStates)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::core::Abi for DXVAHD_VPDEVCAPS {
     type Abi = Self;
 }
@@ -8853,6 +10195,12 @@ impl ::core::clone::Clone for DXVAUncompDataInfo {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVAUncompDataInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVAUncompDataInfo").field("UncompWidth", &self.UncompWidth).field("UncompHeight", &self.UncompHeight).field("UncompFormat", &self.UncompFormat).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::core::Abi for DXVAUncompDataInfo {
     type Abi = Self;
 }
@@ -8882,6 +10230,11 @@ impl ::core::marker::Copy for DXVA_AYUVsample2 {}
 impl ::core::clone::Clone for DXVA_AYUVsample2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA_AYUVsample2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_AYUVsample2").field("bCrValue", &self.bCrValue).field("bCbValue", &self.bCbValue).field("bY_Value", &self.bY_Value).field("bSampleAlpha8", &self.bSampleAlpha8).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_AYUVsample2 {
@@ -8918,6 +10271,11 @@ impl ::core::clone::Clone for DXVA_BufferDescription {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA_BufferDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_BufferDescription").field("dwTypeIndex", &self.dwTypeIndex).field("dwBufferIndex", &self.dwBufferIndex).field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).field("dwFirstMBaddress", &self.dwFirstMBaddress).field("dwNumMBsInBuffer", &self.dwNumMBsInBuffer).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwStride", &self.dwStride).field("dwReservedBits", &self.dwReservedBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_BufferDescription {
     type Abi = Self;
 }
@@ -8947,6 +10305,11 @@ impl ::core::clone::Clone for DXVA_COPPCommand {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA_COPPCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_COPPCommand").field("macKDI", &self.macKDI).field("guidCommandID", &self.guidCommandID).field("dwSequence", &self.dwSequence).field("cbSizeData", &self.cbSizeData).field("CommandData", &self.CommandData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_COPPCommand {
     type Abi = Self;
 }
@@ -8970,6 +10333,11 @@ impl ::core::marker::Copy for DXVA_COPPSignature {}
 impl ::core::clone::Clone for DXVA_COPPSignature {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA_COPPSignature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_COPPSignature").field("Signature", &self.Signature).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_COPPSignature {
@@ -9001,6 +10369,11 @@ impl ::core::clone::Clone for DXVA_COPPStatusInput {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA_COPPStatusInput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_COPPStatusInput").field("rApp", &self.rApp).field("guidStatusRequestID", &self.guidStatusRequestID).field("dwSequence", &self.dwSequence).field("cbSizeData", &self.cbSizeData).field("StatusData", &self.StatusData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_COPPStatusInput {
     type Abi = Self;
 }
@@ -9026,6 +10399,11 @@ impl ::core::marker::Copy for DXVA_COPPStatusOutput {}
 impl ::core::clone::Clone for DXVA_COPPStatusOutput {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA_COPPStatusOutput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_COPPStatusOutput").field("macKDI", &self.macKDI).field("cbSizeData", &self.cbSizeData).field("COPPStatus", &self.COPPStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_COPPStatusOutput {
@@ -9069,6 +10447,29 @@ impl ::core::clone::Clone for DXVA_ConfigPictureDecode {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA_ConfigPictureDecode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_ConfigPictureDecode")
+            .field("dwFunction", &self.dwFunction)
+            .field("dwReservedBits", &self.dwReservedBits)
+            .field("guidConfigBitstreamEncryption", &self.guidConfigBitstreamEncryption)
+            .field("guidConfigMBcontrolEncryption", &self.guidConfigMBcontrolEncryption)
+            .field("guidConfigResidDiffEncryption", &self.guidConfigResidDiffEncryption)
+            .field("bConfigBitstreamRaw", &self.bConfigBitstreamRaw)
+            .field("bConfigMBcontrolRasterOrder", &self.bConfigMBcontrolRasterOrder)
+            .field("bConfigResidDiffHost", &self.bConfigResidDiffHost)
+            .field("bConfigSpatialResid8", &self.bConfigSpatialResid8)
+            .field("bConfigResid8Subtraction", &self.bConfigResid8Subtraction)
+            .field("bConfigSpatialHost8or9Clipping", &self.bConfigSpatialHost8or9Clipping)
+            .field("bConfigSpatialResidInterleaved", &self.bConfigSpatialResidInterleaved)
+            .field("bConfigIntraResidUnsigned", &self.bConfigIntraResidUnsigned)
+            .field("bConfigResidDiffAccelerator", &self.bConfigResidDiffAccelerator)
+            .field("bConfigHostInverseScan", &self.bConfigHostInverseScan)
+            .field("bConfigSpecificIDCT", &self.bConfigSpecificIDCT)
+            .field("bConfig4GroupedCoefs", &self.bConfig4GroupedCoefs)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_ConfigPictureDecode {
     type Abi = Self;
 }
@@ -9102,6 +10503,12 @@ impl ::core::marker::Copy for DXVA_DeinterlaceBlt {}
 impl ::core::clone::Clone for DXVA_DeinterlaceBlt {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVA_DeinterlaceBlt {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_DeinterlaceBlt").field("Size", &self.Size).field("Reserved", &self.Reserved).field("rtTarget", &self.rtTarget).field("DstRect", &self.DstRect).field("SrcRect", &self.SrcRect).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9142,6 +10549,12 @@ impl ::core::marker::Copy for DXVA_DeinterlaceBltEx {}
 impl ::core::clone::Clone for DXVA_DeinterlaceBltEx {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVA_DeinterlaceBltEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_DeinterlaceBltEx").field("Size", &self.Size).field("BackgroundColor", &self.BackgroundColor).field("rcTarget", &self.rcTarget).field("rtTarget", &self.rtTarget).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).field("DestinationFormat", &self.DestinationFormat).field("DestinationFlags", &self.DestinationFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9189,6 +10602,13 @@ impl ::core::clone::Clone for DXVA_DeinterlaceBltEx32 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVA_DeinterlaceBltEx32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_DeinterlaceBltEx32").field("Size", &self.Size).field("BackgroundColor", &self.BackgroundColor).field("rcTarget", &self.rcTarget).field("rtTarget", &self.rtTarget).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).field("DestinationFormat", &self.DestinationFormat).field("DestinationFlags", &self.DestinationFlags).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVA_DeinterlaceBltEx32 {
     type Abi = Self;
 }
@@ -9231,6 +10651,12 @@ impl ::core::clone::Clone for DXVA_DeinterlaceCaps {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVA_DeinterlaceCaps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_DeinterlaceCaps").field("Size", &self.Size).field("NumPreviousOutputFrames", &self.NumPreviousOutputFrames).field("InputPool", &self.InputPool).field("NumForwardRefSamples", &self.NumForwardRefSamples).field("NumBackwardRefSamples", &self.NumBackwardRefSamples).field("d3dOutputFormat", &self.d3dOutputFormat).field("VideoProcessingCaps", &self.VideoProcessingCaps).field("DeinterlaceTechnology", &self.DeinterlaceTechnology).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::core::Abi for DXVA_DeinterlaceCaps {
     type Abi = Self;
 }
@@ -9261,6 +10687,11 @@ impl ::core::clone::Clone for DXVA_DeinterlaceQueryAvailableModes {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA_DeinterlaceQueryAvailableModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_DeinterlaceQueryAvailableModes").field("Size", &self.Size).field("NumGuids", &self.NumGuids).field("Guids", &self.Guids).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_DeinterlaceQueryAvailableModes {
     type Abi = Self;
 }
@@ -9289,6 +10720,12 @@ impl ::core::marker::Copy for DXVA_DeinterlaceQueryModeCaps {}
 impl ::core::clone::Clone for DXVA_DeinterlaceQueryModeCaps {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVA_DeinterlaceQueryModeCaps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_DeinterlaceQueryModeCaps").field("Size", &self.Size).field("Guid", &self.Guid).field("VideoDesc", &self.VideoDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -9352,6 +10789,11 @@ impl ::core::clone::Clone for DXVA_ExtendedFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA_ExtendedFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_ExtendedFormat").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_ExtendedFormat {
     type Abi = Self;
 }
@@ -9376,6 +10818,11 @@ impl ::core::marker::Copy for DXVA_Frequency {}
 impl ::core::clone::Clone for DXVA_Frequency {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA_Frequency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_Frequency").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_Frequency {
@@ -9456,6 +10903,48 @@ impl ::core::clone::Clone for DXVA_PictureParameters {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA_PictureParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_PictureParameters")
+            .field("wDecodedPictureIndex", &self.wDecodedPictureIndex)
+            .field("wDeblockedPictureIndex", &self.wDeblockedPictureIndex)
+            .field("wForwardRefPictureIndex", &self.wForwardRefPictureIndex)
+            .field("wBackwardRefPictureIndex", &self.wBackwardRefPictureIndex)
+            .field("wPicWidthInMBminus1", &self.wPicWidthInMBminus1)
+            .field("wPicHeightInMBminus1", &self.wPicHeightInMBminus1)
+            .field("bMacroblockWidthMinus1", &self.bMacroblockWidthMinus1)
+            .field("bMacroblockHeightMinus1", &self.bMacroblockHeightMinus1)
+            .field("bBlockWidthMinus1", &self.bBlockWidthMinus1)
+            .field("bBlockHeightMinus1", &self.bBlockHeightMinus1)
+            .field("bBPPminus1", &self.bBPPminus1)
+            .field("bPicStructure", &self.bPicStructure)
+            .field("bSecondField", &self.bSecondField)
+            .field("bPicIntra", &self.bPicIntra)
+            .field("bPicBackwardPrediction", &self.bPicBackwardPrediction)
+            .field("bBidirectionalAveragingMode", &self.bBidirectionalAveragingMode)
+            .field("bMVprecisionAndChromaRelation", &self.bMVprecisionAndChromaRelation)
+            .field("bChromaFormat", &self.bChromaFormat)
+            .field("bPicScanFixed", &self.bPicScanFixed)
+            .field("bPicScanMethod", &self.bPicScanMethod)
+            .field("bPicReadbackRequests", &self.bPicReadbackRequests)
+            .field("bRcontrol", &self.bRcontrol)
+            .field("bPicSpatialResid8", &self.bPicSpatialResid8)
+            .field("bPicOverflowBlocks", &self.bPicOverflowBlocks)
+            .field("bPicExtrapolation", &self.bPicExtrapolation)
+            .field("bPicDeblocked", &self.bPicDeblocked)
+            .field("bPicDeblockConfined", &self.bPicDeblockConfined)
+            .field("bPic4MVallowed", &self.bPic4MVallowed)
+            .field("bPicOBMC", &self.bPicOBMC)
+            .field("bPicBinPB", &self.bPicBinPB)
+            .field("bMV_RPS", &self.bMV_RPS)
+            .field("bReservedBits", &self.bReservedBits)
+            .field("wBitstreamFcodes", &self.wBitstreamFcodes)
+            .field("wBitstreamPCEelements", &self.wBitstreamPCEelements)
+            .field("bBitstreamConcealmentNeed", &self.bBitstreamConcealmentNeed)
+            .field("bBitstreamConcealmentMethod", &self.bBitstreamConcealmentMethod)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_PictureParameters {
     type Abi = Self;
 }
@@ -9492,6 +10981,12 @@ impl ::core::clone::Clone for DXVA_ProcAmpControlBlt {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVA_ProcAmpControlBlt {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_ProcAmpControlBlt").field("Size", &self.Size).field("DstRect", &self.DstRect).field("SrcRect", &self.SrcRect).field("Alpha", &self.Alpha).field("Brightness", &self.Brightness).field("Contrast", &self.Contrast).field("Hue", &self.Hue).field("Saturation", &self.Saturation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVA_ProcAmpControlBlt {
     type Abi = Self;
 }
@@ -9525,6 +11020,12 @@ impl ::core::marker::Copy for DXVA_ProcAmpControlCaps {}
 impl ::core::clone::Clone for DXVA_ProcAmpControlCaps {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVA_ProcAmpControlCaps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_ProcAmpControlCaps").field("Size", &self.Size).field("InputPool", &self.InputPool).field("d3dOutputFormat", &self.d3dOutputFormat).field("ProcAmpControlProps", &self.ProcAmpControlProps).field("VideoProcessingCaps", &self.VideoProcessingCaps).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -9571,6 +11072,12 @@ impl ::core::marker::Copy for DXVA_ProcAmpControlQueryRange {}
 impl ::core::clone::Clone for DXVA_ProcAmpControlQueryRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVA_ProcAmpControlQueryRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_ProcAmpControlQueryRange").field("Size", &self.Size).field("ProcAmpControlProp", &self.ProcAmpControlProp).field("VideoDesc", &self.VideoDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -9668,6 +11175,12 @@ impl ::core::clone::Clone for DXVA_VideoDesc {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for DXVA_VideoDesc {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_VideoDesc").field("Size", &self.Size).field("SampleWidth", &self.SampleWidth).field("SampleHeight", &self.SampleHeight).field("SampleFormat", &self.SampleFormat).field("d3dFormat", &self.d3dFormat).field("InputSampleFreq", &self.InputSampleFreq).field("OutputFrameFreq", &self.OutputFrameFreq).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::core::Abi for DXVA_VideoDesc {
     type Abi = Self;
 }
@@ -9761,6 +11274,11 @@ impl ::core::clone::Clone for DXVA_VideoPropertyRange {
         *self
     }
 }
+impl ::core::fmt::Debug for DXVA_VideoPropertyRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_VideoPropertyRange").field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).field("DefaultValue", &self.DefaultValue).field("StepSize", &self.StepSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_VideoPropertyRange {
     type Abi = Self;
 }
@@ -9787,6 +11305,11 @@ impl ::core::marker::Copy for DXVA_VideoSample {}
 impl ::core::clone::Clone for DXVA_VideoSample {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXVA_VideoSample {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_VideoSample").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_VideoSample {
@@ -9827,6 +11350,13 @@ impl ::core::marker::Copy for DXVA_VideoSample2 {}
 impl ::core::clone::Clone for DXVA_VideoSample2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVA_VideoSample2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_VideoSample2").field("Size", &self.Size).field("Reserved", &self.Reserved).field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9873,6 +11403,13 @@ impl ::core::marker::Copy for DXVA_VideoSample2 {}
 impl ::core::clone::Clone for DXVA_VideoSample2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVA_VideoSample2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_VideoSample2").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -9919,6 +11456,13 @@ impl ::core::marker::Copy for DXVA_VideoSample32 {}
 impl ::core::clone::Clone for DXVA_VideoSample32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DXVA_VideoSample32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXVA_VideoSample32").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10007,6 +11551,11 @@ impl ::core::marker::Copy for DigitalWindowSetting {}
 impl ::core::clone::Clone for DigitalWindowSetting {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DigitalWindowSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DigitalWindowSetting").field("OriginX", &self.OriginX).field("OriginY", &self.OriginY).field("WindowSize", &self.WindowSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DigitalWindowSetting {
@@ -45435,6 +46984,11 @@ impl ::core::clone::Clone for MACROBLOCK_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MACROBLOCK_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MACROBLOCK_DATA").field("flags", &self.flags).field("motionVectorX", &self.motionVectorX).field("motionVectorY", &self.motionVectorY).field("QPDelta", &self.QPDelta).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MACROBLOCK_DATA {
     type Abi = Self;
 }
@@ -45577,6 +47131,11 @@ impl ::core::marker::Copy for MFARGB {}
 impl ::core::clone::Clone for MFARGB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFARGB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFARGB").field("rgbBlue", &self.rgbBlue).field("rgbGreen", &self.rgbGreen).field("rgbRed", &self.rgbRed).field("rgbAlpha", &self.rgbAlpha).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFARGB {
@@ -45793,6 +47352,11 @@ impl ::core::clone::Clone for MFAYUVSample {
         *self
     }
 }
+impl ::core::fmt::Debug for MFAYUVSample {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFAYUVSample").field("bCrValue", &self.bCrValue).field("bCbValue", &self.bCbValue).field("bYValue", &self.bYValue).field("bSampleAlpha8", &self.bSampleAlpha8).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFAYUVSample {
     type Abi = Self;
 }
@@ -45891,6 +47455,11 @@ impl ::core::clone::Clone for MFAudioDecoderDegradationInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for MFAudioDecoderDegradationInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFAudioDecoderDegradationInfo").field("eDegradationReason", &self.eDegradationReason).field("eType", &self.eType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFAudioDecoderDegradationInfo {
     type Abi = Self;
 }
@@ -45977,6 +47546,11 @@ impl ::core::marker::Copy for MFBYTESTREAM_BUFFERING_PARAMS {}
 impl ::core::clone::Clone for MFBYTESTREAM_BUFFERING_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFBYTESTREAM_BUFFERING_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFBYTESTREAM_BUFFERING_PARAMS").field("cbTotalFileSize", &self.cbTotalFileSize).field("cbPlayableDataSize", &self.cbPlayableDataSize).field("prgBuckets", &self.prgBuckets).field("cBuckets", &self.cBuckets).field("qwNetBufferingTime", &self.qwNetBufferingTime).field("qwExtraBufferingTimeDuringSeek", &self.qwExtraBufferingTimeDuringSeek).field("qwPlayDuration", &self.qwPlayDuration).field("dRate", &self.dRate).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFBYTESTREAM_BUFFERING_PARAMS {
@@ -46117,6 +47691,11 @@ impl ::core::clone::Clone for MFCLOCK_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for MFCLOCK_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCLOCK_PROPERTIES").field("qwCorrelationRate", &self.qwCorrelationRate).field("guidClockId", &self.guidClockId).field("dwClockFlags", &self.dwClockFlags).field("qwClockFrequency", &self.qwClockFrequency).field("dwClockTolerance", &self.dwClockTolerance).field("dwClockJitter", &self.dwClockJitter).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFCLOCK_PROPERTIES {
     type Abi = Self;
 }
@@ -46186,6 +47765,11 @@ impl ::core::clone::Clone for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCONTENTPROTECTIONDEVICE_INPUT_DATA").field("HWProtectionFunctionID", &self.HWProtectionFunctionID).field("PrivateDataByteCount", &self.PrivateDataByteCount).field("HWProtectionDataByteCount", &self.HWProtectionDataByteCount).field("Reserved", &self.Reserved).field("InputData", &self.InputData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     type Abi = Self;
 }
@@ -46217,6 +47801,19 @@ impl ::core::clone::Clone for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA")
+            .field("PrivateDataByteCount", &self.PrivateDataByteCount)
+            .field("MaxHWProtectionDataByteCount", &self.MaxHWProtectionDataByteCount)
+            .field("HWProtectionDataByteCount", &self.HWProtectionDataByteCount)
+            .field("Status", &self.Status)
+            .field("TransportTimeInHundredsOfNanoseconds", &self.TransportTimeInHundredsOfNanoseconds)
+            .field("ExecutionTimeInHundredsOfNanoseconds", &self.ExecutionTimeInHundredsOfNanoseconds)
+            .field("OutputData", &self.OutputData)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     type Abi = Self;
 }
@@ -46242,6 +47839,11 @@ impl ::core::marker::Copy for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {}
 impl ::core::clone::Clone for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA").field("TaskIndex", &self.TaskIndex).field("ClassName", &self.ClassName).field("BasePriority", &self.BasePriority).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
@@ -46303,6 +47905,11 @@ impl ::core::clone::Clone for MFCameraExtrinsic_CalibratedTransform {
         *self
     }
 }
+impl ::core::fmt::Debug for MFCameraExtrinsic_CalibratedTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCameraExtrinsic_CalibratedTransform").field("CalibrationId", &self.CalibrationId).field("Position", &self.Position).field("Orientation", &self.Orientation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFCameraExtrinsic_CalibratedTransform {
     type Abi = Self;
 }
@@ -46327,6 +47934,11 @@ impl ::core::marker::Copy for MFCameraExtrinsics {}
 impl ::core::clone::Clone for MFCameraExtrinsics {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFCameraExtrinsics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCameraExtrinsics").field("TransformCount", &self.TransformCount).field("CalibratedTransforms", &self.CalibratedTransforms).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFCameraExtrinsics {
@@ -46357,6 +47969,11 @@ impl ::core::clone::Clone for MFCameraIntrinsic_CameraModel {
         *self
     }
 }
+impl ::core::fmt::Debug for MFCameraIntrinsic_CameraModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCameraIntrinsic_CameraModel").field("FocalLength_x", &self.FocalLength_x).field("FocalLength_y", &self.FocalLength_y).field("PrincipalPoint_x", &self.PrincipalPoint_x).field("PrincipalPoint_y", &self.PrincipalPoint_y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFCameraIntrinsic_CameraModel {
     type Abi = Self;
 }
@@ -46384,6 +48001,11 @@ impl ::core::marker::Copy for MFCameraIntrinsic_DistortionModel {}
 impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFCameraIntrinsic_DistortionModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCameraIntrinsic_DistortionModel").field("Radial_k1", &self.Radial_k1).field("Radial_k2", &self.Radial_k2).field("Radial_k3", &self.Radial_k3).field("Tangential_p1", &self.Tangential_p1).field("Tangential_p2", &self.Tangential_p2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFCameraIntrinsic_DistortionModel {
@@ -46418,6 +48040,11 @@ impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModel6KT {
         *self
     }
 }
+impl ::core::fmt::Debug for MFCameraIntrinsic_DistortionModel6KT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCameraIntrinsic_DistortionModel6KT").field("Radial_k1", &self.Radial_k1).field("Radial_k2", &self.Radial_k2).field("Radial_k3", &self.Radial_k3).field("Radial_k4", &self.Radial_k4).field("Radial_k5", &self.Radial_k5).field("Radial_k6", &self.Radial_k6).field("Tangential_p1", &self.Tangential_p1).field("Tangential_p2", &self.Tangential_p2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFCameraIntrinsic_DistortionModel6KT {
     type Abi = Self;
 }
@@ -46445,6 +48072,11 @@ impl ::core::marker::Copy for MFCameraIntrinsic_DistortionModelArcTan {}
 impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModelArcTan {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFCameraIntrinsic_DistortionModelArcTan {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCameraIntrinsic_DistortionModelArcTan").field("Radial_k0", &self.Radial_k0).field("DistortionCenter_x", &self.DistortionCenter_x).field("DistortionCenter_y", &self.DistortionCenter_y).field("Tangential_x", &self.Tangential_x).field("Tangential_y", &self.Tangential_y).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFCameraIntrinsic_DistortionModelArcTan {
@@ -46477,6 +48109,11 @@ impl ::core::marker::Copy for MFCameraIntrinsic_PinholeCameraModel {}
 impl ::core::clone::Clone for MFCameraIntrinsic_PinholeCameraModel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFCameraIntrinsic_PinholeCameraModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFCameraIntrinsic_PinholeCameraModel").field("FocalLength", &self.FocalLength).field("PrincipalPoint", &self.PrincipalPoint).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFCameraIntrinsic_PinholeCameraModel {
@@ -48608,6 +50245,11 @@ impl ::core::clone::Clone for MFExtendedCameraIntrinsic_IntrinsicModel {
         *self
     }
 }
+impl ::core::fmt::Debug for MFExtendedCameraIntrinsic_IntrinsicModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFExtendedCameraIntrinsic_IntrinsicModel").field("Width", &self.Width).field("Height", &self.Height).field("SplitFrameId", &self.SplitFrameId).field("CameraModel", &self.CameraModel).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFExtendedCameraIntrinsic_IntrinsicModel {
     type Abi = Self;
 }
@@ -48637,6 +50279,11 @@ impl ::core::marker::Copy for MFFOLDDOWN_MATRIX {}
 impl ::core::clone::Clone for MFFOLDDOWN_MATRIX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFFOLDDOWN_MATRIX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFFOLDDOWN_MATRIX").field("cbSize", &self.cbSize).field("cSrcChannels", &self.cSrcChannels).field("cDstChannels", &self.cDstChannels).field("dwChannelMask", &self.dwChannelMask).field("Coeff", &self.Coeff).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFFOLDDOWN_MATRIX {
@@ -49007,6 +50654,11 @@ impl ::core::clone::Clone for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
         *self
     }
 }
+impl ::core::fmt::Debug for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFINPUTTRUSTAUTHORITY_ACCESS_ACTION").field("Action", &self.Action).field("pbTicket", &self.pbTicket).field("cbTicket", &self.cbTicket).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     type Abi = Self;
 }
@@ -49037,6 +50689,11 @@ impl ::core::marker::Copy for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {}
 impl ::core::clone::Clone for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS").field("dwSize", &self.dwSize).field("dwVer", &self.dwVer).field("cbSignatureOffset", &self.cbSignatureOffset).field("cbSignatureSize", &self.cbSignatureSize).field("cbExtensionOffset", &self.cbExtensionOffset).field("cbExtensionSize", &self.cbExtensionSize).field("cActions", &self.cActions).field("rgOutputActions", &self.rgOutputActions).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
@@ -49399,6 +51056,27 @@ impl ::core::clone::Clone for MFMPEG2DLNASINKSTATS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MFMPEG2DLNASINKSTATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFMPEG2DLNASINKSTATS")
+            .field("cBytesWritten", &self.cBytesWritten)
+            .field("fPAL", &self.fPAL)
+            .field("fccVideo", &self.fccVideo)
+            .field("dwVideoWidth", &self.dwVideoWidth)
+            .field("dwVideoHeight", &self.dwVideoHeight)
+            .field("cVideoFramesReceived", &self.cVideoFramesReceived)
+            .field("cVideoFramesEncoded", &self.cVideoFramesEncoded)
+            .field("cVideoFramesSkipped", &self.cVideoFramesSkipped)
+            .field("cBlackVideoFramesEncoded", &self.cBlackVideoFramesEncoded)
+            .field("cVideoFramesDuplicated", &self.cVideoFramesDuplicated)
+            .field("cAudioSamplesPerSec", &self.cAudioSamplesPerSec)
+            .field("cAudioChannels", &self.cAudioChannels)
+            .field("cAudioBytesReceived", &self.cAudioBytesReceived)
+            .field("cAudioFramesEncoded", &self.cAudioFramesEncoded)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MFMPEG2DLNASINKSTATS {
     type Abi = Self;
 }
@@ -49458,6 +51136,11 @@ impl ::core::marker::Copy for MFMediaKeyStatus {}
 impl ::core::clone::Clone for MFMediaKeyStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFMediaKeyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFMediaKeyStatus").field("pbKeyId", &self.pbKeyId).field("cbKeyId", &self.cbKeyId).field("eMediaKeyStatus", &self.eMediaKeyStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFMediaKeyStatus {
@@ -49670,6 +51353,12 @@ impl ::core::clone::Clone for MFNetCredentialManagerGetParam {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MFNetCredentialManagerGetParam {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFNetCredentialManagerGetParam").field("hrOp", &self.hrOp).field("fAllowLoggedOnUser", &self.fAllowLoggedOnUser).field("fClearTextPackage", &self.fClearTextPackage).field("pszUrl", &self.pszUrl).field("pszSite", &self.pszSite).field("pszRealm", &self.pszRealm).field("pszPackage", &self.pszPackage).field("nRetries", &self.nRetries).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MFNetCredentialManagerGetParam {
     type Abi = Self;
 }
@@ -49731,6 +51420,11 @@ impl ::core::marker::Copy for MFOffset {}
 impl ::core::clone::Clone for MFOffset {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFOffset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFOffset").field("fract", &self.fract).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFOffset {
@@ -49846,6 +51540,24 @@ impl ::core::clone::Clone for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::fmt::Debug for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_ACQUIRE_USER_CREDENTIAL_EVENT")
+            .field("header", &self.header)
+            .field("dwUserData", &self.dwUserData)
+            .field("fProceedWithAuthentication", &self.fProceedWithAuthentication)
+            .field("hrAuthenticationStatus", &self.hrAuthenticationStatus)
+            .field("pwszURL", &self.pwszURL)
+            .field("pwszSite", &self.pwszSite)
+            .field("pwszRealm", &self.pwszRealm)
+            .field("pwszPackage", &self.pwszPackage)
+            .field("nRetries", &self.nRetries)
+            .field("flags", &self.flags)
+            .field("pCredential", &self.pCredential)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -49886,6 +51598,12 @@ impl ::core::clone::Clone for MFP_ERROR_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_ERROR_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_ERROR_EVENT").field("header", &self.header).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for MFP_ERROR_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -49923,6 +51641,12 @@ impl ::core::clone::Clone for MFP_EVENT_HEADER {
             eState: self.eState,
             pPropertyStore: self.pPropertyStore.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_EVENT_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_EVENT_HEADER").field("eEventType", &self.eEventType).field("hrEvent", &self.hrEvent).field("pMediaPlayer", &self.pMediaPlayer).field("eState", &self.eState).field("pPropertyStore", &self.pPropertyStore).finish()
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -49985,6 +51709,12 @@ impl ::core::clone::Clone for MFP_FRAME_STEP_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_FRAME_STEP_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_FRAME_STEP_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for MFP_FRAME_STEP_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -50013,6 +51743,12 @@ pub struct MFP_MEDIAITEM_CLEARED_EVENT {
 impl ::core::clone::Clone for MFP_MEDIAITEM_CLEARED_EVENT {
     fn clone(&self) -> Self {
         Self { header: self.header.clone(), pMediaItem: self.pMediaItem.clone() }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_MEDIAITEM_CLEARED_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_MEDIAITEM_CLEARED_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -50048,6 +51784,12 @@ impl ::core::clone::Clone for MFP_MEDIAITEM_CREATED_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_MEDIAITEM_CREATED_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_MEDIAITEM_CREATED_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).field("dwUserData", &self.dwUserData).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for MFP_MEDIAITEM_CREATED_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -50076,6 +51818,12 @@ pub struct MFP_MEDIAITEM_SET_EVENT {
 impl ::core::clone::Clone for MFP_MEDIAITEM_SET_EVENT {
     fn clone(&self) -> Self {
         Self { header: self.header.clone(), pMediaItem: self.pMediaItem.clone() }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_MEDIAITEM_SET_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_MEDIAITEM_SET_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -50124,6 +51872,12 @@ impl ::core::clone::Clone for MFP_MF_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_MF_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_MF_EVENT").field("header", &self.header).field("MFEventType", &self.MFEventType).field("pMFMediaEvent", &self.pMFMediaEvent).field("pMediaItem", &self.pMediaItem).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for MFP_MF_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -50152,6 +51906,12 @@ pub struct MFP_PAUSE_EVENT {
 impl ::core::clone::Clone for MFP_PAUSE_EVENT {
     fn clone(&self) -> Self {
         Self { header: self.header.clone(), pMediaItem: self.pMediaItem.clone() }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_PAUSE_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_PAUSE_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -50186,6 +51946,12 @@ impl ::core::clone::Clone for MFP_PLAYBACK_ENDED_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_PLAYBACK_ENDED_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_PLAYBACK_ENDED_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for MFP_PLAYBACK_ENDED_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -50214,6 +51980,12 @@ pub struct MFP_PLAY_EVENT {
 impl ::core::clone::Clone for MFP_PLAY_EVENT {
     fn clone(&self) -> Self {
         Self { header: self.header.clone(), pMediaItem: self.pMediaItem.clone() }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_PLAY_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_PLAY_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -50249,6 +52021,12 @@ impl ::core::clone::Clone for MFP_POSITION_SET_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_POSITION_SET_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_POSITION_SET_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for MFP_POSITION_SET_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -50281,6 +52059,12 @@ impl ::core::clone::Clone for MFP_RATE_SET_EVENT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_RATE_SET_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_RATE_SET_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).field("flRate", &self.flRate).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for MFP_RATE_SET_EVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -50309,6 +52093,12 @@ pub struct MFP_STOP_EVENT {
 impl ::core::clone::Clone for MFP_STOP_EVENT {
     fn clone(&self) -> Self {
         Self { header: self.header.clone(), pMediaItem: self.pMediaItem.clone() }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for MFP_STOP_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFP_STOP_EVENT").field("header", &self.header).field("pMediaItem", &self.pMediaItem).finish()
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -50369,6 +52159,11 @@ impl ::core::clone::Clone for MFPinholeCameraIntrinsic_IntrinsicModel {
         *self
     }
 }
+impl ::core::fmt::Debug for MFPinholeCameraIntrinsic_IntrinsicModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFPinholeCameraIntrinsic_IntrinsicModel").field("Width", &self.Width).field("Height", &self.Height).field("CameraModel", &self.CameraModel).field("DistortionModel", &self.DistortionModel).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFPinholeCameraIntrinsic_IntrinsicModel {
     type Abi = Self;
 }
@@ -50393,6 +52188,11 @@ impl ::core::marker::Copy for MFPinholeCameraIntrinsics {}
 impl ::core::clone::Clone for MFPinholeCameraIntrinsics {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFPinholeCameraIntrinsics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFPinholeCameraIntrinsics").field("IntrinsicModelCount", &self.IntrinsicModelCount).field("IntrinsicModels", &self.IntrinsicModels).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFPinholeCameraIntrinsics {
@@ -50500,6 +52300,11 @@ impl ::core::clone::Clone for MFRR_COMPONENTS {
         *self
     }
 }
+impl ::core::fmt::Debug for MFRR_COMPONENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFRR_COMPONENTS").field("dwRRInfoVersion", &self.dwRRInfoVersion).field("dwRRComponents", &self.dwRRComponents).field("pRRComponents", &self.pRRComponents).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFRR_COMPONENTS {
     type Abi = Self;
 }
@@ -50528,6 +52333,11 @@ impl ::core::clone::Clone for MFRR_COMPONENT_HASH_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for MFRR_COMPONENT_HASH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFRR_COMPONENT_HASH_INFO").field("ulReason", &self.ulReason).field("rgHeaderHash", &self.rgHeaderHash).field("rgPublicKeyHash", &self.rgPublicKeyHash).field("wszName", &self.wszName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFRR_COMPONENT_HASH_INFO {
     type Abi = Self;
 }
@@ -50554,6 +52364,11 @@ impl ::core::marker::Copy for MFRatio {}
 impl ::core::clone::Clone for MFRatio {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFRatio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFRatio").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFRatio {
@@ -51066,6 +52881,11 @@ impl ::core::clone::Clone for MFTOPONODE_ATTRIBUTE_UPDATE {
         *self
     }
 }
+impl ::core::fmt::Debug for MFTOPONODE_ATTRIBUTE_UPDATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFTOPONODE_ATTRIBUTE_UPDATE").field("NodeId", &self.NodeId).field("guidAttributeKey", &self.guidAttributeKey).field("attrType", &self.attrType).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFTOPONODE_ATTRIBUTE_UPDATE {
     type Abi = Self;
 }
@@ -51266,6 +53086,11 @@ impl ::core::clone::Clone for MFT_INPUT_STREAM_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for MFT_INPUT_STREAM_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFT_INPUT_STREAM_INFO").field("hnsMaxLatency", &self.hnsMaxLatency).field("dwFlags", &self.dwFlags).field("cbSize", &self.cbSize).field("cbMaxLookahead", &self.cbMaxLookahead).field("cbAlignment", &self.cbAlignment).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFT_INPUT_STREAM_INFO {
     type Abi = Self;
 }
@@ -51328,6 +53153,11 @@ impl ::core::clone::Clone for MFT_OUTPUT_DATA_BUFFER {
         Self { dwStreamID: self.dwStreamID, pSample: self.pSample.clone(), dwStatus: self.dwStatus, pEvents: self.pEvents.clone() }
     }
 }
+impl ::core::fmt::Debug for MFT_OUTPUT_DATA_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFT_OUTPUT_DATA_BUFFER").field("dwStreamID", &self.dwStreamID).field("pSample", &self.pSample).field("dwStatus", &self.dwStatus).field("pEvents", &self.pEvents).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MFT_OUTPUT_DATA_BUFFER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -51353,6 +53183,11 @@ impl ::core::marker::Copy for MFT_OUTPUT_STREAM_INFO {}
 impl ::core::clone::Clone for MFT_OUTPUT_STREAM_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFT_OUTPUT_STREAM_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFT_OUTPUT_STREAM_INFO").field("dwFlags", &self.dwFlags).field("cbSize", &self.cbSize).field("cbAlignment", &self.cbAlignment).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFT_OUTPUT_STREAM_INFO {
@@ -51384,6 +53219,11 @@ impl ::core::marker::Copy for MFT_REGISTER_TYPE_INFO {}
 impl ::core::clone::Clone for MFT_REGISTER_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFT_REGISTER_TYPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFT_REGISTER_TYPE_INFO").field("guidMajorType", &self.guidMajorType).field("guidSubtype", &self.guidSubtype).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFT_REGISTER_TYPE_INFO {
@@ -51422,6 +53262,12 @@ impl ::core::clone::Clone for MFT_REGISTRATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MFT_REGISTRATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFT_REGISTRATION_INFO").field("clsid", &self.clsid).field("guidCategory", &self.guidCategory).field("uiFlags", &self.uiFlags).field("pszName", &self.pszName).field("cInTypes", &self.cInTypes).field("pInTypes", &self.pInTypes).field("cOutTypes", &self.cOutTypes).field("pOutTypes", &self.pOutTypes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MFT_REGISTRATION_INFO {
     type Abi = Self;
 }
@@ -51452,6 +53298,11 @@ impl ::core::marker::Copy for MFT_STREAM_STATE_PARAM {}
 impl ::core::clone::Clone for MFT_STREAM_STATE_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFT_STREAM_STATE_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFT_STREAM_STATE_PARAM").field("StreamId", &self.StreamId).field("State", &self.State).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFT_STREAM_STATE_PARAM {
@@ -51589,6 +53440,12 @@ impl ::core::clone::Clone for MFVIDEOFORMAT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MFVIDEOFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFVIDEOFORMAT").field("dwSize", &self.dwSize).field("videoInfo", &self.videoInfo).field("guidFormat", &self.guidFormat).field("compressedInfo", &self.compressedInfo).field("surfaceInfo", &self.surfaceInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MFVIDEOFORMAT {
     type Abi = Self;
 }
@@ -51666,6 +53523,12 @@ pub struct MFVideoAlphaBitmap {
 impl ::core::clone::Clone for MFVideoAlphaBitmap {
     fn clone(&self) -> Self {
         Self { GetBitmapFromDC: self.GetBitmapFromDC, bitmap: self.bitmap.clone(), params: self.params }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for MFVideoAlphaBitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFVideoAlphaBitmap").field("GetBitmapFromDC", &self.GetBitmapFromDC).field("bitmap", &self.bitmap).field("params", &self.params).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
@@ -51753,6 +53616,12 @@ impl ::core::clone::Clone for MFVideoAlphaBitmapParams {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MFVideoAlphaBitmapParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFVideoAlphaBitmapParams").field("dwFlags", &self.dwFlags).field("clrSrcKey", &self.clrSrcKey).field("rcSrc", &self.rcSrc).field("nrcDest", &self.nrcDest).field("fAlpha", &self.fAlpha).field("dwFilterMode", &self.dwFilterMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MFVideoAlphaBitmapParams {
     type Abi = Self;
 }
@@ -51784,6 +53653,12 @@ impl ::core::marker::Copy for MFVideoArea {}
 impl ::core::clone::Clone for MFVideoArea {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MFVideoArea {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFVideoArea").field("OffsetX", &self.OffsetX).field("OffsetY", &self.OffsetY).field("Area", &self.Area).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -51851,6 +53726,11 @@ impl ::core::marker::Copy for MFVideoCompressedInfo {}
 impl ::core::clone::Clone for MFVideoCompressedInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFVideoCompressedInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFVideoCompressedInfo").field("AvgBitrate", &self.AvgBitrate).field("AvgBitErrorRate", &self.AvgBitErrorRate).field("MaxKeyFrameSpacing", &self.MaxKeyFrameSpacing).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoCompressedInfo {
@@ -52025,6 +53905,28 @@ impl ::core::clone::Clone for MFVideoInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MFVideoInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFVideoInfo")
+            .field("dwWidth", &self.dwWidth)
+            .field("dwHeight", &self.dwHeight)
+            .field("PixelAspectRatio", &self.PixelAspectRatio)
+            .field("SourceChromaSubsampling", &self.SourceChromaSubsampling)
+            .field("InterlaceMode", &self.InterlaceMode)
+            .field("TransferFunction", &self.TransferFunction)
+            .field("ColorPrimaries", &self.ColorPrimaries)
+            .field("TransferMatrix", &self.TransferMatrix)
+            .field("SourceLighting", &self.SourceLighting)
+            .field("FramesPerSecond", &self.FramesPerSecond)
+            .field("NominalRange", &self.NominalRange)
+            .field("GeometricAperture", &self.GeometricAperture)
+            .field("MinimumDisplayAperture", &self.MinimumDisplayAperture)
+            .field("PanScanAperture", &self.PanScanAperture)
+            .field("VideoFlags", &self.VideoFlags)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MFVideoInfo {
     type Abi = Self;
 }
@@ -52104,6 +54006,11 @@ impl ::core::marker::Copy for MFVideoNormalizedRect {}
 impl ::core::clone::Clone for MFVideoNormalizedRect {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFVideoNormalizedRect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFVideoNormalizedRect").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoNormalizedRect {
@@ -52227,6 +54134,11 @@ impl ::core::marker::Copy for MFVideoSurfaceInfo {}
 impl ::core::clone::Clone for MFVideoSurfaceInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MFVideoSurfaceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MFVideoSurfaceInfo").field("Format", &self.Format).field("PaletteEntries", &self.PaletteEntries).field("Palette", &self.Palette).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoSurfaceInfo {
@@ -52451,6 +54363,11 @@ impl ::core::marker::Copy for MF_BYTE_STREAM_CACHE_RANGE {}
 impl ::core::clone::Clone for MF_BYTE_STREAM_CACHE_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MF_BYTE_STREAM_CACHE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_BYTE_STREAM_CACHE_RANGE").field("qwStartOffset", &self.qwStartOffset).field("qwEndOffset", &self.qwEndOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MF_BYTE_STREAM_CACHE_RANGE {
@@ -53668,6 +55585,11 @@ impl ::core::clone::Clone for MF_FLOAT2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MF_FLOAT2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_FLOAT2").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MF_FLOAT2 {
     type Abi = Self;
 }
@@ -53693,6 +55615,11 @@ impl ::core::marker::Copy for MF_FLOAT3 {}
 impl ::core::clone::Clone for MF_FLOAT3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MF_FLOAT3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_FLOAT3").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MF_FLOAT3 {
@@ -53764,6 +55691,11 @@ impl ::core::marker::Copy for MF_LEAKY_BUCKET_PAIR {}
 impl ::core::clone::Clone for MF_LEAKY_BUCKET_PAIR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MF_LEAKY_BUCKET_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_LEAKY_BUCKET_PAIR").field("dwBitrate", &self.dwBitrate).field("msBufferWindow", &self.msBufferWindow).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MF_LEAKY_BUCKET_PAIR {
@@ -54486,6 +56418,11 @@ impl ::core::clone::Clone for MF_QUATERNION {
         *self
     }
 }
+impl ::core::fmt::Debug for MF_QUATERNION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_QUATERNION").field("x", &self.x).field("y", &self.y).field("z", &self.z).field("w", &self.w).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MF_QUATERNION {
     type Abi = Self;
 }
@@ -54655,6 +56592,28 @@ impl ::core::marker::Copy for MF_SINK_WRITER_STATISTICS {}
 impl ::core::clone::Clone for MF_SINK_WRITER_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MF_SINK_WRITER_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_SINK_WRITER_STATISTICS")
+            .field("cb", &self.cb)
+            .field("llLastTimestampReceived", &self.llLastTimestampReceived)
+            .field("llLastTimestampEncoded", &self.llLastTimestampEncoded)
+            .field("llLastTimestampProcessed", &self.llLastTimestampProcessed)
+            .field("llLastStreamTickReceived", &self.llLastStreamTickReceived)
+            .field("llLastSinkSampleRequest", &self.llLastSinkSampleRequest)
+            .field("qwNumSamplesReceived", &self.qwNumSamplesReceived)
+            .field("qwNumSamplesEncoded", &self.qwNumSamplesEncoded)
+            .field("qwNumSamplesProcessed", &self.qwNumSamplesProcessed)
+            .field("qwNumStreamTicksReceived", &self.qwNumStreamTicksReceived)
+            .field("dwByteCountQueued", &self.dwByteCountQueued)
+            .field("qwByteCountProcessed", &self.qwByteCountProcessed)
+            .field("dwNumOutstandingSinkSampleRequests", &self.dwNumOutstandingSinkSampleRequests)
+            .field("dwAverageSampleRateReceived", &self.dwAverageSampleRateReceived)
+            .field("dwAverageSampleRateEncoded", &self.dwAverageSampleRateEncoded)
+            .field("dwAverageSampleRateProcessed", &self.dwAverageSampleRateProcessed)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MF_SINK_WRITER_STATISTICS {
@@ -55052,6 +57011,11 @@ impl ::core::clone::Clone for MF_TRANSCODE_SINK_INFO {
         }
     }
 }
+impl ::core::fmt::Debug for MF_TRANSCODE_SINK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_TRANSCODE_SINK_INFO").field("dwVideoStreamID", &self.dwVideoStreamID).field("pVideoMediaType", &self.pVideoMediaType).field("dwAudioStreamID", &self.dwAudioStreamID).field("pAudioMediaType", &self.pAudioMediaType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TRANSCODE_SINK_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -55131,6 +57095,11 @@ impl ::core::clone::Clone for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
         *self
     }
 }
+impl ::core::fmt::Debug for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_VIDEO_SPHERICAL_VIEWDIRECTION").field("iHeading", &self.iHeading).field("iPitch", &self.iPitch).field("iRoll", &self.iRoll).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     type Abi = Self;
 }
@@ -55197,6 +57166,12 @@ impl ::core::clone::Clone for MOVEREGION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MOVEREGION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOVEREGION_INFO").field("FrameNumber", &self.FrameNumber).field("NumMoveRegions", &self.NumMoveRegions).field("MoveRegions", &self.MoveRegions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MOVEREGION_INFO {
     type Abi = Self;
 }
@@ -55227,6 +57202,12 @@ impl ::core::marker::Copy for MOVE_RECT {}
 impl ::core::clone::Clone for MOVE_RECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MOVE_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOVE_RECT").field("SourcePoint", &self.SourcePoint).field("DestRect", &self.DestRect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -55278,6 +57259,12 @@ impl ::core::clone::Clone for MT_ARBITRARY_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MT_ARBITRARY_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MT_ARBITRARY_HEADER").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MT_ARBITRARY_HEADER {
     type Abi = Self;
 }
@@ -55311,6 +57298,11 @@ impl ::core::marker::Copy for MT_CUSTOM_VIDEO_PRIMARIES {}
 impl ::core::clone::Clone for MT_CUSTOM_VIDEO_PRIMARIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MT_CUSTOM_VIDEO_PRIMARIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MT_CUSTOM_VIDEO_PRIMARIES").field("fRx", &self.fRx).field("fRy", &self.fRy).field("fGx", &self.fGx).field("fGy", &self.fGy).field("fBx", &self.fBx).field("fBy", &self.fBy).field("fWx", &self.fWx).field("fWy", &self.fWy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MT_CUSTOM_VIDEO_PRIMARIES {
@@ -55439,6 +57431,25 @@ impl ::core::clone::Clone for OPM_ACP_AND_CGMSA_SIGNALING {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_ACP_AND_CGMSA_SIGNALING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_ACP_AND_CGMSA_SIGNALING")
+            .field("rnRandomNumber", &self.rnRandomNumber)
+            .field("ulStatusFlags", &self.ulStatusFlags)
+            .field("ulAvailableTVProtectionStandards", &self.ulAvailableTVProtectionStandards)
+            .field("ulActiveTVProtectionStandard", &self.ulActiveTVProtectionStandard)
+            .field("ulReserved", &self.ulReserved)
+            .field("ulAspectRatioValidMask1", &self.ulAspectRatioValidMask1)
+            .field("ulAspectRatioData1", &self.ulAspectRatioData1)
+            .field("ulAspectRatioValidMask2", &self.ulAspectRatioValidMask2)
+            .field("ulAspectRatioData2", &self.ulAspectRatioData2)
+            .field("ulAspectRatioValidMask3", &self.ulAspectRatioValidMask3)
+            .field("ulAspectRatioData3", &self.ulAspectRatioData3)
+            .field("ulReserved2", &self.ulReserved2)
+            .field("ulReserved3", &self.ulReserved3)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_ACP_AND_CGMSA_SIGNALING {
     type Abi = Self;
 }
@@ -55484,6 +57495,12 @@ impl ::core::marker::Copy for OPM_ACTUAL_OUTPUT_FORMAT {}
 impl ::core::clone::Clone for OPM_ACTUAL_OUTPUT_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::fmt::Debug for OPM_ACTUAL_OUTPUT_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_ACTUAL_OUTPUT_FORMAT").field("rnRandomNumber", &self.rnRandomNumber).field("ulStatusFlags", &self.ulStatusFlags).field("ulDisplayWidth", &self.ulDisplayWidth).field("ulDisplayHeight", &self.ulDisplayHeight).field("dsfSampleInterleaveFormat", &self.dsfSampleInterleaveFormat).field("d3dFormat", &self.d3dFormat).field("ulFrequencyNumerator", &self.ulFrequencyNumerator).field("ulFrequencyDenominator", &self.ulFrequencyDenominator).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -55559,6 +57576,11 @@ impl ::core::clone::Clone for OPM_CONFIGURE_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_CONFIGURE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_CONFIGURE_PARAMETERS").field("omac", &self.omac).field("guidSetting", &self.guidSetting).field("ulSequenceNumber", &self.ulSequenceNumber).field("cbParametersSize", &self.cbParametersSize).field("abParameters", &self.abParameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_CONFIGURE_PARAMETERS {
     type Abi = Self;
 }
@@ -55590,6 +57612,11 @@ impl ::core::clone::Clone for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_CONNECTED_HDCP_DEVICE_INFORMATION").field("rnRandomNumber", &self.rnRandomNumber).field("ulStatusFlags", &self.ulStatusFlags).field("ulHDCPFlags", &self.ulHDCPFlags).field("ksvB", &self.ksvB).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     type Abi = Self;
 }
@@ -55617,6 +57644,11 @@ impl ::core::marker::Copy for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {}
 impl ::core::clone::Clone for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS").field("rnRandomNumber", &self.rnRandomNumber).field("guidInformation", &self.guidInformation).field("ulSequenceNumber", &self.ulSequenceNumber).field("cbParametersSize", &self.cbParametersSize).field("abParameters", &self.abParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
@@ -55658,6 +57690,11 @@ impl ::core::clone::Clone for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_ENCRYPTED_INITIALIZATION_PARAMETERS").field("abEncryptedInitializationParameters", &self.abEncryptedInitializationParameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     type Abi = Self;
 }
@@ -55689,6 +57726,11 @@ impl ::core::clone::Clone for OPM_GET_CODEC_INFO_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_GET_CODEC_INFO_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_GET_CODEC_INFO_INFORMATION").field("rnRandomNumber", &self.rnRandomNumber).field("Merit", &self.Merit).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_GET_CODEC_INFO_INFORMATION {
     type Abi = Self;
 }
@@ -55713,6 +57755,11 @@ impl ::core::marker::Copy for OPM_GET_CODEC_INFO_PARAMETERS {}
 impl ::core::clone::Clone for OPM_GET_CODEC_INFO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPM_GET_CODEC_INFO_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_GET_CODEC_INFO_PARAMETERS").field("cbVerifier", &self.cbVerifier).field("Verifier", &self.Verifier).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_GET_CODEC_INFO_PARAMETERS {
@@ -55749,6 +57796,11 @@ impl ::core::clone::Clone for OPM_GET_INFO_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_GET_INFO_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_GET_INFO_PARAMETERS").field("omac", &self.omac).field("rnRandomNumber", &self.rnRandomNumber).field("guidInformation", &self.guidInformation).field("ulSequenceNumber", &self.ulSequenceNumber).field("cbParametersSize", &self.cbParametersSize).field("abParameters", &self.abParameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_GET_INFO_PARAMETERS {
     type Abi = Self;
 }
@@ -55782,6 +57834,11 @@ impl ::core::marker::Copy for OPM_HDCP_KEY_SELECTION_VECTOR {}
 impl ::core::clone::Clone for OPM_HDCP_KEY_SELECTION_VECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPM_HDCP_KEY_SELECTION_VECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_HDCP_KEY_SELECTION_VECTOR").field("abKeySelectionVector", &self.abKeySelectionVector).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_HDCP_KEY_SELECTION_VECTOR {
@@ -55849,6 +57906,11 @@ impl ::core::clone::Clone for OPM_OMAC {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_OMAC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_OMAC").field("abOMAC", &self.abOMAC).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_OMAC {
     type Abi = Self;
 }
@@ -55880,6 +57942,11 @@ impl ::core::marker::Copy for OPM_OUTPUT_ID_DATA {}
 impl ::core::clone::Clone for OPM_OUTPUT_ID_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPM_OUTPUT_ID_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_OUTPUT_ID_DATA").field("rnRandomNumber", &self.rnRandomNumber).field("ulStatusFlags", &self.ulStatusFlags).field("OutputId", &self.OutputId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_OUTPUT_ID_DATA {
@@ -55961,6 +58028,11 @@ impl ::core::clone::Clone for OPM_RANDOM_NUMBER {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_RANDOM_NUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_RANDOM_NUMBER").field("abRandomNumber", &self.abRandomNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_RANDOM_NUMBER {
     type Abi = Self;
 }
@@ -55986,6 +58058,11 @@ impl ::core::marker::Copy for OPM_REQUESTED_INFORMATION {}
 impl ::core::clone::Clone for OPM_REQUESTED_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPM_REQUESTED_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_REQUESTED_INFORMATION").field("omac", &self.omac).field("cbRequestedInformationSize", &self.cbRequestedInformationSize).field("abRequestedInformation", &self.abRequestedInformation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_REQUESTED_INFORMATION {
@@ -56023,6 +58100,22 @@ impl ::core::clone::Clone for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS")
+            .field("ulNewTVProtectionStandard", &self.ulNewTVProtectionStandard)
+            .field("ulAspectRatioChangeMask1", &self.ulAspectRatioChangeMask1)
+            .field("ulAspectRatioData1", &self.ulAspectRatioData1)
+            .field("ulAspectRatioChangeMask2", &self.ulAspectRatioChangeMask2)
+            .field("ulAspectRatioData2", &self.ulAspectRatioData2)
+            .field("ulAspectRatioChangeMask3", &self.ulAspectRatioChangeMask3)
+            .field("ulAspectRatioData3", &self.ulAspectRatioData3)
+            .field("ulReserved", &self.ulReserved)
+            .field("ulReserved2", &self.ulReserved2)
+            .field("ulReserved3", &self.ulReserved3)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     type Abi = Self;
 }
@@ -56047,6 +58140,11 @@ impl ::core::marker::Copy for OPM_SET_HDCP_SRM_PARAMETERS {}
 impl ::core::clone::Clone for OPM_SET_HDCP_SRM_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPM_SET_HDCP_SRM_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_SET_HDCP_SRM_PARAMETERS").field("ulSRMVersion", &self.ulSRMVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_SET_HDCP_SRM_PARAMETERS {
@@ -56079,6 +58177,11 @@ impl ::core::clone::Clone for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_SET_PROTECTION_LEVEL_PARAMETERS").field("ulProtectionType", &self.ulProtectionType).field("ulProtectionLevel", &self.ulProtectionLevel).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     type Abi = Self;
 }
@@ -56106,6 +58209,11 @@ impl ::core::marker::Copy for OPM_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for OPM_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OPM_STANDARD_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPM_STANDARD_INFORMATION").field("rnRandomNumber", &self.rnRandomNumber).field("ulStatusFlags", &self.ulStatusFlags).field("ulInformation", &self.ulInformation).field("ulReserved", &self.ulReserved).field("ulReserved2", &self.ulReserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_STANDARD_INFORMATION {
@@ -56297,6 +58405,12 @@ impl ::core::clone::Clone for ROI_AREA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ROI_AREA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ROI_AREA").field("rect", &self.rect).field("QPDelta", &self.QPDelta).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ROI_AREA {
     type Abi = Self;
 }
@@ -56345,6 +58459,11 @@ impl ::core::clone::Clone for SENSORPROFILEID {
         *self
     }
 }
+impl ::core::fmt::Debug for SENSORPROFILEID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SENSORPROFILEID").field("Type", &self.Type).field("Index", &self.Index).field("Unused", &self.Unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SENSORPROFILEID {
     type Abi = Self;
 }
@@ -56371,6 +58490,11 @@ impl ::core::marker::Copy for STREAM_MEDIUM {}
 impl ::core::clone::Clone for STREAM_MEDIUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STREAM_MEDIUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STREAM_MEDIUM").field("gidMedium", &self.gidMedium).field("unMediumInstance", &self.unMediumInstance).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STREAM_MEDIUM {
@@ -56417,6 +58541,11 @@ impl ::core::clone::Clone for TOC_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for TOC_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TOC_DESCRIPTOR").field("guidID", &self.guidID).field("wStreamNumber", &self.wStreamNumber).field("guidType", &self.guidType).field("wLanguageIndex", &self.wLanguageIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TOC_DESCRIPTOR {
     type Abi = Self;
 }
@@ -56444,6 +58573,11 @@ impl ::core::marker::Copy for TOC_ENTRY_DESCRIPTOR {}
 impl ::core::clone::Clone for TOC_ENTRY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TOC_ENTRY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TOC_ENTRY_DESCRIPTOR").field("qwStartTime", &self.qwStartTime).field("qwEndTime", &self.qwEndTime).field("qwStartPacketOffset", &self.qwStartPacketOffset).field("qwEndPacketOffset", &self.qwEndPacketOffset).field("qwRepresentativeFrameTime", &self.qwRepresentativeFrameTime).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TOC_ENTRY_DESCRIPTOR {

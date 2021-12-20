@@ -11,6 +11,11 @@ impl ::core::clone::Clone for HolographicAdapterId {
         *self
     }
 }
+impl ::core::fmt::Debug for HolographicAdapterId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HolographicAdapterId").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicAdapterId {
     type Abi = Self;
 }
@@ -964,6 +969,11 @@ impl ::core::marker::Copy for HolographicFrameId {}
 impl ::core::clone::Clone for HolographicFrameId {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HolographicFrameId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HolographicFrameId").field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HolographicFrameId {
@@ -2439,6 +2449,12 @@ impl ::core::marker::Copy for HolographicStereoTransform {}
 impl ::core::clone::Clone for HolographicStereoTransform {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for HolographicStereoTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HolographicStereoTransform").field("Left", &self.Left).field("Right", &self.Right).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]

@@ -10,6 +10,11 @@ impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE {
         *self
     }
 }
+impl ::core::fmt::Debug for ACT_AUTHORIZATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACT_AUTHORIZATION_STATE").field("ulState", &self.ulState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE {
     type Abi = Self;
 }
@@ -231,6 +236,39 @@ impl ::core::marker::Copy for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
 impl ::core::clone::Clone for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION")
+            .field("CurrentAdminFailures", &self.CurrentAdminFailures)
+            .field("CurrentUserFailures", &self.CurrentUserFailures)
+            .field("TotalUserAuthenticationCount", &self.TotalUserAuthenticationCount)
+            .field("TotalAdminAuthenticationCount", &self.TotalAdminAuthenticationCount)
+            .field("FipsCompliant", &self.FipsCompliant)
+            .field("SecurityIDAvailable", &self.SecurityIDAvailable)
+            .field("InitializeInProgress", &self.InitializeInProgress)
+            .field("ITMSArmed", &self.ITMSArmed)
+            .field("ITMSArmable", &self.ITMSArmable)
+            .field("UserCreated", &self.UserCreated)
+            .field("ResetOnPORDefault", &self.ResetOnPORDefault)
+            .field("ResetOnPORCurrent", &self.ResetOnPORCurrent)
+            .field("MaxAdminFailures", &self.MaxAdminFailures)
+            .field("MaxUserFailures", &self.MaxUserFailures)
+            .field("TimeToCompleteInitialization", &self.TimeToCompleteInitialization)
+            .field("TimeRemainingToCompleteInitialization", &self.TimeRemainingToCompleteInitialization)
+            .field("MinTimeToAuthenticate", &self.MinTimeToAuthenticate)
+            .field("MaxAdminPasswordSize", &self.MaxAdminPasswordSize)
+            .field("MinAdminPasswordSize", &self.MinAdminPasswordSize)
+            .field("MaxAdminHintSize", &self.MaxAdminHintSize)
+            .field("MaxUserPasswordSize", &self.MaxUserPasswordSize)
+            .field("MinUserPasswordSize", &self.MinUserPasswordSize)
+            .field("MaxUserHintSize", &self.MaxUserHintSize)
+            .field("MaxUserNameSize", &self.MaxUserNameSize)
+            .field("MaxSiloNameSize", &self.MaxSiloNameSize)
+            .field("MaxChallengeSize", &self.MaxChallengeSize)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4341,6 +4379,11 @@ impl ::core::marker::Copy for SILO_INFO {}
 impl ::core::clone::Clone for SILO_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SILO_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SILO_INFO").field("ulSTID", &self.ulSTID).field("SpecificationMajor", &self.SpecificationMajor).field("SpecificationMinor", &self.SpecificationMinor).field("ImplementationMajor", &self.ImplementationMajor).field("ImplementationMinor", &self.ImplementationMinor).field("type", &self.r#type).field("capabilities", &self.capabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SILO_INFO {

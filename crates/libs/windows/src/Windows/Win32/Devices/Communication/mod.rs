@@ -93,6 +93,12 @@ impl ::core::clone::Clone for COMMCONFIG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COMMCONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMMCONFIG").field("dwSize", &self.dwSize).field("wVersion", &self.wVersion).field("wReserved", &self.wReserved).field("dcb", &self.dcb).field("dwProviderSubType", &self.dwProviderSubType).field("dwProviderOffset", &self.dwProviderOffset).field("dwProviderSize", &self.dwProviderSize).field("wcProviderData", &self.wcProviderData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COMMCONFIG {
     type Abi = Self;
 }
@@ -136,6 +142,30 @@ impl ::core::marker::Copy for COMMPROP {}
 impl ::core::clone::Clone for COMMPROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMMPROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMMPROP")
+            .field("wPacketLength", &self.wPacketLength)
+            .field("wPacketVersion", &self.wPacketVersion)
+            .field("dwServiceMask", &self.dwServiceMask)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwMaxTxQueue", &self.dwMaxTxQueue)
+            .field("dwMaxRxQueue", &self.dwMaxRxQueue)
+            .field("dwMaxBaud", &self.dwMaxBaud)
+            .field("dwProvSubType", &self.dwProvSubType)
+            .field("dwProvCapabilities", &self.dwProvCapabilities)
+            .field("dwSettableParams", &self.dwSettableParams)
+            .field("dwSettableBaud", &self.dwSettableBaud)
+            .field("wSettableData", &self.wSettableData)
+            .field("wSettableStopParity", &self.wSettableStopParity)
+            .field("dwCurrentTxQueue", &self.dwCurrentTxQueue)
+            .field("dwCurrentRxQueue", &self.dwCurrentRxQueue)
+            .field("dwProvSpec1", &self.dwProvSpec1)
+            .field("dwProvSpec2", &self.dwProvSpec2)
+            .field("wcProvChar", &self.wcProvChar)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMMPROP {
@@ -183,6 +213,11 @@ impl ::core::marker::Copy for COMMTIMEOUTS {}
 impl ::core::clone::Clone for COMMTIMEOUTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMMTIMEOUTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMMTIMEOUTS").field("ReadIntervalTimeout", &self.ReadIntervalTimeout).field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier).field("ReadTotalTimeoutConstant", &self.ReadTotalTimeoutConstant).field("WriteTotalTimeoutMultiplier", &self.WriteTotalTimeoutMultiplier).field("WriteTotalTimeoutConstant", &self.WriteTotalTimeoutConstant).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMMTIMEOUTS {
@@ -238,6 +273,11 @@ impl ::core::marker::Copy for COMSTAT {}
 impl ::core::clone::Clone for COMSTAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COMSTAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMSTAT").field("_bitfield", &self._bitfield).field("cbInQue", &self.cbInQue).field("cbOutQue", &self.cbOutQue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMSTAT {
@@ -340,6 +380,28 @@ impl ::core::marker::Copy for DCB {}
 impl ::core::clone::Clone for DCB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DCB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCB")
+            .field("DCBlength", &self.DCBlength)
+            .field("BaudRate", &self.BaudRate)
+            .field("_bitfield", &self._bitfield)
+            .field("wReserved", &self.wReserved)
+            .field("XonLim", &self.XonLim)
+            .field("XoffLim", &self.XoffLim)
+            .field("ByteSize", &self.ByteSize)
+            .field("Parity", &self.Parity)
+            .field("StopBits", &self.StopBits)
+            .field("XonChar", &self.XonChar)
+            .field("XoffChar", &self.XoffChar)
+            .field("ErrorChar", &self.ErrorChar)
+            .field("EofChar", &self.EofChar)
+            .field("EvtChar", &self.EvtChar)
+            .field("wReserved1", &self.wReserved1)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -739,6 +801,32 @@ impl ::core::clone::Clone for MODEMDEVCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for MODEMDEVCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MODEMDEVCAPS")
+            .field("dwActualSize", &self.dwActualSize)
+            .field("dwRequiredSize", &self.dwRequiredSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwModemProviderVersion", &self.dwModemProviderVersion)
+            .field("dwModemManufacturerOffset", &self.dwModemManufacturerOffset)
+            .field("dwModemManufacturerSize", &self.dwModemManufacturerSize)
+            .field("dwModemModelOffset", &self.dwModemModelOffset)
+            .field("dwModemModelSize", &self.dwModemModelSize)
+            .field("dwModemVersionOffset", &self.dwModemVersionOffset)
+            .field("dwModemVersionSize", &self.dwModemVersionSize)
+            .field("dwDialOptions", &self.dwDialOptions)
+            .field("dwCallSetupFailTimer", &self.dwCallSetupFailTimer)
+            .field("dwInactivityTimeout", &self.dwInactivityTimeout)
+            .field("dwSpeakerVolume", &self.dwSpeakerVolume)
+            .field("dwSpeakerMode", &self.dwSpeakerMode)
+            .field("dwModemOptions", &self.dwModemOptions)
+            .field("dwMaxDTERate", &self.dwMaxDTERate)
+            .field("dwMaxDCERate", &self.dwMaxDCERate)
+            .field("abVariablePortion", &self.abVariablePortion)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MODEMDEVCAPS {
     type Abi = Self;
 }
@@ -799,6 +887,24 @@ impl ::core::marker::Copy for MODEMSETTINGS {}
 impl ::core::clone::Clone for MODEMSETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MODEMSETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MODEMSETTINGS")
+            .field("dwActualSize", &self.dwActualSize)
+            .field("dwRequiredSize", &self.dwRequiredSize)
+            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
+            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
+            .field("dwCallSetupFailTimer", &self.dwCallSetupFailTimer)
+            .field("dwInactivityTimeout", &self.dwInactivityTimeout)
+            .field("dwSpeakerVolume", &self.dwSpeakerVolume)
+            .field("dwSpeakerMode", &self.dwSpeakerMode)
+            .field("dwPreferredModemOptions", &self.dwPreferredModemOptions)
+            .field("dwNegotiatedModemOptions", &self.dwNegotiatedModemOptions)
+            .field("dwNegotiatedDCERate", &self.dwNegotiatedDCERate)
+            .field("abVariablePortion", &self.abVariablePortion)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MODEMSETTINGS {

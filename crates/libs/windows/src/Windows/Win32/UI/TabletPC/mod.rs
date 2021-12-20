@@ -104,6 +104,11 @@ impl ::core::clone::Clone for CHARACTER_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for CHARACTER_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHARACTER_RANGE").field("wcLow", &self.wcLow).field("cChars", &self.cChars).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CHARACTER_RANGE {
     type Abi = Self;
 }
@@ -1103,6 +1108,11 @@ impl ::core::clone::Clone for DYNAMIC_RENDERER_CACHED_DATA {
         Self { strokeId: self.strokeId, dynamicRenderer: self.dynamicRenderer.clone() }
     }
 }
+impl ::core::fmt::Debug for DYNAMIC_RENDERER_CACHED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DYNAMIC_RENDERER_CACHED_DATA").field("strokeId", &self.strokeId).field("dynamicRenderer", &self.dynamicRenderer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DYNAMIC_RENDERER_CACHED_DATA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1315,6 +1325,11 @@ impl ::core::clone::Clone for FLICK_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for FLICK_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLICK_DATA").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FLICK_DATA {
     type Abi = Self;
 }
@@ -1338,6 +1353,11 @@ impl ::core::marker::Copy for FLICK_POINT {}
 impl ::core::clone::Clone for FLICK_POINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FLICK_POINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLICK_POINT").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FLICK_POINT {
@@ -1425,6 +1445,11 @@ impl ::core::marker::Copy for GESTURE_DATA {}
 impl ::core::clone::Clone for GESTURE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GESTURE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GESTURE_DATA").field("gestureId", &self.gestureId).field("recoConfidence", &self.recoConfidence).field("strokeCount", &self.strokeCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GESTURE_DATA {
@@ -1970,6 +1995,12 @@ impl ::core::clone::Clone for IEC_GESTUREINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
+impl ::core::fmt::Debug for IEC_GESTUREINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IEC_GESTUREINFO").field("nmhdr", &self.nmhdr).field("Cursor", &self.Cursor).field("Strokes", &self.Strokes).field("Gestures", &self.Gestures).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::core::Abi for IEC_GESTUREINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1998,6 +2029,12 @@ pub struct IEC_RECOGNITIONRESULTINFO {
 impl ::core::clone::Clone for IEC_RECOGNITIONRESULTINFO {
     fn clone(&self) -> Self {
         Self { nmhdr: self.nmhdr, RecognitionResult: self.RecognitionResult.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::fmt::Debug for IEC_RECOGNITIONRESULTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IEC_RECOGNITIONRESULTINFO").field("nmhdr", &self.nmhdr).field("RecognitionResult", &self.RecognitionResult).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -2030,6 +2067,12 @@ pub struct IEC_STROKEINFO {
 impl ::core::clone::Clone for IEC_STROKEINFO {
     fn clone(&self) -> Self {
         Self { nmhdr: self.nmhdr, Cursor: self.Cursor.clone(), Stroke: self.Stroke.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::fmt::Debug for IEC_STROKEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IEC_STROKEINFO").field("nmhdr", &self.nmhdr).field("Cursor", &self.Cursor).field("Stroke", &self.Stroke).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -9666,6 +9709,11 @@ impl ::core::clone::Clone for INKMETRIC {
         *self
     }
 }
+impl ::core::fmt::Debug for INKMETRIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INKMETRIC").field("iHeight", &self.iHeight).field("iFontAscent", &self.iFontAscent).field("iFontDescent", &self.iFontDescent).field("dwFlags", &self.dwFlags).field("color", &self.color).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INKMETRIC {
     type Abi = Self;
 }
@@ -11929,6 +11977,12 @@ impl ::core::clone::Clone for InkRecoGuide {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for InkRecoGuide {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InkRecoGuide").field("rectWritingBox", &self.rectWritingBox).field("rectDrawnBox", &self.rectDrawnBox).field("cRows", &self.cRows).field("cColumns", &self.cColumns).field("midline", &self.midline).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for InkRecoGuide {
     type Abi = Self;
 }
@@ -12160,6 +12214,12 @@ impl ::core::clone::Clone for LATTICE_METRICS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LATTICE_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LATTICE_METRICS").field("lsBaseline", &self.lsBaseline).field("iMidlineOffset", &self.iMidlineOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LATTICE_METRICS {
     type Abi = Self;
 }
@@ -12200,6 +12260,12 @@ impl ::core::marker::Copy for LINE_SEGMENT {}
 impl ::core::clone::Clone for LINE_SEGMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LINE_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LINE_SEGMENT").field("PtA", &self.PtA).field("PtB", &self.PtB).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12327,6 +12393,11 @@ impl ::core::clone::Clone for PACKET_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for PACKET_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKET_DESCRIPTION").field("cbPacketSize", &self.cbPacketSize).field("cPacketProperties", &self.cPacketProperties).field("pPacketProperties", &self.pPacketProperties).field("cButtons", &self.cButtons).field("pguidButtons", &self.pguidButtons).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PACKET_DESCRIPTION {
     type Abi = Self;
 }
@@ -12351,6 +12422,11 @@ impl ::core::marker::Copy for PACKET_PROPERTY {}
 impl ::core::clone::Clone for PACKET_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PACKET_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKET_PROPERTY").field("guid", &self.guid).field("PropertyMetrics", &self.PropertyMetrics).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PACKET_PROPERTY {
@@ -12379,6 +12455,11 @@ impl ::core::marker::Copy for PROPERTY_METRICS {}
 impl ::core::clone::Clone for PROPERTY_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROPERTY_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPERTY_METRICS").field("nLogicalMin", &self.nLogicalMin).field("nLogicalMax", &self.nLogicalMax).field("Units", &self.Units).field("fResolution", &self.fResolution).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROPERTY_METRICS {
@@ -12506,6 +12587,11 @@ impl ::core::clone::Clone for RECO_ATTRS {
         *self
     }
 }
+impl ::core::fmt::Debug for RECO_ATTRS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECO_ATTRS").field("dwRecoCapabilityFlags", &self.dwRecoCapabilityFlags).field("awcVendorName", &self.awcVendorName).field("awcFriendlyName", &self.awcFriendlyName).field("awLanguageId", &self.awLanguageId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RECO_ATTRS {
     type Abi = Self;
 }
@@ -12539,6 +12625,11 @@ impl ::core::clone::Clone for RECO_GUIDE {
         *self
     }
 }
+impl ::core::fmt::Debug for RECO_GUIDE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECO_GUIDE").field("xOrigin", &self.xOrigin).field("yOrigin", &self.yOrigin).field("cxBox", &self.cxBox).field("cyBox", &self.cyBox).field("cxBase", &self.cxBase).field("cyBase", &self.cyBase).field("cHorzBox", &self.cHorzBox).field("cVertBox", &self.cVertBox).field("cyMid", &self.cyMid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RECO_GUIDE {
     type Abi = Self;
 }
@@ -12568,6 +12659,11 @@ impl ::core::marker::Copy for RECO_LATTICE {}
 impl ::core::clone::Clone for RECO_LATTICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RECO_LATTICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECO_LATTICE").field("ulColumnCount", &self.ulColumnCount).field("pLatticeColumns", &self.pLatticeColumns).field("ulPropertyCount", &self.ulPropertyCount).field("pGuidProperties", &self.pGuidProperties).field("ulBestResultColumnCount", &self.ulBestResultColumnCount).field("pulBestResultColumns", &self.pulBestResultColumns).field("pulBestResultIndexes", &self.pulBestResultIndexes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RECO_LATTICE {
@@ -12600,6 +12696,11 @@ impl ::core::clone::Clone for RECO_LATTICE_COLUMN {
         *self
     }
 }
+impl ::core::fmt::Debug for RECO_LATTICE_COLUMN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECO_LATTICE_COLUMN").field("key", &self.key).field("cpProp", &self.cpProp).field("cStrokes", &self.cStrokes).field("pStrokes", &self.pStrokes).field("cLatticeElements", &self.cLatticeElements).field("pLatticeElements", &self.pLatticeElements).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RECO_LATTICE_COLUMN {
     type Abi = Self;
 }
@@ -12630,6 +12731,11 @@ impl ::core::clone::Clone for RECO_LATTICE_ELEMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for RECO_LATTICE_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECO_LATTICE_ELEMENT").field("score", &self.score).field("type", &self.r#type).field("pData", &self.pData).field("ulNextColumn", &self.ulNextColumn).field("ulStrokeNumber", &self.ulStrokeNumber).field("epProp", &self.epProp).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RECO_LATTICE_ELEMENT {
     type Abi = Self;
 }
@@ -12654,6 +12760,11 @@ impl ::core::marker::Copy for RECO_LATTICE_PROPERTIES {}
 impl ::core::clone::Clone for RECO_LATTICE_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RECO_LATTICE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECO_LATTICE_PROPERTIES").field("cProperties", &self.cProperties).field("apProps", &self.apProps).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RECO_LATTICE_PROPERTIES {
@@ -12683,6 +12794,11 @@ impl ::core::clone::Clone for RECO_LATTICE_PROPERTY {
         *self
     }
 }
+impl ::core::fmt::Debug for RECO_LATTICE_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECO_LATTICE_PROPERTY").field("guidProperty", &self.guidProperty).field("cbPropertyValue", &self.cbPropertyValue).field("pPropertyValue", &self.pPropertyValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RECO_LATTICE_PROPERTY {
     type Abi = Self;
 }
@@ -12707,6 +12823,11 @@ impl ::core::marker::Copy for RECO_RANGE {}
 impl ::core::clone::Clone for RECO_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RECO_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECO_RANGE").field("iwcBegin", &self.iwcBegin).field("cCount", &self.cCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RECO_RANGE {
@@ -12834,6 +12955,11 @@ impl ::core::clone::Clone for STROKE_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for STROKE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STROKE_RANGE").field("iStrokeBegin", &self.iStrokeBegin).field("iStrokeEnd", &self.iStrokeEnd).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STROKE_RANGE {
     type Abi = Self;
 }
@@ -12862,6 +12988,11 @@ impl ::core::marker::Copy for SYSTEM_EVENT_DATA {}
 impl ::core::clone::Clone for SYSTEM_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SYSTEM_EVENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEM_EVENT_DATA").field("bModifier", &self.bModifier).field("wKey", &self.wKey).field("xPos", &self.xPos).field("yPos", &self.yPos).field("bCursorMode", &self.bCursorMode).field("dwButtonState", &self.dwButtonState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_EVENT_DATA {
@@ -13020,6 +13151,12 @@ impl ::core::marker::Copy for StylusInfo {}
 impl ::core::clone::Clone for StylusInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for StylusInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("StylusInfo").field("tcid", &self.tcid).field("cid", &self.cid).field("bIsInvertedCursor", &self.bIsInvertedCursor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

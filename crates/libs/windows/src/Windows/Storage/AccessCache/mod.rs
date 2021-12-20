@@ -41,6 +41,11 @@ impl ::core::clone::Clone for AccessListEntry {
         Self { Token: self.Token.clone(), Metadata: self.Metadata.clone() }
     }
 }
+impl ::core::fmt::Debug for AccessListEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AccessListEntry").field("Token", &self.Token).field("Metadata", &self.Metadata).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AccessListEntry {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }

@@ -33,6 +33,12 @@ impl ::core::clone::Clone for DS3DBUFFER {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for DS3DBUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS3DBUFFER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("dwInsideConeAngle", &self.dwInsideConeAngle).field("dwOutsideConeAngle", &self.dwOutsideConeAngle).field("vConeOrientation", &self.vConeOrientation).field("lConeOutsideVolume", &self.lConeOutsideVolume).field("flMinDistance", &self.flMinDistance).field("flMaxDistance", &self.flMaxDistance).field("dwMode", &self.dwMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 unsafe impl ::windows::core::Abi for DS3DBUFFER {
     type Abi = Self;
 }
@@ -69,6 +75,12 @@ impl ::core::marker::Copy for DS3DLISTENER {}
 impl ::core::clone::Clone for DS3DLISTENER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for DS3DLISTENER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS3DLISTENER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("vOrientFront", &self.vOrientFront).field("vOrientTop", &self.vOrientTop).field("flDistanceFactor", &self.flDistanceFactor).field("flRolloffFactor", &self.flRolloffFactor).field("flDopplerFactor", &self.flDopplerFactor).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -138,6 +150,11 @@ impl ::core::marker::Copy for DSBCAPS {}
 impl ::core::clone::Clone for DSBCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSBCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwUnlockTransferRate", &self.dwUnlockTransferRate).field("dwPlayCpuOverhead", &self.dwPlayCpuOverhead).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSBCAPS {
@@ -234,6 +251,12 @@ impl ::core::clone::Clone for DSBPOSITIONNOTIFY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSBPOSITIONNOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBPOSITIONNOTIFY").field("dwOffset", &self.dwOffset).field("hEventNotify", &self.hEventNotify).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSBPOSITIONNOTIFY {
     type Abi = Self;
 }
@@ -285,6 +308,11 @@ impl ::core::clone::Clone for DSBUFFERDESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DSBUFFERDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("guid3DAlgorithm", &self.guid3DAlgorithm).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSBUFFERDESC {
     type Abi = Self;
 }
@@ -312,6 +340,11 @@ impl ::core::marker::Copy for DSBUFFERDESC1 {}
 impl ::core::clone::Clone for DSBUFFERDESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSBUFFERDESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSBUFFERDESC1 {
@@ -366,6 +399,36 @@ impl ::core::clone::Clone for DSCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCAPS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwMinSecondarySampleRate", &self.dwMinSecondarySampleRate)
+            .field("dwMaxSecondarySampleRate", &self.dwMaxSecondarySampleRate)
+            .field("dwPrimaryBuffers", &self.dwPrimaryBuffers)
+            .field("dwMaxHwMixingAllBuffers", &self.dwMaxHwMixingAllBuffers)
+            .field("dwMaxHwMixingStaticBuffers", &self.dwMaxHwMixingStaticBuffers)
+            .field("dwMaxHwMixingStreamingBuffers", &self.dwMaxHwMixingStreamingBuffers)
+            .field("dwFreeHwMixingAllBuffers", &self.dwFreeHwMixingAllBuffers)
+            .field("dwFreeHwMixingStaticBuffers", &self.dwFreeHwMixingStaticBuffers)
+            .field("dwFreeHwMixingStreamingBuffers", &self.dwFreeHwMixingStreamingBuffers)
+            .field("dwMaxHw3DAllBuffers", &self.dwMaxHw3DAllBuffers)
+            .field("dwMaxHw3DStaticBuffers", &self.dwMaxHw3DStaticBuffers)
+            .field("dwMaxHw3DStreamingBuffers", &self.dwMaxHw3DStreamingBuffers)
+            .field("dwFreeHw3DAllBuffers", &self.dwFreeHw3DAllBuffers)
+            .field("dwFreeHw3DStaticBuffers", &self.dwFreeHw3DStaticBuffers)
+            .field("dwFreeHw3DStreamingBuffers", &self.dwFreeHw3DStreamingBuffers)
+            .field("dwTotalHwMemBytes", &self.dwTotalHwMemBytes)
+            .field("dwFreeHwMemBytes", &self.dwFreeHwMemBytes)
+            .field("dwMaxContigFreeHwMemBytes", &self.dwMaxContigFreeHwMemBytes)
+            .field("dwUnlockTransferRateHwBuffers", &self.dwUnlockTransferRateHwBuffers)
+            .field("dwPlayCpuOverheadSwBuffers", &self.dwPlayCpuOverheadSwBuffers)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCAPS {
     type Abi = Self;
 }
@@ -416,6 +479,11 @@ impl ::core::clone::Clone for DSCBCAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCBCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCBCAPS {
     type Abi = Self;
 }
@@ -459,6 +527,11 @@ impl ::core::clone::Clone for DSCBUFFERDESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCBUFFERDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("dwFXCount", &self.dwFXCount).field("lpDSCFXDesc", &self.lpDSCFXDesc).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCBUFFERDESC {
     type Abi = Self;
 }
@@ -488,6 +561,11 @@ impl ::core::clone::Clone for DSCBUFFERDESC1 {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCBUFFERDESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCBUFFERDESC1 {
     type Abi = Self;
 }
@@ -514,6 +592,11 @@ impl ::core::marker::Copy for DSCCAPS {}
 impl ::core::clone::Clone for DSCCAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSCCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFormats", &self.dwFormats).field("dwChannels", &self.dwChannels).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSCCAPS {
@@ -552,6 +635,11 @@ impl ::core::clone::Clone for DSCEFFECTDESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DSCEFFECTDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSCFXClass", &self.guidDSCFXClass).field("guidDSCFXInstance", &self.guidDSCFXInstance).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSCEFFECTDESC {
     type Abi = Self;
 }
@@ -580,6 +668,12 @@ impl ::core::marker::Copy for DSCFXAec {}
 impl ::core::clone::Clone for DSCFXAec {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSCFXAec {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCFXAec").field("fEnable", &self.fEnable).field("fNoiseFill", &self.fNoiseFill).field("dwMode", &self.dwMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -612,6 +706,12 @@ impl ::core::marker::Copy for DSCFXNoiseSuppress {}
 impl ::core::clone::Clone for DSCFXNoiseSuppress {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSCFXNoiseSuppress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCFXNoiseSuppress").field("fEnable", &self.fEnable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -671,6 +771,11 @@ impl ::core::marker::Copy for DSEFFECTDESC {}
 impl ::core::clone::Clone for DSEFFECTDESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSEFFECTDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSFXClass", &self.guidDSFXClass).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSEFFECTDESC {
@@ -766,6 +871,11 @@ impl ::core::clone::Clone for DSFXChorus {
         *self
     }
 }
+impl ::core::fmt::Debug for DSFXChorus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXChorus").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSFXChorus {
     type Abi = Self;
 }
@@ -794,6 +904,11 @@ impl ::core::marker::Copy for DSFXCompressor {}
 impl ::core::clone::Clone for DSFXCompressor {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXCompressor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXCompressor").field("fGain", &self.fGain).field("fAttack", &self.fAttack).field("fRelease", &self.fRelease).field("fThreshold", &self.fThreshold).field("fRatio", &self.fRatio).field("fPredelay", &self.fPredelay).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXCompressor {
@@ -845,6 +960,11 @@ impl ::core::clone::Clone for DSFXDistortion {
         *self
     }
 }
+impl ::core::fmt::Debug for DSFXDistortion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXDistortion").field("fGain", &self.fGain).field("fEdge", &self.fEdge).field("fPostEQCenterFrequency", &self.fPostEQCenterFrequency).field("fPostEQBandwidth", &self.fPostEQBandwidth).field("fPreLowpassCutoff", &self.fPreLowpassCutoff).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSFXDistortion {
     type Abi = Self;
 }
@@ -892,6 +1012,11 @@ impl ::core::marker::Copy for DSFXEcho {}
 impl ::core::clone::Clone for DSFXEcho {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXEcho {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXEcho").field("fWetDryMix", &self.fWetDryMix).field("fFeedback", &self.fFeedback).field("fLeftDelay", &self.fLeftDelay).field("fRightDelay", &self.fRightDelay).field("lPanDelay", &self.lPanDelay).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXEcho {
@@ -963,6 +1088,11 @@ impl ::core::clone::Clone for DSFXFlanger {
         *self
     }
 }
+impl ::core::fmt::Debug for DSFXFlanger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXFlanger").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSFXFlanger {
     type Abi = Self;
 }
@@ -995,6 +1125,11 @@ impl ::core::marker::Copy for DSFXGargle {}
 impl ::core::clone::Clone for DSFXGargle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXGargle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXGargle").field("dwRateHz", &self.dwRateHz).field("dwWaveShape", &self.dwWaveShape).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXGargle {
@@ -1031,6 +1166,24 @@ impl ::core::marker::Copy for DSFXI3DL2Reverb {}
 impl ::core::clone::Clone for DSFXI3DL2Reverb {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXI3DL2Reverb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXI3DL2Reverb")
+            .field("lRoom", &self.lRoom)
+            .field("lRoomHF", &self.lRoomHF)
+            .field("flRoomRolloffFactor", &self.flRoomRolloffFactor)
+            .field("flDecayTime", &self.flDecayTime)
+            .field("flDecayHFRatio", &self.flDecayHFRatio)
+            .field("lReflections", &self.lReflections)
+            .field("flReflectionsDelay", &self.flReflectionsDelay)
+            .field("lReverb", &self.lReverb)
+            .field("flReverbDelay", &self.flReverbDelay)
+            .field("flDiffusion", &self.flDiffusion)
+            .field("flDensity", &self.flDensity)
+            .field("flHFReference", &self.flHFReference)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXI3DL2Reverb {
@@ -1070,6 +1223,11 @@ impl ::core::marker::Copy for DSFXParamEq {}
 impl ::core::clone::Clone for DSFXParamEq {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXParamEq {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXParamEq").field("fCenter", &self.fCenter).field("fBandwidth", &self.fBandwidth).field("fGain", &self.fGain).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXParamEq {
@@ -1112,6 +1270,11 @@ impl ::core::marker::Copy for DSFXWavesReverb {}
 impl ::core::clone::Clone for DSFXWavesReverb {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DSFXWavesReverb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXWavesReverb").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DSFXWavesReverb {

@@ -31,6 +31,11 @@ impl ::core::clone::Clone for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT").field("ActualPeriod", &self.ActualPeriod).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     type Abi = Self;
 }
@@ -59,6 +64,11 @@ impl ::core::clone::Clone for PWM_CONTROLLER_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PWM_CONTROLLER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_CONTROLLER_INFO").field("Size", &self.Size).field("PinCount", &self.PinCount).field("MinimumPeriod", &self.MinimumPeriod).field("MaximumPeriod", &self.MaximumPeriod).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PWM_CONTROLLER_INFO {
     type Abi = Self;
 }
@@ -84,6 +94,11 @@ impl ::core::clone::Clone for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT").field("DesiredPeriod", &self.DesiredPeriod).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     type Abi = Self;
 }
@@ -107,6 +122,11 @@ impl ::core::marker::Copy for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {}
 impl ::core::clone::Clone for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT").field("ActualPeriod", &self.ActualPeriod).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
@@ -154,6 +174,11 @@ impl ::core::clone::Clone for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT").field("Percentage", &self.Percentage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     type Abi = Self;
 }
@@ -177,6 +202,11 @@ impl ::core::marker::Copy for PWM_PIN_GET_POLARITY_OUTPUT {}
 impl ::core::clone::Clone for PWM_PIN_GET_POLARITY_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PWM_PIN_GET_POLARITY_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_PIN_GET_POLARITY_OUTPUT").field("Polarity", &self.Polarity).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PWM_PIN_GET_POLARITY_OUTPUT {
@@ -208,6 +238,12 @@ impl ::core::clone::Clone for PWM_PIN_IS_STARTED_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PWM_PIN_IS_STARTED_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_PIN_IS_STARTED_OUTPUT").field("IsStarted", &self.IsStarted).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PWM_PIN_IS_STARTED_OUTPUT {
     type Abi = Self;
 }
@@ -236,6 +272,11 @@ impl ::core::clone::Clone for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT").field("Percentage", &self.Percentage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     type Abi = Self;
 }
@@ -259,6 +300,11 @@ impl ::core::marker::Copy for PWM_PIN_SET_POLARITY_INPUT {}
 impl ::core::clone::Clone for PWM_PIN_SET_POLARITY_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PWM_PIN_SET_POLARITY_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PWM_PIN_SET_POLARITY_INPUT").field("Polarity", &self.Polarity).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PWM_PIN_SET_POLARITY_INPUT {

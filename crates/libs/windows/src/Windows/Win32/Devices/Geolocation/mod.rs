@@ -43,6 +43,12 @@ impl ::core::clone::Clone for GNSS_AGNSS_INJECT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_AGNSS_INJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_AGNSS_INJECT").field("Size", &self.Size).field("Version", &self.Version).field("InjectionType", &self.InjectionType).field("InjectionStatus", &self.InjectionStatus).field("InjectionDataSize", &self.InjectionDataSize).field("Unused", &self.Unused).field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECT {
     type Abi = Self;
 }
@@ -111,6 +117,11 @@ impl ::core::clone::Clone for GNSS_AGNSS_INJECTBLOB {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_AGNSS_INJECTBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_AGNSS_INJECTBLOB").field("Size", &self.Size).field("Version", &self.Version).field("BlobOui", &self.BlobOui).field("BlobVersion", &self.BlobVersion).field("AgnssFormat", &self.AgnssFormat).field("BlobSize", &self.BlobSize).field("BlobData", &self.BlobData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTBLOB {
     type Abi = Self;
 }
@@ -138,6 +149,11 @@ impl ::core::marker::Copy for GNSS_AGNSS_INJECTPOSITION {}
 impl ::core::clone::Clone for GNSS_AGNSS_INJECTPOSITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_AGNSS_INJECTPOSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_AGNSS_INJECTPOSITION").field("Size", &self.Size).field("Version", &self.Version).field("Age", &self.Age).field("BasicData", &self.BasicData).field("AccuracyData", &self.AccuracyData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTPOSITION {
@@ -172,6 +188,12 @@ impl ::core::clone::Clone for GNSS_AGNSS_INJECTTIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_AGNSS_INJECTTIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_AGNSS_INJECTTIME").field("Size", &self.Size).field("Version", &self.Version).field("UtcTime", &self.UtcTime).field("TimeUncertainty", &self.TimeUncertainty).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTTIME {
     type Abi = Self;
 }
@@ -201,6 +223,11 @@ impl ::core::marker::Copy for GNSS_AGNSS_REQUEST_PARAM {}
 impl ::core::clone::Clone for GNSS_AGNSS_REQUEST_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_AGNSS_REQUEST_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_AGNSS_REQUEST_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("RequestType", &self.RequestType).field("BlobFormat", &self.BlobFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_AGNSS_REQUEST_PARAM {
@@ -238,6 +265,11 @@ impl ::core::clone::Clone for GNSS_BREADCRUMBING_ALERT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_BREADCRUMBING_ALERT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_BREADCRUMBING_ALERT_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Unused", &self.Unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_BREADCRUMBING_ALERT_DATA {
     type Abi = Self;
 }
@@ -266,6 +298,11 @@ impl ::core::marker::Copy for GNSS_BREADCRUMBING_PARAM {}
 impl ::core::clone::Clone for GNSS_BREADCRUMBING_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_BREADCRUMBING_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_BREADCRUMBING_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("MaximumHorizontalUncertainty", &self.MaximumHorizontalUncertainty).field("MinDistanceBetweenFixes", &self.MinDistanceBetweenFixes).field("MaximumErrorTimeoutMs", &self.MaximumErrorTimeoutMs).field("Unused", &self.Unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_BREADCRUMBING_PARAM {
@@ -297,6 +334,12 @@ impl ::core::marker::Copy for GNSS_BREADCRUMB_LIST {}
 impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_BREADCRUMB_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_BREADCRUMB_LIST").field("Size", &self.Size).field("Version", &self.Version).field("NumCrumbs", &self.NumCrumbs).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -374,6 +417,24 @@ impl ::core::clone::Clone for GNSS_BREADCRUMB_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_BREADCRUMB_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_BREADCRUMB_V1")
+            .field("FixTimeStamp", &self.FixTimeStamp)
+            .field("Latitude", &self.Latitude)
+            .field("Longitude", &self.Longitude)
+            .field("HorizontalAccuracy", &self.HorizontalAccuracy)
+            .field("Speed", &self.Speed)
+            .field("SpeedAccuracy", &self.SpeedAccuracy)
+            .field("Altitude", &self.Altitude)
+            .field("AltitudeAccuracy", &self.AltitudeAccuracy)
+            .field("Heading", &self.Heading)
+            .field("HeadingAccuracy", &self.HeadingAccuracy)
+            .field("FixSuccess", &self.FixSuccess)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_BREADCRUMB_V1 {
     type Abi = Self;
 }
@@ -407,6 +468,11 @@ impl ::core::clone::Clone for GNSS_CHIPSETINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_CHIPSETINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_CHIPSETINFO").field("Size", &self.Size).field("Version", &self.Version).field("ManufacturerID", &self.ManufacturerID).field("HardwareID", &self.HardwareID).field("FirmwareVersion", &self.FirmwareVersion).field("Unused", &self.Unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_CHIPSETINFO {
     type Abi = Self;
 }
@@ -432,6 +498,11 @@ impl ::core::marker::Copy for GNSS_CONTINUOUSTRACKING_PARAM {}
 impl ::core::clone::Clone for GNSS_CONTINUOUSTRACKING_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_CONTINUOUSTRACKING_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_CONTINUOUSTRACKING_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("PreferredInterval", &self.PreferredInterval).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_CONTINUOUSTRACKING_PARAM {
@@ -460,6 +531,11 @@ impl ::core::marker::Copy for GNSS_CP_NI_INFO {}
 impl ::core::clone::Clone for GNSS_CP_NI_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_CP_NI_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_CP_NI_INFO").field("Size", &self.Size).field("Version", &self.Version).field("RequestorId", &self.RequestorId).field("NotificationText", &self.NotificationText).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_CP_NI_INFO {
@@ -493,6 +569,12 @@ impl ::core::marker::Copy for GNSS_CWTESTDATA {}
 impl ::core::clone::Clone for GNSS_CWTESTDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_CWTESTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_CWTESTDATA").field("Size", &self.Size).field("Version", &self.Version).field("TestResultStatus", &self.TestResultStatus).field("SignalToNoiseRatio", &self.SignalToNoiseRatio).field("Frequency", &self.Frequency).field("Unused", &self.Unused).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -554,6 +636,40 @@ impl ::core::clone::Clone for GNSS_DEVICE_CAPABILITY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_DEVICE_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_DEVICE_CAPABILITY")
+            .field("Size", &self.Size)
+            .field("Version", &self.Version)
+            .field("SupportMultipleFixSessions", &self.SupportMultipleFixSessions)
+            .field("SupportMultipleAppSessions", &self.SupportMultipleAppSessions)
+            .field("RequireAGnssInjection", &self.RequireAGnssInjection)
+            .field("AgnssFormatSupported", &self.AgnssFormatSupported)
+            .field("AgnssFormatPreferred", &self.AgnssFormatPreferred)
+            .field("SupportDistanceTracking", &self.SupportDistanceTracking)
+            .field("SupportContinuousTracking", &self.SupportContinuousTracking)
+            .field("Reserved1", &self.Reserved1)
+            .field("Reserved2", &self.Reserved2)
+            .field("Reserved3", &self.Reserved3)
+            .field("Reserved4", &self.Reserved4)
+            .field("Reserved5", &self.Reserved5)
+            .field("GeofencingSupport", &self.GeofencingSupport)
+            .field("Reserved6", &self.Reserved6)
+            .field("Reserved7", &self.Reserved7)
+            .field("SupportCpLocation", &self.SupportCpLocation)
+            .field("SupportUplV2", &self.SupportUplV2)
+            .field("SupportSuplV1", &self.SupportSuplV1)
+            .field("SupportSuplV2", &self.SupportSuplV2)
+            .field("SupportedSuplVersion", &self.SupportedSuplVersion)
+            .field("MaxGeofencesSupported", &self.MaxGeofencesSupported)
+            .field("SupportMultipleSuplRootCert", &self.SupportMultipleSuplRootCert)
+            .field("GnssBreadCrumbPayloadVersion", &self.GnssBreadCrumbPayloadVersion)
+            .field("MaxGnssBreadCrumbFixes", &self.MaxGnssBreadCrumbFixes)
+            .field("Unused", &self.Unused)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_DEVICE_CAPABILITY {
     type Abi = Self;
 }
@@ -582,6 +698,11 @@ impl ::core::marker::Copy for GNSS_DISTANCETRACKING_PARAM {}
 impl ::core::clone::Clone for GNSS_DISTANCETRACKING_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_DISTANCETRACKING_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_DISTANCETRACKING_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("MovementThreshold", &self.MovementThreshold).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_DISTANCETRACKING_PARAM {
@@ -613,6 +734,11 @@ impl ::core::marker::Copy for GNSS_DRIVERCOMMAND_PARAM {}
 impl ::core::clone::Clone for GNSS_DRIVERCOMMAND_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_DRIVERCOMMAND_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_DRIVERCOMMAND_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("CommandType", &self.CommandType).field("Reserved", &self.Reserved).field("CommandDataSize", &self.CommandDataSize).field("Unused", &self.Unused).field("CommandData", &self.CommandData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_DRIVERCOMMAND_PARAM {
@@ -675,6 +801,11 @@ impl ::core::clone::Clone for GNSS_DRIVER_REQUEST_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_DRIVER_REQUEST_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_DRIVER_REQUEST_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Request", &self.Request).field("RequestFlag", &self.RequestFlag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_DRIVER_REQUEST_DATA {
     type Abi = Self;
 }
@@ -721,6 +852,12 @@ impl ::core::clone::Clone for GNSS_ERRORINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_ERRORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_ERRORINFO").field("Size", &self.Size).field("Version", &self.Version).field("ErrorCode", &self.ErrorCode).field("IsRecoverable", &self.IsRecoverable).field("ErrorDescription", &self.ErrorDescription).field("Unused", &self.Unused).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_ERRORINFO {
     type Abi = Self;
 }
@@ -755,6 +892,12 @@ impl ::core::marker::Copy for GNSS_EVENT {}
 impl ::core::clone::Clone for GNSS_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_EVENT").field("Size", &self.Size).field("Version", &self.Version).field("EventType", &self.EventType).field("EventDataSize", &self.EventDataSize).field("Unused", &self.Unused).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -833,6 +976,12 @@ impl ::core::marker::Copy for GNSS_EVENT_2 {}
 impl ::core::clone::Clone for GNSS_EVENT_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_EVENT_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_EVENT_2").field("Size", &self.Size).field("Version", &self.Version).field("EventType", &self.EventType).field("EventDataSize", &self.EventDataSize).field("Unused", &self.Unused).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -943,6 +1092,12 @@ impl ::core::clone::Clone for GNSS_FIXDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_FIXDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_FIXDATA").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("FixTimeStamp", &self.FixTimeStamp).field("IsFinalFix", &self.IsFinalFix).field("FixStatus", &self.FixStatus).field("FixLevelOfDetails", &self.FixLevelOfDetails).field("BasicData", &self.BasicData).field("AccuracyData", &self.AccuracyData).field("SatelliteData", &self.SatelliteData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_FIXDATA {
     type Abi = Self;
 }
@@ -981,6 +1136,12 @@ impl ::core::marker::Copy for GNSS_FIXDATA_2 {}
 impl ::core::clone::Clone for GNSS_FIXDATA_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_FIXDATA_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_FIXDATA_2").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("FixTimeStamp", &self.FixTimeStamp).field("IsFinalFix", &self.IsFinalFix).field("FixStatus", &self.FixStatus).field("FixLevelOfDetails", &self.FixLevelOfDetails).field("BasicData", &self.BasicData).field("AccuracyData", &self.AccuracyData).field("SatelliteData", &self.SatelliteData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1027,6 +1188,28 @@ impl ::core::clone::Clone for GNSS_FIXDATA_ACCURACY {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_FIXDATA_ACCURACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_FIXDATA_ACCURACY")
+            .field("Size", &self.Size)
+            .field("Version", &self.Version)
+            .field("HorizontalAccuracy", &self.HorizontalAccuracy)
+            .field("HorizontalErrorMajorAxis", &self.HorizontalErrorMajorAxis)
+            .field("HorizontalErrorMinorAxis", &self.HorizontalErrorMinorAxis)
+            .field("HorizontalErrorAngle", &self.HorizontalErrorAngle)
+            .field("HeadingAccuracy", &self.HeadingAccuracy)
+            .field("AltitudeAccuracy", &self.AltitudeAccuracy)
+            .field("SpeedAccuracy", &self.SpeedAccuracy)
+            .field("HorizontalConfidence", &self.HorizontalConfidence)
+            .field("HeadingConfidence", &self.HeadingConfidence)
+            .field("AltitudeConfidence", &self.AltitudeConfidence)
+            .field("SpeedConfidence", &self.SpeedConfidence)
+            .field("PositionDilutionOfPrecision", &self.PositionDilutionOfPrecision)
+            .field("HorizontalDilutionOfPrecision", &self.HorizontalDilutionOfPrecision)
+            .field("VerticalDilutionOfPrecision", &self.VerticalDilutionOfPrecision)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_FIXDATA_ACCURACY {
     type Abi = Self;
 }
@@ -1069,6 +1252,30 @@ impl ::core::clone::Clone for GNSS_FIXDATA_ACCURACY_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_FIXDATA_ACCURACY_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_FIXDATA_ACCURACY_2")
+            .field("Size", &self.Size)
+            .field("Version", &self.Version)
+            .field("HorizontalAccuracy", &self.HorizontalAccuracy)
+            .field("HorizontalErrorMajorAxis", &self.HorizontalErrorMajorAxis)
+            .field("HorizontalErrorMinorAxis", &self.HorizontalErrorMinorAxis)
+            .field("HorizontalErrorAngle", &self.HorizontalErrorAngle)
+            .field("HeadingAccuracy", &self.HeadingAccuracy)
+            .field("AltitudeAccuracy", &self.AltitudeAccuracy)
+            .field("SpeedAccuracy", &self.SpeedAccuracy)
+            .field("HorizontalConfidence", &self.HorizontalConfidence)
+            .field("HeadingConfidence", &self.HeadingConfidence)
+            .field("AltitudeConfidence", &self.AltitudeConfidence)
+            .field("SpeedConfidence", &self.SpeedConfidence)
+            .field("PositionDilutionOfPrecision", &self.PositionDilutionOfPrecision)
+            .field("HorizontalDilutionOfPrecision", &self.HorizontalDilutionOfPrecision)
+            .field("VerticalDilutionOfPrecision", &self.VerticalDilutionOfPrecision)
+            .field("GeometricDilutionOfPrecision", &self.GeometricDilutionOfPrecision)
+            .field("TimeDilutionOfPrecision", &self.TimeDilutionOfPrecision)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_FIXDATA_ACCURACY_2 {
     type Abi = Self;
 }
@@ -1098,6 +1305,11 @@ impl ::core::marker::Copy for GNSS_FIXDATA_BASIC {}
 impl ::core::clone::Clone for GNSS_FIXDATA_BASIC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_FIXDATA_BASIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_FIXDATA_BASIC").field("Size", &self.Size).field("Version", &self.Version).field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).field("Speed", &self.Speed).field("Heading", &self.Heading).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_FIXDATA_BASIC {
@@ -1132,6 +1344,11 @@ impl ::core::clone::Clone for GNSS_FIXDATA_BASIC_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_FIXDATA_BASIC_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_FIXDATA_BASIC_2").field("Size", &self.Size).field("Version", &self.Version).field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).field("Speed", &self.Speed).field("Heading", &self.Heading).field("AltitudeEllipsoid", &self.AltitudeEllipsoid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_FIXDATA_BASIC_2 {
     type Abi = Self;
 }
@@ -1161,6 +1378,12 @@ impl ::core::marker::Copy for GNSS_FIXDATA_SATELLITE {}
 impl ::core::clone::Clone for GNSS_FIXDATA_SATELLITE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_FIXDATA_SATELLITE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_FIXDATA_SATELLITE").field("Size", &self.Size).field("Version", &self.Version).field("SatelliteCount", &self.SatelliteCount).field("SatelliteArray", &self.SatelliteArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1215,6 +1438,11 @@ impl ::core::marker::Copy for GNSS_FIXSESSION_PARAM {}
 impl ::core::clone::Clone for GNSS_FIXSESSION_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_FIXSESSION_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_FIXSESSION_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("SessionType", &self.SessionType).field("HorizontalAccuracy", &self.HorizontalAccuracy).field("HorizontalConfidence", &self.HorizontalConfidence).field("Reserved", &self.Reserved).field("FixLevelOfDetails", &self.FixLevelOfDetails).field("Anonymous", &self.Anonymous).field("Unused", &self.Unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_FIXSESSION_PARAM {
@@ -1283,6 +1511,12 @@ impl ::core::clone::Clone for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_GEOFENCES_TRACKINGSTATUS_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Status", &self.Status).field("StatusTimeStamp", &self.StatusTimeStamp).field("Unused", &self.Unused).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     type Abi = Self;
 }
@@ -1317,6 +1551,11 @@ impl ::core::clone::Clone for GNSS_GEOFENCE_ALERT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_GEOFENCE_ALERT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_GEOFENCE_ALERT_DATA").field("Size", &self.Size).field("Version", &self.Version).field("GeofenceID", &self.GeofenceID).field("GeofenceState", &self.GeofenceState).field("FixBasicData", &self.FixBasicData).field("FixAccuracyData", &self.FixAccuracyData).field("Unused", &self.Unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_ALERT_DATA {
     type Abi = Self;
 }
@@ -1345,6 +1584,11 @@ impl ::core::marker::Copy for GNSS_GEOFENCE_CREATE_PARAM {}
 impl ::core::clone::Clone for GNSS_GEOFENCE_CREATE_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_GEOFENCE_CREATE_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_GEOFENCE_CREATE_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("AlertTypes", &self.AlertTypes).field("InitialState", &self.InitialState).field("Boundary", &self.Boundary).field("Unused", &self.Unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_CREATE_PARAM {
@@ -1380,6 +1624,12 @@ impl ::core::clone::Clone for GNSS_GEOFENCE_CREATE_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_GEOFENCE_CREATE_RESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_GEOFENCE_CREATE_RESPONSE").field("Size", &self.Size).field("Version", &self.Version).field("CreationStatus", &self.CreationStatus).field("GeofenceID", &self.GeofenceID).field("Unused", &self.Unused).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_CREATE_RESPONSE {
     type Abi = Self;
 }
@@ -1409,6 +1659,11 @@ impl ::core::marker::Copy for GNSS_GEOFENCE_DELETE_PARAM {}
 impl ::core::clone::Clone for GNSS_GEOFENCE_DELETE_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_GEOFENCE_DELETE_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_GEOFENCE_DELETE_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("GeofenceID", &self.GeofenceID).field("Unused", &self.Unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_DELETE_PARAM {
@@ -1445,6 +1700,11 @@ impl ::core::marker::Copy for GNSS_GEOREGION {}
 impl ::core::clone::Clone for GNSS_GEOREGION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_GEOREGION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_GEOREGION").field("Size", &self.Size).field("Version", &self.Version).field("GeoRegionType", &self.GeoRegionType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_GEOREGION {
@@ -1504,6 +1764,11 @@ impl ::core::clone::Clone for GNSS_GEOREGION_CIRCLE {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_GEOREGION_CIRCLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_GEOREGION_CIRCLE").field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("RadiusInMeters", &self.RadiusInMeters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_GEOREGION_CIRCLE {
     type Abi = Self;
 }
@@ -1528,6 +1793,11 @@ impl ::core::marker::Copy for GNSS_LKGFIX_PARAM {}
 impl ::core::clone::Clone for GNSS_LKGFIX_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_LKGFIX_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_LKGFIX_PARAM").field("Size", &self.Size).field("Version", &self.Version).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_LKGFIX_PARAM {
@@ -1586,6 +1856,12 @@ impl ::core::marker::Copy for GNSS_NI_REQUEST_PARAM {}
 impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_NI_REQUEST_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_NI_REQUEST_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("RequestId", &self.RequestId).field("RequestType", &self.RequestType).field("NotificationType", &self.NotificationType).field("RequestPlaneType", &self.RequestPlaneType).field("Anonymous", &self.Anonymous).field("ResponseTimeInSec", &self.ResponseTimeInSec).field("EmergencyLocation", &self.EmergencyLocation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1660,6 +1936,11 @@ impl ::core::clone::Clone for GNSS_NI_RESPONSE {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_NI_RESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_NI_RESPONSE").field("Size", &self.Size).field("Version", &self.Version).field("RequestId", &self.RequestId).field("UserResponse", &self.UserResponse).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_NI_RESPONSE {
     type Abi = Self;
 }
@@ -1700,6 +1981,12 @@ impl ::core::marker::Copy for GNSS_NMEA_DATA {}
 impl ::core::clone::Clone for GNSS_NMEA_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_NMEA_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_NMEA_DATA").field("Size", &self.Size).field("Version", &self.Version).field("NmeaSentences", &self.NmeaSentences).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1753,6 +2040,12 @@ impl ::core::clone::Clone for GNSS_PLATFORM_CAPABILITY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_PLATFORM_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_PLATFORM_CAPABILITY").field("Size", &self.Size).field("Version", &self.Version).field("SupportAgnssInjection", &self.SupportAgnssInjection).field("AgnssFormatSupported", &self.AgnssFormatSupported).field("Unused", &self.Unused).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_PLATFORM_CAPABILITY {
     type Abi = Self;
 }
@@ -1786,6 +2079,12 @@ impl ::core::marker::Copy for GNSS_SATELLITEINFO {}
 impl ::core::clone::Clone for GNSS_SATELLITEINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_SATELLITEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SATELLITEINFO").field("SatelliteId", &self.SatelliteId).field("UsedInPositiong", &self.UsedInPositiong).field("Elevation", &self.Elevation).field("Azimuth", &self.Azimuth).field("SignalToNoiseRatio", &self.SignalToNoiseRatio).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1832,6 +2131,11 @@ impl ::core::clone::Clone for GNSS_SELFTESTCONFIG {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_SELFTESTCONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SELFTESTCONFIG").field("Size", &self.Size).field("Version", &self.Version).field("TestType", &self.TestType).field("Unused", &self.Unused).field("InBufLen", &self.InBufLen).field("InBuffer", &self.InBuffer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_SELFTESTCONFIG {
     type Abi = Self;
 }
@@ -1868,6 +2172,12 @@ impl ::core::clone::Clone for GNSS_SELFTESTRESULT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_SELFTESTRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SELFTESTRESULT").field("Size", &self.Size).field("Version", &self.Version).field("TestResultStatus", &self.TestResultStatus).field("Result", &self.Result).field("PinFailedBitMask", &self.PinFailedBitMask).field("Unused", &self.Unused).field("OutBufLen", &self.OutBufLen).field("OutBuffer", &self.OutBuffer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_SELFTESTRESULT {
     type Abi = Self;
 }
@@ -1898,6 +2208,11 @@ impl ::core::clone::Clone for GNSS_SINGLESHOT_PARAM {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_SINGLESHOT_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SINGLESHOT_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("ResponseTime", &self.ResponseTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_SINGLESHOT_PARAM {
     type Abi = Self;
 }
@@ -1924,6 +2239,11 @@ impl ::core::marker::Copy for GNSS_STOPFIXSESSION_PARAM {}
 impl ::core::clone::Clone for GNSS_STOPFIXSESSION_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_STOPFIXSESSION_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_STOPFIXSESSION_PARAM").field("Size", &self.Size).field("Version", &self.Version).field("FixSessionID", &self.FixSessionID).field("Unused", &self.Unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_STOPFIXSESSION_PARAM {
@@ -1969,6 +2289,12 @@ impl ::core::clone::Clone for GNSS_SUPL_CERT_CONFIG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_SUPL_CERT_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SUPL_CERT_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("CertAction", &self.CertAction).field("SuplCertName", &self.SuplCertName).field("CertSize", &self.CertSize).field("Unused", &self.Unused).field("CertData", &self.CertData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_SUPL_CERT_CONFIG {
     type Abi = Self;
 }
@@ -2003,6 +2329,12 @@ impl ::core::marker::Copy for GNSS_SUPL_HSLP_CONFIG {}
 impl ::core::clone::Clone for GNSS_SUPL_HSLP_CONFIG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_SUPL_HSLP_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SUPL_HSLP_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("SuplHslp", &self.SuplHslp).field("SuplHslpFromImsi", &self.SuplHslpFromImsi).field("Reserved", &self.Reserved).field("Unused", &self.Unused).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2042,6 +2374,12 @@ impl ::core::clone::Clone for GNSS_SUPL_NI_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_SUPL_NI_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SUPL_NI_INFO").field("Size", &self.Size).field("Version", &self.Version).field("RequestorId", &self.RequestorId).field("ClientName", &self.ClientName).field("SuplNiUrl", &self.SuplNiUrl).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_SUPL_NI_INFO {
     type Abi = Self;
 }
@@ -2071,6 +2409,11 @@ impl ::core::clone::Clone for GNSS_SUPL_VERSION {
         *self
     }
 }
+impl ::core::fmt::Debug for GNSS_SUPL_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SUPL_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_SUPL_VERSION {
     type Abi = Self;
 }
@@ -2096,6 +2439,11 @@ impl ::core::marker::Copy for GNSS_SUPL_VERSION_2 {}
 impl ::core::clone::Clone for GNSS_SUPL_VERSION_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_SUPL_VERSION_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_SUPL_VERSION_2").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ServiceIndicator", &self.ServiceIndicator).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_SUPL_VERSION_2 {
@@ -2132,6 +2480,12 @@ impl ::core::clone::Clone for GNSS_V2UPL_CONFIG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GNSS_V2UPL_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_V2UPL_CONFIG").field("Size", &self.Size).field("Version", &self.Version).field("MPC", &self.MPC).field("PDE", &self.PDE).field("ApplicationTypeIndicator_MR", &self.ApplicationTypeIndicator_MR).field("Unused", &self.Unused).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GNSS_V2UPL_CONFIG {
     type Abi = Self;
 }
@@ -2160,6 +2514,11 @@ impl ::core::marker::Copy for GNSS_V2UPL_NI_INFO {}
 impl ::core::clone::Clone for GNSS_V2UPL_NI_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GNSS_V2UPL_NI_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GNSS_V2UPL_NI_INFO").field("Size", &self.Size).field("Version", &self.Version).field("RequestorId", &self.RequestorId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_V2UPL_NI_INFO {

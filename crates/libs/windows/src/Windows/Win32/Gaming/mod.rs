@@ -103,6 +103,11 @@ impl ::core::clone::Clone for GAMING_DEVICE_MODEL_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for GAMING_DEVICE_MODEL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GAMING_DEVICE_MODEL_INFORMATION").field("vendorId", &self.vendorId).field("deviceId", &self.deviceId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GAMING_DEVICE_MODEL_INFORMATION {
     type Abi = Self;
 }

@@ -3278,6 +3278,12 @@ impl ::core::clone::Clone for WSMAN_AUTHENTICATION_CREDENTIALS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_AUTHENTICATION_CREDENTIALS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_AUTHENTICATION_CREDENTIALS").field("authenticationMechanism", &self.authenticationMechanism).field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_AUTHENTICATION_CREDENTIALS {
     type Abi = Self;
 }
@@ -3342,6 +3348,11 @@ impl ::core::clone::Clone for WSMAN_AUTHZ_QUOTA {
         *self
     }
 }
+impl ::core::fmt::Debug for WSMAN_AUTHZ_QUOTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_AUTHZ_QUOTA").field("maxAllowedConcurrentShells", &self.maxAllowedConcurrentShells).field("maxAllowedConcurrentOperations", &self.maxAllowedConcurrentOperations).field("timeslotSize", &self.timeslotSize).field("maxAllowedOperationsPerTimeslot", &self.maxAllowedOperationsPerTimeslot).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSMAN_AUTHZ_QUOTA {
     type Abi = Self;
 }
@@ -3371,6 +3382,12 @@ impl ::core::marker::Copy for WSMAN_CERTIFICATE_DETAILS {}
 impl ::core::clone::Clone for WSMAN_CERTIFICATE_DETAILS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_CERTIFICATE_DETAILS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_CERTIFICATE_DETAILS").field("subject", &self.subject).field("issuerName", &self.issuerName).field("issuerThumbprint", &self.issuerThumbprint).field("subjectName", &self.subjectName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3409,6 +3426,12 @@ impl ::core::clone::Clone for WSMAN_COMMAND_ARG_SET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_COMMAND_ARG_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_COMMAND_ARG_SET").field("argsCount", &self.argsCount).field("args", &self.args).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_COMMAND_ARG_SET {
     type Abi = Self;
 }
@@ -3438,6 +3461,12 @@ impl ::core::marker::Copy for WSMAN_CONNECT_DATA {}
 impl ::core::clone::Clone for WSMAN_CONNECT_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_CONNECT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_CONNECT_DATA").field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3473,6 +3502,12 @@ impl ::core::clone::Clone for WSMAN_CREATE_SHELL_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_CREATE_SHELL_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_CREATE_SHELL_DATA").field("data", &self.data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_CREATE_SHELL_DATA {
     type Abi = Self;
 }
@@ -3503,6 +3538,12 @@ impl ::core::marker::Copy for WSMAN_DATA {}
 impl ::core::clone::Clone for WSMAN_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_DATA").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3569,6 +3610,11 @@ impl ::core::clone::Clone for WSMAN_DATA_BINARY {
         *self
     }
 }
+impl ::core::fmt::Debug for WSMAN_DATA_BINARY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_DATA_BINARY").field("dataLength", &self.dataLength).field("data", &self.data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WSMAN_DATA_BINARY {
     type Abi = Self;
 }
@@ -3596,6 +3642,12 @@ impl ::core::marker::Copy for WSMAN_DATA_TEXT {}
 impl ::core::clone::Clone for WSMAN_DATA_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_DATA_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_DATA_TEXT").field("bufferLength", &self.bufferLength).field("buffer", &self.buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3634,6 +3686,12 @@ impl ::core::clone::Clone for WSMAN_ENVIRONMENT_VARIABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_ENVIRONMENT_VARIABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_ENVIRONMENT_VARIABLE").field("name", &self.name).field("value", &self.value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_ENVIRONMENT_VARIABLE {
     type Abi = Self;
 }
@@ -3664,6 +3722,12 @@ impl ::core::marker::Copy for WSMAN_ENVIRONMENT_VARIABLE_SET {}
 impl ::core::clone::Clone for WSMAN_ENVIRONMENT_VARIABLE_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_ENVIRONMENT_VARIABLE_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_ENVIRONMENT_VARIABLE_SET").field("varsCount", &self.varsCount).field("vars", &self.vars).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3703,6 +3767,12 @@ impl ::core::clone::Clone for WSMAN_ERROR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_ERROR").field("code", &self.code).field("errorDetail", &self.errorDetail).field("language", &self.language).field("machineName", &self.machineName).field("pluginName", &self.pluginName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_ERROR {
     type Abi = Self;
 }
@@ -3733,6 +3803,12 @@ impl ::core::marker::Copy for WSMAN_FILTER {}
 impl ::core::clone::Clone for WSMAN_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_FILTER").field("filter", &self.filter).field("dialect", &self.dialect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3781,6 +3857,12 @@ impl ::core::clone::Clone for WSMAN_FRAGMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_FRAGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_FRAGMENT").field("path", &self.path).field("dialect", &self.dialect).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_FRAGMENT {
     type Abi = Self;
 }
@@ -3811,6 +3893,12 @@ impl ::core::marker::Copy for WSMAN_KEY {}
 impl ::core::clone::Clone for WSMAN_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_KEY").field("key", &self.key).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3853,6 +3941,12 @@ impl ::core::clone::Clone for WSMAN_OPERATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPERATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPERATION_INFO").field("fragment", &self.fragment).field("filter", &self.filter).field("selectorSet", &self.selectorSet).field("optionSet", &self.optionSet).field("reserved", &self.reserved).field("version", &self.version).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_OPERATION_INFO {
     type Abi = Self;
 }
@@ -3888,6 +3982,12 @@ impl ::core::marker::Copy for WSMAN_OPERATION_INFOEX {}
 impl ::core::clone::Clone for WSMAN_OPERATION_INFOEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPERATION_INFOEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPERATION_INFOEX").field("fragment", &self.fragment).field("filter", &self.filter).field("selectorSet", &self.selectorSet).field("optionSet", &self.optionSet).field("version", &self.version).field("uiLocale", &self.uiLocale).field("dataLocale", &self.dataLocale).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3929,6 +4029,12 @@ impl ::core::clone::Clone for WSMAN_OPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPTION").field("name", &self.name).field("value", &self.value).field("mustComply", &self.mustComply).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_OPTION {
     type Abi = Self;
 }
@@ -3960,6 +4066,12 @@ impl ::core::marker::Copy for WSMAN_OPTION_SET {}
 impl ::core::clone::Clone for WSMAN_OPTION_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPTION_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPTION_SET").field("optionsCount", &self.optionsCount).field("options", &self.options).field("optionsMustUnderstand", &self.optionsMustUnderstand).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3995,6 +4107,12 @@ impl ::core::marker::Copy for WSMAN_OPTION_SETEX {}
 impl ::core::clone::Clone for WSMAN_OPTION_SETEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_OPTION_SETEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_OPTION_SETEX").field("optionsCount", &self.optionsCount).field("options", &self.options).field("optionsMustUnderstand", &self.optionsMustUnderstand).field("optionTypes", &self.optionTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4082,6 +4200,12 @@ impl ::core::clone::Clone for WSMAN_PLUGIN_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_PLUGIN_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_PLUGIN_REQUEST").field("senderDetails", &self.senderDetails).field("locale", &self.locale).field("resourceUri", &self.resourceUri).field("operationInfo", &self.operationInfo).field("shutdownNotification", &self.shutdownNotification).field("shutdownNotificationHandle", &self.shutdownNotificationHandle).field("dataLocale", &self.dataLocale).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_PLUGIN_REQUEST {
     type Abi = Self;
 }
@@ -4143,6 +4267,12 @@ impl ::core::clone::Clone for WSMAN_PROXY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_PROXY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_PROXY_INFO").field("accessType", &self.accessType).field("authenticationCredentials", &self.authenticationCredentials).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_PROXY_INFO {
     type Abi = Self;
 }
@@ -4175,6 +4305,12 @@ impl ::core::marker::Copy for WSMAN_RECEIVE_DATA_RESULT {}
 impl ::core::clone::Clone for WSMAN_RECEIVE_DATA_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_RECEIVE_DATA_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_RECEIVE_DATA_RESULT").field("streamId", &self.streamId).field("streamData", &self.streamData).field("commandState", &self.commandState).field("exitCode", &self.exitCode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4245,6 +4381,12 @@ impl ::core::clone::Clone for WSMAN_SELECTOR_SET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SELECTOR_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SELECTOR_SET").field("numberKeys", &self.numberKeys).field("keys", &self.keys).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_SELECTOR_SET {
     type Abi = Self;
 }
@@ -4278,6 +4420,12 @@ impl ::core::marker::Copy for WSMAN_SENDER_DETAILS {}
 impl ::core::clone::Clone for WSMAN_SENDER_DETAILS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SENDER_DETAILS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SENDER_DETAILS").field("senderName", &self.senderName).field("authenticationMechanism", &self.authenticationMechanism).field("certificateDetails", &self.certificateDetails).field("clientToken", &self.clientToken).field("httpURL", &self.httpURL).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4318,6 +4466,12 @@ impl ::core::clone::Clone for WSMAN_SHELL_ASYNC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SHELL_ASYNC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SHELL_ASYNC").field("operationContext", &self.operationContext).field("completionFunction", &self.completionFunction).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_ASYNC {
     type Abi = Self;
 }
@@ -4347,6 +4501,11 @@ impl ::core::marker::Copy for WSMAN_SHELL_DISCONNECT_INFO {}
 impl ::core::clone::Clone for WSMAN_SHELL_DISCONNECT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WSMAN_SHELL_DISCONNECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SHELL_DISCONNECT_INFO").field("idleTimeoutMs", &self.idleTimeoutMs).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_DISCONNECT_INFO {
@@ -4379,6 +4538,12 @@ impl ::core::marker::Copy for WSMAN_SHELL_STARTUP_INFO_V10 {}
 impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V10 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SHELL_STARTUP_INFO_V10").field("inputStreamSet", &self.inputStreamSet).field("outputStreamSet", &self.outputStreamSet).field("idleTimeoutMs", &self.idleTimeoutMs).field("workingDirectory", &self.workingDirectory).field("variableSet", &self.variableSet).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4415,6 +4580,12 @@ impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V11 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V11 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_SHELL_STARTUP_INFO_V11").field("__AnonymousBase_wsman_L665_C48", &self.__AnonymousBase_wsman_L665_C48).field("name", &self.name).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_STARTUP_INFO_V11 {
     type Abi = Self;
 }
@@ -4448,6 +4619,12 @@ impl ::core::clone::Clone for WSMAN_STREAM_ID_SET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_STREAM_ID_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_STREAM_ID_SET").field("streamIDsCount", &self.streamIDsCount).field("streamIDs", &self.streamIDs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_STREAM_ID_SET {
     type Abi = Self;
 }
@@ -4478,6 +4655,12 @@ impl ::core::marker::Copy for WSMAN_USERNAME_PASSWORD_CREDS {}
 impl ::core::clone::Clone for WSMAN_USERNAME_PASSWORD_CREDS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WSMAN_USERNAME_PASSWORD_CREDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WSMAN_USERNAME_PASSWORD_CREDS").field("username", &self.username).field("password", &self.password).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

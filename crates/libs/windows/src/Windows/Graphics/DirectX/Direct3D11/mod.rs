@@ -47,6 +47,11 @@ impl ::core::clone::Clone for Direct3DMultisampleDescription {
         *self
     }
 }
+impl ::core::fmt::Debug for Direct3DMultisampleDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Direct3DMultisampleDescription").field("Count", &self.Count).field("Quality", &self.Quality).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Direct3DMultisampleDescription {
     type Abi = Self;
 }
@@ -79,6 +84,11 @@ impl ::core::marker::Copy for Direct3DSurfaceDescription {}
 impl ::core::clone::Clone for Direct3DSurfaceDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Direct3DSurfaceDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Direct3DSurfaceDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("MultisampleDescription", &self.MultisampleDescription).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Direct3DSurfaceDescription {

@@ -1155,6 +1155,11 @@ impl ::core::clone::Clone for TypeName {
         Self { Name: self.Name.clone(), Kind: self.Kind }
     }
 }
+impl ::core::fmt::Debug for TypeName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TypeName").field("Name", &self.Name).field("Kind", &self.Kind).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TypeName {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }

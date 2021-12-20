@@ -50,6 +50,11 @@ impl ::core::clone::Clone for DWRITE_CARET_METRICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_CARET_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_CARET_METRICS").field("slopeRise", &self.slopeRise).field("slopeRun", &self.slopeRun).field("offset", &self.offset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_CARET_METRICS {
     type Abi = Self;
 }
@@ -75,6 +80,11 @@ impl ::core::marker::Copy for DWRITE_CLUSTER_METRICS {}
 impl ::core::clone::Clone for DWRITE_CLUSTER_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_CLUSTER_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_CLUSTER_METRICS").field("width", &self.width).field("length", &self.length).field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_CLUSTER_METRICS {
@@ -103,6 +113,11 @@ impl ::core::marker::Copy for DWRITE_COLOR_F {}
 impl ::core::clone::Clone for DWRITE_COLOR_F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_COLOR_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_COLOR_F {
@@ -144,6 +159,12 @@ impl ::core::clone::Clone for DWRITE_COLOR_GLYPH_RUN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_COLOR_GLYPH_RUN").field("glyphRun", &self.glyphRun).field("glyphRunDescription", &self.glyphRunDescription).field("baselineOriginX", &self.baselineOriginX).field("baselineOriginY", &self.baselineOriginY).field("runColor", &self.runColor).field("paletteIndex", &self.paletteIndex).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_COLOR_GLYPH_RUN {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -173,6 +194,12 @@ pub struct DWRITE_COLOR_GLYPH_RUN1 {
 impl ::core::clone::Clone for DWRITE_COLOR_GLYPH_RUN1 {
     fn clone(&self) -> Self {
         Self { Base: self.Base.clone(), glyphImageFormat: self.glyphImageFormat, measuringMode: self.measuringMode }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_COLOR_GLYPH_RUN1").field("Base", &self.Base).field("glyphImageFormat", &self.glyphImageFormat).field("measuringMode", &self.measuringMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -229,6 +256,11 @@ impl ::core::clone::Clone for DWRITE_FILE_FRAGMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_FILE_FRAGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FILE_FRAGMENT").field("fileOffset", &self.fileOffset).field("fragmentSize", &self.fragmentSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FILE_FRAGMENT {
     type Abi = Self;
 }
@@ -274,6 +306,11 @@ impl ::core::clone::Clone for DWRITE_FONT_AXIS_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_FONT_AXIS_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_AXIS_RANGE").field("axisTag", &self.axisTag).field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_RANGE {
     type Abi = Self;
 }
@@ -310,6 +347,11 @@ impl ::core::marker::Copy for DWRITE_FONT_AXIS_VALUE {}
 impl ::core::clone::Clone for DWRITE_FONT_AXIS_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_FONT_AXIS_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_AXIS_VALUE").field("axisTag", &self.axisTag).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_VALUE {
@@ -362,6 +404,11 @@ impl ::core::marker::Copy for DWRITE_FONT_FEATURE {}
 impl ::core::clone::Clone for DWRITE_FONT_FEATURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_FONT_FEATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_FEATURE").field("nameTag", &self.nameTag).field("parameter", &self.parameter).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_FEATURE {
@@ -590,6 +637,22 @@ impl ::core::clone::Clone for DWRITE_FONT_METRICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_FONT_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_METRICS")
+            .field("designUnitsPerEm", &self.designUnitsPerEm)
+            .field("ascent", &self.ascent)
+            .field("descent", &self.descent)
+            .field("lineGap", &self.lineGap)
+            .field("capHeight", &self.capHeight)
+            .field("xHeight", &self.xHeight)
+            .field("underlinePosition", &self.underlinePosition)
+            .field("underlineThickness", &self.underlineThickness)
+            .field("strikethroughPosition", &self.strikethroughPosition)
+            .field("strikethroughThickness", &self.strikethroughThickness)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_METRICS {
     type Abi = Self;
 }
@@ -632,6 +695,27 @@ impl ::core::clone::Clone for DWRITE_FONT_METRICS1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_FONT_METRICS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_METRICS1")
+            .field("__AnonymousBase_DWrite_1_L627_C38", &self.__AnonymousBase_DWrite_1_L627_C38)
+            .field("glyphBoxLeft", &self.glyphBoxLeft)
+            .field("glyphBoxTop", &self.glyphBoxTop)
+            .field("glyphBoxRight", &self.glyphBoxRight)
+            .field("glyphBoxBottom", &self.glyphBoxBottom)
+            .field("subscriptPositionX", &self.subscriptPositionX)
+            .field("subscriptPositionY", &self.subscriptPositionY)
+            .field("subscriptSizeX", &self.subscriptSizeX)
+            .field("subscriptSizeY", &self.subscriptSizeY)
+            .field("superscriptPositionX", &self.superscriptPositionX)
+            .field("superscriptPositionY", &self.superscriptPositionY)
+            .field("superscriptSizeX", &self.superscriptSizeX)
+            .field("superscriptSizeY", &self.superscriptSizeY)
+            .field("hasTypographicMetrics", &self.hasTypographicMetrics)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_FONT_METRICS1 {
     type Abi = Self;
 }
@@ -663,6 +747,12 @@ impl ::core::marker::Copy for DWRITE_FONT_PROPERTY {}
 impl ::core::clone::Clone for DWRITE_FONT_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_FONT_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_FONT_PROPERTY").field("propertyId", &self.propertyId).field("propertyValue", &self.propertyValue).field("localeName", &self.localeName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -834,6 +924,12 @@ impl ::core::clone::Clone for DWRITE_GLYPH_IMAGE_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::fmt::Debug for DWRITE_GLYPH_IMAGE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_IMAGE_DATA").field("imageData", &self.imageData).field("imageDataSize", &self.imageDataSize).field("uniqueDataId", &self.uniqueDataId).field("pixelsPerEm", &self.pixelsPerEm).field("pixelSize", &self.pixelSize).field("horizontalLeftOrigin", &self.horizontalLeftOrigin).field("horizontalRightOrigin", &self.horizontalRightOrigin).field("verticalTopOrigin", &self.verticalTopOrigin).field("verticalBottomOrigin", &self.verticalBottomOrigin).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_IMAGE_DATA {
     type Abi = Self;
 }
@@ -888,6 +984,11 @@ impl ::core::clone::Clone for DWRITE_GLYPH_METRICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_GLYPH_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_METRICS").field("leftSideBearing", &self.leftSideBearing).field("advanceWidth", &self.advanceWidth).field("rightSideBearing", &self.rightSideBearing).field("topSideBearing", &self.topSideBearing).field("advanceHeight", &self.advanceHeight).field("bottomSideBearing", &self.bottomSideBearing).field("verticalOriginY", &self.verticalOriginY).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_METRICS {
     type Abi = Self;
 }
@@ -912,6 +1013,11 @@ impl ::core::marker::Copy for DWRITE_GLYPH_OFFSET {}
 impl ::core::clone::Clone for DWRITE_GLYPH_OFFSET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_GLYPH_OFFSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_OFFSET").field("advanceOffset", &self.advanceOffset).field("ascenderOffset", &self.ascenderOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_OFFSET {
@@ -967,6 +1073,12 @@ impl ::core::clone::Clone for DWRITE_GLYPH_RUN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_GLYPH_RUN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_RUN").field("fontFace", &self.fontFace).field("fontEmSize", &self.fontEmSize).field("glyphCount", &self.glyphCount).field("glyphIndices", &self.glyphIndices).field("glyphAdvances", &self.glyphAdvances).field("glyphOffsets", &self.glyphOffsets).field("isSideways", &self.isSideways).field("bidiLevel", &self.bidiLevel).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_RUN {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1000,6 +1112,12 @@ impl ::core::marker::Copy for DWRITE_GLYPH_RUN_DESCRIPTION {}
 impl ::core::clone::Clone for DWRITE_GLYPH_RUN_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_GLYPH_RUN_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_GLYPH_RUN_DESCRIPTION").field("localeName", &self.localeName).field("string", &self.string).field("stringLength", &self.stringLength).field("clusterMap", &self.clusterMap).field("textPosition", &self.textPosition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1048,6 +1166,12 @@ impl ::core::marker::Copy for DWRITE_HIT_TEST_METRICS {}
 impl ::core::clone::Clone for DWRITE_HIT_TEST_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_HIT_TEST_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_HIT_TEST_METRICS").field("textPosition", &self.textPosition).field("length", &self.length).field("left", &self.left).field("top", &self.top).field("width", &self.width).field("height", &self.height).field("bidiLevel", &self.bidiLevel).field("isText", &self.isText).field("isTrimmed", &self.isTrimmed).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1138,6 +1262,12 @@ impl ::core::clone::Clone for DWRITE_INLINE_OBJECT_METRICS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_INLINE_OBJECT_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_INLINE_OBJECT_METRICS").field("width", &self.width).field("height", &self.height).field("baseline", &self.baseline).field("supportsSideways", &self.supportsSideways).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_INLINE_OBJECT_METRICS {
     type Abi = Self;
 }
@@ -1169,6 +1299,11 @@ impl ::core::clone::Clone for DWRITE_JUSTIFICATION_OPPORTUNITY {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_JUSTIFICATION_OPPORTUNITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_JUSTIFICATION_OPPORTUNITY").field("expansionMinimum", &self.expansionMinimum).field("expansionMaximum", &self.expansionMaximum).field("compressionMaximum", &self.compressionMaximum).field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_JUSTIFICATION_OPPORTUNITY {
     type Abi = Self;
 }
@@ -1192,6 +1327,11 @@ impl ::core::marker::Copy for DWRITE_LINE_BREAKPOINT {}
 impl ::core::clone::Clone for DWRITE_LINE_BREAKPOINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_LINE_BREAKPOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_LINE_BREAKPOINT").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_LINE_BREAKPOINT {
@@ -1225,6 +1365,12 @@ impl ::core::marker::Copy for DWRITE_LINE_METRICS {}
 impl ::core::clone::Clone for DWRITE_LINE_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_LINE_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_LINE_METRICS").field("length", &self.length).field("trailingWhitespaceLength", &self.trailingWhitespaceLength).field("newlineLength", &self.newlineLength).field("height", &self.height).field("baseline", &self.baseline).field("isTrimmed", &self.isTrimmed).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1262,6 +1408,12 @@ impl ::core::clone::Clone for DWRITE_LINE_METRICS1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_LINE_METRICS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_LINE_METRICS1").field("Base", &self.Base).field("leadingBefore", &self.leadingBefore).field("leadingAfter", &self.leadingAfter).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_LINE_METRICS1 {
     type Abi = Self;
 }
@@ -1292,6 +1444,11 @@ impl ::core::marker::Copy for DWRITE_LINE_SPACING {}
 impl ::core::clone::Clone for DWRITE_LINE_SPACING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_LINE_SPACING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_LINE_SPACING").field("method", &self.method).field("height", &self.height).field("baseline", &self.baseline).field("leadingBefore", &self.leadingBefore).field("fontLineGapUsage", &self.fontLineGapUsage).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_LINE_SPACING {
@@ -1338,6 +1495,11 @@ impl ::core::marker::Copy for DWRITE_MATRIX {}
 impl ::core::clone::Clone for DWRITE_MATRIX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_MATRIX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_MATRIX").field("m11", &self.m11).field("m12", &self.m12).field("m21", &self.m21).field("m22", &self.m22).field("dx", &self.dx).field("dy", &self.dy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_MATRIX {
@@ -1398,6 +1560,11 @@ impl ::core::marker::Copy for DWRITE_OVERHANG_METRICS {}
 impl ::core::clone::Clone for DWRITE_OVERHANG_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_OVERHANG_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_OVERHANG_METRICS").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_OVERHANG_METRICS {
@@ -1464,6 +1631,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_PANOSE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_PANOSE_0").field("familyKind", &self.familyKind).field("decorativeClass", &self.decorativeClass).field("weight", &self.weight).field("aspect", &self.aspect).field("contrast", &self.contrast).field("serifVariant", &self.serifVariant).field("fill", &self.fill).field("lining", &self.lining).field("decorativeTopology", &self.decorativeTopology).field("characterRange", &self.characterRange).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_0 {
     type Abi = Self;
 }
@@ -1496,6 +1668,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_1 {}
 impl ::core::clone::Clone for DWRITE_PANOSE_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_PANOSE_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_PANOSE_1").field("familyKind", &self.familyKind).field("toolKind", &self.toolKind).field("weight", &self.weight).field("spacing", &self.spacing).field("aspectRatio", &self.aspectRatio).field("contrast", &self.contrast).field("scriptTopology", &self.scriptTopology).field("scriptForm", &self.scriptForm).field("finials", &self.finials).field("xAscent", &self.xAscent).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_1 {
@@ -1532,6 +1709,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_PANOSE_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_PANOSE_2").field("familyKind", &self.familyKind).field("symbolKind", &self.symbolKind).field("weight", &self.weight).field("spacing", &self.spacing).field("aspectRatioAndContrast", &self.aspectRatioAndContrast).field("aspectRatio94", &self.aspectRatio94).field("aspectRatio119", &self.aspectRatio119).field("aspectRatio157", &self.aspectRatio157).field("aspectRatio163", &self.aspectRatio163).field("aspectRatio211", &self.aspectRatio211).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_2 {
     type Abi = Self;
 }
@@ -1564,6 +1746,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_3 {}
 impl ::core::clone::Clone for DWRITE_PANOSE_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_PANOSE_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_PANOSE_3").field("familyKind", &self.familyKind).field("serifStyle", &self.serifStyle).field("weight", &self.weight).field("proportion", &self.proportion).field("contrast", &self.contrast).field("strokeVariation", &self.strokeVariation).field("armStyle", &self.armStyle).field("letterform", &self.letterform).field("midline", &self.midline).field("xHeight", &self.xHeight).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_3 {
@@ -2280,6 +2467,11 @@ impl ::core::clone::Clone for DWRITE_SCRIPT_ANALYSIS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_SCRIPT_ANALYSIS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_SCRIPT_ANALYSIS").field("script", &self.script).field("shapes", &self.shapes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_SCRIPT_ANALYSIS {
     type Abi = Self;
 }
@@ -2307,6 +2499,11 @@ impl ::core::marker::Copy for DWRITE_SCRIPT_PROPERTIES {}
 impl ::core::clone::Clone for DWRITE_SCRIPT_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_SCRIPT_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_SCRIPT_PROPERTIES").field("isoScriptCode", &self.isoScriptCode).field("isoScriptNumber", &self.isoScriptNumber).field("clusterLookahead", &self.clusterLookahead).field("justificationCharacter", &self.justificationCharacter).field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_SCRIPT_PROPERTIES {
@@ -2340,6 +2537,11 @@ impl ::core::clone::Clone for DWRITE_SHAPING_GLYPH_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_SHAPING_GLYPH_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_SHAPING_GLYPH_PROPERTIES").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_SHAPING_GLYPH_PROPERTIES {
     type Abi = Self;
 }
@@ -2363,6 +2565,11 @@ impl ::core::marker::Copy for DWRITE_SHAPING_TEXT_PROPERTIES {}
 impl ::core::clone::Clone for DWRITE_SHAPING_TEXT_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_SHAPING_TEXT_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_SHAPING_TEXT_PROPERTIES").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_SHAPING_TEXT_PROPERTIES {
@@ -2397,6 +2604,12 @@ impl ::core::marker::Copy for DWRITE_STRIKETHROUGH {}
 impl ::core::clone::Clone for DWRITE_STRIKETHROUGH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_STRIKETHROUGH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_STRIKETHROUGH").field("width", &self.width).field("thickness", &self.thickness).field("offset", &self.offset).field("readingDirection", &self.readingDirection).field("flowDirection", &self.flowDirection).field("localeName", &self.localeName).field("measuringMode", &self.measuringMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2458,6 +2671,11 @@ impl ::core::clone::Clone for DWRITE_TEXT_METRICS {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_TEXT_METRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TEXT_METRICS").field("left", &self.left).field("top", &self.top).field("width", &self.width).field("widthIncludingTrailingWhitespace", &self.widthIncludingTrailingWhitespace).field("height", &self.height).field("layoutWidth", &self.layoutWidth).field("layoutHeight", &self.layoutHeight).field("maxBidiReorderingDepth", &self.maxBidiReorderingDepth).field("lineCount", &self.lineCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_TEXT_METRICS {
     type Abi = Self;
 }
@@ -2482,6 +2700,11 @@ impl ::core::marker::Copy for DWRITE_TEXT_METRICS1 {}
 impl ::core::clone::Clone for DWRITE_TEXT_METRICS1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_TEXT_METRICS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TEXT_METRICS1").field("Base", &self.Base).field("heightIncludingTrailingWhitespace", &self.heightIncludingTrailingWhitespace).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_TEXT_METRICS1 {
@@ -2510,6 +2733,11 @@ impl ::core::clone::Clone for DWRITE_TEXT_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for DWRITE_TEXT_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TEXT_RANGE").field("startPosition", &self.startPosition).field("length", &self.length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_TEXT_RANGE {
     type Abi = Self;
 }
@@ -2535,6 +2763,11 @@ impl ::core::marker::Copy for DWRITE_TRIMMING {}
 impl ::core::clone::Clone for DWRITE_TRIMMING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_TRIMMING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TRIMMING").field("granularity", &self.granularity).field("delimiter", &self.delimiter).field("delimiterCount", &self.delimiterCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_TRIMMING {
@@ -2569,6 +2802,11 @@ impl ::core::marker::Copy for DWRITE_TYPOGRAPHIC_FEATURES {}
 impl ::core::clone::Clone for DWRITE_TYPOGRAPHIC_FEATURES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_TYPOGRAPHIC_FEATURES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_TYPOGRAPHIC_FEATURES").field("features", &self.features).field("featureCount", &self.featureCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_TYPOGRAPHIC_FEATURES {
@@ -2607,6 +2845,12 @@ impl ::core::clone::Clone for DWRITE_UNDERLINE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DWRITE_UNDERLINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_UNDERLINE").field("width", &self.width).field("thickness", &self.thickness).field("offset", &self.offset).field("runHeight", &self.runHeight).field("readingDirection", &self.readingDirection).field("flowDirection", &self.flowDirection).field("localeName", &self.localeName).field("measuringMode", &self.measuringMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_UNDERLINE {
     type Abi = Self;
 }
@@ -2634,6 +2878,11 @@ impl ::core::marker::Copy for DWRITE_UNICODE_RANGE {}
 impl ::core::clone::Clone for DWRITE_UNICODE_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DWRITE_UNICODE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWRITE_UNICODE_RANGE").field("first", &self.first).field("last", &self.last).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_UNICODE_RANGE {

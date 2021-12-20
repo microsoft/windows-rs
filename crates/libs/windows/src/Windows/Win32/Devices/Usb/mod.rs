@@ -13,6 +13,11 @@ impl ::core::clone::Clone for ALTERNATE_INTERFACE {
         *self
     }
 }
+impl ::core::fmt::Debug for ALTERNATE_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ALTERNATE_INTERFACE").field("InterfaceNumber", &self.InterfaceNumber).field("AlternateInterfaceNumber", &self.AlternateInterfaceNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ALTERNATE_INTERFACE {
     type Abi = Self;
 }
@@ -88,6 +93,11 @@ impl ::core::clone::Clone for BM_REQUEST_TYPE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for BM_REQUEST_TYPE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BM_REQUEST_TYPE_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BM_REQUEST_TYPE_0 {
     type Abi = Self;
 }
@@ -115,6 +125,11 @@ impl ::core::marker::Copy for CHANNEL_INFO {}
 impl ::core::clone::Clone for CHANNEL_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CHANNEL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANNEL_INFO").field("EventChannelSize", &self.EventChannelSize).field("uReadDataAlignment", &self.uReadDataAlignment).field("uWriteDataAlignment", &self.uWriteDataAlignment).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CHANNEL_INFO {
@@ -145,6 +160,11 @@ impl ::core::clone::Clone for DEVICE_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for DEVICE_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_DESCRIPTOR").field("usVendorId", &self.usVendorId).field("usProductId", &self.usProductId).field("usBcdDevice", &self.usBcdDevice).field("usLanguageId", &self.usLanguageId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_DESCRIPTOR {
     type Abi = Self;
 }
@@ -172,6 +192,11 @@ impl ::core::marker::Copy for DRV_VERSION {}
 impl ::core::clone::Clone for DRV_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRV_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRV_VERSION").field("major", &self.major).field("minor", &self.minor).field("internal", &self.internal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRV_VERSION {
@@ -417,6 +442,11 @@ impl ::core::clone::Clone for IO_BLOCK {
         *self
     }
 }
+impl ::core::fmt::Debug for IO_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IO_BLOCK").field("uOffset", &self.uOffset).field("uLength", &self.uLength).field("pbyData", &self.pbyData).field("uIndex", &self.uIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IO_BLOCK {
     type Abi = Self;
 }
@@ -446,6 +476,11 @@ impl ::core::marker::Copy for IO_BLOCK_EX {}
 impl ::core::clone::Clone for IO_BLOCK_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IO_BLOCK_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IO_BLOCK_EX").field("uOffset", &self.uOffset).field("uLength", &self.uLength).field("pbyData", &self.pbyData).field("uIndex", &self.uIndex).field("bRequest", &self.bRequest).field("bmRequestType", &self.bmRequestType).field("fTransferDirectionIn", &self.fTransferDirectionIn).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IO_BLOCK_EX {
@@ -503,6 +538,11 @@ impl ::core::marker::Copy for OS_STRING {}
 impl ::core::clone::Clone for OS_STRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OS_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OS_STRING").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("MicrosoftString", &self.MicrosoftString).field("bVendorCode", &self.bVendorCode).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OS_STRING {
@@ -567,6 +607,24 @@ impl ::core::marker::Copy for PACKET_PARAMETERS {}
 impl ::core::clone::Clone for PACKET_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PACKET_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKET_PARAMETERS")
+            .field("DeviceAddress", &self.DeviceAddress)
+            .field("EndpointAddress", &self.EndpointAddress)
+            .field("MaximumPacketSize", &self.MaximumPacketSize)
+            .field("Timeout", &self.Timeout)
+            .field("Flags", &self.Flags)
+            .field("DataLength", &self.DataLength)
+            .field("HubDeviceAddress", &self.HubDeviceAddress)
+            .field("PortTTNumber", &self.PortTTNumber)
+            .field("ErrorCount", &self.ErrorCount)
+            .field("Pad", &self.Pad)
+            .field("UsbdStatusCode", &self.UsbdStatusCode)
+            .field("Data", &self.Data)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PACKET_PARAMETERS {
@@ -645,6 +703,11 @@ impl ::core::clone::Clone for RAW_RESET_PORT_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for RAW_RESET_PORT_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAW_RESET_PORT_PARAMETERS").field("PortNumber", &self.PortNumber).field("PortStatus", &self.PortStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RAW_RESET_PORT_PARAMETERS {
     type Abi = Self;
 }
@@ -672,6 +735,11 @@ impl ::core::clone::Clone for RAW_ROOTPORT_FEATURE {
         *self
     }
 }
+impl ::core::fmt::Debug for RAW_ROOTPORT_FEATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAW_ROOTPORT_FEATURE").field("PortNumber", &self.PortNumber).field("PortFeature", &self.PortFeature).field("PortStatus", &self.PortStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RAW_ROOTPORT_FEATURE {
     type Abi = Self;
 }
@@ -696,6 +764,11 @@ impl ::core::marker::Copy for RAW_ROOTPORT_PARAMETERS {}
 impl ::core::clone::Clone for RAW_ROOTPORT_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RAW_ROOTPORT_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RAW_ROOTPORT_PARAMETERS").field("PortNumber", &self.PortNumber).field("PortStatus", &self.PortStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RAW_ROOTPORT_PARAMETERS {
@@ -727,6 +800,11 @@ impl ::core::marker::Copy for URB {}
 impl ::core::clone::Clone for URB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for URB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("URB").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for URB {
@@ -927,6 +1005,11 @@ impl ::core::clone::Clone for USBD_DEVICE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for USBD_DEVICE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBD_DEVICE_INFORMATION").field("OffsetNext", &self.OffsetNext).field("UsbdDeviceHandle", &self.UsbdDeviceHandle).field("DeviceDescriptor", &self.DeviceDescriptor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBD_DEVICE_INFORMATION {
     type Abi = Self;
 }
@@ -964,6 +1047,27 @@ impl ::core::marker::Copy for USBD_ENDPOINT_OFFLOAD_INFORMATION {}
 impl ::core::clone::Clone for USBD_ENDPOINT_OFFLOAD_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBD_ENDPOINT_OFFLOAD_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBD_ENDPOINT_OFFLOAD_INFORMATION")
+            .field("Size", &self.Size)
+            .field("EndpointAddress", &self.EndpointAddress)
+            .field("ResourceId", &self.ResourceId)
+            .field("Mode", &self.Mode)
+            .field("_bitfield1", &self._bitfield1)
+            .field("_bitfield2", &self._bitfield2)
+            .field("TransferSegmentLA", &self.TransferSegmentLA)
+            .field("TransferSegmentVA", &self.TransferSegmentVA)
+            .field("TransferRingSize", &self.TransferRingSize)
+            .field("TransferRingInitialCycleBit", &self.TransferRingInitialCycleBit)
+            .field("MessageNumber", &self.MessageNumber)
+            .field("EventRingSegmentLA", &self.EventRingSegmentLA)
+            .field("EventRingSegmentVA", &self.EventRingSegmentVA)
+            .field("EventRingSize", &self.EventRingSize)
+            .field("EventRingInitialCycleBit", &self.EventRingInitialCycleBit)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBD_ENDPOINT_OFFLOAD_INFORMATION {
@@ -1008,6 +1112,11 @@ impl ::core::clone::Clone for USBD_INTERFACE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for USBD_INTERFACE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBD_INTERFACE_INFORMATION").field("Length", &self.Length).field("InterfaceNumber", &self.InterfaceNumber).field("AlternateSetting", &self.AlternateSetting).field("Class", &self.Class).field("SubClass", &self.SubClass).field("Protocol", &self.Protocol).field("Reserved", &self.Reserved).field("InterfaceHandle", &self.InterfaceHandle).field("NumberOfPipes", &self.NumberOfPipes).field("Pipes", &self.Pipes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBD_INTERFACE_INFORMATION {
     type Abi = Self;
 }
@@ -1033,6 +1142,11 @@ impl ::core::marker::Copy for USBD_ISO_PACKET_DESCRIPTOR {}
 impl ::core::clone::Clone for USBD_ISO_PACKET_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBD_ISO_PACKET_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBD_ISO_PACKET_DESCRIPTOR").field("Offset", &self.Offset).field("Length", &self.Length).field("Status", &self.Status).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBD_ISO_PACKET_DESCRIPTOR {
@@ -1088,6 +1202,11 @@ impl ::core::clone::Clone for USBD_PIPE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for USBD_PIPE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBD_PIPE_INFORMATION").field("MaximumPacketSize", &self.MaximumPacketSize).field("EndpointAddress", &self.EndpointAddress).field("Interval", &self.Interval).field("PipeType", &self.PipeType).field("PipeHandle", &self.PipeHandle).field("MaximumTransferSize", &self.MaximumTransferSize).field("PipeFlags", &self.PipeFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBD_PIPE_INFORMATION {
     type Abi = Self;
 }
@@ -1134,6 +1253,11 @@ impl ::core::clone::Clone for USBD_STREAM_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for USBD_STREAM_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBD_STREAM_INFORMATION").field("PipeHandle", &self.PipeHandle).field("StreamID", &self.StreamID).field("MaximumTransferSize", &self.MaximumTransferSize).field("PipeFlags", &self.PipeFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBD_STREAM_INFORMATION {
     type Abi = Self;
 }
@@ -1166,6 +1290,11 @@ impl ::core::clone::Clone for USBD_VERSION_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for USBD_VERSION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBD_VERSION_INFORMATION").field("USBDI_Version", &self.USBDI_Version).field("Supported_USB_Version", &self.Supported_USB_Version).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBD_VERSION_INFORMATION {
     type Abi = Self;
 }
@@ -1194,6 +1323,12 @@ impl ::core::marker::Copy for USBFN_BUS_CONFIGURATION_INFO {}
 impl ::core::clone::Clone for USBFN_BUS_CONFIGURATION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USBFN_BUS_CONFIGURATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_BUS_CONFIGURATION_INFO").field("ConfigurationName", &self.ConfigurationName).field("IsCurrent", &self.IsCurrent).field("IsActive", &self.IsActive).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1246,6 +1381,12 @@ impl ::core::clone::Clone for USBFN_CLASS_INFORMATION_PACKET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USBFN_CLASS_INFORMATION_PACKET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_CLASS_INFORMATION_PACKET").field("FullSpeedClassInterface", &self.FullSpeedClassInterface).field("HighSpeedClassInterface", &self.HighSpeedClassInterface).field("InterfaceName", &self.InterfaceName).field("InterfaceGuid", &self.InterfaceGuid).field("HasInterfaceGuid", &self.HasInterfaceGuid).field("SuperSpeedClassInterface", &self.SuperSpeedClassInterface).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INFORMATION_PACKET {
     type Abi = Self;
 }
@@ -1283,6 +1424,12 @@ impl ::core::clone::Clone for USBFN_CLASS_INFORMATION_PACKET_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USBFN_CLASS_INFORMATION_PACKET_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_CLASS_INFORMATION_PACKET_EX").field("FullSpeedClassInterfaceEx", &self.FullSpeedClassInterfaceEx).field("HighSpeedClassInterfaceEx", &self.HighSpeedClassInterfaceEx).field("SuperSpeedClassInterfaceEx", &self.SuperSpeedClassInterfaceEx).field("InterfaceName", &self.InterfaceName).field("InterfaceGuid", &self.InterfaceGuid).field("HasInterfaceGuid", &self.HasInterfaceGuid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INFORMATION_PACKET_EX {
     type Abi = Self;
 }
@@ -1313,6 +1460,11 @@ impl ::core::clone::Clone for USBFN_CLASS_INTERFACE {
         *self
     }
 }
+impl ::core::fmt::Debug for USBFN_CLASS_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_CLASS_INTERFACE").field("InterfaceNumber", &self.InterfaceNumber).field("PipeCount", &self.PipeCount).field("PipeArr", &self.PipeArr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INTERFACE {
     type Abi = Self;
 }
@@ -1339,6 +1491,11 @@ impl ::core::marker::Copy for USBFN_CLASS_INTERFACE_EX {}
 impl ::core::clone::Clone for USBFN_CLASS_INTERFACE_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBFN_CLASS_INTERFACE_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_CLASS_INTERFACE_EX").field("BaseInterfaceNumber", &self.BaseInterfaceNumber).field("InterfaceCount", &self.InterfaceCount).field("PipeCount", &self.PipeCount).field("PipeArr", &self.PipeArr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INTERFACE_EX {
@@ -1429,6 +1586,11 @@ impl ::core::clone::Clone for USBFN_INTERFACE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for USBFN_INTERFACE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_INTERFACE_INFO").field("InterfaceNumber", &self.InterfaceNumber).field("Speed", &self.Speed).field("Size", &self.Size).field("InterfaceDescriptorSet", &self.InterfaceDescriptorSet).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBFN_INTERFACE_INFO {
     type Abi = Self;
 }
@@ -1455,6 +1617,11 @@ impl ::core::marker::Copy for USBFN_NOTIFICATION {}
 impl ::core::clone::Clone for USBFN_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBFN_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_NOTIFICATION").field("Event", &self.Event).field("u", &self.u).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBFN_NOTIFICATION {
@@ -1512,6 +1679,11 @@ impl ::core::clone::Clone for USBFN_PIPE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for USBFN_PIPE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_PIPE_INFORMATION").field("EpDesc", &self.EpDesc).field("PipeId", &self.PipeId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBFN_PIPE_INFORMATION {
     type Abi = Self;
 }
@@ -1554,6 +1726,11 @@ impl ::core::clone::Clone for USBFN_USB_STRING {
         *self
     }
 }
+impl ::core::fmt::Debug for USBFN_USB_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBFN_USB_STRING").field("StringIndex", &self.StringIndex).field("UsbString", &self.UsbString).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBFN_USB_STRING {
     type Abi = Self;
 }
@@ -1581,6 +1758,11 @@ impl ::core::clone::Clone for USBSCAN_GET_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for USBSCAN_GET_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBSCAN_GET_DESCRIPTOR").field("DescriptorType", &self.DescriptorType).field("Index", &self.Index).field("LanguageId", &self.LanguageId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBSCAN_GET_DESCRIPTOR {
     type Abi = Self;
 }
@@ -1605,6 +1787,11 @@ impl ::core::marker::Copy for USBSCAN_PIPE_CONFIGURATION {}
 impl ::core::clone::Clone for USBSCAN_PIPE_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBSCAN_PIPE_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBSCAN_PIPE_CONFIGURATION").field("NumberOfPipes", &self.NumberOfPipes).field("PipeInfo", &self.PipeInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBSCAN_PIPE_CONFIGURATION {
@@ -1635,6 +1822,11 @@ impl ::core::clone::Clone for USBSCAN_PIPE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for USBSCAN_PIPE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBSCAN_PIPE_INFORMATION").field("MaximumPacketSize", &self.MaximumPacketSize).field("EndpointAddress", &self.EndpointAddress).field("Interval", &self.Interval).field("PipeType", &self.PipeType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBSCAN_PIPE_INFORMATION {
     type Abi = Self;
 }
@@ -1662,6 +1854,11 @@ impl ::core::clone::Clone for USBSCAN_TIMEOUT {
         *self
     }
 }
+impl ::core::fmt::Debug for USBSCAN_TIMEOUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBSCAN_TIMEOUT").field("TimeoutRead", &self.TimeoutRead).field("TimeoutWrite", &self.TimeoutWrite).field("TimeoutEvent", &self.TimeoutEvent).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBSCAN_TIMEOUT {
     type Abi = Self;
 }
@@ -1686,6 +1883,11 @@ impl ::core::marker::Copy for USBUSER_BANDWIDTH_INFO_REQUEST {}
 impl ::core::clone::Clone for USBUSER_BANDWIDTH_INFO_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBUSER_BANDWIDTH_INFO_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_BANDWIDTH_INFO_REQUEST").field("Header", &self.Header).field("BandwidthInformation", &self.BandwidthInformation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_BANDWIDTH_INFO_REQUEST {
@@ -1715,6 +1917,12 @@ impl ::core::marker::Copy for USBUSER_BUS_STATISTICS_0_REQUEST {}
 impl ::core::clone::Clone for USBUSER_BUS_STATISTICS_0_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USBUSER_BUS_STATISTICS_0_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_BUS_STATISTICS_0_REQUEST").field("Header", &self.Header).field("BusStatistics0", &self.BusStatistics0).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1749,6 +1957,11 @@ impl ::core::clone::Clone for USBUSER_CLOSE_RAW_DEVICE {
         *self
     }
 }
+impl ::core::fmt::Debug for USBUSER_CLOSE_RAW_DEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_CLOSE_RAW_DEVICE").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBUSER_CLOSE_RAW_DEVICE {
     type Abi = Self;
 }
@@ -1775,6 +1988,11 @@ impl ::core::clone::Clone for USBUSER_CONTROLLER_INFO_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USBUSER_CONTROLLER_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_CONTROLLER_INFO_0").field("Header", &self.Header).field("Info0", &self.Info0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBUSER_CONTROLLER_INFO_0 {
     type Abi = Self;
 }
@@ -1799,6 +2017,11 @@ impl ::core::marker::Copy for USBUSER_CONTROLLER_UNICODE_NAME {}
 impl ::core::clone::Clone for USBUSER_CONTROLLER_UNICODE_NAME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBUSER_CONTROLLER_UNICODE_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_CONTROLLER_UNICODE_NAME").field("Header", &self.Header).field("UnicodeName", &self.UnicodeName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_CONTROLLER_UNICODE_NAME {
@@ -1839,6 +2062,12 @@ impl ::core::clone::Clone for USBUSER_GET_DRIVER_VERSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USBUSER_GET_DRIVER_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_GET_DRIVER_VERSION").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USBUSER_GET_DRIVER_VERSION {
     type Abi = Self;
 }
@@ -1874,6 +2103,11 @@ impl ::core::clone::Clone for USBUSER_GET_USB2HW_VERSION {
         *self
     }
 }
+impl ::core::fmt::Debug for USBUSER_GET_USB2HW_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_GET_USB2HW_VERSION").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBUSER_GET_USB2HW_VERSION {
     type Abi = Self;
 }
@@ -1904,6 +2138,11 @@ impl ::core::marker::Copy for USBUSER_OPEN_RAW_DEVICE {}
 impl ::core::clone::Clone for USBUSER_OPEN_RAW_DEVICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBUSER_OPEN_RAW_DEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_OPEN_RAW_DEVICE").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_OPEN_RAW_DEVICE {
@@ -1948,6 +2187,11 @@ impl ::core::clone::Clone for USBUSER_PASS_THRU_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for USBUSER_PASS_THRU_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_PASS_THRU_REQUEST").field("Header", &self.Header).field("PassThru", &self.PassThru).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBUSER_PASS_THRU_REQUEST {
     type Abi = Self;
 }
@@ -1975,6 +2219,12 @@ impl ::core::marker::Copy for USBUSER_POWER_INFO_REQUEST {}
 impl ::core::clone::Clone for USBUSER_POWER_INFO_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USBUSER_POWER_INFO_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_POWER_INFO_REQUEST").field("Header", &self.Header).field("PowerInformation", &self.PowerInformation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2007,6 +2257,11 @@ impl ::core::clone::Clone for USBUSER_RAW_RESET_ROOT_PORT {
         *self
     }
 }
+impl ::core::fmt::Debug for USBUSER_RAW_RESET_ROOT_PORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_RAW_RESET_ROOT_PORT").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBUSER_RAW_RESET_ROOT_PORT {
     type Abi = Self;
 }
@@ -2031,6 +2286,11 @@ impl ::core::marker::Copy for USBUSER_REFRESH_HCT_REG {}
 impl ::core::clone::Clone for USBUSER_REFRESH_HCT_REG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBUSER_REFRESH_HCT_REG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_REFRESH_HCT_REG").field("Header", &self.Header).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_REFRESH_HCT_REG {
@@ -2061,6 +2321,11 @@ impl ::core::clone::Clone for USBUSER_REQUEST_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for USBUSER_REQUEST_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_REQUEST_HEADER").field("UsbUserRequest", &self.UsbUserRequest).field("UsbUserStatusCode", &self.UsbUserStatusCode).field("RequestBufferLength", &self.RequestBufferLength).field("ActualBufferLength", &self.ActualBufferLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBUSER_REQUEST_HEADER {
     type Abi = Self;
 }
@@ -2085,6 +2350,11 @@ impl ::core::marker::Copy for USBUSER_ROOTPORT_FEATURE_REQUEST {}
 impl ::core::clone::Clone for USBUSER_ROOTPORT_FEATURE_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBUSER_ROOTPORT_FEATURE_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_ROOTPORT_FEATURE_REQUEST").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_ROOTPORT_FEATURE_REQUEST {
@@ -2113,6 +2383,11 @@ impl ::core::clone::Clone for USBUSER_ROOTPORT_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for USBUSER_ROOTPORT_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_ROOTPORT_PARAMETERS").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBUSER_ROOTPORT_PARAMETERS {
     type Abi = Self;
 }
@@ -2139,6 +2414,11 @@ impl ::core::clone::Clone for USBUSER_SEND_ONE_PACKET {
         *self
     }
 }
+impl ::core::fmt::Debug for USBUSER_SEND_ONE_PACKET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_SEND_ONE_PACKET").field("Header", &self.Header).field("PacketParameters", &self.PacketParameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USBUSER_SEND_ONE_PACKET {
     type Abi = Self;
 }
@@ -2163,6 +2443,11 @@ impl ::core::marker::Copy for USBUSER_SEND_RAW_COMMAND {}
 impl ::core::clone::Clone for USBUSER_SEND_RAW_COMMAND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USBUSER_SEND_RAW_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USBUSER_SEND_RAW_COMMAND").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_SEND_RAW_COMMAND {
@@ -2226,6 +2511,11 @@ impl ::core::clone::Clone for USB_20_PORT_CHANGE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_20_PORT_CHANGE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_20_PORT_CHANGE_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_20_PORT_CHANGE_0 {
     type Abi = Self;
 }
@@ -2277,6 +2567,11 @@ impl ::core::clone::Clone for USB_20_PORT_STATUS_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_20_PORT_STATUS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_20_PORT_STATUS_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_20_PORT_STATUS_0 {
     type Abi = Self;
 }
@@ -2320,6 +2615,11 @@ impl ::core::marker::Copy for USB_30_HUB_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_30_HUB_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_30_HUB_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_30_HUB_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bNumberOfPorts", &self.bNumberOfPorts).field("wHubCharacteristics", &self.wHubCharacteristics).field("bPowerOnToPowerGood", &self.bPowerOnToPowerGood).field("bHubControlCurrent", &self.bHubControlCurrent).field("bHubHdrDecLat", &self.bHubHdrDecLat).field("wHubDelay", &self.wHubDelay).field("DeviceRemovable", &self.DeviceRemovable).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_30_HUB_DESCRIPTOR {
@@ -2375,6 +2675,11 @@ impl ::core::clone::Clone for USB_30_PORT_CHANGE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_30_PORT_CHANGE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_30_PORT_CHANGE_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_30_PORT_CHANGE_0 {
     type Abi = Self;
 }
@@ -2426,6 +2731,11 @@ impl ::core::clone::Clone for USB_30_PORT_STATUS_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_30_PORT_STATUS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_30_PORT_STATUS_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_30_PORT_STATUS_0 {
     type Abi = Self;
 }
@@ -2463,6 +2773,23 @@ impl ::core::clone::Clone for USB_BANDWIDTH_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_BANDWIDTH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_BANDWIDTH_INFO")
+            .field("DeviceCount", &self.DeviceCount)
+            .field("TotalBusBandwidth", &self.TotalBusBandwidth)
+            .field("Total32secBandwidth", &self.Total32secBandwidth)
+            .field("AllocedBulkAndControl", &self.AllocedBulkAndControl)
+            .field("AllocedIso", &self.AllocedIso)
+            .field("AllocedInterrupt_1ms", &self.AllocedInterrupt_1ms)
+            .field("AllocedInterrupt_2ms", &self.AllocedInterrupt_2ms)
+            .field("AllocedInterrupt_4ms", &self.AllocedInterrupt_4ms)
+            .field("AllocedInterrupt_8ms", &self.AllocedInterrupt_8ms)
+            .field("AllocedInterrupt_16ms", &self.AllocedInterrupt_16ms)
+            .field("AllocedInterrupt_32ms", &self.AllocedInterrupt_32ms)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_BANDWIDTH_INFO {
     type Abi = Self;
 }
@@ -2489,6 +2816,11 @@ impl ::core::marker::Copy for USB_BOS_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_BOS_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_BOS_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_BOS_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("wTotalLength", &self.wTotalLength).field("bNumDeviceCaps", &self.bNumDeviceCaps).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_BOS_DESCRIPTOR {
@@ -2537,6 +2869,29 @@ impl ::core::clone::Clone for USB_BUS_STATISTICS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USB_BUS_STATISTICS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_BUS_STATISTICS_0")
+            .field("DeviceCount", &self.DeviceCount)
+            .field("CurrentSystemTime", &self.CurrentSystemTime)
+            .field("CurrentUsbFrame", &self.CurrentUsbFrame)
+            .field("BulkBytes", &self.BulkBytes)
+            .field("IsoBytes", &self.IsoBytes)
+            .field("InterruptBytes", &self.InterruptBytes)
+            .field("ControlDataBytes", &self.ControlDataBytes)
+            .field("PciInterruptCount", &self.PciInterruptCount)
+            .field("HardResetCount", &self.HardResetCount)
+            .field("WorkerSignalCount", &self.WorkerSignalCount)
+            .field("CommonBufferBytes", &self.CommonBufferBytes)
+            .field("WorkerIdleTimeMs", &self.WorkerIdleTimeMs)
+            .field("RootHubEnabled", &self.RootHubEnabled)
+            .field("RootHubDevicePowerState", &self.RootHubDevicePowerState)
+            .field("Unused", &self.Unused)
+            .field("NameIndex", &self.NameIndex)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USB_BUS_STATISTICS_0 {
     type Abi = Self;
 }
@@ -2573,6 +2928,11 @@ impl ::core::clone::Clone for USB_CLOSE_RAW_DEVICE_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_CLOSE_RAW_DEVICE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_CLOSE_RAW_DEVICE_PARAMETERS").field("xxx", &self.xxx).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_CLOSE_RAW_DEVICE_PARAMETERS {
     type Abi = Self;
 }
@@ -2597,6 +2957,11 @@ impl ::core::marker::Copy for USB_COMMON_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_COMMON_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_COMMON_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_COMMON_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_COMMON_DESCRIPTOR {
@@ -2629,6 +2994,11 @@ impl ::core::marker::Copy for USB_CONFIGURATION_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_CONFIGURATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_CONFIGURATION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_CONFIGURATION_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("wTotalLength", &self.wTotalLength).field("bNumInterfaces", &self.bNumInterfaces).field("bConfigurationValue", &self.bConfigurationValue).field("iConfiguration", &self.iConfiguration).field("bmAttributes", &self.bmAttributes).field("MaxPower", &self.MaxPower).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_CONFIGURATION_DESCRIPTOR {
@@ -2668,6 +3038,25 @@ impl ::core::marker::Copy for USB_CONFIGURATION_POWER_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_CONFIGURATION_POWER_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_CONFIGURATION_POWER_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_CONFIGURATION_POWER_DESCRIPTOR")
+            .field("bLength", &self.bLength)
+            .field("bDescriptorType", &self.bDescriptorType)
+            .field("SelfPowerConsumedD0", &self.SelfPowerConsumedD0)
+            .field("bPowerSummaryId", &self.bPowerSummaryId)
+            .field("bBusPowerSavingD1", &self.bBusPowerSavingD1)
+            .field("bSelfPowerSavingD1", &self.bSelfPowerSavingD1)
+            .field("bBusPowerSavingD2", &self.bBusPowerSavingD2)
+            .field("bSelfPowerSavingD2", &self.bSelfPowerSavingD2)
+            .field("bBusPowerSavingD3", &self.bBusPowerSavingD3)
+            .field("bSelfPowerSavingD3", &self.bSelfPowerSavingD3)
+            .field("TransitionTimeFromD1", &self.TransitionTimeFromD1)
+            .field("TransitionTimeFromD2", &self.TransitionTimeFromD2)
+            .field("TransitionTimeFromD3", &self.TransitionTimeFromD3)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_CONFIGURATION_POWER_DESCRIPTOR {
@@ -2768,6 +3157,11 @@ impl ::core::clone::Clone for USB_CONTROLLER_INFO_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_CONTROLLER_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_CONTROLLER_INFO_0").field("PciVendorId", &self.PciVendorId).field("PciDeviceId", &self.PciDeviceId).field("PciRevision", &self.PciRevision).field("NumberOfRootPorts", &self.NumberOfRootPorts).field("ControllerFlavor", &self.ControllerFlavor).field("HcFeatureFlags", &self.HcFeatureFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_CONTROLLER_INFO_0 {
     type Abi = Self;
 }
@@ -2805,6 +3199,11 @@ impl ::core::marker::Copy for USB_DEFAULT_PIPE_SETUP_PACKET {}
 impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEFAULT_PIPE_SETUP_PACKET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEFAULT_PIPE_SETUP_PACKET").field("bmRequestType", &self.bmRequestType).field("bRequest", &self.bRequest).field("wValue", &self.wValue).field("wIndex", &self.wIndex).field("wLength", &self.wLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET {
@@ -2859,6 +3258,11 @@ impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEFAULT_PIPE_SETUP_PACKET_0_0").field("LowByte", &self.LowByte).field("HiByte", &self.HiByte).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     type Abi = Self;
 }
@@ -2911,6 +3315,11 @@ impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEFAULT_PIPE_SETUP_PACKET_1_0").field("LowByte", &self.LowByte).field("HiByte", &self.HiByte).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     type Abi = Self;
 }
@@ -2949,6 +3358,22 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR")
+            .field("bLength", &self.bLength)
+            .field("bDescriptorType", &self.bDescriptorType)
+            .field("bDevCapabilityType", &self.bDevCapabilityType)
+            .field("iAddtionalInfoURL", &self.iAddtionalInfoURL)
+            .field("bNumberOfAlternateModes", &self.bNumberOfAlternateModes)
+            .field("bPreferredAlternateMode", &self.bPreferredAlternateMode)
+            .field("VconnPower", &self.VconnPower)
+            .field("bmConfigured", &self.bmConfigured)
+            .field("bReserved", &self.bReserved)
+            .field("AlternateMode", &self.AlternateMode)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     type Abi = Self;
 }
@@ -2974,6 +3399,11 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0").field("wSVID", &self.wSVID).field("bAlternateMode", &self.bAlternateMode).field("iAlternateModeSetting", &self.iAlternateModeSetting).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
@@ -3027,6 +3457,11 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
     type Abi = Self;
 }
@@ -3058,6 +3493,11 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).field("bReserved", &self.bReserved).field("ContainerID", &self.ContainerID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     type Abi = Self;
 }
@@ -3083,6 +3523,11 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_DESCRIPTOR {
@@ -3116,6 +3561,11 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).field("bcdDescriptorVersion", &self.bcdDescriptorVersion).field("bmAttributes", &self.bmAttributes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
@@ -3169,6 +3619,11 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
@@ -3208,6 +3663,23 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR 
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR")
+            .field("bLength", &self.bLength)
+            .field("bDescriptorType", &self.bDescriptorType)
+            .field("bDevCapabilityType", &self.bDevCapabilityType)
+            .field("bReserved", &self.bReserved)
+            .field("bmCapabilities", &self.bmCapabilities)
+            .field("wMinVoltage", &self.wMinVoltage)
+            .field("wMaxVoltage", &self.wMaxVoltage)
+            .field("wReserved", &self.wReserved)
+            .field("dwMaxOperatingPower", &self.dwMaxOperatingPower)
+            .field("dwMaxPeakPower", &self.dwMaxPeakPower)
+            .field("dwMaxPeakPowerTime", &self.dwMaxPeakPowerTime)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
@@ -3261,6 +3733,11 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
@@ -3293,6 +3770,11 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).field("bReserved", &self.bReserved).field("PlatformCapabilityUuid", &self.PlatformCapabilityUuid).field("CapabililityData", &self.CapabililityData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
@@ -3329,6 +3811,22 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR")
+            .field("bLength", &self.bLength)
+            .field("bDescriptorType", &self.bDescriptorType)
+            .field("bDevCapabilityType", &self.bDevCapabilityType)
+            .field("bReserved", &self.bReserved)
+            .field("bmAttributes", &self.bmAttributes)
+            .field("bmProviderPorts", &self.bmProviderPorts)
+            .field("bmConsumerPorts", &self.bmConsumerPorts)
+            .field("bcdBCVersion", &self.bcdBCVersion)
+            .field("bcdPDVersion", &self.bcdPDVersion)
+            .field("bcdUSBTypeCVersion", &self.bcdUSBTypeCVersion)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
@@ -3382,6 +3880,11 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
@@ -3433,6 +3936,11 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {}
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
@@ -3489,6 +3997,11 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).field("bReserved", &self.bReserved).field("bmAttributes", &self.bmAttributes).field("wFunctionalitySupport", &self.wFunctionalitySupport).field("wReserved", &self.wReserved).field("bmSublinkSpeedAttr", &self.bmSublinkSpeedAttr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     type Abi = Self;
 }
@@ -3540,6 +4053,11 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
@@ -3589,6 +4107,11 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
@@ -3643,6 +4166,11 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).field("bmAttributes", &self.bmAttributes).field("wSpeedsSupported", &self.wSpeedsSupported).field("bFunctionalitySupport", &self.bFunctionalitySupport).field("bU1DevExitLat", &self.bU1DevExitLat).field("wU2DevExitLat", &self.wU2DevExitLat).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     type Abi = Self;
 }
@@ -3673,6 +4201,11 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).field("bmAttributes", &self.bmAttributes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
@@ -3724,6 +4257,11 @@ impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0
 impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
@@ -3816,6 +4354,26 @@ impl ::core::clone::Clone for USB_DEVICE_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_DESCRIPTOR")
+            .field("bLength", &self.bLength)
+            .field("bDescriptorType", &self.bDescriptorType)
+            .field("bcdUSB", &self.bcdUSB)
+            .field("bDeviceClass", &self.bDeviceClass)
+            .field("bDeviceSubClass", &self.bDeviceSubClass)
+            .field("bDeviceProtocol", &self.bDeviceProtocol)
+            .field("bMaxPacketSize0", &self.bMaxPacketSize0)
+            .field("idVendor", &self.idVendor)
+            .field("idProduct", &self.idProduct)
+            .field("bcdDevice", &self.bcdDevice)
+            .field("iManufacturer", &self.iManufacturer)
+            .field("iProduct", &self.iProduct)
+            .field("iSerialNumber", &self.iSerialNumber)
+            .field("bNumConfigurations", &self.bNumConfigurations)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_DESCRIPTOR {
     type Abi = Self;
 }
@@ -3851,6 +4409,11 @@ impl ::core::marker::Copy for USB_DEVICE_QUALIFIER_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_DEVICE_QUALIFIER_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_QUALIFIER_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bcdUSB", &self.bcdUSB).field("bDeviceClass", &self.bDeviceClass).field("bDeviceSubClass", &self.bDeviceSubClass).field("bDeviceProtocol", &self.bDeviceProtocol).field("bMaxPacketSize0", &self.bMaxPacketSize0).field("bNumConfigurations", &self.bNumConfigurations).field("bReserved", &self.bReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_QUALIFIER_DESCRIPTOR {
@@ -3916,6 +4479,11 @@ impl ::core::clone::Clone for USB_DEVICE_STATUS_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_DEVICE_STATUS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DEVICE_STATUS_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_STATUS_0 {
     type Abi = Self;
 }
@@ -3962,6 +4530,12 @@ impl ::core::clone::Clone for USB_DRIVER_VERSION_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USB_DRIVER_VERSION_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_DRIVER_VERSION_PARAMETERS").field("DriverTrackingCode", &self.DriverTrackingCode).field("USBDI_Version", &self.USBDI_Version).field("USBUSER_Version", &self.USBUSER_Version).field("CheckedPortDriver", &self.CheckedPortDriver).field("CheckedMiniportDriver", &self.CheckedMiniportDriver).field("USB_Version", &self.USB_Version).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USB_DRIVER_VERSION_PARAMETERS {
     type Abi = Self;
 }
@@ -3997,6 +4571,11 @@ impl ::core::marker::Copy for USB_ENDPOINT_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_ENDPOINT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_ENDPOINT_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_ENDPOINT_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bEndpointAddress", &self.bEndpointAddress).field("bmAttributes", &self.bmAttributes).field("wMaxPacketSize", &self.wMaxPacketSize).field("bInterval", &self.bInterval).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_ENDPOINT_DESCRIPTOR {
@@ -4052,6 +4631,11 @@ impl ::core::marker::Copy for USB_ENDPOINT_STATUS_0 {}
 impl ::core::clone::Clone for USB_ENDPOINT_STATUS_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_ENDPOINT_STATUS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_ENDPOINT_STATUS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_ENDPOINT_STATUS_0 {
@@ -4171,6 +4755,24 @@ impl ::core::clone::Clone for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION")
+            .field("TimeTrackingHandle", &self.TimeTrackingHandle)
+            .field("InputFrameNumber", &self.InputFrameNumber)
+            .field("InputMicroFrameNumber", &self.InputMicroFrameNumber)
+            .field("QueryPerformanceCounterAtInputFrameOrMicroFrame", &self.QueryPerformanceCounterAtInputFrameOrMicroFrame)
+            .field("QueryPerformanceCounterFrequency", &self.QueryPerformanceCounterFrequency)
+            .field("PredictedAccuracyInMicroSeconds", &self.PredictedAccuracyInMicroSeconds)
+            .field("CurrentGenerationID", &self.CurrentGenerationID)
+            .field("CurrentQueryPerformanceCounter", &self.CurrentQueryPerformanceCounter)
+            .field("CurrentHardwareFrameNumber", &self.CurrentHardwareFrameNumber)
+            .field("CurrentHardwareMicroFrameNumber", &self.CurrentHardwareMicroFrameNumber)
+            .field("CurrentUSBFrameNumber", &self.CurrentUSBFrameNumber)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     type Abi = Self;
 }
@@ -4223,6 +4825,11 @@ impl ::core::marker::Copy for USB_FUNCTION_SUSPEND_OPTIONS_0 {}
 impl ::core::clone::Clone for USB_FUNCTION_SUSPEND_OPTIONS_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_FUNCTION_SUSPEND_OPTIONS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_FUNCTION_SUSPEND_OPTIONS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_FUNCTION_SUSPEND_OPTIONS_0 {
@@ -4353,6 +4960,11 @@ impl ::core::clone::Clone for USB_HIGH_SPEED_MAXPACKET_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_HIGH_SPEED_MAXPACKET_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_HIGH_SPEED_MAXPACKET_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_HIGH_SPEED_MAXPACKET_0 {
     type Abi = Self;
 }
@@ -4402,6 +5014,11 @@ impl ::core::marker::Copy for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {}
 impl ::core::clone::Clone for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_HUB_30_PORT_REMOTE_WAKE_MASK_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
@@ -4455,6 +5072,11 @@ impl ::core::clone::Clone for USB_HUB_CHANGE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_HUB_CHANGE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_HUB_CHANGE_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_HUB_CHANGE_0 {
     type Abi = Self;
 }
@@ -4486,6 +5108,11 @@ impl ::core::marker::Copy for USB_HUB_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_HUB_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_HUB_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_HUB_DESCRIPTOR").field("bDescriptorLength", &self.bDescriptorLength).field("bDescriptorType", &self.bDescriptorType).field("bNumberOfPorts", &self.bNumberOfPorts).field("wHubCharacteristics", &self.wHubCharacteristics).field("bPowerOnToPowerGood", &self.bPowerOnToPowerGood).field("bHubControlCurrent", &self.bHubControlCurrent).field("bRemoveAndPowerMask", &self.bRemoveAndPowerMask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_HUB_DESCRIPTOR {
@@ -4537,6 +5164,11 @@ impl ::core::marker::Copy for USB_HUB_STATUS_0 {}
 impl ::core::clone::Clone for USB_HUB_STATUS_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_HUB_STATUS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_HUB_STATUS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_HUB_STATUS_0 {
@@ -4591,6 +5223,11 @@ impl ::core::clone::Clone for USB_HUB_STATUS_AND_CHANGE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_HUB_STATUS_AND_CHANGE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_HUB_STATUS_AND_CHANGE_0").field("HubStatus", &self.HubStatus).field("HubChange", &self.HubChange).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_HUB_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
@@ -4617,6 +5254,11 @@ impl ::core::marker::Copy for USB_IDLE_CALLBACK_INFO {}
 impl ::core::clone::Clone for USB_IDLE_CALLBACK_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_IDLE_CALLBACK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_IDLE_CALLBACK_INFO").field("IdleCallback", &self.IdleCallback).field("IdleContext", &self.IdleContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_IDLE_CALLBACK_INFO {
@@ -4655,6 +5297,11 @@ impl ::core::clone::Clone for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_INTERFACE_ASSOCIATION_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bFirstInterface", &self.bFirstInterface).field("bInterfaceCount", &self.bInterfaceCount).field("bFunctionClass", &self.bFunctionClass).field("bFunctionSubClass", &self.bFunctionSubClass).field("bFunctionProtocol", &self.bFunctionProtocol).field("iFunction", &self.iFunction).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     type Abi = Self;
 }
@@ -4688,6 +5335,11 @@ impl ::core::marker::Copy for USB_INTERFACE_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_INTERFACE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_INTERFACE_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_INTERFACE_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bInterfaceNumber", &self.bInterfaceNumber).field("bAlternateSetting", &self.bAlternateSetting).field("bNumEndpoints", &self.bNumEndpoints).field("bInterfaceClass", &self.bInterfaceClass).field("bInterfaceSubClass", &self.bInterfaceSubClass).field("bInterfaceProtocol", &self.bInterfaceProtocol).field("iInterface", &self.iInterface).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_INTERFACE_DESCRIPTOR {
@@ -4726,6 +5378,24 @@ impl ::core::marker::Copy for USB_INTERFACE_POWER_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_INTERFACE_POWER_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_INTERFACE_POWER_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_INTERFACE_POWER_DESCRIPTOR")
+            .field("bLength", &self.bLength)
+            .field("bDescriptorType", &self.bDescriptorType)
+            .field("bmCapabilitiesFlags", &self.bmCapabilitiesFlags)
+            .field("bBusPowerSavingD1", &self.bBusPowerSavingD1)
+            .field("bSelfPowerSavingD1", &self.bSelfPowerSavingD1)
+            .field("bBusPowerSavingD2", &self.bBusPowerSavingD2)
+            .field("bSelfPowerSavingD2", &self.bSelfPowerSavingD2)
+            .field("bBusPowerSavingD3", &self.bBusPowerSavingD3)
+            .field("bSelfPowerSavingD3", &self.bSelfPowerSavingD3)
+            .field("TransitionTimeFromD1", &self.TransitionTimeFromD1)
+            .field("TransitionTimeFromD2", &self.TransitionTimeFromD2)
+            .field("TransitionTimeFromD3", &self.TransitionTimeFromD3)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_INTERFACE_POWER_DESCRIPTOR {
@@ -4781,6 +5451,11 @@ impl ::core::clone::Clone for USB_INTERFACE_STATUS_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_INTERFACE_STATUS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_INTERFACE_STATUS_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_INTERFACE_STATUS_0 {
     type Abi = Self;
 }
@@ -4807,6 +5482,11 @@ impl ::core::marker::Copy for USB_OPEN_RAW_DEVICE_PARAMETERS {}
 impl ::core::clone::Clone for USB_OPEN_RAW_DEVICE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_OPEN_RAW_DEVICE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_OPEN_RAW_DEVICE_PARAMETERS").field("PortStatus", &self.PortStatus).field("MaxPacketEp0", &self.MaxPacketEp0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_OPEN_RAW_DEVICE_PARAMETERS {
@@ -4858,6 +5538,11 @@ impl ::core::marker::Copy for USB_PASS_THRU_PARAMETERS {}
 impl ::core::clone::Clone for USB_PASS_THRU_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_PASS_THRU_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_PASS_THRU_PARAMETERS").field("FunctionGUID", &self.FunctionGUID).field("ParameterLength", &self.ParameterLength).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_PASS_THRU_PARAMETERS {
@@ -4950,6 +5635,11 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_PORT_EXT_STATUS_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_PORT_EXT_STATUS_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS_0 {
     type Abi = Self;
 }
@@ -5000,6 +5690,11 @@ impl ::core::marker::Copy for USB_PORT_EXT_STATUS_AND_CHANGE_0 {}
 impl ::core::clone::Clone for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_PORT_EXT_STATUS_AND_CHANGE_0").field("PortStatusChange", &self.PortStatusChange).field("PortExtStatus", &self.PortExtStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
@@ -5081,6 +5776,11 @@ impl ::core::clone::Clone for USB_PORT_STATUS_AND_CHANGE_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_PORT_STATUS_AND_CHANGE_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_PORT_STATUS_AND_CHANGE_0").field("PortStatus", &self.PortStatus).field("PortChange", &self.PortChange).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_PORT_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
@@ -5132,6 +5832,23 @@ impl ::core::marker::Copy for USB_POWER_INFO {}
 impl ::core::clone::Clone for USB_POWER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USB_POWER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_POWER_INFO")
+            .field("SystemState", &self.SystemState)
+            .field("HcDevicePowerState", &self.HcDevicePowerState)
+            .field("HcDeviceWake", &self.HcDeviceWake)
+            .field("HcSystemWake", &self.HcSystemWake)
+            .field("RhDevicePowerState", &self.RhDevicePowerState)
+            .field("RhDeviceWake", &self.RhDeviceWake)
+            .field("RhSystemWake", &self.RhSystemWake)
+            .field("LastSystemSleepState", &self.LastSystemSleepState)
+            .field("CanWakeup", &self.CanWakeup)
+            .field("IsPowered", &self.IsPowered)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5239,6 +5956,23 @@ impl ::core::clone::Clone for USB_SEND_RAW_COMMAND_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_SEND_RAW_COMMAND_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_SEND_RAW_COMMAND_PARAMETERS")
+            .field("Usb_bmRequest", &self.Usb_bmRequest)
+            .field("Usb_bRequest", &self.Usb_bRequest)
+            .field("Usb_wVlaue", &self.Usb_wVlaue)
+            .field("Usb_wIndex", &self.Usb_wIndex)
+            .field("Usb_wLength", &self.Usb_wLength)
+            .field("DeviceAddress", &self.DeviceAddress)
+            .field("MaximumPacketSize", &self.MaximumPacketSize)
+            .field("Timeout", &self.Timeout)
+            .field("DataLength", &self.DataLength)
+            .field("UsbdStatusCode", &self.UsbdStatusCode)
+            .field("Data", &self.Data)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_SEND_RAW_COMMAND_PARAMETERS {
     type Abi = Self;
 }
@@ -5268,6 +6002,12 @@ impl ::core::marker::Copy for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {}
 impl ::core::clone::Clone for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION").field("TimeTrackingHandle", &self.TimeTrackingHandle).field("IsStartupDelayTolerable", &self.IsStartupDelayTolerable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5311,6 +6051,12 @@ impl ::core::clone::Clone for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION").field("TimeTrackingHandle", &self.TimeTrackingHandle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     type Abi = Self;
 }
@@ -5339,6 +6085,11 @@ impl ::core::marker::Copy for USB_STRING_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_STRING_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_STRING_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_STRING_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bString", &self.bString).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_STRING_DESCRIPTOR {
@@ -5377,6 +6128,11 @@ impl ::core::clone::Clone for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRI
         *self
     }
 }
+impl ::core::fmt::Debug for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("wReserved", &self.wReserved).field("dwBytesPerInterval", &self.dwBytesPerInterval).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     type Abi = Self;
 }
@@ -5406,6 +6162,11 @@ impl ::core::marker::Copy for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {}
 impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bMaxBurst", &self.bMaxBurst).field("bmAttributes", &self.bmAttributes).field("wBytesPerInterval", &self.wBytesPerInterval).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
@@ -5460,6 +6221,11 @@ impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
@@ -5483,6 +6249,11 @@ impl ::core::marker::Copy for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
 impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
@@ -5543,6 +6314,11 @@ impl ::core::clone::Clone for USB_UNICODE_NAME {
         *self
     }
 }
+impl ::core::fmt::Debug for USB_UNICODE_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_UNICODE_NAME").field("Length", &self.Length).field("String", &self.String).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for USB_UNICODE_NAME {
     type Abi = Self;
 }
@@ -5570,6 +6346,11 @@ impl ::core::marker::Copy for USB_USB2HW_VERSION_PARAMETERS {}
 impl ::core::clone::Clone for USB_USB2HW_VERSION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for USB_USB2HW_VERSION_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USB_USB2HW_VERSION_PARAMETERS").field("Usb2HwRevision", &self.Usb2HwRevision).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_USB2HW_VERSION_PARAMETERS {
@@ -5652,6 +6433,11 @@ impl ::core::clone::Clone for WINUSB_PIPE_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for WINUSB_PIPE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINUSB_PIPE_INFORMATION").field("PipeType", &self.PipeType).field("PipeId", &self.PipeId).field("MaximumPacketSize", &self.MaximumPacketSize).field("Interval", &self.Interval).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINUSB_PIPE_INFORMATION {
     type Abi = Self;
 }
@@ -5681,6 +6467,11 @@ impl ::core::clone::Clone for WINUSB_PIPE_INFORMATION_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for WINUSB_PIPE_INFORMATION_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINUSB_PIPE_INFORMATION_EX").field("PipeType", &self.PipeType).field("PipeId", &self.PipeId).field("MaximumPacketSize", &self.MaximumPacketSize).field("Interval", &self.Interval).field("MaximumBytesPerInterval", &self.MaximumBytesPerInterval).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINUSB_PIPE_INFORMATION_EX {
     type Abi = Self;
 }
@@ -5708,6 +6499,11 @@ impl ::core::marker::Copy for WINUSB_SETUP_PACKET {}
 impl ::core::clone::Clone for WINUSB_SETUP_PACKET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINUSB_SETUP_PACKET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINUSB_SETUP_PACKET").field("RequestType", &self.RequestType).field("Request", &self.Request).field("Value", &self.Value).field("Index", &self.Index).field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINUSB_SETUP_PACKET {
@@ -6263,6 +7059,11 @@ impl ::core::clone::Clone for _URB_BULK_OR_INTERRUPT_TRANSFER {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_BULK_OR_INTERRUPT_TRANSFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_BULK_OR_INTERRUPT_TRANSFER").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_BULK_OR_INTERRUPT_TRANSFER {
     type Abi = Self;
 }
@@ -6298,6 +7099,25 @@ impl ::core::marker::Copy for _URB_CONTROL_DESCRIPTOR_REQUEST {}
 impl ::core::clone::Clone for _URB_CONTROL_DESCRIPTOR_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_CONTROL_DESCRIPTOR_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_CONTROL_DESCRIPTOR_REQUEST")
+            .field("Hdr", &self.Hdr)
+            .field("Reserved", &self.Reserved)
+            .field("Reserved0", &self.Reserved0)
+            .field("TransferBufferLength", &self.TransferBufferLength)
+            .field("TransferBuffer", &self.TransferBuffer)
+            .field("TransferBufferMDL", &self.TransferBufferMDL)
+            .field("UrbLink", &self.UrbLink)
+            .field("hca", &self.hca)
+            .field("Reserved1", &self.Reserved1)
+            .field("Index", &self.Index)
+            .field("DescriptorType", &self.DescriptorType)
+            .field("LanguageId", &self.LanguageId)
+            .field("Reserved2", &self.Reserved2)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_CONTROL_DESCRIPTOR_REQUEST {
@@ -6336,6 +7156,11 @@ impl ::core::clone::Clone for _URB_CONTROL_FEATURE_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_CONTROL_FEATURE_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_CONTROL_FEATURE_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved0", &self.Reserved0).field("FeatureSelector", &self.FeatureSelector).field("Index", &self.Index).field("Reserved1", &self.Reserved1).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_CONTROL_FEATURE_REQUEST {
     type Abi = Self;
 }
@@ -6367,6 +7192,11 @@ impl ::core::marker::Copy for _URB_CONTROL_GET_CONFIGURATION_REQUEST {}
 impl ::core::clone::Clone for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_CONTROL_GET_CONFIGURATION_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
@@ -6404,6 +7234,11 @@ impl ::core::clone::Clone for _URB_CONTROL_GET_INTERFACE_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_CONTROL_GET_INTERFACE_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_CONTROL_GET_INTERFACE_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).field("Interface", &self.Interface).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_INTERFACE_REQUEST {
     type Abi = Self;
 }
@@ -6439,6 +7274,11 @@ impl ::core::clone::Clone for _URB_CONTROL_GET_STATUS_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_CONTROL_GET_STATUS_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_CONTROL_GET_STATUS_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).field("Index", &self.Index).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_STATUS_REQUEST {
     type Abi = Self;
 }
@@ -6472,6 +7312,11 @@ impl ::core::clone::Clone for _URB_CONTROL_TRANSFER {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_CONTROL_TRANSFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_CONTROL_TRANSFER").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("SetupPacket", &self.SetupPacket).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_CONTROL_TRANSFER {
     type Abi = Self;
 }
@@ -6503,6 +7348,11 @@ impl ::core::marker::Copy for _URB_CONTROL_TRANSFER_EX {}
 impl ::core::clone::Clone for _URB_CONTROL_TRANSFER_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_CONTROL_TRANSFER_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_CONTROL_TRANSFER_EX").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("Timeout", &self.Timeout).field("hca", &self.hca).field("SetupPacket", &self.SetupPacket).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_CONTROL_TRANSFER_EX {
@@ -6542,6 +7392,25 @@ impl ::core::clone::Clone for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_CONTROL_VENDOR_OR_CLASS_REQUEST")
+            .field("Hdr", &self.Hdr)
+            .field("Reserved", &self.Reserved)
+            .field("TransferFlags", &self.TransferFlags)
+            .field("TransferBufferLength", &self.TransferBufferLength)
+            .field("TransferBuffer", &self.TransferBuffer)
+            .field("TransferBufferMDL", &self.TransferBufferMDL)
+            .field("UrbLink", &self.UrbLink)
+            .field("hca", &self.hca)
+            .field("RequestTypeReservedBits", &self.RequestTypeReservedBits)
+            .field("Request", &self.Request)
+            .field("Value", &self.Value)
+            .field("Index", &self.Index)
+            .field("Reserved1", &self.Reserved1)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     type Abi = Self;
 }
@@ -6565,6 +7434,11 @@ impl ::core::marker::Copy for _URB_FRAME_LENGTH_CONTROL {}
 impl ::core::clone::Clone for _URB_FRAME_LENGTH_CONTROL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_FRAME_LENGTH_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_FRAME_LENGTH_CONTROL").field("Hdr", &self.Hdr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_FRAME_LENGTH_CONTROL {
@@ -6593,6 +7467,11 @@ impl ::core::clone::Clone for _URB_GET_CURRENT_FRAME_NUMBER {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_GET_CURRENT_FRAME_NUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_GET_CURRENT_FRAME_NUMBER").field("Hdr", &self.Hdr).field("FrameNumber", &self.FrameNumber).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_GET_CURRENT_FRAME_NUMBER {
     type Abi = Self;
 }
@@ -6618,6 +7497,11 @@ impl ::core::marker::Copy for _URB_GET_FRAME_LENGTH {}
 impl ::core::clone::Clone for _URB_GET_FRAME_LENGTH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_GET_FRAME_LENGTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_GET_FRAME_LENGTH").field("Hdr", &self.Hdr).field("FrameLength", &self.FrameLength).field("FrameNumber", &self.FrameNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_GET_FRAME_LENGTH {
@@ -6648,6 +7532,11 @@ impl ::core::clone::Clone for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("MaximumSendPathDelayInMilliSeconds", &self.MaximumSendPathDelayInMilliSeconds).field("MaximumCompletionPathDelayInMilliSeconds", &self.MaximumCompletionPathDelayInMilliSeconds).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     type Abi = Self;
 }
@@ -6671,6 +7560,11 @@ impl ::core::marker::Copy for _URB_HCD_AREA {}
 impl ::core::clone::Clone for _URB_HCD_AREA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_HCD_AREA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_HCD_AREA").field("Reserved8", &self.Reserved8).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_HCD_AREA {
@@ -6700,6 +7594,11 @@ impl ::core::marker::Copy for _URB_HEADER {}
 impl ::core::clone::Clone for _URB_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_HEADER").field("Length", &self.Length).field("Function", &self.Function).field("Status", &self.Status).field("UsbdDeviceHandle", &self.UsbdDeviceHandle).field("UsbdFlags", &self.UsbdFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_HEADER {
@@ -6738,6 +7637,24 @@ impl ::core::clone::Clone for _URB_ISOCH_TRANSFER {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_ISOCH_TRANSFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_ISOCH_TRANSFER")
+            .field("Hdr", &self.Hdr)
+            .field("PipeHandle", &self.PipeHandle)
+            .field("TransferFlags", &self.TransferFlags)
+            .field("TransferBufferLength", &self.TransferBufferLength)
+            .field("TransferBuffer", &self.TransferBuffer)
+            .field("TransferBufferMDL", &self.TransferBufferMDL)
+            .field("UrbLink", &self.UrbLink)
+            .field("hca", &self.hca)
+            .field("StartFrame", &self.StartFrame)
+            .field("NumberOfPackets", &self.NumberOfPackets)
+            .field("ErrorCount", &self.ErrorCount)
+            .field("IsoPacket", &self.IsoPacket)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_ISOCH_TRANSFER {
     type Abi = Self;
 }
@@ -6766,6 +7683,11 @@ impl ::core::marker::Copy for _URB_OPEN_STATIC_STREAMS {}
 impl ::core::clone::Clone for _URB_OPEN_STATIC_STREAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_OPEN_STATIC_STREAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_OPEN_STATIC_STREAMS").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("NumberOfStreams", &self.NumberOfStreams).field("StreamInfoVersion", &self.StreamInfoVersion).field("StreamInfoSize", &self.StreamInfoSize).field("Streams", &self.Streams).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_OPEN_STATIC_STREAMS {
@@ -6806,6 +7728,26 @@ impl ::core::clone::Clone for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_OS_FEATURE_DESCRIPTOR_REQUEST")
+            .field("Hdr", &self.Hdr)
+            .field("Reserved", &self.Reserved)
+            .field("Reserved0", &self.Reserved0)
+            .field("TransferBufferLength", &self.TransferBufferLength)
+            .field("TransferBuffer", &self.TransferBuffer)
+            .field("TransferBufferMDL", &self.TransferBufferMDL)
+            .field("UrbLink", &self.UrbLink)
+            .field("hca", &self.hca)
+            .field("_bitfield", &self._bitfield)
+            .field("Reserved2", &self.Reserved2)
+            .field("InterfaceNumber", &self.InterfaceNumber)
+            .field("MS_PageIndex", &self.MS_PageIndex)
+            .field("MS_FeatureDescriptorIndex", &self.MS_FeatureDescriptorIndex)
+            .field("Reserved3", &self.Reserved3)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     type Abi = Self;
 }
@@ -6831,6 +7773,11 @@ impl ::core::marker::Copy for _URB_PIPE_REQUEST {}
 impl ::core::clone::Clone for _URB_PIPE_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_PIPE_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_PIPE_REQUEST").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_PIPE_REQUEST {
@@ -6861,6 +7808,11 @@ impl ::core::clone::Clone for _URB_SELECT_CONFIGURATION {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_SELECT_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_SELECT_CONFIGURATION").field("Hdr", &self.Hdr).field("ConfigurationDescriptor", &self.ConfigurationDescriptor).field("ConfigurationHandle", &self.ConfigurationHandle).field("Interface", &self.Interface).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_SELECT_CONFIGURATION {
     type Abi = Self;
 }
@@ -6888,6 +7840,11 @@ impl ::core::clone::Clone for _URB_SELECT_INTERFACE {
         *self
     }
 }
+impl ::core::fmt::Debug for _URB_SELECT_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_SELECT_INTERFACE").field("Hdr", &self.Hdr).field("ConfigurationHandle", &self.ConfigurationHandle).field("Interface", &self.Interface).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _URB_SELECT_INTERFACE {
     type Abi = Self;
 }
@@ -6912,6 +7869,11 @@ impl ::core::marker::Copy for _URB_SET_FRAME_LENGTH {}
 impl ::core::clone::Clone for _URB_SET_FRAME_LENGTH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _URB_SET_FRAME_LENGTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_URB_SET_FRAME_LENGTH").field("Hdr", &self.Hdr).field("FrameLengthDelta", &self.FrameLengthDelta).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _URB_SET_FRAME_LENGTH {

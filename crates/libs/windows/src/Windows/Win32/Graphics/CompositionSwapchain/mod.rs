@@ -21,6 +21,12 @@ impl ::core::clone::Clone for CompositionFrameDisplayInstance {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for CompositionFrameDisplayInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CompositionFrameDisplayInstance").field("displayAdapterLUID", &self.displayAdapterLUID).field("displayVidPnSourceId", &self.displayVidPnSourceId).field("displayUniqueId", &self.displayUniqueId).field("renderAdapterLUID", &self.renderAdapterLUID).field("instanceKind", &self.instanceKind).field("finalTransform", &self.finalTransform).field("requiredCrossAdapterCopy", &self.requiredCrossAdapterCopy).field("colorSpace", &self.colorSpace).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for CompositionFrameDisplayInstance {
     type Abi = Self;
 }
@@ -846,6 +852,11 @@ impl ::core::clone::Clone for PresentationTransform {
         *self
     }
 }
+impl ::core::fmt::Debug for PresentationTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PresentationTransform").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("M31", &self.M31).field("M32", &self.M32).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PresentationTransform {
     type Abi = Self;
 }
@@ -869,6 +880,11 @@ impl ::core::marker::Copy for SystemInterruptTime {}
 impl ::core::clone::Clone for SystemInterruptTime {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SystemInterruptTime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SystemInterruptTime").field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SystemInterruptTime {

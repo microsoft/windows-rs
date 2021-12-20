@@ -2551,6 +2551,12 @@ impl ::core::clone::Clone for MediaTimeRange {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for MediaTimeRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MediaTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for MediaTimeRange {
     type Abi = Self;
 }

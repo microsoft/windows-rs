@@ -3418,6 +3418,11 @@ impl ::core::clone::Clone for NetworkUsageStates {
         *self
     }
 }
+impl ::core::fmt::Debug for NetworkUsageStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NetworkUsageStates").field("Roaming", &self.Roaming).field("Shared", &self.Shared).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkUsageStates {
     type Abi = Self;
 }

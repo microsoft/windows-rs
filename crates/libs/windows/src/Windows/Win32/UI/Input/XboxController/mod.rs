@@ -33,6 +33,11 @@ impl ::core::clone::Clone for XINPUT_BATTERY_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for XINPUT_BATTERY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XINPUT_BATTERY_INFORMATION").field("BatteryType", &self.BatteryType).field("BatteryLevel", &self.BatteryLevel).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XINPUT_BATTERY_INFORMATION {
     type Abi = Self;
 }
@@ -60,6 +65,11 @@ impl ::core::marker::Copy for XINPUT_CAPABILITIES {}
 impl ::core::clone::Clone for XINPUT_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XINPUT_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XINPUT_CAPABILITIES").field("Type", &self.Type).field("SubType", &self.SubType).field("Flags", &self.Flags).field("Gamepad", &self.Gamepad).field("Vibration", &self.Vibration).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XINPUT_CAPABILITIES {
@@ -129,6 +139,11 @@ impl ::core::clone::Clone for XINPUT_GAMEPAD {
         *self
     }
 }
+impl ::core::fmt::Debug for XINPUT_GAMEPAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XINPUT_GAMEPAD").field("wButtons", &self.wButtons).field("bLeftTrigger", &self.bLeftTrigger).field("bRightTrigger", &self.bRightTrigger).field("sThumbLX", &self.sThumbLX).field("sThumbLY", &self.sThumbLY).field("sThumbRX", &self.sThumbRX).field("sThumbRY", &self.sThumbRY).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XINPUT_GAMEPAD {
     type Abi = Self;
 }
@@ -192,6 +207,11 @@ impl ::core::clone::Clone for XINPUT_KEYSTROKE {
         *self
     }
 }
+impl ::core::fmt::Debug for XINPUT_KEYSTROKE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XINPUT_KEYSTROKE").field("VirtualKey", &self.VirtualKey).field("Unicode", &self.Unicode).field("Flags", &self.Flags).field("UserIndex", &self.UserIndex).field("HidCode", &self.HidCode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XINPUT_KEYSTROKE {
     type Abi = Self;
 }
@@ -224,6 +244,11 @@ impl ::core::clone::Clone for XINPUT_STATE {
         *self
     }
 }
+impl ::core::fmt::Debug for XINPUT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XINPUT_STATE").field("dwPacketNumber", &self.dwPacketNumber).field("Gamepad", &self.Gamepad).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XINPUT_STATE {
     type Abi = Self;
 }
@@ -248,6 +273,11 @@ impl ::core::marker::Copy for XINPUT_VIBRATION {}
 impl ::core::clone::Clone for XINPUT_VIBRATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XINPUT_VIBRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XINPUT_VIBRATION").field("wLeftMotorSpeed", &self.wLeftMotorSpeed).field("wRightMotorSpeed", &self.wRightMotorSpeed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XINPUT_VIBRATION {

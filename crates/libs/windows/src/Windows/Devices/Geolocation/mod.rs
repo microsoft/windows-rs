@@ -45,6 +45,11 @@ impl ::core::clone::Clone for BasicGeoposition {
         *self
     }
 }
+impl ::core::fmt::Debug for BasicGeoposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BasicGeoposition").field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BasicGeoposition {
     type Abi = Self;
 }

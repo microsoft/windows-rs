@@ -13,6 +13,11 @@ impl ::core::clone::Clone for PERCEPTION_PAYLOAD_FIELD {
         *self
     }
 }
+impl ::core::fmt::Debug for PERCEPTION_PAYLOAD_FIELD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERCEPTION_PAYLOAD_FIELD").field("FieldId", &self.FieldId).field("OffsetInBytes", &self.OffsetInBytes).field("SizeInBytes", &self.SizeInBytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PERCEPTION_PAYLOAD_FIELD {
     type Abi = Self;
 }
@@ -37,6 +42,11 @@ impl ::core::marker::Copy for PERCEPTION_STATE_STREAM_TIMESTAMPS {}
 impl ::core::clone::Clone for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PERCEPTION_STATE_STREAM_TIMESTAMPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERCEPTION_STATE_STREAM_TIMESTAMPS").field("InputTimestampInQpcCounts", &self.InputTimestampInQpcCounts).field("AvailableTimestampInQpcCounts", &self.AvailableTimestampInQpcCounts).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PERCEPTION_STATE_STREAM_TIMESTAMPS {

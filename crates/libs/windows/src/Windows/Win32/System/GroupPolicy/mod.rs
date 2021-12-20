@@ -397,6 +397,12 @@ impl ::core::clone::Clone for GPOBROWSEINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GPOBROWSEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GPOBROWSEINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hwndOwner", &self.hwndOwner).field("lpTitle", &self.lpTitle).field("lpInitialOU", &self.lpInitialOU).field("lpDSPath", &self.lpDSPath).field("dwDSPathSize", &self.dwDSPathSize).field("lpName", &self.lpName).field("dwNameSize", &self.dwNameSize).field("gpoType", &self.gpoType).field("gpoHint", &self.gpoHint).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GPOBROWSEINFO {
     type Abi = Self;
 }
@@ -525,6 +531,26 @@ impl ::core::clone::Clone for GROUP_POLICY_OBJECTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GROUP_POLICY_OBJECTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_POLICY_OBJECTA")
+            .field("dwOptions", &self.dwOptions)
+            .field("dwVersion", &self.dwVersion)
+            .field("lpDSPath", &self.lpDSPath)
+            .field("lpFileSysPath", &self.lpFileSysPath)
+            .field("lpDisplayName", &self.lpDisplayName)
+            .field("szGPOName", &self.szGPOName)
+            .field("GPOLink", &self.GPOLink)
+            .field("lParam", &self.lParam)
+            .field("pNext", &self.pNext)
+            .field("pPrev", &self.pPrev)
+            .field("lpExtensions", &self.lpExtensions)
+            .field("lParam2", &self.lParam2)
+            .field("lpLink", &self.lpLink)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GROUP_POLICY_OBJECTA {
     type Abi = Self;
 }
@@ -566,6 +592,26 @@ impl ::core::marker::Copy for GROUP_POLICY_OBJECTW {}
 impl ::core::clone::Clone for GROUP_POLICY_OBJECTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GROUP_POLICY_OBJECTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_POLICY_OBJECTW")
+            .field("dwOptions", &self.dwOptions)
+            .field("dwVersion", &self.dwVersion)
+            .field("lpDSPath", &self.lpDSPath)
+            .field("lpFileSysPath", &self.lpFileSysPath)
+            .field("lpDisplayName", &self.lpDisplayName)
+            .field("szGPOName", &self.szGPOName)
+            .field("GPOLink", &self.GPOLink)
+            .field("lParam", &self.lParam)
+            .field("pNext", &self.pNext)
+            .field("pPrev", &self.pPrev)
+            .field("lpExtensions", &self.lpExtensions)
+            .field("lParam2", &self.lParam2)
+            .field("lpLink", &self.lpLink)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8577,6 +8623,12 @@ impl ::core::clone::Clone for INSTALLDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INSTALLDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTALLDATA").field("Type", &self.Type).field("Spec", &self.Spec).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INSTALLDATA {
     type Abi = Self;
 }
@@ -8645,6 +8697,12 @@ impl ::core::clone::Clone for INSTALLSPEC_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INSTALLSPEC_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTALLSPEC_0").field("Name", &self.Name).field("GPOId", &self.GPOId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INSTALLSPEC_0 {
     type Abi = Self;
 }
@@ -8675,6 +8733,12 @@ impl ::core::marker::Copy for INSTALLSPEC_1 {}
 impl ::core::clone::Clone for INSTALLSPEC_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INSTALLSPEC_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSTALLSPEC_1").field("Clsid", &self.Clsid).field("ClsCtx", &self.ClsCtx).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8820,6 +8884,12 @@ impl ::core::clone::Clone for LOCALMANAGEDAPPLICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LOCALMANAGEDAPPLICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALMANAGEDAPPLICATION").field("pszDeploymentName", &self.pszDeploymentName).field("pszPolicyName", &self.pszPolicyName).field("pszProductId", &self.pszProductId).field("dwState", &self.dwState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LOCALMANAGEDAPPLICATION {
     type Abi = Self;
 }
@@ -8896,6 +8966,29 @@ impl ::core::clone::Clone for MANAGEDAPPLICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MANAGEDAPPLICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MANAGEDAPPLICATION")
+            .field("pszPackageName", &self.pszPackageName)
+            .field("pszPublisher", &self.pszPublisher)
+            .field("dwVersionHi", &self.dwVersionHi)
+            .field("dwVersionLo", &self.dwVersionLo)
+            .field("dwRevision", &self.dwRevision)
+            .field("GpoId", &self.GpoId)
+            .field("pszPolicyName", &self.pszPolicyName)
+            .field("ProductId", &self.ProductId)
+            .field("Language", &self.Language)
+            .field("pszOwner", &self.pszOwner)
+            .field("pszCompany", &self.pszCompany)
+            .field("pszComments", &self.pszComments)
+            .field("pszContact", &self.pszContact)
+            .field("pszSupportUrl", &self.pszSupportUrl)
+            .field("dwPathType", &self.dwPathType)
+            .field("bInstalled", &self.bInstalled)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MANAGEDAPPLICATION {
     type Abi = Self;
 }
@@ -8967,6 +9060,12 @@ impl ::core::marker::Copy for POLICYSETTINGSTATUSINFO {}
 impl ::core::clone::Clone for POLICYSETTINGSTATUSINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POLICYSETTINGSTATUSINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POLICYSETTINGSTATUSINFO").field("szKey", &self.szKey).field("szEventSource", &self.szEventSource).field("szEventLogName", &self.szEventLogName).field("dwEventID", &self.dwEventID).field("dwErrorCode", &self.dwErrorCode).field("status", &self.status).field("timeLogged", &self.timeLogged).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9067,6 +9166,12 @@ impl ::core::clone::Clone for RSOP_TARGET {
             pGPOList: self.pGPOList,
             pWbemServices: self.pWbemServices.clone(),
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+impl ::core::fmt::Debug for RSOP_TARGET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RSOP_TARGET").field("pwszAccountName", &self.pwszAccountName).field("pwszNewSOM", &self.pwszNewSOM).field("psaSecurityGroups", &self.psaSecurityGroups).field("pRsopToken", &self.pRsopToken).field("pGPOList", &self.pGPOList).field("pWbemServices", &self.pWbemServices).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]

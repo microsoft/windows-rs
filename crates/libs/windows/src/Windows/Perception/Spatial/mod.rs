@@ -1278,6 +1278,12 @@ impl ::core::clone::Clone for SpatialBoundingBox {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialBoundingBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialBoundingBox").field("Center", &self.Center).field("Extents", &self.Extents).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for SpatialBoundingBox {
     type Abi = Self;
 }
@@ -1323,6 +1329,12 @@ impl ::core::clone::Clone for SpatialBoundingFrustum {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialBoundingFrustum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialBoundingFrustum").field("Near", &self.Near).field("Far", &self.Far).field("Right", &self.Right).field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for SpatialBoundingFrustum {
     type Abi = Self;
 }
@@ -1365,6 +1377,12 @@ impl ::core::clone::Clone for SpatialBoundingOrientedBox {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialBoundingOrientedBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialBoundingOrientedBox").field("Center", &self.Center).field("Extents", &self.Extents).field("Orientation", &self.Orientation).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for SpatialBoundingOrientedBox {
     type Abi = Self;
 }
@@ -1403,6 +1421,12 @@ impl ::core::marker::Copy for SpatialBoundingSphere {}
 impl ::core::clone::Clone for SpatialBoundingSphere {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialBoundingSphere {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialBoundingSphere").field("Center", &self.Center).field("Radius", &self.Radius).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -2913,6 +2937,12 @@ impl ::core::marker::Copy for SpatialRay {}
 impl ::core::clone::Clone for SpatialRay {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialRay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialRay").field("Origin", &self.Origin).field("Direction", &self.Direction).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]

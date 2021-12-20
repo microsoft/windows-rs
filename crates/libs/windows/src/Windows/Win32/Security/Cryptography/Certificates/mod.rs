@@ -113,6 +113,22 @@ impl ::core::clone::Clone for CAINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for CAINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAINFO")
+            .field("cbSize", &self.cbSize)
+            .field("CAType", &self.CAType)
+            .field("cCASignatureCerts", &self.cCASignatureCerts)
+            .field("cCAExchangeCerts", &self.cCAExchangeCerts)
+            .field("cExitModules", &self.cExitModules)
+            .field("lPropIdMax", &self.lPropIdMax)
+            .field("lRoleSeparationEnabled", &self.lRoleSeparationEnabled)
+            .field("cKRACertUsedCount", &self.cKRACertUsedCount)
+            .field("cKRACertCount", &self.cKRACertCount)
+            .field("fAdvancedServer", &self.fAdvancedServer)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CAINFO {
     type Abi = Self;
 }
@@ -1299,6 +1315,11 @@ impl ::core::clone::Clone for CERTTRANSBLOB {
         *self
     }
 }
+impl ::core::fmt::Debug for CERTTRANSBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CERTTRANSBLOB").field("cb", &self.cb).field("pb", &self.pb).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CERTTRANSBLOB {
     type Abi = Self;
 }
@@ -1326,6 +1347,11 @@ impl ::core::marker::Copy for CERTVIEWRESTRICTION {}
 impl ::core::clone::Clone for CERTVIEWRESTRICTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CERTVIEWRESTRICTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CERTVIEWRESTRICTION").field("ColumnIndex", &self.ColumnIndex).field("SeekOperator", &self.SeekOperator).field("SortOrder", &self.SortOrder).field("pbValue", &self.pbValue).field("cbValue", &self.cbValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CERTVIEWRESTRICTION {
@@ -1815,6 +1841,12 @@ impl ::core::marker::Copy for CSEDB_RSTMAPW {}
 impl ::core::clone::Clone for CSEDB_RSTMAPW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CSEDB_RSTMAPW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSEDB_RSTMAPW").field("pwszDatabaseName", &self.pwszDatabaseName).field("pwszNewDatabaseName", &self.pwszNewDatabaseName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

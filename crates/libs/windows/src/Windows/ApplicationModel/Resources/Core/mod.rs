@@ -1202,6 +1202,11 @@ impl ::core::clone::Clone for ResourceLayoutInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for ResourceLayoutInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ResourceLayoutInfo").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ResourceSubtreeCount", &self.ResourceSubtreeCount).field("NamedResourceCount", &self.NamedResourceCount).field("Checksum", &self.Checksum).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ResourceLayoutInfo {
     type Abi = Self;
 }

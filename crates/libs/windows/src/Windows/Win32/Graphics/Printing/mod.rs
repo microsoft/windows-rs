@@ -17,6 +17,12 @@ impl ::core::clone::Clone for ADDJOB_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDJOB_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDJOB_INFO_1A").field("Path", &self.Path).field("JobId", &self.JobId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ADDJOB_INFO_1A {
     type Abi = Self;
 }
@@ -47,6 +53,12 @@ impl ::core::marker::Copy for ADDJOB_INFO_1W {}
 impl ::core::clone::Clone for ADDJOB_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDJOB_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDJOB_INFO_1W").field("Path", &self.Path).field("JobId", &self.JobId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -98,6 +110,11 @@ impl ::core::clone::Clone for ATTRIBUTE_INFO_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for ATTRIBUTE_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATTRIBUTE_INFO_1").field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide).field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide).field("dwNupBorderFlags", &self.dwNupBorderFlags).field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags).field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags).field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies).field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATTRIBUTE_INFO_1 {
     type Abi = Self;
 }
@@ -128,6 +145,20 @@ impl ::core::marker::Copy for ATTRIBUTE_INFO_2 {}
 impl ::core::clone::Clone for ATTRIBUTE_INFO_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ATTRIBUTE_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATTRIBUTE_INFO_2")
+            .field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide)
+            .field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide)
+            .field("dwNupBorderFlags", &self.dwNupBorderFlags)
+            .field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags)
+            .field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags)
+            .field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies)
+            .field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies)
+            .field("dwColorOptimization", &self.dwColorOptimization)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for ATTRIBUTE_INFO_2 {
@@ -162,6 +193,22 @@ impl ::core::marker::Copy for ATTRIBUTE_INFO_3 {}
 impl ::core::clone::Clone for ATTRIBUTE_INFO_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ATTRIBUTE_INFO_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATTRIBUTE_INFO_3")
+            .field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide)
+            .field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide)
+            .field("dwNupBorderFlags", &self.dwNupBorderFlags)
+            .field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags)
+            .field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags)
+            .field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies)
+            .field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies)
+            .field("dwColorOptimization", &self.dwColorOptimization)
+            .field("dmPrintQuality", &self.dmPrintQuality)
+            .field("dmYResolution", &self.dmYResolution)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for ATTRIBUTE_INFO_3 {
@@ -201,6 +248,27 @@ impl ::core::marker::Copy for ATTRIBUTE_INFO_4 {}
 impl ::core::clone::Clone for ATTRIBUTE_INFO_4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ATTRIBUTE_INFO_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATTRIBUTE_INFO_4")
+            .field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide)
+            .field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide)
+            .field("dwNupBorderFlags", &self.dwNupBorderFlags)
+            .field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags)
+            .field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags)
+            .field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies)
+            .field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies)
+            .field("dwColorOptimization", &self.dwColorOptimization)
+            .field("dmPrintQuality", &self.dmPrintQuality)
+            .field("dmYResolution", &self.dmYResolution)
+            .field("dwDuplexFlags", &self.dwDuplexFlags)
+            .field("dwNupDirection", &self.dwNupDirection)
+            .field("dwBookletFlags", &self.dwBookletFlags)
+            .field("dwScalingPercentX", &self.dwScalingPercentX)
+            .field("dwScalingPercentY", &self.dwScalingPercentY)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for ATTRIBUTE_INFO_4 {
@@ -643,6 +711,12 @@ impl ::core::clone::Clone for BIDI_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BIDI_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIDI_DATA").field("dwBidiType", &self.dwBidiType).field("u", &self.u).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BIDI_DATA {
     type Abi = Self;
 }
@@ -714,6 +788,12 @@ impl ::core::clone::Clone for BIDI_REQUEST_CONTAINER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BIDI_REQUEST_CONTAINER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIDI_REQUEST_CONTAINER").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("aData", &self.aData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BIDI_REQUEST_CONTAINER {
     type Abi = Self;
 }
@@ -745,6 +825,12 @@ impl ::core::marker::Copy for BIDI_REQUEST_DATA {}
 impl ::core::clone::Clone for BIDI_REQUEST_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BIDI_REQUEST_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIDI_REQUEST_DATA").field("dwReqNumber", &self.dwReqNumber).field("pSchema", &self.pSchema).field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -783,6 +869,12 @@ impl ::core::clone::Clone for BIDI_RESPONSE_CONTAINER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BIDI_RESPONSE_CONTAINER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIDI_RESPONSE_CONTAINER").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("aData", &self.aData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BIDI_RESPONSE_CONTAINER {
     type Abi = Self;
 }
@@ -815,6 +907,12 @@ impl ::core::marker::Copy for BIDI_RESPONSE_DATA {}
 impl ::core::clone::Clone for BIDI_RESPONSE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BIDI_RESPONSE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIDI_RESPONSE_DATA").field("dwResult", &self.dwResult).field("dwReqNumber", &self.dwReqNumber).field("pSchema", &self.pSchema).field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -865,6 +963,11 @@ impl ::core::clone::Clone for BINARY_CONTAINER {
         *self
     }
 }
+impl ::core::fmt::Debug for BINARY_CONTAINER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BINARY_CONTAINER").field("cbBuf", &self.cbBuf).field("pData", &self.pData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BINARY_CONTAINER {
     type Abi = Self;
 }
@@ -904,6 +1007,12 @@ impl ::core::marker::Copy for BranchOfficeJobData {}
 impl ::core::clone::Clone for BranchOfficeJobData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BranchOfficeJobData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BranchOfficeJobData").field("eEventType", &self.eEventType).field("JobId", &self.JobId).field("JobInfo", &self.JobInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -976,6 +1085,12 @@ impl ::core::clone::Clone for BranchOfficeJobDataContainer {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BranchOfficeJobDataContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BranchOfficeJobDataContainer").field("cJobDataEntries", &self.cJobDataEntries).field("JobData", &self.JobData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BranchOfficeJobDataContainer {
     type Abi = Self;
 }
@@ -1019,6 +1134,25 @@ impl ::core::clone::Clone for BranchOfficeJobDataError {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BranchOfficeJobDataError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BranchOfficeJobDataError")
+            .field("LastError", &self.LastError)
+            .field("pDocumentName", &self.pDocumentName)
+            .field("pUserName", &self.pUserName)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pDataType", &self.pDataType)
+            .field("TotalSize", &self.TotalSize)
+            .field("PrintedSize", &self.PrintedSize)
+            .field("TotalPages", &self.TotalPages)
+            .field("PrintedPages", &self.PrintedPages)
+            .field("pMachineName", &self.pMachineName)
+            .field("pJobError", &self.pJobError)
+            .field("pErrorDescription", &self.pErrorDescription)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BranchOfficeJobDataError {
     type Abi = Self;
 }
@@ -1050,6 +1184,12 @@ impl ::core::marker::Copy for BranchOfficeJobDataPipelineFailed {}
 impl ::core::clone::Clone for BranchOfficeJobDataPipelineFailed {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BranchOfficeJobDataPipelineFailed {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BranchOfficeJobDataPipelineFailed").field("pDocumentName", &self.pDocumentName).field("pPrinterName", &self.pPrinterName).field("pExtraErrorInfo", &self.pExtraErrorInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1092,6 +1232,12 @@ impl ::core::clone::Clone for BranchOfficeJobDataPrinted {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BranchOfficeJobDataPrinted {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BranchOfficeJobDataPrinted").field("Status", &self.Status).field("pDocumentName", &self.pDocumentName).field("pUserName", &self.pUserName).field("pMachineName", &self.pMachineName).field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Size", &self.Size).field("TotalPages", &self.TotalPages).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BranchOfficeJobDataPrinted {
     type Abi = Self;
 }
@@ -1126,6 +1272,11 @@ impl ::core::clone::Clone for BranchOfficeJobDataRendered {
         *self
     }
 }
+impl ::core::fmt::Debug for BranchOfficeJobDataRendered {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BranchOfficeJobDataRendered").field("Size", &self.Size).field("ICMMethod", &self.ICMMethod).field("Color", &self.Color).field("PrintQuality", &self.PrintQuality).field("YResolution", &self.YResolution).field("Copies", &self.Copies).field("TTOption", &self.TTOption).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BranchOfficeJobDataRendered {
     type Abi = Self;
 }
@@ -1152,6 +1303,12 @@ impl ::core::marker::Copy for BranchOfficeLogOfflineFileFull {}
 impl ::core::clone::Clone for BranchOfficeLogOfflineFileFull {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BranchOfficeLogOfflineFileFull {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BranchOfficeLogOfflineFileFull").field("pMachineName", &self.pMachineName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1258,6 +1415,29 @@ impl ::core::clone::Clone for COMPROPSHEETUI {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for COMPROPSHEETUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPROPSHEETUI")
+            .field("cbSize", &self.cbSize)
+            .field("Flags", &self.Flags)
+            .field("hInstCaller", &self.hInstCaller)
+            .field("pCallerName", &self.pCallerName)
+            .field("UserData", &self.UserData)
+            .field("pHelpFile", &self.pHelpFile)
+            .field("pfnCallBack", &self.pfnCallBack)
+            .field("pOptItem", &self.pOptItem)
+            .field("pDlgPage", &self.pDlgPage)
+            .field("cOptItem", &self.cOptItem)
+            .field("cDlgPage", &self.cDlgPage)
+            .field("IconID", &self.IconID)
+            .field("pOptItemName", &self.pOptItemName)
+            .field("CallerVersion", &self.CallerVersion)
+            .field("OptItemVersion", &self.OptItemVersion)
+            .field("dwReserved", &self.dwReserved)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for COMPROPSHEETUI {
     type Abi = Self;
 }
@@ -1285,6 +1465,11 @@ impl ::core::marker::Copy for CONFIG_INFO_DATA_1 {}
 impl ::core::clone::Clone for CONFIG_INFO_DATA_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CONFIG_INFO_DATA_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONFIG_INFO_DATA_1").field("Reserved", &self.Reserved).field("dwVersion", &self.dwVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CONFIG_INFO_DATA_1 {
@@ -1333,6 +1518,12 @@ impl ::core::clone::Clone for CORE_PRINTER_DRIVERA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CORE_PRINTER_DRIVERA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CORE_PRINTER_DRIVERA").field("CoreDriverGUID", &self.CoreDriverGUID).field("ftDriverDate", &self.ftDriverDate).field("dwlDriverVersion", &self.dwlDriverVersion).field("szPackageID", &self.szPackageID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CORE_PRINTER_DRIVERA {
     type Abi = Self;
 }
@@ -1365,6 +1556,12 @@ impl ::core::marker::Copy for CORE_PRINTER_DRIVERW {}
 impl ::core::clone::Clone for CORE_PRINTER_DRIVERW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CORE_PRINTER_DRIVERW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CORE_PRINTER_DRIVERW").field("CoreDriverGUID", &self.CoreDriverGUID).field("ftDriverDate", &self.ftDriverDate).field("dwlDriverVersion", &self.dwlDriverVersion).field("szPackageID", &self.szPackageID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1475,6 +1672,12 @@ impl ::core::clone::Clone for CPSUICBPARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for CPSUICBPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CPSUICBPARAM").field("cbSize", &self.cbSize).field("Reason", &self.Reason).field("hDlg", &self.hDlg).field("pOptItem", &self.pOptItem).field("cOptItem", &self.cOptItem).field("Flags", &self.Flags).field("pCurItem", &self.pCurItem).field("Anonymous", &self.Anonymous).field("UserData", &self.UserData).field("Result", &self.Result).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for CPSUICBPARAM {
     type Abi = Self;
 }
@@ -1571,6 +1774,11 @@ impl ::core::clone::Clone for CPSUIDATABLOCK {
         *self
     }
 }
+impl ::core::fmt::Debug for CPSUIDATABLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CPSUIDATABLOCK").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CPSUIDATABLOCK {
     type Abi = Self;
 }
@@ -1622,6 +1830,11 @@ impl ::core::marker::Copy for CUSTOMSIZEPARAM {}
 impl ::core::clone::Clone for CUSTOMSIZEPARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CUSTOMSIZEPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CUSTOMSIZEPARAM").field("dwOrder", &self.dwOrder).field("lMinVal", &self.lMinVal).field("lMaxVal", &self.lMaxVal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CUSTOMSIZEPARAM {
@@ -1851,6 +2064,12 @@ impl ::core::clone::Clone for DATATYPES_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DATATYPES_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DATATYPES_INFO_1A").field("pName", &self.pName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DATATYPES_INFO_1A {
     type Abi = Self;
 }
@@ -1880,6 +2099,12 @@ impl ::core::marker::Copy for DATATYPES_INFO_1W {}
 impl ::core::clone::Clone for DATATYPES_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DATATYPES_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DATATYPES_INFO_1W").field("pName", &self.pName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1915,6 +2140,11 @@ impl ::core::clone::Clone for DATA_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for DATA_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DATA_HEADER").field("dwSignature", &self.dwSignature).field("wSize", &self.wSize).field("wDataID", &self.wDataID).field("dwDataSize", &self.dwDataSize).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DATA_HEADER {
     type Abi = Self;
 }
@@ -1943,6 +2173,11 @@ impl ::core::marker::Copy for DELETE_PORT_DATA_1 {}
 impl ::core::clone::Clone for DELETE_PORT_DATA_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DELETE_PORT_DATA_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELETE_PORT_DATA_1").field("psztPortName", &self.psztPortName).field("Reserved", &self.Reserved).field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DELETE_PORT_DATA_1 {
@@ -1974,6 +2209,12 @@ impl ::core::marker::Copy for DEVICEPROPERTYHEADER {}
 impl ::core::clone::Clone for DEVICEPROPERTYHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICEPROPERTYHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICEPROPERTYHEADER").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("hPrinter", &self.hPrinter).field("pszPrinterName", &self.pszPrinterName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2012,6 +2253,12 @@ impl ::core::marker::Copy for DEVQUERYPRINT_INFO {}
 impl ::core::clone::Clone for DEVQUERYPRINT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DEVQUERYPRINT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVQUERYPRINT_INFO").field("cbSize", &self.cbSize).field("Level", &self.Level).field("hPrinter", &self.hPrinter).field("pDevMode", &self.pDevMode).field("pszErrorStr", &self.pszErrorStr).field("cchErrorStr", &self.cchErrorStr).field("cchNeeded", &self.cchNeeded).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2350,6 +2597,12 @@ impl ::core::clone::Clone for DLGPAGE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for DLGPAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLGPAGE").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("DlgProc", &self.DlgProc).field("pTabName", &self.pTabName).field("IconID", &self.IconID).field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for DLGPAGE {
     type Abi = Self;
 }
@@ -2486,6 +2739,12 @@ impl ::core::clone::Clone for DOCEVENT_CREATEDCPRE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DOCEVENT_CREATEDCPRE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOCEVENT_CREATEDCPRE").field("pszDriver", &self.pszDriver).field("pszDevice", &self.pszDevice).field("pdm", &self.pdm).field("bIC", &self.bIC).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DOCEVENT_CREATEDCPRE {
     type Abi = Self;
 }
@@ -2516,6 +2775,11 @@ impl ::core::clone::Clone for DOCEVENT_ESCAPE {
         *self
     }
 }
+impl ::core::fmt::Debug for DOCEVENT_ESCAPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOCEVENT_ESCAPE").field("iEscape", &self.iEscape).field("cjInput", &self.cjInput).field("pvInData", &self.pvInData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DOCEVENT_ESCAPE {
     type Abi = Self;
 }
@@ -2543,6 +2807,11 @@ impl ::core::marker::Copy for DOCEVENT_FILTER {}
 impl ::core::clone::Clone for DOCEVENT_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DOCEVENT_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOCEVENT_FILTER").field("cbSize", &self.cbSize).field("cElementsAllocated", &self.cElementsAllocated).field("cElementsNeeded", &self.cElementsNeeded).field("cElementsReturned", &self.cElementsReturned).field("aDocEventCall", &self.aDocEventCall).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DOCEVENT_FILTER {
@@ -2651,6 +2920,12 @@ impl ::core::clone::Clone for DOCUMENTPROPERTYHEADER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for DOCUMENTPROPERTYHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOCUMENTPROPERTYHEADER").field("cbSize", &self.cbSize).field("Reserved", &self.Reserved).field("hPrinter", &self.hPrinter).field("pszPrinterName", &self.pszPrinterName).field("pdmIn", &self.pdmIn).field("pdmOut", &self.pdmOut).field("cbOut", &self.cbOut).field("fMode", &self.fMode).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DOCUMENTPROPERTYHEADER {
     type Abi = Self;
 }
@@ -2685,6 +2960,12 @@ impl ::core::clone::Clone for DOC_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOC_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOC_INFO_1A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DOC_INFO_1A {
     type Abi = Self;
 }
@@ -2716,6 +2997,12 @@ impl ::core::marker::Copy for DOC_INFO_1W {}
 impl ::core::clone::Clone for DOC_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOC_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOC_INFO_1W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2755,6 +3042,12 @@ impl ::core::clone::Clone for DOC_INFO_2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOC_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOC_INFO_2A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwMode", &self.dwMode).field("JobId", &self.JobId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DOC_INFO_2A {
     type Abi = Self;
 }
@@ -2788,6 +3081,12 @@ impl ::core::marker::Copy for DOC_INFO_2W {}
 impl ::core::clone::Clone for DOC_INFO_2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOC_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOC_INFO_2W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwMode", &self.dwMode).field("JobId", &self.JobId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2826,6 +3125,12 @@ impl ::core::clone::Clone for DOC_INFO_3A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOC_INFO_3A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOC_INFO_3A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DOC_INFO_3A {
     type Abi = Self;
 }
@@ -2858,6 +3163,12 @@ impl ::core::marker::Copy for DOC_INFO_3W {}
 impl ::core::clone::Clone for DOC_INFO_3W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOC_INFO_3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOC_INFO_3W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2917,6 +3228,12 @@ impl ::core::clone::Clone for DRIVER_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_1A").field("pName", &self.pName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVER_INFO_1A {
     type Abi = Self;
 }
@@ -2946,6 +3263,12 @@ impl ::core::marker::Copy for DRIVER_INFO_1W {}
 impl ::core::clone::Clone for DRIVER_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_1W").field("pName", &self.pName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2986,6 +3309,12 @@ impl ::core::clone::Clone for DRIVER_INFO_2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_2A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVER_INFO_2A {
     type Abi = Self;
 }
@@ -3020,6 +3349,12 @@ impl ::core::marker::Copy for DRIVER_INFO_2W {}
 impl ::core::clone::Clone for DRIVER_INFO_2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_2W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3064,6 +3399,12 @@ impl ::core::clone::Clone for DRIVER_INFO_3A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_3A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_3A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("pHelpFile", &self.pHelpFile).field("pDependentFiles", &self.pDependentFiles).field("pMonitorName", &self.pMonitorName).field("pDefaultDataType", &self.pDefaultDataType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVER_INFO_3A {
     type Abi = Self;
 }
@@ -3102,6 +3443,12 @@ impl ::core::marker::Copy for DRIVER_INFO_3W {}
 impl ::core::clone::Clone for DRIVER_INFO_3W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_3W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("pHelpFile", &self.pHelpFile).field("pDependentFiles", &self.pDependentFiles).field("pMonitorName", &self.pMonitorName).field("pDefaultDataType", &self.pDefaultDataType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3147,6 +3494,24 @@ impl ::core::clone::Clone for DRIVER_INFO_4A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_4A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_4A")
+            .field("cVersion", &self.cVersion)
+            .field("pName", &self.pName)
+            .field("pEnvironment", &self.pEnvironment)
+            .field("pDriverPath", &self.pDriverPath)
+            .field("pDataFile", &self.pDataFile)
+            .field("pConfigFile", &self.pConfigFile)
+            .field("pHelpFile", &self.pHelpFile)
+            .field("pDependentFiles", &self.pDependentFiles)
+            .field("pMonitorName", &self.pMonitorName)
+            .field("pDefaultDataType", &self.pDefaultDataType)
+            .field("pszzPreviousNames", &self.pszzPreviousNames)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVER_INFO_4A {
     type Abi = Self;
 }
@@ -3186,6 +3551,24 @@ impl ::core::marker::Copy for DRIVER_INFO_4W {}
 impl ::core::clone::Clone for DRIVER_INFO_4W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_4W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_4W")
+            .field("cVersion", &self.cVersion)
+            .field("pName", &self.pName)
+            .field("pEnvironment", &self.pEnvironment)
+            .field("pDriverPath", &self.pDriverPath)
+            .field("pDataFile", &self.pDataFile)
+            .field("pConfigFile", &self.pConfigFile)
+            .field("pHelpFile", &self.pHelpFile)
+            .field("pDependentFiles", &self.pDependentFiles)
+            .field("pMonitorName", &self.pMonitorName)
+            .field("pDefaultDataType", &self.pDefaultDataType)
+            .field("pszzPreviousNames", &self.pszzPreviousNames)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3229,6 +3612,12 @@ impl ::core::clone::Clone for DRIVER_INFO_5A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_5A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_5A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("dwDriverAttributes", &self.dwDriverAttributes).field("dwConfigVersion", &self.dwConfigVersion).field("dwDriverVersion", &self.dwDriverVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVER_INFO_5A {
     type Abi = Self;
 }
@@ -3266,6 +3655,12 @@ impl ::core::marker::Copy for DRIVER_INFO_5W {}
 impl ::core::clone::Clone for DRIVER_INFO_5W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_5W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_5W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("dwDriverAttributes", &self.dwDriverAttributes).field("dwConfigVersion", &self.dwConfigVersion).field("dwDriverVersion", &self.dwDriverVersion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3317,6 +3712,30 @@ impl ::core::clone::Clone for DRIVER_INFO_6A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_6A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_6A")
+            .field("cVersion", &self.cVersion)
+            .field("pName", &self.pName)
+            .field("pEnvironment", &self.pEnvironment)
+            .field("pDriverPath", &self.pDriverPath)
+            .field("pDataFile", &self.pDataFile)
+            .field("pConfigFile", &self.pConfigFile)
+            .field("pHelpFile", &self.pHelpFile)
+            .field("pDependentFiles", &self.pDependentFiles)
+            .field("pMonitorName", &self.pMonitorName)
+            .field("pDefaultDataType", &self.pDefaultDataType)
+            .field("pszzPreviousNames", &self.pszzPreviousNames)
+            .field("ftDriverDate", &self.ftDriverDate)
+            .field("dwlDriverVersion", &self.dwlDriverVersion)
+            .field("pszMfgName", &self.pszMfgName)
+            .field("pszOEMUrl", &self.pszOEMUrl)
+            .field("pszHardwareID", &self.pszHardwareID)
+            .field("pszProvider", &self.pszProvider)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVER_INFO_6A {
     type Abi = Self;
 }
@@ -3362,6 +3781,30 @@ impl ::core::marker::Copy for DRIVER_INFO_6W {}
 impl ::core::clone::Clone for DRIVER_INFO_6W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_6W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_6W")
+            .field("cVersion", &self.cVersion)
+            .field("pName", &self.pName)
+            .field("pEnvironment", &self.pEnvironment)
+            .field("pDriverPath", &self.pDriverPath)
+            .field("pDataFile", &self.pDataFile)
+            .field("pConfigFile", &self.pConfigFile)
+            .field("pHelpFile", &self.pHelpFile)
+            .field("pDependentFiles", &self.pDependentFiles)
+            .field("pMonitorName", &self.pMonitorName)
+            .field("pDefaultDataType", &self.pDefaultDataType)
+            .field("pszzPreviousNames", &self.pszzPreviousNames)
+            .field("ftDriverDate", &self.ftDriverDate)
+            .field("dwlDriverVersion", &self.dwlDriverVersion)
+            .field("pszMfgName", &self.pszMfgName)
+            .field("pszOEMUrl", &self.pszOEMUrl)
+            .field("pszHardwareID", &self.pszHardwareID)
+            .field("pszProvider", &self.pszProvider)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3421,6 +3864,38 @@ impl ::core::clone::Clone for DRIVER_INFO_8A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_8A")
+            .field("cVersion", &self.cVersion)
+            .field("pName", &self.pName)
+            .field("pEnvironment", &self.pEnvironment)
+            .field("pDriverPath", &self.pDriverPath)
+            .field("pDataFile", &self.pDataFile)
+            .field("pConfigFile", &self.pConfigFile)
+            .field("pHelpFile", &self.pHelpFile)
+            .field("pDependentFiles", &self.pDependentFiles)
+            .field("pMonitorName", &self.pMonitorName)
+            .field("pDefaultDataType", &self.pDefaultDataType)
+            .field("pszzPreviousNames", &self.pszzPreviousNames)
+            .field("ftDriverDate", &self.ftDriverDate)
+            .field("dwlDriverVersion", &self.dwlDriverVersion)
+            .field("pszMfgName", &self.pszMfgName)
+            .field("pszOEMUrl", &self.pszOEMUrl)
+            .field("pszHardwareID", &self.pszHardwareID)
+            .field("pszProvider", &self.pszProvider)
+            .field("pszPrintProcessor", &self.pszPrintProcessor)
+            .field("pszVendorSetup", &self.pszVendorSetup)
+            .field("pszzColorProfiles", &self.pszzColorProfiles)
+            .field("pszInfPath", &self.pszInfPath)
+            .field("dwPrinterDriverAttributes", &self.dwPrinterDriverAttributes)
+            .field("pszzCoreDriverDependencies", &self.pszzCoreDriverDependencies)
+            .field("ftMinInboxDriverVerDate", &self.ftMinInboxDriverVerDate)
+            .field("dwlMinInboxDriverVerVersion", &self.dwlMinInboxDriverVerVersion)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVER_INFO_8A {
     type Abi = Self;
 }
@@ -3477,6 +3952,38 @@ impl ::core::clone::Clone for DRIVER_INFO_8W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DRIVER_INFO_8W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_INFO_8W")
+            .field("cVersion", &self.cVersion)
+            .field("pName", &self.pName)
+            .field("pEnvironment", &self.pEnvironment)
+            .field("pDriverPath", &self.pDriverPath)
+            .field("pDataFile", &self.pDataFile)
+            .field("pConfigFile", &self.pConfigFile)
+            .field("pHelpFile", &self.pHelpFile)
+            .field("pDependentFiles", &self.pDependentFiles)
+            .field("pMonitorName", &self.pMonitorName)
+            .field("pDefaultDataType", &self.pDefaultDataType)
+            .field("pszzPreviousNames", &self.pszzPreviousNames)
+            .field("ftDriverDate", &self.ftDriverDate)
+            .field("dwlDriverVersion", &self.dwlDriverVersion)
+            .field("pszMfgName", &self.pszMfgName)
+            .field("pszOEMUrl", &self.pszOEMUrl)
+            .field("pszHardwareID", &self.pszHardwareID)
+            .field("pszProvider", &self.pszProvider)
+            .field("pszPrintProcessor", &self.pszPrintProcessor)
+            .field("pszVendorSetup", &self.pszVendorSetup)
+            .field("pszzColorProfiles", &self.pszzColorProfiles)
+            .field("pszInfPath", &self.pszInfPath)
+            .field("dwPrinterDriverAttributes", &self.dwPrinterDriverAttributes)
+            .field("pszzCoreDriverDependencies", &self.pszzCoreDriverDependencies)
+            .field("ftMinInboxDriverVerDate", &self.ftMinInboxDriverVerDate)
+            .field("dwlMinInboxDriverVerVersion", &self.dwlMinInboxDriverVerVersion)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVER_INFO_8W {
     type Abi = Self;
 }
@@ -3506,6 +4013,11 @@ impl ::core::marker::Copy for DRIVER_UPGRADE_INFO_1 {}
 impl ::core::clone::Clone for DRIVER_UPGRADE_INFO_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRIVER_UPGRADE_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_UPGRADE_INFO_1").field("pPrinterName", &self.pPrinterName).field("pOldDriverDirectory", &self.pOldDriverDirectory).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRIVER_UPGRADE_INFO_1 {
@@ -3543,6 +4055,25 @@ impl ::core::marker::Copy for DRIVER_UPGRADE_INFO_2 {}
 impl ::core::clone::Clone for DRIVER_UPGRADE_INFO_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRIVER_UPGRADE_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRIVER_UPGRADE_INFO_2")
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pOldDriverDirectory", &self.pOldDriverDirectory)
+            .field("cVersion", &self.cVersion)
+            .field("pName", &self.pName)
+            .field("pEnvironment", &self.pEnvironment)
+            .field("pDriverPath", &self.pDriverPath)
+            .field("pDataFile", &self.pDataFile)
+            .field("pConfigFile", &self.pConfigFile)
+            .field("pHelpFile", &self.pHelpFile)
+            .field("pDependentFiles", &self.pDependentFiles)
+            .field("pMonitorName", &self.pMonitorName)
+            .field("pDefaultDataType", &self.pDefaultDataType)
+            .field("pszzPreviousNames", &self.pszzPreviousNames)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRIVER_UPGRADE_INFO_2 {
@@ -4313,6 +4844,11 @@ impl ::core::clone::Clone for EXTCHKBOX {
         *self
     }
 }
+impl ::core::fmt::Debug for EXTCHKBOX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTCHKBOX").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("pTitle", &self.pTitle).field("pSeparator", &self.pSeparator).field("pCheckedName", &self.pCheckedName).field("IconID", &self.IconID).field("wReserved", &self.wReserved).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EXTCHKBOX {
     type Abi = Self;
 }
@@ -4345,6 +4881,12 @@ impl ::core::marker::Copy for EXTPUSH {}
 impl ::core::clone::Clone for EXTPUSH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for EXTPUSH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTPUSH").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("pTitle", &self.pTitle).field("Anonymous1", &self.Anonymous1).field("IconID", &self.IconID).field("Anonymous2", &self.Anonymous2).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4465,6 +5007,38 @@ impl ::core::marker::Copy for EXTTEXTMETRIC {}
 impl ::core::clone::Clone for EXTTEXTMETRIC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EXTTEXTMETRIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTTEXTMETRIC")
+            .field("emSize", &self.emSize)
+            .field("emPointSize", &self.emPointSize)
+            .field("emOrientation", &self.emOrientation)
+            .field("emMasterHeight", &self.emMasterHeight)
+            .field("emMinScale", &self.emMinScale)
+            .field("emMaxScale", &self.emMaxScale)
+            .field("emMasterUnits", &self.emMasterUnits)
+            .field("emCapHeight", &self.emCapHeight)
+            .field("emXHeight", &self.emXHeight)
+            .field("emLowerCaseAscent", &self.emLowerCaseAscent)
+            .field("emLowerCaseDescent", &self.emLowerCaseDescent)
+            .field("emSlant", &self.emSlant)
+            .field("emSuperScript", &self.emSuperScript)
+            .field("emSubScript", &self.emSubScript)
+            .field("emSuperScriptSize", &self.emSuperScriptSize)
+            .field("emSubScriptSize", &self.emSubScriptSize)
+            .field("emUnderlineOffset", &self.emUnderlineOffset)
+            .field("emUnderlineWidth", &self.emUnderlineWidth)
+            .field("emDoubleUpperUnderlineOffset", &self.emDoubleUpperUnderlineOffset)
+            .field("emDoubleLowerUnderlineOffset", &self.emDoubleLowerUnderlineOffset)
+            .field("emDoubleUpperUnderlineWidth", &self.emDoubleUpperUnderlineWidth)
+            .field("emDoubleLowerUnderlineWidth", &self.emDoubleLowerUnderlineWidth)
+            .field("emStrikeOutOffset", &self.emStrikeOutOffset)
+            .field("emStrikeOutWidth", &self.emStrikeOutWidth)
+            .field("emKernPairs", &self.emKernPairs)
+            .field("emKernTracks", &self.emKernTracks)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for EXTTEXTMETRIC {
@@ -4980,6 +5554,12 @@ impl ::core::clone::Clone for FORM_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FORM_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FORM_INFO_1A").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FORM_INFO_1A {
     type Abi = Self;
 }
@@ -5012,6 +5592,12 @@ impl ::core::marker::Copy for FORM_INFO_1W {}
 impl ::core::clone::Clone for FORM_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FORM_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FORM_INFO_1W").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5056,6 +5642,12 @@ impl ::core::clone::Clone for FORM_INFO_2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FORM_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FORM_INFO_2A").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).field("pKeyword", &self.pKeyword).field("StringType", &self.StringType).field("pMuiDll", &self.pMuiDll).field("dwResourceId", &self.dwResourceId).field("pDisplayName", &self.pDisplayName).field("wLangId", &self.wLangId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FORM_INFO_2A {
     type Abi = Self;
 }
@@ -5094,6 +5686,12 @@ impl ::core::marker::Copy for FORM_INFO_2W {}
 impl ::core::clone::Clone for FORM_INFO_2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FORM_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FORM_INFO_2W").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).field("pKeyword", &self.pKeyword).field("StringType", &self.StringType).field("pMuiDll", &self.pMuiDll).field("dwResourceId", &self.dwResourceId).field("pDisplayName", &self.pDisplayName).field("wLangId", &self.wLangId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5233,6 +5831,11 @@ impl ::core::marker::Copy for GLYPHRUN {}
 impl ::core::clone::Clone for GLYPHRUN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GLYPHRUN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GLYPHRUN").field("wcLow", &self.wcLow).field("wGlyphCount", &self.wGlyphCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GLYPHRUN {
@@ -6174,6 +6777,11 @@ impl ::core::clone::Clone for IBidiRequest {
         *self
     }
 }
+impl ::core::fmt::Debug for IBidiRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IBidiRequest").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IBidiRequest {
     type Abi = Self;
 }
@@ -6197,6 +6805,11 @@ impl ::core::marker::Copy for IBidiRequestContainer {}
 impl ::core::clone::Clone for IBidiRequestContainer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IBidiRequestContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IBidiRequestContainer").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IBidiRequestContainer {
@@ -6227,6 +6840,11 @@ impl ::core::marker::Copy for IBidiRequestContainerVtbl {}
 impl ::core::clone::Clone for IBidiRequestContainerVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IBidiRequestContainerVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IBidiRequestContainerVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("AddRequest", &self.AddRequest).field("GetEnumObject", &self.GetEnumObject).field("GetRequestCount", &self.GetRequestCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IBidiRequestContainerVtbl {
@@ -6261,6 +6879,11 @@ impl ::core::clone::Clone for IBidiRequestVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IBidiRequestVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IBidiRequestVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("SetSchema", &self.SetSchema).field("SetInputData", &self.SetInputData).field("GetResult", &self.GetResult).field("GetOutputData", &self.GetOutputData).field("GetEnumCount", &self.GetEnumCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IBidiRequestVtbl {
     type Abi = Self;
 }
@@ -6286,6 +6909,11 @@ impl ::core::clone::Clone for IBidiSpl {
         *self
     }
 }
+impl ::core::fmt::Debug for IBidiSpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IBidiSpl").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IBidiSpl {
     type Abi = Self;
 }
@@ -6309,6 +6937,11 @@ impl ::core::marker::Copy for IBidiSpl2 {}
 impl ::core::clone::Clone for IBidiSpl2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IBidiSpl2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IBidiSpl2").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IBidiSpl2 {
@@ -6342,6 +6975,11 @@ impl ::core::clone::Clone for IBidiSpl2Vtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IBidiSpl2Vtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IBidiSpl2Vtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("BindDevice", &self.BindDevice).field("UnbindDevice", &self.UnbindDevice).field("SendRecvXMLString", &self.SendRecvXMLString).field("SendRecvXMLStream", &self.SendRecvXMLStream).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IBidiSpl2Vtbl {
     type Abi = Self;
 }
@@ -6371,6 +7009,11 @@ impl ::core::marker::Copy for IBidiSplVtbl {}
 impl ::core::clone::Clone for IBidiSplVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IBidiSplVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IBidiSplVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("BindDevice", &self.BindDevice).field("UnbindDevice", &self.UnbindDevice).field("SendRecv", &self.SendRecv).field("MultiSendRecv", &self.MultiSendRecv).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IBidiSplVtbl {
@@ -7012,6 +7655,11 @@ impl ::core::clone::Clone for IFixedDocument {
         *self
     }
 }
+impl ::core::fmt::Debug for IFixedDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IFixedDocument").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IFixedDocument {
     type Abi = Self;
 }
@@ -7035,6 +7683,11 @@ impl ::core::marker::Copy for IFixedDocumentSequence {}
 impl ::core::clone::Clone for IFixedDocumentSequence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IFixedDocumentSequence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IFixedDocumentSequence").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IFixedDocumentSequence {
@@ -7067,6 +7720,11 @@ impl ::core::clone::Clone for IFixedDocumentSequenceVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IFixedDocumentSequenceVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IFixedDocumentSequenceVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetPrintTicket", &self.GetPrintTicket).field("SetPrintTicket", &self.SetPrintTicket).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IFixedDocumentSequenceVtbl {
     type Abi = Self;
 }
@@ -7097,6 +7755,11 @@ impl ::core::clone::Clone for IFixedDocumentVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IFixedDocumentVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IFixedDocumentVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetPrintTicket", &self.GetPrintTicket).field("SetPrintTicket", &self.SetPrintTicket).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IFixedDocumentVtbl {
     type Abi = Self;
 }
@@ -7120,6 +7783,11 @@ impl ::core::marker::Copy for IFixedPage {}
 impl ::core::clone::Clone for IFixedPage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IFixedPage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IFixedPage").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IFixedPage {
@@ -7160,6 +7828,26 @@ impl ::core::clone::Clone for IFixedPageVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IFixedPageVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IFixedPageVtbl")
+            .field("QueryInterface", &self.QueryInterface)
+            .field("AddRef", &self.AddRef)
+            .field("Release", &self.Release)
+            .field("GetUri", &self.GetUri)
+            .field("GetStream", &self.GetStream)
+            .field("GetPartCompression", &self.GetPartCompression)
+            .field("SetPartCompression", &self.SetPartCompression)
+            .field("GetPrintTicket", &self.GetPrintTicket)
+            .field("GetPagePart", &self.GetPagePart)
+            .field("GetWriteStream", &self.GetWriteStream)
+            .field("SetPrintTicket", &self.SetPrintTicket)
+            .field("SetPagePart", &self.SetPagePart)
+            .field("DeleteResource", &self.DeleteResource)
+            .field("GetXpsPartIterator", &self.GetXpsPartIterator)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IFixedPageVtbl {
     type Abi = Self;
 }
@@ -7183,6 +7871,11 @@ impl ::core::marker::Copy for IImgCreateErrorInfo {}
 impl ::core::clone::Clone for IImgCreateErrorInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IImgCreateErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IImgCreateErrorInfo").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IImgCreateErrorInfo {
@@ -7218,6 +7911,11 @@ impl ::core::clone::Clone for IImgCreateErrorInfoVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IImgCreateErrorInfoVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IImgCreateErrorInfoVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("SetGUID", &self.SetGUID).field("SetSource", &self.SetSource).field("SetDescription", &self.SetDescription).field("SetHelpFile", &self.SetHelpFile).field("SetHelpContext", &self.SetHelpContext).field("AttachToErrorInfo", &self.AttachToErrorInfo).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IImgCreateErrorInfoVtbl {
     type Abi = Self;
 }
@@ -7241,6 +7939,11 @@ impl ::core::marker::Copy for IImgErrorInfo {}
 impl ::core::clone::Clone for IImgErrorInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IImgErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IImgErrorInfo").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IImgErrorInfo {
@@ -7282,6 +7985,27 @@ impl ::core::clone::Clone for IImgErrorInfoVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IImgErrorInfoVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IImgErrorInfoVtbl")
+            .field("QueryInterface", &self.QueryInterface)
+            .field("AddRef", &self.AddRef)
+            .field("Release", &self.Release)
+            .field("GetGUID", &self.GetGUID)
+            .field("GetSource", &self.GetSource)
+            .field("GetDescription", &self.GetDescription)
+            .field("GetHelpFile", &self.GetHelpFile)
+            .field("GetHelpContext", &self.GetHelpContext)
+            .field("GetDeveloperDescription", &self.GetDeveloperDescription)
+            .field("GetUserErrorId", &self.GetUserErrorId)
+            .field("GetUserParameterCount", &self.GetUserParameterCount)
+            .field("GetUserParameter", &self.GetUserParameter)
+            .field("GetUserFallback", &self.GetUserFallback)
+            .field("GetExceptionId", &self.GetExceptionId)
+            .field("DetachErrorInfo", &self.DetachErrorInfo)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IImgErrorInfoVtbl {
     type Abi = Self;
 }
@@ -7305,6 +8029,11 @@ impl ::core::marker::Copy for IInterFilterCommunicator {}
 impl ::core::clone::Clone for IInterFilterCommunicator {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IInterFilterCommunicator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IInterFilterCommunicator").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IInterFilterCommunicator {
@@ -7336,6 +8065,11 @@ impl ::core::clone::Clone for IInterFilterCommunicatorVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IInterFilterCommunicatorVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IInterFilterCommunicatorVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("RequestReader", &self.RequestReader).field("RequestWriter", &self.RequestWriter).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IInterFilterCommunicatorVtbl {
     type Abi = Self;
 }
@@ -7364,6 +8098,11 @@ impl ::core::marker::Copy for INSERTPSUIPAGE_INFO {}
 impl ::core::clone::Clone for INSERTPSUIPAGE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INSERTPSUIPAGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INSERTPSUIPAGE_INFO").field("cbSize", &self.cbSize).field("Type", &self.Type).field("Mode", &self.Mode).field("dwData1", &self.dwData1).field("dwData2", &self.dwData2).field("dwData3", &self.dwData3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INSERTPSUIPAGE_INFO {
@@ -7400,6 +8139,11 @@ impl ::core::marker::Copy for INVOC {}
 impl ::core::clone::Clone for INVOC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for INVOC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INVOC").field("dwCount", &self.dwCount).field("loOffset", &self.loOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INVOC {
@@ -7455,6 +8199,11 @@ impl ::core::clone::Clone for IPartBase {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartBase").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartBase {
     type Abi = Self;
 }
@@ -7486,6 +8235,11 @@ impl ::core::clone::Clone for IPartBaseVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartBaseVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartBaseVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartBaseVtbl {
     type Abi = Self;
 }
@@ -7509,6 +8263,11 @@ impl ::core::marker::Copy for IPartColorProfile {}
 impl ::core::clone::Clone for IPartColorProfile {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPartColorProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartColorProfile").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPartColorProfile {
@@ -7542,6 +8301,11 @@ impl ::core::clone::Clone for IPartColorProfileVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartColorProfileVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartColorProfileVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartColorProfileVtbl {
     type Abi = Self;
 }
@@ -7565,6 +8329,11 @@ impl ::core::marker::Copy for IPartDiscardControl {}
 impl ::core::clone::Clone for IPartDiscardControl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPartDiscardControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartDiscardControl").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPartDiscardControl {
@@ -7595,6 +8364,11 @@ impl ::core::clone::Clone for IPartDiscardControlVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartDiscardControlVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartDiscardControlVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetDiscardProperties", &self.GetDiscardProperties).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartDiscardControlVtbl {
     type Abi = Self;
 }
@@ -7620,6 +8394,11 @@ impl ::core::clone::Clone for IPartFont {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartFont {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartFont").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartFont {
     type Abi = Self;
 }
@@ -7643,6 +8422,11 @@ impl ::core::marker::Copy for IPartFont2 {}
 impl ::core::clone::Clone for IPartFont2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPartFont2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartFont2").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPartFont2 {
@@ -7680,6 +8464,23 @@ impl ::core::clone::Clone for IPartFont2Vtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartFont2Vtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartFont2Vtbl")
+            .field("QueryInterface", &self.QueryInterface)
+            .field("AddRef", &self.AddRef)
+            .field("Release", &self.Release)
+            .field("GetUri", &self.GetUri)
+            .field("GetStream", &self.GetStream)
+            .field("GetPartCompression", &self.GetPartCompression)
+            .field("SetPartCompression", &self.SetPartCompression)
+            .field("GetFontProperties", &self.GetFontProperties)
+            .field("SetFontContent", &self.SetFontContent)
+            .field("SetFontOptions", &self.SetFontOptions)
+            .field("GetFontRestriction", &self.GetFontRestriction)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartFont2Vtbl {
     type Abi = Self;
 }
@@ -7714,6 +8515,11 @@ impl ::core::clone::Clone for IPartFontVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartFontVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartFontVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetFontProperties", &self.GetFontProperties).field("SetFontContent", &self.SetFontContent).field("SetFontOptions", &self.SetFontOptions).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartFontVtbl {
     type Abi = Self;
 }
@@ -7737,6 +8543,11 @@ impl ::core::marker::Copy for IPartImage {}
 impl ::core::clone::Clone for IPartImage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPartImage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartImage").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPartImage {
@@ -7772,6 +8583,11 @@ impl ::core::clone::Clone for IPartImageVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartImageVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartImageVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetImageProperties", &self.GetImageProperties).field("SetImageContent", &self.SetImageContent).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartImageVtbl {
     type Abi = Self;
 }
@@ -7795,6 +8611,11 @@ impl ::core::marker::Copy for IPartPrintTicket {}
 impl ::core::clone::Clone for IPartPrintTicket {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPartPrintTicket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartPrintTicket").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPartPrintTicket {
@@ -7828,6 +8649,11 @@ impl ::core::clone::Clone for IPartPrintTicketVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartPrintTicketVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartPrintTicketVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartPrintTicketVtbl {
     type Abi = Self;
 }
@@ -7851,6 +8677,11 @@ impl ::core::marker::Copy for IPartResourceDictionary {}
 impl ::core::clone::Clone for IPartResourceDictionary {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPartResourceDictionary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartResourceDictionary").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPartResourceDictionary {
@@ -7884,6 +8715,11 @@ impl ::core::clone::Clone for IPartResourceDictionaryVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPartResourceDictionaryVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartResourceDictionaryVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPartResourceDictionaryVtbl {
     type Abi = Self;
 }
@@ -7907,6 +8743,11 @@ impl ::core::marker::Copy for IPartThumbnail {}
 impl ::core::clone::Clone for IPartThumbnail {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPartThumbnail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartThumbnail").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPartThumbnail {
@@ -7940,6 +8781,11 @@ impl ::core::marker::Copy for IPartThumbnailVtbl {}
 impl ::core::clone::Clone for IPartThumbnailVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPartThumbnailVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPartThumbnailVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetThumbnailProperties", &self.GetThumbnailProperties).field("SetThumbnailContent", &self.SetThumbnailContent).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPartThumbnailVtbl {
@@ -8542,6 +9388,11 @@ impl ::core::clone::Clone for IPrintClassObjectFactory {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintClassObjectFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintClassObjectFactory").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintClassObjectFactory {
     type Abi = Self;
 }
@@ -8568,6 +9419,11 @@ impl ::core::marker::Copy for IPrintClassObjectFactoryVtbl {}
 impl ::core::clone::Clone for IPrintClassObjectFactoryVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintClassObjectFactoryVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintClassObjectFactoryVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetPrintClassObject", &self.GetPrintClassObject).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintClassObjectFactoryVtbl {
@@ -10085,6 +10941,11 @@ impl ::core::clone::Clone for IPrintPipelineFilter {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintPipelineFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintPipelineFilter").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintPipelineFilter {
     type Abi = Self;
 }
@@ -10115,6 +10976,11 @@ impl ::core::clone::Clone for IPrintPipelineFilterVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintPipelineFilterVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintPipelineFilterVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("InitializeFilter", &self.InitializeFilter).field("ShutdownOperation", &self.ShutdownOperation).field("StartOperation", &self.StartOperation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintPipelineFilterVtbl {
     type Abi = Self;
 }
@@ -10138,6 +11004,11 @@ impl ::core::marker::Copy for IPrintPipelineManagerControl {}
 impl ::core::clone::Clone for IPrintPipelineManagerControl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintPipelineManagerControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintPipelineManagerControl").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintPipelineManagerControl {
@@ -10169,6 +11040,11 @@ impl ::core::clone::Clone for IPrintPipelineManagerControlVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintPipelineManagerControlVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintPipelineManagerControlVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("RequestShutdown", &self.RequestShutdown).field("FilterFinished", &self.FilterFinished).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintPipelineManagerControlVtbl {
     type Abi = Self;
 }
@@ -10192,6 +11068,11 @@ impl ::core::marker::Copy for IPrintPipelineProgressReport {}
 impl ::core::clone::Clone for IPrintPipelineProgressReport {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintPipelineProgressReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintPipelineProgressReport").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintPipelineProgressReport {
@@ -10222,6 +11103,11 @@ impl ::core::clone::Clone for IPrintPipelineProgressReportVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintPipelineProgressReportVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintPipelineProgressReportVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("ReportProgress", &self.ReportProgress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintPipelineProgressReportVtbl {
     type Abi = Self;
 }
@@ -10245,6 +11131,11 @@ impl ::core::marker::Copy for IPrintPipelinePropertyBag {}
 impl ::core::clone::Clone for IPrintPipelinePropertyBag {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintPipelinePropertyBag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintPipelinePropertyBag").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintPipelinePropertyBag {
@@ -10275,6 +11166,11 @@ impl ::core::marker::Copy for IPrintPipelinePropertyBagVtbl {}
 impl ::core::clone::Clone for IPrintPipelinePropertyBagVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintPipelinePropertyBagVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintPipelinePropertyBagVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("AddProperty", &self.AddProperty).field("GetProperty", &self.GetProperty).field("DeleteProperty", &self.DeleteProperty).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintPipelinePropertyBagVtbl {
@@ -10366,6 +11262,11 @@ impl ::core::clone::Clone for IPrintReadStream {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintReadStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintReadStream").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintReadStream {
     type Abi = Self;
 }
@@ -10389,6 +11290,11 @@ impl ::core::marker::Copy for IPrintReadStreamFactory {}
 impl ::core::clone::Clone for IPrintReadStreamFactory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintReadStreamFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintReadStreamFactory").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintReadStreamFactory {
@@ -10419,6 +11325,11 @@ impl ::core::clone::Clone for IPrintReadStreamFactoryVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintReadStreamFactoryVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintReadStreamFactoryVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetStream", &self.GetStream).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintReadStreamFactoryVtbl {
     type Abi = Self;
 }
@@ -10446,6 +11357,11 @@ impl ::core::marker::Copy for IPrintReadStreamVtbl {}
 impl ::core::clone::Clone for IPrintReadStreamVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintReadStreamVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintReadStreamVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("Seek", &self.Seek).field("ReadBytes", &self.ReadBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintReadStreamVtbl {
@@ -13598,6 +14514,11 @@ impl ::core::clone::Clone for IPrintWriteStream {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintWriteStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintWriteStream").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintWriteStream {
     type Abi = Self;
 }
@@ -13621,6 +14542,11 @@ impl ::core::marker::Copy for IPrintWriteStreamFlush {}
 impl ::core::clone::Clone for IPrintWriteStreamFlush {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintWriteStreamFlush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintWriteStreamFlush").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintWriteStreamFlush {
@@ -13651,6 +14577,11 @@ impl ::core::clone::Clone for IPrintWriteStreamFlushVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IPrintWriteStreamFlushVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintWriteStreamFlushVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("FlushData", &self.FlushData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IPrintWriteStreamFlushVtbl {
     type Abi = Self;
 }
@@ -13678,6 +14609,11 @@ impl ::core::marker::Copy for IPrintWriteStreamVtbl {}
 impl ::core::clone::Clone for IPrintWriteStreamVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPrintWriteStreamVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPrintWriteStreamVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("WriteBytes", &self.WriteBytes).field("Close", &self.Close).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPrintWriteStreamVtbl {
@@ -16089,6 +17025,11 @@ impl ::core::clone::Clone for IXpsDocument {
         *self
     }
 }
+impl ::core::fmt::Debug for IXpsDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IXpsDocument").field("lpVtbl", &self.lpVtbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IXpsDocument {
     type Abi = Self;
 }
@@ -16112,6 +17053,11 @@ impl ::core::marker::Copy for IXpsDocumentConsumer {}
 impl ::core::clone::Clone for IXpsDocumentConsumer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IXpsDocumentConsumer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IXpsDocumentConsumer").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IXpsDocumentConsumer {
@@ -16148,6 +17094,22 @@ impl ::core::clone::Clone for IXpsDocumentConsumerVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IXpsDocumentConsumerVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IXpsDocumentConsumerVtbl")
+            .field("QueryInterface", &self.QueryInterface)
+            .field("AddRef", &self.AddRef)
+            .field("Release", &self.Release)
+            .field("SendXpsUnknown", &self.SendXpsUnknown)
+            .field("SendXpsDocument", &self.SendXpsDocument)
+            .field("SendFixedDocumentSequence", &self.SendFixedDocumentSequence)
+            .field("SendFixedDocument", &self.SendFixedDocument)
+            .field("SendFixedPage", &self.SendFixedPage)
+            .field("CloseSender", &self.CloseSender)
+            .field("GetNewEmptyPart", &self.GetNewEmptyPart)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IXpsDocumentConsumerVtbl {
     type Abi = Self;
 }
@@ -16171,6 +17133,11 @@ impl ::core::marker::Copy for IXpsDocumentProvider {}
 impl ::core::clone::Clone for IXpsDocumentProvider {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IXpsDocumentProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IXpsDocumentProvider").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IXpsDocumentProvider {
@@ -16199,6 +17166,11 @@ impl ::core::marker::Copy for IXpsDocumentProviderVtbl {}
 impl ::core::clone::Clone for IXpsDocumentProviderVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IXpsDocumentProviderVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IXpsDocumentProviderVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetXpsPart", &self.GetXpsPart).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IXpsDocumentProviderVtbl {
@@ -16230,6 +17202,11 @@ impl ::core::clone::Clone for IXpsDocumentVtbl {
         *self
     }
 }
+impl ::core::fmt::Debug for IXpsDocumentVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IXpsDocumentVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetThumbnail", &self.GetThumbnail).field("SetThumbnail", &self.SetThumbnail).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IXpsDocumentVtbl {
     type Abi = Self;
 }
@@ -16253,6 +17230,11 @@ impl ::core::marker::Copy for IXpsPartIterator {}
 impl ::core::clone::Clone for IXpsPartIterator {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IXpsPartIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IXpsPartIterator").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IXpsPartIterator {
@@ -16284,6 +17266,11 @@ impl ::core::marker::Copy for IXpsPartIteratorVtbl {}
 impl ::core::clone::Clone for IXpsPartIteratorVtbl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IXpsPartIteratorVtbl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IXpsPartIteratorVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("Reset", &self.Reset).field("Current", &self.Current).field("IsDone", &self.IsDone).field("Next", &self.Next).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IXpsPartIteratorVtbl {
@@ -16696,6 +17683,26 @@ impl ::core::clone::Clone for JOB_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JOB_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOB_INFO_1A")
+            .field("JobId", &self.JobId)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pMachineName", &self.pMachineName)
+            .field("pUserName", &self.pUserName)
+            .field("pDocument", &self.pDocument)
+            .field("pDatatype", &self.pDatatype)
+            .field("pStatus", &self.pStatus)
+            .field("Status", &self.Status)
+            .field("Priority", &self.Priority)
+            .field("Position", &self.Position)
+            .field("TotalPages", &self.TotalPages)
+            .field("PagesPrinted", &self.PagesPrinted)
+            .field("Submitted", &self.Submitted)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JOB_INFO_1A {
     type Abi = Self;
 }
@@ -16737,6 +17744,26 @@ impl ::core::marker::Copy for JOB_INFO_1W {}
 impl ::core::clone::Clone for JOB_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for JOB_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOB_INFO_1W")
+            .field("JobId", &self.JobId)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pMachineName", &self.pMachineName)
+            .field("pUserName", &self.pUserName)
+            .field("pDocument", &self.pDocument)
+            .field("pDatatype", &self.pDatatype)
+            .field("pStatus", &self.pStatus)
+            .field("Status", &self.Status)
+            .field("Priority", &self.Priority)
+            .field("Position", &self.Position)
+            .field("TotalPages", &self.TotalPages)
+            .field("PagesPrinted", &self.PagesPrinted)
+            .field("Submitted", &self.Submitted)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16794,6 +17821,36 @@ impl ::core::clone::Clone for JOB_INFO_2A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for JOB_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOB_INFO_2A")
+            .field("JobId", &self.JobId)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pMachineName", &self.pMachineName)
+            .field("pUserName", &self.pUserName)
+            .field("pDocument", &self.pDocument)
+            .field("pNotifyName", &self.pNotifyName)
+            .field("pDatatype", &self.pDatatype)
+            .field("pPrintProcessor", &self.pPrintProcessor)
+            .field("pParameters", &self.pParameters)
+            .field("pDriverName", &self.pDriverName)
+            .field("pDevMode", &self.pDevMode)
+            .field("pStatus", &self.pStatus)
+            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
+            .field("Status", &self.Status)
+            .field("Priority", &self.Priority)
+            .field("Position", &self.Position)
+            .field("StartTime", &self.StartTime)
+            .field("UntilTime", &self.UntilTime)
+            .field("TotalPages", &self.TotalPages)
+            .field("Size", &self.Size)
+            .field("Submitted", &self.Submitted)
+            .field("Time", &self.Time)
+            .field("PagesPrinted", &self.PagesPrinted)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for JOB_INFO_2A {
     type Abi = Self;
 }
@@ -16848,6 +17905,36 @@ impl ::core::clone::Clone for JOB_INFO_2W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for JOB_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOB_INFO_2W")
+            .field("JobId", &self.JobId)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pMachineName", &self.pMachineName)
+            .field("pUserName", &self.pUserName)
+            .field("pDocument", &self.pDocument)
+            .field("pNotifyName", &self.pNotifyName)
+            .field("pDatatype", &self.pDatatype)
+            .field("pPrintProcessor", &self.pPrintProcessor)
+            .field("pParameters", &self.pParameters)
+            .field("pDriverName", &self.pDriverName)
+            .field("pDevMode", &self.pDevMode)
+            .field("pStatus", &self.pStatus)
+            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
+            .field("Status", &self.Status)
+            .field("Priority", &self.Priority)
+            .field("Position", &self.Position)
+            .field("StartTime", &self.StartTime)
+            .field("UntilTime", &self.UntilTime)
+            .field("TotalPages", &self.TotalPages)
+            .field("Size", &self.Size)
+            .field("Submitted", &self.Submitted)
+            .field("Time", &self.Time)
+            .field("PagesPrinted", &self.PagesPrinted)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for JOB_INFO_2W {
     type Abi = Self;
 }
@@ -16876,6 +17963,11 @@ impl ::core::marker::Copy for JOB_INFO_3 {}
 impl ::core::clone::Clone for JOB_INFO_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JOB_INFO_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOB_INFO_3").field("JobId", &self.JobId).field("NextJobId", &self.NextJobId).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOB_INFO_3 {
@@ -16927,6 +18019,37 @@ impl ::core::marker::Copy for JOB_INFO_4A {}
 impl ::core::clone::Clone for JOB_INFO_4A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for JOB_INFO_4A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOB_INFO_4A")
+            .field("JobId", &self.JobId)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pMachineName", &self.pMachineName)
+            .field("pUserName", &self.pUserName)
+            .field("pDocument", &self.pDocument)
+            .field("pNotifyName", &self.pNotifyName)
+            .field("pDatatype", &self.pDatatype)
+            .field("pPrintProcessor", &self.pPrintProcessor)
+            .field("pParameters", &self.pParameters)
+            .field("pDriverName", &self.pDriverName)
+            .field("pDevMode", &self.pDevMode)
+            .field("pStatus", &self.pStatus)
+            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
+            .field("Status", &self.Status)
+            .field("Priority", &self.Priority)
+            .field("Position", &self.Position)
+            .field("StartTime", &self.StartTime)
+            .field("UntilTime", &self.UntilTime)
+            .field("TotalPages", &self.TotalPages)
+            .field("Size", &self.Size)
+            .field("Submitted", &self.Submitted)
+            .field("Time", &self.Time)
+            .field("PagesPrinted", &self.PagesPrinted)
+            .field("SizeHigh", &self.SizeHigh)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -16982,6 +18105,37 @@ impl ::core::marker::Copy for JOB_INFO_4W {}
 impl ::core::clone::Clone for JOB_INFO_4W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for JOB_INFO_4W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOB_INFO_4W")
+            .field("JobId", &self.JobId)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pMachineName", &self.pMachineName)
+            .field("pUserName", &self.pUserName)
+            .field("pDocument", &self.pDocument)
+            .field("pNotifyName", &self.pNotifyName)
+            .field("pDatatype", &self.pDatatype)
+            .field("pPrintProcessor", &self.pPrintProcessor)
+            .field("pParameters", &self.pParameters)
+            .field("pDriverName", &self.pDriverName)
+            .field("pDevMode", &self.pDevMode)
+            .field("pStatus", &self.pStatus)
+            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
+            .field("Status", &self.Status)
+            .field("Priority", &self.Priority)
+            .field("Position", &self.Position)
+            .field("StartTime", &self.StartTime)
+            .field("UntilTime", &self.UntilTime)
+            .field("TotalPages", &self.TotalPages)
+            .field("Size", &self.Size)
+            .field("Submitted", &self.Submitted)
+            .field("Time", &self.Time)
+            .field("PagesPrinted", &self.PagesPrinted)
+            .field("SizeHigh", &self.SizeHigh)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -17103,6 +18257,12 @@ impl ::core::clone::Clone for KERNDATA {
     }
 }
 #[cfg(feature = "Win32_Devices_Display")]
+impl ::core::fmt::Debug for KERNDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KERNDATA").field("dwSize", &self.dwSize).field("dwKernPairNum", &self.dwKernPairNum).field("KernPair", &self.KernPair).finish()
+    }
+}
+#[cfg(feature = "Win32_Devices_Display")]
 unsafe impl ::windows::core::Abi for KERNDATA {
     type Abi = Self;
 }
@@ -17133,6 +18293,11 @@ impl ::core::marker::Copy for MAPTABLE {}
 impl ::core::clone::Clone for MAPTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MAPTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MAPTABLE").field("dwSize", &self.dwSize).field("dwGlyphNum", &self.dwGlyphNum).field("Trans", &self.Trans).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MAPTABLE {
@@ -17199,6 +18364,12 @@ impl ::core::clone::Clone for MESSAGEBOX_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MESSAGEBOX_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MESSAGEBOX_PARAMS").field("cbSize", &self.cbSize).field("pTitle", &self.pTitle).field("pMessage", &self.pMessage).field("Style", &self.Style).field("dwTimeout", &self.dwTimeout).field("bWait", &self.bWait).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MESSAGEBOX_PARAMS {
     type Abi = Self;
 }
@@ -17243,6 +18414,29 @@ impl ::core::marker::Copy for MONITOR {}
 impl ::core::clone::Clone for MONITOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MONITOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITOR")
+            .field("pfnEnumPorts", &self.pfnEnumPorts)
+            .field("pfnOpenPort", &self.pfnOpenPort)
+            .field("pfnOpenPortEx", &self.pfnOpenPortEx)
+            .field("pfnStartDocPort", &self.pfnStartDocPort)
+            .field("pfnWritePort", &self.pfnWritePort)
+            .field("pfnReadPort", &self.pfnReadPort)
+            .field("pfnEndDocPort", &self.pfnEndDocPort)
+            .field("pfnClosePort", &self.pfnClosePort)
+            .field("pfnAddPort", &self.pfnAddPort)
+            .field("pfnAddPortEx", &self.pfnAddPortEx)
+            .field("pfnConfigurePort", &self.pfnConfigurePort)
+            .field("pfnDeletePort", &self.pfnDeletePort)
+            .field("pfnGetPrinterDataFromPort", &self.pfnGetPrinterDataFromPort)
+            .field("pfnSetPortTimeOuts", &self.pfnSetPortTimeOuts)
+            .field("pfnXcvOpenPort", &self.pfnXcvOpenPort)
+            .field("pfnXcvDataPort", &self.pfnXcvDataPort)
+            .field("pfnXcvClosePort", &self.pfnXcvClosePort)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MONITOR {
@@ -17292,6 +18486,35 @@ impl ::core::clone::Clone for MONITOR2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MONITOR2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITOR2")
+            .field("cbSize", &self.cbSize)
+            .field("pfnEnumPorts", &self.pfnEnumPorts)
+            .field("pfnOpenPort", &self.pfnOpenPort)
+            .field("pfnOpenPortEx", &self.pfnOpenPortEx)
+            .field("pfnStartDocPort", &self.pfnStartDocPort)
+            .field("pfnWritePort", &self.pfnWritePort)
+            .field("pfnReadPort", &self.pfnReadPort)
+            .field("pfnEndDocPort", &self.pfnEndDocPort)
+            .field("pfnClosePort", &self.pfnClosePort)
+            .field("pfnAddPort", &self.pfnAddPort)
+            .field("pfnAddPortEx", &self.pfnAddPortEx)
+            .field("pfnConfigurePort", &self.pfnConfigurePort)
+            .field("pfnDeletePort", &self.pfnDeletePort)
+            .field("pfnGetPrinterDataFromPort", &self.pfnGetPrinterDataFromPort)
+            .field("pfnSetPortTimeOuts", &self.pfnSetPortTimeOuts)
+            .field("pfnXcvOpenPort", &self.pfnXcvOpenPort)
+            .field("pfnXcvDataPort", &self.pfnXcvDataPort)
+            .field("pfnXcvClosePort", &self.pfnXcvClosePort)
+            .field("pfnShutdown", &self.pfnShutdown)
+            .field("pfnSendRecvBidiDataFromPort", &self.pfnSendRecvBidiDataFromPort)
+            .field("pfnNotifyUsedPorts", &self.pfnNotifyUsedPorts)
+            .field("pfnNotifyUnusedPorts", &self.pfnNotifyUnusedPorts)
+            .field("pfnPowerEvent", &self.pfnPowerEvent)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MONITOR2 {
     type Abi = Self;
 }
@@ -17316,6 +18539,11 @@ impl ::core::marker::Copy for MONITOREX {}
 impl ::core::clone::Clone for MONITOREX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MONITOREX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITOREX").field("dwMonitorSize", &self.dwMonitorSize).field("Monitor", &self.Monitor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MONITOREX {
@@ -17349,6 +18577,12 @@ impl ::core::marker::Copy for MONITORINIT {}
 impl ::core::clone::Clone for MONITORINIT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::fmt::Debug for MONITORINIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITORINIT").field("cbSize", &self.cbSize).field("hSpooler", &self.hSpooler).field("hckRegistryRoot", &self.hckRegistryRoot).field("pMonitorReg", &self.pMonitorReg).field("bLocal", &self.bLocal).field("pszServerName", &self.pszServerName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -17390,6 +18624,11 @@ impl ::core::clone::Clone for MONITORREG {
         *self
     }
 }
+impl ::core::fmt::Debug for MONITORREG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITORREG").field("cbSize", &self.cbSize).field("fpCreateKey", &self.fpCreateKey).field("fpOpenKey", &self.fpOpenKey).field("fpCloseKey", &self.fpCloseKey).field("fpDeleteKey", &self.fpDeleteKey).field("fpEnumKey", &self.fpEnumKey).field("fpQueryInfoKey", &self.fpQueryInfoKey).field("fpSetValue", &self.fpSetValue).field("fpDeleteValue", &self.fpDeleteValue).field("fpEnumValue", &self.fpEnumValue).field("fpQueryValue", &self.fpQueryValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MONITORREG {
     type Abi = Self;
 }
@@ -17418,6 +18657,11 @@ impl ::core::clone::Clone for MONITORUI {
         *self
     }
 }
+impl ::core::fmt::Debug for MONITORUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITORUI").field("dwMonitorUISize", &self.dwMonitorUISize).field("pfnAddPortUI", &self.pfnAddPortUI).field("pfnConfigurePortUI", &self.pfnConfigurePortUI).field("pfnDeletePortUI", &self.pfnDeletePortUI).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MONITORUI {
     type Abi = Self;
 }
@@ -17444,6 +18688,12 @@ impl ::core::marker::Copy for MONITOR_INFO_1A {}
 impl ::core::clone::Clone for MONITOR_INFO_1A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONITOR_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITOR_INFO_1A").field("pName", &self.pName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17476,6 +18726,12 @@ impl ::core::marker::Copy for MONITOR_INFO_1W {}
 impl ::core::clone::Clone for MONITOR_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONITOR_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITOR_INFO_1W").field("pName", &self.pName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17513,6 +18769,12 @@ impl ::core::clone::Clone for MONITOR_INFO_2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONITOR_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITOR_INFO_2A").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MONITOR_INFO_2A {
     type Abi = Self;
 }
@@ -17544,6 +18806,12 @@ impl ::core::marker::Copy for MONITOR_INFO_2W {}
 impl ::core::clone::Clone for MONITOR_INFO_2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONITOR_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITOR_INFO_2W").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17627,6 +18895,11 @@ impl ::core::clone::Clone for MxdcEscapeHeader {
         *self
     }
 }
+impl ::core::fmt::Debug for MxdcEscapeHeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MxdcEscapeHeader").field("cbInput", &self.cbInput).field("cbOutput", &self.cbOutput).field("opCode", &self.opCode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MxdcEscapeHeader {
     type Abi = Self;
 }
@@ -17651,6 +18924,11 @@ impl ::core::marker::Copy for MxdcGetFileNameData {}
 impl ::core::clone::Clone for MxdcGetFileNameData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MxdcGetFileNameData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MxdcGetFileNameData").field("cbOutput", &self.cbOutput).field("wszData", &self.wszData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MxdcGetFileNameData {
@@ -17697,6 +18975,11 @@ impl ::core::clone::Clone for MxdcPrintTicketEscape {
         *self
     }
 }
+impl ::core::fmt::Debug for MxdcPrintTicketEscape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MxdcPrintTicketEscape").field("mxdcEscape", &self.mxdcEscape).field("printTicketData", &self.printTicketData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MxdcPrintTicketEscape {
     type Abi = Self;
 }
@@ -17723,6 +19006,11 @@ impl ::core::clone::Clone for MxdcPrintTicketPassthrough {
         *self
     }
 }
+impl ::core::fmt::Debug for MxdcPrintTicketPassthrough {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MxdcPrintTicketPassthrough").field("dwDataSize", &self.dwDataSize).field("bData", &self.bData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MxdcPrintTicketPassthrough {
     type Abi = Self;
 }
@@ -17747,6 +19035,11 @@ impl ::core::marker::Copy for MxdcS0PageData {}
 impl ::core::clone::Clone for MxdcS0PageData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MxdcS0PageData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MxdcS0PageData").field("dwSize", &self.dwSize).field("bData", &self.bData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MxdcS0PageData {
@@ -17797,6 +19090,11 @@ impl ::core::clone::Clone for MxdcS0PagePassthroughEscape {
         *self
     }
 }
+impl ::core::fmt::Debug for MxdcS0PagePassthroughEscape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MxdcS0PagePassthroughEscape").field("mxdcEscape", &self.mxdcEscape).field("xpsS0PageData", &self.xpsS0PageData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MxdcS0PagePassthroughEscape {
     type Abi = Self;
 }
@@ -17821,6 +19119,11 @@ impl ::core::marker::Copy for MxdcS0PageResourceEscape {}
 impl ::core::clone::Clone for MxdcS0PageResourceEscape {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MxdcS0PageResourceEscape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MxdcS0PageResourceEscape").field("mxdcEscape", &self.mxdcEscape).field("xpsS0PageResourcePassthrough", &self.xpsS0PageResourcePassthrough).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MxdcS0PageResourceEscape {
@@ -17850,6 +19153,11 @@ impl ::core::marker::Copy for MxdcXpsS0PageResource {}
 impl ::core::clone::Clone for MxdcXpsS0PageResource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MxdcXpsS0PageResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MxdcXpsS0PageResource").field("dwSize", &self.dwSize).field("dwResourceType", &self.dwResourceType).field("szUri", &self.szUri).field("dwDataSize", &self.dwDataSize).field("bData", &self.bData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MxdcXpsS0PageResource {
@@ -17891,6 +19199,12 @@ impl ::core::marker::Copy for NOTIFICATION_CONFIG_1 {}
 impl ::core::clone::Clone for NOTIFICATION_CONFIG_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NOTIFICATION_CONFIG_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NOTIFICATION_CONFIG_1").field("cbSize", &self.cbSize).field("fdwFlags", &self.fdwFlags).field("pfnNotifyCallback", &self.pfnNotifyCallback).field("pContext", &self.pContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17960,6 +19274,28 @@ impl ::core::clone::Clone for OEMCUIPPARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OEMCUIPPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OEMCUIPPARAM")
+            .field("cbSize", &self.cbSize)
+            .field("poemuiobj", &self.poemuiobj)
+            .field("hPrinter", &self.hPrinter)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("hModule", &self.hModule)
+            .field("hOEMHeap", &self.hOEMHeap)
+            .field("pPublicDM", &self.pPublicDM)
+            .field("pOEMDM", &self.pOEMDM)
+            .field("dwFlags", &self.dwFlags)
+            .field("pDrvOptItems", &self.pDrvOptItems)
+            .field("cDrvOptItems", &self.cDrvOptItems)
+            .field("pOEMOptItems", &self.pOEMOptItems)
+            .field("cOEMOptItems", &self.cOEMOptItems)
+            .field("pOEMUserData", &self.pOEMUserData)
+            .field("OEMCUIPCallback", &self.OEMCUIPCallback)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OEMCUIPPARAM {
     type Abi = Self;
 }
@@ -18001,6 +19337,12 @@ impl ::core::marker::Copy for OEMDMPARAM {}
 impl ::core::clone::Clone for OEMDMPARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for OEMDMPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OEMDMPARAM").field("cbSize", &self.cbSize).field("pdriverobj", &self.pdriverobj).field("hPrinter", &self.hPrinter).field("hModule", &self.hModule).field("pPublicDMIn", &self.pPublicDMIn).field("pPublicDMOut", &self.pPublicDMOut).field("pOEMDMIn", &self.pOEMDMIn).field("pOEMDMOut", &self.pOEMDMOut).field("cbBufSize", &self.cbBufSize).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -18046,6 +19388,12 @@ impl ::core::marker::Copy for OEMFONTINSTPARAM {}
 impl ::core::clone::Clone for OEMFONTINSTPARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OEMFONTINSTPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OEMFONTINSTPARAM").field("cbSize", &self.cbSize).field("hPrinter", &self.hPrinter).field("hModule", &self.hModule).field("hHeap", &self.hHeap).field("dwFlags", &self.dwFlags).field("pFontInstallerName", &self.pFontInstallerName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18140,6 +19488,12 @@ impl ::core::clone::Clone for OEMUIOBJ {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OEMUIOBJ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OEMUIOBJ").field("cbSize", &self.cbSize).field("pOemUIProcs", &self.pOemUIProcs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OEMUIOBJ {
     type Abi = Self;
 }
@@ -18170,6 +19524,12 @@ impl ::core::marker::Copy for OEMUIPROCS {}
 impl ::core::clone::Clone for OEMUIPROCS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OEMUIPROCS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OEMUIPROCS").field("DrvGetDriverSetting", &self.DrvGetDriverSetting).field("DrvUpdateUISetting", &self.DrvUpdateUISetting).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18215,6 +19575,12 @@ impl ::core::clone::Clone for OEMUIPSPARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for OEMUIPSPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OEMUIPSPARAM").field("cbSize", &self.cbSize).field("poemuiobj", &self.poemuiobj).field("hPrinter", &self.hPrinter).field("pPrinterName", &self.pPrinterName).field("hModule", &self.hModule).field("hOEMHeap", &self.hOEMHeap).field("pPublicDM", &self.pPublicDM).field("pOEMDM", &self.pOEMDM).field("pOEMUserData", &self.pOEMUserData).field("dwFlags", &self.dwFlags).field("pOemEntry", &self.pOemEntry).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for OEMUIPSPARAM {
     type Abi = Self;
 }
@@ -18243,6 +19609,11 @@ impl ::core::marker::Copy for OEM_DMEXTRAHEADER {}
 impl ::core::clone::Clone for OEM_DMEXTRAHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OEM_DMEXTRAHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OEM_DMEXTRAHEADER").field("dwSize", &self.dwSize).field("dwSignature", &self.dwSignature).field("dwVersion", &self.dwVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OEM_DMEXTRAHEADER {
@@ -18277,6 +19648,12 @@ impl ::core::marker::Copy for OIEXT {}
 impl ::core::clone::Clone for OIEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OIEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OIEXT").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("hInstCaller", &self.hInstCaller).field("pHelpFile", &self.pHelpFile).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18320,6 +19697,12 @@ impl ::core::marker::Copy for OPTCOMBO {}
 impl ::core::clone::Clone for OPTCOMBO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPTCOMBO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPTCOMBO").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("cListItem", &self.cListItem).field("pListItem", &self.pListItem).field("Sel", &self.Sel).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18402,6 +19785,28 @@ impl ::core::marker::Copy for OPTITEM {}
 impl ::core::clone::Clone for OPTITEM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OPTITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPTITEM")
+            .field("cbSize", &self.cbSize)
+            .field("Level", &self.Level)
+            .field("DlgPageIdx", &self.DlgPageIdx)
+            .field("Flags", &self.Flags)
+            .field("UserData", &self.UserData)
+            .field("pName", &self.pName)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("pOptType", &self.pOptType)
+            .field("HelpIndex", &self.HelpIndex)
+            .field("DMPubID", &self.DMPubID)
+            .field("UserItemID", &self.UserItemID)
+            .field("wReserved", &self.wReserved)
+            .field("pOIExt", &self.pOIExt)
+            .field("dwReserved", &self.dwReserved)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -18509,6 +19914,12 @@ impl ::core::clone::Clone for OPTPARAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPTPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPTPARAM").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("Style", &self.Style).field("pData", &self.pData).field("IconID", &self.IconID).field("lParam", &self.lParam).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPTPARAM {
     type Abi = Self;
 }
@@ -18568,6 +19979,12 @@ impl ::core::marker::Copy for OPTTYPE {}
 impl ::core::clone::Clone for OPTTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OPTTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPTTYPE").field("cbSize", &self.cbSize).field("Type", &self.Type).field("Flags", &self.Flags).field("Count", &self.Count).field("BegCtrlID", &self.BegCtrlID).field("pOptParam", &self.pOptParam).field("Style", &self.Style).field("wReserved", &self.wReserved).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18711,6 +20128,26 @@ impl ::core::clone::Clone for PORT_DATA_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for PORT_DATA_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_DATA_1")
+            .field("sztPortName", &self.sztPortName)
+            .field("dwVersion", &self.dwVersion)
+            .field("dwProtocol", &self.dwProtocol)
+            .field("cbSize", &self.cbSize)
+            .field("dwReserved", &self.dwReserved)
+            .field("sztHostAddress", &self.sztHostAddress)
+            .field("sztSNMPCommunity", &self.sztSNMPCommunity)
+            .field("dwDoubleSpool", &self.dwDoubleSpool)
+            .field("sztQueue", &self.sztQueue)
+            .field("sztIPAddress", &self.sztIPAddress)
+            .field("Reserved", &self.Reserved)
+            .field("dwPortNumber", &self.dwPortNumber)
+            .field("dwSNMPEnabled", &self.dwSNMPEnabled)
+            .field("dwSNMPDevIndex", &self.dwSNMPDevIndex)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PORT_DATA_1 {
     type Abi = Self;
 }
@@ -18749,6 +20186,26 @@ impl ::core::clone::Clone for PORT_DATA_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for PORT_DATA_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_DATA_2")
+            .field("sztPortName", &self.sztPortName)
+            .field("dwVersion", &self.dwVersion)
+            .field("dwProtocol", &self.dwProtocol)
+            .field("cbSize", &self.cbSize)
+            .field("dwReserved", &self.dwReserved)
+            .field("sztHostAddress", &self.sztHostAddress)
+            .field("sztSNMPCommunity", &self.sztSNMPCommunity)
+            .field("dwDoubleSpool", &self.dwDoubleSpool)
+            .field("sztQueue", &self.sztQueue)
+            .field("Reserved", &self.Reserved)
+            .field("dwPortNumber", &self.dwPortNumber)
+            .field("dwSNMPEnabled", &self.dwSNMPEnabled)
+            .field("dwSNMPDevIndex", &self.dwSNMPDevIndex)
+            .field("dwPortMonitorMibIndex", &self.dwPortMonitorMibIndex)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PORT_DATA_2 {
     type Abi = Self;
 }
@@ -18774,6 +20231,11 @@ impl ::core::marker::Copy for PORT_DATA_LIST_1 {}
 impl ::core::clone::Clone for PORT_DATA_LIST_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PORT_DATA_LIST_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_DATA_LIST_1").field("dwVersion", &self.dwVersion).field("cPortData", &self.cPortData).field("pPortData", &self.pPortData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PORT_DATA_LIST_1 {
@@ -18802,6 +20264,12 @@ impl ::core::marker::Copy for PORT_INFO_1A {}
 impl ::core::clone::Clone for PORT_INFO_1A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PORT_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_INFO_1A").field("pName", &self.pName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18834,6 +20302,12 @@ impl ::core::marker::Copy for PORT_INFO_1W {}
 impl ::core::clone::Clone for PORT_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PORT_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_INFO_1W").field("pName", &self.pName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18873,6 +20347,12 @@ impl ::core::clone::Clone for PORT_INFO_2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PORT_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_INFO_2A").field("pPortName", &self.pPortName).field("pMonitorName", &self.pMonitorName).field("pDescription", &self.pDescription).field("fPortType", &self.fPortType).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PORT_INFO_2A {
     type Abi = Self;
 }
@@ -18906,6 +20386,12 @@ impl ::core::marker::Copy for PORT_INFO_2W {}
 impl ::core::clone::Clone for PORT_INFO_2W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PORT_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_INFO_2W").field("pPortName", &self.pPortName).field("pMonitorName", &self.pMonitorName).field("pDescription", &self.pDescription).field("fPortType", &self.fPortType).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18943,6 +20429,12 @@ impl ::core::clone::Clone for PORT_INFO_3A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PORT_INFO_3A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_INFO_3A").field("dwStatus", &self.dwStatus).field("pszStatus", &self.pszStatus).field("dwSeverity", &self.dwSeverity).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PORT_INFO_3A {
     type Abi = Self;
 }
@@ -18974,6 +20466,12 @@ impl ::core::marker::Copy for PORT_INFO_3W {}
 impl ::core::clone::Clone for PORT_INFO_3W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PORT_INFO_3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PORT_INFO_3W").field("dwStatus", &self.dwStatus).field("pszStatus", &self.pszStatus).field("dwSeverity", &self.dwSeverity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19206,6 +20704,12 @@ impl ::core::clone::Clone for PRINTER_CONNECTION_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_CONNECTION_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_CONNECTION_INFO_1A").field("dwFlags", &self.dwFlags).field("pszDriverName", &self.pszDriverName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRINTER_CONNECTION_INFO_1A {
     type Abi = Self;
 }
@@ -19236,6 +20740,12 @@ impl ::core::marker::Copy for PRINTER_CONNECTION_INFO_1W {}
 impl ::core::clone::Clone for PRINTER_CONNECTION_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_CONNECTION_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_CONNECTION_INFO_1W").field("dwFlags", &self.dwFlags).field("pszDriverName", &self.pszDriverName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19285,6 +20795,12 @@ impl ::core::clone::Clone for PRINTER_DEFAULTSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTER_DEFAULTSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_DEFAULTSA").field("pDatatype", &self.pDatatype).field("pDevMode", &self.pDevMode).field("DesiredAccess", &self.DesiredAccess).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTER_DEFAULTSA {
     type Abi = Self;
 }
@@ -19316,6 +20832,12 @@ impl ::core::marker::Copy for PRINTER_DEFAULTSW {}
 impl ::core::clone::Clone for PRINTER_DEFAULTSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTER_DEFAULTSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_DEFAULTSW").field("pDatatype", &self.pDatatype).field("pDevMode", &self.pDevMode).field("DesiredAccess", &self.DesiredAccess).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -19427,6 +20949,12 @@ impl ::core::clone::Clone for PRINTER_ENUM_VALUESA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_ENUM_VALUESA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_ENUM_VALUESA").field("pValueName", &self.pValueName).field("cbValueName", &self.cbValueName).field("dwType", &self.dwType).field("pData", &self.pData).field("cbData", &self.cbData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRINTER_ENUM_VALUESA {
     type Abi = Self;
 }
@@ -19460,6 +20988,12 @@ impl ::core::marker::Copy for PRINTER_ENUM_VALUESW {}
 impl ::core::clone::Clone for PRINTER_ENUM_VALUESW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_ENUM_VALUESW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_ENUM_VALUESW").field("pValueName", &self.pValueName).field("cbValueName", &self.cbValueName).field("dwType", &self.dwType).field("pData", &self.pData).field("cbData", &self.cbData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19509,6 +21043,11 @@ impl ::core::marker::Copy for PRINTER_EVENT_ATTRIBUTES_INFO {}
 impl ::core::clone::Clone for PRINTER_EVENT_ATTRIBUTES_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRINTER_EVENT_ATTRIBUTES_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_EVENT_ATTRIBUTES_INFO").field("cbSize", &self.cbSize).field("dwOldAttributes", &self.dwOldAttributes).field("dwNewAttributes", &self.dwNewAttributes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRINTER_EVENT_ATTRIBUTES_INFO {
@@ -19564,6 +21103,12 @@ impl ::core::clone::Clone for PRINTER_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_1A").field("Flags", &self.Flags).field("pDescription", &self.pDescription).field("pName", &self.pName).field("pComment", &self.pComment).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_1A {
     type Abi = Self;
 }
@@ -19596,6 +21141,12 @@ impl ::core::marker::Copy for PRINTER_INFO_1W {}
 impl ::core::clone::Clone for PRINTER_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_1W").field("Flags", &self.Flags).field("pDescription", &self.pDescription).field("pName", &self.pName).field("pComment", &self.pComment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19651,6 +21202,34 @@ impl ::core::clone::Clone for PRINTER_INFO_2A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for PRINTER_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_2A")
+            .field("pServerName", &self.pServerName)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pShareName", &self.pShareName)
+            .field("pPortName", &self.pPortName)
+            .field("pDriverName", &self.pDriverName)
+            .field("pComment", &self.pComment)
+            .field("pLocation", &self.pLocation)
+            .field("pDevMode", &self.pDevMode)
+            .field("pSepFile", &self.pSepFile)
+            .field("pPrintProcessor", &self.pPrintProcessor)
+            .field("pDatatype", &self.pDatatype)
+            .field("pParameters", &self.pParameters)
+            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
+            .field("Attributes", &self.Attributes)
+            .field("Priority", &self.Priority)
+            .field("DefaultPriority", &self.DefaultPriority)
+            .field("StartTime", &self.StartTime)
+            .field("UntilTime", &self.UntilTime)
+            .field("Status", &self.Status)
+            .field("cJobs", &self.cJobs)
+            .field("AveragePPM", &self.AveragePPM)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_2A {
     type Abi = Self;
 }
@@ -19703,6 +21282,34 @@ impl ::core::clone::Clone for PRINTER_INFO_2W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for PRINTER_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_2W")
+            .field("pServerName", &self.pServerName)
+            .field("pPrinterName", &self.pPrinterName)
+            .field("pShareName", &self.pShareName)
+            .field("pPortName", &self.pPortName)
+            .field("pDriverName", &self.pDriverName)
+            .field("pComment", &self.pComment)
+            .field("pLocation", &self.pLocation)
+            .field("pDevMode", &self.pDevMode)
+            .field("pSepFile", &self.pSepFile)
+            .field("pPrintProcessor", &self.pPrintProcessor)
+            .field("pDatatype", &self.pDatatype)
+            .field("pParameters", &self.pParameters)
+            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
+            .field("Attributes", &self.Attributes)
+            .field("Priority", &self.Priority)
+            .field("DefaultPriority", &self.DefaultPriority)
+            .field("StartTime", &self.StartTime)
+            .field("UntilTime", &self.UntilTime)
+            .field("Status", &self.Status)
+            .field("cJobs", &self.cJobs)
+            .field("AveragePPM", &self.AveragePPM)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_2W {
     type Abi = Self;
 }
@@ -19732,6 +21339,12 @@ impl ::core::marker::Copy for PRINTER_INFO_3 {}
 impl ::core::clone::Clone for PRINTER_INFO_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for PRINTER_INFO_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_3").field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -19769,6 +21382,12 @@ impl ::core::clone::Clone for PRINTER_INFO_4A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_INFO_4A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_4A").field("pPrinterName", &self.pPrinterName).field("pServerName", &self.pServerName).field("Attributes", &self.Attributes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_4A {
     type Abi = Self;
 }
@@ -19800,6 +21419,12 @@ impl ::core::marker::Copy for PRINTER_INFO_4W {}
 impl ::core::clone::Clone for PRINTER_INFO_4W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_INFO_4W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_4W").field("pPrinterName", &self.pPrinterName).field("pServerName", &self.pServerName).field("Attributes", &self.Attributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19839,6 +21464,12 @@ impl ::core::clone::Clone for PRINTER_INFO_5A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_INFO_5A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_5A").field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Attributes", &self.Attributes).field("DeviceNotSelectedTimeout", &self.DeviceNotSelectedTimeout).field("TransmissionRetryTimeout", &self.TransmissionRetryTimeout).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_5A {
     type Abi = Self;
 }
@@ -19875,6 +21506,12 @@ impl ::core::clone::Clone for PRINTER_INFO_5W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_INFO_5W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_5W").field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Attributes", &self.Attributes).field("DeviceNotSelectedTimeout", &self.DeviceNotSelectedTimeout).field("TransmissionRetryTimeout", &self.TransmissionRetryTimeout).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_5W {
     type Abi = Self;
 }
@@ -19901,6 +21538,11 @@ impl ::core::marker::Copy for PRINTER_INFO_6 {}
 impl ::core::clone::Clone for PRINTER_INFO_6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRINTER_INFO_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_6").field("dwStatus", &self.dwStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRINTER_INFO_6 {
@@ -19930,6 +21572,12 @@ impl ::core::marker::Copy for PRINTER_INFO_7A {}
 impl ::core::clone::Clone for PRINTER_INFO_7A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_INFO_7A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_7A").field("pszObjectGUID", &self.pszObjectGUID).field("dwAction", &self.dwAction).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19966,6 +21614,12 @@ impl ::core::clone::Clone for PRINTER_INFO_7W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTER_INFO_7W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_7W").field("pszObjectGUID", &self.pszObjectGUID).field("dwAction", &self.dwAction).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_7W {
     type Abi = Self;
 }
@@ -19995,6 +21649,12 @@ impl ::core::marker::Copy for PRINTER_INFO_8A {}
 impl ::core::clone::Clone for PRINTER_INFO_8A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTER_INFO_8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_8A").field("pDevMode", &self.pDevMode).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -20030,6 +21690,12 @@ impl ::core::clone::Clone for PRINTER_INFO_8W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTER_INFO_8W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_8W").field("pDevMode", &self.pDevMode).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_8W {
     type Abi = Self;
 }
@@ -20062,6 +21728,12 @@ impl ::core::clone::Clone for PRINTER_INFO_9A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTER_INFO_9A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_9A").field("pDevMode", &self.pDevMode).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTER_INFO_9A {
     type Abi = Self;
 }
@@ -20091,6 +21763,12 @@ impl ::core::marker::Copy for PRINTER_INFO_9W {}
 impl ::core::clone::Clone for PRINTER_INFO_9W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTER_INFO_9W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_INFO_9W").field("pDevMode", &self.pDevMode).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -20187,6 +21865,11 @@ impl ::core::clone::Clone for PRINTER_NOTIFY_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PRINTER_NOTIFY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_NOTIFY_INFO").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("aData", &self.aData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO {
     type Abi = Self;
 }
@@ -20214,6 +21897,11 @@ impl ::core::marker::Copy for PRINTER_NOTIFY_INFO_DATA {}
 impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRINTER_NOTIFY_INFO_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_NOTIFY_INFO_DATA").field("Type", &self.Type).field("Field", &self.Field).field("Reserved", &self.Reserved).field("Id", &self.Id).field("NotifyData", &self.NotifyData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO_DATA {
@@ -20268,6 +21956,11 @@ impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for PRINTER_NOTIFY_INFO_DATA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_NOTIFY_INFO_DATA_0_0").field("cbBuf", &self.cbBuf).field("pBuf", &self.pBuf).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO_DATA_0_0 {
     type Abi = Self;
 }
@@ -20299,6 +21992,11 @@ impl ::core::clone::Clone for PRINTER_NOTIFY_INIT {
         *self
     }
 }
+impl ::core::fmt::Debug for PRINTER_NOTIFY_INIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_NOTIFY_INIT").field("Size", &self.Size).field("Reserved", &self.Reserved).field("PollTime", &self.PollTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INIT {
     type Abi = Self;
 }
@@ -20325,6 +22023,11 @@ impl ::core::marker::Copy for PRINTER_NOTIFY_OPTIONS {}
 impl ::core::clone::Clone for PRINTER_NOTIFY_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRINTER_NOTIFY_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_NOTIFY_OPTIONS").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("pTypes", &self.pTypes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_OPTIONS {
@@ -20357,6 +22060,11 @@ impl ::core::marker::Copy for PRINTER_NOTIFY_OPTIONS_TYPE {}
 impl ::core::clone::Clone for PRINTER_NOTIFY_OPTIONS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRINTER_NOTIFY_OPTIONS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_NOTIFY_OPTIONS_TYPE").field("Type", &self.Type).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Count", &self.Count).field("pFields", &self.pFields).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_OPTIONS_TYPE {
@@ -20395,6 +22103,11 @@ impl ::core::clone::Clone for PRINTER_OPTIONSA {
         *self
     }
 }
+impl ::core::fmt::Debug for PRINTER_OPTIONSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_OPTIONSA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRINTER_OPTIONSA {
     type Abi = Self;
 }
@@ -20419,6 +22132,11 @@ impl ::core::marker::Copy for PRINTER_OPTIONSW {}
 impl ::core::clone::Clone for PRINTER_OPTIONSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRINTER_OPTIONSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTER_OPTIONSW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRINTER_OPTIONSW {
@@ -20572,6 +22290,72 @@ impl ::core::clone::Clone for PRINTIFI32 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTIFI32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTIFI32")
+            .field("cjThis", &self.cjThis)
+            .field("cjIfiExtra", &self.cjIfiExtra)
+            .field("dpwszFamilyName", &self.dpwszFamilyName)
+            .field("dpwszStyleName", &self.dpwszStyleName)
+            .field("dpwszFaceName", &self.dpwszFaceName)
+            .field("dpwszUniqueName", &self.dpwszUniqueName)
+            .field("dpFontSim", &self.dpFontSim)
+            .field("lEmbedId", &self.lEmbedId)
+            .field("lItalicAngle", &self.lItalicAngle)
+            .field("lCharBias", &self.lCharBias)
+            .field("dpCharSets", &self.dpCharSets)
+            .field("jWinCharSet", &self.jWinCharSet)
+            .field("jWinPitchAndFamily", &self.jWinPitchAndFamily)
+            .field("usWinWeight", &self.usWinWeight)
+            .field("flInfo", &self.flInfo)
+            .field("fsSelection", &self.fsSelection)
+            .field("fsType", &self.fsType)
+            .field("fwdUnitsPerEm", &self.fwdUnitsPerEm)
+            .field("fwdLowestPPEm", &self.fwdLowestPPEm)
+            .field("fwdWinAscender", &self.fwdWinAscender)
+            .field("fwdWinDescender", &self.fwdWinDescender)
+            .field("fwdMacAscender", &self.fwdMacAscender)
+            .field("fwdMacDescender", &self.fwdMacDescender)
+            .field("fwdMacLineGap", &self.fwdMacLineGap)
+            .field("fwdTypoAscender", &self.fwdTypoAscender)
+            .field("fwdTypoDescender", &self.fwdTypoDescender)
+            .field("fwdTypoLineGap", &self.fwdTypoLineGap)
+            .field("fwdAveCharWidth", &self.fwdAveCharWidth)
+            .field("fwdMaxCharInc", &self.fwdMaxCharInc)
+            .field("fwdCapHeight", &self.fwdCapHeight)
+            .field("fwdXHeight", &self.fwdXHeight)
+            .field("fwdSubscriptXSize", &self.fwdSubscriptXSize)
+            .field("fwdSubscriptYSize", &self.fwdSubscriptYSize)
+            .field("fwdSubscriptXOffset", &self.fwdSubscriptXOffset)
+            .field("fwdSubscriptYOffset", &self.fwdSubscriptYOffset)
+            .field("fwdSuperscriptXSize", &self.fwdSuperscriptXSize)
+            .field("fwdSuperscriptYSize", &self.fwdSuperscriptYSize)
+            .field("fwdSuperscriptXOffset", &self.fwdSuperscriptXOffset)
+            .field("fwdSuperscriptYOffset", &self.fwdSuperscriptYOffset)
+            .field("fwdUnderscoreSize", &self.fwdUnderscoreSize)
+            .field("fwdUnderscorePosition", &self.fwdUnderscorePosition)
+            .field("fwdStrikeoutSize", &self.fwdStrikeoutSize)
+            .field("fwdStrikeoutPosition", &self.fwdStrikeoutPosition)
+            .field("chFirstChar", &self.chFirstChar)
+            .field("chLastChar", &self.chLastChar)
+            .field("chDefaultChar", &self.chDefaultChar)
+            .field("chBreakChar", &self.chBreakChar)
+            .field("wcFirstChar", &self.wcFirstChar)
+            .field("wcLastChar", &self.wcLastChar)
+            .field("wcDefaultChar", &self.wcDefaultChar)
+            .field("wcBreakChar", &self.wcBreakChar)
+            .field("ptlBaseline", &self.ptlBaseline)
+            .field("ptlAspect", &self.ptlAspect)
+            .field("ptlCaret", &self.ptlCaret)
+            .field("rclFontBox", &self.rclFontBox)
+            .field("achVendId", &self.achVendId)
+            .field("cKerningPairs", &self.cKerningPairs)
+            .field("ulPanoseCulture", &self.ulPanoseCulture)
+            .field("panose", &self.panose)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTIFI32 {
     type Abi = Self;
 }
@@ -20610,6 +22394,12 @@ impl ::core::clone::Clone for PRINTPROCESSOROPENDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for PRINTPROCESSOROPENDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTPROCESSOROPENDATA").field("pDevMode", &self.pDevMode).field("pDatatype", &self.pDatatype).field("pParameters", &self.pParameters).field("pDocumentName", &self.pDocumentName).field("JobId", &self.JobId).field("pOutputFile", &self.pOutputFile).field("pPrinterName", &self.pPrinterName).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTPROCESSOROPENDATA {
     type Abi = Self;
 }
@@ -20639,6 +22429,11 @@ impl ::core::marker::Copy for PRINTPROCESSOR_CAPS_1 {}
 impl ::core::clone::Clone for PRINTPROCESSOR_CAPS_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PRINTPROCESSOR_CAPS_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTPROCESSOR_CAPS_1").field("dwLevel", &self.dwLevel).field("dwNupOptions", &self.dwNupOptions).field("dwPageOrderFlags", &self.dwPageOrderFlags).field("dwNumberOfCopies", &self.dwNumberOfCopies).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRINTPROCESSOR_CAPS_1 {
@@ -20674,6 +22469,21 @@ impl ::core::clone::Clone for PRINTPROCESSOR_CAPS_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for PRINTPROCESSOR_CAPS_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTPROCESSOR_CAPS_2")
+            .field("dwLevel", &self.dwLevel)
+            .field("dwNupOptions", &self.dwNupOptions)
+            .field("dwPageOrderFlags", &self.dwPageOrderFlags)
+            .field("dwNumberOfCopies", &self.dwNumberOfCopies)
+            .field("dwDuplexHandlingCaps", &self.dwDuplexHandlingCaps)
+            .field("dwNupDirectionCaps", &self.dwNupDirectionCaps)
+            .field("dwNupBorderCaps", &self.dwNupBorderCaps)
+            .field("dwBookletHandlingCaps", &self.dwBookletHandlingCaps)
+            .field("dwScalingCaps", &self.dwScalingCaps)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRINTPROCESSOR_CAPS_2 {
     type Abi = Self;
 }
@@ -20700,6 +22510,12 @@ impl ::core::marker::Copy for PRINTPROCESSOR_INFO_1A {}
 impl ::core::clone::Clone for PRINTPROCESSOR_INFO_1A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTPROCESSOR_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTPROCESSOR_INFO_1A").field("pName", &self.pName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20732,6 +22548,12 @@ impl ::core::marker::Copy for PRINTPROCESSOR_INFO_1W {}
 impl ::core::clone::Clone for PRINTPROCESSOR_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINTPROCESSOR_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTPROCESSOR_INFO_1W").field("pName", &self.pName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20868,6 +22690,118 @@ impl ::core::clone::Clone for PRINTPROVIDOR {
         *self
     }
 }
+impl ::core::fmt::Debug for PRINTPROVIDOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINTPROVIDOR")
+            .field("fpOpenPrinter", &self.fpOpenPrinter)
+            .field("fpSetJob", &self.fpSetJob)
+            .field("fpGetJob", &self.fpGetJob)
+            .field("fpEnumJobs", &self.fpEnumJobs)
+            .field("fpAddPrinter", &self.fpAddPrinter)
+            .field("fpDeletePrinter", &self.fpDeletePrinter)
+            .field("fpSetPrinter", &self.fpSetPrinter)
+            .field("fpGetPrinter", &self.fpGetPrinter)
+            .field("fpEnumPrinters", &self.fpEnumPrinters)
+            .field("fpAddPrinterDriver", &self.fpAddPrinterDriver)
+            .field("fpEnumPrinterDrivers", &self.fpEnumPrinterDrivers)
+            .field("fpGetPrinterDriver", &self.fpGetPrinterDriver)
+            .field("fpGetPrinterDriverDirectory", &self.fpGetPrinterDriverDirectory)
+            .field("fpDeletePrinterDriver", &self.fpDeletePrinterDriver)
+            .field("fpAddPrintProcessor", &self.fpAddPrintProcessor)
+            .field("fpEnumPrintProcessors", &self.fpEnumPrintProcessors)
+            .field("fpGetPrintProcessorDirectory", &self.fpGetPrintProcessorDirectory)
+            .field("fpDeletePrintProcessor", &self.fpDeletePrintProcessor)
+            .field("fpEnumPrintProcessorDatatypes", &self.fpEnumPrintProcessorDatatypes)
+            .field("fpStartDocPrinter", &self.fpStartDocPrinter)
+            .field("fpStartPagePrinter", &self.fpStartPagePrinter)
+            .field("fpWritePrinter", &self.fpWritePrinter)
+            .field("fpEndPagePrinter", &self.fpEndPagePrinter)
+            .field("fpAbortPrinter", &self.fpAbortPrinter)
+            .field("fpReadPrinter", &self.fpReadPrinter)
+            .field("fpEndDocPrinter", &self.fpEndDocPrinter)
+            .field("fpAddJob", &self.fpAddJob)
+            .field("fpScheduleJob", &self.fpScheduleJob)
+            .field("fpGetPrinterData", &self.fpGetPrinterData)
+            .field("fpSetPrinterData", &self.fpSetPrinterData)
+            .field("fpWaitForPrinterChange", &self.fpWaitForPrinterChange)
+            .field("fpClosePrinter", &self.fpClosePrinter)
+            .field("fpAddForm", &self.fpAddForm)
+            .field("fpDeleteForm", &self.fpDeleteForm)
+            .field("fpGetForm", &self.fpGetForm)
+            .field("fpSetForm", &self.fpSetForm)
+            .field("fpEnumForms", &self.fpEnumForms)
+            .field("fpEnumMonitors", &self.fpEnumMonitors)
+            .field("fpEnumPorts", &self.fpEnumPorts)
+            .field("fpAddPort", &self.fpAddPort)
+            .field("fpConfigurePort", &self.fpConfigurePort)
+            .field("fpDeletePort", &self.fpDeletePort)
+            .field("fpCreatePrinterIC", &self.fpCreatePrinterIC)
+            .field("fpPlayGdiScriptOnPrinterIC", &self.fpPlayGdiScriptOnPrinterIC)
+            .field("fpDeletePrinterIC", &self.fpDeletePrinterIC)
+            .field("fpAddPrinterConnection", &self.fpAddPrinterConnection)
+            .field("fpDeletePrinterConnection", &self.fpDeletePrinterConnection)
+            .field("fpPrinterMessageBox", &self.fpPrinterMessageBox)
+            .field("fpAddMonitor", &self.fpAddMonitor)
+            .field("fpDeleteMonitor", &self.fpDeleteMonitor)
+            .field("fpResetPrinter", &self.fpResetPrinter)
+            .field("fpGetPrinterDriverEx", &self.fpGetPrinterDriverEx)
+            .field("fpFindFirstPrinterChangeNotification", &self.fpFindFirstPrinterChangeNotification)
+            .field("fpFindClosePrinterChangeNotification", &self.fpFindClosePrinterChangeNotification)
+            .field("fpAddPortEx", &self.fpAddPortEx)
+            .field("fpShutDown", &self.fpShutDown)
+            .field("fpRefreshPrinterChangeNotification", &self.fpRefreshPrinterChangeNotification)
+            .field("fpOpenPrinterEx", &self.fpOpenPrinterEx)
+            .field("fpAddPrinterEx", &self.fpAddPrinterEx)
+            .field("fpSetPort", &self.fpSetPort)
+            .field("fpEnumPrinterData", &self.fpEnumPrinterData)
+            .field("fpDeletePrinterData", &self.fpDeletePrinterData)
+            .field("fpClusterSplOpen", &self.fpClusterSplOpen)
+            .field("fpClusterSplClose", &self.fpClusterSplClose)
+            .field("fpClusterSplIsAlive", &self.fpClusterSplIsAlive)
+            .field("fpSetPrinterDataEx", &self.fpSetPrinterDataEx)
+            .field("fpGetPrinterDataEx", &self.fpGetPrinterDataEx)
+            .field("fpEnumPrinterDataEx", &self.fpEnumPrinterDataEx)
+            .field("fpEnumPrinterKey", &self.fpEnumPrinterKey)
+            .field("fpDeletePrinterDataEx", &self.fpDeletePrinterDataEx)
+            .field("fpDeletePrinterKey", &self.fpDeletePrinterKey)
+            .field("fpSeekPrinter", &self.fpSeekPrinter)
+            .field("fpDeletePrinterDriverEx", &self.fpDeletePrinterDriverEx)
+            .field("fpAddPerMachineConnection", &self.fpAddPerMachineConnection)
+            .field("fpDeletePerMachineConnection", &self.fpDeletePerMachineConnection)
+            .field("fpEnumPerMachineConnections", &self.fpEnumPerMachineConnections)
+            .field("fpXcvData", &self.fpXcvData)
+            .field("fpAddPrinterDriverEx", &self.fpAddPrinterDriverEx)
+            .field("fpSplReadPrinter", &self.fpSplReadPrinter)
+            .field("fpDriverUnloadComplete", &self.fpDriverUnloadComplete)
+            .field("fpGetSpoolFileInfo", &self.fpGetSpoolFileInfo)
+            .field("fpCommitSpoolData", &self.fpCommitSpoolData)
+            .field("fpCloseSpoolFileHandle", &self.fpCloseSpoolFileHandle)
+            .field("fpFlushPrinter", &self.fpFlushPrinter)
+            .field("fpSendRecvBidiData", &self.fpSendRecvBidiData)
+            .field("fpAddPrinterConnection2", &self.fpAddPrinterConnection2)
+            .field("fpGetPrintClassObject", &self.fpGetPrintClassObject)
+            .field("fpReportJobProcessingProgress", &self.fpReportJobProcessingProgress)
+            .field("fpEnumAndLogProvidorObjects", &self.fpEnumAndLogProvidorObjects)
+            .field("fpInternalGetPrinterDriver", &self.fpInternalGetPrinterDriver)
+            .field("fpFindCompatibleDriver", &self.fpFindCompatibleDriver)
+            .field("fpGetJobNamedPropertyValue", &self.fpGetJobNamedPropertyValue)
+            .field("fpSetJobNamedProperty", &self.fpSetJobNamedProperty)
+            .field("fpDeleteJobNamedProperty", &self.fpDeleteJobNamedProperty)
+            .field("fpEnumJobNamedProperties", &self.fpEnumJobNamedProperties)
+            .field("fpPowerEvent", &self.fpPowerEvent)
+            .field("fpGetUserPropertyBag", &self.fpGetUserPropertyBag)
+            .field("fpCanShutdown", &self.fpCanShutdown)
+            .field("fpLogJobInfoForBranchOffice", &self.fpLogJobInfoForBranchOffice)
+            .field("fpRegeneratePrintDeviceCapabilities", &self.fpRegeneratePrintDeviceCapabilities)
+            .field("fpPrintSupportOperation", &self.fpPrintSupportOperation)
+            .field("fpIppCreateJobOnPrinter", &self.fpIppCreateJobOnPrinter)
+            .field("fpIppGetJobAttributes", &self.fpIppGetJobAttributes)
+            .field("fpIppSetJobAttributes", &self.fpIppSetJobAttributes)
+            .field("fpIppGetPrinterAttributes", &self.fpIppGetPrinterAttributes)
+            .field("fpIppSetPrinterAttributes", &self.fpIppSetPrinterAttributes)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRINTPROVIDOR {
     type Abi = Self;
 }
@@ -20907,6 +22841,11 @@ impl ::core::clone::Clone for PRINT_EXECUTION_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for PRINT_EXECUTION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINT_EXECUTION_DATA").field("context", &self.context).field("clientAppPID", &self.clientAppPID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PRINT_EXECUTION_DATA {
     type Abi = Self;
 }
@@ -20934,6 +22873,12 @@ impl ::core::marker::Copy for PRINT_FEATURE_OPTION {}
 impl ::core::clone::Clone for PRINT_FEATURE_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRINT_FEATURE_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRINT_FEATURE_OPTION").field("pszFeature", &self.pszFeature).field("pszOption", &self.pszOption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20971,6 +22916,12 @@ impl ::core::marker::Copy for PROPSHEETUI_GETICON_INFO {}
 impl ::core::clone::Clone for PROPSHEETUI_GETICON_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::fmt::Debug for PROPSHEETUI_GETICON_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPSHEETUI_GETICON_INFO").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("cxIcon", &self.cxIcon).field("cyIcon", &self.cyIcon).field("hIcon", &self.hIcon).finish()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -21014,6 +22965,12 @@ impl ::core::clone::Clone for PROPSHEETUI_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROPSHEETUI_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPSHEETUI_INFO").field("cbSize", &self.cbSize).field("Version", &self.Version).field("Flags", &self.Flags).field("Reason", &self.Reason).field("hComPropSheet", &self.hComPropSheet).field("pfnComPropSheet", &self.pfnComPropSheet).field("lParamInit", &self.lParamInit).field("UserData", &self.UserData).field("Result", &self.Result).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPSHEETUI_INFO {
     type Abi = Self;
 }
@@ -21048,6 +23005,12 @@ impl ::core::marker::Copy for PROPSHEETUI_INFO_HEADER {}
 impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for PROPSHEETUI_INFO_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPSHEETUI_INFO_HEADER").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("pTitle", &self.pTitle).field("hWndParent", &self.hWndParent).field("hInst", &self.hInst).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -21138,6 +23101,12 @@ impl ::core::clone::Clone for PROVIDOR_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROVIDOR_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDOR_INFO_1A").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROVIDOR_INFO_1A {
     type Abi = Self;
 }
@@ -21169,6 +23138,12 @@ impl ::core::marker::Copy for PROVIDOR_INFO_1W {}
 impl ::core::clone::Clone for PROVIDOR_INFO_1W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROVIDOR_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDOR_INFO_1W").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21204,6 +23179,12 @@ impl ::core::clone::Clone for PROVIDOR_INFO_2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROVIDOR_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDOR_INFO_2A").field("pOrder", &self.pOrder).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROVIDOR_INFO_2A {
     type Abi = Self;
 }
@@ -21236,6 +23217,12 @@ impl ::core::clone::Clone for PROVIDOR_INFO_2W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROVIDOR_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDOR_INFO_2W").field("pOrder", &self.pOrder).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROVIDOR_INFO_2W {
     type Abi = Self;
 }
@@ -21263,6 +23250,11 @@ impl ::core::marker::Copy for PSCRIPT5_PRIVATE_DEVMODE {}
 impl ::core::clone::Clone for PSCRIPT5_PRIVATE_DEVMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PSCRIPT5_PRIVATE_DEVMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSCRIPT5_PRIVATE_DEVMODE").field("wReserved", &self.wReserved).field("wSize", &self.wSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSCRIPT5_PRIVATE_DEVMODE {
@@ -21295,6 +23287,12 @@ impl ::core::marker::Copy for PSPINFO {}
 impl ::core::clone::Clone for PSPINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PSPINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PSPINFO").field("cbSize", &self.cbSize).field("wReserved", &self.wReserved).field("hComPropSheet", &self.hComPropSheet).field("hCPSUIPage", &self.hCPSUIPage).field("pfnComPropSheet", &self.pfnComPropSheet).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21352,6 +23350,11 @@ impl ::core::marker::Copy for PUBLISHERINFO {}
 impl ::core::clone::Clone for PUBLISHERINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PUBLISHERINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PUBLISHERINFO").field("dwMode", &self.dwMode).field("wMinoutlinePPEM", &self.wMinoutlinePPEM).field("wMaxbitmapPPEM", &self.wMaxbitmapPPEM).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PUBLISHERINFO {
@@ -21520,6 +23523,12 @@ impl ::core::clone::Clone for PrintNamedProperty {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PrintNamedProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrintNamedProperty").field("propertyName", &self.propertyName).field("propertyValue", &self.propertyValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PrintNamedProperty {
     type Abi = Self;
 }
@@ -21553,6 +23562,12 @@ impl ::core::clone::Clone for PrintPropertiesCollection {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PrintPropertiesCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrintPropertiesCollection").field("numberOfProperties", &self.numberOfProperties).field("propertiesCollection", &self.propertiesCollection).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PrintPropertiesCollection {
     type Abi = Self;
 }
@@ -21583,6 +23598,12 @@ impl ::core::marker::Copy for PrintPropertyValue {}
 impl ::core::clone::Clone for PrintPropertyValue {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PrintPropertyValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrintPropertyValue").field("ePropertyType", &self.ePropertyType).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21652,6 +23673,12 @@ impl ::core::marker::Copy for PrintPropertyValue_0_0 {}
 impl ::core::clone::Clone for PrintPropertyValue_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PrintPropertyValue_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrintPropertyValue_0_0").field("cbBuf", &self.cbBuf).field("pBuf", &self.pBuf).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22055,6 +24082,12 @@ impl ::core::clone::Clone for SETRESULT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SETRESULT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SETRESULT_INFO").field("cbSize", &self.cbSize).field("wReserved", &self.wReserved).field("hSetResult", &self.hSetResult).field("Result", &self.Result).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SETRESULT_INFO {
     type Abi = Self;
 }
@@ -22094,6 +24127,12 @@ impl ::core::clone::Clone for SHOWUIPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SHOWUIPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SHOWUIPARAMS").field("UIType", &self.UIType).field("MessageBoxParams", &self.MessageBoxParams).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SHOWUIPARAMS {
     type Abi = Self;
 }
@@ -22124,6 +24163,11 @@ impl ::core::marker::Copy for SIMULATE_CAPS_1 {}
 impl ::core::clone::Clone for SIMULATE_CAPS_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SIMULATE_CAPS_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIMULATE_CAPS_1").field("dwLevel", &self.dwLevel).field("dwPageOrderFlags", &self.dwPageOrderFlags).field("dwNumberOfCopies", &self.dwNumberOfCopies).field("dwCollate", &self.dwCollate).field("dwNupOptions", &self.dwNupOptions).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SIMULATE_CAPS_1 {
@@ -22158,6 +24202,12 @@ impl ::core::marker::Copy for SPLCLIENT_INFO_1 {}
 impl ::core::clone::Clone for SPLCLIENT_INFO_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPLCLIENT_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPLCLIENT_INFO_1").field("dwSize", &self.dwSize).field("pMachineName", &self.pMachineName).field("pUserName", &self.pUserName).field("dwBuildNum", &self.dwBuildNum).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("wProcessorArchitecture", &self.wProcessorArchitecture).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22199,6 +24249,12 @@ impl ::core::marker::Copy for SPLCLIENT_INFO_3_VISTA {}
 impl ::core::clone::Clone for SPLCLIENT_INFO_3_VISTA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPLCLIENT_INFO_3_VISTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPLCLIENT_INFO_3_VISTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwSize", &self.dwSize).field("pMachineName", &self.pMachineName).field("pUserName", &self.pUserName).field("dwBuildNum", &self.dwBuildNum).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22677,6 +24733,11 @@ impl ::core::clone::Clone for TRANSDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for TRANSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSDATA").field("ubCodePageID", &self.ubCodePageID).field("ubType", &self.ubType).field("uCode", &self.uCode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TRANSDATA {
     type Abi = Self;
 }
@@ -22775,6 +24836,11 @@ impl ::core::clone::Clone for UFF_FILEHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for UFF_FILEHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UFF_FILEHEADER").field("dwSignature", &self.dwSignature).field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("nFonts", &self.nFonts).field("nGlyphSets", &self.nGlyphSets).field("nVarData", &self.nVarData).field("offFontDir", &self.offFontDir).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UFF_FILEHEADER {
     type Abi = Self;
 }
@@ -22808,6 +24874,11 @@ impl ::core::marker::Copy for UFF_FONTDIRECTORY {}
 impl ::core::clone::Clone for UFF_FONTDIRECTORY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UFF_FONTDIRECTORY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UFF_FONTDIRECTORY").field("dwSignature", &self.dwSignature).field("wSize", &self.wSize).field("wFontID", &self.wFontID).field("sGlyphID", &self.sGlyphID).field("wFlags", &self.wFlags).field("dwInstallerSig", &self.dwInstallerSig).field("offFontName", &self.offFontName).field("offCartridgeName", &self.offCartridgeName).field("offFontData", &self.offFontData).field("offGlyphData", &self.offGlyphData).field("offVarData", &self.offVarData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UFF_FONTDIRECTORY {
@@ -22885,6 +24956,11 @@ impl ::core::clone::Clone for UNIDRVINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for UNIDRVINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UNIDRVINFO").field("dwSize", &self.dwSize).field("flGenFlags", &self.flGenFlags).field("wType", &self.wType).field("fCaps", &self.fCaps).field("wXRes", &self.wXRes).field("wYRes", &self.wYRes).field("sYAdjust", &self.sYAdjust).field("sYMoved", &self.sYMoved).field("wPrivateData", &self.wPrivateData).field("sShift", &self.sShift).field("SelectFont", &self.SelectFont).field("UnSelectFont", &self.UnSelectFont).field("wReserved", &self.wReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UNIDRVINFO {
     type Abi = Self;
 }
@@ -22909,6 +24985,11 @@ impl ::core::marker::Copy for UNIDRV_PRIVATE_DEVMODE {}
 impl ::core::clone::Clone for UNIDRV_PRIVATE_DEVMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UNIDRV_PRIVATE_DEVMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UNIDRV_PRIVATE_DEVMODE").field("wReserved", &self.wReserved).field("wSize", &self.wSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UNIDRV_PRIVATE_DEVMODE {
@@ -22945,6 +25026,11 @@ impl ::core::clone::Clone for UNIFM_HDR {
         *self
     }
 }
+impl ::core::fmt::Debug for UNIFM_HDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UNIFM_HDR").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("ulDefaultCodepage", &self.ulDefaultCodepage).field("lGlyphSetDataRCID", &self.lGlyphSetDataRCID).field("loUnidrvInfo", &self.loUnidrvInfo).field("loIFIMetrics", &self.loIFIMetrics).field("loExtTextMetric", &self.loExtTextMetric).field("loWidthTable", &self.loWidthTable).field("loKernPair", &self.loKernPair).field("dwReserved", &self.dwReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UNIFM_HDR {
     type Abi = Self;
 }
@@ -22972,6 +25058,11 @@ impl ::core::marker::Copy for UNI_CODEPAGEINFO {}
 impl ::core::clone::Clone for UNI_CODEPAGEINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UNI_CODEPAGEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UNI_CODEPAGEINFO").field("dwCodePage", &self.dwCodePage).field("SelectSymbolSet", &self.SelectSymbolSet).field("UnSelectSymbolSet", &self.UnSelectSymbolSet).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UNI_CODEPAGEINFO {
@@ -23007,6 +25098,23 @@ impl ::core::marker::Copy for UNI_GLYPHSETDATA {}
 impl ::core::clone::Clone for UNI_GLYPHSETDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UNI_GLYPHSETDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UNI_GLYPHSETDATA")
+            .field("dwSize", &self.dwSize)
+            .field("dwVersion", &self.dwVersion)
+            .field("dwFlags", &self.dwFlags)
+            .field("lPredefinedID", &self.lPredefinedID)
+            .field("dwGlyphCount", &self.dwGlyphCount)
+            .field("dwRunCount", &self.dwRunCount)
+            .field("loRunOffset", &self.loRunOffset)
+            .field("dwCodePageCount", &self.dwCodePageCount)
+            .field("loCodePageOffset", &self.loCodePageOffset)
+            .field("loMapTableOffset", &self.loMapTableOffset)
+            .field("dwReserved", &self.dwReserved)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for UNI_GLYPHSETDATA {
@@ -23056,6 +25164,12 @@ impl ::core::marker::Copy for USERDATA {}
 impl ::core::clone::Clone for USERDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for USERDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("USERDATA").field("dwSize", &self.dwSize).field("dwItemID", &self.dwItemID).field("pKeyWordName", &self.pKeyWordName).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23149,6 +25263,11 @@ impl ::core::clone::Clone for WIDTHRUN {
         *self
     }
 }
+impl ::core::fmt::Debug for WIDTHRUN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIDTHRUN").field("wStartGlyph", &self.wStartGlyph).field("wGlyphCount", &self.wGlyphCount).field("loCharWidthOffset", &self.loCharWidthOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIDTHRUN {
     type Abi = Self;
 }
@@ -23174,6 +25293,11 @@ impl ::core::marker::Copy for WIDTHTABLE {}
 impl ::core::clone::Clone for WIDTHTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIDTHTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIDTHTABLE").field("dwSize", &self.dwSize).field("dwRunNum", &self.dwRunNum).field("WidthRun", &self.WidthRun).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIDTHTABLE {
@@ -23271,6 +25395,11 @@ impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V1 {
         *self
     }
 }
+impl ::core::fmt::Debug for _SPLCLIENT_INFO_2_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_SPLCLIENT_INFO_2_V1").field("hSplPrinter", &self.hSplPrinter).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for _SPLCLIENT_INFO_2_V1 {
     type Abi = Self;
 }
@@ -23297,6 +25426,12 @@ impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V2 {}
 impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -23332,6 +25467,12 @@ impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V2 {
     }
 }
 #[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
+    }
+}
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for _SPLCLIENT_INFO_2_V2 {
     type Abi = Self;
 }
@@ -23358,6 +25499,11 @@ impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V3 {}
 impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _SPLCLIENT_INFO_2_V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_SPLCLIENT_INFO_2_V3").field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _SPLCLIENT_INFO_2_V3 {
@@ -23406,6 +25552,24 @@ impl ::core::clone::Clone for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
             userFallback: self.userFallback.clone(),
             exceptionID: self.exceptionID,
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__MIDL___MIDL_itf_imgerror_0000_0000_0001")
+            .field("description", &self.description)
+            .field("guid", &self.guid)
+            .field("helpContext", &self.helpContext)
+            .field("helpFile", &self.helpFile)
+            .field("source", &self.source)
+            .field("devDescription", &self.devDescription)
+            .field("errorID", &self.errorID)
+            .field("cUserParameters", &self.cUserParameters)
+            .field("aUserParameters", &self.aUserParameters)
+            .field("userFallback", &self.userFallback)
+            .field("exceptionID", &self.exceptionID)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

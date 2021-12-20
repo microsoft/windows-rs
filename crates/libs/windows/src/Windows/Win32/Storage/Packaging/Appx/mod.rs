@@ -85,6 +85,12 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_EXEMPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for APPX_ENCRYPTED_EXEMPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPX_ENCRYPTED_EXEMPTIONS").field("count", &self.count).field("plainTextFiles", &self.plainTextFiles).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_EXEMPTIONS {
     type Abi = Self;
 }
@@ -131,6 +137,12 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPX_ENCRYPTED_PACKAGE_SETTINGS").field("keyLength", &self.keyLength).field("encryptionAlgorithm", &self.encryptionAlgorithm).field("useDiffusion", &self.useDiffusion).field("blockMapHashAlgorithm", &self.blockMapHashAlgorithm).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -166,6 +178,12 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
             blockMapHashAlgorithm: self.blockMapHashAlgorithm.clone(),
             options: self.options,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPX_ENCRYPTED_PACKAGE_SETTINGS2").field("keyLength", &self.keyLength).field("encryptionAlgorithm", &self.encryptionAlgorithm).field("blockMapHashAlgorithm", &self.blockMapHashAlgorithm).field("options", &self.options).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -210,6 +228,11 @@ impl ::core::marker::Copy for APPX_KEY_INFO {}
 impl ::core::clone::Clone for APPX_KEY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for APPX_KEY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPX_KEY_INFO").field("keyLength", &self.keyLength).field("keyIdLength", &self.keyIdLength).field("key", &self.key).field("keyId", &self.keyId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for APPX_KEY_INFO {
@@ -280,6 +303,12 @@ impl ::core::clone::Clone for APPX_PACKAGE_SETTINGS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for APPX_PACKAGE_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPX_PACKAGE_SETTINGS").field("forceZip32", &self.forceZip32).field("hashMethod", &self.hashMethod).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_SETTINGS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -310,6 +339,12 @@ pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
 impl ::core::clone::Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     fn clone(&self) -> Self {
         Self { inputStream: self.inputStream.clone(), fileName: self.fileName, contentType: self.contentType, compressionOption: self.compressionOption }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPX_PACKAGE_WRITER_PAYLOAD_STREAM").field("inputStream", &self.inputStream).field("fileName", &self.fileName).field("contentType", &self.contentType).field("compressionOption", &self.compressionOption).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6956,6 +6991,11 @@ impl ::core::clone::Clone for PACKAGEDEPENDENCY_CONTEXT__ {
         *self
     }
 }
+impl ::core::fmt::Debug for PACKAGEDEPENDENCY_CONTEXT__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKAGEDEPENDENCY_CONTEXT__").field("unused", &self.unused).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PACKAGEDEPENDENCY_CONTEXT__ {
     type Abi = Self;
 }
@@ -7013,6 +7053,12 @@ impl ::core::clone::Clone for PACKAGE_ID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PACKAGE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKAGE_ID").field("reserved", &self.reserved).field("processorArchitecture", &self.processorArchitecture).field("version", &self.version).field("name", &self.name).field("publisher", &self.publisher).field("resourceId", &self.resourceId).field("publisherId", &self.publisherId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PACKAGE_ID {
     type Abi = Self;
 }
@@ -7047,6 +7093,12 @@ impl ::core::marker::Copy for PACKAGE_INFO {}
 impl ::core::clone::Clone for PACKAGE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PACKAGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKAGE_INFO").field("reserved", &self.reserved).field("flags", &self.flags).field("path", &self.path).field("packageFullName", &self.packageFullName).field("packageFamilyName", &self.packageFamilyName).field("packageId", &self.packageId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7098,6 +7150,11 @@ impl ::core::marker::Copy for PACKAGE_VERSION {}
 impl ::core::clone::Clone for PACKAGE_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PACKAGE_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKAGE_VERSION").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PACKAGE_VERSION {
@@ -7154,6 +7211,11 @@ impl ::core::clone::Clone for PACKAGE_VERSION_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for PACKAGE_VERSION_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKAGE_VERSION_0_0").field("Revision", &self.Revision).field("Build", &self.Build).field("Minor", &self.Minor).field("Major", &self.Major).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0_0 {
     type Abi = Self;
 }
@@ -7177,6 +7239,11 @@ impl ::core::marker::Copy for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {}
 impl ::core::clone::Clone for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
@@ -7465,6 +7532,11 @@ impl ::core::marker::Copy for _PACKAGE_INFO_REFERENCE {}
 impl ::core::clone::Clone for _PACKAGE_INFO_REFERENCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _PACKAGE_INFO_REFERENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_PACKAGE_INFO_REFERENCE").field("reserved", &self.reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _PACKAGE_INFO_REFERENCE {

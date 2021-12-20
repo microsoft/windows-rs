@@ -314,6 +314,11 @@ impl ::core::clone::Clone for ArcadeStickReading {
         *self
     }
 }
+impl ::core::fmt::Debug for ArcadeStickReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ArcadeStickReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ArcadeStickReading {
     type Abi = Self;
 }
@@ -639,6 +644,11 @@ impl ::core::marker::Copy for FlightStickReading {}
 impl ::core::clone::Clone for FlightStickReading {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FlightStickReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FlightStickReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("HatSwitch", &self.HatSwitch).field("Roll", &self.Roll).field("Pitch", &self.Pitch).field("Yaw", &self.Yaw).field("Throttle", &self.Throttle).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FlightStickReading {
@@ -1154,6 +1164,11 @@ impl ::core::clone::Clone for GamepadReading {
         *self
     }
 }
+impl ::core::fmt::Debug for GamepadReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GamepadReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("LeftTrigger", &self.LeftTrigger).field("RightTrigger", &self.RightTrigger).field("LeftThumbstickX", &self.LeftThumbstickX).field("LeftThumbstickY", &self.LeftThumbstickY).field("RightThumbstickX", &self.RightThumbstickX).field("RightThumbstickY", &self.RightThumbstickY).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GamepadReading {
     type Abi = Self;
 }
@@ -1186,6 +1201,11 @@ impl ::core::marker::Copy for GamepadVibration {}
 impl ::core::clone::Clone for GamepadVibration {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GamepadVibration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GamepadVibration").field("LeftMotor", &self.LeftMotor).field("RightMotor", &self.RightMotor).field("LeftTrigger", &self.LeftTrigger).field("RightTrigger", &self.RightTrigger).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GamepadVibration {
@@ -2405,6 +2425,11 @@ impl ::core::clone::Clone for RacingWheelReading {
         *self
     }
 }
+impl ::core::fmt::Debug for RacingWheelReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RacingWheelReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("PatternShifterGear", &self.PatternShifterGear).field("Wheel", &self.Wheel).field("Throttle", &self.Throttle).field("Brake", &self.Brake).field("Clutch", &self.Clutch).field("Handbrake", &self.Handbrake).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RacingWheelReading {
     type Abi = Self;
 }
@@ -3072,6 +3097,11 @@ impl ::core::marker::Copy for UINavigationReading {}
 impl ::core::clone::Clone for UINavigationReading {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UINavigationReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UINavigationReading").field("Timestamp", &self.Timestamp).field("RequiredButtons", &self.RequiredButtons).field("OptionalButtons", &self.OptionalButtons).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UINavigationReading {

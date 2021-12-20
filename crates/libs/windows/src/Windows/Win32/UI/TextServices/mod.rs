@@ -13193,6 +13193,11 @@ impl ::core::clone::Clone for TF_DA_COLOR {
         *self
     }
 }
+impl ::core::fmt::Debug for TF_DA_COLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_DA_COLOR").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TF_DA_COLOR {
     type Abi = Self;
 }
@@ -13285,6 +13290,12 @@ impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_DISPLAYATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_DISPLAYATTRIBUTE").field("crText", &self.crText).field("crBk", &self.crBk).field("lsStyle", &self.lsStyle).field("fBoldLine", &self.fBoldLine).field("crLine", &self.crLine).field("bAttr", &self.bAttr).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TF_DISPLAYATTRIBUTE {
     type Abi = Self;
 }
@@ -13358,6 +13369,11 @@ impl ::core::clone::Clone for TF_HALTCOND {
         Self { pHaltRange: self.pHaltRange.clone(), aHaltPos: self.aHaltPos, dwFlags: self.dwFlags }
     }
 }
+impl ::core::fmt::Debug for TF_HALTCOND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_HALTCOND").field("pHaltRange", &self.pHaltRange).field("aHaltPos", &self.aHaltPos).field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TF_HALTCOND {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -13393,6 +13409,11 @@ impl ::core::marker::Copy for TF_INPUTPROCESSORPROFILE {}
 impl ::core::clone::Clone for TF_INPUTPROCESSORPROFILE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TF_INPUTPROCESSORPROFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_INPUTPROCESSORPROFILE").field("dwProfileType", &self.dwProfileType).field("langid", &self.langid).field("clsid", &self.clsid).field("guidProfile", &self.guidProfile).field("catid", &self.catid).field("hklSubstitute", &self.hklSubstitute).field("dwCaps", &self.dwCaps).field("hkl", &self.hkl).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TF_INPUTPROCESSORPROFILE {
@@ -13462,6 +13483,11 @@ impl ::core::clone::Clone for TF_LANGBARITEMINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for TF_LANGBARITEMINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_LANGBARITEMINFO").field("clsidService", &self.clsidService).field("guidItem", &self.guidItem).field("dwStyle", &self.dwStyle).field("ulSort", &self.ulSort).field("szDescription", &self.szDescription).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TF_LANGBARITEMINFO {
     type Abi = Self;
 }
@@ -13495,6 +13521,12 @@ impl ::core::clone::Clone for TF_LANGUAGEPROFILE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_LANGUAGEPROFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_LANGUAGEPROFILE").field("clsid", &self.clsid).field("langid", &self.langid).field("catid", &self.catid).field("fActive", &self.fActive).field("guidProfile", &self.guidProfile).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TF_LANGUAGEPROFILE {
     type Abi = Self;
 }
@@ -13523,6 +13555,12 @@ pub struct TF_LBBALLOONINFO {
 impl ::core::clone::Clone for TF_LBBALLOONINFO {
     fn clone(&self) -> Self {
         Self { style: self.style, bstrText: self.bstrText.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_LBBALLOONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_LBBALLOONINFO").field("style", &self.style).field("bstrText", &self.bstrText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13609,6 +13647,12 @@ pub struct TF_LMLATTELEMENT {
 impl ::core::clone::Clone for TF_LMLATTELEMENT {
     fn clone(&self) -> Self {
         Self { dwFrameStart: self.dwFrameStart, dwFrameLen: self.dwFrameLen, dwFlags: self.dwFlags, Anonymous: self.Anonymous, bstrText: self.bstrText.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_LMLATTELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_LMLATTELEMENT").field("dwFrameStart", &self.dwFrameStart).field("dwFrameLen", &self.dwFrameLen).field("dwFlags", &self.dwFlags).field("Anonymous", &self.Anonymous).field("bstrText", &self.bstrText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13701,6 +13745,11 @@ impl ::core::clone::Clone for TF_PERSISTENT_PROPERTY_HEADER_ACP {
         *self
     }
 }
+impl ::core::fmt::Debug for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_PERSISTENT_PROPERTY_HEADER_ACP").field("guidType", &self.guidType).field("ichStart", &self.ichStart).field("cch", &self.cch).field("cb", &self.cb).field("dwPrivate", &self.dwPrivate).field("clsidTIP", &self.clsidTIP).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TF_PERSISTENT_PROPERTY_HEADER_ACP {
     type Abi = Self;
 }
@@ -13727,6 +13776,11 @@ impl ::core::marker::Copy for TF_PRESERVEDKEY {}
 impl ::core::clone::Clone for TF_PRESERVEDKEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TF_PRESERVEDKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_PRESERVEDKEY").field("uVKey", &self.uVKey).field("uModifiers", &self.uModifiers).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TF_PRESERVEDKEY {
@@ -13772,6 +13826,12 @@ pub struct TF_PROPERTYVAL {
 impl ::core::clone::Clone for TF_PROPERTYVAL {
     fn clone(&self) -> Self {
         Self { guidId: self.guidId, varValue: self.varValue.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for TF_PROPERTYVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_PROPERTYVAL").field("guidId", &self.guidId).field("varValue", &self.varValue).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13840,6 +13900,12 @@ impl ::core::clone::Clone for TF_SELECTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_SELECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_SELECTION").field("range", &self.range).field("style", &self.style).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TF_SELECTION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -13870,6 +13936,12 @@ impl ::core::marker::Copy for TF_SELECTIONSTYLE {}
 impl ::core::clone::Clone for TF_SELECTIONSTYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_SELECTIONSTYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14135,6 +14207,12 @@ impl ::core::clone::Clone for TS_ATTRVAL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for TS_ATTRVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_ATTRVAL").field("idAttr", &self.idAttr).field("dwOverlapId", &self.dwOverlapId).field("varValue", &self.varValue).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for TS_ATTRVAL {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -14218,6 +14296,11 @@ impl ::core::clone::Clone for TS_RUNINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for TS_RUNINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_RUNINFO").field("uCount", &self.uCount).field("type", &self.r#type).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TS_RUNINFO {
     type Abi = Self;
 }
@@ -14266,6 +14349,12 @@ impl ::core::clone::Clone for TS_SELECTIONSTYLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TS_SELECTIONSTYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TS_SELECTIONSTYLE {
     type Abi = Self;
 }
@@ -14300,6 +14389,12 @@ impl ::core::clone::Clone for TS_SELECTION_ACP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TS_SELECTION_ACP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_SELECTION_ACP").field("acpStart", &self.acpStart).field("acpEnd", &self.acpEnd).field("style", &self.style).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TS_SELECTION_ACP {
     type Abi = Self;
 }
@@ -14329,6 +14424,12 @@ pub struct TS_SELECTION_ANCHOR {
 impl ::core::clone::Clone for TS_SELECTION_ANCHOR {
     fn clone(&self) -> Self {
         Self { paStart: self.paStart.clone(), paEnd: self.paEnd.clone(), style: self.style }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TS_SELECTION_ANCHOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_SELECTION_ANCHOR").field("paStart", &self.paStart).field("paEnd", &self.paEnd).field("style", &self.style).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14383,6 +14484,11 @@ impl ::core::clone::Clone for TS_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for TS_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_STATUS").field("dwDynamicFlags", &self.dwDynamicFlags).field("dwStaticFlags", &self.dwStaticFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TS_STATUS {
     type Abi = Self;
 }
@@ -14416,6 +14522,11 @@ impl ::core::marker::Copy for TS_TEXTCHANGE {}
 impl ::core::clone::Clone for TS_TEXTCHANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TS_TEXTCHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_TEXTCHANGE").field("acpStart", &self.acpStart).field("acpOldEnd", &self.acpOldEnd).field("acpNewEnd", &self.acpNewEnd).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TS_TEXTCHANGE {

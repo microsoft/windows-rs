@@ -17,6 +17,12 @@ impl ::core::clone::Clone for GpioChangeCount {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for GpioChangeCount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GpioChangeCount").field("Count", &self.Count).field("RelativeTime", &self.RelativeTime).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for GpioChangeCount {
     type Abi = Self;
 }
@@ -468,6 +474,12 @@ impl ::core::marker::Copy for GpioChangeRecord {}
 impl ::core::clone::Clone for GpioChangeRecord {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for GpioChangeRecord {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GpioChangeRecord").field("RelativeTime", &self.RelativeTime).field("Edge", &self.Edge).finish()
     }
 }
 #[cfg(feature = "Foundation")]

@@ -1103,6 +1103,11 @@ impl ::core::clone::Clone for RetrievalProgress {
         *self
     }
 }
+impl ::core::fmt::Debug for RetrievalProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RetrievalProgress").field("BytesRetrieved", &self.BytesRetrieved).field("TotalBytesToRetrieve", &self.TotalBytesToRetrieve).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RetrievalProgress {
     type Abi = Self;
 }
@@ -4191,6 +4196,11 @@ impl ::core::marker::Copy for TransferProgress {}
 impl ::core::clone::Clone for TransferProgress {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TransferProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TransferProgress").field("BytesSent", &self.BytesSent).field("TotalBytesToSend", &self.TotalBytesToSend).field("BytesRetrieved", &self.BytesRetrieved).field("TotalBytesToRetrieve", &self.TotalBytesToRetrieve).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TransferProgress {

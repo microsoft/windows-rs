@@ -2163,6 +2163,11 @@ impl ::core::clone::Clone for CorePhysicalKeyStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for CorePhysicalKeyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CorePhysicalKeyStatus").field("RepeatCount", &self.RepeatCount).field("ScanCode", &self.ScanCode).field("IsExtendedKey", &self.IsExtendedKey).field("IsMenuKeyDown", &self.IsMenuKeyDown).field("WasKeyDown", &self.WasKeyDown).field("IsKeyReleased", &self.IsKeyReleased).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CorePhysicalKeyStatus {
     type Abi = Self;
 }
@@ -2226,6 +2231,12 @@ impl ::core::marker::Copy for CoreProximityEvaluation {}
 impl ::core::clone::Clone for CoreProximityEvaluation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for CoreProximityEvaluation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CoreProximityEvaluation").field("Score", &self.Score).field("AdjustedPoint", &self.AdjustedPoint).finish()
     }
 }
 #[cfg(feature = "Foundation")]

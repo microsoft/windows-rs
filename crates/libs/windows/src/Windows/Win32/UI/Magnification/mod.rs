@@ -10,6 +10,11 @@ impl ::core::clone::Clone for MAGCOLOREFFECT {
         *self
     }
 }
+impl ::core::fmt::Debug for MAGCOLOREFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MAGCOLOREFFECT").field("transform", &self.transform).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MAGCOLOREFFECT {
     type Abi = Self;
 }
@@ -40,6 +45,11 @@ impl ::core::clone::Clone for MAGIMAGEHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for MAGIMAGEHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MAGIMAGEHEADER").field("width", &self.width).field("height", &self.height).field("format", &self.format).field("stride", &self.stride).field("offset", &self.offset).field("cbSize", &self.cbSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MAGIMAGEHEADER {
     type Abi = Self;
 }
@@ -63,6 +73,11 @@ impl ::core::marker::Copy for MAGTRANSFORM {}
 impl ::core::clone::Clone for MAGTRANSFORM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MAGTRANSFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MAGTRANSFORM").field("v", &self.v).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MAGTRANSFORM {

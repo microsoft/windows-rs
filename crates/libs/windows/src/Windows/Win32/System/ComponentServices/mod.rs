@@ -28,6 +28,27 @@ impl ::core::clone::Clone for ApplicationProcessRecycleInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ApplicationProcessRecycleInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ApplicationProcessRecycleInfo")
+            .field("IsRecyclable", &self.IsRecyclable)
+            .field("IsRecycled", &self.IsRecycled)
+            .field("TimeRecycled", &self.TimeRecycled)
+            .field("TimeToTerminate", &self.TimeToTerminate)
+            .field("RecycleReasonCode", &self.RecycleReasonCode)
+            .field("IsPendingRecycle", &self.IsPendingRecycle)
+            .field("HasAutomaticLifetimeRecycling", &self.HasAutomaticLifetimeRecycling)
+            .field("TimeForAutomaticRecycling", &self.TimeForAutomaticRecycling)
+            .field("MemoryLimitInKB", &self.MemoryLimitInKB)
+            .field("MemoryUsageInKBLastCheck", &self.MemoryUsageInKBLastCheck)
+            .field("ActivationLimit", &self.ActivationLimit)
+            .field("NumActivationsLastReported", &self.NumActivationsLastReported)
+            .field("CallLimit", &self.CallLimit)
+            .field("NumCallsLastReported", &self.NumCallsLastReported)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ApplicationProcessRecycleInfo {
     type Abi = Self;
 }
@@ -61,6 +82,11 @@ impl ::core::marker::Copy for ApplicationProcessStatistics {}
 impl ::core::clone::Clone for ApplicationProcessStatistics {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ApplicationProcessStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ApplicationProcessStatistics").field("NumCallsOutstanding", &self.NumCallsOutstanding).field("NumTrackedComponents", &self.NumTrackedComponents).field("NumComponentInstances", &self.NumComponentInstances).field("AvgCallsPerSecond", &self.AvgCallsPerSecond).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationProcessStatistics {
@@ -100,6 +126,22 @@ impl ::core::clone::Clone for ApplicationProcessSummary {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ApplicationProcessSummary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ApplicationProcessSummary")
+            .field("PartitionIdPrimaryApplication", &self.PartitionIdPrimaryApplication)
+            .field("ApplicationIdPrimaryApplication", &self.ApplicationIdPrimaryApplication)
+            .field("ApplicationInstanceId", &self.ApplicationInstanceId)
+            .field("ProcessId", &self.ProcessId)
+            .field("Type", &self.Type)
+            .field("ProcessExeName", &self.ProcessExeName)
+            .field("IsService", &self.IsService)
+            .field("IsPaused", &self.IsPaused)
+            .field("IsRecycled", &self.IsRecycled)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ApplicationProcessSummary {
     type Abi = Self;
 }
@@ -135,6 +177,12 @@ impl ::core::marker::Copy for ApplicationSummary {}
 impl ::core::clone::Clone for ApplicationSummary {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ApplicationSummary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ApplicationSummary").field("ApplicationInstanceId", &self.ApplicationInstanceId).field("PartitionId", &self.PartitionId).field("ApplicationId", &self.ApplicationId).field("Type", &self.Type).field("ApplicationName", &self.ApplicationName).field("NumTrackedComponents", &self.NumTrackedComponents).field("NumComponentInstances", &self.NumComponentInstances).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -224,6 +272,11 @@ impl ::core::clone::Clone for CAppData {
         *self
     }
 }
+impl ::core::fmt::Debug for CAppData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAppData").field("m_idApp", &self.m_idApp).field("m_szAppGuid", &self.m_szAppGuid).field("m_dwAppProcessId", &self.m_dwAppProcessId).field("m_AppStatistics", &self.m_AppStatistics).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CAppData {
     type Abi = Self;
 }
@@ -250,6 +303,11 @@ impl ::core::marker::Copy for CAppStatistics {}
 impl ::core::clone::Clone for CAppStatistics {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CAppStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAppStatistics").field("m_cTotalCalls", &self.m_cTotalCalls).field("m_cTotalInstances", &self.m_cTotalInstances).field("m_cTotalClasses", &self.m_cTotalClasses).field("m_cCallsPerSecond", &self.m_cCallsPerSecond).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CAppStatistics {
@@ -282,6 +340,11 @@ impl ::core::marker::Copy for CCLSIDData {}
 impl ::core::clone::Clone for CCLSIDData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CCLSIDData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CCLSIDData").field("m_clsid", &self.m_clsid).field("m_cReferences", &self.m_cReferences).field("m_cBound", &self.m_cBound).field("m_cPooled", &self.m_cPooled).field("m_cInCall", &self.m_cInCall).field("m_dwRespTime", &self.m_dwRespTime).field("m_cCallsCompleted", &self.m_cCallsCompleted).field("m_cCallsFailed", &self.m_cCallsFailed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CCLSIDData {
@@ -322,6 +385,26 @@ impl ::core::marker::Copy for CCLSIDData2 {}
 impl ::core::clone::Clone for CCLSIDData2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CCLSIDData2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CCLSIDData2")
+            .field("m_clsid", &self.m_clsid)
+            .field("m_appid", &self.m_appid)
+            .field("m_partid", &self.m_partid)
+            .field("m_pwszAppName", &self.m_pwszAppName)
+            .field("m_pwszCtxName", &self.m_pwszCtxName)
+            .field("m_eAppType", &self.m_eAppType)
+            .field("m_cReferences", &self.m_cReferences)
+            .field("m_cBound", &self.m_cBound)
+            .field("m_cPooled", &self.m_cPooled)
+            .field("m_cInCall", &self.m_cInCall)
+            .field("m_dwRespTime", &self.m_dwRespTime)
+            .field("m_cCallsCompleted", &self.m_cCallsCompleted)
+            .field("m_cCallsFailed", &self.m_cCallsFailed)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -853,6 +936,12 @@ impl ::core::clone::Clone for COMSVCSEVENTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COMSVCSEVENTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMSVCSEVENTINFO").field("cbSize", &self.cbSize).field("dwPid", &self.dwPid).field("lTime", &self.lTime).field("lMicroTime", &self.lMicroTime).field("perfCount", &self.perfCount).field("guidApp", &self.guidApp).field("sMachineName", &self.sMachineName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COMSVCSEVENTINFO {
     type Abi = Self;
 }
@@ -1067,6 +1156,12 @@ impl ::core::clone::Clone for ComponentHangMonitorInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ComponentHangMonitorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ComponentHangMonitorInfo").field("IsMonitored", &self.IsMonitored).field("TerminateOnHang", &self.TerminateOnHang).field("AvgCallThresholdInMs", &self.AvgCallThresholdInMs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ComponentHangMonitorInfo {
     type Abi = Self;
 }
@@ -1107,6 +1202,25 @@ impl ::core::clone::Clone for ComponentStatistics {
         *self
     }
 }
+impl ::core::fmt::Debug for ComponentStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ComponentStatistics")
+            .field("NumInstances", &self.NumInstances)
+            .field("NumBoundReferences", &self.NumBoundReferences)
+            .field("NumPooledObjects", &self.NumPooledObjects)
+            .field("NumObjectsInCall", &self.NumObjectsInCall)
+            .field("AvgResponseTimeInMs", &self.AvgResponseTimeInMs)
+            .field("NumCallsCompletedRecent", &self.NumCallsCompletedRecent)
+            .field("NumCallsFailedRecent", &self.NumCallsFailedRecent)
+            .field("NumCallsCompletedTotal", &self.NumCallsCompletedTotal)
+            .field("NumCallsFailedTotal", &self.NumCallsFailedTotal)
+            .field("Reserved1", &self.Reserved1)
+            .field("Reserved2", &self.Reserved2)
+            .field("Reserved3", &self.Reserved3)
+            .field("Reserved4", &self.Reserved4)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ComponentStatistics {
     type Abi = Self;
 }
@@ -1138,6 +1252,12 @@ impl ::core::marker::Copy for ComponentSummary {}
 impl ::core::clone::Clone for ComponentSummary {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ComponentSummary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ComponentSummary").field("ApplicationInstanceId", &self.ApplicationInstanceId).field("PartitionId", &self.PartitionId).field("ApplicationId", &self.ApplicationId).field("Clsid", &self.Clsid).field("ClassName", &self.ClassName).field("ApplicationName", &self.ApplicationName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1493,6 +1613,12 @@ impl ::core::clone::Clone for CrmLogRecordRead {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for CrmLogRecordRead {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CrmLogRecordRead").field("dwCrmFlags", &self.dwCrmFlags).field("dwSequenceNumber", &self.dwSequenceNumber).field("blobUserData", &self.blobUserData).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for CrmLogRecordRead {
     type Abi = Self;
 }
@@ -1594,6 +1720,12 @@ impl ::core::marker::Copy for HANG_INFO {}
 impl ::core::clone::Clone for HANG_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HANG_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HANG_INFO").field("fAppHangMonitorEnabled", &self.fAppHangMonitorEnabled).field("fTerminateOnHang", &self.fTerminateOnHang).field("DumpType", &self.DumpType).field("dwHangTimeout", &self.dwHangTimeout).field("dwDumpCount", &self.dwDumpCount).field("dwInfoMsgCount", &self.dwInfoMsgCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12267,6 +12399,11 @@ impl ::core::marker::Copy for RECYCLE_INFO {}
 impl ::core::clone::Clone for RECYCLE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RECYCLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECYCLE_INFO").field("guidCombaseProcessIdentifier", &self.guidCombaseProcessIdentifier).field("ProcessStartTime", &self.ProcessStartTime).field("dwRecycleLifetimeLimit", &self.dwRecycleLifetimeLimit).field("dwRecycleMemoryLimit", &self.dwRecycleMemoryLimit).field("dwRecycleExpirationTimeout", &self.dwRecycleExpirationTimeout).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RECYCLE_INFO {

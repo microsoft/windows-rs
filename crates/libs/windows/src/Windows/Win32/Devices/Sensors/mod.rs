@@ -987,6 +987,11 @@ impl ::core::clone::Clone for MATRIX3X3 {
         *self
     }
 }
+impl ::core::fmt::Debug for MATRIX3X3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MATRIX3X3").field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MATRIX3X3 {
     type Abi = Self;
 }
@@ -1047,6 +1052,11 @@ impl ::core::clone::Clone for MATRIX3X3_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for MATRIX3X3_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MATRIX3X3_0_0").field("A11", &self.A11).field("A12", &self.A12).field("A13", &self.A13).field("A21", &self.A21).field("A22", &self.A22).field("A23", &self.A23).field("A31", &self.A31).field("A32", &self.A32).field("A33", &self.A33).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MATRIX3X3_0_0 {
     type Abi = Self;
 }
@@ -1072,6 +1082,11 @@ impl ::core::marker::Copy for MATRIX3X3_0_1 {}
 impl ::core::clone::Clone for MATRIX3X3_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MATRIX3X3_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MATRIX3X3_0_1").field("V1", &self.V1).field("V2", &self.V2).field("V3", &self.V3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MATRIX3X3_0_1 {
@@ -1390,6 +1405,11 @@ impl ::core::clone::Clone for QUATERNION {
         *self
     }
 }
+impl ::core::fmt::Debug for QUATERNION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUATERNION").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for QUATERNION {
     type Abi = Self;
 }
@@ -1428,6 +1448,12 @@ pub struct SENSOR_COLLECTION_LIST {
 impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
     fn clone(&self) -> Self {
         Self { AllocatedSizeInBytes: self.AllocatedSizeInBytes, Count: self.Count, List: self.List.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::fmt::Debug for SENSOR_COLLECTION_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SENSOR_COLLECTION_LIST").field("AllocatedSizeInBytes", &self.AllocatedSizeInBytes).field("Count", &self.Count).field("List", &self.List).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1920,6 +1946,12 @@ impl ::core::clone::Clone for SENSOR_PROPERTY_LIST {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for SENSOR_PROPERTY_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SENSOR_PROPERTY_LIST").field("AllocatedSizeInBytes", &self.AllocatedSizeInBytes).field("Count", &self.Count).field("List", &self.List).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for SENSOR_PROPERTY_LIST {
     type Abi = Self;
 }
@@ -2061,6 +2093,12 @@ impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::fmt::Debug for SENSOR_VALUE_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SENSOR_VALUE_PAIR").field("Key", &self.Key).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for SENSOR_VALUE_PAIR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2191,6 +2229,11 @@ impl ::core::marker::Copy for VEC3D {}
 impl ::core::clone::Clone for VEC3D {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VEC3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VEC3D").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VEC3D {

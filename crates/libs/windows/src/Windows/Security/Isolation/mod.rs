@@ -992,6 +992,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateProgress {
         *self
     }
 }
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IsolatedWindowsEnvironmentCreateProgress").field("State", &self.State).field("PercentComplete", &self.PercentComplete).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateProgress {
     type Abi = Self;
 }

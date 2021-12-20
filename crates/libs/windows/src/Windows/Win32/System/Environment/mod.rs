@@ -101,6 +101,11 @@ impl ::core::clone::Clone for ENCLAVE_IDENTITY {
         *self
     }
 }
+impl ::core::fmt::Debug for ENCLAVE_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCLAVE_IDENTITY").field("OwnerId", &self.OwnerId).field("UniqueId", &self.UniqueId).field("AuthorId", &self.AuthorId).field("FamilyId", &self.FamilyId).field("ImageId", &self.ImageId).field("EnclaveSvn", &self.EnclaveSvn).field("SecureKernelSvn", &self.SecureKernelSvn).field("PlatformSvn", &self.PlatformSvn).field("Flags", &self.Flags).field("SigningLevel", &self.SigningLevel).field("EnclaveType", &self.EnclaveType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ENCLAVE_IDENTITY {
     type Abi = Self;
 }
@@ -128,6 +133,11 @@ impl ::core::marker::Copy for ENCLAVE_INFORMATION {}
 impl ::core::clone::Clone for ENCLAVE_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ENCLAVE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCLAVE_INFORMATION").field("EnclaveType", &self.EnclaveType).field("Reserved", &self.Reserved).field("BaseAddress", &self.BaseAddress).field("Size", &self.Size).field("Identity", &self.Identity).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ENCLAVE_INFORMATION {
@@ -187,6 +197,11 @@ impl ::core::marker::Copy for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
 impl ::core::clone::Clone for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCLAVE_VBS_BASIC_KEY_REQUEST").field("RequestSize", &self.RequestSize).field("Flags", &self.Flags).field("EnclaveSVN", &self.EnclaveSVN).field("SystemKeyID", &self.SystemKeyID).field("CurrentSystemKeyID", &self.CurrentSystemKeyID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
@@ -739,6 +754,11 @@ impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
         *self
     }
 }
+impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_BASIC_ENCLAVE_EXCEPTION_AMD64").field("ExceptionCode", &self.ExceptionCode).field("NumberParameters", &self.NumberParameters).field("ExceptionInformation", &self.ExceptionInformation).field("ExceptionRAX", &self.ExceptionRAX).field("ExceptionRCX", &self.ExceptionRCX).field("ExceptionRIP", &self.ExceptionRIP).field("ExceptionRFLAGS", &self.ExceptionRFLAGS).field("ExceptionRSP", &self.ExceptionRSP).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     type Abi = Self;
 }
@@ -776,6 +796,25 @@ impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
         *self
     }
 }
+impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_BASIC_ENCLAVE_SYSCALL_PAGE")
+            .field("ReturnFromEnclave", &self.ReturnFromEnclave)
+            .field("ReturnFromException", &self.ReturnFromException)
+            .field("TerminateThread", &self.TerminateThread)
+            .field("InterruptThread", &self.InterruptThread)
+            .field("CommitPages", &self.CommitPages)
+            .field("DecommitPages", &self.DecommitPages)
+            .field("ProtectPages", &self.ProtectPages)
+            .field("CreateThread", &self.CreateThread)
+            .field("GetEnclaveInformation", &self.GetEnclaveInformation)
+            .field("GenerateKey", &self.GenerateKey)
+            .field("GenerateReport", &self.GenerateReport)
+            .field("VerifyReport", &self.VerifyReport)
+            .field("GenerateRandomData", &self.GenerateRandomData)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     type Abi = Self;
 }
@@ -804,6 +843,11 @@ impl ::core::marker::Copy for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {}
 impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
@@ -836,6 +880,11 @@ impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
         *self
     }
 }
+impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     type Abi = Self;
 }
@@ -862,6 +911,11 @@ impl ::core::marker::Copy for VBS_ENCLAVE_REPORT {}
 impl ::core::clone::Clone for VBS_ENCLAVE_REPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VBS_ENCLAVE_REPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_ENCLAVE_REPORT").field("ReportSize", &self.ReportSize).field("ReportVersion", &self.ReportVersion).field("EnclaveData", &self.EnclaveData).field("EnclaveIdentity", &self.EnclaveIdentity).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT {
@@ -895,6 +949,11 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_MODULE {
         *self
     }
 }
+impl ::core::fmt::Debug for VBS_ENCLAVE_REPORT_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_ENCLAVE_REPORT_MODULE").field("Header", &self.Header).field("UniqueId", &self.UniqueId).field("AuthorId", &self.AuthorId).field("FamilyId", &self.FamilyId).field("ImageId", &self.ImageId).field("Svn", &self.Svn).field("ModuleName", &self.ModuleName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_MODULE {
     type Abi = Self;
 }
@@ -925,6 +984,11 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_PKG_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for VBS_ENCLAVE_REPORT_PKG_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_ENCLAVE_REPORT_PKG_HEADER").field("PackageSize", &self.PackageSize).field("Version", &self.Version).field("SignatureScheme", &self.SignatureScheme).field("SignedStatementSize", &self.SignedStatementSize).field("SignatureSize", &self.SignatureSize).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_PKG_HEADER {
     type Abi = Self;
 }
@@ -953,6 +1017,11 @@ impl ::core::marker::Copy for VBS_ENCLAVE_REPORT_VARDATA_HEADER {}
 impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VBS_ENCLAVE_REPORT_VARDATA_HEADER").field("DataType", &self.DataType).field("Size", &self.Size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_VARDATA_HEADER {

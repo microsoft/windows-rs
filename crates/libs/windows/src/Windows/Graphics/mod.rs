@@ -27,6 +27,11 @@ impl ::core::clone::Clone for DisplayAdapterId {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayAdapterId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DisplayAdapterId").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayAdapterId {
     type Abi = Self;
 }
@@ -56,6 +61,11 @@ impl ::core::marker::Copy for DisplayId {}
 impl ::core::clone::Clone for DisplayId {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DisplayId").field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayId {
@@ -162,6 +172,11 @@ impl ::core::clone::Clone for PointInt32 {
         *self
     }
 }
+impl ::core::fmt::Debug for PointInt32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PointInt32").field("X", &self.X).field("Y", &self.Y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PointInt32 {
     type Abi = Self;
 }
@@ -196,6 +211,11 @@ impl ::core::clone::Clone for RectInt32 {
         *self
     }
 }
+impl ::core::fmt::Debug for RectInt32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RectInt32").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RectInt32 {
     type Abi = Self;
 }
@@ -226,6 +246,11 @@ impl ::core::marker::Copy for SizeInt32 {}
 impl ::core::clone::Clone for SizeInt32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SizeInt32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SizeInt32").field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SizeInt32 {

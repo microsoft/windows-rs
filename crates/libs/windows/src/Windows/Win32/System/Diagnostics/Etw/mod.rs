@@ -12,6 +12,11 @@ impl ::core::clone::Clone for CLASSIC_EVENT_ID {
         *self
     }
 }
+impl ::core::fmt::Debug for CLASSIC_EVENT_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLASSIC_EVENT_ID").field("EventGuid", &self.EventGuid).field("Type", &self.Type).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CLASSIC_EVENT_ID {
     type Abi = Self;
 }
@@ -139,6 +144,11 @@ impl ::core::clone::Clone for ENABLE_TRACE_PARAMETERS {
         *self
     }
 }
+impl ::core::fmt::Debug for ENABLE_TRACE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENABLE_TRACE_PARAMETERS").field("Version", &self.Version).field("EnableProperty", &self.EnableProperty).field("ControlFlags", &self.ControlFlags).field("SourceId", &self.SourceId).field("EnableFilterDesc", &self.EnableFilterDesc).field("FilterDescCount", &self.FilterDescCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ENABLE_TRACE_PARAMETERS {
     type Abi = Self;
 }
@@ -166,6 +176,11 @@ impl ::core::marker::Copy for ENABLE_TRACE_PARAMETERS_V1 {}
 impl ::core::clone::Clone for ENABLE_TRACE_PARAMETERS_V1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ENABLE_TRACE_PARAMETERS_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENABLE_TRACE_PARAMETERS_V1").field("Version", &self.Version).field("EnableProperty", &self.EnableProperty).field("ControlFlags", &self.ControlFlags).field("SourceId", &self.SourceId).field("EnableFilterDesc", &self.EnableFilterDesc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ENABLE_TRACE_PARAMETERS_V1 {
@@ -204,6 +219,11 @@ impl ::core::marker::Copy for ETW_BUFFER_CONTEXT {}
 impl ::core::clone::Clone for ETW_BUFFER_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ETW_BUFFER_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_BUFFER_CONTEXT").field("Anonymous", &self.Anonymous).field("LoggerId", &self.LoggerId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT {
@@ -256,6 +276,11 @@ impl ::core::marker::Copy for ETW_BUFFER_CONTEXT_0_0 {}
 impl ::core::clone::Clone for ETW_BUFFER_CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ETW_BUFFER_CONTEXT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_BUFFER_CONTEXT_0_0").field("ProcessorNumber", &self.ProcessorNumber).field("Alignment", &self.Alignment).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT_0_0 {
@@ -323,6 +348,11 @@ impl ::core::clone::Clone for ETW_PMC_COUNTER_OWNER {
         *self
     }
 }
+impl ::core::fmt::Debug for ETW_PMC_COUNTER_OWNER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_PMC_COUNTER_OWNER").field("OwnerType", &self.OwnerType).field("ProfileSource", &self.ProfileSource).field("OwnerTag", &self.OwnerTag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNER {
     type Abi = Self;
 }
@@ -348,6 +378,11 @@ impl ::core::marker::Copy for ETW_PMC_COUNTER_OWNERSHIP_STATUS {}
 impl ::core::clone::Clone for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_PMC_COUNTER_OWNERSHIP_STATUS").field("ProcessorNumber", &self.ProcessorNumber).field("NumberOfCounters", &self.NumberOfCounters).field("CounterOwners", &self.CounterOwners).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
@@ -430,6 +465,11 @@ impl ::core::clone::Clone for ETW_TRACE_PARTITION_INFORMATION {
         *self
     }
 }
+impl ::core::fmt::Debug for ETW_TRACE_PARTITION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_TRACE_PARTITION_INFORMATION").field("PartitionId", &self.PartitionId).field("ParentId", &self.ParentId).field("QpcOffsetFromRoot", &self.QpcOffsetFromRoot).field("PartitionType", &self.PartitionType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ETW_TRACE_PARTITION_INFORMATION {
     type Abi = Self;
 }
@@ -459,6 +499,12 @@ impl ::core::marker::Copy for ETW_TRACE_PARTITION_INFORMATION_V2 {}
 impl ::core::clone::Clone for ETW_TRACE_PARTITION_INFORMATION_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ETW_TRACE_PARTITION_INFORMATION_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_TRACE_PARTITION_INFORMATION_V2").field("QpcOffsetFromRoot", &self.QpcOffsetFromRoot).field("PartitionType", &self.PartitionType).field("PartitionId", &self.PartitionId).field("ParentId", &self.ParentId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -524,6 +570,11 @@ impl ::core::clone::Clone for EVENT_DATA_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_DATA_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_DATA_DESCRIPTOR").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR {
     type Abi = Self;
 }
@@ -577,6 +628,11 @@ impl ::core::clone::Clone for EVENT_DATA_DESCRIPTOR_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_DATA_DESCRIPTOR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_DATA_DESCRIPTOR_0_0").field("Type", &self.Type).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
@@ -614,6 +670,11 @@ impl ::core::marker::Copy for EVENT_DESCRIPTOR {}
 impl ::core::clone::Clone for EVENT_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_DESCRIPTOR").field("Id", &self.Id).field("Version", &self.Version).field("Channel", &self.Channel).field("Level", &self.Level).field("Opcode", &self.Opcode).field("Task", &self.Task).field("Keyword", &self.Keyword).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_DESCRIPTOR {
@@ -665,6 +726,11 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_EVENT_KEY {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_EVENT_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_EVENT_KEY").field("Key", &self.Key).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_EVENT_KEY {
     type Abi = Self;
 }
@@ -692,6 +758,11 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_INSTANCE {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_INSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_INSTANCE").field("InstanceId", &self.InstanceId).field("ParentInstanceId", &self.ParentInstanceId).field("ParentGuid", &self.ParentGuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_INSTANCE {
     type Abi = Self;
 }
@@ -715,6 +786,11 @@ impl ::core::marker::Copy for EVENT_EXTENDED_ITEM_PEBS_INDEX {}
 impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_PEBS_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_PEBS_INDEX").field("PebsIndex", &self.PebsIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PEBS_INDEX {
@@ -742,6 +818,11 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_PMC_COUNTERS").field("Counter", &self.Counter).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     type Abi = Self;
 }
@@ -767,6 +848,11 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_PROCESS_START_KEY").field("ProcessStartKey", &self.ProcessStartKey).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     type Abi = Self;
 }
@@ -790,6 +876,11 @@ impl ::core::marker::Copy for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {}
 impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID").field("RelatedActivityId", &self.RelatedActivityId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
@@ -819,6 +910,11 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_STACK_KEY32 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_KEY32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_STACK_KEY32").field("MatchId", &self.MatchId).field("StackKey", &self.StackKey).field("Padding", &self.Padding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     type Abi = Self;
 }
@@ -843,6 +939,11 @@ impl ::core::marker::Copy for EVENT_EXTENDED_ITEM_STACK_KEY64 {}
 impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_KEY64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_STACK_KEY64").field("MatchId", &self.MatchId).field("StackKey", &self.StackKey).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_KEY64 {
@@ -871,6 +972,11 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_STACK_TRACE32").field("MatchId", &self.MatchId).field("Address", &self.Address).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     type Abi = Self;
 }
@@ -897,6 +1003,11 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_STACK_TRACE64").field("MatchId", &self.MatchId).field("Address", &self.Address).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     type Abi = Self;
 }
@@ -920,6 +1031,11 @@ impl ::core::marker::Copy for EVENT_EXTENDED_ITEM_TS_ID {}
 impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_TS_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_EXTENDED_ITEM_TS_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_EXTENDED_ITEM_TS_ID").field("SessionId", &self.SessionId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_TS_ID {
@@ -963,6 +1079,11 @@ impl ::core::clone::Clone for EVENT_FILTER_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_FILTER_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_FILTER_DESCRIPTOR").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Type", &self.Type).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_FILTER_DESCRIPTOR {
     type Abi = Self;
 }
@@ -992,6 +1113,12 @@ impl ::core::marker::Copy for EVENT_FILTER_EVENT_ID {}
 impl ::core::clone::Clone for EVENT_FILTER_EVENT_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENT_FILTER_EVENT_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_FILTER_EVENT_ID").field("FilterIn", &self.FilterIn).field("Reserved", &self.Reserved).field("Count", &self.Count).field("Events", &self.Events).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1032,6 +1159,12 @@ impl ::core::clone::Clone for EVENT_FILTER_EVENT_NAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENT_FILTER_EVENT_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_FILTER_EVENT_NAME").field("MatchAnyKeyword", &self.MatchAnyKeyword).field("MatchAllKeyword", &self.MatchAllKeyword).field("Level", &self.Level).field("FilterIn", &self.FilterIn).field("NameCount", &self.NameCount).field("Names", &self.Names).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EVENT_FILTER_EVENT_NAME {
     type Abi = Self;
 }
@@ -1065,6 +1198,11 @@ impl ::core::clone::Clone for EVENT_FILTER_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_FILTER_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_FILTER_HEADER").field("Id", &self.Id).field("Version", &self.Version).field("Reserved", &self.Reserved).field("InstanceId", &self.InstanceId).field("Size", &self.Size).field("NextOffset", &self.NextOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_FILTER_HEADER {
     type Abi = Self;
 }
@@ -1094,6 +1232,12 @@ impl ::core::marker::Copy for EVENT_FILTER_LEVEL_KW {}
 impl ::core::clone::Clone for EVENT_FILTER_LEVEL_KW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENT_FILTER_LEVEL_KW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_FILTER_LEVEL_KW").field("MatchAnyKeyword", &self.MatchAnyKeyword).field("MatchAllKeyword", &self.MatchAllKeyword).field("Level", &self.Level).field("FilterIn", &self.FilterIn).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1165,6 +1309,11 @@ impl ::core::clone::Clone for EVENT_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_HEADER").field("Size", &self.Size).field("HeaderType", &self.HeaderType).field("Flags", &self.Flags).field("EventProperty", &self.EventProperty).field("ThreadId", &self.ThreadId).field("ProcessId", &self.ProcessId).field("TimeStamp", &self.TimeStamp).field("ProviderId", &self.ProviderId).field("EventDescriptor", &self.EventDescriptor).field("Anonymous", &self.Anonymous).field("ActivityId", &self.ActivityId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_HEADER {
     type Abi = Self;
 }
@@ -1217,6 +1366,11 @@ impl ::core::clone::Clone for EVENT_HEADER_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_HEADER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_HEADER_0_0").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_HEADER_0_0 {
     type Abi = Self;
 }
@@ -1246,6 +1400,11 @@ impl ::core::clone::Clone for EVENT_HEADER_EXTENDED_DATA_ITEM {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_HEADER_EXTENDED_DATA_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_HEADER_EXTENDED_DATA_ITEM").field("Reserved1", &self.Reserved1).field("ExtType", &self.ExtType).field("Anonymous", &self.Anonymous).field("DataSize", &self.DataSize).field("DataPtr", &self.DataPtr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM {
     type Abi = Self;
 }
@@ -1269,6 +1428,11 @@ impl ::core::marker::Copy for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {}
 impl ::core::clone::Clone for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_HEADER_EXTENDED_DATA_ITEM_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
@@ -1384,6 +1548,11 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_INSTANCE_HEADER").field("Size", &self.Size).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("ThreadId", &self.ThreadId).field("ProcessId", &self.ProcessId).field("TimeStamp", &self.TimeStamp).field("RegHandle", &self.RegHandle).field("InstanceId", &self.InstanceId).field("ParentInstanceId", &self.ParentInstanceId).field("Anonymous3", &self.Anonymous3).field("ParentRegHandle", &self.ParentRegHandle).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER {
     type Abi = Self;
 }
@@ -1434,6 +1603,11 @@ impl ::core::marker::Copy for EVENT_INSTANCE_HEADER_0_0 {}
 impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_INSTANCE_HEADER_0_0").field("HeaderType", &self.HeaderType).field("MarkerFlags", &self.MarkerFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_0_0 {
@@ -1489,6 +1663,11 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_1_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_INSTANCE_HEADER_1_0").field("Type", &self.Type).field("Level", &self.Level).field("Version", &self.Version).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_1_0 {
     type Abi = Self;
 }
@@ -1542,6 +1721,11 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_2_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER_2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_INSTANCE_HEADER_2_0").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2_0 {
     type Abi = Self;
 }
@@ -1566,6 +1750,11 @@ impl ::core::marker::Copy for EVENT_INSTANCE_HEADER_2_1 {}
 impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_2_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_INSTANCE_HEADER_2_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_INSTANCE_HEADER_2_1").field("EventId", &self.EventId).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2_1 {
@@ -1598,6 +1787,12 @@ impl ::core::clone::Clone for EVENT_INSTANCE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENT_INSTANCE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_INSTANCE_INFO").field("RegHandle", &self.RegHandle).field("InstanceId", &self.InstanceId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_INFO {
     type Abi = Self;
 }
@@ -1625,6 +1820,11 @@ impl ::core::marker::Copy for EVENT_MAP_ENTRY {}
 impl ::core::clone::Clone for EVENT_MAP_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_MAP_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_MAP_ENTRY").field("OutputOffset", &self.OutputOffset).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_MAP_ENTRY {
@@ -1680,6 +1880,11 @@ impl ::core::marker::Copy for EVENT_MAP_INFO {}
 impl ::core::clone::Clone for EVENT_MAP_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_MAP_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_MAP_INFO").field("NameOffset", &self.NameOffset).field("Flag", &self.Flag).field("EntryCount", &self.EntryCount).field("Anonymous", &self.Anonymous).field("MapEntryArray", &self.MapEntryArray).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_MAP_INFO {
@@ -1742,6 +1947,11 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_PROPERTY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_PROPERTY_INFO").field("Flags", &self.Flags).field("NameOffset", &self.NameOffset).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("Anonymous3", &self.Anonymous3).field("Anonymous4", &self.Anonymous4).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO {
     type Abi = Self;
 }
@@ -1796,6 +2006,11 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_PROPERTY_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_PROPERTY_INFO_0_0").field("InType", &self.InType).field("OutType", &self.OutType).field("CustomSchemaOffset", &self.CustomSchemaOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_0 {
     type Abi = Self;
 }
@@ -1823,6 +2038,11 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0_1 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_PROPERTY_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_PROPERTY_INFO_0_1").field("InType", &self.InType).field("OutType", &self.OutType).field("MapNameOffset", &self.MapNameOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_1 {
     type Abi = Self;
 }
@@ -1848,6 +2068,11 @@ impl ::core::marker::Copy for EVENT_PROPERTY_INFO_0_2 {}
 impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0_2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_PROPERTY_INFO_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_PROPERTY_INFO_0_2").field("StructStartIndex", &self.StructStartIndex).field("NumOfStructMembers", &self.NumOfStructMembers).field("padding", &self.padding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_2 {
@@ -1953,6 +2178,11 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_3_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_PROPERTY_INFO_3_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_PROPERTY_INFO_3_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_3_0 {
     type Abi = Self;
 }
@@ -1984,6 +2214,11 @@ impl ::core::clone::Clone for EVENT_RECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_RECORD").field("EventHeader", &self.EventHeader).field("BufferContext", &self.BufferContext).field("ExtendedDataCount", &self.ExtendedDataCount).field("UserDataLength", &self.UserDataLength).field("ExtendedData", &self.ExtendedData).field("UserData", &self.UserData).field("UserContext", &self.UserContext).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_RECORD {
     type Abi = Self;
 }
@@ -2013,6 +2248,11 @@ impl ::core::marker::Copy for EVENT_TRACE {}
 impl ::core::clone::Clone for EVENT_TRACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_TRACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE").field("Header", &self.Header).field("InstanceId", &self.InstanceId).field("ParentInstanceId", &self.ParentInstanceId).field("ParentGuid", &self.ParentGuid).field("MofData", &self.MofData).field("MofLength", &self.MofLength).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_TRACE {
@@ -2173,6 +2413,11 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_TRACE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_HEADER").field("Size", &self.Size).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("ThreadId", &self.ThreadId).field("ProcessId", &self.ProcessId).field("TimeStamp", &self.TimeStamp).field("Anonymous3", &self.Anonymous3).field("Anonymous4", &self.Anonymous4).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER {
     type Abi = Self;
 }
@@ -2223,6 +2468,11 @@ impl ::core::marker::Copy for EVENT_TRACE_HEADER_0_0 {}
 impl ::core::clone::Clone for EVENT_TRACE_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_TRACE_HEADER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_HEADER_0_0").field("HeaderType", &self.HeaderType).field("MarkerFlags", &self.MarkerFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_0_0 {
@@ -2276,6 +2526,11 @@ impl ::core::marker::Copy for EVENT_TRACE_HEADER_1_0 {}
 impl ::core::clone::Clone for EVENT_TRACE_HEADER_1_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_TRACE_HEADER_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_HEADER_1_0").field("Type", &self.Type).field("Level", &self.Level).field("Version", &self.Version).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_1_0 {
@@ -2357,6 +2612,11 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_3_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENT_TRACE_HEADER_3_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_HEADER_3_0").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_0 {
     type Abi = Self;
 }
@@ -2381,6 +2641,11 @@ impl ::core::marker::Copy for EVENT_TRACE_HEADER_3_1 {}
 impl ::core::clone::Clone for EVENT_TRACE_HEADER_3_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENT_TRACE_HEADER_3_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_HEADER_3_1").field("ClientContext", &self.ClientContext).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_1 {
@@ -2424,6 +2689,27 @@ impl ::core::marker::Copy for EVENT_TRACE_LOGFILEA {}
 impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for EVENT_TRACE_LOGFILEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_LOGFILEA")
+            .field("LogFileName", &self.LogFileName)
+            .field("LoggerName", &self.LoggerName)
+            .field("CurrentTime", &self.CurrentTime)
+            .field("BuffersRead", &self.BuffersRead)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("CurrentEvent", &self.CurrentEvent)
+            .field("LogfileHeader", &self.LogfileHeader)
+            .field("BufferCallback", &self.BufferCallback)
+            .field("BufferSize", &self.BufferSize)
+            .field("Filled", &self.Filled)
+            .field("EventsLost", &self.EventsLost)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("IsKernelTrace", &self.IsKernelTrace)
+            .field("Context", &self.Context)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -2535,6 +2821,27 @@ impl ::core::marker::Copy for EVENT_TRACE_LOGFILEW {}
 impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for EVENT_TRACE_LOGFILEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_LOGFILEW")
+            .field("LogFileName", &self.LogFileName)
+            .field("LoggerName", &self.LoggerName)
+            .field("CurrentTime", &self.CurrentTime)
+            .field("BuffersRead", &self.BuffersRead)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("CurrentEvent", &self.CurrentEvent)
+            .field("LogfileHeader", &self.LogfileHeader)
+            .field("BufferCallback", &self.BufferCallback)
+            .field("BufferSize", &self.BufferSize)
+            .field("Filled", &self.Filled)
+            .field("EventsLost", &self.EventsLost)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("IsKernelTrace", &self.IsKernelTrace)
+            .field("Context", &self.Context)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -2665,6 +2972,31 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENT_TRACE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_PROPERTIES")
+            .field("Wnode", &self.Wnode)
+            .field("BufferSize", &self.BufferSize)
+            .field("MinimumBuffers", &self.MinimumBuffers)
+            .field("MaximumBuffers", &self.MaximumBuffers)
+            .field("MaximumFileSize", &self.MaximumFileSize)
+            .field("LogFileMode", &self.LogFileMode)
+            .field("FlushTimer", &self.FlushTimer)
+            .field("EnableFlags", &self.EnableFlags)
+            .field("Anonymous", &self.Anonymous)
+            .field("NumberOfBuffers", &self.NumberOfBuffers)
+            .field("FreeBuffers", &self.FreeBuffers)
+            .field("EventsLost", &self.EventsLost)
+            .field("BuffersWritten", &self.BuffersWritten)
+            .field("LogBuffersLost", &self.LogBuffersLost)
+            .field("RealTimeBuffersLost", &self.RealTimeBuffersLost)
+            .field("LoggerThreadId", &self.LoggerThreadId)
+            .field("LogFileNameOffset", &self.LogFileNameOffset)
+            .field("LoggerNameOffset", &self.LoggerNameOffset)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES {
     type Abi = Self;
 }
@@ -2748,6 +3080,35 @@ impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_V2 {}
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENT_TRACE_PROPERTIES_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_PROPERTIES_V2")
+            .field("Wnode", &self.Wnode)
+            .field("BufferSize", &self.BufferSize)
+            .field("MinimumBuffers", &self.MinimumBuffers)
+            .field("MaximumBuffers", &self.MaximumBuffers)
+            .field("MaximumFileSize", &self.MaximumFileSize)
+            .field("LogFileMode", &self.LogFileMode)
+            .field("FlushTimer", &self.FlushTimer)
+            .field("EnableFlags", &self.EnableFlags)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("NumberOfBuffers", &self.NumberOfBuffers)
+            .field("FreeBuffers", &self.FreeBuffers)
+            .field("EventsLost", &self.EventsLost)
+            .field("BuffersWritten", &self.BuffersWritten)
+            .field("LogBuffersLost", &self.LogBuffersLost)
+            .field("RealTimeBuffersLost", &self.RealTimeBuffersLost)
+            .field("LoggerThreadId", &self.LoggerThreadId)
+            .field("LogFileNameOffset", &self.LogFileNameOffset)
+            .field("LoggerNameOffset", &self.LoggerNameOffset)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("FilterDescCount", &self.FilterDescCount)
+            .field("FilterDesc", &self.FilterDesc)
+            .field("Anonymous3", &self.Anonymous3)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2849,6 +3210,12 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENT_TRACE_PROPERTIES_V2_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_PROPERTIES_V2_1_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_1_0 {
     type Abi = Self;
 }
@@ -2911,6 +3278,12 @@ impl ::core::marker::Copy for EVENT_TRACE_PROPERTIES_V2_2_0 {}
 impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_2_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVENT_TRACE_PROPERTIES_V2_2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENT_TRACE_PROPERTIES_V2_2_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3834,6 +4207,11 @@ impl ::core::clone::Clone for MOF_FIELD {
         *self
     }
 }
+impl ::core::fmt::Debug for MOF_FIELD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOF_FIELD").field("DataPtr", &self.DataPtr).field("Length", &self.Length).field("DataType", &self.DataType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MOF_FIELD {
     type Abi = Self;
 }
@@ -3858,6 +4236,11 @@ impl ::core::marker::Copy for OFFSETINSTANCEDATAANDLENGTH {}
 impl ::core::clone::Clone for OFFSETINSTANCEDATAANDLENGTH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OFFSETINSTANCEDATAANDLENGTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFFSETINSTANCEDATAANDLENGTH").field("OffsetInstanceData", &self.OffsetInstanceData).field("LengthInstanceData", &self.LengthInstanceData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OFFSETINSTANCEDATAANDLENGTH {
@@ -3918,6 +4301,12 @@ impl ::core::marker::Copy for PAYLOAD_FILTER_PREDICATE {}
 impl ::core::clone::Clone for PAYLOAD_FILTER_PREDICATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PAYLOAD_FILTER_PREDICATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PAYLOAD_FILTER_PREDICATE").field("FieldName", &self.FieldName).field("CompareOp", &self.CompareOp).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4002,6 +4391,11 @@ impl ::core::clone::Clone for PROFILE_SOURCE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PROFILE_SOURCE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROFILE_SOURCE_INFO").field("NextEntryOffset", &self.NextEntryOffset).field("Source", &self.Source).field("MinInterval", &self.MinInterval).field("MaxInterval", &self.MaxInterval).field("Reserved", &self.Reserved).field("Description", &self.Description).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROFILE_SOURCE_INFO {
     type Abi = Self;
 }
@@ -4027,6 +4421,11 @@ impl ::core::marker::Copy for PROPERTY_DATA_DESCRIPTOR {}
 impl ::core::clone::Clone for PROPERTY_DATA_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROPERTY_DATA_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPERTY_DATA_DESCRIPTOR").field("PropertyName", &self.PropertyName).field("ArrayIndex", &self.ArrayIndex).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROPERTY_DATA_DESCRIPTOR {
@@ -4074,6 +4473,11 @@ impl ::core::clone::Clone for PROVIDER_ENUMERATION_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PROVIDER_ENUMERATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDER_ENUMERATION_INFO").field("NumberOfProviders", &self.NumberOfProviders).field("Reserved", &self.Reserved).field("TraceProviderInfoArray", &self.TraceProviderInfoArray).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROVIDER_ENUMERATION_INFO {
     type Abi = Self;
 }
@@ -4099,6 +4503,11 @@ impl ::core::marker::Copy for PROVIDER_EVENT_INFO {}
 impl ::core::clone::Clone for PROVIDER_EVENT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROVIDER_EVENT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDER_EVENT_INFO").field("NumberOfEvents", &self.NumberOfEvents).field("Reserved", &self.Reserved).field("EventDescriptorsArray", &self.EventDescriptorsArray).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROVIDER_EVENT_INFO {
@@ -4128,6 +4537,11 @@ impl ::core::clone::Clone for PROVIDER_FIELD_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for PROVIDER_FIELD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDER_FIELD_INFO").field("NameOffset", &self.NameOffset).field("DescriptionOffset", &self.DescriptionOffset).field("Value", &self.Value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROVIDER_FIELD_INFO {
     type Abi = Self;
 }
@@ -4153,6 +4567,11 @@ impl ::core::marker::Copy for PROVIDER_FIELD_INFOARRAY {}
 impl ::core::clone::Clone for PROVIDER_FIELD_INFOARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROVIDER_FIELD_INFOARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDER_FIELD_INFOARRAY").field("NumberOfElements", &self.NumberOfElements).field("FieldType", &self.FieldType).field("FieldInfoArray", &self.FieldInfoArray).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROVIDER_FIELD_INFOARRAY {
@@ -4183,6 +4602,11 @@ impl ::core::marker::Copy for PROVIDER_FILTER_INFO {}
 impl ::core::clone::Clone for PROVIDER_FILTER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROVIDER_FILTER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROVIDER_FILTER_INFO").field("Id", &self.Id).field("Version", &self.Version).field("MessageOffset", &self.MessageOffset).field("Reserved", &self.Reserved).field("PropertyCount", &self.PropertyCount).field("EventPropertyInfoArray", &self.EventPropertyInfoArray).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROVIDER_FILTER_INFO {
@@ -4628,6 +5052,11 @@ impl ::core::clone::Clone for TDH_CONTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for TDH_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TDH_CONTEXT").field("ParameterValue", &self.ParameterValue).field("ParameterType", &self.ParameterType).field("ParameterSize", &self.ParameterSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TDH_CONTEXT {
     type Abi = Self;
 }
@@ -4701,6 +5130,11 @@ impl ::core::clone::Clone for TRACE_ENABLE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for TRACE_ENABLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_ENABLE_INFO").field("IsEnabled", &self.IsEnabled).field("Level", &self.Level).field("Reserved1", &self.Reserved1).field("LoggerId", &self.LoggerId).field("EnableProperty", &self.EnableProperty).field("Reserved2", &self.Reserved2).field("MatchAnyKeyword", &self.MatchAnyKeyword).field("MatchAllKeyword", &self.MatchAllKeyword).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TRACE_ENABLE_INFO {
     type Abi = Self;
 }
@@ -4743,6 +5177,32 @@ impl ::core::marker::Copy for TRACE_EVENT_INFO {}
 impl ::core::clone::Clone for TRACE_EVENT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TRACE_EVENT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_EVENT_INFO")
+            .field("ProviderGuid", &self.ProviderGuid)
+            .field("EventGuid", &self.EventGuid)
+            .field("EventDescriptor", &self.EventDescriptor)
+            .field("DecodingSource", &self.DecodingSource)
+            .field("ProviderNameOffset", &self.ProviderNameOffset)
+            .field("LevelNameOffset", &self.LevelNameOffset)
+            .field("ChannelNameOffset", &self.ChannelNameOffset)
+            .field("KeywordsNameOffset", &self.KeywordsNameOffset)
+            .field("TaskNameOffset", &self.TaskNameOffset)
+            .field("OpcodeNameOffset", &self.OpcodeNameOffset)
+            .field("EventMessageOffset", &self.EventMessageOffset)
+            .field("ProviderMessageOffset", &self.ProviderMessageOffset)
+            .field("BinaryXMLOffset", &self.BinaryXMLOffset)
+            .field("BinaryXMLSize", &self.BinaryXMLSize)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("PropertyCount", &self.PropertyCount)
+            .field("TopLevelPropertyCount", &self.TopLevelPropertyCount)
+            .field("Anonymous3", &self.Anonymous3)
+            .field("EventPropertyInfoArray", &self.EventPropertyInfoArray)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO {
@@ -4848,6 +5308,11 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_2_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TRACE_EVENT_INFO_2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_EVENT_INFO_2_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_2_0 {
     type Abi = Self;
 }
@@ -4872,6 +5337,11 @@ impl ::core::marker::Copy for TRACE_GUID_INFO {}
 impl ::core::clone::Clone for TRACE_GUID_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TRACE_GUID_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_GUID_INFO").field("InstanceCount", &self.InstanceCount).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TRACE_GUID_INFO {
@@ -4908,6 +5378,12 @@ impl ::core::clone::Clone for TRACE_GUID_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRACE_GUID_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_GUID_PROPERTIES").field("Guid", &self.Guid).field("GuidType", &self.GuidType).field("LoggerId", &self.LoggerId).field("EnableLevel", &self.EnableLevel).field("EnableFlags", &self.EnableFlags).field("IsEnable", &self.IsEnable).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TRACE_GUID_PROPERTIES {
     type Abi = Self;
 }
@@ -4938,6 +5414,12 @@ impl ::core::marker::Copy for TRACE_GUID_REGISTRATION {}
 impl ::core::clone::Clone for TRACE_GUID_REGISTRATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRACE_GUID_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_GUID_REGISTRATION").field("Guid", &self.Guid).field("RegHandle", &self.RegHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5022,6 +5504,31 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER")
+            .field("BufferSize", &self.BufferSize)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("ProviderVersion", &self.ProviderVersion)
+            .field("NumberOfProcessors", &self.NumberOfProcessors)
+            .field("EndTime", &self.EndTime)
+            .field("TimerResolution", &self.TimerResolution)
+            .field("MaximumFileSize", &self.MaximumFileSize)
+            .field("LogFileMode", &self.LogFileMode)
+            .field("BuffersWritten", &self.BuffersWritten)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("LoggerName", &self.LoggerName)
+            .field("LogFileName", &self.LogFileName)
+            .field("TimeZone", &self.TimeZone)
+            .field("BootTime", &self.BootTime)
+            .field("PerfFreq", &self.PerfFreq)
+            .field("StartTime", &self.StartTime)
+            .field("ReservedFlags", &self.ReservedFlags)
+            .field("BuffersLost", &self.BuffersLost)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER {
     type Abi = Self;
 }
@@ -5087,6 +5594,12 @@ impl ::core::marker::Copy for TRACE_LOGFILE_HEADER_0_0 {}
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER_0_0").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("SubVersion", &self.SubVersion).field("SubMinorVersion", &self.SubMinorVersion).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -5158,6 +5671,12 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER_1_0").field("StartBuffers", &self.StartBuffers).field("PointerSize", &self.PointerSize).field("EventsLost", &self.EventsLost).field("CpuSpeedInMHz", &self.CpuSpeedInMHz).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_1_0 {
     type Abi = Self;
 }
@@ -5204,6 +5723,31 @@ impl ::core::marker::Copy for TRACE_LOGFILE_HEADER32 {}
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER32")
+            .field("BufferSize", &self.BufferSize)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("ProviderVersion", &self.ProviderVersion)
+            .field("NumberOfProcessors", &self.NumberOfProcessors)
+            .field("EndTime", &self.EndTime)
+            .field("TimerResolution", &self.TimerResolution)
+            .field("MaximumFileSize", &self.MaximumFileSize)
+            .field("LogFileMode", &self.LogFileMode)
+            .field("BuffersWritten", &self.BuffersWritten)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("LoggerName", &self.LoggerName)
+            .field("LogFileName", &self.LogFileName)
+            .field("TimeZone", &self.TimeZone)
+            .field("BootTime", &self.BootTime)
+            .field("PerfFreq", &self.PerfFreq)
+            .field("StartTime", &self.StartTime)
+            .field("ReservedFlags", &self.ReservedFlags)
+            .field("BuffersLost", &self.BuffersLost)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -5275,6 +5819,12 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER32_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER32_0_0").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("SubVersion", &self.SubVersion).field("SubMinorVersion", &self.SubMinorVersion).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_0_0 {
     type Abi = Self;
 }
@@ -5343,6 +5893,12 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER32_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER32_1_0").field("StartBuffers", &self.StartBuffers).field("PointerSize", &self.PointerSize).field("EventsLost", &self.EventsLost).field("CpuSpeedInMHz", &self.CpuSpeedInMHz).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_1_0 {
     type Abi = Self;
 }
@@ -5389,6 +5945,31 @@ impl ::core::marker::Copy for TRACE_LOGFILE_HEADER64 {}
 impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER64")
+            .field("BufferSize", &self.BufferSize)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("ProviderVersion", &self.ProviderVersion)
+            .field("NumberOfProcessors", &self.NumberOfProcessors)
+            .field("EndTime", &self.EndTime)
+            .field("TimerResolution", &self.TimerResolution)
+            .field("MaximumFileSize", &self.MaximumFileSize)
+            .field("LogFileMode", &self.LogFileMode)
+            .field("BuffersWritten", &self.BuffersWritten)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("LoggerName", &self.LoggerName)
+            .field("LogFileName", &self.LogFileName)
+            .field("TimeZone", &self.TimeZone)
+            .field("BootTime", &self.BootTime)
+            .field("PerfFreq", &self.PerfFreq)
+            .field("StartTime", &self.StartTime)
+            .field("ReservedFlags", &self.ReservedFlags)
+            .field("BuffersLost", &self.BuffersLost)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -5460,6 +6041,12 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER64_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER64_0_0").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("SubVersion", &self.SubVersion).field("SubMinorVersion", &self.SubMinorVersion).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_0_0 {
     type Abi = Self;
 }
@@ -5528,6 +6115,12 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for TRACE_LOGFILE_HEADER64_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_LOGFILE_HEADER64_1_0").field("StartBuffers", &self.StartBuffers).field("PointerSize", &self.PointerSize).field("EventsLost", &self.EventsLost).field("CpuSpeedInMHz", &self.CpuSpeedInMHz).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_1_0 {
     type Abi = Self;
 }
@@ -5578,6 +6171,11 @@ impl ::core::clone::Clone for TRACE_PERIODIC_CAPTURE_STATE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for TRACE_PERIODIC_CAPTURE_STATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_PERIODIC_CAPTURE_STATE_INFO").field("CaptureStateFrequencyInSeconds", &self.CaptureStateFrequencyInSeconds).field("ProviderCount", &self.ProviderCount).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     type Abi = Self;
 }
@@ -5602,6 +6200,11 @@ impl ::core::marker::Copy for TRACE_PROFILE_INTERVAL {}
 impl ::core::clone::Clone for TRACE_PROFILE_INTERVAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TRACE_PROFILE_INTERVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_PROFILE_INTERVAL").field("Source", &self.Source).field("Interval", &self.Interval).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TRACE_PROFILE_INTERVAL {
@@ -5635,6 +6238,11 @@ impl ::core::clone::Clone for TRACE_PROVIDER_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for TRACE_PROVIDER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_PROVIDER_INFO").field("ProviderGuid", &self.ProviderGuid).field("SchemaSource", &self.SchemaSource).field("ProviderNameOffset", &self.ProviderNameOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TRACE_PROVIDER_INFO {
     type Abi = Self;
 }
@@ -5661,6 +6269,11 @@ impl ::core::marker::Copy for TRACE_PROVIDER_INSTANCE_INFO {}
 impl ::core::clone::Clone for TRACE_PROVIDER_INSTANCE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TRACE_PROVIDER_INSTANCE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_PROVIDER_INSTANCE_INFO").field("NextOffset", &self.NextOffset).field("EnableCount", &self.EnableCount).field("Pid", &self.Pid).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TRACE_PROVIDER_INSTANCE_INFO {
@@ -5752,6 +6365,12 @@ impl ::core::clone::Clone for TRACE_STACK_CACHING_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRACE_STACK_CACHING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_STACK_CACHING_INFO").field("Enabled", &self.Enabled).field("CacheSize", &self.CacheSize).field("BucketCount", &self.BucketCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TRACE_STACK_CACHING_INFO {
     type Abi = Self;
 }
@@ -5779,6 +6398,11 @@ impl ::core::marker::Copy for TRACE_VERSION_INFO {}
 impl ::core::clone::Clone for TRACE_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TRACE_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACE_VERSION_INFO").field("EtwTraceProcessingVersion", &self.EtwTraceProcessingVersion).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TRACE_VERSION_INFO {
@@ -6360,6 +6984,11 @@ impl ::core::clone::Clone for WMIREGGUIDW {
         *self
     }
 }
+impl ::core::fmt::Debug for WMIREGGUIDW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMIREGGUIDW").field("Guid", &self.Guid).field("Flags", &self.Flags).field("InstanceCount", &self.InstanceCount).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WMIREGGUIDW {
     type Abi = Self;
 }
@@ -6416,6 +7045,11 @@ impl ::core::marker::Copy for WMIREGINFOW {}
 impl ::core::clone::Clone for WMIREGINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WMIREGINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMIREGINFOW").field("BufferSize", &self.BufferSize).field("NextWmiRegInfo", &self.NextWmiRegInfo).field("RegistryPath", &self.RegistryPath).field("MofResourceName", &self.MofResourceName).field("GuidCount", &self.GuidCount).field("WmiRegGuid", &self.WmiRegGuid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMIREGINFOW {
@@ -6478,6 +7112,12 @@ impl ::core::marker::Copy for WNODE_ALL_DATA {}
 impl ::core::clone::Clone for WNODE_ALL_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_ALL_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_ALL_DATA").field("WnodeHeader", &self.WnodeHeader).field("DataBlockOffset", &self.DataBlockOffset).field("InstanceCount", &self.InstanceCount).field("OffsetInstanceNameOffsets", &self.OffsetInstanceNameOffsets).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6546,6 +7186,12 @@ impl ::core::clone::Clone for WNODE_EVENT_ITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_EVENT_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_EVENT_ITEM").field("WnodeHeader", &self.WnodeHeader).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WNODE_EVENT_ITEM {
     type Abi = Self;
 }
@@ -6578,6 +7224,12 @@ impl ::core::marker::Copy for WNODE_EVENT_REFERENCE {}
 impl ::core::clone::Clone for WNODE_EVENT_REFERENCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_EVENT_REFERENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_EVENT_REFERENCE").field("WnodeHeader", &self.WnodeHeader).field("TargetGuid", &self.TargetGuid).field("TargetDataBlockSize", &self.TargetDataBlockSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6698,6 +7350,12 @@ impl ::core::clone::Clone for WNODE_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_HEADER").field("BufferSize", &self.BufferSize).field("ProviderId", &self.ProviderId).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("Guid", &self.Guid).field("ClientContext", &self.ClientContext).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WNODE_HEADER {
     type Abi = Self;
 }
@@ -6761,6 +7419,12 @@ impl ::core::marker::Copy for WNODE_HEADER_0_0 {}
 impl ::core::clone::Clone for WNODE_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_HEADER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_HEADER_0_0").field("Version", &self.Version).field("Linkage", &self.Linkage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6836,6 +7500,12 @@ impl ::core::clone::Clone for WNODE_METHOD_ITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_METHOD_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_METHOD_ITEM").field("WnodeHeader", &self.WnodeHeader).field("OffsetInstanceName", &self.OffsetInstanceName).field("InstanceIndex", &self.InstanceIndex).field("MethodId", &self.MethodId).field("DataBlockOffset", &self.DataBlockOffset).field("SizeDataBlock", &self.SizeDataBlock).field("VariableData", &self.VariableData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WNODE_METHOD_ITEM {
     type Abi = Self;
 }
@@ -6870,6 +7540,12 @@ impl ::core::marker::Copy for WNODE_SINGLE_INSTANCE {}
 impl ::core::clone::Clone for WNODE_SINGLE_INSTANCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_SINGLE_INSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_SINGLE_INSTANCE").field("WnodeHeader", &self.WnodeHeader).field("OffsetInstanceName", &self.OffsetInstanceName).field("InstanceIndex", &self.InstanceIndex).field("DataBlockOffset", &self.DataBlockOffset).field("SizeDataBlock", &self.SizeDataBlock).field("VariableData", &self.VariableData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6911,6 +7587,12 @@ impl ::core::clone::Clone for WNODE_SINGLE_ITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_SINGLE_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_SINGLE_ITEM").field("WnodeHeader", &self.WnodeHeader).field("OffsetInstanceName", &self.OffsetInstanceName).field("InstanceIndex", &self.InstanceIndex).field("ItemId", &self.ItemId).field("DataBlockOffset", &self.DataBlockOffset).field("SizeDataItem", &self.SizeDataItem).field("VariableData", &self.VariableData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WNODE_SINGLE_ITEM {
     type Abi = Self;
 }
@@ -6941,6 +7623,12 @@ impl ::core::marker::Copy for WNODE_TOO_SMALL {}
 impl ::core::clone::Clone for WNODE_TOO_SMALL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WNODE_TOO_SMALL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNODE_TOO_SMALL").field("WnodeHeader", &self.WnodeHeader).field("SizeNeeded", &self.SizeNeeded).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

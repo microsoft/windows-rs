@@ -4238,6 +4238,11 @@ impl ::core::clone::Clone for PackageInstallProgress {
         *self
     }
 }
+impl ::core::fmt::Debug for PackageInstallProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PackageInstallProgress").field("PercentComplete", &self.PercentComplete).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PackageInstallProgress {
     type Abi = Self;
 }
@@ -5104,6 +5109,11 @@ impl ::core::marker::Copy for PackageVersion {}
 impl ::core::clone::Clone for PackageVersion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PackageVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PackageVersion").field("Major", &self.Major).field("Minor", &self.Minor).field("Build", &self.Build).field("Revision", &self.Revision).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PackageVersion {

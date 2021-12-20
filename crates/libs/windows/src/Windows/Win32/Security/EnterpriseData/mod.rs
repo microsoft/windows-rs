@@ -20,6 +20,11 @@ impl ::core::clone::Clone for FILE_UNPROTECT_OPTIONS {
         *self
     }
 }
+impl ::core::fmt::Debug for FILE_UNPROTECT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_UNPROTECT_OPTIONS").field("audit", &self.audit).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_UNPROTECT_OPTIONS {
     type Abi = Self;
 }
@@ -47,6 +52,12 @@ impl ::core::marker::Copy for HTHREAD_NETWORK_CONTEXT {}
 impl ::core::clone::Clone for HTHREAD_NETWORK_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTHREAD_NETWORK_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTHREAD_NETWORK_CONTEXT").field("ThreadId", &self.ThreadId).field("ThreadContext", &self.ThreadContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

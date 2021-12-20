@@ -34,6 +34,11 @@ impl ::core::clone::Clone for DAV_CALLBACK_AUTH_BLOB {
         *self
     }
 }
+impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DAV_CALLBACK_AUTH_BLOB").field("pBuffer", &self.pBuffer).field("ulSize", &self.ulSize).field("ulType", &self.ulType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_BLOB {
     type Abi = Self;
 }
@@ -63,6 +68,12 @@ impl ::core::marker::Copy for DAV_CALLBACK_AUTH_UNP {}
 impl ::core::clone::Clone for DAV_CALLBACK_AUTH_UNP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DAV_CALLBACK_AUTH_UNP").field("pszUserName", &self.pszUserName).field("ulUserNameLength", &self.ulUserNameLength).field("pszPassword", &self.pszPassword).field("ulPasswordLength", &self.ulPasswordLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -98,6 +109,12 @@ impl ::core::marker::Copy for DAV_CALLBACK_CRED {}
 impl ::core::clone::Clone for DAV_CALLBACK_CRED {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DAV_CALLBACK_CRED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DAV_CALLBACK_CRED").field("AuthBlob", &self.AuthBlob).field("UNPBlob", &self.UNPBlob).field("bAuthBlobValid", &self.bAuthBlobValid).field("bSave", &self.bSave).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

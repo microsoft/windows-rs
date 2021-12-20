@@ -22,6 +22,12 @@ impl ::core::clone::Clone for ACTCTXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTCTXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTCTXA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpSource", &self.lpSource).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("wLangId", &self.wLangId).field("lpAssemblyDirectory", &self.lpAssemblyDirectory).field("lpResourceName", &self.lpResourceName).field("lpApplicationName", &self.lpApplicationName).field("hModule", &self.hModule).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTCTXA {
     type Abi = Self;
 }
@@ -59,6 +65,12 @@ impl ::core::marker::Copy for ACTCTXW {}
 impl ::core::clone::Clone for ACTCTXW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTCTXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTCTXW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpSource", &self.lpSource).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("wLangId", &self.wLangId).field("lpAssemblyDirectory", &self.lpAssemblyDirectory).field("lpResourceName", &self.lpResourceName).field("lpApplicationName", &self.lpApplicationName).field("hModule", &self.hModule).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -127,6 +139,25 @@ impl ::core::clone::Clone for ACTCTX_SECTION_KEYED_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTCTX_SECTION_KEYED_DATA")
+            .field("cbSize", &self.cbSize)
+            .field("ulDataFormatVersion", &self.ulDataFormatVersion)
+            .field("lpData", &self.lpData)
+            .field("ulLength", &self.ulLength)
+            .field("lpSectionGlobalData", &self.lpSectionGlobalData)
+            .field("ulSectionGlobalDataLength", &self.ulSectionGlobalDataLength)
+            .field("lpSectionBase", &self.lpSectionBase)
+            .field("ulSectionTotalLength", &self.ulSectionTotalLength)
+            .field("hActCtx", &self.hActCtx)
+            .field("ulAssemblyRosterIndex", &self.ulAssemblyRosterIndex)
+            .field("ulFlags", &self.ulFlags)
+            .field("AssemblyMetadata", &self.AssemblyMetadata)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA {
     type Abi = Self;
 }
@@ -177,6 +208,32 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION")
+            .field("ulFlags", &self.ulFlags)
+            .field("ulEncodedAssemblyIdentityLength", &self.ulEncodedAssemblyIdentityLength)
+            .field("ulManifestPathType", &self.ulManifestPathType)
+            .field("ulManifestPathLength", &self.ulManifestPathLength)
+            .field("liManifestLastWriteTime", &self.liManifestLastWriteTime)
+            .field("ulPolicyPathType", &self.ulPolicyPathType)
+            .field("ulPolicyPathLength", &self.ulPolicyPathLength)
+            .field("liPolicyLastWriteTime", &self.liPolicyLastWriteTime)
+            .field("ulMetadataSatelliteRosterIndex", &self.ulMetadataSatelliteRosterIndex)
+            .field("ulManifestVersionMajor", &self.ulManifestVersionMajor)
+            .field("ulManifestVersionMinor", &self.ulManifestVersionMinor)
+            .field("ulPolicyVersionMajor", &self.ulPolicyVersionMajor)
+            .field("ulPolicyVersionMinor", &self.ulPolicyVersionMinor)
+            .field("ulAssemblyDirectoryNameLength", &self.ulAssemblyDirectoryNameLength)
+            .field("lpAssemblyEncodedAssemblyIdentity", &self.lpAssemblyEncodedAssemblyIdentity)
+            .field("lpAssemblyManifestPath", &self.lpAssemblyManifestPath)
+            .field("lpAssemblyPolicyPath", &self.lpAssemblyPolicyPath)
+            .field("lpAssemblyDirectoryName", &self.lpAssemblyDirectoryName)
+            .field("ulFileCount", &self.ulFileCount)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     type Abi = Self;
 }
@@ -204,6 +261,11 @@ impl ::core::marker::Copy for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {}
 impl ::core::clone::Clone for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION").field("ElementCount", &self.ElementCount).field("Elements", &self.Elements).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
@@ -246,6 +308,25 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_DETAILED_INFORMATION")
+            .field("dwFlags", &self.dwFlags)
+            .field("ulFormatVersion", &self.ulFormatVersion)
+            .field("ulAssemblyCount", &self.ulAssemblyCount)
+            .field("ulRootManifestPathType", &self.ulRootManifestPathType)
+            .field("ulRootManifestPathChars", &self.ulRootManifestPathChars)
+            .field("ulRootConfigurationPathType", &self.ulRootConfigurationPathType)
+            .field("ulRootConfigurationPathChars", &self.ulRootConfigurationPathChars)
+            .field("ulAppDirPathType", &self.ulAppDirPathType)
+            .field("ulAppDirPathChars", &self.ulAppDirPathChars)
+            .field("lpRootManifestPath", &self.lpRootManifestPath)
+            .field("lpRootConfigurationPath", &self.lpRootConfigurationPath)
+            .field("lpAppDirPath", &self.lpAppDirPath)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     type Abi = Self;
 }
@@ -275,6 +356,11 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_QUERY_INDEX {
         *self
     }
 }
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_QUERY_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_QUERY_INDEX").field("ulAssemblyIndex", &self.ulAssemblyIndex).field("ulFileIndexInAssembly", &self.ulFileIndexInAssembly).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_QUERY_INDEX {
     type Abi = Self;
 }
@@ -300,6 +386,11 @@ impl ::core::marker::Copy for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {}
 impl ::core::clone::Clone for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION").field("ulFlags", &self.ulFlags).field("RunLevel", &self.RunLevel).field("UiAccess", &self.UiAccess).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
@@ -449,6 +540,12 @@ impl ::core::clone::Clone for ASSEMBLY_FILE_DETAILED_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ASSEMBLY_FILE_DETAILED_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASSEMBLY_FILE_DETAILED_INFORMATION").field("ulFlags", &self.ulFlags).field("ulFilenameLength", &self.ulFilenameLength).field("ulPathLength", &self.ulPathLength).field("lpFileName", &self.lpFileName).field("lpFilePath", &self.lpFilePath).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ASSEMBLY_FILE_DETAILED_INFORMATION {
     type Abi = Self;
 }
@@ -482,6 +579,12 @@ impl ::core::marker::Copy for ASSEMBLY_INFO {}
 impl ::core::clone::Clone for ASSEMBLY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ASSEMBLY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ASSEMBLY_INFO").field("cbAssemblyInfo", &self.cbAssemblyInfo).field("dwAssemblyFlags", &self.dwAssemblyFlags).field("uliAssemblySizeInKB", &self.uliAssemblySizeInKB).field("pszCurrentAssemblyPathBuf", &self.pszCurrentAssemblyPathBuf).field("cchBuf", &self.cchBuf).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -727,6 +830,11 @@ impl ::core::clone::Clone for COMPATIBILITY_CONTEXT_ELEMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for COMPATIBILITY_CONTEXT_ELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPATIBILITY_CONTEXT_ELEMENT").field("Id", &self.Id).field("Type", &self.Type).field("MaxVersionTested", &self.MaxVersionTested).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for COMPATIBILITY_CONTEXT_ELEMENT {
     type Abi = Self;
 }
@@ -930,6 +1038,11 @@ impl ::core::clone::Clone for DELTA_HASH {
         *self
     }
 }
+impl ::core::fmt::Debug for DELTA_HASH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELTA_HASH").field("HashSize", &self.HashSize).field("HashValue", &self.HashValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DELTA_HASH {
     type Abi = Self;
 }
@@ -965,6 +1078,12 @@ impl ::core::clone::Clone for DELTA_HEADER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DELTA_HEADER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELTA_HEADER_INFO").field("FileTypeSet", &self.FileTypeSet).field("FileType", &self.FileType).field("Flags", &self.Flags).field("TargetSize", &self.TargetSize).field("TargetFileTime", &self.TargetFileTime).field("TargetHashAlgId", &self.TargetHashAlgId).field("TargetHash", &self.TargetHash).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DELTA_HEADER_INFO {
     type Abi = Self;
 }
@@ -996,6 +1115,12 @@ impl ::core::marker::Copy for DELTA_INPUT {}
 impl ::core::clone::Clone for DELTA_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DELTA_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELTA_INPUT").field("Anonymous", &self.Anonymous).field("uSize", &self.uSize).field("Editable", &self.Editable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1061,6 +1186,11 @@ impl ::core::marker::Copy for DELTA_OUTPUT {}
 impl ::core::clone::Clone for DELTA_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DELTA_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DELTA_OUTPUT").field("lpStart", &self.lpStart).field("uSize", &self.uSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DELTA_OUTPUT {
@@ -1545,6 +1675,12 @@ impl ::core::marker::Copy for FUSION_INSTALL_REFERENCE {}
 impl ::core::clone::Clone for FUSION_INSTALL_REFERENCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FUSION_INSTALL_REFERENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FUSION_INSTALL_REFERENCE").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("guidScheme", &self.guidScheme).field("szIdentifier", &self.szIdentifier).field("szNonCannonicalData", &self.szNonCannonicalData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6345,6 +6481,11 @@ impl ::core::clone::Clone for MSIFILEHASHINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for MSIFILEHASHINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSIFILEHASHINFO").field("dwFileHashInfoSize", &self.dwFileHashInfoSize).field("dwData", &self.dwData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MSIFILEHASHINFO {
     type Abi = Self;
 }
@@ -6434,6 +6575,12 @@ impl ::core::clone::Clone for MSIPATCHSEQUENCEINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MSIPATCHSEQUENCEINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSIPATCHSEQUENCEINFOA").field("szPatchData", &self.szPatchData).field("ePatchDataType", &self.ePatchDataType).field("dwOrder", &self.dwOrder).field("uStatus", &self.uStatus).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MSIPATCHSEQUENCEINFOA {
     type Abi = Self;
 }
@@ -6466,6 +6613,12 @@ impl ::core::marker::Copy for MSIPATCHSEQUENCEINFOW {}
 impl ::core::clone::Clone for MSIPATCHSEQUENCEINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MSIPATCHSEQUENCEINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSIPATCHSEQUENCEINFOW").field("szPatchData", &self.szPatchData).field("ePatchDataType", &self.ePatchDataType).field("dwOrder", &self.dwOrder).field("uStatus", &self.uStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10586,6 +10739,11 @@ impl ::core::clone::Clone for PATCH_IGNORE_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for PATCH_IGNORE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_IGNORE_RANGE").field("OffsetInOldFile", &self.OffsetInOldFile).field("LengthInBytes", &self.LengthInBytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PATCH_IGNORE_RANGE {
     type Abi = Self;
 }
@@ -10610,6 +10768,11 @@ impl ::core::marker::Copy for PATCH_INTERLEAVE_MAP {}
 impl ::core::clone::Clone for PATCH_INTERLEAVE_MAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PATCH_INTERLEAVE_MAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_INTERLEAVE_MAP").field("CountRanges", &self.CountRanges).field("Range", &self.Range).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PATCH_INTERLEAVE_MAP {
@@ -10637,6 +10800,11 @@ impl ::core::marker::Copy for PATCH_INTERLEAVE_MAP_0 {}
 impl ::core::clone::Clone for PATCH_INTERLEAVE_MAP_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PATCH_INTERLEAVE_MAP_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_INTERLEAVE_MAP_0").field("OldOffset", &self.OldOffset).field("OldLength", &self.OldLength).field("NewLength", &self.NewLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PATCH_INTERLEAVE_MAP_0 {
@@ -10670,6 +10838,12 @@ impl ::core::marker::Copy for PATCH_OLD_FILE_INFO {}
 impl ::core::clone::Clone for PATCH_OLD_FILE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OLD_FILE_INFO").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("Anonymous", &self.Anonymous).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10744,6 +10918,12 @@ impl ::core::clone::Clone for PATCH_OLD_FILE_INFO_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OLD_FILE_INFO_A").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileName", &self.OldFileName).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_A {
     type Abi = Self;
 }
@@ -10778,6 +10958,12 @@ impl ::core::marker::Copy for PATCH_OLD_FILE_INFO_H {}
 impl ::core::clone::Clone for PATCH_OLD_FILE_INFO_H {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_H {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OLD_FILE_INFO_H").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileHandle", &self.OldFileHandle).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10818,6 +11004,12 @@ impl ::core::clone::Clone for PATCH_OLD_FILE_INFO_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OLD_FILE_INFO_W").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileName", &self.OldFileName).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_W {
     type Abi = Self;
 }
@@ -10855,6 +11047,22 @@ impl ::core::marker::Copy for PATCH_OPTION_DATA {}
 impl ::core::clone::Clone for PATCH_OPTION_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PATCH_OPTION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_OPTION_DATA")
+            .field("SizeOfThisStruct", &self.SizeOfThisStruct)
+            .field("SymbolOptionFlags", &self.SymbolOptionFlags)
+            .field("NewFileSymbolPath", &self.NewFileSymbolPath)
+            .field("OldFileSymbolPathArray", &self.OldFileSymbolPathArray)
+            .field("ExtendedOptionFlags", &self.ExtendedOptionFlags)
+            .field("SymLoadCallback", &self.SymLoadCallback)
+            .field("SymLoadContext", &self.SymLoadContext)
+            .field("InterleaveMapArray", &self.InterleaveMapArray)
+            .field("MaxLzxWindowSize", &self.MaxLzxWindowSize)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10920,6 +11128,11 @@ impl ::core::marker::Copy for PATCH_RETAIN_RANGE {}
 impl ::core::clone::Clone for PATCH_RETAIN_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PATCH_RETAIN_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PATCH_RETAIN_RANGE").field("OffsetInOldFile", &self.OffsetInOldFile).field("LengthInBytes", &self.LengthInBytes).field("OffsetInNewFile", &self.OffsetInNewFile).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PATCH_RETAIN_RANGE {
@@ -10999,6 +11212,11 @@ impl ::core::marker::Copy for PMSIHANDLE {}
 impl ::core::clone::Clone for PMSIHANDLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PMSIHANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PMSIHANDLE").field("m_h", &self.m_h).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PMSIHANDLE {
@@ -11106,6 +11324,12 @@ impl ::core::clone::Clone for PM_BSATASKID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_BSATASKID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_BSATASKID").field("ProductID", &self.ProductID).field("TaskID", &self.TaskID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_BSATASKID {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11134,6 +11358,12 @@ pub struct PM_BWTASKID {
 impl ::core::clone::Clone for PM_BWTASKID {
     fn clone(&self) -> Self {
         Self { ProductID: self.ProductID, TaskID: self.TaskID.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_BWTASKID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_BWTASKID").field("ProductID", &self.ProductID).field("TaskID", &self.TaskID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11231,6 +11461,12 @@ pub struct PM_ENUM_FILTER {
 impl ::core::clone::Clone for PM_ENUM_FILTER {
     fn clone(&self) -> Self {
         Self { FilterType: self.FilterType, FilterParameter: self.FilterParameter.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_ENUM_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_ENUM_FILTER").field("FilterType", &self.FilterType).field("FilterParameter", &self.FilterParameter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11337,6 +11573,12 @@ impl ::core::clone::Clone for PM_EXTENSIONCONSUMER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_EXTENSIONCONSUMER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_EXTENSIONCONSUMER").field("ConsumerPID", &self.ConsumerPID).field("ExtensionID", &self.ExtensionID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_EXTENSIONCONSUMER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11385,6 +11627,12 @@ impl ::core::clone::Clone for PM_INSTALLINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_INSTALLINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_INSTALLINFO").field("ProductID", &self.ProductID).field("PackagePath", &self.PackagePath).field("InstanceID", &self.InstanceID).field("pbLicense", &self.pbLicense).field("cbLicense", &self.cbLicense).field("IsUninstallDisabled", &self.IsUninstallDisabled).field("DeploymentOptions", &self.DeploymentOptions).field("OfferID", &self.OfferID).field("MarketplaceAppVersion", &self.MarketplaceAppVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_INSTALLINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11413,6 +11661,12 @@ pub struct PM_INVOCATIONINFO {
 impl ::core::clone::Clone for PM_INVOCATIONINFO {
     fn clone(&self) -> Self {
         Self { URIBaseOrAUMID: self.URIBaseOrAUMID.clone(), URIFragmentOrArgs: self.URIFragmentOrArgs.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_INVOCATIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_INVOCATIONINFO").field("URIBaseOrAUMID", &self.URIBaseOrAUMID).field("URIFragmentOrArgs", &self.URIFragmentOrArgs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11488,6 +11742,12 @@ impl ::core::clone::Clone for PM_STARTAPPBLOB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_STARTAPPBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_STARTAPPBLOB").field("cbSize", &self.cbSize).field("ProductID", &self.ProductID).field("AppTitle", &self.AppTitle).field("IconPath", &self.IconPath).field("IsUninstallable", &self.IsUninstallable).field("AppInstallType", &self.AppInstallType).field("InstanceID", &self.InstanceID).field("State", &self.State).field("IsModern", &self.IsModern).field("IsModernLightUp", &self.IsModernLightUp).field("LightUpSupportMask", &self.LightUpSupportMask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_STARTAPPBLOB {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11541,6 +11801,26 @@ impl ::core::clone::Clone for PM_STARTTILEBLOB {
             IsModern: self.IsModern,
             InvocationInfo: self.InvocationInfo.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_STARTTILEBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_STARTTILEBLOB")
+            .field("cbSize", &self.cbSize)
+            .field("ProductID", &self.ProductID)
+            .field("TileID", &self.TileID)
+            .field("TemplateType", &self.TemplateType)
+            .field("HubPosition", &self.HubPosition)
+            .field("HubVisibilityBitmask", &self.HubVisibilityBitmask)
+            .field("IsDefault", &self.IsDefault)
+            .field("TileType", &self.TileType)
+            .field("pbPropBlob", &self.pbPropBlob)
+            .field("cbPropBlob", &self.cbPropBlob)
+            .field("IsRestoring", &self.IsRestoring)
+            .field("IsModern", &self.IsModern)
+            .field("InvocationInfo", &self.InvocationInfo)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11666,6 +11946,12 @@ impl ::core::clone::Clone for PM_UPDATEINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_UPDATEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_UPDATEINFO").field("ProductID", &self.ProductID).field("PackagePath", &self.PackagePath).field("InstanceID", &self.InstanceID).field("pbLicense", &self.pbLicense).field("cbLicense", &self.cbLicense).field("MarketplaceAppVersion", &self.MarketplaceAppVersion).field("DeploymentOptions", &self.DeploymentOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_UPDATEINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11708,6 +11994,12 @@ impl ::core::clone::Clone for PM_UPDATEINFO_LEGACY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PM_UPDATEINFO_LEGACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_UPDATEINFO_LEGACY").field("ProductID", &self.ProductID).field("PackagePath", &self.PackagePath).field("InstanceID", &self.InstanceID).field("pbLicense", &self.pbLicense).field("cbLicense", &self.cbLicense).field("MarketplaceAppVersion", &self.MarketplaceAppVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PM_UPDATEINFO_LEGACY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11741,6 +12033,11 @@ impl ::core::marker::Copy for PROTECTED_FILE_DATA {}
 impl ::core::clone::Clone for PROTECTED_FILE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PROTECTED_FILE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROTECTED_FILE_DATA").field("FileName", &self.FileName).field("FileNumber", &self.FileNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROTECTED_FILE_DATA {
@@ -12297,6 +12594,11 @@ impl ::core::marker::Copy for _tagAPPTASKTYPE {}
 impl ::core::clone::Clone for _tagAPPTASKTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _tagAPPTASKTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_tagAPPTASKTYPE").field("ProductID", &self.ProductID).field("TaskType", &self.TaskType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _tagAPPTASKTYPE {

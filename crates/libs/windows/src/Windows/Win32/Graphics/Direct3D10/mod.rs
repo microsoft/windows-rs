@@ -576,6 +576,12 @@ impl ::core::clone::Clone for D3D10_BLEND_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_BLEND_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_BLEND_DESC").field("AlphaToCoverageEnable", &self.AlphaToCoverageEnable).field("BlendEnable", &self.BlendEnable).field("SrcBlend", &self.SrcBlend).field("DestBlend", &self.DestBlend).field("BlendOp", &self.BlendOp).field("SrcBlendAlpha", &self.SrcBlendAlpha).field("DestBlendAlpha", &self.DestBlendAlpha).field("BlendOpAlpha", &self.BlendOpAlpha).field("RenderTargetWriteMask", &self.RenderTargetWriteMask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_BLEND_DESC {
     type Abi = Self;
 }
@@ -607,6 +613,12 @@ impl ::core::marker::Copy for D3D10_BLEND_DESC1 {}
 impl ::core::clone::Clone for D3D10_BLEND_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_BLEND_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_BLEND_DESC1").field("AlphaToCoverageEnable", &self.AlphaToCoverageEnable).field("IndependentBlendEnable", &self.IndependentBlendEnable).field("RenderTarget", &self.RenderTarget).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -655,6 +667,11 @@ impl ::core::clone::Clone for D3D10_BOX {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_BOX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_BOX").field("left", &self.left).field("top", &self.top).field("front", &self.front).field("right", &self.right).field("bottom", &self.bottom).field("back", &self.back).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_BOX {
     type Abi = Self;
 }
@@ -684,6 +701,11 @@ impl ::core::clone::Clone for D3D10_BUFFER_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_BUFFER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_BUFFER_DESC").field("ByteWidth", &self.ByteWidth).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_DESC {
     type Abi = Self;
 }
@@ -708,6 +730,11 @@ impl ::core::marker::Copy for D3D10_BUFFER_RTV {}
 impl ::core::clone::Clone for D3D10_BUFFER_RTV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_BUFFER_RTV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_BUFFER_RTV").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_RTV {
@@ -786,6 +813,11 @@ impl ::core::marker::Copy for D3D10_BUFFER_SRV {}
 impl ::core::clone::Clone for D3D10_BUFFER_SRV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_BUFFER_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_BUFFER_SRV").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_SRV {
@@ -1016,6 +1048,11 @@ impl ::core::clone::Clone for D3D10_COUNTER_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_COUNTER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_COUNTER_DESC").field("Counter", &self.Counter).field("MiscFlags", &self.MiscFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_COUNTER_DESC {
     type Abi = Self;
 }
@@ -1041,6 +1078,11 @@ impl ::core::marker::Copy for D3D10_COUNTER_INFO {}
 impl ::core::clone::Clone for D3D10_COUNTER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_COUNTER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_COUNTER_INFO").field("LastDeviceDependentCounter", &self.LastDeviceDependentCounter).field("NumSimultaneousCounters", &self.NumSimultaneousCounters).field("NumDetectableParallelUnits", &self.NumDetectableParallelUnits).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_COUNTER_INFO {
@@ -1173,6 +1215,11 @@ impl ::core::clone::Clone for D3D10_DEPTH_STENCILOP_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_DEPTH_STENCILOP_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_DEPTH_STENCILOP_DESC").field("StencilFailOp", &self.StencilFailOp).field("StencilDepthFailOp", &self.StencilDepthFailOp).field("StencilPassOp", &self.StencilPassOp).field("StencilFunc", &self.StencilFunc).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_DEPTH_STENCILOP_DESC {
     type Abi = Self;
 }
@@ -1209,6 +1256,12 @@ impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_DEPTH_STENCIL_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_DEPTH_STENCIL_DESC").field("DepthEnable", &self.DepthEnable).field("DepthWriteMask", &self.DepthWriteMask).field("DepthFunc", &self.DepthFunc).field("StencilEnable", &self.StencilEnable).field("StencilReadMask", &self.StencilReadMask).field("StencilWriteMask", &self.StencilWriteMask).field("FrontFace", &self.FrontFace).field("BackFace", &self.BackFace).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_DEPTH_STENCIL_DESC {
     type Abi = Self;
 }
@@ -1240,6 +1293,12 @@ impl ::core::marker::Copy for D3D10_DEPTH_STENCIL_VIEW_DESC {}
 impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D10_DEPTH_STENCIL_VIEW_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_DEPTH_STENCIL_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1405,6 +1464,12 @@ impl ::core::clone::Clone for D3D10_EFFECT_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_EFFECT_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_EFFECT_DESC").field("IsChildEffect", &self.IsChildEffect).field("ConstantBuffers", &self.ConstantBuffers).field("SharedConstantBuffers", &self.SharedConstantBuffers).field("GlobalVariables", &self.GlobalVariables).field("SharedGlobalVariables", &self.SharedGlobalVariables).field("Techniques", &self.Techniques).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_EFFECT_DESC {
     type Abi = Self;
 }
@@ -1440,6 +1505,12 @@ impl ::core::marker::Copy for D3D10_EFFECT_SHADER_DESC {}
 impl ::core::clone::Clone for D3D10_EFFECT_SHADER_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_EFFECT_SHADER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_EFFECT_SHADER_DESC").field("pInputSignature", &self.pInputSignature).field("IsInline", &self.IsInline).field("pBytecode", &self.pBytecode).field("BytecodeLength", &self.BytecodeLength).field("SODecl", &self.SODecl).field("NumInputSignatureEntries", &self.NumInputSignatureEntries).field("NumOutputSignatureEntries", &self.NumOutputSignatureEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1486,6 +1557,12 @@ impl ::core::clone::Clone for D3D10_EFFECT_TYPE_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::fmt::Debug for D3D10_EFFECT_TYPE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_EFFECT_TYPE_DESC").field("TypeName", &self.TypeName).field("Class", &self.Class).field("Type", &self.Type).field("Elements", &self.Elements).field("Members", &self.Members).field("Rows", &self.Rows).field("Columns", &self.Columns).field("PackedSize", &self.PackedSize).field("UnpackedSize", &self.UnpackedSize).field("Stride", &self.Stride).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::core::Abi for D3D10_EFFECT_TYPE_DESC {
     type Abi = Self;
 }
@@ -1522,6 +1599,12 @@ impl ::core::marker::Copy for D3D10_EFFECT_VARIABLE_DESC {}
 impl ::core::clone::Clone for D3D10_EFFECT_VARIABLE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_EFFECT_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_EFFECT_VARIABLE_DESC").field("Name", &self.Name).field("Semantic", &self.Semantic).field("Flags", &self.Flags).field("Annotations", &self.Annotations).field("BufferOffset", &self.BufferOffset).field("ExplicitBindPoint", &self.ExplicitBindPoint).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1758,6 +1841,11 @@ impl ::core::clone::Clone for D3D10_INFO_QUEUE_FILTER {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_INFO_QUEUE_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_INFO_QUEUE_FILTER").field("AllowList", &self.AllowList).field("DenyList", &self.DenyList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_INFO_QUEUE_FILTER {
     type Abi = Self;
 }
@@ -1786,6 +1874,11 @@ impl ::core::marker::Copy for D3D10_INFO_QUEUE_FILTER_DESC {}
 impl ::core::clone::Clone for D3D10_INFO_QUEUE_FILTER_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_INFO_QUEUE_FILTER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_INFO_QUEUE_FILTER_DESC").field("NumCategories", &self.NumCategories).field("pCategoryList", &self.pCategoryList).field("NumSeverities", &self.NumSeverities).field("pSeverityList", &self.pSeverityList).field("NumIDs", &self.NumIDs).field("pIDList", &self.pIDList).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_INFO_QUEUE_FILTER_DESC {
@@ -1826,6 +1919,12 @@ impl ::core::marker::Copy for D3D10_INPUT_ELEMENT_DESC {}
 impl ::core::clone::Clone for D3D10_INPUT_ELEMENT_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D10_INPUT_ELEMENT_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_INPUT_ELEMENT_DESC").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("Format", &self.Format).field("InputSlot", &self.InputSlot).field("AlignedByteOffset", &self.AlignedByteOffset).field("InputSlotClass", &self.InputSlotClass).field("InstanceDataStepRate", &self.InstanceDataStepRate).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1878,6 +1977,11 @@ impl ::core::clone::Clone for D3D10_MAPPED_TEXTURE2D {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_MAPPED_TEXTURE2D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_MAPPED_TEXTURE2D").field("pData", &self.pData).field("RowPitch", &self.RowPitch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_MAPPED_TEXTURE2D {
     type Abi = Self;
 }
@@ -1903,6 +2007,11 @@ impl ::core::marker::Copy for D3D10_MAPPED_TEXTURE3D {}
 impl ::core::clone::Clone for D3D10_MAPPED_TEXTURE3D {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_MAPPED_TEXTURE3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_MAPPED_TEXTURE3D").field("pData", &self.pData).field("RowPitch", &self.RowPitch).field("DepthPitch", &self.DepthPitch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_MAPPED_TEXTURE3D {
@@ -1948,6 +2057,11 @@ impl ::core::marker::Copy for D3D10_MESSAGE {}
 impl ::core::clone::Clone for D3D10_MESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_MESSAGE").field("Category", &self.Category).field("Severity", &self.Severity).field("ID", &self.ID).field("pDescription", &self.pDescription).field("DescriptionByteLength", &self.DescriptionByteLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_MESSAGE {
@@ -3059,6 +3173,12 @@ impl ::core::clone::Clone for D3D10_PASS_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_PASS_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_PASS_DESC").field("Name", &self.Name).field("Annotations", &self.Annotations).field("pIAInputSignature", &self.pIAInputSignature).field("IAInputSignatureSize", &self.IAInputSignatureSize).field("StencilRef", &self.StencilRef).field("SampleMask", &self.SampleMask).field("BlendFactor", &self.BlendFactor).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_PASS_DESC {
     type Abi = Self;
 }
@@ -3085,6 +3205,11 @@ pub struct D3D10_PASS_SHADER_DESC {
 impl ::core::clone::Clone for D3D10_PASS_SHADER_DESC {
     fn clone(&self) -> Self {
         Self { pShaderVariable: self.pShaderVariable.clone(), ShaderIndex: self.ShaderIndex }
+    }
+}
+impl ::core::fmt::Debug for D3D10_PASS_SHADER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_PASS_SHADER_DESC").field("pShaderVariable", &self.pShaderVariable).field("ShaderIndex", &self.ShaderIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_PASS_SHADER_DESC {
@@ -3173,6 +3298,11 @@ impl ::core::clone::Clone for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_QUERY_DATA_PIPELINE_STATISTICS").field("IAVertices", &self.IAVertices).field("IAPrimitives", &self.IAPrimitives).field("VSInvocations", &self.VSInvocations).field("GSInvocations", &self.GSInvocations).field("GSPrimitives", &self.GSPrimitives).field("CInvocations", &self.CInvocations).field("CPrimitives", &self.CPrimitives).field("PSInvocations", &self.PSInvocations).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     type Abi = Self;
 }
@@ -3197,6 +3327,11 @@ impl ::core::marker::Copy for D3D10_QUERY_DATA_SO_STATISTICS {}
 impl ::core::clone::Clone for D3D10_QUERY_DATA_SO_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_QUERY_DATA_SO_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_QUERY_DATA_SO_STATISTICS").field("NumPrimitivesWritten", &self.NumPrimitivesWritten).field("PrimitivesStorageNeeded", &self.PrimitivesStorageNeeded).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_QUERY_DATA_SO_STATISTICS {
@@ -3229,6 +3364,12 @@ impl ::core::clone::Clone for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_QUERY_DATA_TIMESTAMP_DISJOINT").field("Frequency", &self.Frequency).field("Disjoint", &self.Disjoint).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     type Abi = Self;
 }
@@ -3256,6 +3397,11 @@ impl ::core::marker::Copy for D3D10_QUERY_DESC {}
 impl ::core::clone::Clone for D3D10_QUERY_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_QUERY_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_QUERY_DESC").field("Query", &self.Query).field("MiscFlags", &self.MiscFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_QUERY_DESC {
@@ -3304,6 +3450,23 @@ impl ::core::clone::Clone for D3D10_RASTERIZER_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_RASTERIZER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_RASTERIZER_DESC")
+            .field("FillMode", &self.FillMode)
+            .field("CullMode", &self.CullMode)
+            .field("FrontCounterClockwise", &self.FrontCounterClockwise)
+            .field("DepthBias", &self.DepthBias)
+            .field("DepthBiasClamp", &self.DepthBiasClamp)
+            .field("SlopeScaledDepthBias", &self.SlopeScaledDepthBias)
+            .field("DepthClipEnable", &self.DepthClipEnable)
+            .field("ScissorEnable", &self.ScissorEnable)
+            .field("MultisampleEnable", &self.MultisampleEnable)
+            .field("AntialiasedLineEnable", &self.AntialiasedLineEnable)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_RASTERIZER_DESC {
     type Abi = Self;
 }
@@ -3343,6 +3506,12 @@ impl ::core::clone::Clone for D3D10_RENDER_TARGET_BLEND_DESC1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_RENDER_TARGET_BLEND_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_RENDER_TARGET_BLEND_DESC1").field("BlendEnable", &self.BlendEnable).field("SrcBlend", &self.SrcBlend).field("DestBlend", &self.DestBlend).field("BlendOp", &self.BlendOp).field("SrcBlendAlpha", &self.SrcBlendAlpha).field("DestBlendAlpha", &self.DestBlendAlpha).field("BlendOpAlpha", &self.BlendOpAlpha).field("RenderTargetWriteMask", &self.RenderTargetWriteMask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_RENDER_TARGET_BLEND_DESC1 {
     type Abi = Self;
 }
@@ -3374,6 +3543,12 @@ impl ::core::marker::Copy for D3D10_RENDER_TARGET_VIEW_DESC {}
 impl ::core::clone::Clone for D3D10_RENDER_TARGET_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D10_RENDER_TARGET_VIEW_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_RENDER_TARGET_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3545,6 +3720,11 @@ impl ::core::clone::Clone for D3D10_SAMPLER_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_SAMPLER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SAMPLER_DESC").field("Filter", &self.Filter).field("AddressU", &self.AddressU).field("AddressV", &self.AddressV).field("AddressW", &self.AddressW).field("MipLODBias", &self.MipLODBias).field("MaxAnisotropy", &self.MaxAnisotropy).field("ComparisonFunc", &self.ComparisonFunc).field("BorderColor", &self.BorderColor).field("MinLOD", &self.MinLOD).field("MaxLOD", &self.MaxLOD).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_SAMPLER_DESC {
     type Abi = Self;
 }
@@ -3584,6 +3764,12 @@ impl ::core::clone::Clone for D3D10_SHADER_BUFFER_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::fmt::Debug for D3D10_SHADER_BUFFER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_BUFFER_DESC").field("Name", &self.Name).field("Type", &self.Type).field("Variables", &self.Variables).field("Size", &self.Size).field("uFlags", &self.uFlags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::core::Abi for D3D10_SHADER_BUFFER_DESC {
     type Abi = Self;
 }
@@ -3615,6 +3801,11 @@ impl ::core::marker::Copy for D3D10_SHADER_DEBUG_FILE_INFO {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_FILE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_FILE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_FILE_INFO").field("FileName", &self.FileName).field("FileNameLen", &self.FileNameLen).field("FileData", &self.FileData).field("FileLen", &self.FileLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_FILE_INFO {
@@ -3662,6 +3853,33 @@ impl ::core::clone::Clone for D3D10_SHADER_DEBUG_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_INFO")
+            .field("Size", &self.Size)
+            .field("Creator", &self.Creator)
+            .field("EntrypointName", &self.EntrypointName)
+            .field("ShaderTarget", &self.ShaderTarget)
+            .field("CompileFlags", &self.CompileFlags)
+            .field("Files", &self.Files)
+            .field("FileInfo", &self.FileInfo)
+            .field("Instructions", &self.Instructions)
+            .field("InstructionInfo", &self.InstructionInfo)
+            .field("Variables", &self.Variables)
+            .field("VariableInfo", &self.VariableInfo)
+            .field("InputVariables", &self.InputVariables)
+            .field("InputVariableInfo", &self.InputVariableInfo)
+            .field("Tokens", &self.Tokens)
+            .field("TokenInfo", &self.TokenInfo)
+            .field("Scopes", &self.Scopes)
+            .field("ScopeInfo", &self.ScopeInfo)
+            .field("ScopeVariables", &self.ScopeVariables)
+            .field("ScopeVariableInfo", &self.ScopeVariableInfo)
+            .field("UintOffset", &self.UintOffset)
+            .field("StringOffset", &self.StringOffset)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_INFO {
     type Abi = Self;
 }
@@ -3690,6 +3908,11 @@ impl ::core::marker::Copy for D3D10_SHADER_DEBUG_INPUT_INFO {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_INPUT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_INPUT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_INPUT_INFO").field("Var", &self.Var).field("InitialRegisterSet", &self.InitialRegisterSet).field("InitialBank", &self.InitialBank).field("InitialRegister", &self.InitialRegister).field("InitialComponent", &self.InitialComponent).field("InitialValue", &self.InitialValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_INPUT_INFO {
@@ -3727,6 +3950,12 @@ impl ::core::marker::Copy for D3D10_SHADER_DEBUG_INST_INFO {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_INST_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_INST_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_INST_INFO").field("Id", &self.Id).field("Opcode", &self.Opcode).field("uOutputs", &self.uOutputs).field("pOutputs", &self.pOutputs).field("TokenId", &self.TokenId).field("NestingLevel", &self.NestingLevel).field("Scopes", &self.Scopes).field("ScopeInfo", &self.ScopeInfo).field("AccessedVars", &self.AccessedVars).field("AccessedVarsInfo", &self.AccessedVarsInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3772,6 +4001,12 @@ impl ::core::clone::Clone for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_OUTPUTREG_INFO").field("OutputRegisterSet", &self.OutputRegisterSet).field("OutputReg", &self.OutputReg).field("TempArrayReg", &self.TempArrayReg).field("OutputComponents", &self.OutputComponents).field("OutputVars", &self.OutputVars).field("IndexReg", &self.IndexReg).field("IndexComp", &self.IndexComp).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     type Abi = Self;
 }
@@ -3809,6 +4044,12 @@ impl ::core::marker::Copy for D3D10_SHADER_DEBUG_OUTPUTVAR {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_OUTPUTVAR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_OUTPUTVAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_OUTPUTVAR").field("Var", &self.Var).field("uValueMin", &self.uValueMin).field("uValueMax", &self.uValueMax).field("iValueMin", &self.iValueMin).field("iValueMax", &self.iValueMax).field("fValueMin", &self.fValueMin).field("fValueMax", &self.fValueMax).field("bNaNPossible", &self.bNaNPossible).field("bInfPossible", &self.bInfPossible).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3904,6 +4145,12 @@ impl ::core::clone::Clone for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_SCOPEVAR_INFO").field("TokenId", &self.TokenId).field("VarType", &self.VarType).field("Class", &self.Class).field("Rows", &self.Rows).field("Columns", &self.Columns).field("StructMemberScope", &self.StructMemberScope).field("uArrayIndices", &self.uArrayIndices).field("ArrayElements", &self.ArrayElements).field("ArrayStrides", &self.ArrayStrides).field("uVariables", &self.uVariables).field("uFirstVariable", &self.uFirstVariable).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     type Abi = Self;
 }
@@ -3936,6 +4183,11 @@ impl ::core::clone::Clone for D3D10_SHADER_DEBUG_SCOPE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_SCOPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_SCOPE_INFO").field("ScopeType", &self.ScopeType).field("Name", &self.Name).field("uNameLen", &self.uNameLen).field("uVariables", &self.uVariables).field("VariableData", &self.VariableData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_SCOPE_INFO {
     type Abi = Self;
 }
@@ -3963,6 +4215,11 @@ impl ::core::marker::Copy for D3D10_SHADER_DEBUG_TOKEN_INFO {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_TOKEN_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_TOKEN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_TOKEN_INFO").field("File", &self.File).field("Line", &self.Line).field("Column", &self.Column).field("TokenLength", &self.TokenLength).field("TokenId", &self.TokenId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_TOKEN_INFO {
@@ -4004,6 +4261,12 @@ impl ::core::marker::Copy for D3D10_SHADER_DEBUG_VAR_INFO {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_VAR_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_VAR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DEBUG_VAR_INFO").field("TokenId", &self.TokenId).field("Type", &self.Type).field("Register", &self.Register).field("Component", &self.Component).field("ScopeVar", &self.ScopeVar).field("ScopeVarOffset", &self.ScopeVarOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -4066,6 +4329,41 @@ impl ::core::clone::Clone for D3D10_SHADER_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::fmt::Debug for D3D10_SHADER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_DESC")
+            .field("Version", &self.Version)
+            .field("Creator", &self.Creator)
+            .field("Flags", &self.Flags)
+            .field("ConstantBuffers", &self.ConstantBuffers)
+            .field("BoundResources", &self.BoundResources)
+            .field("InputParameters", &self.InputParameters)
+            .field("OutputParameters", &self.OutputParameters)
+            .field("InstructionCount", &self.InstructionCount)
+            .field("TempRegisterCount", &self.TempRegisterCount)
+            .field("TempArrayCount", &self.TempArrayCount)
+            .field("DefCount", &self.DefCount)
+            .field("DclCount", &self.DclCount)
+            .field("TextureNormalInstructions", &self.TextureNormalInstructions)
+            .field("TextureLoadInstructions", &self.TextureLoadInstructions)
+            .field("TextureCompInstructions", &self.TextureCompInstructions)
+            .field("TextureBiasInstructions", &self.TextureBiasInstructions)
+            .field("TextureGradientInstructions", &self.TextureGradientInstructions)
+            .field("FloatInstructionCount", &self.FloatInstructionCount)
+            .field("IntInstructionCount", &self.IntInstructionCount)
+            .field("UintInstructionCount", &self.UintInstructionCount)
+            .field("StaticFlowControlCount", &self.StaticFlowControlCount)
+            .field("DynamicFlowControlCount", &self.DynamicFlowControlCount)
+            .field("MacroInstructionCount", &self.MacroInstructionCount)
+            .field("ArrayInstructionCount", &self.ArrayInstructionCount)
+            .field("CutInstructionCount", &self.CutInstructionCount)
+            .field("EmitInstructionCount", &self.EmitInstructionCount)
+            .field("GSOutputTopology", &self.GSOutputTopology)
+            .field("GSMaxOutputVertexCount", &self.GSMaxOutputVertexCount)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::core::Abi for D3D10_SHADER_DESC {
     type Abi = Self;
 }
@@ -4118,6 +4416,12 @@ impl ::core::marker::Copy for D3D10_SHADER_INPUT_BIND_DESC {}
 impl ::core::clone::Clone for D3D10_SHADER_INPUT_BIND_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::fmt::Debug for D3D10_SHADER_INPUT_BIND_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_INPUT_BIND_DESC").field("Name", &self.Name).field("Type", &self.Type).field("BindPoint", &self.BindPoint).field("BindCount", &self.BindCount).field("uFlags", &self.uFlags).field("ReturnType", &self.ReturnType).field("Dimension", &self.Dimension).field("NumSamples", &self.NumSamples).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -4174,6 +4478,12 @@ impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC {}
 impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D10_SHADER_RESOURCE_VIEW_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_RESOURCE_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4248,6 +4558,12 @@ impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC1 {}
 impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_RESOURCE_VIEW_DESC1").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4334,6 +4650,12 @@ impl ::core::clone::Clone for D3D10_SHADER_TYPE_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for D3D10_SHADER_TYPE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_TYPE_DESC").field("Class", &self.Class).field("Type", &self.Type).field("Rows", &self.Rows).field("Columns", &self.Columns).field("Elements", &self.Elements).field("Members", &self.Members).field("Offset", &self.Offset).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 unsafe impl ::windows::core::Abi for D3D10_SHADER_TYPE_DESC {
     type Abi = Self;
 }
@@ -4367,6 +4689,12 @@ impl ::core::marker::Copy for D3D10_SHADER_VARIABLE_DESC {}
 impl ::core::clone::Clone for D3D10_SHADER_VARIABLE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_SHADER_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SHADER_VARIABLE_DESC").field("Name", &self.Name).field("StartOffset", &self.StartOffset).field("Size", &self.Size).field("uFlags", &self.uFlags).field("DefaultValue", &self.DefaultValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4414,6 +4742,12 @@ impl ::core::clone::Clone for D3D10_SIGNATURE_PARAMETER_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::fmt::Debug for D3D10_SIGNATURE_PARAMETER_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SIGNATURE_PARAMETER_DESC").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("Register", &self.Register).field("SystemValueType", &self.SystemValueType).field("ComponentType", &self.ComponentType).field("Mask", &self.Mask).field("ReadWriteMask", &self.ReadWriteMask).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::core::Abi for D3D10_SIGNATURE_PARAMETER_DESC {
     type Abi = Self;
 }
@@ -4457,6 +4791,12 @@ impl ::core::marker::Copy for D3D10_SO_DECLARATION_ENTRY {}
 impl ::core::clone::Clone for D3D10_SO_DECLARATION_ENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_SO_DECLARATION_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SO_DECLARATION_ENTRY").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("StartComponent", &self.StartComponent).field("ComponentCount", &self.ComponentCount).field("OutputSlot", &self.OutputSlot).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4551,6 +4891,36 @@ impl ::core::clone::Clone for D3D10_STATE_BLOCK_MASK {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_STATE_BLOCK_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_STATE_BLOCK_MASK")
+            .field("VS", &self.VS)
+            .field("VSSamplers", &self.VSSamplers)
+            .field("VSShaderResources", &self.VSShaderResources)
+            .field("VSConstantBuffers", &self.VSConstantBuffers)
+            .field("GS", &self.GS)
+            .field("GSSamplers", &self.GSSamplers)
+            .field("GSShaderResources", &self.GSShaderResources)
+            .field("GSConstantBuffers", &self.GSConstantBuffers)
+            .field("PS", &self.PS)
+            .field("PSSamplers", &self.PSSamplers)
+            .field("PSShaderResources", &self.PSShaderResources)
+            .field("PSConstantBuffers", &self.PSConstantBuffers)
+            .field("IAVertexBuffers", &self.IAVertexBuffers)
+            .field("IAIndexBuffer", &self.IAIndexBuffer)
+            .field("IAInputLayout", &self.IAInputLayout)
+            .field("IAPrimitiveTopology", &self.IAPrimitiveTopology)
+            .field("OMRenderTargets", &self.OMRenderTargets)
+            .field("OMDepthStencilState", &self.OMDepthStencilState)
+            .field("OMBlendState", &self.OMBlendState)
+            .field("RSViewports", &self.RSViewports)
+            .field("RSScissorRects", &self.RSScissorRects)
+            .field("RSRasterizerState", &self.RSRasterizerState)
+            .field("SOBuffers", &self.SOBuffers)
+            .field("Predication", &self.Predication)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_STATE_BLOCK_MASK {
     type Abi = Self;
 }
@@ -4598,6 +4968,11 @@ impl ::core::clone::Clone for D3D10_SUBRESOURCE_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_SUBRESOURCE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_SUBRESOURCE_DATA").field("pSysMem", &self.pSysMem).field("SysMemPitch", &self.SysMemPitch).field("SysMemSlicePitch", &self.SysMemSlicePitch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_SUBRESOURCE_DATA {
     type Abi = Self;
 }
@@ -4631,6 +5006,12 @@ impl ::core::clone::Clone for D3D10_TECHNIQUE_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D10_TECHNIQUE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TECHNIQUE_DESC").field("Name", &self.Name).field("Passes", &self.Passes).field("Annotations", &self.Annotations).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D10_TECHNIQUE_DESC {
     type Abi = Self;
 }
@@ -4661,6 +5042,11 @@ impl ::core::clone::Clone for D3D10_TEX1D_ARRAY_DSV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX1D_ARRAY_DSV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX1D_ARRAY_DSV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX1D_ARRAY_DSV {
     type Abi = Self;
 }
@@ -4686,6 +5072,11 @@ impl ::core::marker::Copy for D3D10_TEX1D_ARRAY_RTV {}
 impl ::core::clone::Clone for D3D10_TEX1D_ARRAY_RTV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX1D_ARRAY_RTV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX1D_ARRAY_RTV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX1D_ARRAY_RTV {
@@ -4716,6 +5107,11 @@ impl ::core::clone::Clone for D3D10_TEX1D_ARRAY_SRV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX1D_ARRAY_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX1D_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX1D_ARRAY_SRV {
     type Abi = Self;
 }
@@ -4741,6 +5137,11 @@ impl ::core::clone::Clone for D3D10_TEX1D_DSV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX1D_DSV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX1D_DSV").field("MipSlice", &self.MipSlice).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX1D_DSV {
     type Abi = Self;
 }
@@ -4764,6 +5165,11 @@ impl ::core::marker::Copy for D3D10_TEX1D_RTV {}
 impl ::core::clone::Clone for D3D10_TEX1D_RTV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX1D_RTV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX1D_RTV").field("MipSlice", &self.MipSlice).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX1D_RTV {
@@ -4792,6 +5198,11 @@ impl ::core::clone::Clone for D3D10_TEX1D_SRV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX1D_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX1D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX1D_SRV {
     type Abi = Self;
 }
@@ -4816,6 +5227,11 @@ impl ::core::marker::Copy for D3D10_TEX2DMS_ARRAY_DSV {}
 impl ::core::clone::Clone for D3D10_TEX2DMS_ARRAY_DSV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX2DMS_ARRAY_DSV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2DMS_ARRAY_DSV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_ARRAY_DSV {
@@ -4844,6 +5260,11 @@ impl ::core::clone::Clone for D3D10_TEX2DMS_ARRAY_RTV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX2DMS_ARRAY_RTV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2DMS_ARRAY_RTV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_ARRAY_RTV {
     type Abi = Self;
 }
@@ -4868,6 +5289,11 @@ impl ::core::marker::Copy for D3D10_TEX2DMS_ARRAY_SRV {}
 impl ::core::clone::Clone for D3D10_TEX2DMS_ARRAY_SRV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX2DMS_ARRAY_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2DMS_ARRAY_SRV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_ARRAY_SRV {
@@ -4895,6 +5321,11 @@ impl ::core::clone::Clone for D3D10_TEX2DMS_DSV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX2DMS_DSV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2DMS_DSV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_DSV {
     type Abi = Self;
 }
@@ -4920,6 +5351,11 @@ impl ::core::clone::Clone for D3D10_TEX2DMS_RTV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX2DMS_RTV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2DMS_RTV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_RTV {
     type Abi = Self;
 }
@@ -4943,6 +5379,11 @@ impl ::core::marker::Copy for D3D10_TEX2DMS_SRV {}
 impl ::core::clone::Clone for D3D10_TEX2DMS_SRV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX2DMS_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2DMS_SRV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_SRV {
@@ -4972,6 +5413,11 @@ impl ::core::clone::Clone for D3D10_TEX2D_ARRAY_DSV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX2D_ARRAY_DSV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2D_ARRAY_DSV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX2D_ARRAY_DSV {
     type Abi = Self;
 }
@@ -4997,6 +5443,11 @@ impl ::core::marker::Copy for D3D10_TEX2D_ARRAY_RTV {}
 impl ::core::clone::Clone for D3D10_TEX2D_ARRAY_RTV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX2D_ARRAY_RTV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2D_ARRAY_RTV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX2D_ARRAY_RTV {
@@ -5027,6 +5478,11 @@ impl ::core::clone::Clone for D3D10_TEX2D_ARRAY_SRV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX2D_ARRAY_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2D_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX2D_ARRAY_SRV {
     type Abi = Self;
 }
@@ -5050,6 +5506,11 @@ impl ::core::marker::Copy for D3D10_TEX2D_DSV {}
 impl ::core::clone::Clone for D3D10_TEX2D_DSV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX2D_DSV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2D_DSV").field("MipSlice", &self.MipSlice).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX2D_DSV {
@@ -5077,6 +5538,11 @@ impl ::core::clone::Clone for D3D10_TEX2D_RTV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX2D_RTV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2D_RTV").field("MipSlice", &self.MipSlice).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX2D_RTV {
     type Abi = Self;
 }
@@ -5101,6 +5567,11 @@ impl ::core::marker::Copy for D3D10_TEX2D_SRV {}
 impl ::core::clone::Clone for D3D10_TEX2D_SRV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX2D_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX2D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX2D_SRV {
@@ -5130,6 +5601,11 @@ impl ::core::clone::Clone for D3D10_TEX3D_RTV {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEX3D_RTV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX3D_RTV").field("MipSlice", &self.MipSlice).field("FirstWSlice", &self.FirstWSlice).field("WSize", &self.WSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEX3D_RTV {
     type Abi = Self;
 }
@@ -5154,6 +5630,11 @@ impl ::core::marker::Copy for D3D10_TEX3D_SRV {}
 impl ::core::clone::Clone for D3D10_TEX3D_SRV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEX3D_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEX3D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEX3D_SRV {
@@ -5184,6 +5665,11 @@ impl ::core::clone::Clone for D3D10_TEXCUBE_ARRAY_SRV1 {
         *self
     }
 }
+impl ::core::fmt::Debug for D3D10_TEXCUBE_ARRAY_SRV1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEXCUBE_ARRAY_SRV1").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("First2DArrayFace", &self.First2DArrayFace).field("NumCubes", &self.NumCubes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D3D10_TEXCUBE_ARRAY_SRV1 {
     type Abi = Self;
 }
@@ -5208,6 +5694,11 @@ impl ::core::marker::Copy for D3D10_TEXCUBE_SRV {}
 impl ::core::clone::Clone for D3D10_TEXCUBE_SRV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_TEXCUBE_SRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEXCUBE_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_TEXCUBE_SRV {
@@ -5245,6 +5736,12 @@ impl ::core::marker::Copy for D3D10_TEXTURE1D_DESC {}
 impl ::core::clone::Clone for D3D10_TEXTURE1D_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D10_TEXTURE1D_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEXTURE1D_DESC").field("Width", &self.Width).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5289,6 +5786,12 @@ impl ::core::clone::Clone for D3D10_TEXTURE2D_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D10_TEXTURE2D_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEXTURE2D_DESC").field("Width", &self.Width).field("Height", &self.Height).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D10_TEXTURE2D_DESC {
     type Abi = Self;
 }
@@ -5326,6 +5829,12 @@ impl ::core::marker::Copy for D3D10_TEXTURE3D_DESC {}
 impl ::core::clone::Clone for D3D10_TEXTURE3D_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for D3D10_TEXTURE3D_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_TEXTURE3D_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("MipLevels", &self.MipLevels).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5400,6 +5909,11 @@ impl ::core::marker::Copy for D3D10_VIEWPORT {}
 impl ::core::clone::Clone for D3D10_VIEWPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D3D10_VIEWPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D10_VIEWPORT").field("TopLeftX", &self.TopLeftX).field("TopLeftY", &self.TopLeftY).field("Width", &self.Width).field("Height", &self.Height).field("MinDepth", &self.MinDepth).field("MaxDepth", &self.MaxDepth).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_VIEWPORT {

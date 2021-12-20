@@ -2209,6 +2209,11 @@ impl ::core::clone::Clone for NitRange {
         *self
     }
 }
+impl ::core::fmt::Debug for NitRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NitRange").field("MinNits", &self.MinNits).field("MaxNits", &self.MaxNits).field("StepSizeNits", &self.StepSizeNits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NitRange {
     type Abi = Self;
 }

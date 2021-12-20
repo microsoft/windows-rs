@@ -17523,6 +17523,11 @@ impl ::core::clone::Clone for RawElementProviderRuntimeId {
         *self
     }
 }
+impl ::core::fmt::Debug for RawElementProviderRuntimeId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RawElementProviderRuntimeId").field("Part1", &self.Part1).field("Part2", &self.Part2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RawElementProviderRuntimeId {
     type Abi = Self;
 }

@@ -463,6 +463,12 @@ impl ::core::clone::Clone for DNS_DOH_SERVER_SETTINGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DNS_DOH_SERVER_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DNS_DOH_SERVER_SETTINGS").field("Template", &self.Template).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_DOH_SERVER_SETTINGS {
     type Abi = Self;
 }
@@ -509,6 +515,12 @@ impl ::core::marker::Copy for DNS_INTERFACE_SETTINGS {}
 impl ::core::clone::Clone for DNS_INTERFACE_SETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DNS_INTERFACE_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DNS_INTERFACE_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).field("Domain", &self.Domain).field("NameServer", &self.NameServer).field("SearchList", &self.SearchList).field("RegistrationEnabled", &self.RegistrationEnabled).field("RegisterAdapterName", &self.RegisterAdapterName).field("EnableLLMNR", &self.EnableLLMNR).field("QueryAdapterName", &self.QueryAdapterName).field("ProfileNameServer", &self.ProfileNameServer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -559,6 +571,29 @@ impl ::core::clone::Clone for DNS_INTERFACE_SETTINGS3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DNS_INTERFACE_SETTINGS3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DNS_INTERFACE_SETTINGS3")
+            .field("Version", &self.Version)
+            .field("Flags", &self.Flags)
+            .field("Domain", &self.Domain)
+            .field("NameServer", &self.NameServer)
+            .field("SearchList", &self.SearchList)
+            .field("RegistrationEnabled", &self.RegistrationEnabled)
+            .field("RegisterAdapterName", &self.RegisterAdapterName)
+            .field("EnableLLMNR", &self.EnableLLMNR)
+            .field("QueryAdapterName", &self.QueryAdapterName)
+            .field("ProfileNameServer", &self.ProfileNameServer)
+            .field("DisableUnconstrainedQueries", &self.DisableUnconstrainedQueries)
+            .field("SupplementalSearchList", &self.SupplementalSearchList)
+            .field("cServerProperties", &self.cServerProperties)
+            .field("ServerProperties", &self.ServerProperties)
+            .field("cProfileServerProperties", &self.cProfileServerProperties)
+            .field("ProfileServerProperties", &self.ProfileServerProperties)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_INTERFACE_SETTINGS3 {
     type Abi = Self;
 }
@@ -590,6 +625,12 @@ impl ::core::marker::Copy for DNS_INTERFACE_SETTINGS_EX {}
 impl ::core::clone::Clone for DNS_INTERFACE_SETTINGS_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DNS_INTERFACE_SETTINGS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DNS_INTERFACE_SETTINGS_EX").field("SettingsV1", &self.SettingsV1).field("DisableUnconstrainedQueries", &self.DisableUnconstrainedQueries).field("SupplementalSearchList", &self.SupplementalSearchList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -631,6 +672,12 @@ impl ::core::marker::Copy for DNS_SERVER_PROPERTY {}
 impl ::core::clone::Clone for DNS_SERVER_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DNS_SERVER_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DNS_SERVER_PROPERTY").field("Version", &self.Version).field("ServerIndex", &self.ServerIndex).field("Type", &self.Type).field("Property", &self.Property).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -710,6 +757,12 @@ impl ::core::clone::Clone for DNS_SETTINGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DNS_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DNS_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).field("Hostname", &self.Hostname).field("Domain", &self.Domain).field("SearchList", &self.SearchList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_SETTINGS {
     type Abi = Self;
 }
@@ -744,6 +797,12 @@ impl ::core::marker::Copy for DNS_SETTINGS2 {}
 impl ::core::clone::Clone for DNS_SETTINGS2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DNS_SETTINGS2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DNS_SETTINGS2").field("Version", &self.Version).field("Flags", &self.Flags).field("Hostname", &self.Hostname).field("Domain", &self.Domain).field("SearchList", &self.SearchList).field("SettingFlags", &self.SettingFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -999,6 +1058,12 @@ impl ::core::marker::Copy for FIXED_INFO_W2KSP1 {}
 impl ::core::clone::Clone for FIXED_INFO_W2KSP1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FIXED_INFO_W2KSP1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FIXED_INFO_W2KSP1").field("HostName", &self.HostName).field("DomainName", &self.DomainName).field("CurrentDnsServer", &self.CurrentDnsServer).field("DnsServerList", &self.DnsServerList).field("NodeType", &self.NodeType).field("ScopeId", &self.ScopeId).field("EnableRouting", &self.EnableRouting).field("EnableProxy", &self.EnableProxy).field("EnableDns", &self.EnableDns).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2433,6 +2498,11 @@ impl ::core::clone::Clone for IF_COUNTED_STRING_LH {
         *self
     }
 }
+impl ::core::fmt::Debug for IF_COUNTED_STRING_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IF_COUNTED_STRING_LH").field("Length", &self.Length).field("String", &self.String).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IF_COUNTED_STRING_LH {
     type Abi = Self;
 }
@@ -2479,6 +2549,11 @@ impl ::core::marker::Copy for IF_PHYSICAL_ADDRESS_LH {}
 impl ::core::clone::Clone for IF_PHYSICAL_ADDRESS_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IF_PHYSICAL_ADDRESS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IF_PHYSICAL_ADDRESS_LH").field("Length", &self.Length).field("Address", &self.Address).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IF_PHYSICAL_ADDRESS_LH {
@@ -2916,6 +2991,11 @@ impl ::core::clone::Clone for INTERFACE_HARDWARE_CROSSTIMESTAMP {
         *self
     }
 }
+impl ::core::fmt::Debug for INTERFACE_HARDWARE_CROSSTIMESTAMP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERFACE_HARDWARE_CROSSTIMESTAMP").field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for INTERFACE_HARDWARE_CROSSTIMESTAMP {
     type Abi = Self;
 }
@@ -2955,6 +3035,24 @@ impl ::core::clone::Clone for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES")
+            .field("PtpV2OverUdpIPv4EventMessageReceive", &self.PtpV2OverUdpIPv4EventMessageReceive)
+            .field("PtpV2OverUdpIPv4AllMessageReceive", &self.PtpV2OverUdpIPv4AllMessageReceive)
+            .field("PtpV2OverUdpIPv4EventMessageTransmit", &self.PtpV2OverUdpIPv4EventMessageTransmit)
+            .field("PtpV2OverUdpIPv4AllMessageTransmit", &self.PtpV2OverUdpIPv4AllMessageTransmit)
+            .field("PtpV2OverUdpIPv6EventMessageReceive", &self.PtpV2OverUdpIPv6EventMessageReceive)
+            .field("PtpV2OverUdpIPv6AllMessageReceive", &self.PtpV2OverUdpIPv6AllMessageReceive)
+            .field("PtpV2OverUdpIPv6EventMessageTransmit", &self.PtpV2OverUdpIPv6EventMessageTransmit)
+            .field("PtpV2OverUdpIPv6AllMessageTransmit", &self.PtpV2OverUdpIPv6AllMessageTransmit)
+            .field("AllReceive", &self.AllReceive)
+            .field("AllTransmit", &self.AllTransmit)
+            .field("TaggedTransmit", &self.TaggedTransmit)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     type Abi = Self;
 }
@@ -2986,6 +3084,12 @@ impl ::core::marker::Copy for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {}
 impl ::core::clone::Clone for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES").field("AllReceive", &self.AllReceive).field("AllTransmit", &self.AllTransmit).field("TaggedTransmit", &self.TaggedTransmit).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3021,6 +3125,12 @@ impl ::core::marker::Copy for INTERFACE_TIMESTAMP_CAPABILITIES {}
 impl ::core::clone::Clone for INTERFACE_TIMESTAMP_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for INTERFACE_TIMESTAMP_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERFACE_TIMESTAMP_CAPABILITIES").field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz).field("SupportsCrossTimestamp", &self.SupportsCrossTimestamp).field("HardwareCapabilities", &self.HardwareCapabilities).field("SoftwareCapabilities", &self.SoftwareCapabilities).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3083,6 +3193,11 @@ impl ::core::marker::Copy for IPV6_ADDRESS_EX {}
 impl ::core::clone::Clone for IPV6_ADDRESS_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IPV6_ADDRESS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IPV6_ADDRESS_EX").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPV6_ADDRESS_EX {
@@ -3153,6 +3268,49 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_ADDRESSES_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_ADDRESSES_LH")
+            .field("Anonymous1", &self.Anonymous1)
+            .field("Next", &self.Next)
+            .field("AdapterName", &self.AdapterName)
+            .field("FirstUnicastAddress", &self.FirstUnicastAddress)
+            .field("FirstAnycastAddress", &self.FirstAnycastAddress)
+            .field("FirstMulticastAddress", &self.FirstMulticastAddress)
+            .field("FirstDnsServerAddress", &self.FirstDnsServerAddress)
+            .field("DnsSuffix", &self.DnsSuffix)
+            .field("Description", &self.Description)
+            .field("FriendlyName", &self.FriendlyName)
+            .field("PhysicalAddress", &self.PhysicalAddress)
+            .field("PhysicalAddressLength", &self.PhysicalAddressLength)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("Mtu", &self.Mtu)
+            .field("IfType", &self.IfType)
+            .field("OperStatus", &self.OperStatus)
+            .field("Ipv6IfIndex", &self.Ipv6IfIndex)
+            .field("ZoneIndices", &self.ZoneIndices)
+            .field("FirstPrefix", &self.FirstPrefix)
+            .field("TransmitLinkSpeed", &self.TransmitLinkSpeed)
+            .field("ReceiveLinkSpeed", &self.ReceiveLinkSpeed)
+            .field("FirstWinsServerAddress", &self.FirstWinsServerAddress)
+            .field("FirstGatewayAddress", &self.FirstGatewayAddress)
+            .field("Ipv4Metric", &self.Ipv4Metric)
+            .field("Ipv6Metric", &self.Ipv6Metric)
+            .field("Luid", &self.Luid)
+            .field("Dhcpv4Server", &self.Dhcpv4Server)
+            .field("CompartmentId", &self.CompartmentId)
+            .field("NetworkGuid", &self.NetworkGuid)
+            .field("ConnectionType", &self.ConnectionType)
+            .field("TunnelType", &self.TunnelType)
+            .field("Dhcpv6Server", &self.Dhcpv6Server)
+            .field("Dhcpv6ClientDuid", &self.Dhcpv6ClientDuid)
+            .field("Dhcpv6ClientDuidLength", &self.Dhcpv6ClientDuidLength)
+            .field("Dhcpv6Iaid", &self.Dhcpv6Iaid)
+            .field("FirstDnsSuffix", &self.FirstDnsSuffix)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_LH {
     type Abi = Self;
 }
@@ -3216,6 +3374,12 @@ impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_LH_0_0 {}
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_ADDRESSES_LH_0_0").field("Length", &self.Length).field("IfIndex", &self.IfIndex).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3284,6 +3448,12 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_ADDRESSES_LH_1_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_LH_1_0 {
     type Abi = Self;
 }
@@ -3331,6 +3501,32 @@ impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_XP {}
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_ADDRESSES_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_ADDRESSES_XP")
+            .field("Anonymous", &self.Anonymous)
+            .field("Next", &self.Next)
+            .field("AdapterName", &self.AdapterName)
+            .field("FirstUnicastAddress", &self.FirstUnicastAddress)
+            .field("FirstAnycastAddress", &self.FirstAnycastAddress)
+            .field("FirstMulticastAddress", &self.FirstMulticastAddress)
+            .field("FirstDnsServerAddress", &self.FirstDnsServerAddress)
+            .field("DnsSuffix", &self.DnsSuffix)
+            .field("Description", &self.Description)
+            .field("FriendlyName", &self.FriendlyName)
+            .field("PhysicalAddress", &self.PhysicalAddress)
+            .field("PhysicalAddressLength", &self.PhysicalAddressLength)
+            .field("Flags", &self.Flags)
+            .field("Mtu", &self.Mtu)
+            .field("IfType", &self.IfType)
+            .field("OperStatus", &self.OperStatus)
+            .field("Ipv6IfIndex", &self.Ipv6IfIndex)
+            .field("ZoneIndices", &self.ZoneIndices)
+            .field("FirstPrefix", &self.FirstPrefix)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3400,6 +3596,12 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_ADDRESSES_XP_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_ADDRESSES_XP_0_0").field("Length", &self.Length).field("IfIndex", &self.IfIndex).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_ADDRESSES_XP_0_0 {
     type Abi = Self;
 }
@@ -3435,6 +3637,12 @@ impl ::core::marker::Copy for IP_ADAPTER_ANYCAST_ADDRESS_XP {}
 impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_ANYCAST_ADDRESS_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_ANYCAST_ADDRESS_XP").field("Anonymous", &self.Anonymous).field("Next", &self.Next).field("Address", &self.Address).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3504,6 +3712,12 @@ impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     type Abi = Self;
 }
@@ -3539,6 +3753,12 @@ impl ::core::marker::Copy for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {}
 impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_DNS_SERVER_ADDRESS_XP").field("Anonymous", &self.Anonymous).field("Next", &self.Next).field("Address", &self.Address).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3608,6 +3828,12 @@ impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     type Abi = Self;
 }
@@ -3635,6 +3861,11 @@ impl ::core::marker::Copy for IP_ADAPTER_DNS_SUFFIX {}
 impl ::core::clone::Clone for IP_ADAPTER_DNS_SUFFIX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IP_ADAPTER_DNS_SUFFIX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_DNS_SUFFIX").field("Next", &self.Next).field("String", &self.String).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IP_ADAPTER_DNS_SUFFIX {
@@ -3665,6 +3896,12 @@ impl ::core::marker::Copy for IP_ADAPTER_GATEWAY_ADDRESS_LH {}
 impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_GATEWAY_ADDRESS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_GATEWAY_ADDRESS_LH").field("Anonymous", &self.Anonymous).field("Next", &self.Next).field("Address", &self.Address).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3734,6 +3971,12 @@ impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     type Abi = Self;
 }
@@ -3761,6 +4004,11 @@ impl ::core::marker::Copy for IP_ADAPTER_INDEX_MAP {}
 impl ::core::clone::Clone for IP_ADAPTER_INDEX_MAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IP_ADAPTER_INDEX_MAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_INDEX_MAP").field("Index", &self.Index).field("Name", &self.Name).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IP_ADAPTER_INDEX_MAP {
@@ -3809,6 +4057,31 @@ impl ::core::clone::Clone for IP_ADAPTER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IP_ADAPTER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_INFO")
+            .field("Next", &self.Next)
+            .field("ComboIndex", &self.ComboIndex)
+            .field("AdapterName", &self.AdapterName)
+            .field("Description", &self.Description)
+            .field("AddressLength", &self.AddressLength)
+            .field("Address", &self.Address)
+            .field("Index", &self.Index)
+            .field("Type", &self.Type)
+            .field("DhcpEnabled", &self.DhcpEnabled)
+            .field("CurrentIpAddress", &self.CurrentIpAddress)
+            .field("IpAddressList", &self.IpAddressList)
+            .field("GatewayList", &self.GatewayList)
+            .field("DhcpServer", &self.DhcpServer)
+            .field("HaveWins", &self.HaveWins)
+            .field("PrimaryWinsServer", &self.PrimaryWinsServer)
+            .field("SecondaryWinsServer", &self.SecondaryWinsServer)
+            .field("LeaseObtained", &self.LeaseObtained)
+            .field("LeaseExpires", &self.LeaseExpires)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_INFO {
     type Abi = Self;
 }
@@ -3848,6 +4121,12 @@ impl ::core::marker::Copy for IP_ADAPTER_MULTICAST_ADDRESS_XP {}
 impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_MULTICAST_ADDRESS_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_MULTICAST_ADDRESS_XP").field("Anonymous", &self.Anonymous).field("Next", &self.Next).field("Address", &self.Address).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3917,6 +4196,12 @@ impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     type Abi = Self;
 }
@@ -3950,6 +4235,11 @@ impl ::core::clone::Clone for IP_ADAPTER_ORDER_MAP {
         *self
     }
 }
+impl ::core::fmt::Debug for IP_ADAPTER_ORDER_MAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_ORDER_MAP").field("NumAdapters", &self.NumAdapters).field("AdapterOrder", &self.AdapterOrder).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IP_ADAPTER_ORDER_MAP {
     type Abi = Self;
 }
@@ -3979,6 +4269,12 @@ impl ::core::marker::Copy for IP_ADAPTER_PREFIX_XP {}
 impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_PREFIX_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_PREFIX_XP").field("Anonymous", &self.Anonymous).field("Next", &self.Next).field("Address", &self.Address).field("PrefixLength", &self.PrefixLength).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4048,6 +4344,12 @@ impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_PREFIX_XP_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_PREFIX_XP_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_PREFIX_XP_0_0 {
     type Abi = Self;
 }
@@ -4090,6 +4392,12 @@ impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_LH {}
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_UNICAST_ADDRESS_LH").field("Anonymous", &self.Anonymous).field("Next", &self.Next).field("Address", &self.Address).field("PrefixOrigin", &self.PrefixOrigin).field("SuffixOrigin", &self.SuffixOrigin).field("DadState", &self.DadState).field("ValidLifetime", &self.ValidLifetime).field("PreferredLifetime", &self.PreferredLifetime).field("LeaseLifetime", &self.LeaseLifetime).field("OnLinkPrefixLength", &self.OnLinkPrefixLength).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4159,6 +4467,12 @@ impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_UNICAST_ADDRESS_LH_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     type Abi = Self;
 }
@@ -4196,6 +4510,12 @@ impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_XP {}
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_UNICAST_ADDRESS_XP").field("Anonymous", &self.Anonymous).field("Next", &self.Next).field("Address", &self.Address).field("PrefixOrigin", &self.PrefixOrigin).field("SuffixOrigin", &self.SuffixOrigin).field("DadState", &self.DadState).field("ValidLifetime", &self.ValidLifetime).field("PreferredLifetime", &self.PreferredLifetime).field("LeaseLifetime", &self.LeaseLifetime).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4265,6 +4585,12 @@ impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_UNICAST_ADDRESS_XP_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     type Abi = Self;
 }
@@ -4296,6 +4622,12 @@ impl ::core::marker::Copy for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {}
 impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_WINS_SERVER_ADDRESS_LH").field("Anonymous", &self.Anonymous).field("Next", &self.Next).field("Address", &self.Address).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4365,6 +4697,12 @@ impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     type Abi = Self;
 }
@@ -4398,6 +4736,12 @@ impl ::core::clone::Clone for IP_ADDRESS_PREFIX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for IP_ADDRESS_PREFIX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADDRESS_PREFIX").field("Prefix", &self.Prefix).field("PrefixLength", &self.PrefixLength).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for IP_ADDRESS_PREFIX {
     type Abi = Self;
 }
@@ -4427,6 +4771,12 @@ impl ::core::marker::Copy for IP_ADDRESS_STRING {}
 impl ::core::clone::Clone for IP_ADDRESS_STRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IP_ADDRESS_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADDRESS_STRING").field("String", &self.String).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4470,6 +4820,12 @@ impl ::core::marker::Copy for IP_ADDR_STRING {}
 impl ::core::clone::Clone for IP_ADDR_STRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IP_ADDR_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_ADDR_STRING").field("Next", &self.Next).field("IpAddress", &self.IpAddress).field("IpMask", &self.IpMask).field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4576,6 +4932,11 @@ impl ::core::clone::Clone for IP_INTERFACE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for IP_INTERFACE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_INTERFACE_INFO").field("NumAdapters", &self.NumAdapters).field("Adapter", &self.Adapter).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IP_INTERFACE_INFO {
     type Abi = Self;
 }
@@ -4616,6 +4977,11 @@ impl ::core::marker::Copy for IP_MCAST_COUNTER_INFO {}
 impl ::core::clone::Clone for IP_MCAST_COUNTER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IP_MCAST_COUNTER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_MCAST_COUNTER_INFO").field("InMcastOctets", &self.InMcastOctets).field("OutMcastOctets", &self.OutMcastOctets).field("InMcastPkts", &self.InMcastPkts).field("OutMcastPkts", &self.OutMcastPkts).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IP_MCAST_COUNTER_INFO {
@@ -4682,6 +5048,12 @@ impl ::core::clone::Clone for IP_PER_ADAPTER_INFO_W2KSP1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IP_PER_ADAPTER_INFO_W2KSP1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_PER_ADAPTER_INFO_W2KSP1").field("AutoconfigEnabled", &self.AutoconfigEnabled).field("AutoconfigActive", &self.AutoconfigActive).field("CurrentDnsServer", &self.CurrentDnsServer).field("DnsServerList", &self.DnsServerList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IP_PER_ADAPTER_INFO_W2KSP1 {
     type Abi = Self;
 }
@@ -4743,6 +5115,11 @@ impl ::core::marker::Copy for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {}
 impl ::core::clone::Clone for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_UNIDIRECTIONAL_ADAPTER_ADDRESS").field("NumAdapters", &self.NumAdapters).field("Address", &self.Address).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
@@ -5067,6 +5444,11 @@ impl ::core::clone::Clone for MIBICMPINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for MIBICMPINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIBICMPINFO").field("icmpInStats", &self.icmpInStats).field("icmpOutStats", &self.icmpOutStats).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIBICMPINFO {
     type Abi = Self;
 }
@@ -5104,6 +5486,25 @@ impl ::core::clone::Clone for MIBICMPSTATS {
         *self
     }
 }
+impl ::core::fmt::Debug for MIBICMPSTATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIBICMPSTATS")
+            .field("dwMsgs", &self.dwMsgs)
+            .field("dwErrors", &self.dwErrors)
+            .field("dwDestUnreachs", &self.dwDestUnreachs)
+            .field("dwTimeExcds", &self.dwTimeExcds)
+            .field("dwParmProbs", &self.dwParmProbs)
+            .field("dwSrcQuenchs", &self.dwSrcQuenchs)
+            .field("dwRedirects", &self.dwRedirects)
+            .field("dwEchos", &self.dwEchos)
+            .field("dwEchoReps", &self.dwEchoReps)
+            .field("dwTimestamps", &self.dwTimestamps)
+            .field("dwTimestampReps", &self.dwTimestampReps)
+            .field("dwAddrMasks", &self.dwAddrMasks)
+            .field("dwAddrMaskReps", &self.dwAddrMaskReps)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIBICMPSTATS {
     type Abi = Self;
 }
@@ -5129,6 +5530,11 @@ impl ::core::marker::Copy for MIBICMPSTATS_EX_XPSP1 {}
 impl ::core::clone::Clone for MIBICMPSTATS_EX_XPSP1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIBICMPSTATS_EX_XPSP1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIBICMPSTATS_EX_XPSP1").field("dwMsgs", &self.dwMsgs).field("dwErrors", &self.dwErrors).field("rgdwTypeCount", &self.rgdwTypeCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIBICMPSTATS_EX_XPSP1 {
@@ -5160,6 +5566,12 @@ impl ::core::marker::Copy for MIB_ANYCASTIPADDRESS_ROW {}
 impl ::core::clone::Clone for MIB_ANYCASTIPADDRESS_ROW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_ANYCASTIPADDRESS_ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_ANYCASTIPADDRESS_ROW").field("Address", &self.Address).field("InterfaceLuid", &self.InterfaceLuid).field("InterfaceIndex", &self.InterfaceIndex).field("ScopeId", &self.ScopeId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -5196,6 +5608,12 @@ impl ::core::clone::Clone for MIB_ANYCASTIPADDRESS_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_ANYCASTIPADDRESS_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_ANYCASTIPADDRESS_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MIB_ANYCASTIPADDRESS_TABLE {
     type Abi = Self;
 }
@@ -5225,6 +5643,11 @@ impl ::core::clone::Clone for MIB_BEST_IF {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_BEST_IF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_BEST_IF").field("dwDestAddr", &self.dwDestAddr).field("dwIfIndex", &self.dwIfIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_BEST_IF {
     type Abi = Self;
 }
@@ -5251,6 +5674,11 @@ impl ::core::clone::Clone for MIB_BOUNDARYROW {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_BOUNDARYROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_BOUNDARYROW").field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_BOUNDARYROW {
     type Abi = Self;
 }
@@ -5274,6 +5702,11 @@ impl ::core::marker::Copy for MIB_ICMP {}
 impl ::core::clone::Clone for MIB_ICMP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_ICMP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_ICMP").field("stats", &self.stats).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_ICMP {
@@ -5302,6 +5735,11 @@ impl ::core::clone::Clone for MIB_ICMP_EX_XPSP1 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_ICMP_EX_XPSP1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_ICMP_EX_XPSP1").field("icmpInStats", &self.icmpInStats).field("icmpOutStats", &self.icmpOutStats).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_ICMP_EX_XPSP1 {
     type Abi = Self;
 }
@@ -5325,6 +5763,11 @@ impl ::core::marker::Copy for MIB_IFNUMBER {}
 impl ::core::clone::Clone for MIB_IFNUMBER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IFNUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IFNUMBER").field("dwValue", &self.dwValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IFNUMBER {
@@ -5375,6 +5818,36 @@ impl ::core::clone::Clone for MIB_IFROW {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IFROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IFROW")
+            .field("wszName", &self.wszName)
+            .field("dwIndex", &self.dwIndex)
+            .field("dwType", &self.dwType)
+            .field("dwMtu", &self.dwMtu)
+            .field("dwSpeed", &self.dwSpeed)
+            .field("dwPhysAddrLen", &self.dwPhysAddrLen)
+            .field("bPhysAddr", &self.bPhysAddr)
+            .field("dwAdminStatus", &self.dwAdminStatus)
+            .field("dwOperStatus", &self.dwOperStatus)
+            .field("dwLastChange", &self.dwLastChange)
+            .field("dwInOctets", &self.dwInOctets)
+            .field("dwInUcastPkts", &self.dwInUcastPkts)
+            .field("dwInNUcastPkts", &self.dwInNUcastPkts)
+            .field("dwInDiscards", &self.dwInDiscards)
+            .field("dwInErrors", &self.dwInErrors)
+            .field("dwInUnknownProtos", &self.dwInUnknownProtos)
+            .field("dwOutOctets", &self.dwOutOctets)
+            .field("dwOutUcastPkts", &self.dwOutUcastPkts)
+            .field("dwOutNUcastPkts", &self.dwOutNUcastPkts)
+            .field("dwOutDiscards", &self.dwOutDiscards)
+            .field("dwOutErrors", &self.dwOutErrors)
+            .field("dwOutQLen", &self.dwOutQLen)
+            .field("dwDescrLen", &self.dwDescrLen)
+            .field("bDescr", &self.bDescr)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IFROW {
     type Abi = Self;
 }
@@ -5401,6 +5874,11 @@ impl ::core::clone::Clone for MIB_IFSTACK_ROW {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IFSTACK_ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IFSTACK_ROW").field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex).field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IFSTACK_ROW {
     type Abi = Self;
 }
@@ -5425,6 +5903,11 @@ impl ::core::marker::Copy for MIB_IFSTACK_TABLE {}
 impl ::core::clone::Clone for MIB_IFSTACK_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IFSTACK_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IFSTACK_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IFSTACK_TABLE {
@@ -5460,6 +5943,12 @@ impl ::core::clone::Clone for MIB_IFSTATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MIB_IFSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IFSTATUS").field("dwIfIndex", &self.dwIfIndex).field("dwAdminStatus", &self.dwAdminStatus).field("dwOperationalStatus", &self.dwOperationalStatus).field("bMHbeatActive", &self.bMHbeatActive).field("bMHbeatAlive", &self.bMHbeatAlive).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIB_IFSTATUS {
     type Abi = Self;
 }
@@ -5487,6 +5976,11 @@ impl ::core::marker::Copy for MIB_IFTABLE {}
 impl ::core::clone::Clone for MIB_IFTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IFTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IFTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IFTABLE {
@@ -5570,6 +6064,54 @@ impl ::core::clone::Clone for MIB_IF_ROW2 {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::fmt::Debug for MIB_IF_ROW2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IF_ROW2")
+            .field("InterfaceLuid", &self.InterfaceLuid)
+            .field("InterfaceIndex", &self.InterfaceIndex)
+            .field("InterfaceGuid", &self.InterfaceGuid)
+            .field("Alias", &self.Alias)
+            .field("Description", &self.Description)
+            .field("PhysicalAddressLength", &self.PhysicalAddressLength)
+            .field("PhysicalAddress", &self.PhysicalAddress)
+            .field("PermanentPhysicalAddress", &self.PermanentPhysicalAddress)
+            .field("Mtu", &self.Mtu)
+            .field("Type", &self.Type)
+            .field("TunnelType", &self.TunnelType)
+            .field("MediaType", &self.MediaType)
+            .field("PhysicalMediumType", &self.PhysicalMediumType)
+            .field("AccessType", &self.AccessType)
+            .field("DirectionType", &self.DirectionType)
+            .field("InterfaceAndOperStatusFlags", &self.InterfaceAndOperStatusFlags)
+            .field("OperStatus", &self.OperStatus)
+            .field("AdminStatus", &self.AdminStatus)
+            .field("MediaConnectState", &self.MediaConnectState)
+            .field("NetworkGuid", &self.NetworkGuid)
+            .field("ConnectionType", &self.ConnectionType)
+            .field("TransmitLinkSpeed", &self.TransmitLinkSpeed)
+            .field("ReceiveLinkSpeed", &self.ReceiveLinkSpeed)
+            .field("InOctets", &self.InOctets)
+            .field("InUcastPkts", &self.InUcastPkts)
+            .field("InNUcastPkts", &self.InNUcastPkts)
+            .field("InDiscards", &self.InDiscards)
+            .field("InErrors", &self.InErrors)
+            .field("InUnknownProtos", &self.InUnknownProtos)
+            .field("InUcastOctets", &self.InUcastOctets)
+            .field("InMulticastOctets", &self.InMulticastOctets)
+            .field("InBroadcastOctets", &self.InBroadcastOctets)
+            .field("OutOctets", &self.OutOctets)
+            .field("OutUcastPkts", &self.OutUcastPkts)
+            .field("OutNUcastPkts", &self.OutNUcastPkts)
+            .field("OutDiscards", &self.OutDiscards)
+            .field("OutErrors", &self.OutErrors)
+            .field("OutUcastOctets", &self.OutUcastOctets)
+            .field("OutMulticastOctets", &self.OutMulticastOctets)
+            .field("OutBroadcastOctets", &self.OutBroadcastOctets)
+            .field("OutQLen", &self.OutQLen)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::core::Abi for MIB_IF_ROW2 {
     type Abi = Self;
 }
@@ -5599,6 +6141,12 @@ impl ::core::marker::Copy for MIB_IF_ROW2_0 {}
 impl ::core::clone::Clone for MIB_IF_ROW2_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::fmt::Debug for MIB_IF_ROW2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IF_ROW2_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5632,6 +6180,12 @@ impl ::core::marker::Copy for MIB_IF_TABLE2 {}
 impl ::core::clone::Clone for MIB_IF_TABLE2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::fmt::Debug for MIB_IF_TABLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IF_TABLE2").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5688,6 +6242,11 @@ impl ::core::clone::Clone for MIB_INVERTEDIFSTACK_ROW {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_INVERTEDIFSTACK_ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_INVERTEDIFSTACK_ROW").field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex).field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_INVERTEDIFSTACK_ROW {
     type Abi = Self;
 }
@@ -5712,6 +6271,11 @@ impl ::core::marker::Copy for MIB_INVERTEDIFSTACK_TABLE {}
 impl ::core::clone::Clone for MIB_INVERTEDIFSTACK_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_INVERTEDIFSTACK_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_INVERTEDIFSTACK_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_INVERTEDIFSTACK_TABLE {
@@ -5745,6 +6309,11 @@ impl ::core::clone::Clone for MIB_IPADDRROW_W2K {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPADDRROW_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPADDRROW_W2K").field("dwAddr", &self.dwAddr).field("dwIndex", &self.dwIndex).field("dwMask", &self.dwMask).field("dwBCastAddr", &self.dwBCastAddr).field("dwReasmSize", &self.dwReasmSize).field("unused1", &self.unused1).field("unused2", &self.unused2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPADDRROW_W2K {
     type Abi = Self;
 }
@@ -5776,6 +6345,11 @@ impl ::core::clone::Clone for MIB_IPADDRROW_XP {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPADDRROW_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPADDRROW_XP").field("dwAddr", &self.dwAddr).field("dwIndex", &self.dwIndex).field("dwMask", &self.dwMask).field("dwBCastAddr", &self.dwBCastAddr).field("dwReasmSize", &self.dwReasmSize).field("unused1", &self.unused1).field("wType", &self.wType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPADDRROW_XP {
     type Abi = Self;
 }
@@ -5800,6 +6374,11 @@ impl ::core::marker::Copy for MIB_IPADDRTABLE {}
 impl ::core::clone::Clone for MIB_IPADDRTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPADDRTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPADDRTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPADDRTABLE {
@@ -5845,6 +6424,12 @@ impl ::core::clone::Clone for MIB_IPDESTROW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_IPDESTROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPDESTROW").field("ForwardRow", &self.ForwardRow).field("dwForwardPreference", &self.dwForwardPreference).field("dwForwardViewSet", &self.dwForwardViewSet).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MIB_IPDESTROW {
     type Abi = Self;
 }
@@ -5878,6 +6463,12 @@ impl ::core::clone::Clone for MIB_IPDESTTABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_IPDESTTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPDESTTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MIB_IPDESTTABLE {
     type Abi = Self;
 }
@@ -5904,6 +6495,11 @@ impl ::core::marker::Copy for MIB_IPFORWARDNUMBER {}
 impl ::core::clone::Clone for MIB_IPFORWARDNUMBER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPFORWARDNUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPFORWARDNUMBER").field("dwValue", &self.dwValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPFORWARDNUMBER {
@@ -5945,6 +6541,27 @@ impl ::core::marker::Copy for MIB_IPFORWARDROW {}
 impl ::core::clone::Clone for MIB_IPFORWARDROW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_IPFORWARDROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPFORWARDROW")
+            .field("dwForwardDest", &self.dwForwardDest)
+            .field("dwForwardMask", &self.dwForwardMask)
+            .field("dwForwardPolicy", &self.dwForwardPolicy)
+            .field("dwForwardNextHop", &self.dwForwardNextHop)
+            .field("dwForwardIfIndex", &self.dwForwardIfIndex)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("dwForwardAge", &self.dwForwardAge)
+            .field("dwForwardNextHopAS", &self.dwForwardNextHopAS)
+            .field("dwForwardMetric1", &self.dwForwardMetric1)
+            .field("dwForwardMetric2", &self.dwForwardMetric2)
+            .field("dwForwardMetric3", &self.dwForwardMetric3)
+            .field("dwForwardMetric4", &self.dwForwardMetric4)
+            .field("dwForwardMetric5", &self.dwForwardMetric5)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -6047,6 +6664,12 @@ impl ::core::clone::Clone for MIB_IPFORWARDTABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_IPFORWARDTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPFORWARDTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MIB_IPFORWARDTABLE {
     type Abi = Self;
 }
@@ -6093,6 +6716,28 @@ impl ::core::clone::Clone for MIB_IPFORWARD_ROW2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPFORWARD_ROW2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPFORWARD_ROW2")
+            .field("InterfaceLuid", &self.InterfaceLuid)
+            .field("InterfaceIndex", &self.InterfaceIndex)
+            .field("DestinationPrefix", &self.DestinationPrefix)
+            .field("NextHop", &self.NextHop)
+            .field("SitePrefixLength", &self.SitePrefixLength)
+            .field("ValidLifetime", &self.ValidLifetime)
+            .field("PreferredLifetime", &self.PreferredLifetime)
+            .field("Metric", &self.Metric)
+            .field("Protocol", &self.Protocol)
+            .field("Loopback", &self.Loopback)
+            .field("AutoconfigureAddress", &self.AutoconfigureAddress)
+            .field("Publish", &self.Publish)
+            .field("Immortal", &self.Immortal)
+            .field("Age", &self.Age)
+            .field("Origin", &self.Origin)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MIB_IPFORWARD_ROW2 {
     type Abi = Self;
 }
@@ -6123,6 +6768,12 @@ impl ::core::marker::Copy for MIB_IPFORWARD_TABLE2 {}
 impl ::core::clone::Clone for MIB_IPFORWARD_TABLE2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPFORWARD_TABLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPFORWARD_TABLE2").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -6202,6 +6853,48 @@ impl ::core::clone::Clone for MIB_IPINTERFACE_ROW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPINTERFACE_ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPINTERFACE_ROW")
+            .field("Family", &self.Family)
+            .field("InterfaceLuid", &self.InterfaceLuid)
+            .field("InterfaceIndex", &self.InterfaceIndex)
+            .field("MaxReassemblySize", &self.MaxReassemblySize)
+            .field("InterfaceIdentifier", &self.InterfaceIdentifier)
+            .field("MinRouterAdvertisementInterval", &self.MinRouterAdvertisementInterval)
+            .field("MaxRouterAdvertisementInterval", &self.MaxRouterAdvertisementInterval)
+            .field("AdvertisingEnabled", &self.AdvertisingEnabled)
+            .field("ForwardingEnabled", &self.ForwardingEnabled)
+            .field("WeakHostSend", &self.WeakHostSend)
+            .field("WeakHostReceive", &self.WeakHostReceive)
+            .field("UseAutomaticMetric", &self.UseAutomaticMetric)
+            .field("UseNeighborUnreachabilityDetection", &self.UseNeighborUnreachabilityDetection)
+            .field("ManagedAddressConfigurationSupported", &self.ManagedAddressConfigurationSupported)
+            .field("OtherStatefulConfigurationSupported", &self.OtherStatefulConfigurationSupported)
+            .field("AdvertiseDefaultRoute", &self.AdvertiseDefaultRoute)
+            .field("RouterDiscoveryBehavior", &self.RouterDiscoveryBehavior)
+            .field("DadTransmits", &self.DadTransmits)
+            .field("BaseReachableTime", &self.BaseReachableTime)
+            .field("RetransmitTime", &self.RetransmitTime)
+            .field("PathMtuDiscoveryTimeout", &self.PathMtuDiscoveryTimeout)
+            .field("LinkLocalAddressBehavior", &self.LinkLocalAddressBehavior)
+            .field("LinkLocalAddressTimeout", &self.LinkLocalAddressTimeout)
+            .field("ZoneIndices", &self.ZoneIndices)
+            .field("SitePrefixLength", &self.SitePrefixLength)
+            .field("Metric", &self.Metric)
+            .field("NlMtu", &self.NlMtu)
+            .field("Connected", &self.Connected)
+            .field("SupportsWakeUpPatterns", &self.SupportsWakeUpPatterns)
+            .field("SupportsNeighborDiscovery", &self.SupportsNeighborDiscovery)
+            .field("SupportsRouterDiscovery", &self.SupportsRouterDiscovery)
+            .field("ReachableTime", &self.ReachableTime)
+            .field("TransmitOffload", &self.TransmitOffload)
+            .field("ReceiveOffload", &self.ReceiveOffload)
+            .field("DisableDefaultRoutes", &self.DisableDefaultRoutes)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MIB_IPINTERFACE_ROW {
     type Abi = Self;
 }
@@ -6232,6 +6925,12 @@ impl ::core::marker::Copy for MIB_IPINTERFACE_TABLE {}
 impl ::core::clone::Clone for MIB_IPINTERFACE_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPINTERFACE_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPINTERFACE_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -6266,6 +6965,11 @@ impl ::core::clone::Clone for MIB_IPMCAST_BOUNDARY {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPMCAST_BOUNDARY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_BOUNDARY").field("dwIfIndex", &self.dwIfIndex).field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).field("dwStatus", &self.dwStatus).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_BOUNDARY {
     type Abi = Self;
 }
@@ -6292,6 +6996,11 @@ impl ::core::clone::Clone for MIB_IPMCAST_BOUNDARY_TABLE {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPMCAST_BOUNDARY_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_BOUNDARY_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_BOUNDARY_TABLE {
     type Abi = Self;
 }
@@ -6315,6 +7024,11 @@ impl ::core::marker::Copy for MIB_IPMCAST_GLOBAL {}
 impl ::core::clone::Clone for MIB_IPMCAST_GLOBAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPMCAST_GLOBAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_GLOBAL").field("dwEnable", &self.dwEnable).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_GLOBAL {
@@ -6347,6 +7061,11 @@ impl ::core::clone::Clone for MIB_IPMCAST_IF_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPMCAST_IF_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_IF_ENTRY").field("dwIfIndex", &self.dwIfIndex).field("dwTtl", &self.dwTtl).field("dwProtocol", &self.dwProtocol).field("dwRateLimit", &self.dwRateLimit).field("ulInMcastOctets", &self.ulInMcastOctets).field("ulOutMcastOctets", &self.ulOutMcastOctets).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_IF_ENTRY {
     type Abi = Self;
 }
@@ -6371,6 +7090,11 @@ impl ::core::marker::Copy for MIB_IPMCAST_IF_TABLE {}
 impl ::core::clone::Clone for MIB_IPMCAST_IF_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPMCAST_IF_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_IF_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_IF_TABLE {
@@ -6413,6 +7137,28 @@ impl ::core::clone::Clone for MIB_IPMCAST_MFE {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPMCAST_MFE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_MFE")
+            .field("dwGroup", &self.dwGroup)
+            .field("dwSource", &self.dwSource)
+            .field("dwSrcMask", &self.dwSrcMask)
+            .field("dwUpStrmNgbr", &self.dwUpStrmNgbr)
+            .field("dwInIfIndex", &self.dwInIfIndex)
+            .field("dwInIfProtocol", &self.dwInIfProtocol)
+            .field("dwRouteProtocol", &self.dwRouteProtocol)
+            .field("dwRouteNetwork", &self.dwRouteNetwork)
+            .field("dwRouteMask", &self.dwRouteMask)
+            .field("ulUpTime", &self.ulUpTime)
+            .field("ulExpiryTime", &self.ulExpiryTime)
+            .field("ulTimeOut", &self.ulTimeOut)
+            .field("ulNumOutIf", &self.ulNumOutIf)
+            .field("fFlags", &self.fFlags)
+            .field("dwReserved", &self.dwReserved)
+            .field("rgmioOutInfo", &self.rgmioOutInfo)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_MFE {
     type Abi = Self;
 }
@@ -6452,6 +7198,29 @@ impl ::core::marker::Copy for MIB_IPMCAST_MFE_STATS {}
 impl ::core::clone::Clone for MIB_IPMCAST_MFE_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPMCAST_MFE_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_MFE_STATS")
+            .field("dwGroup", &self.dwGroup)
+            .field("dwSource", &self.dwSource)
+            .field("dwSrcMask", &self.dwSrcMask)
+            .field("dwUpStrmNgbr", &self.dwUpStrmNgbr)
+            .field("dwInIfIndex", &self.dwInIfIndex)
+            .field("dwInIfProtocol", &self.dwInIfProtocol)
+            .field("dwRouteProtocol", &self.dwRouteProtocol)
+            .field("dwRouteNetwork", &self.dwRouteNetwork)
+            .field("dwRouteMask", &self.dwRouteMask)
+            .field("ulUpTime", &self.ulUpTime)
+            .field("ulExpiryTime", &self.ulExpiryTime)
+            .field("ulNumOutIf", &self.ulNumOutIf)
+            .field("ulInPkts", &self.ulInPkts)
+            .field("ulInOctets", &self.ulInOctets)
+            .field("ulPktsDifferentIf", &self.ulPktsDifferentIf)
+            .field("ulQueueOverflow", &self.ulQueueOverflow)
+            .field("rgmiosOutStats", &self.rgmiosOutStats)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_MFE_STATS {
@@ -6500,6 +7269,34 @@ impl ::core::clone::Clone for MIB_IPMCAST_MFE_STATS_EX_XP {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPMCAST_MFE_STATS_EX_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_MFE_STATS_EX_XP")
+            .field("dwGroup", &self.dwGroup)
+            .field("dwSource", &self.dwSource)
+            .field("dwSrcMask", &self.dwSrcMask)
+            .field("dwUpStrmNgbr", &self.dwUpStrmNgbr)
+            .field("dwInIfIndex", &self.dwInIfIndex)
+            .field("dwInIfProtocol", &self.dwInIfProtocol)
+            .field("dwRouteProtocol", &self.dwRouteProtocol)
+            .field("dwRouteNetwork", &self.dwRouteNetwork)
+            .field("dwRouteMask", &self.dwRouteMask)
+            .field("ulUpTime", &self.ulUpTime)
+            .field("ulExpiryTime", &self.ulExpiryTime)
+            .field("ulNumOutIf", &self.ulNumOutIf)
+            .field("ulInPkts", &self.ulInPkts)
+            .field("ulInOctets", &self.ulInOctets)
+            .field("ulPktsDifferentIf", &self.ulPktsDifferentIf)
+            .field("ulQueueOverflow", &self.ulQueueOverflow)
+            .field("ulUninitMfe", &self.ulUninitMfe)
+            .field("ulNegativeMfe", &self.ulNegativeMfe)
+            .field("ulInDiscards", &self.ulInDiscards)
+            .field("ulInHdrErrors", &self.ulInHdrErrors)
+            .field("ulTotalOutPackets", &self.ulTotalOutPackets)
+            .field("rgmiosOutStats", &self.rgmiosOutStats)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_MFE_STATS_EX_XP {
     type Abi = Self;
 }
@@ -6529,6 +7326,11 @@ impl ::core::marker::Copy for MIB_IPMCAST_OIF_STATS_LH {}
 impl ::core::clone::Clone for MIB_IPMCAST_OIF_STATS_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPMCAST_OIF_STATS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_OIF_STATS_LH").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("dwDialContext", &self.dwDialContext).field("ulTtlTooLow", &self.ulTtlTooLow).field("ulFragNeeded", &self.ulFragNeeded).field("ulOutPackets", &self.ulOutPackets).field("ulOutDiscards", &self.ulOutDiscards).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_OIF_STATS_LH {
@@ -6562,6 +7364,11 @@ impl ::core::clone::Clone for MIB_IPMCAST_OIF_STATS_W2K {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPMCAST_OIF_STATS_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_OIF_STATS_W2K").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("pvDialContext", &self.pvDialContext).field("ulTtlTooLow", &self.ulTtlTooLow).field("ulFragNeeded", &self.ulFragNeeded).field("ulOutPackets", &self.ulOutPackets).field("ulOutDiscards", &self.ulOutDiscards).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_OIF_STATS_W2K {
     type Abi = Self;
 }
@@ -6588,6 +7395,11 @@ impl ::core::marker::Copy for MIB_IPMCAST_OIF_W2K {}
 impl ::core::clone::Clone for MIB_IPMCAST_OIF_W2K {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPMCAST_OIF_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_OIF_W2K").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("pvReserved", &self.pvReserved).field("dwReserved", &self.dwReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_OIF_W2K {
@@ -6618,6 +7430,11 @@ impl ::core::clone::Clone for MIB_IPMCAST_OIF_XP {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPMCAST_OIF_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_OIF_XP").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("dwReserved", &self.dwReserved).field("dwReserved1", &self.dwReserved1).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_OIF_XP {
     type Abi = Self;
 }
@@ -6644,6 +7461,11 @@ impl ::core::marker::Copy for MIB_IPMCAST_SCOPE {}
 impl ::core::clone::Clone for MIB_IPMCAST_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPMCAST_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPMCAST_SCOPE").field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).field("snNameBuffer", &self.snNameBuffer).field("dwStatus", &self.dwStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPMCAST_SCOPE {
@@ -6673,6 +7495,11 @@ impl ::core::marker::Copy for MIB_IPNETROW_LH {}
 impl ::core::clone::Clone for MIB_IPNETROW_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPNETROW_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPNETROW_LH").field("dwIndex", &self.dwIndex).field("dwPhysAddrLen", &self.dwPhysAddrLen).field("bPhysAddr", &self.bPhysAddr).field("dwAddr", &self.dwAddr).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPNETROW_LH {
@@ -6730,6 +7557,11 @@ impl ::core::clone::Clone for MIB_IPNETROW_W2K {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPNETROW_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPNETROW_W2K").field("dwIndex", &self.dwIndex).field("dwPhysAddrLen", &self.dwPhysAddrLen).field("bPhysAddr", &self.bPhysAddr).field("dwAddr", &self.dwAddr).field("dwType", &self.dwType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPNETROW_W2K {
     type Abi = Self;
 }
@@ -6754,6 +7586,11 @@ impl ::core::marker::Copy for MIB_IPNETTABLE {}
 impl ::core::clone::Clone for MIB_IPNETTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPNETTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPNETTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPNETTABLE {
@@ -6789,6 +7626,12 @@ impl ::core::marker::Copy for MIB_IPNET_ROW2 {}
 impl ::core::clone::Clone for MIB_IPNET_ROW2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPNET_ROW2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPNET_ROW2").field("Address", &self.Address).field("InterfaceIndex", &self.InterfaceIndex).field("InterfaceLuid", &self.InterfaceLuid).field("PhysicalAddress", &self.PhysicalAddress).field("PhysicalAddressLength", &self.PhysicalAddressLength).field("State", &self.State).field("Anonymous", &self.Anonymous).field("ReachabilityTime", &self.ReachabilityTime).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -6854,6 +7697,12 @@ impl ::core::marker::Copy for MIB_IPNET_ROW2_0_0 {}
 impl ::core::clone::Clone for MIB_IPNET_ROW2_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPNET_ROW2_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPNET_ROW2_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -6923,6 +7772,12 @@ impl ::core::clone::Clone for MIB_IPNET_TABLE2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPNET_TABLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPNET_TABLE2").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MIB_IPNET_TABLE2 {
     type Abi = Self;
 }
@@ -6973,6 +7828,25 @@ impl ::core::marker::Copy for MIB_IPPATH_ROW {}
 impl ::core::clone::Clone for MIB_IPPATH_ROW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPPATH_ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPPATH_ROW")
+            .field("Source", &self.Source)
+            .field("Destination", &self.Destination)
+            .field("InterfaceLuid", &self.InterfaceLuid)
+            .field("InterfaceIndex", &self.InterfaceIndex)
+            .field("CurrentNextHop", &self.CurrentNextHop)
+            .field("PathMtu", &self.PathMtu)
+            .field("RttMean", &self.RttMean)
+            .field("RttDeviation", &self.RttDeviation)
+            .field("Anonymous", &self.Anonymous)
+            .field("IsReachable", &self.IsReachable)
+            .field("LinkTransmitSpeed", &self.LinkTransmitSpeed)
+            .field("LinkReceiveSpeed", &self.LinkReceiveSpeed)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -7042,6 +7916,12 @@ impl ::core::clone::Clone for MIB_IPPATH_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IPPATH_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPPATH_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MIB_IPPATH_TABLE {
     type Abi = Self;
 }
@@ -7098,6 +7978,35 @@ impl ::core::marker::Copy for MIB_IPSTATS_LH {}
 impl ::core::clone::Clone for MIB_IPSTATS_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_IPSTATS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPSTATS_LH")
+            .field("Anonymous", &self.Anonymous)
+            .field("dwDefaultTTL", &self.dwDefaultTTL)
+            .field("dwInReceives", &self.dwInReceives)
+            .field("dwInHdrErrors", &self.dwInHdrErrors)
+            .field("dwInAddrErrors", &self.dwInAddrErrors)
+            .field("dwForwDatagrams", &self.dwForwDatagrams)
+            .field("dwInUnknownProtos", &self.dwInUnknownProtos)
+            .field("dwInDiscards", &self.dwInDiscards)
+            .field("dwInDelivers", &self.dwInDelivers)
+            .field("dwOutRequests", &self.dwOutRequests)
+            .field("dwRoutingDiscards", &self.dwRoutingDiscards)
+            .field("dwOutDiscards", &self.dwOutDiscards)
+            .field("dwOutNoRoutes", &self.dwOutNoRoutes)
+            .field("dwReasmTimeout", &self.dwReasmTimeout)
+            .field("dwReasmReqds", &self.dwReasmReqds)
+            .field("dwReasmOks", &self.dwReasmOks)
+            .field("dwReasmFails", &self.dwReasmFails)
+            .field("dwFragOks", &self.dwFragOks)
+            .field("dwFragFails", &self.dwFragFails)
+            .field("dwFragCreates", &self.dwFragCreates)
+            .field("dwNumIf", &self.dwNumIf)
+            .field("dwNumAddr", &self.dwNumAddr)
+            .field("dwNumRoutes", &self.dwNumRoutes)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPSTATS_LH {
@@ -7173,6 +8082,35 @@ impl ::core::clone::Clone for MIB_IPSTATS_W2K {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_IPSTATS_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IPSTATS_W2K")
+            .field("dwForwarding", &self.dwForwarding)
+            .field("dwDefaultTTL", &self.dwDefaultTTL)
+            .field("dwInReceives", &self.dwInReceives)
+            .field("dwInHdrErrors", &self.dwInHdrErrors)
+            .field("dwInAddrErrors", &self.dwInAddrErrors)
+            .field("dwForwDatagrams", &self.dwForwDatagrams)
+            .field("dwInUnknownProtos", &self.dwInUnknownProtos)
+            .field("dwInDiscards", &self.dwInDiscards)
+            .field("dwInDelivers", &self.dwInDelivers)
+            .field("dwOutRequests", &self.dwOutRequests)
+            .field("dwRoutingDiscards", &self.dwRoutingDiscards)
+            .field("dwOutDiscards", &self.dwOutDiscards)
+            .field("dwOutNoRoutes", &self.dwOutNoRoutes)
+            .field("dwReasmTimeout", &self.dwReasmTimeout)
+            .field("dwReasmReqds", &self.dwReasmReqds)
+            .field("dwReasmOks", &self.dwReasmOks)
+            .field("dwReasmFails", &self.dwReasmFails)
+            .field("dwFragOks", &self.dwFragOks)
+            .field("dwFragFails", &self.dwFragFails)
+            .field("dwFragCreates", &self.dwFragCreates)
+            .field("dwNumIf", &self.dwNumIf)
+            .field("dwNumAddr", &self.dwNumAddr)
+            .field("dwNumRoutes", &self.dwNumRoutes)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPSTATS_W2K {
     type Abi = Self;
 }
@@ -7200,6 +8138,12 @@ impl ::core::marker::Copy for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {}
 impl ::core::clone::Clone for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES").field("InboundBandwidthInformation", &self.InboundBandwidthInformation).field("OutboundBandwidthInformation", &self.OutboundBandwidthInformation).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -7232,6 +8176,11 @@ impl ::core::clone::Clone for MIB_MCAST_LIMIT_ROW {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_MCAST_LIMIT_ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_MCAST_LIMIT_ROW").field("dwTtl", &self.dwTtl).field("dwRateLimit", &self.dwRateLimit).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_MCAST_LIMIT_ROW {
     type Abi = Self;
 }
@@ -7256,6 +8205,11 @@ impl ::core::marker::Copy for MIB_MFE_STATS_TABLE {}
 impl ::core::clone::Clone for MIB_MFE_STATS_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_MFE_STATS_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_MFE_STATS_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_MFE_STATS_TABLE {
@@ -7284,6 +8238,11 @@ impl ::core::clone::Clone for MIB_MFE_STATS_TABLE_EX_XP {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_MFE_STATS_TABLE_EX_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_MFE_STATS_TABLE_EX_XP").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_MFE_STATS_TABLE_EX_XP {
     type Abi = Self;
 }
@@ -7308,6 +8267,11 @@ impl ::core::marker::Copy for MIB_MFE_TABLE {}
 impl ::core::clone::Clone for MIB_MFE_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_MFE_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_MFE_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_MFE_TABLE {
@@ -7342,6 +8306,12 @@ impl ::core::clone::Clone for MIB_MULTICASTIPADDRESS_ROW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_MULTICASTIPADDRESS_ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_MULTICASTIPADDRESS_ROW").field("Address", &self.Address).field("InterfaceIndex", &self.InterfaceIndex).field("InterfaceLuid", &self.InterfaceLuid).field("ScopeId", &self.ScopeId).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MIB_MULTICASTIPADDRESS_ROW {
     type Abi = Self;
 }
@@ -7372,6 +8342,12 @@ impl ::core::marker::Copy for MIB_MULTICASTIPADDRESS_TABLE {}
 impl ::core::clone::Clone for MIB_MULTICASTIPADDRESS_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_MULTICASTIPADDRESS_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_MULTICASTIPADDRESS_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -7412,6 +8388,11 @@ impl ::core::marker::Copy for MIB_OPAQUE_INFO {}
 impl ::core::clone::Clone for MIB_OPAQUE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_OPAQUE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_OPAQUE_INFO").field("dwId", &self.dwId).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_OPAQUE_INFO {
@@ -7466,6 +8447,11 @@ impl ::core::clone::Clone for MIB_OPAQUE_QUERY {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_OPAQUE_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_OPAQUE_QUERY").field("dwVarId", &self.dwVarId).field("rgdwVarIndex", &self.rgdwVarIndex).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_OPAQUE_QUERY {
     type Abi = Self;
 }
@@ -7491,6 +8477,11 @@ impl ::core::marker::Copy for MIB_PROXYARP {}
 impl ::core::clone::Clone for MIB_PROXYARP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_PROXYARP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_PROXYARP").field("dwAddress", &self.dwAddress).field("dwMask", &self.dwMask).field("dwIfIndex", &self.dwIfIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_PROXYARP {
@@ -7519,6 +8510,12 @@ impl ::core::marker::Copy for MIB_ROUTESTATE {}
 impl ::core::clone::Clone for MIB_ROUTESTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MIB_ROUTESTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_ROUTESTATE").field("bRoutesSetToStack", &self.bRoutesSetToStack).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7557,6 +8554,12 @@ impl ::core::marker::Copy for MIB_TCP6ROW {}
 impl ::core::clone::Clone for MIB_TCP6ROW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_TCP6ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCP6ROW").field("State", &self.State).field("LocalAddr", &self.LocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("RemoteAddr", &self.RemoteAddr).field("dwRemoteScopeId", &self.dwRemoteScopeId).field("dwRemotePort", &self.dwRemotePort).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -7600,6 +8603,12 @@ impl ::core::clone::Clone for MIB_TCP6ROW2 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_TCP6ROW2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCP6ROW2").field("LocalAddr", &self.LocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("RemoteAddr", &self.RemoteAddr).field("dwRemoteScopeId", &self.dwRemoteScopeId).field("dwRemotePort", &self.dwRemotePort).field("State", &self.State).field("dwOwningPid", &self.dwOwningPid).field("dwOffloadState", &self.dwOffloadState).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MIB_TCP6ROW2 {
     type Abi = Self;
 }
@@ -7637,6 +8646,22 @@ impl ::core::clone::Clone for MIB_TCP6ROW_OWNER_MODULE {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCP6ROW_OWNER_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCP6ROW_OWNER_MODULE")
+            .field("ucLocalAddr", &self.ucLocalAddr)
+            .field("dwLocalScopeId", &self.dwLocalScopeId)
+            .field("dwLocalPort", &self.dwLocalPort)
+            .field("ucRemoteAddr", &self.ucRemoteAddr)
+            .field("dwRemoteScopeId", &self.dwRemoteScopeId)
+            .field("dwRemotePort", &self.dwRemotePort)
+            .field("dwState", &self.dwState)
+            .field("dwOwningPid", &self.dwOwningPid)
+            .field("liCreateTimestamp", &self.liCreateTimestamp)
+            .field("OwningModuleInfo", &self.OwningModuleInfo)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCP6ROW_OWNER_MODULE {
     type Abi = Self;
 }
@@ -7669,6 +8694,11 @@ impl ::core::clone::Clone for MIB_TCP6ROW_OWNER_PID {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCP6ROW_OWNER_PID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCP6ROW_OWNER_PID").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("ucRemoteAddr", &self.ucRemoteAddr).field("dwRemoteScopeId", &self.dwRemoteScopeId).field("dwRemotePort", &self.dwRemotePort).field("dwState", &self.dwState).field("dwOwningPid", &self.dwOwningPid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCP6ROW_OWNER_PID {
     type Abi = Self;
 }
@@ -7696,6 +8726,12 @@ impl ::core::marker::Copy for MIB_TCP6TABLE {}
 impl ::core::clone::Clone for MIB_TCP6TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_TCP6TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCP6TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -7732,6 +8768,12 @@ impl ::core::clone::Clone for MIB_TCP6TABLE2 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_TCP6TABLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCP6TABLE2").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MIB_TCP6TABLE2 {
     type Abi = Self;
 }
@@ -7761,6 +8803,11 @@ impl ::core::clone::Clone for MIB_TCP6TABLE_OWNER_MODULE {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCP6TABLE_OWNER_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCP6TABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCP6TABLE_OWNER_MODULE {
     type Abi = Self;
 }
@@ -7785,6 +8832,11 @@ impl ::core::marker::Copy for MIB_TCP6TABLE_OWNER_PID {}
 impl ::core::clone::Clone for MIB_TCP6TABLE_OWNER_PID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_TCP6TABLE_OWNER_PID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCP6TABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_TCP6TABLE_OWNER_PID {
@@ -7818,6 +8870,11 @@ impl ::core::clone::Clone for MIB_TCPROW2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCPROW2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPROW2").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).field("dwOffloadState", &self.dwOffloadState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCPROW2 {
     type Abi = Self;
 }
@@ -7845,6 +8902,11 @@ impl ::core::marker::Copy for MIB_TCPROW_LH {}
 impl ::core::clone::Clone for MIB_TCPROW_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_TCPROW_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPROW_LH").field("Anonymous", &self.Anonymous).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_TCPROW_LH {
@@ -7905,6 +8967,11 @@ impl ::core::clone::Clone for MIB_TCPROW_OWNER_MODULE {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCPROW_OWNER_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPROW_OWNER_MODULE").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).field("liCreateTimestamp", &self.liCreateTimestamp).field("OwningModuleInfo", &self.OwningModuleInfo).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCPROW_OWNER_MODULE {
     type Abi = Self;
 }
@@ -7935,6 +9002,11 @@ impl ::core::clone::Clone for MIB_TCPROW_OWNER_PID {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCPROW_OWNER_PID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPROW_OWNER_PID").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCPROW_OWNER_PID {
     type Abi = Self;
 }
@@ -7962,6 +9034,11 @@ impl ::core::marker::Copy for MIB_TCPROW_W2K {}
 impl ::core::clone::Clone for MIB_TCPROW_W2K {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_TCPROW_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPROW_W2K").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_TCPROW_W2K {
@@ -8003,6 +9080,27 @@ impl ::core::clone::Clone for MIB_TCPSTATS2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCPSTATS2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPSTATS2")
+            .field("RtoAlgorithm", &self.RtoAlgorithm)
+            .field("dwRtoMin", &self.dwRtoMin)
+            .field("dwRtoMax", &self.dwRtoMax)
+            .field("dwMaxConn", &self.dwMaxConn)
+            .field("dwActiveOpens", &self.dwActiveOpens)
+            .field("dwPassiveOpens", &self.dwPassiveOpens)
+            .field("dwAttemptFails", &self.dwAttemptFails)
+            .field("dwEstabResets", &self.dwEstabResets)
+            .field("dwCurrEstab", &self.dwCurrEstab)
+            .field("dw64InSegs", &self.dw64InSegs)
+            .field("dw64OutSegs", &self.dw64OutSegs)
+            .field("dwRetransSegs", &self.dwRetransSegs)
+            .field("dwInErrs", &self.dwInErrs)
+            .field("dwOutRsts", &self.dwOutRsts)
+            .field("dwNumConns", &self.dwNumConns)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCPSTATS2 {
     type Abi = Self;
 }
@@ -8040,6 +9138,27 @@ impl ::core::marker::Copy for MIB_TCPSTATS_LH {}
 impl ::core::clone::Clone for MIB_TCPSTATS_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_TCPSTATS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPSTATS_LH")
+            .field("Anonymous", &self.Anonymous)
+            .field("dwRtoMin", &self.dwRtoMin)
+            .field("dwRtoMax", &self.dwRtoMax)
+            .field("dwMaxConn", &self.dwMaxConn)
+            .field("dwActiveOpens", &self.dwActiveOpens)
+            .field("dwPassiveOpens", &self.dwPassiveOpens)
+            .field("dwAttemptFails", &self.dwAttemptFails)
+            .field("dwEstabResets", &self.dwEstabResets)
+            .field("dwCurrEstab", &self.dwCurrEstab)
+            .field("dwInSegs", &self.dwInSegs)
+            .field("dwOutSegs", &self.dwOutSegs)
+            .field("dwRetransSegs", &self.dwRetransSegs)
+            .field("dwInErrs", &self.dwInErrs)
+            .field("dwOutRsts", &self.dwOutRsts)
+            .field("dwNumConns", &self.dwNumConns)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_TCPSTATS_LH {
@@ -8107,6 +9226,27 @@ impl ::core::clone::Clone for MIB_TCPSTATS_W2K {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCPSTATS_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPSTATS_W2K")
+            .field("dwRtoAlgorithm", &self.dwRtoAlgorithm)
+            .field("dwRtoMin", &self.dwRtoMin)
+            .field("dwRtoMax", &self.dwRtoMax)
+            .field("dwMaxConn", &self.dwMaxConn)
+            .field("dwActiveOpens", &self.dwActiveOpens)
+            .field("dwPassiveOpens", &self.dwPassiveOpens)
+            .field("dwAttemptFails", &self.dwAttemptFails)
+            .field("dwEstabResets", &self.dwEstabResets)
+            .field("dwCurrEstab", &self.dwCurrEstab)
+            .field("dwInSegs", &self.dwInSegs)
+            .field("dwOutSegs", &self.dwOutSegs)
+            .field("dwRetransSegs", &self.dwRetransSegs)
+            .field("dwInErrs", &self.dwInErrs)
+            .field("dwOutRsts", &self.dwOutRsts)
+            .field("dwNumConns", &self.dwNumConns)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCPSTATS_W2K {
     type Abi = Self;
 }
@@ -8131,6 +9271,11 @@ impl ::core::marker::Copy for MIB_TCPTABLE {}
 impl ::core::clone::Clone for MIB_TCPTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_TCPTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_TCPTABLE {
@@ -8159,6 +9304,11 @@ impl ::core::clone::Clone for MIB_TCPTABLE2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCPTABLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPTABLE2").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCPTABLE2 {
     type Abi = Self;
 }
@@ -8185,6 +9335,11 @@ impl ::core::clone::Clone for MIB_TCPTABLE_OWNER_MODULE {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_TCPTABLE_OWNER_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPTABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCPTABLE_OWNER_MODULE {
     type Abi = Self;
 }
@@ -8209,6 +9364,11 @@ impl ::core::marker::Copy for MIB_TCPTABLE_OWNER_PID {}
 impl ::core::clone::Clone for MIB_TCPTABLE_OWNER_PID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_TCPTABLE_OWNER_PID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_TCPTABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_TCPTABLE_OWNER_PID {
@@ -8270,6 +9430,12 @@ impl ::core::clone::Clone for MIB_UDP6ROW {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_UDP6ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6ROW").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MIB_UDP6ROW {
     type Abi = Self;
 }
@@ -8305,6 +9471,11 @@ impl ::core::marker::Copy for MIB_UDP6ROW2 {}
 impl ::core::clone::Clone for MIB_UDP6ROW2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDP6ROW2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6ROW2").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).field("liCreateTimestamp", &self.liCreateTimestamp).field("Anonymous", &self.Anonymous).field("OwningModuleInfo", &self.OwningModuleInfo).field("ucRemoteAddr", &self.ucRemoteAddr).field("dwRemoteScopeId", &self.dwRemoteScopeId).field("dwRemotePort", &self.dwRemotePort).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDP6ROW2 {
@@ -8358,6 +9529,11 @@ impl ::core::clone::Clone for MIB_UDP6ROW2_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDP6ROW2_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6ROW2_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDP6ROW2_0_0 {
     type Abi = Self;
 }
@@ -8387,6 +9563,11 @@ impl ::core::marker::Copy for MIB_UDP6ROW_OWNER_MODULE {}
 impl ::core::clone::Clone for MIB_UDP6ROW_OWNER_MODULE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDP6ROW_OWNER_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6ROW_OWNER_MODULE").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).field("liCreateTimestamp", &self.liCreateTimestamp).field("Anonymous", &self.Anonymous).field("OwningModuleInfo", &self.OwningModuleInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDP6ROW_OWNER_MODULE {
@@ -8440,6 +9621,11 @@ impl ::core::clone::Clone for MIB_UDP6ROW_OWNER_MODULE_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDP6ROW_OWNER_MODULE_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6ROW_OWNER_MODULE_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDP6ROW_OWNER_MODULE_0_0 {
     type Abi = Self;
 }
@@ -8466,6 +9652,11 @@ impl ::core::marker::Copy for MIB_UDP6ROW_OWNER_PID {}
 impl ::core::clone::Clone for MIB_UDP6ROW_OWNER_PID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDP6ROW_OWNER_PID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6ROW_OWNER_PID").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDP6ROW_OWNER_PID {
@@ -8498,6 +9689,12 @@ impl ::core::clone::Clone for MIB_UDP6TABLE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for MIB_UDP6TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MIB_UDP6TABLE {
     type Abi = Self;
 }
@@ -8527,6 +9724,11 @@ impl ::core::clone::Clone for MIB_UDP6TABLE2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDP6TABLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6TABLE2").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDP6TABLE2 {
     type Abi = Self;
 }
@@ -8551,6 +9753,11 @@ impl ::core::marker::Copy for MIB_UDP6TABLE_OWNER_MODULE {}
 impl ::core::clone::Clone for MIB_UDP6TABLE_OWNER_MODULE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDP6TABLE_OWNER_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6TABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDP6TABLE_OWNER_MODULE {
@@ -8579,6 +9786,11 @@ impl ::core::clone::Clone for MIB_UDP6TABLE_OWNER_PID {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDP6TABLE_OWNER_PID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDP6TABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDP6TABLE_OWNER_PID {
     type Abi = Self;
 }
@@ -8603,6 +9815,11 @@ impl ::core::marker::Copy for MIB_UDPROW {}
 impl ::core::clone::Clone for MIB_UDPROW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDPROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPROW").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDPROW {
@@ -8635,6 +9852,11 @@ impl ::core::marker::Copy for MIB_UDPROW2 {}
 impl ::core::clone::Clone for MIB_UDPROW2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDPROW2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPROW2").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).field("liCreateTimestamp", &self.liCreateTimestamp).field("Anonymous", &self.Anonymous).field("OwningModuleInfo", &self.OwningModuleInfo).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDPROW2 {
@@ -8688,6 +9910,11 @@ impl ::core::clone::Clone for MIB_UDPROW2_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDPROW2_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPROW2_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDPROW2_0_0 {
     type Abi = Self;
 }
@@ -8716,6 +9943,11 @@ impl ::core::marker::Copy for MIB_UDPROW_OWNER_MODULE {}
 impl ::core::clone::Clone for MIB_UDPROW_OWNER_MODULE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDPROW_OWNER_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPROW_OWNER_MODULE").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).field("liCreateTimestamp", &self.liCreateTimestamp).field("Anonymous", &self.Anonymous).field("OwningModuleInfo", &self.OwningModuleInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDPROW_OWNER_MODULE {
@@ -8769,6 +10001,11 @@ impl ::core::clone::Clone for MIB_UDPROW_OWNER_MODULE_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDPROW_OWNER_MODULE_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPROW_OWNER_MODULE_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDPROW_OWNER_MODULE_0_0 {
     type Abi = Self;
 }
@@ -8794,6 +10031,11 @@ impl ::core::marker::Copy for MIB_UDPROW_OWNER_PID {}
 impl ::core::clone::Clone for MIB_UDPROW_OWNER_PID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDPROW_OWNER_PID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPROW_OWNER_PID").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDPROW_OWNER_PID {
@@ -8825,6 +10067,11 @@ impl ::core::clone::Clone for MIB_UDPSTATS {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDPSTATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPSTATS").field("dwInDatagrams", &self.dwInDatagrams).field("dwNoPorts", &self.dwNoPorts).field("dwInErrors", &self.dwInErrors).field("dwOutDatagrams", &self.dwOutDatagrams).field("dwNumAddrs", &self.dwNumAddrs).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDPSTATS {
     type Abi = Self;
 }
@@ -8854,6 +10101,11 @@ impl ::core::clone::Clone for MIB_UDPSTATS2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDPSTATS2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPSTATS2").field("dw64InDatagrams", &self.dw64InDatagrams).field("dwNoPorts", &self.dwNoPorts).field("dwInErrors", &self.dwInErrors).field("dw64OutDatagrams", &self.dw64OutDatagrams).field("dwNumAddrs", &self.dwNumAddrs).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDPSTATS2 {
     type Abi = Self;
 }
@@ -8878,6 +10130,11 @@ impl ::core::marker::Copy for MIB_UDPTABLE {}
 impl ::core::clone::Clone for MIB_UDPTABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDPTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDPTABLE {
@@ -8906,6 +10163,11 @@ impl ::core::clone::Clone for MIB_UDPTABLE2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDPTABLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPTABLE2").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDPTABLE2 {
     type Abi = Self;
 }
@@ -8932,6 +10194,11 @@ impl ::core::clone::Clone for MIB_UDPTABLE_OWNER_MODULE {
         *self
     }
 }
+impl ::core::fmt::Debug for MIB_UDPTABLE_OWNER_MODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPTABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_UDPTABLE_OWNER_MODULE {
     type Abi = Self;
 }
@@ -8956,6 +10223,11 @@ impl ::core::marker::Copy for MIB_UDPTABLE_OWNER_PID {}
 impl ::core::clone::Clone for MIB_UDPTABLE_OWNER_PID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MIB_UDPTABLE_OWNER_PID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UDPTABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIB_UDPTABLE_OWNER_PID {
@@ -8998,6 +10270,25 @@ impl ::core::clone::Clone for MIB_UNICASTIPADDRESS_ROW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_UNICASTIPADDRESS_ROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UNICASTIPADDRESS_ROW")
+            .field("Address", &self.Address)
+            .field("InterfaceLuid", &self.InterfaceLuid)
+            .field("InterfaceIndex", &self.InterfaceIndex)
+            .field("PrefixOrigin", &self.PrefixOrigin)
+            .field("SuffixOrigin", &self.SuffixOrigin)
+            .field("ValidLifetime", &self.ValidLifetime)
+            .field("PreferredLifetime", &self.PreferredLifetime)
+            .field("OnLinkPrefixLength", &self.OnLinkPrefixLength)
+            .field("SkipAsSource", &self.SkipAsSource)
+            .field("DadState", &self.DadState)
+            .field("ScopeId", &self.ScopeId)
+            .field("CreationTimeStamp", &self.CreationTimeStamp)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MIB_UNICASTIPADDRESS_ROW {
     type Abi = Self;
 }
@@ -9028,6 +10319,12 @@ impl ::core::marker::Copy for MIB_UNICASTIPADDRESS_TABLE {}
 impl ::core::clone::Clone for MIB_UNICASTIPADDRESS_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for MIB_UNICASTIPADDRESS_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MIB_UNICASTIPADDRESS_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -9102,6 +10399,45 @@ impl ::core::clone::Clone for NDIS_INTERFACE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NDIS_INTERFACE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_INTERFACE_INFORMATION")
+            .field("ifOperStatus", &self.ifOperStatus)
+            .field("ifOperStatusFlags", &self.ifOperStatusFlags)
+            .field("MediaConnectState", &self.MediaConnectState)
+            .field("MediaDuplexState", &self.MediaDuplexState)
+            .field("ifMtu", &self.ifMtu)
+            .field("ifPromiscuousMode", &self.ifPromiscuousMode)
+            .field("ifDeviceWakeUpEnable", &self.ifDeviceWakeUpEnable)
+            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
+            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
+            .field("ifLastChange", &self.ifLastChange)
+            .field("ifCounterDiscontinuityTime", &self.ifCounterDiscontinuityTime)
+            .field("ifInUnknownProtos", &self.ifInUnknownProtos)
+            .field("ifInDiscards", &self.ifInDiscards)
+            .field("ifInErrors", &self.ifInErrors)
+            .field("ifHCInOctets", &self.ifHCInOctets)
+            .field("ifHCInUcastPkts", &self.ifHCInUcastPkts)
+            .field("ifHCInMulticastPkts", &self.ifHCInMulticastPkts)
+            .field("ifHCInBroadcastPkts", &self.ifHCInBroadcastPkts)
+            .field("ifHCOutOctets", &self.ifHCOutOctets)
+            .field("ifHCOutUcastPkts", &self.ifHCOutUcastPkts)
+            .field("ifHCOutMulticastPkts", &self.ifHCOutMulticastPkts)
+            .field("ifHCOutBroadcastPkts", &self.ifHCOutBroadcastPkts)
+            .field("ifOutErrors", &self.ifOutErrors)
+            .field("ifOutDiscards", &self.ifOutDiscards)
+            .field("ifHCInUcastOctets", &self.ifHCInUcastOctets)
+            .field("ifHCInMulticastOctets", &self.ifHCInMulticastOctets)
+            .field("ifHCInBroadcastOctets", &self.ifHCInBroadcastOctets)
+            .field("ifHCOutUcastOctets", &self.ifHCOutUcastOctets)
+            .field("ifHCOutMulticastOctets", &self.ifHCOutMulticastOctets)
+            .field("ifHCOutBroadcastOctets", &self.ifHCOutBroadcastOctets)
+            .field("CompartmentId", &self.CompartmentId)
+            .field("SupportedStatistics", &self.SupportedStatistics)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NDIS_INTERFACE_INFORMATION {
     type Abi = Self;
 }
@@ -9161,6 +10497,11 @@ impl ::core::marker::Copy for NET_IF_ALIAS_LH {}
 impl ::core::clone::Clone for NET_IF_ALIAS_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NET_IF_ALIAS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_IF_ALIAS_LH").field("ifAliasLength", &self.ifAliasLength).field("ifAliasOffset", &self.ifAliasOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NET_IF_ALIAS_LH {
@@ -9258,6 +10599,11 @@ impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_LH {
         *self
     }
 }
+impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_IF_RCV_ADDRESS_LH").field("ifRcvAddressType", &self.ifRcvAddressType).field("ifRcvAddressLength", &self.ifRcvAddressLength).field("ifRcvAddressOffset", &self.ifRcvAddressOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_LH {
     type Abi = Self;
 }
@@ -9317,6 +10663,11 @@ impl ::core::clone::Clone for NET_LUID_LH_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for NET_LUID_LH_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_LUID_LH_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NET_LUID_LH_0 {
     type Abi = Self;
 }
@@ -9342,6 +10693,11 @@ impl ::core::marker::Copy for NET_PHYSICAL_LOCATION_LH {}
 impl ::core::clone::Clone for NET_PHYSICAL_LOCATION_LH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NET_PHYSICAL_LOCATION_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_PHYSICAL_LOCATION_LH").field("BusNumber", &self.BusNumber).field("SlotNumber", &self.SlotNumber).field("FunctionNumber", &self.FunctionNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NET_PHYSICAL_LOCATION_LH {
@@ -9586,6 +10942,11 @@ impl ::core::clone::Clone for PFLOGFRAME {
         *self
     }
 }
+impl ::core::fmt::Debug for PFLOGFRAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PFLOGFRAME").field("Timestamp", &self.Timestamp).field("pfeTypeOfFrame", &self.pfeTypeOfFrame).field("dwTotalSizeUsed", &self.dwTotalSizeUsed).field("dwFilterRule", &self.dwFilterRule).field("wSizeOfAdditionalData", &self.wSizeOfAdditionalData).field("wSizeOfIpHeader", &self.wSizeOfIpHeader).field("dwInterfaceName", &self.dwInterfaceName).field("dwIPIndex", &self.dwIPIndex).field("bPacketData", &self.bPacketData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PFLOGFRAME {
     type Abi = Self;
 }
@@ -9623,6 +10984,25 @@ impl ::core::clone::Clone for PF_FILTER_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for PF_FILTER_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PF_FILTER_DESCRIPTOR")
+            .field("dwFilterFlags", &self.dwFilterFlags)
+            .field("dwRule", &self.dwRule)
+            .field("pfatType", &self.pfatType)
+            .field("SrcAddr", &self.SrcAddr)
+            .field("SrcMask", &self.SrcMask)
+            .field("DstAddr", &self.DstAddr)
+            .field("DstMask", &self.DstMask)
+            .field("dwProtocol", &self.dwProtocol)
+            .field("fLateBound", &self.fLateBound)
+            .field("wSrcPort", &self.wSrcPort)
+            .field("wDstPort", &self.wDstPort)
+            .field("wSrcPortHighRange", &self.wSrcPortHighRange)
+            .field("wDstPortHighRange", &self.wDstPortHighRange)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PF_FILTER_DESCRIPTOR {
     type Abi = Self;
 }
@@ -9647,6 +11027,11 @@ impl ::core::marker::Copy for PF_FILTER_STATS {}
 impl ::core::clone::Clone for PF_FILTER_STATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PF_FILTER_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PF_FILTER_STATS").field("dwNumPacketsFiltered", &self.dwNumPacketsFiltered).field("info", &self.info).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PF_FILTER_STATS {
@@ -9689,6 +11074,28 @@ impl ::core::clone::Clone for PF_INTERFACE_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for PF_INTERFACE_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PF_INTERFACE_STATS")
+            .field("pvDriverContext", &self.pvDriverContext)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwInDrops", &self.dwInDrops)
+            .field("dwOutDrops", &self.dwOutDrops)
+            .field("eaInAction", &self.eaInAction)
+            .field("eaOutAction", &self.eaOutAction)
+            .field("dwNumInFilters", &self.dwNumInFilters)
+            .field("dwNumOutFilters", &self.dwNumOutFilters)
+            .field("dwFrag", &self.dwFrag)
+            .field("dwSpoof", &self.dwSpoof)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("liSYN", &self.liSYN)
+            .field("liTotalLogged", &self.liTotalLogged)
+            .field("dwLostLogEntries", &self.dwLostLogEntries)
+            .field("FilterInfo", &self.FilterInfo)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PF_INTERFACE_STATS {
     type Abi = Self;
 }
@@ -9714,6 +11121,11 @@ impl ::core::marker::Copy for PF_LATEBIND_INFO {}
 impl ::core::clone::Clone for PF_LATEBIND_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PF_LATEBIND_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PF_LATEBIND_INFO").field("SrcAddr", &self.SrcAddr).field("DstAddr", &self.DstAddr).field("Mask", &self.Mask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PF_LATEBIND_INFO {
@@ -10370,6 +11782,12 @@ impl ::core::clone::Clone for TCPIP_OWNER_MODULE_BASIC_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCPIP_OWNER_MODULE_BASIC_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCPIP_OWNER_MODULE_BASIC_INFO").field("pModuleName", &self.pModuleName).field("pModulePath", &self.pModulePath).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TCPIP_OWNER_MODULE_BASIC_INFO {
     type Abi = Self;
 }
@@ -10433,6 +11851,12 @@ impl ::core::clone::Clone for TCP_ESTATS_BANDWIDTH_ROD_v0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_BANDWIDTH_ROD_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_BANDWIDTH_ROD_v0").field("OutboundBandwidth", &self.OutboundBandwidth).field("InboundBandwidth", &self.InboundBandwidth).field("OutboundInstability", &self.OutboundInstability).field("InboundInstability", &self.InboundInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TCP_ESTATS_BANDWIDTH_ROD_v0 {
     type Abi = Self;
 }
@@ -10460,6 +11884,11 @@ impl ::core::marker::Copy for TCP_ESTATS_BANDWIDTH_RW_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_BANDWIDTH_RW_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TCP_ESTATS_BANDWIDTH_RW_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_BANDWIDTH_RW_v0").field("EnableCollectionOutbound", &self.EnableCollectionOutbound).field("EnableCollectionInbound", &self.EnableCollectionInbound).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TCP_ESTATS_BANDWIDTH_RW_v0 {
@@ -10500,6 +11929,26 @@ impl ::core::clone::Clone for TCP_ESTATS_DATA_ROD_v0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ESTATS_DATA_ROD_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_DATA_ROD_v0")
+            .field("DataBytesOut", &self.DataBytesOut)
+            .field("DataSegsOut", &self.DataSegsOut)
+            .field("DataBytesIn", &self.DataBytesIn)
+            .field("DataSegsIn", &self.DataSegsIn)
+            .field("SegsOut", &self.SegsOut)
+            .field("SegsIn", &self.SegsIn)
+            .field("SoftErrors", &self.SoftErrors)
+            .field("SoftErrorReason", &self.SoftErrorReason)
+            .field("SndUna", &self.SndUna)
+            .field("SndNxt", &self.SndNxt)
+            .field("SndMax", &self.SndMax)
+            .field("ThruBytesAcked", &self.ThruBytesAcked)
+            .field("RcvNxt", &self.RcvNxt)
+            .field("ThruBytesReceived", &self.ThruBytesReceived)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ESTATS_DATA_ROD_v0 {
     type Abi = Self;
 }
@@ -10526,6 +11975,12 @@ impl ::core::marker::Copy for TCP_ESTATS_DATA_RW_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_DATA_RW_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_DATA_RW_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_DATA_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10560,6 +12015,11 @@ impl ::core::clone::Clone for TCP_ESTATS_FINE_RTT_ROD_v0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ESTATS_FINE_RTT_ROD_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_FINE_RTT_ROD_v0").field("RttVar", &self.RttVar).field("MaxRtt", &self.MaxRtt).field("MinRtt", &self.MinRtt).field("SumRtt", &self.SumRtt).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ESTATS_FINE_RTT_ROD_v0 {
     type Abi = Self;
 }
@@ -10586,6 +12046,12 @@ impl ::core::marker::Copy for TCP_ESTATS_FINE_RTT_RW_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_FINE_RTT_RW_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_FINE_RTT_RW_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_FINE_RTT_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10620,6 +12086,11 @@ impl ::core::clone::Clone for TCP_ESTATS_OBS_REC_ROD_v0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ESTATS_OBS_REC_ROD_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_OBS_REC_ROD_v0").field("CurRwinRcvd", &self.CurRwinRcvd).field("MaxRwinRcvd", &self.MaxRwinRcvd).field("MinRwinRcvd", &self.MinRwinRcvd).field("WinScaleRcvd", &self.WinScaleRcvd).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ESTATS_OBS_REC_ROD_v0 {
     type Abi = Self;
 }
@@ -10646,6 +12117,12 @@ impl ::core::marker::Copy for TCP_ESTATS_OBS_REC_RW_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_OBS_REC_RW_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_OBS_REC_RW_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_OBS_REC_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10716,6 +12193,52 @@ impl ::core::clone::Clone for TCP_ESTATS_PATH_ROD_v0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ESTATS_PATH_ROD_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_PATH_ROD_v0")
+            .field("FastRetran", &self.FastRetran)
+            .field("Timeouts", &self.Timeouts)
+            .field("SubsequentTimeouts", &self.SubsequentTimeouts)
+            .field("CurTimeoutCount", &self.CurTimeoutCount)
+            .field("AbruptTimeouts", &self.AbruptTimeouts)
+            .field("PktsRetrans", &self.PktsRetrans)
+            .field("BytesRetrans", &self.BytesRetrans)
+            .field("DupAcksIn", &self.DupAcksIn)
+            .field("SacksRcvd", &self.SacksRcvd)
+            .field("SackBlocksRcvd", &self.SackBlocksRcvd)
+            .field("CongSignals", &self.CongSignals)
+            .field("PreCongSumCwnd", &self.PreCongSumCwnd)
+            .field("PreCongSumRtt", &self.PreCongSumRtt)
+            .field("PostCongSumRtt", &self.PostCongSumRtt)
+            .field("PostCongCountRtt", &self.PostCongCountRtt)
+            .field("EcnSignals", &self.EcnSignals)
+            .field("EceRcvd", &self.EceRcvd)
+            .field("SendStall", &self.SendStall)
+            .field("QuenchRcvd", &self.QuenchRcvd)
+            .field("RetranThresh", &self.RetranThresh)
+            .field("SndDupAckEpisodes", &self.SndDupAckEpisodes)
+            .field("SumBytesReordered", &self.SumBytesReordered)
+            .field("NonRecovDa", &self.NonRecovDa)
+            .field("NonRecovDaEpisodes", &self.NonRecovDaEpisodes)
+            .field("AckAfterFr", &self.AckAfterFr)
+            .field("DsackDups", &self.DsackDups)
+            .field("SampleRtt", &self.SampleRtt)
+            .field("SmoothedRtt", &self.SmoothedRtt)
+            .field("RttVar", &self.RttVar)
+            .field("MaxRtt", &self.MaxRtt)
+            .field("MinRtt", &self.MinRtt)
+            .field("SumRtt", &self.SumRtt)
+            .field("CountRtt", &self.CountRtt)
+            .field("CurRto", &self.CurRto)
+            .field("MaxRto", &self.MaxRto)
+            .field("MinRto", &self.MinRto)
+            .field("CurMss", &self.CurMss)
+            .field("MaxMss", &self.MaxMss)
+            .field("MinMss", &self.MinMss)
+            .field("SpuriousRtoDetections", &self.SpuriousRtoDetections)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ESTATS_PATH_ROD_v0 {
     type Abi = Self;
 }
@@ -10742,6 +12265,12 @@ impl ::core::marker::Copy for TCP_ESTATS_PATH_RW_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_PATH_RW_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_PATH_RW_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_PATH_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10786,6 +12315,26 @@ impl ::core::clone::Clone for TCP_ESTATS_REC_ROD_v0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ESTATS_REC_ROD_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_REC_ROD_v0")
+            .field("CurRwinSent", &self.CurRwinSent)
+            .field("MaxRwinSent", &self.MaxRwinSent)
+            .field("MinRwinSent", &self.MinRwinSent)
+            .field("LimRwin", &self.LimRwin)
+            .field("DupAckEpisodes", &self.DupAckEpisodes)
+            .field("DupAcksOut", &self.DupAcksOut)
+            .field("CeRcvd", &self.CeRcvd)
+            .field("EcnSent", &self.EcnSent)
+            .field("EcnNoncesRcvd", &self.EcnNoncesRcvd)
+            .field("CurReasmQueue", &self.CurReasmQueue)
+            .field("MaxReasmQueue", &self.MaxReasmQueue)
+            .field("CurAppRQueue", &self.CurAppRQueue)
+            .field("MaxAppRQueue", &self.MaxAppRQueue)
+            .field("WinScaleSent", &self.WinScaleSent)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ESTATS_REC_ROD_v0 {
     type Abi = Self;
 }
@@ -10812,6 +12361,12 @@ impl ::core::marker::Copy for TCP_ESTATS_REC_RW_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_REC_RW_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_REC_RW_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_REC_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10846,6 +12401,11 @@ impl ::core::clone::Clone for TCP_ESTATS_SEND_BUFF_ROD_v0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ESTATS_SEND_BUFF_ROD_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_SEND_BUFF_ROD_v0").field("CurRetxQueue", &self.CurRetxQueue).field("MaxRetxQueue", &self.MaxRetxQueue).field("CurAppWQueue", &self.CurAppWQueue).field("MaxAppWQueue", &self.MaxAppWQueue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ESTATS_SEND_BUFF_ROD_v0 {
     type Abi = Self;
 }
@@ -10872,6 +12432,12 @@ impl ::core::marker::Copy for TCP_ESTATS_SEND_BUFF_RW_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_SEND_BUFF_RW_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_SEND_BUFF_RW_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_SEND_BUFF_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10920,6 +12486,30 @@ impl ::core::clone::Clone for TCP_ESTATS_SND_CONG_ROD_v0 {
         *self
     }
 }
+impl ::core::fmt::Debug for TCP_ESTATS_SND_CONG_ROD_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_SND_CONG_ROD_v0")
+            .field("SndLimTransRwin", &self.SndLimTransRwin)
+            .field("SndLimTimeRwin", &self.SndLimTimeRwin)
+            .field("SndLimBytesRwin", &self.SndLimBytesRwin)
+            .field("SndLimTransCwnd", &self.SndLimTransCwnd)
+            .field("SndLimTimeCwnd", &self.SndLimTimeCwnd)
+            .field("SndLimBytesCwnd", &self.SndLimBytesCwnd)
+            .field("SndLimTransSnd", &self.SndLimTransSnd)
+            .field("SndLimTimeSnd", &self.SndLimTimeSnd)
+            .field("SndLimBytesSnd", &self.SndLimBytesSnd)
+            .field("SlowStart", &self.SlowStart)
+            .field("CongAvoid", &self.CongAvoid)
+            .field("OtherReductions", &self.OtherReductions)
+            .field("CurCwnd", &self.CurCwnd)
+            .field("MaxSsCwnd", &self.MaxSsCwnd)
+            .field("MaxCaCwnd", &self.MaxCaCwnd)
+            .field("CurSsthresh", &self.CurSsthresh)
+            .field("MaxSsthresh", &self.MaxSsthresh)
+            .field("MinSsthresh", &self.MinSsthresh)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ESTATS_SND_CONG_ROD_v0 {
     type Abi = Self;
 }
@@ -10943,6 +12533,11 @@ impl ::core::marker::Copy for TCP_ESTATS_SND_CONG_ROS_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_SND_CONG_ROS_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TCP_ESTATS_SND_CONG_ROS_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_SND_CONG_ROS_v0").field("LimCwnd", &self.LimCwnd).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TCP_ESTATS_SND_CONG_ROS_v0 {
@@ -10971,6 +12566,12 @@ impl ::core::marker::Copy for TCP_ESTATS_SND_CONG_RW_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_SND_CONG_RW_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_SND_CONG_RW_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_SND_CONG_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11005,6 +12606,12 @@ impl ::core::marker::Copy for TCP_ESTATS_SYN_OPTS_ROS_v0 {}
 impl ::core::clone::Clone for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TCP_ESTATS_SYN_OPTS_ROS_v0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_ESTATS_SYN_OPTS_ROS_v0").field("ActiveOpen", &self.ActiveOpen).field("MssRcvd", &self.MssRcvd).field("MssSent", &self.MssSent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11186,6 +12793,11 @@ impl ::core::clone::Clone for arp_send_reply {
         *self
     }
 }
+impl ::core::fmt::Debug for arp_send_reply {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("arp_send_reply").field("DestAddress", &self.DestAddress).field("SrcAddress", &self.SrcAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for arp_send_reply {
     type Abi = Self;
 }
@@ -11215,6 +12827,11 @@ impl ::core::marker::Copy for icmp_echo_reply {}
 impl ::core::clone::Clone for icmp_echo_reply {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for icmp_echo_reply {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("icmp_echo_reply").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
     }
 }
 unsafe impl ::windows::core::Abi for icmp_echo_reply {
@@ -11252,6 +12869,12 @@ impl ::core::clone::Clone for icmp_echo_reply32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for icmp_echo_reply32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("icmp_echo_reply32").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for icmp_echo_reply32 {
     type Abi = Self;
 }
@@ -11280,6 +12903,11 @@ impl ::core::marker::Copy for icmpv6_echo_reply_lh {}
 impl ::core::clone::Clone for icmpv6_echo_reply_lh {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for icmpv6_echo_reply_lh {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("icmpv6_echo_reply_lh").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).finish()
     }
 }
 unsafe impl ::windows::core::Abi for icmpv6_echo_reply_lh {
@@ -11342,6 +12970,11 @@ impl ::core::clone::Clone for ip_interface_name_info_w2ksp1 {
         *self
     }
 }
+impl ::core::fmt::Debug for ip_interface_name_info_w2ksp1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ip_interface_name_info_w2ksp1").field("Index", &self.Index).field("MediaType", &self.MediaType).field("ConnectionType", &self.ConnectionType).field("AccessType", &self.AccessType).field("DeviceGuid", &self.DeviceGuid).field("InterfaceGuid", &self.InterfaceGuid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ip_interface_name_info_w2ksp1 {
     type Abi = Self;
 }
@@ -11369,6 +13002,11 @@ impl ::core::marker::Copy for ip_option_information {}
 impl ::core::clone::Clone for ip_option_information {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ip_option_information {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ip_option_information").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ip_option_information {
@@ -11404,6 +13042,12 @@ impl ::core::clone::Clone for ip_option_information32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for ip_option_information32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ip_option_information32").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for ip_option_information32 {
     type Abi = Self;
 }
@@ -11431,6 +13075,11 @@ impl ::core::marker::Copy for tcp_reserve_port_range {}
 impl ::core::clone::Clone for tcp_reserve_port_range {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for tcp_reserve_port_range {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("tcp_reserve_port_range").field("UpperRange", &self.UpperRange).field("LowerRange", &self.LowerRange).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tcp_reserve_port_range {

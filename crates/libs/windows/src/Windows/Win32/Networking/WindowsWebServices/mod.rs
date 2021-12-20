@@ -118,6 +118,25 @@ impl ::core::clone::Clone for WEBAUTHN_ASSERTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_ASSERTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_ASSERTION")
+            .field("dwVersion", &self.dwVersion)
+            .field("cbAuthenticatorData", &self.cbAuthenticatorData)
+            .field("pbAuthenticatorData", &self.pbAuthenticatorData)
+            .field("cbSignature", &self.cbSignature)
+            .field("pbSignature", &self.pbSignature)
+            .field("Credential", &self.Credential)
+            .field("cbUserId", &self.cbUserId)
+            .field("pbUserId", &self.pbUserId)
+            .field("Extensions", &self.Extensions)
+            .field("cbCredLargeBlob", &self.cbCredLargeBlob)
+            .field("pbCredLargeBlob", &self.pbCredLargeBlob)
+            .field("dwCredLargeBlobStatus", &self.dwCredLargeBlobStatus)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_ASSERTION {
     type Abi = Self;
 }
@@ -189,6 +208,27 @@ impl ::core::clone::Clone for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS")
+            .field("dwVersion", &self.dwVersion)
+            .field("dwTimeoutMilliseconds", &self.dwTimeoutMilliseconds)
+            .field("CredentialList", &self.CredentialList)
+            .field("Extensions", &self.Extensions)
+            .field("dwAuthenticatorAttachment", &self.dwAuthenticatorAttachment)
+            .field("dwUserVerificationRequirement", &self.dwUserVerificationRequirement)
+            .field("dwFlags", &self.dwFlags)
+            .field("pwszU2fAppId", &self.pwszU2fAppId)
+            .field("pbU2fAppId", &self.pbU2fAppId)
+            .field("pCancellationId", &self.pCancellationId)
+            .field("pAllowCredentialList", &self.pAllowCredentialList)
+            .field("dwCredLargeBlobOperation", &self.dwCredLargeBlobOperation)
+            .field("cbCredLargeBlob", &self.cbCredLargeBlob)
+            .field("pbCredLargeBlob", &self.pbCredLargeBlob)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     type Abi = Self;
 }
@@ -246,6 +286,27 @@ impl ::core::clone::Clone for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS")
+            .field("dwVersion", &self.dwVersion)
+            .field("dwTimeoutMilliseconds", &self.dwTimeoutMilliseconds)
+            .field("CredentialList", &self.CredentialList)
+            .field("Extensions", &self.Extensions)
+            .field("dwAuthenticatorAttachment", &self.dwAuthenticatorAttachment)
+            .field("bRequireResidentKey", &self.bRequireResidentKey)
+            .field("dwUserVerificationRequirement", &self.dwUserVerificationRequirement)
+            .field("dwAttestationConveyancePreference", &self.dwAttestationConveyancePreference)
+            .field("dwFlags", &self.dwFlags)
+            .field("pCancellationId", &self.pCancellationId)
+            .field("pExcludeCredentialList", &self.pExcludeCredentialList)
+            .field("dwEnterpriseAttestation", &self.dwEnterpriseAttestation)
+            .field("dwLargeBlobSupport", &self.dwLargeBlobSupport)
+            .field("bPreferResidentKey", &self.bPreferResidentKey)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     type Abi = Self;
 }
@@ -291,6 +352,12 @@ impl ::core::clone::Clone for WEBAUTHN_CLIENT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CLIENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CLIENT_DATA").field("dwVersion", &self.dwVersion).field("cbClientDataJSON", &self.cbClientDataJSON).field("pbClientDataJSON", &self.pbClientDataJSON).field("pwszHashAlgId", &self.pwszHashAlgId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CLIENT_DATA {
     type Abi = Self;
 }
@@ -333,6 +400,12 @@ impl ::core::marker::Copy for WEBAUTHN_COMMON_ATTESTATION {}
 impl ::core::clone::Clone for WEBAUTHN_COMMON_ATTESTATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_COMMON_ATTESTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_COMMON_ATTESTATION").field("dwVersion", &self.dwVersion).field("pwszAlg", &self.pwszAlg).field("lAlg", &self.lAlg).field("cbSignature", &self.cbSignature).field("pbSignature", &self.pbSignature).field("cX5c", &self.cX5c).field("pX5c", &self.pX5c).field("pwszVer", &self.pwszVer).field("cbCertInfo", &self.cbCertInfo).field("pbCertInfo", &self.pbCertInfo).field("cbPubArea", &self.cbPubArea).field("pbPubArea", &self.pbPubArea).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -390,6 +463,12 @@ impl ::core::clone::Clone for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_COSE_CREDENTIAL_PARAMETER").field("dwVersion", &self.dwVersion).field("pwszCredentialType", &self.pwszCredentialType).field("lAlg", &self.lAlg).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     type Abi = Self;
 }
@@ -420,6 +499,12 @@ impl ::core::marker::Copy for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {}
 impl ::core::clone::Clone for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_COSE_CREDENTIAL_PARAMETERS").field("cCredentialParameters", &self.cCredentialParameters).field("pCredentialParameters", &self.pCredentialParameters).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -460,6 +545,12 @@ impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CREDENTIAL").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszCredentialType", &self.pwszCredentialType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL {
     type Abi = Self;
 }
@@ -490,6 +581,12 @@ impl ::core::marker::Copy for WEBAUTHN_CREDENTIALS {}
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CREDENTIALS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CREDENTIALS").field("cCredentials", &self.cCredentials).field("pCredentials", &self.pCredentials).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -541,6 +638,30 @@ impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_ATTESTATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_ATTESTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CREDENTIAL_ATTESTATION")
+            .field("dwVersion", &self.dwVersion)
+            .field("pwszFormatType", &self.pwszFormatType)
+            .field("cbAuthenticatorData", &self.cbAuthenticatorData)
+            .field("pbAuthenticatorData", &self.pbAuthenticatorData)
+            .field("cbAttestation", &self.cbAttestation)
+            .field("pbAttestation", &self.pbAttestation)
+            .field("dwAttestationDecodeType", &self.dwAttestationDecodeType)
+            .field("pvAttestationDecode", &self.pvAttestationDecode)
+            .field("cbAttestationObject", &self.cbAttestationObject)
+            .field("pbAttestationObject", &self.pbAttestationObject)
+            .field("cbCredentialId", &self.cbCredentialId)
+            .field("pbCredentialId", &self.pbCredentialId)
+            .field("Extensions", &self.Extensions)
+            .field("dwUsedTransport", &self.dwUsedTransport)
+            .field("bEpAtt", &self.bEpAtt)
+            .field("bLargeBlobSupported", &self.bLargeBlobSupported)
+            .field("bResidentKey", &self.bResidentKey)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL_ATTESTATION {
     type Abi = Self;
 }
@@ -589,6 +710,12 @@ impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CREDENTIAL_EX").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszCredentialType", &self.pwszCredentialType).field("dwTransports", &self.dwTransports).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL_EX {
     type Abi = Self;
 }
@@ -624,6 +751,12 @@ impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CREDENTIAL_LIST").field("cCredentials", &self.cCredentials).field("ppCredentials", &self.ppCredentials).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL_LIST {
     type Abi = Self;
 }
@@ -651,6 +784,11 @@ impl ::core::marker::Copy for WEBAUTHN_CRED_BLOB_EXTENSION {}
 impl ::core::clone::Clone for WEBAUTHN_CRED_BLOB_EXTENSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WEBAUTHN_CRED_BLOB_EXTENSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CRED_BLOB_EXTENSION").field("cbCredBlob", &self.cbCredBlob).field("pbCredBlob", &self.pbCredBlob).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WEBAUTHN_CRED_BLOB_EXTENSION {
@@ -711,6 +849,12 @@ impl ::core::clone::Clone for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CRED_PROTECT_EXTENSION_IN").field("dwCredProtect", &self.dwCredProtect).field("bRequireCredProtect", &self.bRequireCredProtect).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
     type Abi = Self;
 }
@@ -763,6 +907,12 @@ impl ::core::clone::Clone for WEBAUTHN_EXTENSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_EXTENSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_EXTENSION").field("pwszExtensionIdentifier", &self.pwszExtensionIdentifier).field("cbExtension", &self.cbExtension).field("pvExtension", &self.pvExtension).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_EXTENSION {
     type Abi = Self;
 }
@@ -793,6 +943,12 @@ impl ::core::marker::Copy for WEBAUTHN_EXTENSIONS {}
 impl ::core::clone::Clone for WEBAUTHN_EXTENSIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_EXTENSIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_EXTENSIONS").field("cExtensions", &self.cExtensions).field("pExtensions", &self.pExtensions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -839,6 +995,12 @@ impl ::core::clone::Clone for WEBAUTHN_RP_ENTITY_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_RP_ENTITY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_RP_ENTITY_INFORMATION").field("dwVersion", &self.dwVersion).field("pwszId", &self.pwszId).field("pwszName", &self.pwszName).field("pwszIcon", &self.pwszIcon).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_RP_ENTITY_INFORMATION {
     type Abi = Self;
 }
@@ -875,6 +1037,12 @@ impl ::core::marker::Copy for WEBAUTHN_USER_ENTITY_INFORMATION {}
 impl ::core::clone::Clone for WEBAUTHN_USER_ENTITY_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_USER_ENTITY_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_USER_ENTITY_INFORMATION").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszName", &self.pwszName).field("pwszIcon", &self.pwszIcon).field("pwszDisplayName", &self.pwszDisplayName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -925,6 +1093,11 @@ impl ::core::clone::Clone for WEBAUTHN_X5C {
         *self
     }
 }
+impl ::core::fmt::Debug for WEBAUTHN_X5C {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_X5C").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WEBAUTHN_X5C {
     type Abi = Self;
 }
@@ -972,6 +1145,12 @@ impl ::core::clone::Clone for WS_ANY_ATTRIBUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ANY_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ANY_ATTRIBUTE").field("localName", &self.localName).field("ns", &self.ns).field("value", &self.value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_ANY_ATTRIBUTE {
     type Abi = Self;
 }
@@ -1002,6 +1181,12 @@ impl ::core::marker::Copy for WS_ANY_ATTRIBUTES {}
 impl ::core::clone::Clone for WS_ANY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ANY_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ANY_ATTRIBUTES").field("attributes", &self.attributes).field("attributeCount", &self.attributeCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1036,6 +1221,11 @@ impl ::core::clone::Clone for WS_ASYNC_CONTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_ASYNC_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ASYNC_CONTEXT").field("callback", &self.callback).field("callbackState", &self.callbackState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_ASYNC_CONTEXT {
     type Abi = Self;
 }
@@ -1061,6 +1251,11 @@ impl ::core::marker::Copy for WS_ASYNC_OPERATION {}
 impl ::core::clone::Clone for WS_ASYNC_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_ASYNC_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ASYNC_OPERATION").field("function", &self.function).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_ASYNC_OPERATION {
@@ -1092,6 +1287,11 @@ impl ::core::clone::Clone for WS_ASYNC_STATE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_ASYNC_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ASYNC_STATE").field("internal0", &self.internal0).field("internal1", &self.internal1).field("internal2", &self.internal2).field("internal3", &self.internal3).field("internal4", &self.internal4).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_ASYNC_STATE {
     type Abi = Self;
 }
@@ -1121,6 +1321,12 @@ impl ::core::marker::Copy for WS_ATTRIBUTE_DESCRIPTION {}
 impl ::core::clone::Clone for WS_ATTRIBUTE_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ATTRIBUTE_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ATTRIBUTE_DESCRIPTION").field("attributeLocalName", &self.attributeLocalName).field("attributeNs", &self.attributeNs).field("type", &self.r#type).field("typeDescription", &self.typeDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1186,6 +1392,12 @@ impl ::core::clone::Clone for WS_BOOL_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_BOOL_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_BOOL_DESCRIPTION").field("value", &self.value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_BOOL_DESCRIPTION {
     type Abi = Self;
 }
@@ -1215,6 +1427,11 @@ impl ::core::clone::Clone for WS_BUFFERS {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_BUFFERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_BUFFERS").field("bufferCount", &self.bufferCount).field("buffers", &self.buffers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_BUFFERS {
     type Abi = Self;
 }
@@ -1239,6 +1456,11 @@ impl ::core::marker::Copy for WS_BYTES {}
 impl ::core::clone::Clone for WS_BYTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_BYTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_BYTES").field("length", &self.length).field("bytes", &self.bytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_BYTES {
@@ -1267,6 +1489,11 @@ impl ::core::clone::Clone for WS_BYTES_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_BYTES_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_BYTES_DESCRIPTION").field("minByteCount", &self.minByteCount).field("maxByteCount", &self.maxByteCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_BYTES_DESCRIPTION {
     type Abi = Self;
 }
@@ -1291,6 +1518,11 @@ impl ::core::marker::Copy for WS_BYTE_ARRAY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_BYTE_ARRAY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_BYTE_ARRAY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_BYTE_ARRAY_DESCRIPTION").field("minByteCount", &self.minByteCount).field("maxByteCount", &self.maxByteCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_BYTE_ARRAY_DESCRIPTION {
@@ -1324,6 +1556,11 @@ impl ::core::marker::Copy for WS_CALL_PROPERTY {}
 impl ::core::clone::Clone for WS_CALL_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_CALL_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CALL_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CALL_PROPERTY {
@@ -1363,6 +1600,11 @@ impl ::core::clone::Clone for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE").field("keyHandle", &self.keyHandle).field("provider", &self.provider).field("keySpec", &self.keySpec).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
 }
@@ -1396,6 +1638,12 @@ impl ::core::clone::Clone for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT").field("callback", &self.callback).field("state", &self.state).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     type Abi = Self;
 }
@@ -1422,6 +1670,11 @@ impl ::core::marker::Copy for WS_CERT_CREDENTIAL {}
 impl ::core::clone::Clone for WS_CERT_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_CERT_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CERT_CREDENTIAL").field("credentialType", &self.credentialType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CERT_CREDENTIAL {
@@ -1456,6 +1709,11 @@ impl ::core::marker::Copy for WS_CERT_ENDPOINT_IDENTITY {}
 impl ::core::clone::Clone for WS_CERT_ENDPOINT_IDENTITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_CERT_ENDPOINT_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CERT_ENDPOINT_IDENTITY").field("identity", &self.identity).field("rawCertificateData", &self.rawCertificateData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CERT_ENDPOINT_IDENTITY {
@@ -1497,6 +1755,11 @@ impl ::core::clone::Clone for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("bindingUsage", &self.bindingUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
 }
@@ -1528,6 +1791,12 @@ impl ::core::marker::Copy for WS_CERT_SIGNED_SAML_AUTHENTICATOR {}
 impl ::core::clone::Clone for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CERT_SIGNED_SAML_AUTHENTICATOR").field("authenticator", &self.authenticator).field("trustedIssuerCerts", &self.trustedIssuerCerts).field("trustedIssuerCertCount", &self.trustedIssuerCertCount).field("decryptionCert", &self.decryptionCert).field("samlValidator", &self.samlValidator).field("samlValidatorCallbackState", &self.samlValidatorCallbackState).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1583,6 +1852,12 @@ impl ::core::clone::Clone for WS_CHANNEL_DECODER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_CHANNEL_DECODER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CHANNEL_DECODER").field("createContext", &self.createContext).field("createDecoderCallback", &self.createDecoderCallback).field("decoderGetContentTypeCallback", &self.decoderGetContentTypeCallback).field("decoderStartCallback", &self.decoderStartCallback).field("decoderDecodeCallback", &self.decoderDecodeCallback).field("decoderEndCallback", &self.decoderEndCallback).field("freeDecoderCallback", &self.freeDecoderCallback).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CHANNEL_DECODER {
     type Abi = Self;
 }
@@ -1621,6 +1896,12 @@ impl ::core::clone::Clone for WS_CHANNEL_ENCODER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_CHANNEL_ENCODER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CHANNEL_ENCODER").field("createContext", &self.createContext).field("createEncoderCallback", &self.createEncoderCallback).field("encoderGetContentTypeCallback", &self.encoderGetContentTypeCallback).field("encoderStartCallback", &self.encoderStartCallback).field("encoderEncodeCallback", &self.encoderEncodeCallback).field("encoderEndCallback", &self.encoderEndCallback).field("freeEncoderCallback", &self.freeEncoderCallback).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CHANNEL_ENCODER {
     type Abi = Self;
 }
@@ -1650,6 +1931,11 @@ impl ::core::clone::Clone for WS_CHANNEL_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_CHANNEL_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CHANNEL_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_CHANNEL_PROPERTIES {
     type Abi = Self;
 }
@@ -1675,6 +1961,11 @@ impl ::core::marker::Copy for WS_CHANNEL_PROPERTY {}
 impl ::core::clone::Clone for WS_CHANNEL_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CHANNEL_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CHANNEL_PROPERTY {
@@ -1705,6 +1996,11 @@ impl ::core::clone::Clone for WS_CHANNEL_PROPERTY_CONSTRAINT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CHANNEL_PROPERTY_CONSTRAINT").field("id", &self.id).field("allowedValues", &self.allowedValues).field("allowedValuesSize", &self.allowedValuesSize).field("out", &self.out).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_CHANNEL_PROPERTY_CONSTRAINT {
     type Abi = Self;
 }
@@ -1728,6 +2024,11 @@ impl ::core::marker::Copy for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {}
 impl ::core::clone::Clone for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CHANNEL_PROPERTY_CONSTRAINT_0").field("channelProperty", &self.channelProperty).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
@@ -1904,6 +2205,11 @@ impl ::core::clone::Clone for WS_CHAR_ARRAY_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_CHAR_ARRAY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CHAR_ARRAY_DESCRIPTION").field("minCharCount", &self.minCharCount).field("maxCharCount", &self.maxCharCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_CHAR_ARRAY_DESCRIPTION {
     type Abi = Self;
 }
@@ -1935,6 +2241,12 @@ impl ::core::marker::Copy for WS_CONTRACT_DESCRIPTION {}
 impl ::core::clone::Clone for WS_CONTRACT_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_CONTRACT_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CONTRACT_DESCRIPTION").field("operationCount", &self.operationCount).field("operations", &self.operations).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1990,6 +2302,12 @@ impl ::core::clone::Clone for WS_CUSTOM_CERT_CREDENTIAL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for WS_CUSTOM_CERT_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CUSTOM_CERT_CREDENTIAL").field("credential", &self.credential).field("getCertCallback", &self.getCertCallback).field("getCertCallbackState", &self.getCertCallbackState).field("certIssuerListNotificationCallback", &self.certIssuerListNotificationCallback).field("certIssuerListNotificationCallbackState", &self.certIssuerListNotificationCallbackState).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_CERT_CREDENTIAL {
     type Abi = Self;
 }
@@ -2035,6 +2353,27 @@ impl ::core::clone::Clone for WS_CUSTOM_CHANNEL_CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_CUSTOM_CHANNEL_CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CUSTOM_CHANNEL_CALLBACKS")
+            .field("createChannelCallback", &self.createChannelCallback)
+            .field("freeChannelCallback", &self.freeChannelCallback)
+            .field("resetChannelCallback", &self.resetChannelCallback)
+            .field("openChannelCallback", &self.openChannelCallback)
+            .field("closeChannelCallback", &self.closeChannelCallback)
+            .field("abortChannelCallback", &self.abortChannelCallback)
+            .field("getChannelPropertyCallback", &self.getChannelPropertyCallback)
+            .field("setChannelPropertyCallback", &self.setChannelPropertyCallback)
+            .field("writeMessageStartCallback", &self.writeMessageStartCallback)
+            .field("writeMessageEndCallback", &self.writeMessageEndCallback)
+            .field("readMessageStartCallback", &self.readMessageStartCallback)
+            .field("readMessageEndCallback", &self.readMessageEndCallback)
+            .field("abandonMessageCallback", &self.abandonMessageCallback)
+            .field("shutdownSessionChannelCallback", &self.shutdownSessionChannelCallback)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_CHANNEL_CALLBACKS {
     type Abi = Self;
 }
@@ -2065,6 +2404,12 @@ impl ::core::marker::Copy for WS_CUSTOM_HTTP_PROXY {}
 impl ::core::clone::Clone for WS_CUSTOM_HTTP_PROXY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_CUSTOM_HTTP_PROXY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CUSTOM_HTTP_PROXY").field("servers", &self.servers).field("bypass", &self.bypass).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2109,6 +2454,23 @@ impl ::core::clone::Clone for WS_CUSTOM_LISTENER_CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_CUSTOM_LISTENER_CALLBACKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CUSTOM_LISTENER_CALLBACKS")
+            .field("createListenerCallback", &self.createListenerCallback)
+            .field("freeListenerCallback", &self.freeListenerCallback)
+            .field("resetListenerCallback", &self.resetListenerCallback)
+            .field("openListenerCallback", &self.openListenerCallback)
+            .field("closeListenerCallback", &self.closeListenerCallback)
+            .field("abortListenerCallback", &self.abortListenerCallback)
+            .field("getListenerPropertyCallback", &self.getListenerPropertyCallback)
+            .field("setListenerPropertyCallback", &self.setListenerPropertyCallback)
+            .field("createChannelForListenerCallback", &self.createChannelForListenerCallback)
+            .field("acceptChannelCallback", &self.acceptChannelCallback)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_LISTENER_CALLBACKS {
     type Abi = Self;
 }
@@ -2146,6 +2508,12 @@ impl ::core::clone::Clone for WS_CUSTOM_TYPE_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_CUSTOM_TYPE_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_CUSTOM_TYPE_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("readCallback", &self.readCallback).field("writeCallback", &self.writeCallback).field("descriptionData", &self.descriptionData).field("isDefaultValueCallback", &self.isDefaultValueCallback).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_TYPE_DESCRIPTION {
     type Abi = Self;
 }
@@ -2175,6 +2543,11 @@ impl ::core::clone::Clone for WS_DATETIME {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_DATETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DATETIME").field("ticks", &self.ticks).field("format", &self.format).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_DATETIME {
     type Abi = Self;
 }
@@ -2199,6 +2572,11 @@ impl ::core::marker::Copy for WS_DATETIME_DESCRIPTION {}
 impl ::core::clone::Clone for WS_DATETIME_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_DATETIME_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DATETIME_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_DATETIME_DESCRIPTION {
@@ -2236,6 +2614,12 @@ impl ::core::marker::Copy for WS_DECIMAL_DESCRIPTION {}
 impl ::core::clone::Clone for WS_DECIMAL_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_DECIMAL_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DECIMAL_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2277,6 +2661,11 @@ impl ::core::clone::Clone for WS_DEFAULT_VALUE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_DEFAULT_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DEFAULT_VALUE").field("value", &self.value).field("valueSize", &self.valueSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_DEFAULT_VALUE {
     type Abi = Self;
 }
@@ -2300,6 +2689,11 @@ impl ::core::marker::Copy for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 impl ::core::clone::Clone for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credential", &self.credential).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
@@ -2329,6 +2723,12 @@ impl ::core::marker::Copy for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {}
 impl ::core::clone::Clone for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DISALLOWED_USER_AGENT_SUBSTRINGS").field("subStringCount", &self.subStringCount).field("subStrings", &self.subStrings).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2365,6 +2765,12 @@ impl ::core::clone::Clone for WS_DNS_ENDPOINT_IDENTITY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_DNS_ENDPOINT_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DNS_ENDPOINT_IDENTITY").field("identity", &self.identity).field("dns", &self.dns).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_DNS_ENDPOINT_IDENTITY {
     type Abi = Self;
 }
@@ -2392,6 +2798,11 @@ impl ::core::marker::Copy for WS_DOUBLE_DESCRIPTION {}
 impl ::core::clone::Clone for WS_DOUBLE_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_DOUBLE_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DOUBLE_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_DOUBLE_DESCRIPTION {
@@ -2428,6 +2839,12 @@ impl ::core::marker::Copy for WS_DURATION {}
 impl ::core::clone::Clone for WS_DURATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_DURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DURATION").field("negative", &self.negative).field("years", &self.years).field("months", &self.months).field("days", &self.days).field("hours", &self.hours).field("minutes", &self.minutes).field("seconds", &self.seconds).field("milliseconds", &self.milliseconds).field("ticks", &self.ticks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2468,6 +2885,12 @@ impl ::core::clone::Clone for WS_DURATION_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_DURATION_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_DURATION_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).field("comparer", &self.comparer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_DURATION_DESCRIPTION {
     type Abi = Self;
 }
@@ -2503,6 +2926,12 @@ impl ::core::marker::Copy for WS_ELEMENT_DESCRIPTION {}
 impl ::core::clone::Clone for WS_ELEMENT_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ELEMENT_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ELEMENT_DESCRIPTION").field("elementLocalName", &self.elementLocalName).field("elementNs", &self.elementNs).field("type", &self.r#type).field("typeDescription", &self.typeDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2570,6 +2999,12 @@ impl ::core::clone::Clone for WS_ENDPOINT_ADDRESS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ENDPOINT_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ENDPOINT_ADDRESS").field("url", &self.url).field("headers", &self.headers).field("extensions", &self.extensions).field("identity", &self.identity).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_ENDPOINT_ADDRESS {
     type Abi = Self;
 }
@@ -2596,6 +3031,11 @@ impl ::core::marker::Copy for WS_ENDPOINT_ADDRESS_DESCRIPTION {}
 impl ::core::clone::Clone for WS_ENDPOINT_ADDRESS_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_ENDPOINT_ADDRESS_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ENDPOINT_ADDRESS_DESCRIPTION").field("addressingVersion", &self.addressingVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_ENDPOINT_ADDRESS_DESCRIPTION {
@@ -2625,6 +3065,11 @@ impl ::core::marker::Copy for WS_ENDPOINT_IDENTITY {}
 impl ::core::clone::Clone for WS_ENDPOINT_IDENTITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_ENDPOINT_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ENDPOINT_IDENTITY").field("identityType", &self.identityType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_ENDPOINT_IDENTITY {
@@ -2673,6 +3118,12 @@ impl ::core::clone::Clone for WS_ENDPOINT_POLICY_EXTENSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ENDPOINT_POLICY_EXTENSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ENDPOINT_POLICY_EXTENSION").field("policyExtension", &self.policyExtension).field("assertionName", &self.assertionName).field("assertionNs", &self.assertionNs).field("out", &self.out).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_ENDPOINT_POLICY_EXTENSION {
     type Abi = Self;
 }
@@ -2702,6 +3153,12 @@ impl ::core::marker::Copy for WS_ENDPOINT_POLICY_EXTENSION_0 {}
 impl ::core::clone::Clone for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ENDPOINT_POLICY_EXTENSION_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ENDPOINT_POLICY_EXTENSION_0").field("assertionValue", &self.assertionValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2740,6 +3197,12 @@ impl ::core::clone::Clone for WS_ENUM_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ENUM_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ENUM_DESCRIPTION").field("values", &self.values).field("valueCount", &self.valueCount).field("maxByteCount", &self.maxByteCount).field("nameIndices", &self.nameIndices).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_ENUM_DESCRIPTION {
     type Abi = Self;
 }
@@ -2770,6 +3233,12 @@ impl ::core::marker::Copy for WS_ENUM_VALUE {}
 impl ::core::clone::Clone for WS_ENUM_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ENUM_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ENUM_VALUE").field("value", &self.value).field("name", &self.name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2811,6 +3280,11 @@ impl ::core::marker::Copy for WS_ERROR_PROPERTY {}
 impl ::core::clone::Clone for WS_ERROR_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_ERROR_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ERROR_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_ERROR_PROPERTY {
@@ -2875,6 +3349,12 @@ impl ::core::clone::Clone for WS_FAULT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_FAULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_FAULT").field("code", &self.code).field("reasons", &self.reasons).field("reasonCount", &self.reasonCount).field("actor", &self.actor).field("node", &self.node).field("detail", &self.detail).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_FAULT {
     type Abi = Self;
 }
@@ -2908,6 +3388,12 @@ impl ::core::clone::Clone for WS_FAULT_CODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_FAULT_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_FAULT_CODE").field("value", &self.value).field("subCode", &self.subCode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_FAULT_CODE {
     type Abi = Self;
 }
@@ -2934,6 +3420,11 @@ impl ::core::marker::Copy for WS_FAULT_DESCRIPTION {}
 impl ::core::clone::Clone for WS_FAULT_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_FAULT_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_FAULT_DESCRIPTION").field("envelopeVersion", &self.envelopeVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_FAULT_DESCRIPTION {
@@ -2963,6 +3454,12 @@ impl ::core::marker::Copy for WS_FAULT_DETAIL_DESCRIPTION {}
 impl ::core::clone::Clone for WS_FAULT_DETAIL_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_FAULT_DETAIL_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_FAULT_DETAIL_DESCRIPTION").field("action", &self.action).field("detailElementDescription", &self.detailElementDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3013,6 +3510,12 @@ impl ::core::clone::Clone for WS_FAULT_REASON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_FAULT_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_FAULT_REASON").field("text", &self.text).field("lang", &self.lang).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_FAULT_REASON {
     type Abi = Self;
 }
@@ -3053,6 +3556,12 @@ impl ::core::marker::Copy for WS_FIELD_DESCRIPTION {}
 impl ::core::clone::Clone for WS_FIELD_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_FIELD_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_FIELD_DESCRIPTION").field("mapping", &self.mapping).field("localName", &self.localName).field("ns", &self.ns).field("type", &self.r#type).field("typeDescription", &self.typeDescription).field("offset", &self.offset).field("options", &self.options).field("defaultValue", &self.defaultValue).field("countOffset", &self.countOffset).field("itemLocalName", &self.itemLocalName).field("itemNs", &self.itemNs).field("itemRange", &self.itemRange).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3123,6 +3632,11 @@ impl ::core::clone::Clone for WS_FLOAT_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_FLOAT_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_FLOAT_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_FLOAT_DESCRIPTION {
     type Abi = Self;
 }
@@ -3161,6 +3675,11 @@ impl ::core::marker::Copy for WS_GUID_DESCRIPTION {}
 impl ::core::clone::Clone for WS_GUID_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_GUID_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_GUID_DESCRIPTION").field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_GUID_DESCRIPTION {
@@ -3207,6 +3726,11 @@ impl ::core::clone::Clone for WS_HEAP_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HEAP_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HEAP_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HEAP_PROPERTIES {
     type Abi = Self;
 }
@@ -3232,6 +3756,11 @@ impl ::core::marker::Copy for WS_HEAP_PROPERTY {}
 impl ::core::clone::Clone for WS_HEAP_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HEAP_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HEAP_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HEAP_PROPERTY {
@@ -3274,6 +3803,12 @@ impl ::core::clone::Clone for WS_HOST_NAMES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_HOST_NAMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HOST_NAMES").field("hostNames", &self.hostNames).field("hostNameCount", &self.hostNameCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HOST_NAMES {
     type Abi = Self;
 }
@@ -3312,6 +3847,12 @@ impl ::core::clone::Clone for WS_HTTPS_URL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_HTTPS_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTPS_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTPS_URL {
     type Abi = Self;
 }
@@ -3338,6 +3879,11 @@ impl ::core::marker::Copy for WS_HTTP_BINDING_TEMPLATE {}
 impl ::core::clone::Clone for WS_HTTP_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_BINDING_TEMPLATE {
@@ -3367,6 +3913,11 @@ impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -3392,6 +3943,11 @@ impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
@@ -3432,6 +3988,11 @@ impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_HEADER_AUTH_SECURITY_BINDING").field("binding", &self.binding).field("clientCredential", &self.clientCredential).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
     type Abi = Self;
 }
@@ -3455,6 +4016,11 @@ impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {}
 impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
@@ -3482,6 +4048,11 @@ impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRI
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
 }
@@ -3506,6 +4077,11 @@ impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {}
 impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
@@ -3541,6 +4117,12 @@ impl ::core::marker::Copy for WS_HTTP_HEADER_MAPPING {}
 impl ::core::clone::Clone for WS_HTTP_HEADER_MAPPING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_HTTP_HEADER_MAPPING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_HEADER_MAPPING").field("headerName", &self.headerName).field("headerMappingOptions", &self.headerMappingOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3587,6 +4169,12 @@ impl ::core::clone::Clone for WS_HTTP_MESSAGE_MAPPING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_HTTP_MESSAGE_MAPPING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_MESSAGE_MAPPING").field("requestMappingOptions", &self.requestMappingOptions).field("responseMappingOptions", &self.responseMappingOptions).field("requestHeaderMappings", &self.requestHeaderMappings).field("requestHeaderMappingCount", &self.requestHeaderMappingCount).field("responseHeaderMappings", &self.responseHeaderMappings).field("responseHeaderMappingCount", &self.responseHeaderMappingCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_MESSAGE_MAPPING {
     type Abi = Self;
 }
@@ -3613,6 +4201,11 @@ impl ::core::marker::Copy for WS_HTTP_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_HTTP_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_POLICY_DESCRIPTION {
@@ -3656,6 +4249,12 @@ impl ::core::clone::Clone for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_REDIRECT_CALLBACK_CONTEXT").field("callback", &self.callback).field("state", &self.state).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     type Abi = Self;
 }
@@ -3692,6 +4291,11 @@ impl ::core::clone::Clone for WS_HTTP_SSL_BINDING_TEMPLATE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HTTP_SSL_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -3718,6 +4322,11 @@ impl ::core::marker::Copy for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {}
 impl ::core::clone::Clone for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
@@ -3748,6 +4357,11 @@ impl ::core::clone::Clone for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
     type Abi = Self;
 }
@@ -3776,6 +4390,11 @@ impl ::core::clone::Clone for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -3802,6 +4421,11 @@ impl ::core::marker::Copy for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
@@ -3833,6 +4457,11 @@ impl ::core::clone::Clone for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDIN
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -3862,6 +4491,11 @@ impl ::core::clone::Clone for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY
         *self
     }
 }
+impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     type Abi = Self;
 }
@@ -3887,6 +4521,11 @@ impl ::core::marker::Copy for WS_HTTP_SSL_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_HTTP_SSL_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_SSL_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_POLICY_DESCRIPTION {
@@ -3921,6 +4560,12 @@ impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -3950,6 +4595,11 @@ impl ::core::marker::Copy for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
@@ -3985,6 +4635,12 @@ impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMP
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -4015,6 +4671,11 @@ impl ::core::marker::Copy for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCR
 impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
@@ -4052,6 +4713,12 @@ impl ::core::clone::Clone for WS_HTTP_URL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_HTTP_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_HTTP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_URL {
     type Abi = Self;
 }
@@ -4081,6 +4748,11 @@ impl ::core::clone::Clone for WS_INT16_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_INT16_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_INT16_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_INT16_DESCRIPTION {
     type Abi = Self;
 }
@@ -4107,6 +4779,11 @@ impl ::core::clone::Clone for WS_INT32_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_INT32_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_INT32_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_INT32_DESCRIPTION {
     type Abi = Self;
 }
@@ -4131,6 +4808,11 @@ impl ::core::marker::Copy for WS_INT64_DESCRIPTION {}
 impl ::core::clone::Clone for WS_INT64_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_INT64_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_INT64_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_INT64_DESCRIPTION {
@@ -4160,6 +4842,12 @@ impl ::core::marker::Copy for WS_INT8_DESCRIPTION {}
 impl ::core::clone::Clone for WS_INT8_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_INT8_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_INT8_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4209,6 +4897,20 @@ impl ::core::clone::Clone for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAIN
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT")
+            .field("bindingConstraint", &self.bindingConstraint)
+            .field("bindingUsage", &self.bindingUsage)
+            .field("claimConstraints", &self.claimConstraints)
+            .field("claimConstraintCount", &self.claimConstraintCount)
+            .field("requestSecurityTokenPropertyConstraints", &self.requestSecurityTokenPropertyConstraints)
+            .field("requestSecurityTokenPropertyConstraintCount", &self.requestSecurityTokenPropertyConstraintCount)
+            .field("out", &self.out)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
 }
@@ -4239,6 +4941,12 @@ impl ::core::marker::Copy for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAIN
 impl ::core::clone::Clone for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0").field("issuerAddress", &self.issuerAddress).field("requestSecurityTokenTemplate", &self.requestSecurityTokenTemplate).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4274,6 +4982,11 @@ impl ::core::clone::Clone for WS_ITEM_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_ITEM_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_ITEM_RANGE").field("minItemCount", &self.minItemCount).field("maxItemCount", &self.maxItemCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_ITEM_RANGE {
     type Abi = Self;
 }
@@ -4299,6 +5012,11 @@ impl ::core::marker::Copy for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {}
 impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
@@ -4327,6 +5045,11 @@ impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRA
         *self
     }
 }
+impl ::core::fmt::Debug for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("bindingUsage", &self.bindingUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
 }
@@ -4353,6 +5076,11 @@ impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_
         *self
     }
 }
+impl ::core::fmt::Debug for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).field("bindingUsage", &self.bindingUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
 }
@@ -4377,6 +5105,11 @@ impl ::core::marker::Copy for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLAT
 impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
@@ -4407,6 +5140,11 @@ impl ::core::clone::Clone for WS_LISTENER_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_LISTENER_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_LISTENER_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_LISTENER_PROPERTIES {
     type Abi = Self;
 }
@@ -4432,6 +5170,11 @@ impl ::core::marker::Copy for WS_LISTENER_PROPERTY {}
 impl ::core::clone::Clone for WS_LISTENER_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_LISTENER_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_LISTENER_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_LISTENER_PROPERTY {
@@ -4536,6 +5279,12 @@ impl ::core::clone::Clone for WS_MESSAGE_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_MESSAGE_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_MESSAGE_DESCRIPTION").field("action", &self.action).field("bodyElementDescription", &self.bodyElementDescription).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_MESSAGE_DESCRIPTION {
     type Abi = Self;
 }
@@ -4579,6 +5328,11 @@ impl ::core::clone::Clone for WS_MESSAGE_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_MESSAGE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_MESSAGE_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_MESSAGE_PROPERTIES {
     type Abi = Self;
 }
@@ -4604,6 +5358,11 @@ impl ::core::marker::Copy for WS_MESSAGE_PROPERTY {}
 impl ::core::clone::Clone for WS_MESSAGE_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_MESSAGE_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_MESSAGE_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_MESSAGE_PROPERTY {
@@ -4707,6 +5466,12 @@ impl ::core::clone::Clone for WS_METADATA_ENDPOINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_METADATA_ENDPOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_METADATA_ENDPOINT").field("endpointAddress", &self.endpointAddress).field("endpointPolicy", &self.endpointPolicy).field("portName", &self.portName).field("serviceName", &self.serviceName).field("serviceNs", &self.serviceNs).field("bindingName", &self.bindingName).field("bindingNs", &self.bindingNs).field("portTypeName", &self.portTypeName).field("portTypeNs", &self.portTypeNs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_METADATA_ENDPOINT {
     type Abi = Self;
 }
@@ -4737,6 +5502,12 @@ impl ::core::marker::Copy for WS_METADATA_ENDPOINTS {}
 impl ::core::clone::Clone for WS_METADATA_ENDPOINTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_METADATA_ENDPOINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_METADATA_ENDPOINTS").field("endpoints", &self.endpoints).field("endpointCount", &self.endpointCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4776,6 +5547,11 @@ impl ::core::marker::Copy for WS_METADATA_PROPERTY {}
 impl ::core::clone::Clone for WS_METADATA_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_METADATA_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_METADATA_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_METADATA_PROPERTY {
@@ -4856,6 +5632,11 @@ impl ::core::clone::Clone for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING").field("binding", &self.binding).field("clientCredential", &self.clientCredential).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
     type Abi = Self;
 }
@@ -4880,6 +5661,11 @@ impl ::core::marker::Copy for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {}
 impl ::core::clone::Clone for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE").field("keyHandle", &self.keyHandle).field("asymmetricKey", &self.asymmetricKey).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
@@ -4914,6 +5700,12 @@ impl ::core::marker::Copy for WS_NETPIPE_URL {}
 impl ::core::clone::Clone for WS_NETPIPE_URL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_NETPIPE_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_NETPIPE_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4955,6 +5747,12 @@ impl ::core::clone::Clone for WS_NETTCP_URL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_NETTCP_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_NETTCP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_NETTCP_URL {
     type Abi = Self;
 }
@@ -4982,6 +5780,11 @@ impl ::core::marker::Copy for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 impl ::core::clone::Clone for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credential", &self.credential).field("opaqueAuthIdentity", &self.opaqueAuthIdentity).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
@@ -5051,6 +5854,22 @@ impl ::core::clone::Clone for WS_OPERATION_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_OPERATION_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_OPERATION_DESCRIPTION")
+            .field("versionInfo", &self.versionInfo)
+            .field("inputMessageDescription", &self.inputMessageDescription)
+            .field("outputMessageDescription", &self.outputMessageDescription)
+            .field("inputMessageOptions", &self.inputMessageOptions)
+            .field("outputMessageOptions", &self.outputMessageOptions)
+            .field("parameterCount", &self.parameterCount)
+            .field("parameterDescription", &self.parameterDescription)
+            .field("stubCallback", &self.stubCallback)
+            .field("style", &self.style)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_OPERATION_DESCRIPTION {
     type Abi = Self;
 }
@@ -5087,6 +5906,11 @@ impl ::core::marker::Copy for WS_PARAMETER_DESCRIPTION {}
 impl ::core::clone::Clone for WS_PARAMETER_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_PARAMETER_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_PARAMETER_DESCRIPTION").field("parameterType", &self.parameterType).field("inputMessageIndex", &self.inputMessageIndex).field("outputMessageIndex", &self.outputMessageIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_PARAMETER_DESCRIPTION {
@@ -5131,6 +5955,11 @@ impl ::core::clone::Clone for WS_POLICY_CONSTRAINTS {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_POLICY_CONSTRAINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_POLICY_CONSTRAINTS").field("channelBinding", &self.channelBinding).field("channelPropertyConstraints", &self.channelPropertyConstraints).field("channelPropertyConstraintCount", &self.channelPropertyConstraintCount).field("securityConstraints", &self.securityConstraints).field("policyExtensions", &self.policyExtensions).field("policyExtensionCount", &self.policyExtensionCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_POLICY_CONSTRAINTS {
     type Abi = Self;
 }
@@ -5154,6 +5983,11 @@ impl ::core::marker::Copy for WS_POLICY_EXTENSION {}
 impl ::core::clone::Clone for WS_POLICY_EXTENSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_POLICY_EXTENSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_POLICY_EXTENSION").field("type", &self.r#type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_POLICY_EXTENSION {
@@ -5186,6 +6020,11 @@ impl ::core::clone::Clone for WS_POLICY_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_POLICY_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_POLICY_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_POLICY_PROPERTIES {
     type Abi = Self;
 }
@@ -5211,6 +6050,11 @@ impl ::core::marker::Copy for WS_POLICY_PROPERTY {}
 impl ::core::clone::Clone for WS_POLICY_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_POLICY_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_POLICY_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_POLICY_PROPERTY {
@@ -5265,6 +6109,11 @@ impl ::core::clone::Clone for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_PROXY_MESSAGE_CALLBACK_CONTEXT").field("callback", &self.callback).field("state", &self.state).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     type Abi = Self;
 }
@@ -5290,6 +6139,11 @@ impl ::core::marker::Copy for WS_PROXY_PROPERTY {}
 impl ::core::clone::Clone for WS_PROXY_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_PROXY_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_PROXY_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_PROXY_PROPERTY {
@@ -5336,6 +6190,11 @@ impl ::core::marker::Copy for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {}
 impl ::core::clone::Clone for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE").field("keyHandle", &self.keyHandle).field("rawKeyBytes", &self.rawKeyBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
@@ -5407,6 +6266,11 @@ impl ::core::clone::Clone for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_REQUEST_SECURITY_TOKEN_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
     type Abi = Self;
 }
@@ -5435,6 +6299,11 @@ impl ::core::clone::Clone for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT").field("id", &self.id).field("allowedValues", &self.allowedValues).field("allowedValuesSize", &self.allowedValuesSize).field("out", &self.out).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
     type Abi = Self;
 }
@@ -5458,6 +6327,11 @@ impl ::core::marker::Copy for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {}
 impl ::core::clone::Clone for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0").field("requestSecurityTokenProperty", &self.requestSecurityTokenProperty).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
@@ -5519,6 +6393,11 @@ impl ::core::clone::Clone for WS_RSA_ENDPOINT_IDENTITY {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_RSA_ENDPOINT_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_RSA_ENDPOINT_IDENTITY").field("identity", &self.identity).field("modulus", &self.modulus).field("exponent", &self.exponent).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_RSA_ENDPOINT_IDENTITY {
     type Abi = Self;
 }
@@ -5542,6 +6421,11 @@ impl ::core::marker::Copy for WS_SAML_AUTHENTICATOR {}
 impl ::core::clone::Clone for WS_SAML_AUTHENTICATOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SAML_AUTHENTICATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SAML_AUTHENTICATOR").field("authenticatorType", &self.authenticatorType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SAML_AUTHENTICATOR {
@@ -5573,6 +6457,11 @@ impl ::core::marker::Copy for WS_SAML_MESSAGE_SECURITY_BINDING {}
 impl ::core::clone::Clone for WS_SAML_MESSAGE_SECURITY_BINDING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SAML_MESSAGE_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SAML_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("authenticator", &self.authenticator).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SAML_MESSAGE_SECURITY_BINDING {
@@ -5660,6 +6549,11 @@ impl ::core::clone::Clone for WS_SECURITY_ALGORITHM_PROPERTY {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_ALGORITHM_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_ALGORITHM_PROPERTY {
     type Abi = Self;
 }
@@ -5698,6 +6592,26 @@ impl ::core::marker::Copy for WS_SECURITY_ALGORITHM_SUITE {}
 impl ::core::clone::Clone for WS_SECURITY_ALGORITHM_SUITE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_SUITE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_ALGORITHM_SUITE")
+            .field("canonicalizationAlgorithm", &self.canonicalizationAlgorithm)
+            .field("digestAlgorithm", &self.digestAlgorithm)
+            .field("symmetricSignatureAlgorithm", &self.symmetricSignatureAlgorithm)
+            .field("asymmetricSignatureAlgorithm", &self.asymmetricSignatureAlgorithm)
+            .field("encryptionAlgorithm", &self.encryptionAlgorithm)
+            .field("keyDerivationAlgorithm", &self.keyDerivationAlgorithm)
+            .field("symmetricKeyWrapAlgorithm", &self.symmetricKeyWrapAlgorithm)
+            .field("asymmetricKeyWrapAlgorithm", &self.asymmetricKeyWrapAlgorithm)
+            .field("minSymmetricKeyLength", &self.minSymmetricKeyLength)
+            .field("maxSymmetricKeyLength", &self.maxSymmetricKeyLength)
+            .field("minAsymmetricKeyLength", &self.minAsymmetricKeyLength)
+            .field("maxAsymmetricKeyLength", &self.maxAsymmetricKeyLength)
+            .field("properties", &self.properties)
+            .field("propertyCount", &self.propertyCount)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_ALGORITHM_SUITE {
@@ -5761,6 +6675,11 @@ impl ::core::clone::Clone for WS_SECURITY_BINDING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_BINDING").field("bindingType", &self.bindingType).field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING {
     type Abi = Self;
 }
@@ -5786,6 +6705,11 @@ impl ::core::marker::Copy for WS_SECURITY_BINDING_CONSTRAINT {}
 impl ::core::clone::Clone for WS_SECURITY_BINDING_CONSTRAINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_BINDING_CONSTRAINT").field("type", &self.r#type).field("propertyConstraints", &self.propertyConstraints).field("propertyConstraintCount", &self.propertyConstraintCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_CONSTRAINT {
@@ -5832,6 +6756,11 @@ impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_BINDING_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_PROPERTIES {
     type Abi = Self;
 }
@@ -5857,6 +6786,11 @@ impl ::core::marker::Copy for WS_SECURITY_BINDING_PROPERTY {}
 impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_BINDING_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_PROPERTY {
@@ -5887,6 +6821,11 @@ impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_BINDING_PROPERTY_CONSTRAINT").field("id", &self.id).field("allowedValues", &self.allowedValues).field("allowedValuesSize", &self.allowedValuesSize).field("out", &self.out).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
     type Abi = Self;
 }
@@ -5910,6 +6849,11 @@ impl ::core::marker::Copy for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {}
 impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0").field("securityBindingProperty", &self.securityBindingProperty).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
@@ -6008,6 +6952,11 @@ impl ::core::clone::Clone for WS_SECURITY_CONSTRAINTS {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_CONSTRAINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_CONSTRAINTS").field("securityPropertyConstraints", &self.securityPropertyConstraints).field("securityPropertyConstraintCount", &self.securityPropertyConstraintCount).field("securityBindingConstraints", &self.securityBindingConstraints).field("securityBindingConstraintCount", &self.securityBindingConstraintCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_CONSTRAINTS {
     type Abi = Self;
 }
@@ -6037,6 +6986,11 @@ impl ::core::clone::Clone for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("bootstrapSecurityDescription", &self.bootstrapSecurityDescription).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
     type Abi = Self;
 }
@@ -6062,6 +7016,11 @@ impl ::core::marker::Copy for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONST
 impl ::core::clone::Clone for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("bindingUsage", &self.bindingUsage).field("bootstrapSecurityConstraint", &self.bootstrapSecurityConstraint).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
@@ -6090,6 +7049,11 @@ impl ::core::clone::Clone for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLIC
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).field("bindingUsage", &self.bindingUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
 }
@@ -6113,6 +7077,11 @@ impl ::core::marker::Copy for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPL
 impl ::core::clone::Clone for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
@@ -6140,6 +7109,11 @@ impl ::core::marker::Copy for WS_SECURITY_CONTEXT_PROPERTY {}
 impl ::core::clone::Clone for WS_SECURITY_CONTEXT_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_CONTEXT_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_PROPERTY {
@@ -6178,6 +7152,11 @@ impl ::core::clone::Clone for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRI
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityContextMessageSecurityBinding", &self.securityContextMessageSecurityBinding).field("securityProperties", &self.securityProperties).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
 }
@@ -6202,6 +7181,11 @@ impl ::core::marker::Copy for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {}
 impl ::core::clone::Clone for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE").field("securityContextMessageSecurityBinding", &self.securityContextMessageSecurityBinding).field("securityProperties", &self.securityProperties).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
@@ -6230,6 +7214,11 @@ impl ::core::marker::Copy for WS_SECURITY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_SECURITY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_DESCRIPTION").field("securityBindings", &self.securityBindings).field("securityBindingCount", &self.securityBindingCount).field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_DESCRIPTION {
@@ -6281,6 +7270,11 @@ impl ::core::clone::Clone for WS_SECURITY_KEY_HANDLE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_KEY_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_KEY_HANDLE").field("keyHandleType", &self.keyHandleType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_KEY_HANDLE {
     type Abi = Self;
 }
@@ -6323,6 +7317,11 @@ impl ::core::clone::Clone for WS_SECURITY_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_PROPERTIES {
     type Abi = Self;
 }
@@ -6348,6 +7347,11 @@ impl ::core::marker::Copy for WS_SECURITY_PROPERTY {}
 impl ::core::clone::Clone for WS_SECURITY_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_PROPERTY {
@@ -6378,6 +7382,11 @@ impl ::core::clone::Clone for WS_SECURITY_PROPERTY_CONSTRAINT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SECURITY_PROPERTY_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_PROPERTY_CONSTRAINT").field("id", &self.id).field("allowedValues", &self.allowedValues).field("allowedValuesSize", &self.allowedValuesSize).field("out", &self.out).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SECURITY_PROPERTY_CONSTRAINT {
     type Abi = Self;
 }
@@ -6401,6 +7410,11 @@ impl ::core::marker::Copy for WS_SECURITY_PROPERTY_CONSTRAINT_0 {}
 impl ::core::clone::Clone for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SECURITY_PROPERTY_CONSTRAINT_0").field("securityProperty", &self.securityProperty).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
@@ -6508,6 +7522,12 @@ impl ::core::clone::Clone for WS_SERVICE_CONTRACT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SERVICE_CONTRACT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_CONTRACT").field("contractDescription", &self.contractDescription).field("defaultMessageHandlerCallback", &self.defaultMessageHandlerCallback).field("methodTable", &self.methodTable).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SERVICE_CONTRACT {
     type Abi = Self;
 }
@@ -6548,6 +7568,12 @@ impl ::core::clone::Clone for WS_SERVICE_ENDPOINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_ENDPOINT").field("address", &self.address).field("channelBinding", &self.channelBinding).field("channelType", &self.channelType).field("securityDescription", &self.securityDescription).field("contract", &self.contract).field("authorizationCallback", &self.authorizationCallback).field("properties", &self.properties).field("propertyCount", &self.propertyCount).field("channelProperties", &self.channelProperties).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SERVICE_ENDPOINT {
     type Abi = Self;
 }
@@ -6582,6 +7608,12 @@ impl ::core::clone::Clone for WS_SERVICE_ENDPOINT_METADATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_ENDPOINT_METADATA").field("portName", &self.portName).field("bindingName", &self.bindingName).field("bindingNs", &self.bindingNs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SERVICE_ENDPOINT_METADATA {
     type Abi = Self;
 }
@@ -6610,6 +7642,11 @@ impl ::core::marker::Copy for WS_SERVICE_ENDPOINT_PROPERTY {}
 impl ::core::clone::Clone for WS_SERVICE_ENDPOINT_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_ENDPOINT_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SERVICE_ENDPOINT_PROPERTY {
@@ -6694,6 +7731,12 @@ impl ::core::clone::Clone for WS_SERVICE_METADATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SERVICE_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_METADATA").field("documentCount", &self.documentCount).field("documents", &self.documents).field("serviceName", &self.serviceName).field("serviceNs", &self.serviceNs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SERVICE_METADATA {
     type Abi = Self;
 }
@@ -6724,6 +7767,12 @@ impl ::core::marker::Copy for WS_SERVICE_METADATA_DOCUMENT {}
 impl ::core::clone::Clone for WS_SERVICE_METADATA_DOCUMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SERVICE_METADATA_DOCUMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_METADATA_DOCUMENT").field("content", &self.content).field("name", &self.name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6759,6 +7808,11 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SERVICE_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY {
     type Abi = Self;
 }
@@ -6784,6 +7838,11 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_PROPERTY_ACCEPT_CALLBACK").field("callback", &self.callback).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
     type Abi = Self;
 }
@@ -6807,6 +7866,11 @@ impl ::core::marker::Copy for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {}
 impl ::core::clone::Clone for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_PROPERTY_CLOSE_CALLBACK").field("callback", &self.callback).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
@@ -6872,6 +7936,12 @@ impl ::core::clone::Clone for WS_SERVICE_SECURITY_IDENTITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SERVICE_SECURITY_IDENTITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SERVICE_SECURITY_IDENTITIES").field("serviceIdentities", &self.serviceIdentities).field("serviceIdentityCount", &self.serviceIdentityCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SERVICE_SECURITY_IDENTITIES {
     type Abi = Self;
 }
@@ -6918,6 +7988,12 @@ impl ::core::clone::Clone for WS_SOAPUDP_URL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SOAPUDP_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SOAPUDP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SOAPUDP_URL {
     type Abi = Self;
 }
@@ -6951,6 +8027,12 @@ impl ::core::clone::Clone for WS_SPN_ENDPOINT_IDENTITY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SPN_ENDPOINT_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SPN_ENDPOINT_IDENTITY").field("identity", &self.identity).field("spn", &self.spn).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SPN_ENDPOINT_IDENTITY {
     type Abi = Self;
 }
@@ -6980,6 +8062,11 @@ impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SSL_TRANSPORT_SECURITY_BINDING").field("binding", &self.binding).field("localCertCredential", &self.localCertCredential).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING {
     type Abi = Self;
 }
@@ -7007,6 +8094,12 @@ impl ::core::marker::Copy for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {}
 impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("out", &self.out).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7042,6 +8135,12 @@ impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0").field("clientCertCredentialRequired", &self.clientCertCredentialRequired).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
     type Abi = Self;
 }
@@ -7070,6 +8169,11 @@ impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTI
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
 }
@@ -7096,6 +8200,11 @@ impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("localCertCredential", &self.localCertCredential).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -7119,6 +8228,11 @@ impl ::core::marker::Copy for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPT
 impl ::core::clone::Clone for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
@@ -7151,6 +8265,12 @@ impl ::core::clone::Clone for WS_STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_STRING").field("length", &self.length).field("chars", &self.chars).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_STRING {
     type Abi = Self;
 }
@@ -7178,6 +8298,11 @@ impl ::core::marker::Copy for WS_STRING_DESCRIPTION {}
 impl ::core::clone::Clone for WS_STRING_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_STRING_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_STRING_DESCRIPTION").field("minCharCount", &self.minCharCount).field("maxCharCount", &self.maxCharCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_STRING_DESCRIPTION {
@@ -7208,6 +8333,12 @@ impl ::core::marker::Copy for WS_STRING_USERNAME_CREDENTIAL {}
 impl ::core::clone::Clone for WS_STRING_USERNAME_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_STRING_USERNAME_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_STRING_USERNAME_CREDENTIAL").field("credential", &self.credential).field("username", &self.username).field("password", &self.password).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7243,6 +8374,12 @@ impl ::core::marker::Copy for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 impl ::core::clone::Clone for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credential", &self.credential).field("username", &self.username).field("password", &self.password).field("domain", &self.domain).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7289,6 +8426,12 @@ impl ::core::clone::Clone for WS_STRUCT_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_STRUCT_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_STRUCT_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("fields", &self.fields).field("fieldCount", &self.fieldCount).field("typeLocalName", &self.typeLocalName).field("typeNs", &self.typeNs).field("parentType", &self.parentType).field("subTypes", &self.subTypes).field("subTypeCount", &self.subTypeCount).field("structOptions", &self.structOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_STRUCT_DESCRIPTION {
     type Abi = Self;
 }
@@ -7328,6 +8471,12 @@ impl ::core::clone::Clone for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_SUBJECT_NAME_CERT_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_SUBJECT_NAME_CERT_CREDENTIAL").field("credential", &self.credential).field("storeLocation", &self.storeLocation).field("storeName", &self.storeName).field("subjectName", &self.subjectName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     type Abi = Self;
 }
@@ -7356,6 +8505,11 @@ impl ::core::clone::Clone for WS_TCP_BINDING_TEMPLATE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_TCP_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_TCP_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -7379,6 +8533,11 @@ impl ::core::marker::Copy for WS_TCP_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_TCP_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TCP_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_POLICY_DESCRIPTION {
@@ -7406,6 +8565,11 @@ impl ::core::marker::Copy for WS_TCP_SSPI_BINDING_TEMPLATE {}
 impl ::core::clone::Clone for WS_TCP_SSPI_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TCP_SSPI_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_BINDING_TEMPLATE {
@@ -7436,6 +8600,11 @@ impl ::core::clone::Clone for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -7462,6 +8631,11 @@ impl ::core::marker::Copy for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
@@ -7493,6 +8667,11 @@ impl ::core::clone::Clone for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDIN
         *self
     }
 }
+impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -7522,6 +8701,11 @@ impl ::core::clone::Clone for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY
         *self
     }
 }
+impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     type Abi = Self;
 }
@@ -7547,6 +8731,11 @@ impl ::core::marker::Copy for WS_TCP_SSPI_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_TCP_SSPI_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TCP_SSPI_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_POLICY_DESCRIPTION {
@@ -7575,6 +8764,11 @@ impl ::core::clone::Clone for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING").field("binding", &self.binding).field("clientCredential", &self.clientCredential).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
     type Abi = Self;
 }
@@ -7598,6 +8792,11 @@ impl ::core::marker::Copy for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT 
 impl ::core::clone::Clone for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
@@ -7624,6 +8823,11 @@ impl ::core::marker::Copy for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {}
 impl ::core::clone::Clone for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
@@ -7658,6 +8862,12 @@ impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -7687,6 +8897,11 @@ impl ::core::marker::Copy for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
@@ -7722,6 +8937,12 @@ impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMP
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -7752,6 +8973,11 @@ impl ::core::marker::Copy for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCR
 impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
@@ -7786,6 +9012,12 @@ impl ::core::clone::Clone for WS_THUMBPRINT_CERT_CREDENTIAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_THUMBPRINT_CERT_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_THUMBPRINT_CERT_CREDENTIAL").field("credential", &self.credential).field("storeLocation", &self.storeLocation).field("storeName", &self.storeName).field("thumbprint", &self.thumbprint).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_THUMBPRINT_CERT_CREDENTIAL {
     type Abi = Self;
 }
@@ -7814,6 +9046,11 @@ impl ::core::clone::Clone for WS_TIMESPAN {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_TIMESPAN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TIMESPAN").field("ticks", &self.ticks).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_TIMESPAN {
     type Abi = Self;
 }
@@ -7838,6 +9075,11 @@ impl ::core::marker::Copy for WS_TIMESPAN_DESCRIPTION {}
 impl ::core::clone::Clone for WS_TIMESPAN_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_TIMESPAN_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_TIMESPAN_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TIMESPAN_DESCRIPTION {
@@ -8358,6 +9600,11 @@ impl ::core::clone::Clone for WS_UINT16_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_UINT16_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UINT16_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_UINT16_DESCRIPTION {
     type Abi = Self;
 }
@@ -8382,6 +9629,11 @@ impl ::core::marker::Copy for WS_UINT32_DESCRIPTION {}
 impl ::core::clone::Clone for WS_UINT32_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_UINT32_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UINT32_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_UINT32_DESCRIPTION {
@@ -8410,6 +9662,11 @@ impl ::core::clone::Clone for WS_UINT64_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_UINT64_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UINT64_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_UINT64_DESCRIPTION {
     type Abi = Self;
 }
@@ -8434,6 +9691,11 @@ impl ::core::marker::Copy for WS_UINT8_DESCRIPTION {}
 impl ::core::clone::Clone for WS_UINT8_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_UINT8_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UINT8_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_UINT8_DESCRIPTION {
@@ -8471,6 +9733,12 @@ impl ::core::clone::Clone for WS_UNION_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_UNION_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UNION_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("fields", &self.fields).field("fieldCount", &self.fieldCount).field("enumOffset", &self.enumOffset).field("noneEnumValue", &self.noneEnumValue).field("valueIndices", &self.valueIndices).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_UNION_DESCRIPTION {
     type Abi = Self;
 }
@@ -8501,6 +9769,12 @@ impl ::core::marker::Copy for WS_UNION_FIELD_DESCRIPTION {}
 impl ::core::clone::Clone for WS_UNION_FIELD_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_UNION_FIELD_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UNION_FIELD_DESCRIPTION").field("value", &self.value).field("field", &self.field).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8537,6 +9811,12 @@ impl ::core::clone::Clone for WS_UNIQUE_ID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_UNIQUE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UNIQUE_ID").field("uri", &self.uri).field("guid", &self.guid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_UNIQUE_ID {
     type Abi = Self;
 }
@@ -8566,6 +9846,11 @@ impl ::core::clone::Clone for WS_UNIQUE_ID_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_UNIQUE_ID_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UNIQUE_ID_DESCRIPTION").field("minCharCount", &self.minCharCount).field("maxCharCount", &self.maxCharCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_UNIQUE_ID_DESCRIPTION {
     type Abi = Self;
 }
@@ -8590,6 +9875,11 @@ impl ::core::marker::Copy for WS_UNKNOWN_ENDPOINT_IDENTITY {}
 impl ::core::clone::Clone for WS_UNKNOWN_ENDPOINT_IDENTITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_UNKNOWN_ENDPOINT_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UNKNOWN_ENDPOINT_IDENTITY").field("identity", &self.identity).field("element", &self.element).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_UNKNOWN_ENDPOINT_IDENTITY {
@@ -8622,6 +9912,12 @@ impl ::core::clone::Clone for WS_UPN_ENDPOINT_IDENTITY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_UPN_ENDPOINT_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UPN_ENDPOINT_IDENTITY").field("identity", &self.identity).field("upn", &self.upn).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_UPN_ENDPOINT_IDENTITY {
     type Abi = Self;
 }
@@ -8648,6 +9944,11 @@ impl ::core::marker::Copy for WS_URL {}
 impl ::core::clone::Clone for WS_URL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_URL").field("scheme", &self.scheme).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_URL {
@@ -8693,6 +9994,11 @@ impl ::core::clone::Clone for WS_USERNAME_CREDENTIAL {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_USERNAME_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_USERNAME_CREDENTIAL").field("credentialType", &self.credentialType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_USERNAME_CREDENTIAL {
     type Abi = Self;
 }
@@ -8730,6 +10036,12 @@ impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     type Abi = Self;
 }
@@ -8759,6 +10071,11 @@ impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("bindingUsage", &self.bindingUsage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
 }
@@ -8783,6 +10100,11 @@ impl ::core::marker::Copy for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRI
 impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).field("bindingUsage", &self.bindingUsage).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
@@ -8817,6 +10139,12 @@ impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
 }
@@ -8844,6 +10172,11 @@ impl ::core::marker::Copy for WS_UTF8_ARRAY_DESCRIPTION {}
 impl ::core::clone::Clone for WS_UTF8_ARRAY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_UTF8_ARRAY_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_UTF8_ARRAY_DESCRIPTION").field("minByteCount", &self.minByteCount).field("maxByteCount", &self.maxByteCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_UTF8_ARRAY_DESCRIPTION {
@@ -8910,6 +10243,11 @@ impl ::core::clone::Clone for WS_VOID_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_VOID_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_VOID_DESCRIPTION").field("size", &self.size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_VOID_DESCRIPTION {
     type Abi = Self;
 }
@@ -8933,6 +10271,11 @@ impl ::core::marker::Copy for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 impl ::core::clone::Clone for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credentialType", &self.credentialType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
@@ -8995,6 +10338,11 @@ impl ::core::clone::Clone for WS_WSZ_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_WSZ_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_WSZ_DESCRIPTION").field("minCharCount", &self.minCharCount).field("maxCharCount", &self.maxCharCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_WSZ_DESCRIPTION {
     type Abi = Self;
 }
@@ -9029,6 +10377,12 @@ impl ::core::clone::Clone for WS_XML_ATTRIBUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_ATTRIBUTE").field("singleQuote", &self.singleQuote).field("isXmlNs", &self.isXmlNs).field("prefix", &self.prefix).field("localName", &self.localName).field("ns", &self.ns).field("value", &self.value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_ATTRIBUTE {
     type Abi = Self;
 }
@@ -9059,6 +10413,11 @@ impl ::core::clone::Clone for WS_XML_BASE64_TEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_BASE64_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_BASE64_TEXT").field("text", &self.text).field("bytes", &self.bytes).field("length", &self.length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_BASE64_TEXT {
     type Abi = Self;
 }
@@ -9086,6 +10445,12 @@ impl ::core::marker::Copy for WS_XML_BOOL_TEXT {}
 impl ::core::clone::Clone for WS_XML_BOOL_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_BOOL_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_BOOL_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9119,6 +10484,11 @@ impl ::core::marker::Copy for WS_XML_BUFFER_PROPERTY {}
 impl ::core::clone::Clone for WS_XML_BUFFER_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_BUFFER_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_BUFFER_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_BUFFER_PROPERTY {
@@ -9163,6 +10533,12 @@ impl ::core::clone::Clone for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES").field("prefixCount", &self.prefixCount).field("prefixes", &self.prefixes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
     type Abi = Self;
 }
@@ -9191,6 +10567,11 @@ impl ::core::marker::Copy for WS_XML_CANONICALIZATION_PROPERTY {}
 impl ::core::clone::Clone for WS_XML_CANONICALIZATION_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_CANONICALIZATION_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_CANONICALIZATION_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_CANONICALIZATION_PROPERTY {
@@ -9233,6 +10614,12 @@ impl ::core::clone::Clone for WS_XML_COMMENT_NODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_COMMENT_NODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_COMMENT_NODE").field("node", &self.node).field("value", &self.value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_COMMENT_NODE {
     type Abi = Self;
 }
@@ -9262,6 +10649,11 @@ impl ::core::clone::Clone for WS_XML_DATETIME_TEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_DATETIME_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_DATETIME_TEXT").field("text", &self.text).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_DATETIME_TEXT {
     type Abi = Self;
 }
@@ -9289,6 +10681,12 @@ impl ::core::marker::Copy for WS_XML_DECIMAL_TEXT {}
 impl ::core::clone::Clone for WS_XML_DECIMAL_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_DECIMAL_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_DECIMAL_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9327,6 +10725,12 @@ impl ::core::clone::Clone for WS_XML_DICTIONARY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_DICTIONARY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_DICTIONARY").field("guid", &self.guid).field("strings", &self.strings).field("stringCount", &self.stringCount).field("isConst", &self.isConst).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_DICTIONARY {
     type Abi = Self;
 }
@@ -9354,6 +10758,11 @@ impl ::core::marker::Copy for WS_XML_DOUBLE_TEXT {}
 impl ::core::clone::Clone for WS_XML_DOUBLE_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_DOUBLE_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_DOUBLE_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_DOUBLE_TEXT {
@@ -9391,6 +10800,12 @@ impl ::core::clone::Clone for WS_XML_ELEMENT_NODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_ELEMENT_NODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_ELEMENT_NODE").field("node", &self.node).field("prefix", &self.prefix).field("localName", &self.localName).field("ns", &self.ns).field("attributeCount", &self.attributeCount).field("attributes", &self.attributes).field("isEmpty", &self.isEmpty).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_ELEMENT_NODE {
     type Abi = Self;
 }
@@ -9420,6 +10835,11 @@ impl ::core::clone::Clone for WS_XML_FLOAT_TEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_FLOAT_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_FLOAT_TEXT").field("text", &self.text).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_FLOAT_TEXT {
     type Abi = Self;
 }
@@ -9444,6 +10864,11 @@ impl ::core::marker::Copy for WS_XML_GUID_TEXT {}
 impl ::core::clone::Clone for WS_XML_GUID_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_GUID_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_GUID_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_GUID_TEXT {
@@ -9472,6 +10897,11 @@ impl ::core::clone::Clone for WS_XML_INT32_TEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_INT32_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_INT32_TEXT").field("text", &self.text).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_INT32_TEXT {
     type Abi = Self;
 }
@@ -9496,6 +10926,11 @@ impl ::core::marker::Copy for WS_XML_INT64_TEXT {}
 impl ::core::clone::Clone for WS_XML_INT64_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_INT64_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_INT64_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_INT64_TEXT {
@@ -9525,6 +10960,11 @@ impl ::core::clone::Clone for WS_XML_LIST_TEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_LIST_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_LIST_TEXT").field("text", &self.text).field("itemCount", &self.itemCount).field("items", &self.items).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_LIST_TEXT {
     type Abi = Self;
 }
@@ -9548,6 +10988,11 @@ impl ::core::marker::Copy for WS_XML_NODE {}
 impl ::core::clone::Clone for WS_XML_NODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_NODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_NODE").field("nodeType", &self.nodeType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_NODE {
@@ -9574,6 +11019,11 @@ impl ::core::marker::Copy for WS_XML_NODE_POSITION {}
 impl ::core::clone::Clone for WS_XML_NODE_POSITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_NODE_POSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_NODE_POSITION").field("buffer", &self.buffer).field("node", &self.node).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_NODE_POSITION {
@@ -9624,6 +11074,12 @@ impl ::core::clone::Clone for WS_XML_QNAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_QNAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_QNAME").field("localName", &self.localName).field("ns", &self.ns).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_QNAME {
     type Abi = Self;
 }
@@ -9655,6 +11111,11 @@ impl ::core::clone::Clone for WS_XML_QNAME_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_QNAME_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_QNAME_DESCRIPTION").field("minLocalNameByteCount", &self.minLocalNameByteCount).field("maxLocalNameByteCount", &self.maxLocalNameByteCount).field("minNsByteCount", &self.minNsByteCount).field("maxNsByteCount", &self.maxNsByteCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_QNAME_DESCRIPTION {
     type Abi = Self;
 }
@@ -9684,6 +11145,12 @@ impl ::core::marker::Copy for WS_XML_QNAME_TEXT {}
 impl ::core::clone::Clone for WS_XML_QNAME_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_QNAME_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_QNAME_TEXT").field("text", &self.text).field("prefix", &self.prefix).field("localName", &self.localName).field("ns", &self.ns).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9723,6 +11190,12 @@ impl ::core::clone::Clone for WS_XML_READER_BINARY_ENCODING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_READER_BINARY_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_BINARY_ENCODING").field("encoding", &self.encoding).field("staticDictionary", &self.staticDictionary).field("dynamicDictionary", &self.dynamicDictionary).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_READER_BINARY_ENCODING {
     type Abi = Self;
 }
@@ -9753,6 +11226,11 @@ impl ::core::clone::Clone for WS_XML_READER_BUFFER_INPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_READER_BUFFER_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_BUFFER_INPUT").field("input", &self.input).field("encodedData", &self.encodedData).field("encodedDataSize", &self.encodedDataSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_READER_BUFFER_INPUT {
     type Abi = Self;
 }
@@ -9776,6 +11254,11 @@ impl ::core::marker::Copy for WS_XML_READER_ENCODING {}
 impl ::core::clone::Clone for WS_XML_READER_ENCODING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_READER_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_ENCODING").field("encodingType", &self.encodingType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_READER_ENCODING {
@@ -9811,6 +11294,11 @@ impl ::core::marker::Copy for WS_XML_READER_INPUT {}
 impl ::core::clone::Clone for WS_XML_READER_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_READER_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_INPUT").field("inputType", &self.inputType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_READER_INPUT {
@@ -9853,6 +11341,12 @@ impl ::core::clone::Clone for WS_XML_READER_MTOM_ENCODING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_READER_MTOM_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_MTOM_ENCODING").field("encoding", &self.encoding).field("textEncoding", &self.textEncoding).field("readMimeHeader", &self.readMimeHeader).field("startInfo", &self.startInfo).field("boundary", &self.boundary).field("startUri", &self.startUri).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_READER_MTOM_ENCODING {
     type Abi = Self;
 }
@@ -9882,6 +11376,11 @@ impl ::core::clone::Clone for WS_XML_READER_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_READER_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_READER_PROPERTIES {
     type Abi = Self;
 }
@@ -9907,6 +11406,11 @@ impl ::core::marker::Copy for WS_XML_READER_PROPERTY {}
 impl ::core::clone::Clone for WS_XML_READER_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_READER_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_READER_PROPERTY {
@@ -9966,6 +11470,11 @@ impl ::core::clone::Clone for WS_XML_READER_RAW_ENCODING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_READER_RAW_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_RAW_ENCODING").field("encoding", &self.encoding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_READER_RAW_ENCODING {
     type Abi = Self;
 }
@@ -9991,6 +11500,11 @@ impl ::core::marker::Copy for WS_XML_READER_STREAM_INPUT {}
 impl ::core::clone::Clone for WS_XML_READER_STREAM_INPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_READER_STREAM_INPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_STREAM_INPUT").field("input", &self.input).field("readCallback", &self.readCallback).field("readCallbackState", &self.readCallbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_READER_STREAM_INPUT {
@@ -10019,6 +11533,11 @@ impl ::core::clone::Clone for WS_XML_READER_TEXT_ENCODING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_READER_TEXT_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_READER_TEXT_ENCODING").field("encoding", &self.encoding).field("charSet", &self.charSet).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_READER_TEXT_ENCODING {
     type Abi = Self;
 }
@@ -10044,6 +11563,11 @@ impl ::core::marker::Copy for WS_XML_SECURITY_TOKEN_PROPERTY {}
 impl ::core::clone::Clone for WS_XML_SECURITY_TOKEN_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_SECURITY_TOKEN_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_SECURITY_TOKEN_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_SECURITY_TOKEN_PROPERTY {
@@ -10088,6 +11612,12 @@ impl ::core::clone::Clone for WS_XML_STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_STRING").field("length", &self.length).field("bytes", &self.bytes).field("dictionary", &self.dictionary).field("id", &self.id).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_STRING {
     type Abi = Self;
 }
@@ -10117,6 +11647,11 @@ impl ::core::clone::Clone for WS_XML_STRING_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_STRING_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_STRING_DESCRIPTION").field("minByteCount", &self.minByteCount).field("maxByteCount", &self.maxByteCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_STRING_DESCRIPTION {
     type Abi = Self;
 }
@@ -10140,6 +11675,11 @@ impl ::core::marker::Copy for WS_XML_TEXT {}
 impl ::core::clone::Clone for WS_XML_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_TEXT").field("textType", &self.textType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_TEXT {
@@ -10166,6 +11706,11 @@ impl ::core::marker::Copy for WS_XML_TEXT_NODE {}
 impl ::core::clone::Clone for WS_XML_TEXT_NODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_TEXT_NODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_TEXT_NODE").field("node", &self.node).field("text", &self.text).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_TEXT_NODE {
@@ -10228,6 +11773,11 @@ impl ::core::clone::Clone for WS_XML_TIMESPAN_TEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_TIMESPAN_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_TIMESPAN_TEXT").field("text", &self.text).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_TIMESPAN_TEXT {
     type Abi = Self;
 }
@@ -10253,6 +11803,11 @@ impl ::core::marker::Copy for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {}
 impl ::core::clone::Clone for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_TOKEN_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("xmlToken", &self.xmlToken).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
@@ -10281,6 +11836,11 @@ impl ::core::clone::Clone for WS_XML_UINT64_TEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_UINT64_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_UINT64_TEXT").field("text", &self.text).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_UINT64_TEXT {
     type Abi = Self;
 }
@@ -10305,6 +11865,11 @@ impl ::core::marker::Copy for WS_XML_UNIQUE_ID_TEXT {}
 impl ::core::clone::Clone for WS_XML_UNIQUE_ID_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_UNIQUE_ID_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_UNIQUE_ID_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_UNIQUE_ID_TEXT {
@@ -10334,6 +11899,11 @@ impl ::core::clone::Clone for WS_XML_UTF16_TEXT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_UTF16_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_UTF16_TEXT").field("text", &self.text).field("bytes", &self.bytes).field("byteCount", &self.byteCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_UTF16_TEXT {
     type Abi = Self;
 }
@@ -10361,6 +11931,12 @@ impl ::core::marker::Copy for WS_XML_UTF8_TEXT {}
 impl ::core::clone::Clone for WS_XML_UTF8_TEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_UTF8_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_UTF8_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10401,6 +11977,12 @@ impl ::core::clone::Clone for WS_XML_WRITER_BINARY_ENCODING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_WRITER_BINARY_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_BINARY_ENCODING").field("encoding", &self.encoding).field("staticDictionary", &self.staticDictionary).field("dynamicStringCallback", &self.dynamicStringCallback).field("dynamicStringCallbackState", &self.dynamicStringCallbackState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_BINARY_ENCODING {
     type Abi = Self;
 }
@@ -10429,6 +12011,11 @@ impl ::core::clone::Clone for WS_XML_WRITER_BUFFER_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_WRITER_BUFFER_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_BUFFER_OUTPUT").field("output", &self.output).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_BUFFER_OUTPUT {
     type Abi = Self;
 }
@@ -10452,6 +12039,11 @@ impl ::core::marker::Copy for WS_XML_WRITER_ENCODING {}
 impl ::core::clone::Clone for WS_XML_WRITER_ENCODING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_WRITER_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_ENCODING").field("encodingType", &self.encodingType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_ENCODING {
@@ -10499,6 +12091,12 @@ impl ::core::clone::Clone for WS_XML_WRITER_MTOM_ENCODING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WS_XML_WRITER_MTOM_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_MTOM_ENCODING").field("encoding", &self.encoding).field("textEncoding", &self.textEncoding).field("writeMimeHeader", &self.writeMimeHeader).field("boundary", &self.boundary).field("startInfo", &self.startInfo).field("startUri", &self.startUri).field("maxInlineByteCount", &self.maxInlineByteCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_MTOM_ENCODING {
     type Abi = Self;
 }
@@ -10525,6 +12123,11 @@ impl ::core::marker::Copy for WS_XML_WRITER_OUTPUT {}
 impl ::core::clone::Clone for WS_XML_WRITER_OUTPUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_WRITER_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_OUTPUT").field("outputType", &self.outputType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_OUTPUT {
@@ -10559,6 +12162,11 @@ impl ::core::clone::Clone for WS_XML_WRITER_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_WRITER_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_PROPERTIES {
     type Abi = Self;
 }
@@ -10584,6 +12192,11 @@ impl ::core::marker::Copy for WS_XML_WRITER_PROPERTY {}
 impl ::core::clone::Clone for WS_XML_WRITER_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_WRITER_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_PROPERTY {
@@ -10651,6 +12264,11 @@ impl ::core::clone::Clone for WS_XML_WRITER_RAW_ENCODING {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_WRITER_RAW_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_RAW_ENCODING").field("encoding", &self.encoding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_RAW_ENCODING {
     type Abi = Self;
 }
@@ -10678,6 +12296,11 @@ impl ::core::clone::Clone for WS_XML_WRITER_STREAM_OUTPUT {
         *self
     }
 }
+impl ::core::fmt::Debug for WS_XML_WRITER_STREAM_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_STREAM_OUTPUT").field("output", &self.output).field("writeCallback", &self.writeCallback).field("writeCallbackState", &self.writeCallbackState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_STREAM_OUTPUT {
     type Abi = Self;
 }
@@ -10702,6 +12325,11 @@ impl ::core::marker::Copy for WS_XML_WRITER_TEXT_ENCODING {}
 impl ::core::clone::Clone for WS_XML_WRITER_TEXT_ENCODING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WS_XML_WRITER_TEXT_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WS_XML_WRITER_TEXT_ENCODING").field("encoding", &self.encoding).field("charSet", &self.charSet).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_TEXT_ENCODING {

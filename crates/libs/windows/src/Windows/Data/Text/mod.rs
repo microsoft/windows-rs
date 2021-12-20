@@ -1413,6 +1413,11 @@ impl ::core::clone::Clone for TextSegment {
         *self
     }
 }
+impl ::core::fmt::Debug for TextSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TextSegment").field("StartPosition", &self.StartPosition).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextSegment {
     type Abi = Self;
 }

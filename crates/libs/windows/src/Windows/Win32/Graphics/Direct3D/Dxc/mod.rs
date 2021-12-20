@@ -62,6 +62,12 @@ impl ::core::clone::Clone for DxcArgPair {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DxcArgPair {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcArgPair").field("pName", &self.pName).field("pValue", &self.pValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DxcArgPair {
     type Abi = Self;
 }
@@ -90,6 +96,11 @@ impl ::core::marker::Copy for DxcBuffer {}
 impl ::core::clone::Clone for DxcBuffer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DxcBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcBuffer").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Encoding", &self.Encoding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DxcBuffer {
@@ -156,6 +167,12 @@ impl ::core::clone::Clone for DxcDefine {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DxcDefine {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcDefine").field("Name", &self.Name).field("Value", &self.Value).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DxcDefine {
     type Abi = Self;
 }
@@ -183,6 +200,11 @@ impl ::core::marker::Copy for DxcShaderHash {}
 impl ::core::clone::Clone for DxcShaderHash {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DxcShaderHash {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcShaderHash").field("Flags", &self.Flags).field("HashDigest", &self.HashDigest).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DxcShaderHash {

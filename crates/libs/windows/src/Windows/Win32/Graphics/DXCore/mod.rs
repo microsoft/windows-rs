@@ -16,6 +16,11 @@ impl ::core::clone::Clone for DXCoreAdapterMemoryBudget {
         *self
     }
 }
+impl ::core::fmt::Debug for DXCoreAdapterMemoryBudget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreAdapterMemoryBudget").field("budget", &self.budget).field("currentUsage", &self.currentUsage).field("availableForReservation", &self.availableForReservation).field("currentReservation", &self.currentReservation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudget {
     type Abi = Self;
 }
@@ -40,6 +45,11 @@ impl ::core::marker::Copy for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
 impl ::core::clone::Clone for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreAdapterMemoryBudgetNodeSegmentGroup").field("nodeIndex", &self.nodeIndex).field("segmentGroup", &self.segmentGroup).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
@@ -131,6 +141,11 @@ impl ::core::clone::Clone for DXCoreHardwareID {
         *self
     }
 }
+impl ::core::fmt::Debug for DXCoreHardwareID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreHardwareID").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSysID", &self.subSysID).field("revision", &self.revision).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DXCoreHardwareID {
     type Abi = Self;
 }
@@ -158,6 +173,11 @@ impl ::core::marker::Copy for DXCoreHardwareIDParts {}
 impl ::core::clone::Clone for DXCoreHardwareIDParts {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DXCoreHardwareIDParts {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreHardwareIDParts").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSystemID", &self.subSystemID).field("subVendorID", &self.subVendorID).field("revisionID", &self.revisionID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXCoreHardwareIDParts {

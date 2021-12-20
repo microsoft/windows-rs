@@ -3620,6 +3620,20 @@ impl ::core::clone::Clone for __ReferenceRemainingTypes__ {
         *self
     }
 }
+impl ::core::fmt::Debug for __ReferenceRemainingTypes__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__ReferenceRemainingTypes__")
+            .field("__ctrlLevel__", &self.__ctrlLevel__)
+            .field("__attendeeDisconnectReason__", &self.__attendeeDisconnectReason__)
+            .field("__channelPriority__", &self.__channelPriority__)
+            .field("__channelFlags__", &self.__channelFlags__)
+            .field("__channelAccessEnum__", &self.__channelAccessEnum__)
+            .field("__rdpencomapiAttendeeFlags__", &self.__rdpencomapiAttendeeFlags__)
+            .field("__rdpsrapiWndFlags__", &self.__rdpsrapiWndFlags__)
+            .field("__rdpsrapiAppFlags__", &self.__rdpsrapiAppFlags__)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for __ReferenceRemainingTypes__ {
     type Abi = Self;
 }

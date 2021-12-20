@@ -375,6 +375,12 @@ impl ::core::clone::Clone for D2D1_ARC_SEGMENT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_ARC_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_ARC_SEGMENT").field("point", &self.point).field("size", &self.size).field("rotationAngle", &self.rotationAngle).field("sweepDirection", &self.sweepDirection).field("arcSize", &self.arcSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_ARC_SEGMENT {
     type Abi = Self;
 }
@@ -487,6 +493,11 @@ impl ::core::clone::Clone for D2D1_BITMAP_BRUSH_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_BITMAP_BRUSH_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_BITMAP_BRUSH_PROPERTIES").field("extendModeX", &self.extendModeX).field("extendModeY", &self.extendModeY).field("interpolationMode", &self.interpolationMode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BITMAP_BRUSH_PROPERTIES {
     type Abi = Self;
 }
@@ -512,6 +523,11 @@ impl ::core::marker::Copy for D2D1_BITMAP_BRUSH_PROPERTIES1 {}
 impl ::core::clone::Clone for D2D1_BITMAP_BRUSH_PROPERTIES1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_BITMAP_BRUSH_PROPERTIES1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_BITMAP_BRUSH_PROPERTIES1").field("extendModeX", &self.extendModeX).field("extendModeY", &self.extendModeY).field("interpolationMode", &self.interpolationMode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_BITMAP_BRUSH_PROPERTIES1 {
@@ -567,6 +583,12 @@ impl ::core::clone::Clone for D2D1_BITMAP_PROPERTIES {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D2D1_BITMAP_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_BITMAP_PROPERTIES").field("pixelFormat", &self.pixelFormat).field("dpiX", &self.dpiX).field("dpiY", &self.dpiY).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_BITMAP_PROPERTIES {
     type Abi = Self;
 }
@@ -598,6 +620,12 @@ pub struct D2D1_BITMAP_PROPERTIES1 {
 impl ::core::clone::Clone for D2D1_BITMAP_PROPERTIES1 {
     fn clone(&self) -> Self {
         Self { pixelFormat: self.pixelFormat, dpiX: self.dpiX, dpiY: self.dpiY, bitmapOptions: self.bitmapOptions, colorContext: self.colorContext.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D2D1_BITMAP_PROPERTIES1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_BITMAP_PROPERTIES1").field("pixelFormat", &self.pixelFormat).field("dpiX", &self.dpiX).field("dpiY", &self.dpiY).field("bitmapOptions", &self.bitmapOptions).field("colorContext", &self.colorContext).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -663,6 +691,11 @@ impl ::core::marker::Copy for D2D1_BLEND_DESCRIPTION {}
 impl ::core::clone::Clone for D2D1_BLEND_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_BLEND_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_BLEND_DESCRIPTION").field("sourceBlend", &self.sourceBlend).field("destinationBlend", &self.destinationBlend).field("blendOperation", &self.blendOperation).field("sourceBlendAlpha", &self.sourceBlendAlpha).field("destinationBlendAlpha", &self.destinationBlendAlpha).field("blendOperationAlpha", &self.blendOperationAlpha).field("blendFactor", &self.blendFactor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_BLEND_DESCRIPTION {
@@ -738,6 +771,12 @@ impl ::core::marker::Copy for D2D1_BRUSH_PROPERTIES {}
 impl ::core::clone::Clone for D2D1_BRUSH_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for D2D1_BRUSH_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_BRUSH_PROPERTIES").field("opacity", &self.opacity).field("transform", &self.transform).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -1013,6 +1052,11 @@ impl ::core::clone::Clone for D2D1_CREATION_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_CREATION_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_CREATION_PROPERTIES").field("threadingMode", &self.threadingMode).field("debugLevel", &self.debugLevel).field("options", &self.options).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_CREATION_PROPERTIES {
     type Abi = Self;
 }
@@ -1057,6 +1101,12 @@ impl ::core::marker::Copy for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {}
 impl ::core::clone::Clone for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES").field("shaderBufferWithInputSignature", &self.shaderBufferWithInputSignature).field("shaderBufferSize", &self.shaderBufferSize).field("inputElements", &self.inputElements).field("elementCount", &self.elementCount).field("stride", &self.stride).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1292,6 +1342,12 @@ impl ::core::clone::Clone for D2D1_DRAWING_STATE_DESCRIPTION {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for D2D1_DRAWING_STATE_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_DRAWING_STATE_DESCRIPTION").field("antialiasMode", &self.antialiasMode).field("textAntialiasMode", &self.textAntialiasMode).field("tag1", &self.tag1).field("tag2", &self.tag2).field("transform", &self.transform).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for D2D1_DRAWING_STATE_DESCRIPTION {
     type Abi = Self;
 }
@@ -1327,6 +1383,12 @@ impl ::core::marker::Copy for D2D1_DRAWING_STATE_DESCRIPTION1 {}
 impl ::core::clone::Clone for D2D1_DRAWING_STATE_DESCRIPTION1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for D2D1_DRAWING_STATE_DESCRIPTION1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_DRAWING_STATE_DESCRIPTION1").field("antialiasMode", &self.antialiasMode).field("textAntialiasMode", &self.textAntialiasMode).field("tag1", &self.tag1).field("tag2", &self.tag2).field("transform", &self.transform).field("primitiveBlend", &self.primitiveBlend).field("unitMode", &self.unitMode).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -1398,6 +1460,12 @@ impl ::core::clone::Clone for D2D1_EFFECT_INPUT_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_EFFECT_INPUT_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_EFFECT_INPUT_DESCRIPTION").field("effect", &self.effect).field("inputIndex", &self.inputIndex).field("inputRectangle", &self.inputRectangle).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_EFFECT_INPUT_DESCRIPTION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1429,6 +1497,12 @@ impl ::core::marker::Copy for D2D1_ELLIPSE {}
 impl ::core::clone::Clone for D2D1_ELLIPSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_ELLIPSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_ELLIPSE").field("point", &self.point).field("radiusX", &self.radiusX).field("radiusY", &self.radiusY).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1484,6 +1558,11 @@ impl ::core::clone::Clone for D2D1_FACTORY_OPTIONS {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_FACTORY_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_FACTORY_OPTIONS").field("debugLevel", &self.debugLevel).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_FACTORY_OPTIONS {
     type Abi = Self;
 }
@@ -1529,6 +1608,12 @@ impl ::core::clone::Clone for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS").field("computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x", &self.computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     type Abi = Self;
 }
@@ -1558,6 +1643,12 @@ impl ::core::marker::Copy for D2D1_FEATURE_DATA_DOUBLES {}
 impl ::core::clone::Clone for D2D1_FEATURE_DATA_DOUBLES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D2D1_FEATURE_DATA_DOUBLES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_FEATURE_DATA_DOUBLES").field("doublePrecisionFloatShaderOps", &self.doublePrecisionFloatShaderOps).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1752,6 +1843,37 @@ impl ::core::clone::Clone for D2D1_GRADIENT_MESH_PATCH {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_GRADIENT_MESH_PATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_GRADIENT_MESH_PATCH")
+            .field("point00", &self.point00)
+            .field("point01", &self.point01)
+            .field("point02", &self.point02)
+            .field("point03", &self.point03)
+            .field("point10", &self.point10)
+            .field("point11", &self.point11)
+            .field("point12", &self.point12)
+            .field("point13", &self.point13)
+            .field("point20", &self.point20)
+            .field("point21", &self.point21)
+            .field("point22", &self.point22)
+            .field("point23", &self.point23)
+            .field("point30", &self.point30)
+            .field("point31", &self.point31)
+            .field("point32", &self.point32)
+            .field("point33", &self.point33)
+            .field("color00", &self.color00)
+            .field("color03", &self.color03)
+            .field("color30", &self.color30)
+            .field("color33", &self.color33)
+            .field("topEdgeMode", &self.topEdgeMode)
+            .field("leftEdgeMode", &self.leftEdgeMode)
+            .field("bottomEdgeMode", &self.bottomEdgeMode)
+            .field("rightEdgeMode", &self.rightEdgeMode)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_GRADIENT_MESH_PATCH {
     type Abi = Self;
 }
@@ -1782,6 +1904,12 @@ impl ::core::marker::Copy for D2D1_GRADIENT_STOP {}
 impl ::core::clone::Clone for D2D1_GRADIENT_STOP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_GRADIENT_STOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_GRADIENT_STOP").field("position", &self.position).field("color", &self.color).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1889,6 +2017,12 @@ impl ::core::clone::Clone for D2D1_HWND_RENDER_TARGET_PROPERTIES {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::fmt::Debug for D2D1_HWND_RENDER_TARGET_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_HWND_RENDER_TARGET_PROPERTIES").field("hwnd", &self.hwnd).field("pixelSize", &self.pixelSize).field("presentOptions", &self.presentOptions).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_HWND_RENDER_TARGET_PROPERTIES {
     type Abi = Self;
 }
@@ -1921,6 +2055,12 @@ impl ::core::marker::Copy for D2D1_IMAGE_BRUSH_PROPERTIES {}
 impl ::core::clone::Clone for D2D1_IMAGE_BRUSH_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_IMAGE_BRUSH_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_IMAGE_BRUSH_PROPERTIES").field("sourceRectangle", &self.sourceRectangle).field("extendModeX", &self.extendModeX).field("extendModeY", &self.extendModeY).field("interpolationMode", &self.interpolationMode).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1972,6 +2112,11 @@ impl ::core::clone::Clone for D2D1_INK_BEZIER_SEGMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_INK_BEZIER_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_INK_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_INK_BEZIER_SEGMENT {
     type Abi = Self;
 }
@@ -2007,6 +2152,11 @@ impl ::core::clone::Clone for D2D1_INK_POINT {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_INK_POINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_INK_POINT").field("x", &self.x).field("y", &self.y).field("radius", &self.radius).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_INK_POINT {
     type Abi = Self;
 }
@@ -2034,6 +2184,12 @@ impl ::core::marker::Copy for D2D1_INK_STYLE_PROPERTIES {}
 impl ::core::clone::Clone for D2D1_INK_STYLE_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for D2D1_INK_STYLE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_INK_STYLE_PROPERTIES").field("nibShape", &self.nibShape).field("nibTransform", &self.nibTransform).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -2066,6 +2222,11 @@ impl ::core::clone::Clone for D2D1_INPUT_DESCRIPTION {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_INPUT_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_INPUT_DESCRIPTION").field("filter", &self.filter).field("levelOfDetailCount", &self.levelOfDetailCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_INPUT_DESCRIPTION {
     type Abi = Self;
 }
@@ -2096,6 +2257,12 @@ impl ::core::marker::Copy for D2D1_INPUT_ELEMENT_DESC {}
 impl ::core::clone::Clone for D2D1_INPUT_ELEMENT_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D2D1_INPUT_ELEMENT_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_INPUT_ELEMENT_DESC").field("semanticName", &self.semanticName).field("semanticIndex", &self.semanticIndex).field("format", &self.format).field("inputSlot", &self.inputSlot).field("alignedByteOffset", &self.alignedByteOffset).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2195,6 +2362,12 @@ impl ::core::clone::Clone for D2D1_LAYER_PARAMETERS {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::fmt::Debug for D2D1_LAYER_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_LAYER_PARAMETERS").field("contentBounds", &self.contentBounds).field("geometricMask", &self.geometricMask).field("maskAntialiasMode", &self.maskAntialiasMode).field("maskTransform", &self.maskTransform).field("opacity", &self.opacity).field("opacityBrush", &self.opacityBrush).field("layerOptions", &self.layerOptions).finish()
+    }
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_LAYER_PARAMETERS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2236,6 +2409,12 @@ impl ::core::clone::Clone for D2D1_LAYER_PARAMETERS1 {
             opacityBrush: self.opacityBrush.clone(),
             layerOptions: self.layerOptions,
         }
+    }
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::fmt::Debug for D2D1_LAYER_PARAMETERS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_LAYER_PARAMETERS1").field("contentBounds", &self.contentBounds).field("geometricMask", &self.geometricMask).field("maskAntialiasMode", &self.maskAntialiasMode).field("maskTransform", &self.maskTransform).field("opacity", &self.opacity).field("opacityBrush", &self.opacityBrush).field("layerOptions", &self.layerOptions).finish()
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -2302,6 +2481,12 @@ impl ::core::clone::Clone for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES").field("startPoint", &self.startPoint).field("endPoint", &self.endPoint).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     type Abi = Self;
 }
@@ -2349,6 +2534,11 @@ impl ::core::marker::Copy for D2D1_MAPPED_RECT {}
 impl ::core::clone::Clone for D2D1_MAPPED_RECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_MAPPED_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_MAPPED_RECT").field("pitch", &self.pitch).field("bits", &self.bits).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_MAPPED_RECT {
@@ -2540,6 +2730,12 @@ impl ::core::clone::Clone for D2D1_POINT_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_POINT_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_POINT_DESCRIPTION").field("point", &self.point).field("unitTangentVector", &self.unitTangentVector).field("endSegment", &self.endSegment).field("endFigure", &self.endFigure).field("lengthToEndSegment", &self.lengthToEndSegment).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_POINT_DESCRIPTION {
     type Abi = Self;
 }
@@ -2604,6 +2800,11 @@ impl ::core::clone::Clone for D2D1_PRINT_CONTROL_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_PRINT_CONTROL_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_PRINT_CONTROL_PROPERTIES").field("fontSubset", &self.fontSubset).field("rasterDPI", &self.rasterDPI).field("colorSpace", &self.colorSpace).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_PRINT_CONTROL_PROPERTIES {
     type Abi = Self;
 }
@@ -2666,6 +2867,12 @@ impl ::core::marker::Copy for D2D1_PROPERTY_BINDING {}
 impl ::core::clone::Clone for D2D1_PROPERTY_BINDING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D2D1_PROPERTY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_PROPERTY_BINDING").field("propertyName", &self.propertyName).field("setFunction", &self.setFunction).field("getFunction", &self.getFunction).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2744,6 +2951,12 @@ impl ::core::clone::Clone for D2D1_QUADRATIC_BEZIER_SEGMENT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_QUADRATIC_BEZIER_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_QUADRATIC_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_QUADRATIC_BEZIER_SEGMENT {
     type Abi = Self;
 }
@@ -2779,6 +2992,12 @@ impl ::core::clone::Clone for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES").field("center", &self.center).field("gradientOriginOffset", &self.gradientOriginOffset).field("radiusX", &self.radiusX).field("radiusY", &self.radiusY).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     type Abi = Self;
 }
@@ -2809,6 +3028,12 @@ impl ::core::marker::Copy for D2D1_RENDERING_CONTROLS {}
 impl ::core::clone::Clone for D2D1_RENDERING_CONTROLS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_RENDERING_CONTROLS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_RENDERING_CONTROLS").field("bufferPrecision", &self.bufferPrecision).field("tileSize", &self.tileSize).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -2854,6 +3079,12 @@ impl ::core::marker::Copy for D2D1_RENDER_TARGET_PROPERTIES {}
 impl ::core::clone::Clone for D2D1_RENDER_TARGET_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for D2D1_RENDER_TARGET_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_RENDER_TARGET_PROPERTIES").field("type", &self.r#type).field("pixelFormat", &self.pixelFormat).field("dpiX", &self.dpiX).field("dpiY", &self.dpiY).field("usage", &self.usage).field("minLevel", &self.minLevel).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2910,6 +3141,11 @@ impl ::core::clone::Clone for D2D1_RESOURCE_TEXTURE_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_RESOURCE_TEXTURE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_RESOURCE_TEXTURE_PROPERTIES").field("extents", &self.extents).field("dimensions", &self.dimensions).field("bufferPrecision", &self.bufferPrecision).field("channelDepth", &self.channelDepth).field("filter", &self.filter).field("extendModes", &self.extendModes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_RESOURCE_TEXTURE_PROPERTIES {
     type Abi = Self;
 }
@@ -2952,6 +3188,12 @@ impl ::core::marker::Copy for D2D1_ROUNDED_RECT {}
 impl ::core::clone::Clone for D2D1_ROUNDED_RECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_ROUNDED_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_ROUNDED_RECT").field("rect", &self.rect).field("radiusX", &self.radiusX).field("radiusY", &self.radiusY).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3062,6 +3304,12 @@ impl ::core::marker::Copy for D2D1_SIMPLE_COLOR_PROFILE {}
 impl ::core::clone::Clone for D2D1_SIMPLE_COLOR_PROFILE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_SIMPLE_COLOR_PROFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_SIMPLE_COLOR_PROFILE").field("redPrimary", &self.redPrimary).field("greenPrimary", &self.greenPrimary).field("bluePrimary", &self.bluePrimary).field("whitePointXZ", &self.whitePointXZ).field("gamma", &self.gamma).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3209,6 +3457,11 @@ impl ::core::clone::Clone for D2D1_STROKE_STYLE_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_STROKE_STYLE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_STROKE_STYLE_PROPERTIES").field("startCap", &self.startCap).field("endCap", &self.endCap).field("dashCap", &self.dashCap).field("lineJoin", &self.lineJoin).field("miterLimit", &self.miterLimit).field("dashStyle", &self.dashStyle).field("dashOffset", &self.dashOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_STROKE_STYLE_PROPERTIES {
     type Abi = Self;
 }
@@ -3239,6 +3492,11 @@ impl ::core::marker::Copy for D2D1_STROKE_STYLE_PROPERTIES1 {}
 impl ::core::clone::Clone for D2D1_STROKE_STYLE_PROPERTIES1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_STROKE_STYLE_PROPERTIES1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_STROKE_STYLE_PROPERTIES1").field("startCap", &self.startCap).field("endCap", &self.endCap).field("dashCap", &self.dashCap).field("lineJoin", &self.lineJoin).field("miterLimit", &self.miterLimit).field("dashStyle", &self.dashStyle).field("dashOffset", &self.dashOffset).field("transformType", &self.transformType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_STROKE_STYLE_PROPERTIES1 {
@@ -3375,6 +3633,11 @@ impl ::core::clone::Clone for D2D1_SVG_LENGTH {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_SVG_LENGTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_SVG_LENGTH").field("value", &self.value).field("units", &self.units).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SVG_LENGTH {
     type Abi = Self;
 }
@@ -3502,6 +3765,12 @@ impl ::core::clone::Clone for D2D1_SVG_PRESERVE_ASPECT_RATIO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D2D1_SVG_PRESERVE_ASPECT_RATIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_SVG_PRESERVE_ASPECT_RATIO").field("defer", &self.defer).field("align", &self.align).field("meetOrSlice", &self.meetOrSlice).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D2D1_SVG_PRESERVE_ASPECT_RATIO {
     type Abi = Self;
 }
@@ -3539,6 +3808,11 @@ impl ::core::marker::Copy for D2D1_SVG_VIEWBOX {}
 impl ::core::clone::Clone for D2D1_SVG_VIEWBOX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_SVG_VIEWBOX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_SVG_VIEWBOX").field("x", &self.x).field("y", &self.y).field("width", &self.width).field("height", &self.height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SVG_VIEWBOX {
@@ -3658,6 +3932,11 @@ impl ::core::clone::Clone for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES").field("orientation", &self.orientation).field("scaleX", &self.scaleX).field("scaleY", &self.scaleY).field("interpolationMode", &self.interpolationMode).field("options", &self.options).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     type Abi = Self;
 }
@@ -3686,6 +3965,12 @@ impl ::core::marker::Copy for D2D1_TRIANGLE {}
 impl ::core::clone::Clone for D2D1_TRIANGLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for D2D1_TRIANGLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_TRIANGLE").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3746,6 +4031,11 @@ impl ::core::clone::Clone for D2D1_VERTEX_BUFFER_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for D2D1_VERTEX_BUFFER_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_VERTEX_BUFFER_PROPERTIES").field("inputCount", &self.inputCount).field("usage", &self.usage).field("data", &self.data).field("byteWidth", &self.byteWidth).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_VERTEX_BUFFER_PROPERTIES {
     type Abi = Self;
 }
@@ -3782,6 +4072,11 @@ impl ::core::marker::Copy for D2D1_VERTEX_RANGE {}
 impl ::core::clone::Clone for D2D1_VERTEX_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_VERTEX_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_VERTEX_RANGE").field("startVertex", &self.startVertex).field("vertexCount", &self.vertexCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_VERTEX_RANGE {
@@ -26574,6 +26869,12 @@ impl ::core::clone::Clone for Matrix4x3F {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for Matrix4x3F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Matrix4x3F").field("__AnonymousBase_d2d1_1helper_L45_C31", &self.__AnonymousBase_d2d1_1helper_L45_C31).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for Matrix4x3F {
     type Abi = Self;
 }
@@ -26606,6 +26907,12 @@ impl ::core::clone::Clone for Matrix4x4F {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for Matrix4x4F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Matrix4x4F").field("__AnonymousBase_d2d1_1helper_L97_C31", &self.__AnonymousBase_d2d1_1helper_L97_C31).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for Matrix4x4F {
     type Abi = Self;
 }
@@ -26635,6 +26942,12 @@ impl ::core::marker::Copy for Matrix5x4F {}
 impl ::core::clone::Clone for Matrix5x4F {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::fmt::Debug for Matrix5x4F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Matrix5x4F").field("__AnonymousBase_d2d1_1helper_L472_C31", &self.__AnonymousBase_d2d1_1helper_L472_C31).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]

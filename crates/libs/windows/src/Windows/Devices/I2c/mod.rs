@@ -467,6 +467,11 @@ impl ::core::clone::Clone for I2cTransferResult {
         *self
     }
 }
+impl ::core::fmt::Debug for I2cTransferResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("I2cTransferResult").field("Status", &self.Status).field("BytesTransferred", &self.BytesTransferred).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for I2cTransferResult {
     type Abi = Self;
 }

@@ -1718,6 +1718,11 @@ impl ::core::clone::Clone for SortEntry {
         Self { PropertyName: self.PropertyName.clone(), AscendingOrder: self.AscendingOrder }
     }
 }
+impl ::core::fmt::Debug for SortEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SortEntry").field("PropertyName", &self.PropertyName).field("AscendingOrder", &self.AscendingOrder).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SortEntry {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }

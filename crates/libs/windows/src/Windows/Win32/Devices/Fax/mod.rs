@@ -120,6 +120,26 @@ impl ::core::clone::Clone for FAX_CONFIGURATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_CONFIGURATIONA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_CONFIGURATIONA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("Retries", &self.Retries)
+            .field("RetryDelay", &self.RetryDelay)
+            .field("DirtyDays", &self.DirtyDays)
+            .field("Branding", &self.Branding)
+            .field("UseDeviceTsid", &self.UseDeviceTsid)
+            .field("ServerCp", &self.ServerCp)
+            .field("PauseServerQueue", &self.PauseServerQueue)
+            .field("StartCheapTime", &self.StartCheapTime)
+            .field("StopCheapTime", &self.StopCheapTime)
+            .field("ArchiveOutgoingFaxes", &self.ArchiveOutgoingFaxes)
+            .field("ArchiveDirectory", &self.ArchiveDirectory)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_CONFIGURATIONA {
     type Abi = Self;
 }
@@ -164,6 +184,26 @@ impl ::core::clone::Clone for FAX_CONFIGURATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_CONFIGURATIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_CONFIGURATIONW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("Retries", &self.Retries)
+            .field("RetryDelay", &self.RetryDelay)
+            .field("DirtyDays", &self.DirtyDays)
+            .field("Branding", &self.Branding)
+            .field("UseDeviceTsid", &self.UseDeviceTsid)
+            .field("ServerCp", &self.ServerCp)
+            .field("PauseServerQueue", &self.PauseServerQueue)
+            .field("StartCheapTime", &self.StartCheapTime)
+            .field("StopCheapTime", &self.StopCheapTime)
+            .field("ArchiveOutgoingFaxes", &self.ArchiveOutgoingFaxes)
+            .field("ArchiveDirectory", &self.ArchiveDirectory)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_CONFIGURATIONW {
     type Abi = Self;
 }
@@ -202,6 +242,12 @@ impl ::core::clone::Clone for FAX_CONTEXT_INFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for FAX_CONTEXT_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_CONTEXT_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("hDC", &self.hDC).field("ServerName", &self.ServerName).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for FAX_CONTEXT_INFOA {
     type Abi = Self;
 }
@@ -233,6 +279,12 @@ impl ::core::marker::Copy for FAX_CONTEXT_INFOW {}
 impl ::core::clone::Clone for FAX_CONTEXT_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for FAX_CONTEXT_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_CONTEXT_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("hDC", &self.hDC).field("ServerName", &self.ServerName).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -296,6 +348,42 @@ impl ::core::clone::Clone for FAX_COVERPAGE_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_COVERPAGE_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_COVERPAGE_INFOA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("CoverPageName", &self.CoverPageName)
+            .field("UseServerCoverPage", &self.UseServerCoverPage)
+            .field("RecName", &self.RecName)
+            .field("RecFaxNumber", &self.RecFaxNumber)
+            .field("RecCompany", &self.RecCompany)
+            .field("RecStreetAddress", &self.RecStreetAddress)
+            .field("RecCity", &self.RecCity)
+            .field("RecState", &self.RecState)
+            .field("RecZip", &self.RecZip)
+            .field("RecCountry", &self.RecCountry)
+            .field("RecTitle", &self.RecTitle)
+            .field("RecDepartment", &self.RecDepartment)
+            .field("RecOfficeLocation", &self.RecOfficeLocation)
+            .field("RecHomePhone", &self.RecHomePhone)
+            .field("RecOfficePhone", &self.RecOfficePhone)
+            .field("SdrName", &self.SdrName)
+            .field("SdrFaxNumber", &self.SdrFaxNumber)
+            .field("SdrCompany", &self.SdrCompany)
+            .field("SdrAddress", &self.SdrAddress)
+            .field("SdrTitle", &self.SdrTitle)
+            .field("SdrDepartment", &self.SdrDepartment)
+            .field("SdrOfficeLocation", &self.SdrOfficeLocation)
+            .field("SdrHomePhone", &self.SdrHomePhone)
+            .field("SdrOfficePhone", &self.SdrOfficePhone)
+            .field("Note", &self.Note)
+            .field("Subject", &self.Subject)
+            .field("TimeSent", &self.TimeSent)
+            .field("PageCount", &self.PageCount)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_COVERPAGE_INFOA {
     type Abi = Self;
 }
@@ -353,6 +441,42 @@ impl ::core::marker::Copy for FAX_COVERPAGE_INFOW {}
 impl ::core::clone::Clone for FAX_COVERPAGE_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_COVERPAGE_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_COVERPAGE_INFOW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("CoverPageName", &self.CoverPageName)
+            .field("UseServerCoverPage", &self.UseServerCoverPage)
+            .field("RecName", &self.RecName)
+            .field("RecFaxNumber", &self.RecFaxNumber)
+            .field("RecCompany", &self.RecCompany)
+            .field("RecStreetAddress", &self.RecStreetAddress)
+            .field("RecCity", &self.RecCity)
+            .field("RecState", &self.RecState)
+            .field("RecZip", &self.RecZip)
+            .field("RecCountry", &self.RecCountry)
+            .field("RecTitle", &self.RecTitle)
+            .field("RecDepartment", &self.RecDepartment)
+            .field("RecOfficeLocation", &self.RecOfficeLocation)
+            .field("RecHomePhone", &self.RecHomePhone)
+            .field("RecOfficePhone", &self.RecOfficePhone)
+            .field("SdrName", &self.SdrName)
+            .field("SdrFaxNumber", &self.SdrFaxNumber)
+            .field("SdrCompany", &self.SdrCompany)
+            .field("SdrAddress", &self.SdrAddress)
+            .field("SdrTitle", &self.SdrTitle)
+            .field("SdrDepartment", &self.SdrDepartment)
+            .field("SdrOfficeLocation", &self.SdrOfficeLocation)
+            .field("SdrHomePhone", &self.SdrHomePhone)
+            .field("SdrOfficePhone", &self.SdrOfficePhone)
+            .field("Note", &self.Note)
+            .field("Subject", &self.Subject)
+            .field("TimeSent", &self.TimeSent)
+            .field("PageCount", &self.PageCount)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -423,6 +547,33 @@ impl ::core::clone::Clone for FAX_DEVICE_STATUSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_DEVICE_STATUSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_DEVICE_STATUSA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("CallerId", &self.CallerId)
+            .field("Csid", &self.Csid)
+            .field("CurrentPage", &self.CurrentPage)
+            .field("DeviceId", &self.DeviceId)
+            .field("DeviceName", &self.DeviceName)
+            .field("DocumentName", &self.DocumentName)
+            .field("JobType", &self.JobType)
+            .field("PhoneNumber", &self.PhoneNumber)
+            .field("RoutingString", &self.RoutingString)
+            .field("SenderName", &self.SenderName)
+            .field("RecipientName", &self.RecipientName)
+            .field("Size", &self.Size)
+            .field("StartTime", &self.StartTime)
+            .field("Status", &self.Status)
+            .field("StatusString", &self.StatusString)
+            .field("SubmittedTime", &self.SubmittedTime)
+            .field("TotalPages", &self.TotalPages)
+            .field("Tsid", &self.Tsid)
+            .field("UserName", &self.UserName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_DEVICE_STATUSA {
     type Abi = Self;
 }
@@ -474,6 +625,33 @@ impl ::core::clone::Clone for FAX_DEVICE_STATUSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_DEVICE_STATUSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_DEVICE_STATUSW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("CallerId", &self.CallerId)
+            .field("Csid", &self.Csid)
+            .field("CurrentPage", &self.CurrentPage)
+            .field("DeviceId", &self.DeviceId)
+            .field("DeviceName", &self.DeviceName)
+            .field("DocumentName", &self.DocumentName)
+            .field("JobType", &self.JobType)
+            .field("PhoneNumber", &self.PhoneNumber)
+            .field("RoutingString", &self.RoutingString)
+            .field("SenderName", &self.SenderName)
+            .field("RecipientName", &self.RecipientName)
+            .field("Size", &self.Size)
+            .field("StartTime", &self.StartTime)
+            .field("Status", &self.Status)
+            .field("StatusString", &self.StatusString)
+            .field("SubmittedTime", &self.SubmittedTime)
+            .field("TotalPages", &self.TotalPages)
+            .field("Tsid", &self.Tsid)
+            .field("UserName", &self.UserName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_DEVICE_STATUSW {
     type Abi = Self;
 }
@@ -511,6 +689,12 @@ impl ::core::marker::Copy for FAX_DEV_STATUS {}
 impl ::core::clone::Clone for FAX_DEV_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_DEV_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_DEV_STATUS").field("SizeOfStruct", &self.SizeOfStruct).field("StatusId", &self.StatusId).field("StringId", &self.StringId).field("PageCount", &self.PageCount).field("CSI", &self.CSI).field("CallerId", &self.CallerId).field("RoutingInfo", &self.RoutingInfo).field("ErrorCode", &self.ErrorCode).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -638,6 +822,12 @@ impl ::core::clone::Clone for FAX_EVENTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_EVENTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_EVENTA").field("SizeOfStruct", &self.SizeOfStruct).field("TimeStamp", &self.TimeStamp).field("DeviceId", &self.DeviceId).field("EventId", &self.EventId).field("JobId", &self.JobId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_EVENTA {
     type Abi = Self;
 }
@@ -671,6 +861,12 @@ impl ::core::marker::Copy for FAX_EVENTW {}
 impl ::core::clone::Clone for FAX_EVENTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_EVENTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_EVENTW").field("SizeOfStruct", &self.SizeOfStruct).field("TimeStamp", &self.TimeStamp).field("DeviceId", &self.DeviceId).field("EventId", &self.EventId).field("JobId", &self.JobId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -738,6 +934,12 @@ impl ::core::clone::Clone for FAX_GLOBAL_ROUTING_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_GLOBAL_ROUTING_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_GLOBAL_ROUTING_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("Priority", &self.Priority).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_GLOBAL_ROUTING_INFOA {
     type Abi = Self;
 }
@@ -773,6 +975,12 @@ impl ::core::marker::Copy for FAX_GLOBAL_ROUTING_INFOW {}
 impl ::core::clone::Clone for FAX_GLOBAL_ROUTING_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_GLOBAL_ROUTING_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_GLOBAL_ROUTING_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("Priority", &self.Priority).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -837,6 +1045,33 @@ impl ::core::clone::Clone for FAX_JOB_ENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_JOB_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_JOB_ENTRYA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("JobId", &self.JobId)
+            .field("UserName", &self.UserName)
+            .field("JobType", &self.JobType)
+            .field("QueueStatus", &self.QueueStatus)
+            .field("Status", &self.Status)
+            .field("Size", &self.Size)
+            .field("PageCount", &self.PageCount)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("RecipientName", &self.RecipientName)
+            .field("Tsid", &self.Tsid)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("BillingCode", &self.BillingCode)
+            .field("ScheduleAction", &self.ScheduleAction)
+            .field("ScheduleTime", &self.ScheduleTime)
+            .field("DeliveryReportType", &self.DeliveryReportType)
+            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
+            .field("DocumentName", &self.DocumentName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_JOB_ENTRYA {
     type Abi = Self;
 }
@@ -885,6 +1120,33 @@ impl ::core::marker::Copy for FAX_JOB_ENTRYW {}
 impl ::core::clone::Clone for FAX_JOB_ENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_JOB_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_JOB_ENTRYW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("JobId", &self.JobId)
+            .field("UserName", &self.UserName)
+            .field("JobType", &self.JobType)
+            .field("QueueStatus", &self.QueueStatus)
+            .field("Status", &self.Status)
+            .field("Size", &self.Size)
+            .field("PageCount", &self.PageCount)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("RecipientName", &self.RecipientName)
+            .field("Tsid", &self.Tsid)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("BillingCode", &self.BillingCode)
+            .field("ScheduleAction", &self.ScheduleAction)
+            .field("ScheduleTime", &self.ScheduleTime)
+            .field("DeliveryReportType", &self.DeliveryReportType)
+            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
+            .field("DocumentName", &self.DocumentName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -996,6 +1258,28 @@ impl ::core::clone::Clone for FAX_JOB_PARAMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_JOB_PARAMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_JOB_PARAMA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("RecipientName", &self.RecipientName)
+            .field("Tsid", &self.Tsid)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("BillingCode", &self.BillingCode)
+            .field("ScheduleAction", &self.ScheduleAction)
+            .field("ScheduleTime", &self.ScheduleTime)
+            .field("DeliveryReportType", &self.DeliveryReportType)
+            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
+            .field("DocumentName", &self.DocumentName)
+            .field("CallHandle", &self.CallHandle)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_JOB_PARAMA {
     type Abi = Self;
 }
@@ -1039,6 +1323,28 @@ impl ::core::marker::Copy for FAX_JOB_PARAMW {}
 impl ::core::clone::Clone for FAX_JOB_PARAMW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_JOB_PARAMW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_JOB_PARAMW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("RecipientName", &self.RecipientName)
+            .field("Tsid", &self.Tsid)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("BillingCode", &self.BillingCode)
+            .field("ScheduleAction", &self.ScheduleAction)
+            .field("ScheduleTime", &self.ScheduleTime)
+            .field("DeliveryReportType", &self.DeliveryReportType)
+            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
+            .field("DocumentName", &self.DocumentName)
+            .field("CallHandle", &self.CallHandle)
+            .field("Reserved", &self.Reserved)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1112,6 +1418,12 @@ impl ::core::clone::Clone for FAX_LOG_CATEGORYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_LOG_CATEGORYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_LOG_CATEGORYA").field("Name", &self.Name).field("Category", &self.Category).field("Level", &self.Level).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_LOG_CATEGORYA {
     type Abi = Self;
 }
@@ -1143,6 +1455,12 @@ impl ::core::marker::Copy for FAX_LOG_CATEGORYW {}
 impl ::core::clone::Clone for FAX_LOG_CATEGORYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_LOG_CATEGORYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_LOG_CATEGORYW").field("Name", &self.Name).field("Category", &self.Category).field("Level", &self.Level).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1196,6 +1514,12 @@ impl ::core::clone::Clone for FAX_PORT_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_PORT_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_PORT_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("State", &self.State).field("Flags", &self.Flags).field("Rings", &self.Rings).field("Priority", &self.Priority).field("DeviceName", &self.DeviceName).field("Tsid", &self.Tsid).field("Csid", &self.Csid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_PORT_INFOA {
     type Abi = Self;
 }
@@ -1233,6 +1557,12 @@ impl ::core::marker::Copy for FAX_PORT_INFOW {}
 impl ::core::clone::Clone for FAX_PORT_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_PORT_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_PORT_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("State", &self.State).field("Flags", &self.Flags).field("Rings", &self.Rings).field("Priority", &self.Priority).field("DeviceName", &self.DeviceName).field("Tsid", &self.Tsid).field("Csid", &self.Csid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1282,6 +1612,24 @@ impl ::core::clone::Clone for FAX_PRINT_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_PRINT_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_PRINT_INFOA")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("DocName", &self.DocName)
+            .field("RecipientName", &self.RecipientName)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("SenderBillingCode", &self.SenderBillingCode)
+            .field("Reserved", &self.Reserved)
+            .field("DrEmailAddress", &self.DrEmailAddress)
+            .field("OutputFileName", &self.OutputFileName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_PRINT_INFOA {
     type Abi = Self;
 }
@@ -1321,6 +1669,24 @@ impl ::core::marker::Copy for FAX_PRINT_INFOW {}
 impl ::core::clone::Clone for FAX_PRINT_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_PRINT_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_PRINT_INFOW")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("DocName", &self.DocName)
+            .field("RecipientName", &self.RecipientName)
+            .field("RecipientNumber", &self.RecipientNumber)
+            .field("SenderName", &self.SenderName)
+            .field("SenderCompany", &self.SenderCompany)
+            .field("SenderDept", &self.SenderDept)
+            .field("SenderBillingCode", &self.SenderBillingCode)
+            .field("Reserved", &self.Reserved)
+            .field("DrEmailAddress", &self.DrEmailAddress)
+            .field("OutputFileName", &self.OutputFileName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1392,6 +1758,12 @@ impl ::core::clone::Clone for FAX_RECEIVE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_RECEIVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_RECEIVE").field("SizeOfStruct", &self.SizeOfStruct).field("FileName", &self.FileName).field("ReceiverName", &self.ReceiverName).field("ReceiverNumber", &self.ReceiverNumber).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_RECEIVE {
     type Abi = Self;
 }
@@ -1438,6 +1810,28 @@ impl ::core::clone::Clone for FAX_ROUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_ROUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_ROUTE")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("JobId", &self.JobId)
+            .field("ElapsedTime", &self.ElapsedTime)
+            .field("ReceiveTime", &self.ReceiveTime)
+            .field("PageCount", &self.PageCount)
+            .field("Csid", &self.Csid)
+            .field("Tsid", &self.Tsid)
+            .field("CallerId", &self.CallerId)
+            .field("RoutingInfo", &self.RoutingInfo)
+            .field("ReceiverName", &self.ReceiverName)
+            .field("ReceiverNumber", &self.ReceiverNumber)
+            .field("DeviceName", &self.DeviceName)
+            .field("DeviceId", &self.DeviceId)
+            .field("RoutingInfoData", &self.RoutingInfoData)
+            .field("RoutingInfoDataSize", &self.RoutingInfoDataSize)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_ROUTE {
     type Abi = Self;
 }
@@ -1472,6 +1866,12 @@ impl ::core::marker::Copy for FAX_ROUTE_CALLBACKROUTINES {}
 impl ::core::clone::Clone for FAX_ROUTE_CALLBACKROUTINES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_ROUTE_CALLBACKROUTINES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_ROUTE_CALLBACKROUTINES").field("SizeOfStruct", &self.SizeOfStruct).field("FaxRouteAddFile", &self.FaxRouteAddFile).field("FaxRouteDeleteFile", &self.FaxRouteDeleteFile).field("FaxRouteGetFile", &self.FaxRouteGetFile).field("FaxRouteEnumFiles", &self.FaxRouteEnumFiles).field("FaxRouteModifyRoutingData", &self.FaxRouteModifyRoutingData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1515,6 +1915,12 @@ impl ::core::clone::Clone for FAX_ROUTING_METHODA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_ROUTING_METHODA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_ROUTING_METHODA").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("Enabled", &self.Enabled).field("DeviceName", &self.DeviceName).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_ROUTING_METHODA {
     type Abi = Self;
 }
@@ -1552,6 +1958,12 @@ impl ::core::marker::Copy for FAX_ROUTING_METHODW {}
 impl ::core::clone::Clone for FAX_ROUTING_METHODW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_ROUTING_METHODW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_ROUTING_METHODW").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("Enabled", &self.Enabled).field("DeviceName", &self.DeviceName).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1616,6 +2028,12 @@ impl ::core::marker::Copy for FAX_SEND {}
 impl ::core::clone::Clone for FAX_SEND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FAX_SEND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_SEND").field("SizeOfStruct", &self.SizeOfStruct).field("FileName", &self.FileName).field("CallerName", &self.CallerName).field("CallerNumber", &self.CallerNumber).field("ReceiverName", &self.ReceiverName).field("ReceiverNumber", &self.ReceiverNumber).field("Branding", &self.Branding).field("CallHandle", &self.CallHandle).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1688,6 +2106,11 @@ impl ::core::marker::Copy for FAX_TIME {}
 impl ::core::clone::Clone for FAX_TIME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FAX_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FAX_TIME").field("Hour", &self.Hour).field("Minute", &self.Minute).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FAX_TIME {
@@ -13958,6 +14381,11 @@ impl ::core::clone::Clone for STINOTIFY {
         *self
     }
 }
+impl ::core::fmt::Debug for STINOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STINOTIFY").field("dwSize", &self.dwSize).field("guidNotificationCode", &self.guidNotificationCode).field("abNotificationData", &self.abNotificationData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STINOTIFY {
     type Abi = Self;
 }
@@ -13989,6 +14417,12 @@ impl ::core::marker::Copy for STISUBSCRIBE {}
 impl ::core::clone::Clone for STISUBSCRIBE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STISUBSCRIBE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STISUBSCRIBE").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFilter", &self.dwFilter).field("hWndNotify", &self.hWndNotify).field("hEvent", &self.hEvent).field("uiNotificationMessage", &self.uiNotificationMessage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14045,6 +14479,23 @@ impl ::core::clone::Clone for STI_DEVICE_INFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STI_DEVICE_INFORMATIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_DEVICE_INFORMATIONW")
+            .field("dwSize", &self.dwSize)
+            .field("DeviceType", &self.DeviceType)
+            .field("szDeviceInternalName", &self.szDeviceInternalName)
+            .field("DeviceCapabilitiesA", &self.DeviceCapabilitiesA)
+            .field("dwHardwareConfiguration", &self.dwHardwareConfiguration)
+            .field("pszVendorDescription", &self.pszVendorDescription)
+            .field("pszDeviceDescription", &self.pszDeviceDescription)
+            .field("pszPortName", &self.pszPortName)
+            .field("pszPropProvider", &self.pszPropProvider)
+            .field("pszLocalName", &self.pszLocalName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STI_DEVICE_INFORMATIONW {
     type Abi = Self;
 }
@@ -14088,6 +14539,11 @@ impl ::core::clone::Clone for STI_DEVICE_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for STI_DEVICE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_DEVICE_STATUS").field("dwSize", &self.dwSize).field("StatusMask", &self.StatusMask).field("dwOnlineState", &self.dwOnlineState).field("dwHardwareStatusCode", &self.dwHardwareStatusCode).field("dwEventHandlingState", &self.dwEventHandlingState).field("dwPollingInterval", &self.dwPollingInterval).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STI_DEVICE_STATUS {
     type Abi = Self;
 }
@@ -14117,6 +14573,11 @@ impl ::core::clone::Clone for STI_DEV_CAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for STI_DEV_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_DEV_CAPS").field("dwGeneric", &self.dwGeneric).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STI_DEV_CAPS {
     type Abi = Self;
 }
@@ -14144,6 +14605,11 @@ impl ::core::marker::Copy for STI_DIAG {}
 impl ::core::clone::Clone for STI_DIAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STI_DIAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_DIAG").field("dwSize", &self.dwSize).field("dwBasicDiagCode", &self.dwBasicDiagCode).field("dwVendorDiagCode", &self.dwVendorDiagCode).field("dwStatusMask", &self.dwStatusMask).field("sErrorInfo", &self.sErrorInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STI_DIAG {
@@ -14252,6 +14718,11 @@ impl ::core::clone::Clone for STI_USD_CAPS {
         *self
     }
 }
+impl ::core::fmt::Debug for STI_USD_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_USD_CAPS").field("dwVersion", &self.dwVersion).field("dwGenericCaps", &self.dwGenericCaps).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STI_USD_CAPS {
     type Abi = Self;
 }
@@ -14301,6 +14772,25 @@ impl ::core::marker::Copy for STI_WIA_DEVICE_INFORMATIONW {}
 impl ::core::clone::Clone for STI_WIA_DEVICE_INFORMATIONW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STI_WIA_DEVICE_INFORMATIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STI_WIA_DEVICE_INFORMATIONW")
+            .field("dwSize", &self.dwSize)
+            .field("DeviceType", &self.DeviceType)
+            .field("szDeviceInternalName", &self.szDeviceInternalName)
+            .field("DeviceCapabilitiesA", &self.DeviceCapabilitiesA)
+            .field("dwHardwareConfiguration", &self.dwHardwareConfiguration)
+            .field("pszVendorDescription", &self.pszVendorDescription)
+            .field("pszDeviceDescription", &self.pszDeviceDescription)
+            .field("pszPortName", &self.pszPortName)
+            .field("pszPropProvider", &self.pszPropProvider)
+            .field("pszLocalName", &self.pszLocalName)
+            .field("pszUiDll", &self.pszUiDll)
+            .field("pszServer", &self.pszServer)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14371,6 +14861,11 @@ impl ::core::marker::Copy for _ERROR_INFOW {}
 impl ::core::clone::Clone for _ERROR_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _ERROR_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_ERROR_INFOW").field("dwSize", &self.dwSize).field("dwGenericError", &self.dwGenericError).field("dwVendorError", &self.dwVendorError).field("szExtendedErrorText", &self.szExtendedErrorText).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _ERROR_INFOW {

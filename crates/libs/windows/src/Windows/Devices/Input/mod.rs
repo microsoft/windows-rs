@@ -631,6 +631,11 @@ impl ::core::clone::Clone for MouseDelta {
         *self
     }
 }
+impl ::core::fmt::Debug for MouseDelta {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MouseDelta").field("X", &self.X).field("Y", &self.Y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MouseDelta {
     type Abi = Self;
 }
@@ -1721,6 +1726,11 @@ impl ::core::marker::Copy for PointerDeviceUsage {}
 impl ::core::clone::Clone for PointerDeviceUsage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PointerDeviceUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PointerDeviceUsage").field("UsagePage", &self.UsagePage).field("Usage", &self.Usage).field("MinLogical", &self.MinLogical).field("MaxLogical", &self.MaxLogical).field("MinPhysical", &self.MinPhysical).field("MaxPhysical", &self.MaxPhysical).field("Unit", &self.Unit).field("PhysicalMultiplier", &self.PhysicalMultiplier).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PointerDeviceUsage {

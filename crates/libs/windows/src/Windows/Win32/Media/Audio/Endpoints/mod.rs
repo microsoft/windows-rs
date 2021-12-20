@@ -13,6 +13,11 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIO_ENDPOINT_SHARED_CREATE_PARAMS").field("u32Size", &self.u32Size).field("u32TSSessionId", &self.u32TSSessionId).field("targetEndpointConnectorType", &self.targetEndpointConnectorType).field("wfxDeviceFormat", &self.wfxDeviceFormat).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     type Abi = Self;
 }

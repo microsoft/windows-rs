@@ -14109,6 +14109,11 @@ impl ::core::clone::Clone for WhiteBalanceGain {
         *self
     }
 }
+impl ::core::fmt::Debug for WhiteBalanceGain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WhiteBalanceGain").field("R", &self.R).field("G", &self.G).field("B", &self.B).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WhiteBalanceGain {
     type Abi = Self;
 }

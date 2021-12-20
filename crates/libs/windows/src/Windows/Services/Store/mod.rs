@@ -2836,6 +2836,11 @@ impl ::core::clone::Clone for StorePackageUpdateStatus {
         }
     }
 }
+impl ::core::fmt::Debug for StorePackageUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("StorePackageUpdateStatus").field("PackageFamilyName", &self.PackageFamilyName).field("PackageDownloadSizeInBytes", &self.PackageDownloadSizeInBytes).field("PackageBytesDownloaded", &self.PackageBytesDownloaded).field("PackageDownloadProgress", &self.PackageDownloadProgress).field("TotalDownloadProgress", &self.TotalDownloadProgress).field("PackageUpdateState", &self.PackageUpdateState).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StorePackageUpdateStatus {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }

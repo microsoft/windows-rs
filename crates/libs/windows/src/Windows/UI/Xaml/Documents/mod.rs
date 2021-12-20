@@ -6500,6 +6500,11 @@ impl ::core::clone::Clone for TextRange {
         *self
     }
 }
+impl ::core::fmt::Debug for TextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TextRange").field("StartIndex", &self.StartIndex).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextRange {
     type Abi = Self;
 }

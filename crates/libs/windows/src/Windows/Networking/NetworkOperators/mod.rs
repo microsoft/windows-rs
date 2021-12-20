@@ -1094,6 +1094,11 @@ impl ::core::clone::Clone for ESimProfileInstallProgress {
         *self
     }
 }
+impl ::core::fmt::Debug for ESimProfileInstallProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ESimProfileInstallProgress").field("TotalSizeInBytes", &self.TotalSizeInBytes).field("InstalledSizeInBytes", &self.InstalledSizeInBytes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ESimProfileInstallProgress {
     type Abi = Self;
 }
@@ -11266,6 +11271,12 @@ impl ::core::marker::Copy for ProfileUsage {}
 impl ::core::clone::Clone for ProfileUsage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for ProfileUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ProfileUsage").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
     }
 }
 #[cfg(feature = "Foundation")]

@@ -165,6 +165,12 @@ impl ::core::clone::Clone for DEVICEDIALOGDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICEDIALOGDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICEDIALOGDATA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("lIntent", &self.lIntent).field("lItemCount", &self.lItemCount).field("ppWiaItems", &self.ppWiaItems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -210,6 +216,12 @@ impl ::core::clone::Clone for DEVICEDIALOGDATA2 {
             pbstrFilePaths: self.pbstrFilePaths,
             pWiaItem: self.pWiaItem.clone(),
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICEDIALOGDATA2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICEDIALOGDATA2").field("cbSize", &self.cbSize).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("hwndParent", &self.hwndParent).field("bstrFolderName", &self.bstrFolderName).field("bstrFilename", &self.bstrFilename).field("lNumFiles", &self.lNumFiles).field("pbstrFilePaths", &self.pbstrFilePaths).field("pWiaItem", &self.pWiaItem).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3034,6 +3046,40 @@ impl ::core::clone::Clone for MINIDRV_TRANSFER_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MINIDRV_TRANSFER_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MINIDRV_TRANSFER_CONTEXT")
+            .field("lSize", &self.lSize)
+            .field("lWidthInPixels", &self.lWidthInPixels)
+            .field("lLines", &self.lLines)
+            .field("lDepth", &self.lDepth)
+            .field("lXRes", &self.lXRes)
+            .field("lYRes", &self.lYRes)
+            .field("lCompression", &self.lCompression)
+            .field("guidFormatID", &self.guidFormatID)
+            .field("tymed", &self.tymed)
+            .field("hFile", &self.hFile)
+            .field("cbOffset", &self.cbOffset)
+            .field("lBufferSize", &self.lBufferSize)
+            .field("lActiveBuffer", &self.lActiveBuffer)
+            .field("lNumBuffers", &self.lNumBuffers)
+            .field("pBaseBuffer", &self.pBaseBuffer)
+            .field("pTransferBuffer", &self.pTransferBuffer)
+            .field("bTransferDataCB", &self.bTransferDataCB)
+            .field("bClassDrvAllocBuf", &self.bClassDrvAllocBuf)
+            .field("lClientAddress", &self.lClientAddress)
+            .field("pIWiaMiniDrvCallBack", &self.pIWiaMiniDrvCallBack)
+            .field("lImageSize", &self.lImageSize)
+            .field("lHeaderSize", &self.lHeaderSize)
+            .field("lItemSize", &self.lItemSize)
+            .field("cbWidthInBytes", &self.cbWidthInBytes)
+            .field("lPage", &self.lPage)
+            .field("lCurIfdOffset", &self.lCurIfdOffset)
+            .field("lPrevIfdOffset", &self.lPrevIfdOffset)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MINIDRV_TRANSFER_CONTEXT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3112,6 +3158,11 @@ impl ::core::clone::Clone for RANGEVALUE {
         *self
     }
 }
+impl ::core::fmt::Debug for RANGEVALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RANGEVALUE").field("lMin", &self.lMin).field("lMax", &self.lMax).field("lStep", &self.lStep).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RANGEVALUE {
     type Abi = Self;
 }
@@ -3182,6 +3233,49 @@ impl ::core::clone::Clone for SCANINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCANINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCANINFO")
+            .field("ADF", &self.ADF)
+            .field("TPA", &self.TPA)
+            .field("Endorser", &self.Endorser)
+            .field("OpticalXResolution", &self.OpticalXResolution)
+            .field("OpticalYResolution", &self.OpticalYResolution)
+            .field("BedWidth", &self.BedWidth)
+            .field("BedHeight", &self.BedHeight)
+            .field("IntensityRange", &self.IntensityRange)
+            .field("ContrastRange", &self.ContrastRange)
+            .field("SupportedCompressionType", &self.SupportedCompressionType)
+            .field("SupportedDataTypes", &self.SupportedDataTypes)
+            .field("WidthPixels", &self.WidthPixels)
+            .field("WidthBytes", &self.WidthBytes)
+            .field("Lines", &self.Lines)
+            .field("DataType", &self.DataType)
+            .field("PixelBits", &self.PixelBits)
+            .field("Intensity", &self.Intensity)
+            .field("Contrast", &self.Contrast)
+            .field("Xresolution", &self.Xresolution)
+            .field("Yresolution", &self.Yresolution)
+            .field("Window", &self.Window)
+            .field("DitherPattern", &self.DitherPattern)
+            .field("Negative", &self.Negative)
+            .field("Mirror", &self.Mirror)
+            .field("AutoBack", &self.AutoBack)
+            .field("ColorDitherPattern", &self.ColorDitherPattern)
+            .field("ToneMap", &self.ToneMap)
+            .field("Compression", &self.Compression)
+            .field("RawDataFormat", &self.RawDataFormat)
+            .field("RawPixelOrder", &self.RawPixelOrder)
+            .field("bNeedDataAlignment", &self.bNeedDataAlignment)
+            .field("DelayBetweenRead", &self.DelayBetweenRead)
+            .field("MaxBufferSize", &self.MaxBufferSize)
+            .field("DeviceIOHandles", &self.DeviceIOHandles)
+            .field("lReserved", &self.lReserved)
+            .field("pMicroDriverContext", &self.pMicroDriverContext)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCANINFO {
     type Abi = Self;
 }
@@ -3215,6 +3309,11 @@ impl ::core::marker::Copy for SCANWINDOW {}
 impl ::core::clone::Clone for SCANWINDOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCANWINDOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCANWINDOW").field("xPos", &self.xPos).field("yPos", &self.yPos).field("xExtent", &self.xExtent).field("yExtent", &self.yExtent).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCANWINDOW {
@@ -3273,6 +3372,11 @@ impl ::core::clone::Clone for TWAIN_CAPABILITY {
         *self
     }
 }
+impl ::core::fmt::Debug for TWAIN_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TWAIN_CAPABILITY").field("lSize", &self.lSize).field("lMSG", &self.lMSG).field("lCapID", &self.lCapID).field("lConType", &self.lConType).field("lRC", &self.lRC).field("lCC", &self.lCC).field("lDataSize", &self.lDataSize).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TWAIN_CAPABILITY {
     type Abi = Self;
 }
@@ -3313,6 +3417,12 @@ impl ::core::marker::Copy for VAL {}
 impl ::core::clone::Clone for VAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VAL").field("lVal", &self.lVal).field("dblVal", &self.dblVal).field("pGuid", &self.pGuid).field("pScanInfo", &self.pScanInfo).field("handle", &self.handle).field("ppButtonNames", &self.ppButtonNames).field("pHandle", &self.pHandle).field("lReserved", &self.lReserved).field("szVal", &self.szVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3360,6 +3470,12 @@ pub struct WIAS_CHANGED_VALUE_INFO {
 impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO {
     fn clone(&self) -> Self {
         Self { bChanged: self.bChanged, vt: self.vt, Old: self.Old.clone(), Current: self.Current.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIAS_CHANGED_VALUE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_CHANGED_VALUE_INFO").field("bChanged", &self.bChanged).field("vt", &self.vt).field("Old", &self.Old).field("Current", &self.Current).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3468,6 +3584,24 @@ impl ::core::clone::Clone for WIAS_DOWN_SAMPLE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WIAS_DOWN_SAMPLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_DOWN_SAMPLE_INFO")
+            .field("ulOriginalWidth", &self.ulOriginalWidth)
+            .field("ulOriginalHeight", &self.ulOriginalHeight)
+            .field("ulBitsPerPixel", &self.ulBitsPerPixel)
+            .field("ulXRes", &self.ulXRes)
+            .field("ulYRes", &self.ulYRes)
+            .field("ulDownSampledWidth", &self.ulDownSampledWidth)
+            .field("ulDownSampledHeight", &self.ulDownSampledHeight)
+            .field("ulActualSize", &self.ulActualSize)
+            .field("ulDestBufSize", &self.ulDestBufSize)
+            .field("ulSrcBufSize", &self.ulSrcBufSize)
+            .field("pSrcBuffer", &self.pSrcBuffer)
+            .field("pDestBuffer", &self.pDestBuffer)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIAS_DOWN_SAMPLE_INFO {
     type Abi = Self;
 }
@@ -3496,6 +3630,12 @@ impl ::core::marker::Copy for WIAS_ENDORSER_INFO {}
 impl ::core::clone::Clone for WIAS_ENDORSER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIAS_ENDORSER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_ENDORSER_INFO").field("ulPageCount", &self.ulPageCount).field("ulNumEndorserValues", &self.ulNumEndorserValues).field("pEndorserValues", &self.pEndorserValues).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3529,6 +3669,12 @@ impl ::core::marker::Copy for WIAS_ENDORSER_VALUE {}
 impl ::core::clone::Clone for WIAS_ENDORSER_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIAS_ENDORSER_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_ENDORSER_VALUE").field("wszTokenName", &self.wszTokenName).field("wszValue", &self.wszValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3614,6 +3760,11 @@ impl ::core::clone::Clone for WIA_BARCODES {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_BARCODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_BARCODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("Barcodes", &self.Barcodes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_BARCODES {
     type Abi = Self;
 }
@@ -3693,6 +3844,11 @@ impl ::core::marker::Copy for WIA_BARCODE_INFO {}
 impl ::core::clone::Clone for WIA_BARCODE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_BARCODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_BARCODE_INFO").field("Size", &self.Size).field("Type", &self.Type).field("Page", &self.Page).field("Confidence", &self.Confidence).field("XOffset", &self.XOffset).field("YOffset", &self.YOffset).field("Rotation", &self.Rotation).field("Length", &self.Length).field("Text", &self.Text).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_BARCODE_INFO {
@@ -3853,6 +4009,11 @@ impl ::core::clone::Clone for WIA_DATA_CALLBACK_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_DATA_CALLBACK_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DATA_CALLBACK_HEADER").field("lSize", &self.lSize).field("guidFormatID", &self.guidFormatID).field("lBufferSize", &self.lBufferSize).field("lPageCount", &self.lPageCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_DATA_CALLBACK_HEADER {
     type Abi = Self;
 }
@@ -3909,6 +4070,12 @@ impl ::core::marker::Copy for WIA_DATA_TRANSFER_INFO {}
 impl ::core::clone::Clone for WIA_DATA_TRANSFER_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DATA_TRANSFER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DATA_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulSection", &self.ulSection).field("ulBufferSize", &self.ulBufferSize).field("bDoubleBuffer", &self.bDoubleBuffer).field("ulReserved1", &self.ulReserved1).field("ulReserved2", &self.ulReserved2).field("ulReserved3", &self.ulReserved3).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3972,6 +4139,12 @@ impl ::core::clone::Clone for WIA_DEV_CAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DEV_CAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DEV_CAP").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("bstrName", &self.bstrName).field("bstrDescription", &self.bstrDescription).field("bstrIcon", &self.bstrIcon).field("bstrCommandline", &self.bstrCommandline).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_DEV_CAP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -4005,6 +4178,12 @@ impl ::core::marker::Copy for WIA_DEV_CAP_DRV {}
 impl ::core::clone::Clone for WIA_DEV_CAP_DRV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DEV_CAP_DRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DEV_CAP_DRV").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("wszName", &self.wszName).field("wszDescription", &self.wszDescription).field("wszIcon", &self.wszIcon).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4081,6 +4260,12 @@ impl ::core::clone::Clone for WIA_DITHER_PATTERN_DATA {
             cbPattern: self.cbPattern,
             pbPattern: self.pbPattern,
         }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DITHER_PATTERN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DITHER_PATTERN_DATA").field("lSize", &self.lSize).field("bstrPatternName", &self.bstrPatternName).field("lPatternWidth", &self.lPatternWidth).field("lPatternLength", &self.lPatternLength).field("cbPattern", &self.cbPattern).field("pbPattern", &self.pbPattern).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4375,6 +4560,11 @@ impl ::core::clone::Clone for WIA_EXTENDED_TRANSFER_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_EXTENDED_TRANSFER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_EXTENDED_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulMinBufferSize", &self.ulMinBufferSize).field("ulOptimalBufferSize", &self.ulOptimalBufferSize).field("ulMaxBufferSize", &self.ulMaxBufferSize).field("ulNumBuffers", &self.ulNumBuffers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_EXTENDED_TRANSFER_INFO {
     type Abi = Self;
 }
@@ -4417,6 +4607,11 @@ impl ::core::marker::Copy for WIA_FORMAT_INFO {}
 impl ::core::clone::Clone for WIA_FORMAT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_FORMAT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_FORMAT_INFO").field("guidFormatID", &self.guidFormatID).field("lTymed", &self.lTymed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_FORMAT_INFO {
@@ -4802,6 +4997,11 @@ impl ::core::clone::Clone for WIA_MICR {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_MICR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_MICR").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Placeholder", &self.Placeholder).field("Reserved", &self.Reserved).field("Count", &self.Count).field("Micr", &self.Micr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_MICR {
     type Abi = Self;
 }
@@ -4828,6 +5028,11 @@ impl ::core::marker::Copy for WIA_MICR_INFO {}
 impl ::core::clone::Clone for WIA_MICR_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_MICR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_MICR_INFO").field("Size", &self.Size).field("Page", &self.Page).field("Length", &self.Length).field("Text", &self.Text).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_MICR_INFO {
@@ -5019,6 +5224,11 @@ impl ::core::clone::Clone for WIA_PATCH_CODES {
         *self
     }
 }
+impl ::core::fmt::Debug for WIA_PATCH_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PATCH_CODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("PatchCodes", &self.PatchCodes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WIA_PATCH_CODES {
     type Abi = Self;
 }
@@ -5070,6 +5280,11 @@ impl ::core::marker::Copy for WIA_PATCH_CODE_INFO {}
 impl ::core::clone::Clone for WIA_PATCH_CODE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_PATCH_CODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PATCH_CODE_INFO").field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_PATCH_CODE_INFO {
@@ -5247,6 +5462,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_CONTEXT").field("cProps", &self.cProps).field("pProps", &self.pProps).field("pChanged", &self.pChanged).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_CONTEXT {
     type Abi = Self;
 }
@@ -5276,6 +5497,12 @@ pub struct WIA_PROPERTY_INFO {
 impl ::core::clone::Clone for WIA_PROPERTY_INFO {
     fn clone(&self) -> Self {
         Self { lAccessFlags: self.lAccessFlags, vt: self.vt, ValidVal: self.ValidVal.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO").field("lAccessFlags", &self.lAccessFlags).field("vt", &self.vt).field("ValidVal", &self.ValidVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5349,6 +5576,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_0").field("Nom", &self.Nom).field("ValidBits", &self.ValidBits).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_0 {
     type Abi = Self;
 }
@@ -5378,6 +5611,12 @@ pub struct WIA_PROPERTY_INFO_0_1 {
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_1 {
     fn clone(&self) -> Self {
         Self { cNumList: self.cNumList, Nom: self.Nom.clone(), pList: self.pList }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_1").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5415,6 +5654,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_2").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_2 {
     type Abi = Self;
 }
@@ -5446,6 +5691,12 @@ impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_3 {}
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_3").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5483,6 +5734,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_4").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_4 {
     type Abi = Self;
 }
@@ -5512,6 +5769,12 @@ impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_5 {}
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_5 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_5").field("Dummy", &self.Dummy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5550,6 +5813,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_6 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_6").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_6 {
     type Abi = Self;
 }
@@ -5585,6 +5854,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_7 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPERTY_INFO_0_7").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_7 {
     type Abi = Self;
 }
@@ -5615,6 +5890,12 @@ impl ::core::marker::Copy for WIA_PROPID_TO_NAME {}
 impl ::core::clone::Clone for WIA_PROPID_TO_NAME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_PROPID_TO_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PROPID_TO_NAME").field("propid", &self.propid).field("pszName", &self.pszName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5694,6 +5975,31 @@ impl ::core::marker::Copy for WIA_RAW_HEADER {}
 impl ::core::clone::Clone for WIA_RAW_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WIA_RAW_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_RAW_HEADER")
+            .field("Tag", &self.Tag)
+            .field("Version", &self.Version)
+            .field("HeaderSize", &self.HeaderSize)
+            .field("XRes", &self.XRes)
+            .field("YRes", &self.YRes)
+            .field("XExtent", &self.XExtent)
+            .field("YExtent", &self.YExtent)
+            .field("BytesPerLine", &self.BytesPerLine)
+            .field("BitsPerPixel", &self.BitsPerPixel)
+            .field("ChannelsPerPixel", &self.ChannelsPerPixel)
+            .field("DataType", &self.DataType)
+            .field("BitsPerChannel", &self.BitsPerChannel)
+            .field("Compression", &self.Compression)
+            .field("PhotometricInterp", &self.PhotometricInterp)
+            .field("LineOrder", &self.LineOrder)
+            .field("RawDataOffset", &self.RawDataOffset)
+            .field("RawDataSize", &self.RawDataSize)
+            .field("PaletteOffset", &self.PaletteOffset)
+            .field("PaletteSize", &self.PaletteSize)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIA_RAW_HEADER {
@@ -5899,6 +6205,11 @@ impl ::core::marker::Copy for WiaTransferParams {}
 impl ::core::clone::Clone for WiaTransferParams {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiaTransferParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WiaTransferParams").field("lMessage", &self.lMessage).field("lPercentComplete", &self.lPercentComplete).field("ulTransferredBytes", &self.ulTransferredBytes).field("hrErrorStatus", &self.hrErrorStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiaTransferParams {

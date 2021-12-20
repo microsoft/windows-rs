@@ -10,6 +10,11 @@ impl ::core::clone::Clone for AutomationAnnotationTypeRegistration {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationAnnotationTypeRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AutomationAnnotationTypeRegistration").field("LocalId", &self.LocalId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationAnnotationTypeRegistration {
     type Abi = Self;
 }
@@ -39,6 +44,11 @@ impl ::core::marker::Copy for AutomationRemoteOperationOperandId {}
 impl ::core::clone::Clone for AutomationRemoteOperationOperandId {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationRemoteOperationOperandId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AutomationRemoteOperationOperandId").field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationRemoteOperationOperandId {

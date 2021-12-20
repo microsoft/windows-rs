@@ -42,6 +42,11 @@ impl ::core::clone::Clone for HARDWARE_COUNTER_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for HARDWARE_COUNTER_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HARDWARE_COUNTER_DATA").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Value", &self.Value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HARDWARE_COUNTER_DATA {
     type Abi = Self;
 }
@@ -79,6 +84,11 @@ impl ::core::marker::Copy for PERFORMANCE_DATA {}
 impl ::core::clone::Clone for PERFORMANCE_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PERFORMANCE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERFORMANCE_DATA").field("Size", &self.Size).field("Version", &self.Version).field("HwCountersCount", &self.HwCountersCount).field("ContextSwitchCount", &self.ContextSwitchCount).field("WaitReasonBitMap", &self.WaitReasonBitMap).field("CycleTime", &self.CycleTime).field("RetryCount", &self.RetryCount).field("Reserved", &self.Reserved).field("HwCounters", &self.HwCounters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PERFORMANCE_DATA {

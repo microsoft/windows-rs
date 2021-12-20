@@ -1263,6 +1263,12 @@ impl ::core::clone::Clone for MLOperatorAttribute {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorAttribute").field("name", &self.name).field("type", &self.r#type).field("required", &self.required).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MLOperatorAttribute {
     type Abi = Self;
 }
@@ -1295,6 +1301,12 @@ impl ::core::marker::Copy for MLOperatorAttributeNameValue {}
 impl ::core::clone::Clone for MLOperatorAttributeNameValue {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorAttributeNameValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorAttributeNameValue").field("name", &self.name).field("type", &self.r#type).field("valueCount", &self.valueCount).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1389,6 +1401,11 @@ impl ::core::clone::Clone for MLOperatorEdgeDescription {
         *self
     }
 }
+impl ::core::fmt::Debug for MLOperatorEdgeDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorEdgeDescription").field("edgeType", &self.edgeType).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription {
     type Abi = Self;
 }
@@ -1468,6 +1485,12 @@ impl ::core::clone::Clone for MLOperatorEdgeTypeConstraint {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorEdgeTypeConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorEdgeTypeConstraint").field("typeLabel", &self.typeLabel).field("allowedTypes", &self.allowedTypes).field("allowedTypeCount", &self.allowedTypeCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MLOperatorEdgeTypeConstraint {
     type Abi = Self;
 }
@@ -1529,6 +1552,23 @@ impl ::core::marker::Copy for MLOperatorKernelDescription {}
 impl ::core::clone::Clone for MLOperatorKernelDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorKernelDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorKernelDescription")
+            .field("domain", &self.domain)
+            .field("name", &self.name)
+            .field("minimumOperatorSetVersion", &self.minimumOperatorSetVersion)
+            .field("executionType", &self.executionType)
+            .field("typeConstraints", &self.typeConstraints)
+            .field("typeConstraintCount", &self.typeConstraintCount)
+            .field("defaultAttributes", &self.defaultAttributes)
+            .field("defaultAttributeCount", &self.defaultAttributeCount)
+            .field("options", &self.options)
+            .field("executionOptions", &self.executionOptions)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1620,6 +1660,25 @@ impl ::core::clone::Clone for MLOperatorSchemaDescription {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorSchemaDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorSchemaDescription")
+            .field("name", &self.name)
+            .field("operatorSetVersionAtLastChange", &self.operatorSetVersionAtLastChange)
+            .field("inputs", &self.inputs)
+            .field("inputCount", &self.inputCount)
+            .field("outputs", &self.outputs)
+            .field("outputCount", &self.outputCount)
+            .field("typeConstraints", &self.typeConstraints)
+            .field("typeConstraintCount", &self.typeConstraintCount)
+            .field("attributes", &self.attributes)
+            .field("attributeCount", &self.attributeCount)
+            .field("defaultAttributes", &self.defaultAttributes)
+            .field("defaultAttributeCount", &self.defaultAttributeCount)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MLOperatorSchemaDescription {
     type Abi = Self;
 }
@@ -1651,6 +1710,12 @@ impl ::core::marker::Copy for MLOperatorSchemaEdgeDescription {}
 impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorSchemaEdgeDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorSchemaEdgeDescription").field("options", &self.options).field("typeFormat", &self.typeFormat).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1743,6 +1808,12 @@ impl ::core::clone::Clone for MLOperatorSetId {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MLOperatorSetId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorSetId").field("domain", &self.domain).field("version", &self.version).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MLOperatorSetId {
     type Abi = Self;
 }
@@ -1808,6 +1879,12 @@ pub struct WINML_BINDING_DESC {
 impl ::core::clone::Clone for WINML_BINDING_DESC {
     fn clone(&self) -> Self {
         Self { Name: self.Name, BindType: self.BindType, Anonymous: self.Anonymous.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::fmt::Debug for WINML_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_BINDING_DESC").field("Name", &self.Name).field("BindType", &self.BindType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -1903,6 +1980,11 @@ impl ::core::clone::Clone for WINML_IMAGE_BINDING_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for WINML_IMAGE_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_IMAGE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_IMAGE_BINDING_DESC {
     type Abi = Self;
 }
@@ -1928,6 +2010,11 @@ impl ::core::marker::Copy for WINML_IMAGE_VARIABLE_DESC {}
 impl ::core::clone::Clone for WINML_IMAGE_VARIABLE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINML_IMAGE_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_IMAGE_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINML_IMAGE_VARIABLE_DESC {
@@ -1960,6 +2047,12 @@ impl ::core::marker::Copy for WINML_MAP_BINDING_DESC {}
 impl ::core::clone::Clone for WINML_MAP_BINDING_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINML_MAP_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_MAP_BINDING_DESC").field("ElementCount", &self.ElementCount).field("KeyType", &self.KeyType).field("Anonymous1", &self.Anonymous1).field("Fields", &self.Fields).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2060,6 +2153,11 @@ impl ::core::clone::Clone for WINML_MAP_VARIABLE_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for WINML_MAP_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_MAP_VARIABLE_DESC").field("KeyType", &self.KeyType).field("Fields", &self.Fields).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_MAP_VARIABLE_DESC {
     type Abi = Self;
 }
@@ -2093,6 +2191,12 @@ impl ::core::clone::Clone for WINML_MODEL_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINML_MODEL_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_MODEL_DESC").field("Author", &self.Author).field("Name", &self.Name).field("Domain", &self.Domain).field("Description", &self.Description).field("Version", &self.Version).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINML_MODEL_DESC {
     type Abi = Self;
 }
@@ -2123,6 +2227,12 @@ pub struct WINML_RESOURCE_BINDING_DESC {
 impl ::core::clone::Clone for WINML_RESOURCE_BINDING_DESC {
     fn clone(&self) -> Self {
         Self { ElementType: self.ElementType, NumDimensions: self.NumDimensions, pShape: self.pShape, pResource: self.pResource.clone() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for WINML_RESOURCE_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_RESOURCE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("pResource", &self.pResource).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2161,6 +2271,12 @@ impl ::core::marker::Copy for WINML_SEQUENCE_BINDING_DESC {}
 impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINML_SEQUENCE_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_SEQUENCE_BINDING_DESC").field("ElementCount", &self.ElementCount).field("ElementType", &self.ElementType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2227,6 +2343,11 @@ impl ::core::clone::Clone for WINML_SEQUENCE_VARIABLE_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for WINML_SEQUENCE_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_SEQUENCE_VARIABLE_DESC").field("ElementType", &self.ElementType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_SEQUENCE_VARIABLE_DESC {
     type Abi = Self;
 }
@@ -2254,6 +2375,11 @@ impl ::core::marker::Copy for WINML_TENSOR_BINDING_DESC {}
 impl ::core::clone::Clone for WINML_TENSOR_BINDING_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WINML_TENSOR_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_TENSOR_BINDING_DESC").field("DataType", &self.DataType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINML_TENSOR_BINDING_DESC {
@@ -2319,6 +2445,11 @@ impl ::core::clone::Clone for WINML_TENSOR_VARIABLE_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for WINML_TENSOR_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_TENSOR_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_TENSOR_VARIABLE_DESC {
     type Abi = Self;
 }
@@ -2349,6 +2480,12 @@ impl ::core::marker::Copy for WINML_VARIABLE_DESC {}
 impl ::core::clone::Clone for WINML_VARIABLE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WINML_VARIABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINML_VARIABLE_DESC").field("Name", &self.Name).field("Description", &self.Description).field("FeatureType", &self.FeatureType).field("Required", &self.Required).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -11,6 +11,11 @@ impl ::core::clone::Clone for FindSimilarFileIndexResults {
         *self
     }
 }
+impl ::core::fmt::Debug for FindSimilarFileIndexResults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FindSimilarFileIndexResults").field("m_FileIndex", &self.m_FileIndex).field("m_MatchCount", &self.m_MatchCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FindSimilarFileIndexResults {
     type Abi = Self;
 }
@@ -1331,6 +1336,11 @@ impl ::core::clone::Clone for RdcBufferPointer {
         *self
     }
 }
+impl ::core::fmt::Debug for RdcBufferPointer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RdcBufferPointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RdcBufferPointer {
     type Abi = Self;
 }
@@ -1380,6 +1390,11 @@ impl ::core::clone::Clone for RdcNeed {
         *self
     }
 }
+impl ::core::fmt::Debug for RdcNeed {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RdcNeed").field("m_BlockType", &self.m_BlockType).field("m_FileOffset", &self.m_FileOffset).field("m_BlockLength", &self.m_BlockLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RdcNeed {
     type Abi = Self;
 }
@@ -1405,6 +1420,11 @@ impl ::core::marker::Copy for RdcNeedPointer {}
 impl ::core::clone::Clone for RdcNeedPointer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RdcNeedPointer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RdcNeedPointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RdcNeedPointer {
@@ -1443,6 +1463,11 @@ impl ::core::clone::Clone for RdcSignature {
         *self
     }
 }
+impl ::core::fmt::Debug for RdcSignature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RdcSignature").field("m_Signature", &self.m_Signature).field("m_BlockLength", &self.m_BlockLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RdcSignature {
     type Abi = Self;
 }
@@ -1468,6 +1493,11 @@ impl ::core::marker::Copy for RdcSignaturePointer {}
 impl ::core::clone::Clone for RdcSignaturePointer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RdcSignaturePointer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RdcSignaturePointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RdcSignaturePointer {
@@ -1498,6 +1528,11 @@ impl ::core::clone::Clone for SimilarityData {
         *self
     }
 }
+impl ::core::fmt::Debug for SimilarityData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SimilarityData").field("m_Data", &self.m_Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SimilarityData {
     type Abi = Self;
 }
@@ -1524,6 +1559,11 @@ impl ::core::clone::Clone for SimilarityDumpData {
         *self
     }
 }
+impl ::core::fmt::Debug for SimilarityDumpData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SimilarityDumpData").field("m_FileIndex", &self.m_FileIndex).field("m_Data", &self.m_Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SimilarityDumpData {
     type Abi = Self;
 }
@@ -1547,6 +1587,11 @@ impl ::core::marker::Copy for SimilarityFileId {}
 impl ::core::clone::Clone for SimilarityFileId {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SimilarityFileId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SimilarityFileId").field("m_FileId", &self.m_FileId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SimilarityFileId {
@@ -1578,6 +1623,11 @@ impl ::core::marker::Copy for SimilarityMappedViewInfo {}
 impl ::core::clone::Clone for SimilarityMappedViewInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SimilarityMappedViewInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SimilarityMappedViewInfo").field("m_Data", &self.m_Data).field("m_Length", &self.m_Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SimilarityMappedViewInfo {

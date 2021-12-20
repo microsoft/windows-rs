@@ -606,6 +606,11 @@ impl ::core::clone::Clone for QOCINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for QOCINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwInSpeed", &self.dwInSpeed).field("dwOutSpeed", &self.dwOutSpeed).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for QOCINFO {
     type Abi = Self;
 }
@@ -646,6 +651,11 @@ impl ::core::marker::Copy for SENS_QOCINFO {}
 impl ::core::clone::Clone for SENS_QOCINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SENS_QOCINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SENS_QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwOutSpeed", &self.dwOutSpeed).field("dwInSpeed", &self.dwInSpeed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SENS_QOCINFO {

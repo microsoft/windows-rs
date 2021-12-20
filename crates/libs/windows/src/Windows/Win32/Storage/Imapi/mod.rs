@@ -8698,6 +8698,11 @@ impl ::core::clone::Clone for IMMP_MPV_STORE_DRIVER_HANDLE {
         *self
     }
 }
+impl ::core::fmt::Debug for IMMP_MPV_STORE_DRIVER_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMMP_MPV_STORE_DRIVER_HANDLE").field("guidSignature", &self.guidSignature).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IMMP_MPV_STORE_DRIVER_HANDLE {
     type Abi = Self;
 }
@@ -11354,6 +11359,11 @@ impl ::core::clone::Clone for SPropAttrArray {
         *self
     }
 }
+impl ::core::fmt::Debug for SPropAttrArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPropAttrArray").field("cValues", &self.cValues).field("aPropAttr", &self.aPropAttr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPropAttrArray {
     type Abi = Self;
 }
@@ -11397,6 +11407,11 @@ impl ::core::marker::Copy for tagIMMPID_GUIDLIST_ITEM {}
 impl ::core::clone::Clone for tagIMMPID_GUIDLIST_ITEM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for tagIMMPID_GUIDLIST_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("tagIMMPID_GUIDLIST_ITEM").field("pguid", &self.pguid).field("dwStart", &self.dwStart).field("dwLast", &self.dwLast).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tagIMMPID_GUIDLIST_ITEM {

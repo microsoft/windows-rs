@@ -34,6 +34,24 @@ impl ::core::clone::Clone for AAAccountingData {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AAAccountingData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AAAccountingData")
+            .field("userName", &self.userName)
+            .field("clientName", &self.clientName)
+            .field("authType", &self.authType)
+            .field("resourceName", &self.resourceName)
+            .field("portNumber", &self.portNumber)
+            .field("protocolName", &self.protocolName)
+            .field("numberOfBytesReceived", &self.numberOfBytesReceived)
+            .field("numberOfBytesTransfered", &self.numberOfBytesTransfered)
+            .field("reasonForDisconnect", &self.reasonForDisconnect)
+            .field("mainSessionId", &self.mainSessionId)
+            .field("subSessionId", &self.subSessionId)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AAAccountingData {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -116,6 +134,11 @@ impl ::core::clone::Clone for AE_CURRENT_POSITION {
         *self
     }
 }
+impl ::core::fmt::Debug for AE_CURRENT_POSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_CURRENT_POSITION").field("u64DevicePosition", &self.u64DevicePosition).field("u64StreamPosition", &self.u64StreamPosition).field("u64PaddingFrames", &self.u64PaddingFrames).field("hnsQPCPosition", &self.hnsQPCPosition).field("f32FramesPerSecond", &self.f32FramesPerSecond).field("Flag", &self.Flag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AE_CURRENT_POSITION {
     type Abi = Self;
 }
@@ -152,6 +175,11 @@ impl ::core::clone::Clone for BITMAP_RENDERER_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for BITMAP_RENDERER_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAP_RENDERER_STATISTICS").field("dwFramesDelivered", &self.dwFramesDelivered).field("dwFramesDropped", &self.dwFramesDropped).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BITMAP_RENDERER_STATISTICS {
     type Abi = Self;
 }
@@ -183,6 +211,12 @@ impl ::core::marker::Copy for CHANNEL_DEF {}
 impl ::core::clone::Clone for CHANNEL_DEF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHANNEL_DEF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANNEL_DEF").field("name", &self.name).field("options", &self.options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -220,6 +254,12 @@ impl ::core::marker::Copy for CHANNEL_ENTRY_POINTS {}
 impl ::core::clone::Clone for CHANNEL_ENTRY_POINTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHANNEL_ENTRY_POINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANNEL_ENTRY_POINTS").field("cbSize", &self.cbSize).field("protocolVersion", &self.protocolVersion).field("pVirtualChannelInit", &self.pVirtualChannelInit).field("pVirtualChannelOpen", &self.pVirtualChannelOpen).field("pVirtualChannelClose", &self.pVirtualChannelClose).field("pVirtualChannelWrite", &self.pVirtualChannelWrite).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -302,6 +342,11 @@ impl ::core::clone::Clone for CHANNEL_PDU_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for CHANNEL_PDU_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANNEL_PDU_HEADER").field("length", &self.length).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CHANNEL_PDU_HEADER {
     type Abi = Self;
 }
@@ -373,6 +418,11 @@ impl ::core::marker::Copy for CLIENT_DISPLAY {}
 impl ::core::clone::Clone for CLIENT_DISPLAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLIENT_DISPLAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLIENT_DISPLAY").field("HorizontalResolution", &self.HorizontalResolution).field("VerticalResolution", &self.VerticalResolution).field("ColorDepth", &self.ColorDepth).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLIENT_DISPLAY {
@@ -9577,6 +9627,12 @@ impl ::core::clone::Clone for RFX_GFX_MONITOR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RFX_GFX_MONITOR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MONITOR_INFO").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).field("physicalWidth", &self.physicalWidth).field("physicalHeight", &self.physicalHeight).field("orientation", &self.orientation).field("primary", &self.primary).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RFX_GFX_MONITOR_INFO {
     type Abi = Self;
 }
@@ -9603,6 +9659,11 @@ impl ::core::marker::Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
 impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST").field("channelHdr", &self.channelHdr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
@@ -9638,6 +9699,12 @@ impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE").field("channelHdr", &self.channelHdr).field("reserved", &self.reserved).field("monitorCount", &self.monitorCount).field("MonitorData", &self.MonitorData).field("clientUniqueId", &self.clientUniqueId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     type Abi = Self;
 }
@@ -9664,6 +9731,11 @@ impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
 impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM").field("channelHdr", &self.channelHdr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
@@ -9695,6 +9767,11 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
         *self
     }
 }
+impl ::core::fmt::Debug for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY").field("channelHdr", &self.channelHdr).field("ulWidth", &self.ulWidth).field("ulHeight", &self.ulHeight).field("ulBpp", &self.ulBpp).field("Reserved", &self.Reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     type Abi = Self;
 }
@@ -9720,6 +9797,11 @@ impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
 impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_DESKTOP_INPUT_RESET").field("channelHdr", &self.channelHdr).field("ulWidth", &self.ulWidth).field("ulHeight", &self.ulHeight).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
@@ -9748,6 +9830,11 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
         *self
     }
 }
+impl ::core::fmt::Debug for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_DESKTOP_RESEND_REQUEST").field("channelHdr", &self.channelHdr).field("RedrawRect", &self.RedrawRect).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     type Abi = Self;
 }
@@ -9774,6 +9861,11 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
         *self
     }
 }
+impl ::core::fmt::Debug for RFX_GFX_MSG_DISCONNECT_NOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_DISCONNECT_NOTIFY").field("channelHdr", &self.channelHdr).field("DisconnectReason", &self.DisconnectReason).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DISCONNECT_NOTIFY {
     type Abi = Self;
 }
@@ -9798,6 +9890,11 @@ impl ::core::marker::Copy for RFX_GFX_MSG_HEADER {}
 impl ::core::clone::Clone for RFX_GFX_MSG_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RFX_GFX_MSG_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_HEADER").field("uMSGType", &self.uMSGType).field("cbSize", &self.cbSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_HEADER {
@@ -9830,6 +9927,11 @@ impl ::core::clone::Clone for RFX_GFX_MSG_RDP_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for RFX_GFX_MSG_RDP_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_MSG_RDP_DATA").field("channelHdr", &self.channelHdr).field("rdpData", &self.rdpData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_RDP_DATA {
     type Abi = Self;
 }
@@ -9856,6 +9958,11 @@ impl ::core::marker::Copy for RFX_GFX_RECT {}
 impl ::core::clone::Clone for RFX_GFX_RECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RFX_GFX_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RFX_GFX_RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_RECT {
@@ -10028,6 +10135,11 @@ impl ::core::clone::Clone for TSSD_ConnectionPoint {
         *self
     }
 }
+impl ::core::fmt::Debug for TSSD_ConnectionPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TSSD_ConnectionPoint").field("ServerAddressB", &self.ServerAddressB).field("AddressType", &self.AddressType).field("PortNumber", &self.PortNumber).field("AddressScope", &self.AddressScope).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TSSD_ConnectionPoint {
     type Abi = Self;
 }
@@ -10109,6 +10221,11 @@ impl ::core::clone::Clone for VM_NOTIFY_ENTRY {
         *self
     }
 }
+impl ::core::fmt::Debug for VM_NOTIFY_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VM_NOTIFY_ENTRY").field("VmName", &self.VmName).field("VmHost", &self.VmHost).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VM_NOTIFY_ENTRY {
     type Abi = Self;
 }
@@ -10133,6 +10250,11 @@ impl ::core::marker::Copy for VM_NOTIFY_INFO {}
 impl ::core::clone::Clone for VM_NOTIFY_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VM_NOTIFY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VM_NOTIFY_INFO").field("dwNumEntries", &self.dwNumEntries).field("ppVmEntries", &self.ppVmEntries).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VM_NOTIFY_INFO {
@@ -10174,6 +10296,12 @@ impl ::core::marker::Copy for VM_PATCH_INFO {}
 impl ::core::clone::Clone for VM_PATCH_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VM_PATCH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VM_PATCH_INFO").field("dwNumEntries", &self.dwNumEntries).field("pVmNames", &self.pVmNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10253,6 +10381,12 @@ impl ::core::marker::Copy for WRDS_CONNECTION_SETTINGS {}
 impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WRDS_CONNECTION_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WRDS_CONNECTION_SETTINGS").field("WRdsConnectionSettingLevel", &self.WRdsConnectionSettingLevel).field("WRdsConnectionSetting", &self.WRdsConnectionSetting).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10352,6 +10486,78 @@ impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WRDS_CONNECTION_SETTINGS_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WRDS_CONNECTION_SETTINGS_1")
+            .field("fInheritInitialProgram", &self.fInheritInitialProgram)
+            .field("fInheritColorDepth", &self.fInheritColorDepth)
+            .field("fHideTitleBar", &self.fHideTitleBar)
+            .field("fInheritAutoLogon", &self.fInheritAutoLogon)
+            .field("fMaximizeShell", &self.fMaximizeShell)
+            .field("fDisablePNP", &self.fDisablePNP)
+            .field("fPasswordIsScPin", &self.fPasswordIsScPin)
+            .field("fPromptForPassword", &self.fPromptForPassword)
+            .field("fDisableCpm", &self.fDisableCpm)
+            .field("fDisableCdm", &self.fDisableCdm)
+            .field("fDisableCcm", &self.fDisableCcm)
+            .field("fDisableLPT", &self.fDisableLPT)
+            .field("fDisableClip", &self.fDisableClip)
+            .field("fResetBroken", &self.fResetBroken)
+            .field("fDisableEncryption", &self.fDisableEncryption)
+            .field("fDisableAutoReconnect", &self.fDisableAutoReconnect)
+            .field("fDisableCtrlAltDel", &self.fDisableCtrlAltDel)
+            .field("fDoubleClickDetect", &self.fDoubleClickDetect)
+            .field("fEnableWindowsKey", &self.fEnableWindowsKey)
+            .field("fUsingSavedCreds", &self.fUsingSavedCreds)
+            .field("fMouse", &self.fMouse)
+            .field("fNoAudioPlayback", &self.fNoAudioPlayback)
+            .field("fRemoteConsoleAudio", &self.fRemoteConsoleAudio)
+            .field("EncryptionLevel", &self.EncryptionLevel)
+            .field("ColorDepth", &self.ColorDepth)
+            .field("ProtocolType", &self.ProtocolType)
+            .field("HRes", &self.HRes)
+            .field("VRes", &self.VRes)
+            .field("ClientProductId", &self.ClientProductId)
+            .field("OutBufCountHost", &self.OutBufCountHost)
+            .field("OutBufCountClient", &self.OutBufCountClient)
+            .field("OutBufLength", &self.OutBufLength)
+            .field("KeyboardLayout", &self.KeyboardLayout)
+            .field("MaxConnectionTime", &self.MaxConnectionTime)
+            .field("MaxDisconnectionTime", &self.MaxDisconnectionTime)
+            .field("MaxIdleTime", &self.MaxIdleTime)
+            .field("PerformanceFlags", &self.PerformanceFlags)
+            .field("KeyboardType", &self.KeyboardType)
+            .field("KeyboardSubType", &self.KeyboardSubType)
+            .field("KeyboardFunctionKey", &self.KeyboardFunctionKey)
+            .field("ActiveInputLocale", &self.ActiveInputLocale)
+            .field("SerialNumber", &self.SerialNumber)
+            .field("ClientAddressFamily", &self.ClientAddressFamily)
+            .field("ClientBuildNumber", &self.ClientBuildNumber)
+            .field("ClientSessionId", &self.ClientSessionId)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("InitialProgram", &self.InitialProgram)
+            .field("UserName", &self.UserName)
+            .field("Domain", &self.Domain)
+            .field("Password", &self.Password)
+            .field("ProtocolName", &self.ProtocolName)
+            .field("DisplayDriverName", &self.DisplayDriverName)
+            .field("DisplayDeviceName", &self.DisplayDeviceName)
+            .field("imeFileName", &self.imeFileName)
+            .field("AudioDriverName", &self.AudioDriverName)
+            .field("ClientName", &self.ClientName)
+            .field("ClientAddress", &self.ClientAddress)
+            .field("ClientDirectory", &self.ClientDirectory)
+            .field("ClientDigProductId", &self.ClientDigProductId)
+            .field("ClientSockAddress", &self.ClientSockAddress)
+            .field("ClientTimeZone", &self.ClientTimeZone)
+            .field("WRdsListenerSettings", &self.WRdsListenerSettings)
+            .field("EventLogActivityId", &self.EventLogActivityId)
+            .field("ContextSize", &self.ContextSize)
+            .field("ContextData", &self.ContextData)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WRDS_CONNECTION_SETTINGS_1 {
     type Abi = Self;
 }
@@ -10400,6 +10606,11 @@ impl ::core::marker::Copy for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {}
 impl ::core::clone::Clone for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WRDS_DYNAMIC_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).field("TimeZoneKeyName", &self.TimeZoneKeyName).field("DynamicDaylightTimeDisabled", &self.DynamicDaylightTimeDisabled).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
@@ -10465,6 +10676,11 @@ impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS {
         *self
     }
 }
+impl ::core::fmt::Debug for WRDS_LISTENER_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WRDS_LISTENER_SETTINGS").field("WRdsListenerSettingLevel", &self.WRdsListenerSettingLevel).field("WRdsListenerSetting", &self.WRdsListenerSetting).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTINGS {
     type Abi = Self;
 }
@@ -10490,6 +10706,11 @@ impl ::core::marker::Copy for WRDS_LISTENER_SETTINGS_1 {}
 impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WRDS_LISTENER_SETTINGS_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WRDS_LISTENER_SETTINGS_1").field("MaxProtocolListenerConnectionCount", &self.MaxProtocolListenerConnectionCount).field("SecurityDescriptorSize", &self.SecurityDescriptorSize).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTINGS_1 {
@@ -10596,6 +10817,12 @@ impl ::core::clone::Clone for WRDS_SETTINGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WRDS_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WRDS_SETTINGS").field("WRdsSettingType", &self.WRdsSettingType).field("WRdsSettingLevel", &self.WRdsSettingLevel).field("WRdsSetting", &self.WRdsSetting).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WRDS_SETTINGS {
     type Abi = Self;
 }
@@ -10655,6 +10882,44 @@ impl ::core::marker::Copy for WRDS_SETTINGS_1 {}
 impl ::core::clone::Clone for WRDS_SETTINGS_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WRDS_SETTINGS_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WRDS_SETTINGS_1")
+            .field("WRdsDisableClipStatus", &self.WRdsDisableClipStatus)
+            .field("WRdsDisableClipValue", &self.WRdsDisableClipValue)
+            .field("WRdsDisableLPTStatus", &self.WRdsDisableLPTStatus)
+            .field("WRdsDisableLPTValue", &self.WRdsDisableLPTValue)
+            .field("WRdsDisableCcmStatus", &self.WRdsDisableCcmStatus)
+            .field("WRdsDisableCcmValue", &self.WRdsDisableCcmValue)
+            .field("WRdsDisableCdmStatus", &self.WRdsDisableCdmStatus)
+            .field("WRdsDisableCdmValue", &self.WRdsDisableCdmValue)
+            .field("WRdsDisableCpmStatus", &self.WRdsDisableCpmStatus)
+            .field("WRdsDisableCpmValue", &self.WRdsDisableCpmValue)
+            .field("WRdsDisablePnpStatus", &self.WRdsDisablePnpStatus)
+            .field("WRdsDisablePnpValue", &self.WRdsDisablePnpValue)
+            .field("WRdsEncryptionLevelStatus", &self.WRdsEncryptionLevelStatus)
+            .field("WRdsEncryptionValue", &self.WRdsEncryptionValue)
+            .field("WRdsColorDepthStatus", &self.WRdsColorDepthStatus)
+            .field("WRdsColorDepthValue", &self.WRdsColorDepthValue)
+            .field("WRdsDisableAutoReconnecetStatus", &self.WRdsDisableAutoReconnecetStatus)
+            .field("WRdsDisableAutoReconnecetValue", &self.WRdsDisableAutoReconnecetValue)
+            .field("WRdsDisableEncryptionStatus", &self.WRdsDisableEncryptionStatus)
+            .field("WRdsDisableEncryptionValue", &self.WRdsDisableEncryptionValue)
+            .field("WRdsResetBrokenStatus", &self.WRdsResetBrokenStatus)
+            .field("WRdsResetBrokenValue", &self.WRdsResetBrokenValue)
+            .field("WRdsMaxIdleTimeStatus", &self.WRdsMaxIdleTimeStatus)
+            .field("WRdsMaxIdleTimeValue", &self.WRdsMaxIdleTimeValue)
+            .field("WRdsMaxDisconnectTimeStatus", &self.WRdsMaxDisconnectTimeStatus)
+            .field("WRdsMaxDisconnectTimeValue", &self.WRdsMaxDisconnectTimeValue)
+            .field("WRdsMaxConnectTimeStatus", &self.WRdsMaxConnectTimeStatus)
+            .field("WRdsMaxConnectTimeValue", &self.WRdsMaxConnectTimeValue)
+            .field("WRdsKeepAliveStatus", &self.WRdsKeepAliveStatus)
+            .field("WRdsKeepAliveStartValue", &self.WRdsKeepAliveStartValue)
+            .field("WRdsKeepAliveIntervalValue", &self.WRdsKeepAliveIntervalValue)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10752,6 +11017,32 @@ impl ::core::clone::Clone for WTSCLIENTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTSCLIENTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSCLIENTA")
+            .field("ClientName", &self.ClientName)
+            .field("Domain", &self.Domain)
+            .field("UserName", &self.UserName)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("InitialProgram", &self.InitialProgram)
+            .field("EncryptionLevel", &self.EncryptionLevel)
+            .field("ClientAddressFamily", &self.ClientAddressFamily)
+            .field("ClientAddress", &self.ClientAddress)
+            .field("HRes", &self.HRes)
+            .field("VRes", &self.VRes)
+            .field("ColorDepth", &self.ColorDepth)
+            .field("ClientDirectory", &self.ClientDirectory)
+            .field("ClientBuildNumber", &self.ClientBuildNumber)
+            .field("ClientHardwareId", &self.ClientHardwareId)
+            .field("ClientProductId", &self.ClientProductId)
+            .field("OutBufCountHost", &self.OutBufCountHost)
+            .field("OutBufCountClient", &self.OutBufCountClient)
+            .field("OutBufLength", &self.OutBufLength)
+            .field("DeviceId", &self.DeviceId)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSCLIENTA {
     type Abi = Self;
 }
@@ -10798,6 +11089,31 @@ impl ::core::clone::Clone for WTSCLIENTW {
         *self
     }
 }
+impl ::core::fmt::Debug for WTSCLIENTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSCLIENTW")
+            .field("ClientName", &self.ClientName)
+            .field("Domain", &self.Domain)
+            .field("UserName", &self.UserName)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("InitialProgram", &self.InitialProgram)
+            .field("EncryptionLevel", &self.EncryptionLevel)
+            .field("ClientAddressFamily", &self.ClientAddressFamily)
+            .field("ClientAddress", &self.ClientAddress)
+            .field("HRes", &self.HRes)
+            .field("VRes", &self.VRes)
+            .field("ColorDepth", &self.ColorDepth)
+            .field("ClientDirectory", &self.ClientDirectory)
+            .field("ClientBuildNumber", &self.ClientBuildNumber)
+            .field("ClientHardwareId", &self.ClientHardwareId)
+            .field("ClientProductId", &self.ClientProductId)
+            .field("OutBufCountHost", &self.OutBufCountHost)
+            .field("OutBufCountClient", &self.OutBufCountClient)
+            .field("OutBufLength", &self.OutBufLength)
+            .field("DeviceId", &self.DeviceId)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTSCLIENTW {
     type Abi = Self;
 }
@@ -10837,6 +11153,24 @@ impl ::core::clone::Clone for WTSCONFIGINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTSCONFIGINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSCONFIGINFOA")
+            .field("version", &self.version)
+            .field("fConnectClientDrivesAtLogon", &self.fConnectClientDrivesAtLogon)
+            .field("fConnectPrinterAtLogon", &self.fConnectPrinterAtLogon)
+            .field("fDisablePrinterRedirection", &self.fDisablePrinterRedirection)
+            .field("fDisableDefaultMainClientPrinter", &self.fDisableDefaultMainClientPrinter)
+            .field("ShadowSettings", &self.ShadowSettings)
+            .field("LogonUserName", &self.LogonUserName)
+            .field("LogonDomain", &self.LogonDomain)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("InitialProgram", &self.InitialProgram)
+            .field("ApplicationName", &self.ApplicationName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSCONFIGINFOA {
     type Abi = Self;
 }
@@ -10873,6 +11207,23 @@ impl ::core::marker::Copy for WTSCONFIGINFOW {}
 impl ::core::clone::Clone for WTSCONFIGINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTSCONFIGINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSCONFIGINFOW")
+            .field("version", &self.version)
+            .field("fConnectClientDrivesAtLogon", &self.fConnectClientDrivesAtLogon)
+            .field("fConnectPrinterAtLogon", &self.fConnectPrinterAtLogon)
+            .field("fDisablePrinterRedirection", &self.fDisablePrinterRedirection)
+            .field("fDisableDefaultMainClientPrinter", &self.fDisableDefaultMainClientPrinter)
+            .field("ShadowSettings", &self.ShadowSettings)
+            .field("LogonUserName", &self.LogonUserName)
+            .field("LogonDomain", &self.LogonDomain)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("InitialProgram", &self.InitialProgram)
+            .field("ApplicationName", &self.ApplicationName)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSCONFIGINFOW {
@@ -11307,6 +11658,29 @@ impl ::core::clone::Clone for WTSINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTSINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSINFOA")
+            .field("State", &self.State)
+            .field("SessionId", &self.SessionId)
+            .field("IncomingBytes", &self.IncomingBytes)
+            .field("OutgoingBytes", &self.OutgoingBytes)
+            .field("IncomingFrames", &self.IncomingFrames)
+            .field("OutgoingFrames", &self.OutgoingFrames)
+            .field("IncomingCompressedBytes", &self.IncomingCompressedBytes)
+            .field("OutgoingCompressedBy", &self.OutgoingCompressedBy)
+            .field("WinStationName", &self.WinStationName)
+            .field("Domain", &self.Domain)
+            .field("UserName", &self.UserName)
+            .field("ConnectTime", &self.ConnectTime)
+            .field("DisconnectTime", &self.DisconnectTime)
+            .field("LastInputTime", &self.LastInputTime)
+            .field("LogonTime", &self.LogonTime)
+            .field("CurrentTime", &self.CurrentTime)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSINFOA {
     type Abi = Self;
 }
@@ -11340,6 +11714,12 @@ impl ::core::clone::Clone for WTSINFOEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTSINFOEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSINFOEXA").field("Level", &self.Level).field("Data", &self.Data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSINFOEXA {
     type Abi = Self;
 }
@@ -11367,6 +11747,11 @@ impl ::core::marker::Copy for WTSINFOEXW {}
 impl ::core::clone::Clone for WTSINFOEXW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTSINFOEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSINFOEXW").field("Level", &self.Level).field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSINFOEXW {
@@ -11414,6 +11799,30 @@ impl ::core::clone::Clone for WTSINFOEX_LEVEL1_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTSINFOEX_LEVEL1_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSINFOEX_LEVEL1_A")
+            .field("SessionId", &self.SessionId)
+            .field("SessionState", &self.SessionState)
+            .field("SessionFlags", &self.SessionFlags)
+            .field("WinStationName", &self.WinStationName)
+            .field("UserName", &self.UserName)
+            .field("DomainName", &self.DomainName)
+            .field("LogonTime", &self.LogonTime)
+            .field("ConnectTime", &self.ConnectTime)
+            .field("DisconnectTime", &self.DisconnectTime)
+            .field("LastInputTime", &self.LastInputTime)
+            .field("CurrentTime", &self.CurrentTime)
+            .field("IncomingBytes", &self.IncomingBytes)
+            .field("OutgoingBytes", &self.OutgoingBytes)
+            .field("IncomingFrames", &self.IncomingFrames)
+            .field("OutgoingFrames", &self.OutgoingFrames)
+            .field("IncomingCompressedBytes", &self.IncomingCompressedBytes)
+            .field("OutgoingCompressedBytes", &self.OutgoingCompressedBytes)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSINFOEX_LEVEL1_A {
     type Abi = Self;
 }
@@ -11456,6 +11865,29 @@ impl ::core::marker::Copy for WTSINFOEX_LEVEL1_W {}
 impl ::core::clone::Clone for WTSINFOEX_LEVEL1_W {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTSINFOEX_LEVEL1_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSINFOEX_LEVEL1_W")
+            .field("SessionId", &self.SessionId)
+            .field("SessionState", &self.SessionState)
+            .field("SessionFlags", &self.SessionFlags)
+            .field("WinStationName", &self.WinStationName)
+            .field("UserName", &self.UserName)
+            .field("DomainName", &self.DomainName)
+            .field("LogonTime", &self.LogonTime)
+            .field("ConnectTime", &self.ConnectTime)
+            .field("DisconnectTime", &self.DisconnectTime)
+            .field("LastInputTime", &self.LastInputTime)
+            .field("CurrentTime", &self.CurrentTime)
+            .field("IncomingBytes", &self.IncomingBytes)
+            .field("OutgoingBytes", &self.OutgoingBytes)
+            .field("IncomingFrames", &self.IncomingFrames)
+            .field("OutgoingFrames", &self.OutgoingFrames)
+            .field("IncomingCompressedBytes", &self.IncomingCompressedBytes)
+            .field("OutgoingCompressedBytes", &self.OutgoingCompressedBytes)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSINFOEX_LEVEL1_W {
@@ -11555,6 +11987,28 @@ impl ::core::clone::Clone for WTSINFOW {
         *self
     }
 }
+impl ::core::fmt::Debug for WTSINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSINFOW")
+            .field("State", &self.State)
+            .field("SessionId", &self.SessionId)
+            .field("IncomingBytes", &self.IncomingBytes)
+            .field("OutgoingBytes", &self.OutgoingBytes)
+            .field("IncomingFrames", &self.IncomingFrames)
+            .field("OutgoingFrames", &self.OutgoingFrames)
+            .field("IncomingCompressedBytes", &self.IncomingCompressedBytes)
+            .field("OutgoingCompressedBytes", &self.OutgoingCompressedBytes)
+            .field("WinStationName", &self.WinStationName)
+            .field("Domain", &self.Domain)
+            .field("UserName", &self.UserName)
+            .field("ConnectTime", &self.ConnectTime)
+            .field("DisconnectTime", &self.DisconnectTime)
+            .field("LastInputTime", &self.LastInputTime)
+            .field("LogonTime", &self.LogonTime)
+            .field("CurrentTime", &self.CurrentTime)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTSINFOW {
     type Abi = Self;
 }
@@ -11629,6 +12083,44 @@ impl ::core::clone::Clone for WTSLISTENERCONFIGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTSLISTENERCONFIGA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSLISTENERCONFIGA")
+            .field("version", &self.version)
+            .field("fEnableListener", &self.fEnableListener)
+            .field("MaxConnectionCount", &self.MaxConnectionCount)
+            .field("fPromptForPassword", &self.fPromptForPassword)
+            .field("fInheritColorDepth", &self.fInheritColorDepth)
+            .field("ColorDepth", &self.ColorDepth)
+            .field("fInheritBrokenTimeoutSettings", &self.fInheritBrokenTimeoutSettings)
+            .field("BrokenTimeoutSettings", &self.BrokenTimeoutSettings)
+            .field("fDisablePrinterRedirection", &self.fDisablePrinterRedirection)
+            .field("fDisableDriveRedirection", &self.fDisableDriveRedirection)
+            .field("fDisableComPortRedirection", &self.fDisableComPortRedirection)
+            .field("fDisableLPTPortRedirection", &self.fDisableLPTPortRedirection)
+            .field("fDisableClipboardRedirection", &self.fDisableClipboardRedirection)
+            .field("fDisableAudioRedirection", &self.fDisableAudioRedirection)
+            .field("fDisablePNPRedirection", &self.fDisablePNPRedirection)
+            .field("fDisableDefaultMainClientPrinter", &self.fDisableDefaultMainClientPrinter)
+            .field("LanAdapter", &self.LanAdapter)
+            .field("PortNumber", &self.PortNumber)
+            .field("fInheritShadowSettings", &self.fInheritShadowSettings)
+            .field("ShadowSettings", &self.ShadowSettings)
+            .field("TimeoutSettingsConnection", &self.TimeoutSettingsConnection)
+            .field("TimeoutSettingsDisconnection", &self.TimeoutSettingsDisconnection)
+            .field("TimeoutSettingsIdle", &self.TimeoutSettingsIdle)
+            .field("SecurityLayer", &self.SecurityLayer)
+            .field("MinEncryptionLevel", &self.MinEncryptionLevel)
+            .field("UserAuthentication", &self.UserAuthentication)
+            .field("Comment", &self.Comment)
+            .field("LogonUserName", &self.LogonUserName)
+            .field("LogonDomain", &self.LogonDomain)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("InitialProgram", &self.InitialProgram)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSLISTENERCONFIGA {
     type Abi = Self;
 }
@@ -11685,6 +12177,43 @@ impl ::core::marker::Copy for WTSLISTENERCONFIGW {}
 impl ::core::clone::Clone for WTSLISTENERCONFIGW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTSLISTENERCONFIGW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSLISTENERCONFIGW")
+            .field("version", &self.version)
+            .field("fEnableListener", &self.fEnableListener)
+            .field("MaxConnectionCount", &self.MaxConnectionCount)
+            .field("fPromptForPassword", &self.fPromptForPassword)
+            .field("fInheritColorDepth", &self.fInheritColorDepth)
+            .field("ColorDepth", &self.ColorDepth)
+            .field("fInheritBrokenTimeoutSettings", &self.fInheritBrokenTimeoutSettings)
+            .field("BrokenTimeoutSettings", &self.BrokenTimeoutSettings)
+            .field("fDisablePrinterRedirection", &self.fDisablePrinterRedirection)
+            .field("fDisableDriveRedirection", &self.fDisableDriveRedirection)
+            .field("fDisableComPortRedirection", &self.fDisableComPortRedirection)
+            .field("fDisableLPTPortRedirection", &self.fDisableLPTPortRedirection)
+            .field("fDisableClipboardRedirection", &self.fDisableClipboardRedirection)
+            .field("fDisableAudioRedirection", &self.fDisableAudioRedirection)
+            .field("fDisablePNPRedirection", &self.fDisablePNPRedirection)
+            .field("fDisableDefaultMainClientPrinter", &self.fDisableDefaultMainClientPrinter)
+            .field("LanAdapter", &self.LanAdapter)
+            .field("PortNumber", &self.PortNumber)
+            .field("fInheritShadowSettings", &self.fInheritShadowSettings)
+            .field("ShadowSettings", &self.ShadowSettings)
+            .field("TimeoutSettingsConnection", &self.TimeoutSettingsConnection)
+            .field("TimeoutSettingsDisconnection", &self.TimeoutSettingsDisconnection)
+            .field("TimeoutSettingsIdle", &self.TimeoutSettingsIdle)
+            .field("SecurityLayer", &self.SecurityLayer)
+            .field("MinEncryptionLevel", &self.MinEncryptionLevel)
+            .field("UserAuthentication", &self.UserAuthentication)
+            .field("Comment", &self.Comment)
+            .field("LogonUserName", &self.LogonUserName)
+            .field("LogonDomain", &self.LogonDomain)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("InitialProgram", &self.InitialProgram)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSLISTENERCONFIGW {
@@ -11937,6 +12466,11 @@ impl ::core::clone::Clone for WTSSBX_IP_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for WTSSBX_IP_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSSBX_IP_ADDRESS").field("AddressFamily", &self.AddressFamily).field("Address", &self.Address).field("PortNumber", &self.PortNumber).field("dwScope", &self.dwScope).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTSSBX_IP_ADDRESS {
     type Abi = Self;
 }
@@ -11963,6 +12497,11 @@ impl ::core::marker::Copy for WTSSBX_MACHINE_CONNECT_INFO {}
 impl ::core::clone::Clone for WTSSBX_MACHINE_CONNECT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTSSBX_MACHINE_CONNECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSSBX_MACHINE_CONNECT_INFO").field("wczMachineFQDN", &self.wczMachineFQDN).field("wczMachineNetBiosName", &self.wczMachineNetBiosName).field("dwNumOfIPAddr", &self.dwNumOfIPAddr).field("IPaddr", &self.IPaddr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_CONNECT_INFO {
@@ -12003,6 +12542,11 @@ impl ::core::marker::Copy for WTSSBX_MACHINE_INFO {}
 impl ::core::clone::Clone for WTSSBX_MACHINE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTSSBX_MACHINE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSSBX_MACHINE_INFO").field("ClientConnectInfo", &self.ClientConnectInfo).field("wczFarmName", &self.wczFarmName).field("InternalIPAddress", &self.InternalIPAddress).field("dwMaxSessionsLimit", &self.dwMaxSessionsLimit).field("ServerWeight", &self.ServerWeight).field("SingleSessionMode", &self.SingleSessionMode).field("InDrain", &self.InDrain).field("MachineState", &self.MachineState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_INFO {
@@ -12066,6 +12610,12 @@ impl ::core::clone::Clone for WTSSBX_SESSION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTSSBX_SESSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSSBX_SESSION_INFO").field("wszUserName", &self.wszUserName).field("wszDomainName", &self.wszDomainName).field("ApplicationType", &self.ApplicationType).field("dwSessionId", &self.dwSessionId).field("CreateTime", &self.CreateTime).field("DisconnectTime", &self.DisconnectTime).field("SessionState", &self.SessionState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSSBX_SESSION_INFO {
     type Abi = Self;
 }
@@ -12101,6 +12651,11 @@ impl ::core::marker::Copy for WTSSESSION_NOTIFICATION {}
 impl ::core::clone::Clone for WTSSESSION_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTSSESSION_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSSESSION_NOTIFICATION").field("cbSize", &self.cbSize).field("dwSessionId", &self.dwSessionId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSSESSION_NOTIFICATION {
@@ -12329,6 +12884,31 @@ impl ::core::clone::Clone for WTSUSERCONFIGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTSUSERCONFIGA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSUSERCONFIGA")
+            .field("Source", &self.Source)
+            .field("InheritInitialProgram", &self.InheritInitialProgram)
+            .field("AllowLogonTerminalServer", &self.AllowLogonTerminalServer)
+            .field("TimeoutSettingsConnections", &self.TimeoutSettingsConnections)
+            .field("TimeoutSettingsDisconnections", &self.TimeoutSettingsDisconnections)
+            .field("TimeoutSettingsIdle", &self.TimeoutSettingsIdle)
+            .field("DeviceClientDrives", &self.DeviceClientDrives)
+            .field("DeviceClientPrinters", &self.DeviceClientPrinters)
+            .field("ClientDefaultPrinter", &self.ClientDefaultPrinter)
+            .field("BrokenTimeoutSettings", &self.BrokenTimeoutSettings)
+            .field("ReconnectSettings", &self.ReconnectSettings)
+            .field("ShadowingSettings", &self.ShadowingSettings)
+            .field("TerminalServerRemoteHomeDir", &self.TerminalServerRemoteHomeDir)
+            .field("InitialProgram", &self.InitialProgram)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("TerminalServerProfilePath", &self.TerminalServerProfilePath)
+            .field("TerminalServerHomeDir", &self.TerminalServerHomeDir)
+            .field("TerminalServerHomeDirDrive", &self.TerminalServerHomeDirDrive)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSUSERCONFIGA {
     type Abi = Self;
 }
@@ -12372,6 +12952,30 @@ impl ::core::marker::Copy for WTSUSERCONFIGW {}
 impl ::core::clone::Clone for WTSUSERCONFIGW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTSUSERCONFIGW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTSUSERCONFIGW")
+            .field("Source", &self.Source)
+            .field("InheritInitialProgram", &self.InheritInitialProgram)
+            .field("AllowLogonTerminalServer", &self.AllowLogonTerminalServer)
+            .field("TimeoutSettingsConnections", &self.TimeoutSettingsConnections)
+            .field("TimeoutSettingsDisconnections", &self.TimeoutSettingsDisconnections)
+            .field("TimeoutSettingsIdle", &self.TimeoutSettingsIdle)
+            .field("DeviceClientDrives", &self.DeviceClientDrives)
+            .field("DeviceClientPrinters", &self.DeviceClientPrinters)
+            .field("ClientDefaultPrinter", &self.ClientDefaultPrinter)
+            .field("BrokenTimeoutSettings", &self.BrokenTimeoutSettings)
+            .field("ReconnectSettings", &self.ReconnectSettings)
+            .field("ShadowingSettings", &self.ShadowingSettings)
+            .field("TerminalServerRemoteHomeDir", &self.TerminalServerRemoteHomeDir)
+            .field("InitialProgram", &self.InitialProgram)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("TerminalServerProfilePath", &self.TerminalServerProfilePath)
+            .field("TerminalServerHomeDir", &self.TerminalServerHomeDir)
+            .field("TerminalServerHomeDirDrive", &self.TerminalServerHomeDirDrive)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSUSERCONFIGW {
@@ -12567,6 +13171,11 @@ impl ::core::clone::Clone for WTS_CACHE_STATS {
         *self
     }
 }
+impl ::core::fmt::Debug for WTS_CACHE_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_CACHE_STATS").field("Specific", &self.Specific).field("Data", &self.Data).field("ProtocolType", &self.ProtocolType).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_CACHE_STATS {
     type Abi = Self;
 }
@@ -12642,6 +13251,11 @@ impl ::core::marker::Copy for WTS_CLIENT_ADDRESS {}
 impl ::core::clone::Clone for WTS_CLIENT_ADDRESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_CLIENT_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_CLIENT_ADDRESS").field("AddressFamily", &self.AddressFamily).field("Address", &self.Address).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_CLIENT_ADDRESS {
@@ -12727,6 +13341,68 @@ impl ::core::clone::Clone for WTS_CLIENT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_CLIENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_CLIENT_DATA")
+            .field("fDisableCtrlAltDel", &self.fDisableCtrlAltDel)
+            .field("fDoubleClickDetect", &self.fDoubleClickDetect)
+            .field("fEnableWindowsKey", &self.fEnableWindowsKey)
+            .field("fHideTitleBar", &self.fHideTitleBar)
+            .field("fInheritAutoLogon", &self.fInheritAutoLogon)
+            .field("fPromptForPassword", &self.fPromptForPassword)
+            .field("fUsingSavedCreds", &self.fUsingSavedCreds)
+            .field("Domain", &self.Domain)
+            .field("UserName", &self.UserName)
+            .field("Password", &self.Password)
+            .field("fPasswordIsScPin", &self.fPasswordIsScPin)
+            .field("fInheritInitialProgram", &self.fInheritInitialProgram)
+            .field("WorkDirectory", &self.WorkDirectory)
+            .field("InitialProgram", &self.InitialProgram)
+            .field("fMaximizeShell", &self.fMaximizeShell)
+            .field("EncryptionLevel", &self.EncryptionLevel)
+            .field("PerformanceFlags", &self.PerformanceFlags)
+            .field("ProtocolName", &self.ProtocolName)
+            .field("ProtocolType", &self.ProtocolType)
+            .field("fInheritColorDepth", &self.fInheritColorDepth)
+            .field("HRes", &self.HRes)
+            .field("VRes", &self.VRes)
+            .field("ColorDepth", &self.ColorDepth)
+            .field("DisplayDriverName", &self.DisplayDriverName)
+            .field("DisplayDeviceName", &self.DisplayDeviceName)
+            .field("fMouse", &self.fMouse)
+            .field("KeyboardLayout", &self.KeyboardLayout)
+            .field("KeyboardType", &self.KeyboardType)
+            .field("KeyboardSubType", &self.KeyboardSubType)
+            .field("KeyboardFunctionKey", &self.KeyboardFunctionKey)
+            .field("imeFileName", &self.imeFileName)
+            .field("ActiveInputLocale", &self.ActiveInputLocale)
+            .field("fNoAudioPlayback", &self.fNoAudioPlayback)
+            .field("fRemoteConsoleAudio", &self.fRemoteConsoleAudio)
+            .field("AudioDriverName", &self.AudioDriverName)
+            .field("ClientTimeZone", &self.ClientTimeZone)
+            .field("ClientName", &self.ClientName)
+            .field("SerialNumber", &self.SerialNumber)
+            .field("ClientAddressFamily", &self.ClientAddressFamily)
+            .field("ClientAddress", &self.ClientAddress)
+            .field("ClientSockAddress", &self.ClientSockAddress)
+            .field("ClientDirectory", &self.ClientDirectory)
+            .field("ClientBuildNumber", &self.ClientBuildNumber)
+            .field("ClientProductId", &self.ClientProductId)
+            .field("OutBufCountHost", &self.OutBufCountHost)
+            .field("OutBufCountClient", &self.OutBufCountClient)
+            .field("OutBufLength", &self.OutBufLength)
+            .field("ClientSessionId", &self.ClientSessionId)
+            .field("ClientDigProductId", &self.ClientDigProductId)
+            .field("fDisableCpm", &self.fDisableCpm)
+            .field("fDisableCdm", &self.fDisableCdm)
+            .field("fDisableCcm", &self.fDisableCcm)
+            .field("fDisableLPT", &self.fDisableLPT)
+            .field("fDisableClip", &self.fDisableClip)
+            .field("fDisablePNP", &self.fDisablePNP)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_CLIENT_DATA {
     type Abi = Self;
 }
@@ -12755,6 +13431,11 @@ impl ::core::marker::Copy for WTS_CLIENT_DISPLAY {}
 impl ::core::clone::Clone for WTS_CLIENT_DISPLAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_CLIENT_DISPLAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_CLIENT_DISPLAY").field("HorizontalResolution", &self.HorizontalResolution).field("VerticalResolution", &self.VerticalResolution).field("ColorDepth", &self.ColorDepth).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_CLIENT_DISPLAY {
@@ -12859,6 +13540,11 @@ impl ::core::marker::Copy for WTS_DISPLAY_IOCTL {}
 impl ::core::clone::Clone for WTS_DISPLAY_IOCTL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_DISPLAY_IOCTL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_DISPLAY_IOCTL").field("pDisplayIOCtlData", &self.pDisplayIOCtlData).field("cbDisplayIOCtlData", &self.cbDisplayIOCtlData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_DISPLAY_IOCTL {
@@ -12995,6 +13681,12 @@ impl ::core::clone::Clone for WTS_LICENSE_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_LICENSE_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_LICENSE_CAPABILITIES").field("KeyExchangeAlg", &self.KeyExchangeAlg).field("ProtocolVer", &self.ProtocolVer).field("fAuthenticateServer", &self.fAuthenticateServer).field("CertType", &self.CertType).field("cbClientName", &self.cbClientName).field("rgbClientName", &self.rgbClientName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_LICENSE_CAPABILITIES {
     type Abi = Self;
 }
@@ -13090,6 +13782,23 @@ impl ::core::clone::Clone for WTS_POLICY_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_POLICY_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_POLICY_DATA")
+            .field("fDisableEncryption", &self.fDisableEncryption)
+            .field("fDisableAutoReconnect", &self.fDisableAutoReconnect)
+            .field("ColorDepth", &self.ColorDepth)
+            .field("MinEncryptionLevel", &self.MinEncryptionLevel)
+            .field("fDisableCpm", &self.fDisableCpm)
+            .field("fDisableCdm", &self.fDisableCdm)
+            .field("fDisableCcm", &self.fDisableCcm)
+            .field("fDisableLPT", &self.fDisableLPT)
+            .field("fDisableClip", &self.fDisableClip)
+            .field("fDisablePNPRedir", &self.fDisablePNPRedir)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_POLICY_DATA {
     type Abi = Self;
 }
@@ -13125,6 +13834,12 @@ impl ::core::clone::Clone for WTS_PROCESS_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_PROCESS_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROCESS_INFOA").field("SessionId", &self.SessionId).field("ProcessId", &self.ProcessId).field("pProcessName", &self.pProcessName).field("pUserSid", &self.pUserSid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_PROCESS_INFOA {
     type Abi = Self;
 }
@@ -13157,6 +13872,12 @@ impl ::core::marker::Copy for WTS_PROCESS_INFOW {}
 impl ::core::clone::Clone for WTS_PROCESS_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_PROCESS_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROCESS_INFOW").field("SessionId", &self.SessionId).field("ProcessId", &self.ProcessId).field("pProcessName", &self.pProcessName).field("pUserSid", &self.pUserSid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13203,6 +13924,25 @@ impl ::core::clone::Clone for WTS_PROCESS_INFO_EXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_PROCESS_INFO_EXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROCESS_INFO_EXA")
+            .field("SessionId", &self.SessionId)
+            .field("ProcessId", &self.ProcessId)
+            .field("pProcessName", &self.pProcessName)
+            .field("pUserSid", &self.pUserSid)
+            .field("NumberOfThreads", &self.NumberOfThreads)
+            .field("HandleCount", &self.HandleCount)
+            .field("PagefileUsage", &self.PagefileUsage)
+            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
+            .field("WorkingSetSize", &self.WorkingSetSize)
+            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
+            .field("UserTime", &self.UserTime)
+            .field("KernelTime", &self.KernelTime)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_PROCESS_INFO_EXA {
     type Abi = Self;
 }
@@ -13246,6 +13986,25 @@ impl ::core::clone::Clone for WTS_PROCESS_INFO_EXW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_PROCESS_INFO_EXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROCESS_INFO_EXW")
+            .field("SessionId", &self.SessionId)
+            .field("ProcessId", &self.ProcessId)
+            .field("pProcessName", &self.pProcessName)
+            .field("pUserSid", &self.pUserSid)
+            .field("NumberOfThreads", &self.NumberOfThreads)
+            .field("HandleCount", &self.HandleCount)
+            .field("PagefileUsage", &self.PagefileUsage)
+            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
+            .field("WorkingSetSize", &self.WorkingSetSize)
+            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
+            .field("UserTime", &self.UserTime)
+            .field("KernelTime", &self.KernelTime)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_PROCESS_INFO_EXW {
     type Abi = Self;
 }
@@ -13280,6 +14039,12 @@ impl ::core::marker::Copy for WTS_PROPERTY_VALUE {}
 impl ::core::clone::Clone for WTS_PROPERTY_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_PROPERTY_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROPERTY_VALUE").field("Type", &self.Type).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13351,6 +14116,12 @@ impl ::core::clone::Clone for WTS_PROPERTY_VALUE_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_PROPERTY_VALUE_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROPERTY_VALUE_0_0").field("size", &self.size).field("pbVal", &self.pbVal).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_PROPERTY_VALUE_0_0 {
     type Abi = Self;
 }
@@ -13384,6 +14155,12 @@ impl ::core::clone::Clone for WTS_PROPERTY_VALUE_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_PROPERTY_VALUE_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROPERTY_VALUE_0_1").field("size", &self.size).field("pstrVal", &self.pstrVal).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_PROPERTY_VALUE_0_1 {
     type Abi = Self;
 }
@@ -13411,6 +14188,11 @@ impl ::core::marker::Copy for WTS_PROTOCOL_CACHE {}
 impl ::core::clone::Clone for WTS_PROTOCOL_CACHE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_PROTOCOL_CACHE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROTOCOL_CACHE").field("CacheReads", &self.CacheReads).field("CacheHits", &self.CacheHits).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_PROTOCOL_CACHE {
@@ -13455,6 +14237,30 @@ impl ::core::clone::Clone for WTS_PROTOCOL_COUNTERS {
         *self
     }
 }
+impl ::core::fmt::Debug for WTS_PROTOCOL_COUNTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROTOCOL_COUNTERS")
+            .field("WdBytes", &self.WdBytes)
+            .field("WdFrames", &self.WdFrames)
+            .field("WaitForOutBuf", &self.WaitForOutBuf)
+            .field("Frames", &self.Frames)
+            .field("Bytes", &self.Bytes)
+            .field("CompressedBytes", &self.CompressedBytes)
+            .field("CompressFlushes", &self.CompressFlushes)
+            .field("Errors", &self.Errors)
+            .field("Timeouts", &self.Timeouts)
+            .field("AsyncFramingError", &self.AsyncFramingError)
+            .field("AsyncOverrunError", &self.AsyncOverrunError)
+            .field("AsyncOverflowError", &self.AsyncOverflowError)
+            .field("AsyncParityError", &self.AsyncParityError)
+            .field("TdErrors", &self.TdErrors)
+            .field("ProtocolType", &self.ProtocolType)
+            .field("Length", &self.Length)
+            .field("Specific", &self.Specific)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_PROTOCOL_COUNTERS {
     type Abi = Self;
 }
@@ -13485,6 +14291,11 @@ impl ::core::marker::Copy for WTS_PROTOCOL_STATUS {}
 impl ::core::clone::Clone for WTS_PROTOCOL_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_PROTOCOL_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_PROTOCOL_STATUS").field("Output", &self.Output).field("Input", &self.Input).field("Cache", &self.Cache).field("AsyncSignal", &self.AsyncSignal).field("AsyncSignalMask", &self.AsyncSignalMask).field("Counters", &self.Counters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_PROTOCOL_STATUS {
@@ -13564,6 +14375,12 @@ impl ::core::clone::Clone for WTS_SERVER_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_SERVER_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SERVER_INFOA").field("pServerName", &self.pServerName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_SERVER_INFOA {
     type Abi = Self;
 }
@@ -13596,6 +14413,12 @@ impl ::core::clone::Clone for WTS_SERVER_INFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_SERVER_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SERVER_INFOW").field("pServerName", &self.pServerName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_SERVER_INFOW {
     type Abi = Self;
 }
@@ -13623,6 +14446,11 @@ impl ::core::marker::Copy for WTS_SERVICE_STATE {}
 impl ::core::clone::Clone for WTS_SERVICE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_SERVICE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SERVICE_STATE").field("RcmServiceState", &self.RcmServiceState).field("RcmDrainState", &self.RcmDrainState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_SERVICE_STATE {
@@ -13657,6 +14485,11 @@ impl ::core::clone::Clone for WTS_SESSION_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for WTS_SESSION_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SESSION_ADDRESS").field("AddressFamily", &self.AddressFamily).field("Address", &self.Address).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_SESSION_ADDRESS {
     type Abi = Self;
 }
@@ -13681,6 +14514,11 @@ impl ::core::marker::Copy for WTS_SESSION_ID {}
 impl ::core::clone::Clone for WTS_SESSION_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_SESSION_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SESSION_ID").field("SessionUniqueGuid", &self.SessionUniqueGuid).field("SessionId", &self.SessionId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_SESSION_ID {
@@ -13711,6 +14549,12 @@ impl ::core::marker::Copy for WTS_SESSION_INFOA {}
 impl ::core::clone::Clone for WTS_SESSION_INFOA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_SESSION_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SESSION_INFOA").field("SessionId", &self.SessionId).field("pWinStationName", &self.pWinStationName).field("State", &self.State).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13745,6 +14589,12 @@ impl ::core::marker::Copy for WTS_SESSION_INFOW {}
 impl ::core::clone::Clone for WTS_SESSION_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_SESSION_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SESSION_INFOW").field("SessionId", &self.SessionId).field("pWinStationName", &self.pWinStationName).field("State", &self.State).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13787,6 +14637,12 @@ impl ::core::clone::Clone for WTS_SESSION_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_SESSION_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SESSION_INFO_1A").field("ExecEnvId", &self.ExecEnvId).field("State", &self.State).field("SessionId", &self.SessionId).field("pSessionName", &self.pSessionName).field("pHostName", &self.pHostName).field("pUserName", &self.pUserName).field("pDomainName", &self.pDomainName).field("pFarmName", &self.pFarmName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_SESSION_INFO_1A {
     type Abi = Self;
 }
@@ -13826,6 +14682,12 @@ impl ::core::clone::Clone for WTS_SESSION_INFO_1W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_SESSION_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SESSION_INFO_1W").field("ExecEnvId", &self.ExecEnvId).field("State", &self.State).field("SessionId", &self.SessionId).field("pSessionName", &self.pSessionName).field("pHostName", &self.pHostName).field("pUserName", &self.pUserName).field("pDomainName", &self.pDomainName).field("pFarmName", &self.pFarmName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_SESSION_INFO_1W {
     type Abi = Self;
 }
@@ -13857,6 +14719,11 @@ impl ::core::clone::Clone for WTS_SMALL_RECT {
         *self
     }
 }
+impl ::core::fmt::Debug for WTS_SMALL_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SMALL_RECT").field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_SMALL_RECT {
     type Abi = Self;
 }
@@ -13881,6 +14748,11 @@ impl ::core::marker::Copy for WTS_SOCKADDR {}
 impl ::core::clone::Clone for WTS_SOCKADDR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_SOCKADDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SOCKADDR").field("sin_family", &self.sin_family).field("u", &self.u).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_SOCKADDR {
@@ -13936,6 +14808,11 @@ impl ::core::clone::Clone for WTS_SOCKADDR_0_0 {
         *self
     }
 }
+impl ::core::fmt::Debug for WTS_SOCKADDR_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SOCKADDR_0_0").field("sin_port", &self.sin_port).field("IN_ADDR", &self.IN_ADDR).field("sin_zero", &self.sin_zero).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_SOCKADDR_0_0 {
     type Abi = Self;
 }
@@ -13962,6 +14839,11 @@ impl ::core::marker::Copy for WTS_SOCKADDR_0_1 {}
 impl ::core::clone::Clone for WTS_SOCKADDR_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_SOCKADDR_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SOCKADDR_0_1").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_SOCKADDR_0_1 {
@@ -13996,6 +14878,11 @@ impl ::core::clone::Clone for WTS_SYSTEMTIME {
         *self
     }
 }
+impl ::core::fmt::Debug for WTS_SYSTEMTIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_SYSTEMTIME {
     type Abi = Self;
 }
@@ -14025,6 +14912,11 @@ impl ::core::marker::Copy for WTS_TIME_ZONE_INFORMATION {}
 impl ::core::clone::Clone for WTS_TIME_ZONE_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_TIME_ZONE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_TIME_ZONE_INFORMATION {
@@ -14064,6 +14956,11 @@ impl ::core::clone::Clone for WTS_USER_CREDENTIAL {
         *self
     }
 }
+impl ::core::fmt::Debug for WTS_USER_CREDENTIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_USER_CREDENTIAL").field("UserName", &self.UserName).field("Password", &self.Password).field("Domain", &self.Domain).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_USER_CREDENTIAL {
     type Abi = Self;
 }
@@ -14089,6 +14986,11 @@ impl ::core::marker::Copy for WTS_USER_DATA {}
 impl ::core::clone::Clone for WTS_USER_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_USER_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_USER_DATA").field("WorkDirectory", &self.WorkDirectory).field("InitialProgram", &self.InitialProgram).field("UserTimeZone", &self.UserTimeZone).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_USER_DATA {
@@ -14124,6 +15026,12 @@ impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WTS_VALIDATION_INFORMATIONA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_VALIDATION_INFORMATIONA").field("ProductInfo", &self.ProductInfo).field("License", &self.License).field("LicenseLength", &self.LicenseLength).field("HardwareID", &self.HardwareID).field("HardwareIDLength", &self.HardwareIDLength).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_VALIDATION_INFORMATIONA {
     type Abi = Self;
 }
@@ -14154,6 +15062,11 @@ impl ::core::marker::Copy for WTS_VALIDATION_INFORMATIONW {}
 impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WTS_VALIDATION_INFORMATIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WTS_VALIDATION_INFORMATIONW").field("ProductInfo", &self.ProductInfo).field("License", &self.License).field("LicenseLength", &self.LicenseLength).field("HardwareID", &self.HardwareID).field("HardwareIDLength", &self.HardwareIDLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_VALIDATION_INFORMATIONW {
@@ -14312,6 +15225,12 @@ impl ::core::clone::Clone for _WTS_PRODUCT_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for _WTS_PRODUCT_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_WTS_PRODUCT_INFOA").field("CompanyName", &self.CompanyName).field("ProductID", &self.ProductID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for _WTS_PRODUCT_INFOA {
     type Abi = Self;
 }
@@ -14339,6 +15258,11 @@ impl ::core::marker::Copy for _WTS_PRODUCT_INFOW {}
 impl ::core::clone::Clone for _WTS_PRODUCT_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for _WTS_PRODUCT_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_WTS_PRODUCT_INFOW").field("CompanyName", &self.CompanyName).field("ProductID", &self.ProductID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for _WTS_PRODUCT_INFOW {
@@ -14380,6 +15304,24 @@ impl ::core::clone::Clone for pluginResource {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for pluginResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("pluginResource")
+            .field("alias", &self.alias)
+            .field("name", &self.name)
+            .field("resourceFileContents", &self.resourceFileContents)
+            .field("fileExtension", &self.fileExtension)
+            .field("resourcePluginType", &self.resourcePluginType)
+            .field("isDiscoverable", &self.isDiscoverable)
+            .field("resourceType", &self.resourceType)
+            .field("pceIconSize", &self.pceIconSize)
+            .field("iconContents", &self.iconContents)
+            .field("pcePluginBlobSize", &self.pcePluginBlobSize)
+            .field("blobContents", &self.blobContents)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for pluginResource {
     type Abi = Self;
 }
@@ -14417,6 +15359,12 @@ impl ::core::clone::Clone for pluginResource2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for pluginResource2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("pluginResource2").field("resourceV1", &self.resourceV1).field("pceFileAssocListSize", &self.pceFileAssocListSize).field("fileAssocList", &self.fileAssocList).field("securityDescriptor", &self.securityDescriptor).field("pceFolderListSize", &self.pceFolderListSize).field("folderList", &self.folderList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for pluginResource2 {
     type Abi = Self;
 }
@@ -14446,6 +15394,11 @@ impl ::core::marker::Copy for pluginResource2FileAssociation {}
 impl ::core::clone::Clone for pluginResource2FileAssociation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for pluginResource2FileAssociation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("pluginResource2FileAssociation").field("extName", &self.extName).field("primaryHandler", &self.primaryHandler).field("pceIconSize", &self.pceIconSize).field("iconContents", &self.iconContents).finish()
     }
 }
 unsafe impl ::windows::core::Abi for pluginResource2FileAssociation {

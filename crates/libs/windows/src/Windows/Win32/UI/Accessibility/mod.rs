@@ -12,6 +12,11 @@ impl ::core::clone::Clone for ACCESSTIMEOUT {
         *self
     }
 }
+impl ::core::fmt::Debug for ACCESSTIMEOUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACCESSTIMEOUT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iTimeOutMSec", &self.iTimeOutMSec).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ACCESSTIMEOUT {
     type Abi = Self;
 }
@@ -589,6 +594,12 @@ impl ::core::clone::Clone for ExtendedProperty {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ExtendedProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ExtendedProperty").field("PropertyName", &self.PropertyName).field("PropertyValue", &self.PropertyValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ExtendedProperty {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -620,6 +631,11 @@ impl ::core::marker::Copy for FILTERKEYS {}
 impl ::core::clone::Clone for FILTERKEYS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FILTERKEYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTERKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iWaitMSec", &self.iWaitMSec).field("iDelayMSec", &self.iDelayMSec).field("iRepeatMSec", &self.iRepeatMSec).field("iBounceMSec", &self.iBounceMSec).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILTERKEYS {
@@ -779,6 +795,12 @@ impl ::core::clone::Clone for HIGHCONTRASTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HIGHCONTRASTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIGHCONTRASTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HIGHCONTRASTA {
     type Abi = Self;
 }
@@ -810,6 +832,12 @@ impl ::core::marker::Copy for HIGHCONTRASTW {}
 impl ::core::clone::Clone for HIGHCONTRASTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HIGHCONTRASTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIGHCONTRASTW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22296,6 +22324,11 @@ impl ::core::clone::Clone for MOUSEKEYS {
         *self
     }
 }
+impl ::core::fmt::Debug for MOUSEKEYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iMaxSpeed", &self.iMaxSpeed).field("iTimeToMaxSpeed", &self.iTimeToMaxSpeed).field("iCtrlSpeed", &self.iCtrlSpeed).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MOUSEKEYS {
     type Abi = Self;
 }
@@ -22324,6 +22357,12 @@ impl ::core::marker::Copy for MSAAMENUINFO {}
 impl ::core::clone::Clone for MSAAMENUINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MSAAMENUINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSAAMENUINFO").field("dwMSAASignature", &self.dwMSAASignature).field("cchWText", &self.cchWText).field("pszWText", &self.pszWText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22798,6 +22837,12 @@ impl ::core::clone::Clone for SERIALKEYSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERIALKEYSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERIALKEYSA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERIALKEYSA {
     type Abi = Self;
 }
@@ -22833,6 +22878,12 @@ impl ::core::marker::Copy for SERIALKEYSW {}
 impl ::core::clone::Clone for SERIALKEYSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SERIALKEYSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERIALKEYSW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22889,6 +22940,25 @@ impl ::core::clone::Clone for SOUNDSENTRYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOUNDSENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOUNDSENTRYA")
+            .field("cbSize", &self.cbSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("iFSTextEffect", &self.iFSTextEffect)
+            .field("iFSTextEffectMSec", &self.iFSTextEffectMSec)
+            .field("iFSTextEffectColorBits", &self.iFSTextEffectColorBits)
+            .field("iFSGrafEffect", &self.iFSGrafEffect)
+            .field("iFSGrafEffectMSec", &self.iFSGrafEffectMSec)
+            .field("iFSGrafEffectColor", &self.iFSGrafEffectColor)
+            .field("iWindowsEffect", &self.iWindowsEffect)
+            .field("iWindowsEffectMSec", &self.iWindowsEffectMSec)
+            .field("lpszWindowsEffectDLL", &self.lpszWindowsEffectDLL)
+            .field("iWindowsEffectOrdinal", &self.iWindowsEffectOrdinal)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOUNDSENTRYA {
     type Abi = Self;
 }
@@ -22929,6 +22999,25 @@ impl ::core::marker::Copy for SOUNDSENTRYW {}
 impl ::core::clone::Clone for SOUNDSENTRYW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SOUNDSENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOUNDSENTRYW")
+            .field("cbSize", &self.cbSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("iFSTextEffect", &self.iFSTextEffect)
+            .field("iFSTextEffectMSec", &self.iFSTextEffectMSec)
+            .field("iFSTextEffectColorBits", &self.iFSTextEffectColorBits)
+            .field("iFSGrafEffect", &self.iFSGrafEffect)
+            .field("iFSGrafEffectMSec", &self.iFSGrafEffectMSec)
+            .field("iFSGrafEffectColor", &self.iFSGrafEffectColor)
+            .field("iWindowsEffect", &self.iWindowsEffect)
+            .field("iWindowsEffectMSec", &self.iWindowsEffectMSec)
+            .field("lpszWindowsEffectDLL", &self.lpszWindowsEffectDLL)
+            .field("iWindowsEffectOrdinal", &self.iWindowsEffectOrdinal)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22999,6 +23088,11 @@ impl ::core::marker::Copy for STICKYKEYS {}
 impl ::core::clone::Clone for STICKYKEYS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STICKYKEYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STICKYKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STICKYKEYS {
@@ -23412,6 +23506,11 @@ impl ::core::marker::Copy for TOGGLEKEYS {}
 impl ::core::clone::Clone for TOGGLEKEYS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TOGGLEKEYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TOGGLEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TOGGLEKEYS {
@@ -24738,6 +24837,12 @@ impl ::core::clone::Clone for UIAutomationEventInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UIAutomationEventInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UIAutomationEventInfo").field("guid", &self.guid).field("pProgrammaticName", &self.pProgrammaticName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UIAutomationEventInfo {
     type Abi = Self;
 }
@@ -24775,6 +24880,12 @@ impl ::core::clone::Clone for UIAutomationMethodInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UIAutomationMethodInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UIAutomationMethodInfo").field("pProgrammaticName", &self.pProgrammaticName).field("doSetFocus", &self.doSetFocus).field("cInParameters", &self.cInParameters).field("cOutParameters", &self.cOutParameters).field("pParameterTypes", &self.pParameterTypes).field("pParameterNames", &self.pParameterNames).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UIAutomationMethodInfo {
     type Abi = Self;
 }
@@ -24802,6 +24913,11 @@ impl ::core::marker::Copy for UIAutomationParameter {}
 impl ::core::clone::Clone for UIAutomationParameter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UIAutomationParameter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UIAutomationParameter").field("type", &self.r#type).field("pData", &self.pData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UIAutomationParameter {
@@ -24853,6 +24969,24 @@ impl ::core::clone::Clone for UIAutomationPatternInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UIAutomationPatternInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UIAutomationPatternInfo")
+            .field("guid", &self.guid)
+            .field("pProgrammaticName", &self.pProgrammaticName)
+            .field("providerInterfaceId", &self.providerInterfaceId)
+            .field("clientInterfaceId", &self.clientInterfaceId)
+            .field("cProperties", &self.cProperties)
+            .field("pProperties", &self.pProperties)
+            .field("cMethods", &self.cMethods)
+            .field("pMethods", &self.pMethods)
+            .field("cEvents", &self.cEvents)
+            .field("pEvents", &self.pEvents)
+            .field("pPatternHandler", &self.pPatternHandler)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UIAutomationPatternInfo {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -24884,6 +25018,12 @@ impl ::core::marker::Copy for UIAutomationPropertyInfo {}
 impl ::core::clone::Clone for UIAutomationPropertyInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UIAutomationPropertyInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UIAutomationPropertyInfo").field("guid", &self.guid).field("pProgrammaticName", &self.pProgrammaticName).field("type", &self.r#type).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -24994,6 +25134,11 @@ impl ::core::clone::Clone for UiaAndOrCondition {
         *self
     }
 }
+impl ::core::fmt::Debug for UiaAndOrCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaAndOrCondition").field("ConditionType", &self.ConditionType).field("ppConditions", &self.ppConditions).field("cConditions", &self.cConditions).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UiaAndOrCondition {
     type Abi = Self;
 }
@@ -25022,6 +25167,11 @@ impl ::core::marker::Copy for UiaAsyncContentLoadedEventArgs {}
 impl ::core::clone::Clone for UiaAsyncContentLoadedEventArgs {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UiaAsyncContentLoadedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaAsyncContentLoadedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("AsyncContentLoadedState", &self.AsyncContentLoadedState).field("PercentComplete", &self.PercentComplete).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UiaAsyncContentLoadedEventArgs {
@@ -25055,6 +25205,11 @@ impl ::core::clone::Clone for UiaCacheRequest {
         *self
     }
 }
+impl ::core::fmt::Debug for UiaCacheRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaCacheRequest").field("pViewCondition", &self.pViewCondition).field("Scope", &self.Scope).field("pProperties", &self.pProperties).field("cProperties", &self.cProperties).field("pPatterns", &self.pPatterns).field("cPatterns", &self.cPatterns).field("automationElementMode", &self.automationElementMode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UiaCacheRequest {
     type Abi = Self;
 }
@@ -25081,6 +25236,12 @@ pub struct UiaChangeInfo {
 impl ::core::clone::Clone for UiaChangeInfo {
     fn clone(&self) -> Self {
         Self { uiaId: self.uiaId, payload: self.payload.clone(), extraInfo: self.extraInfo.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for UiaChangeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaChangeInfo").field("uiaId", &self.uiaId).field("payload", &self.payload).field("extraInfo", &self.extraInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -25116,6 +25277,12 @@ impl ::core::marker::Copy for UiaChangesEventArgs {}
 impl ::core::clone::Clone for UiaChangesEventArgs {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for UiaChangesEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaChangesEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("EventIdCount", &self.EventIdCount).field("pUiaChanges", &self.pUiaChanges).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -25160,6 +25327,11 @@ impl ::core::marker::Copy for UiaCondition {}
 impl ::core::clone::Clone for UiaCondition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UiaCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaCondition").field("ConditionType", &self.ConditionType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UiaCondition {
@@ -25231,6 +25403,11 @@ impl ::core::clone::Clone for UiaEventArgs {
         *self
     }
 }
+impl ::core::fmt::Debug for UiaEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UiaEventArgs {
     type Abi = Self;
 }
@@ -25293,6 +25470,12 @@ impl ::core::marker::Copy for UiaFindParams {}
 impl ::core::clone::Clone for UiaFindParams {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for UiaFindParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaFindParams").field("MaxDepth", &self.MaxDepth).field("FindFirst", &self.FindFirst).field("ExcludeRoot", &self.ExcludeRoot).field("pFindCondition", &self.pFindCondition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -25637,6 +25820,11 @@ impl ::core::clone::Clone for UiaNotCondition {
         *self
     }
 }
+impl ::core::fmt::Debug for UiaNotCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaNotCondition").field("ConditionType", &self.ConditionType).field("pCondition", &self.pCondition).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UiaNotCondition {
     type Abi = Self;
 }
@@ -25678,6 +25866,11 @@ impl ::core::clone::Clone for UiaPoint {
         *self
     }
 }
+impl ::core::fmt::Debug for UiaPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaPoint").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UiaPoint {
     type Abi = Self;
 }
@@ -25706,6 +25899,12 @@ pub struct UiaPropertyChangedEventArgs {
 impl ::core::clone::Clone for UiaPropertyChangedEventArgs {
     fn clone(&self) -> Self {
         Self { Type: self.Type, EventId: self.EventId, PropertyId: self.PropertyId, OldValue: self.OldValue.clone(), NewValue: self.NewValue.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for UiaPropertyChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaPropertyChangedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("PropertyId", &self.PropertyId).field("OldValue", &self.OldValue).field("NewValue", &self.NewValue).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -25739,6 +25938,12 @@ pub struct UiaPropertyCondition {
 impl ::core::clone::Clone for UiaPropertyCondition {
     fn clone(&self) -> Self {
         Self { ConditionType: self.ConditionType, PropertyId: self.PropertyId, Value: self.Value.clone(), Flags: self.Flags }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for UiaPropertyCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaPropertyCondition").field("ConditionType", &self.ConditionType).field("PropertyId", &self.PropertyId).field("Value", &self.Value).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -25923,6 +26128,11 @@ impl ::core::clone::Clone for UiaRect {
         *self
     }
 }
+impl ::core::fmt::Debug for UiaRect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaRect").field("left", &self.left).field("top", &self.top).field("width", &self.width).field("height", &self.height).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UiaRect {
     type Abi = Self;
 }
@@ -26012,6 +26222,11 @@ impl ::core::clone::Clone for UiaStructureChangedEventArgs {
         *self
     }
 }
+impl ::core::fmt::Debug for UiaStructureChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaStructureChangedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("StructureChangeType", &self.StructureChangeType).field("pRuntimeId", &self.pRuntimeId).field("cRuntimeIdLen", &self.cRuntimeIdLen).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UiaStructureChangedEventArgs {
     type Abi = Self;
 }
@@ -26041,6 +26256,12 @@ impl ::core::marker::Copy for UiaTextEditTextChangedEventArgs {}
 impl ::core::clone::Clone for UiaTextEditTextChangedEventArgs {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for UiaTextEditTextChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaTextEditTextChangedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("TextEditChangeType", &self.TextEditChangeType).field("pTextChange", &self.pTextChange).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -26088,6 +26309,11 @@ impl ::core::marker::Copy for UiaWindowClosedEventArgs {}
 impl ::core::clone::Clone for UiaWindowClosedEventArgs {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UiaWindowClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UiaWindowClosedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("pRuntimeId", &self.pRuntimeId).field("cRuntimeIdLen", &self.cRuntimeIdLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UiaWindowClosedEventArgs {

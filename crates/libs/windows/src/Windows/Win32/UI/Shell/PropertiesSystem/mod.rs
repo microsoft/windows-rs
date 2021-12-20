@@ -3602,6 +3602,11 @@ impl ::core::clone::Clone for PROPERTYKEY {
         *self
     }
 }
+impl ::core::fmt::Debug for PROPERTYKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPERTYKEY").field("fmtid", &self.fmtid).field("pid", &self.pid).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PROPERTYKEY {
     type Abi = Self;
 }
@@ -3665,6 +3670,25 @@ impl ::core::marker::Copy for PROPPRG {}
 impl ::core::clone::Clone for PROPPRG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROPPRG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPPRG")
+            .field("flPrg", &self.flPrg)
+            .field("flPrgInit", &self.flPrgInit)
+            .field("achTitle", &self.achTitle)
+            .field("achCmdLine", &self.achCmdLine)
+            .field("achWorkDir", &self.achWorkDir)
+            .field("wHotKey", &self.wHotKey)
+            .field("achIconFile", &self.achIconFile)
+            .field("wIconIndex", &self.wIconIndex)
+            .field("dwEnhModeFlags", &self.dwEnhModeFlags)
+            .field("dwRealModeFlags", &self.dwRealModeFlags)
+            .field("achOtherFile", &self.achOtherFile)
+            .field("achPIFFile", &self.achPIFFile)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

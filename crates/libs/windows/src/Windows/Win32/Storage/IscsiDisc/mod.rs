@@ -33,6 +33,24 @@ impl ::core::clone::Clone for ATA_PASS_THROUGH_DIRECT {
         *self
     }
 }
+impl ::core::fmt::Debug for ATA_PASS_THROUGH_DIRECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATA_PASS_THROUGH_DIRECT")
+            .field("Length", &self.Length)
+            .field("AtaFlags", &self.AtaFlags)
+            .field("PathId", &self.PathId)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("ReservedAsUchar", &self.ReservedAsUchar)
+            .field("DataTransferLength", &self.DataTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("ReservedAsUlong", &self.ReservedAsUlong)
+            .field("DataBuffer", &self.DataBuffer)
+            .field("PreviousTaskFile", &self.PreviousTaskFile)
+            .field("CurrentTaskFile", &self.CurrentTaskFile)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATA_PASS_THROUGH_DIRECT {
     type Abi = Self;
 }
@@ -70,6 +88,25 @@ impl ::core::marker::Copy for ATA_PASS_THROUGH_DIRECT32 {}
 impl ::core::clone::Clone for ATA_PASS_THROUGH_DIRECT32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for ATA_PASS_THROUGH_DIRECT32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATA_PASS_THROUGH_DIRECT32")
+            .field("Length", &self.Length)
+            .field("AtaFlags", &self.AtaFlags)
+            .field("PathId", &self.PathId)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("ReservedAsUchar", &self.ReservedAsUchar)
+            .field("DataTransferLength", &self.DataTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("ReservedAsUlong", &self.ReservedAsUlong)
+            .field("DataBuffer", &self.DataBuffer)
+            .field("PreviousTaskFile", &self.PreviousTaskFile)
+            .field("CurrentTaskFile", &self.CurrentTaskFile)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -112,6 +149,24 @@ impl ::core::clone::Clone for ATA_PASS_THROUGH_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for ATA_PASS_THROUGH_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATA_PASS_THROUGH_EX")
+            .field("Length", &self.Length)
+            .field("AtaFlags", &self.AtaFlags)
+            .field("PathId", &self.PathId)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("ReservedAsUchar", &self.ReservedAsUchar)
+            .field("DataTransferLength", &self.DataTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("ReservedAsUlong", &self.ReservedAsUlong)
+            .field("DataBufferOffset", &self.DataBufferOffset)
+            .field("PreviousTaskFile", &self.PreviousTaskFile)
+            .field("CurrentTaskFile", &self.CurrentTaskFile)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ATA_PASS_THROUGH_EX {
     type Abi = Self;
 }
@@ -149,6 +204,25 @@ impl ::core::marker::Copy for ATA_PASS_THROUGH_EX32 {}
 impl ::core::clone::Clone for ATA_PASS_THROUGH_EX32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for ATA_PASS_THROUGH_EX32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ATA_PASS_THROUGH_EX32")
+            .field("Length", &self.Length)
+            .field("AtaFlags", &self.AtaFlags)
+            .field("PathId", &self.PathId)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("ReservedAsUchar", &self.ReservedAsUchar)
+            .field("DataTransferLength", &self.DataTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("ReservedAsUlong", &self.ReservedAsUlong)
+            .field("DataBufferOffset", &self.DataBufferOffset)
+            .field("PreviousTaskFile", &self.PreviousTaskFile)
+            .field("CurrentTaskFile", &self.CurrentTaskFile)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -380,6 +454,11 @@ impl ::core::clone::Clone for DSM_NOTIFICATION_REQUEST_BLOCK {
         *self
     }
 }
+impl ::core::fmt::Debug for DSM_NOTIFICATION_REQUEST_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSM_NOTIFICATION_REQUEST_BLOCK").field("Size", &self.Size).field("Version", &self.Version).field("NotifyFlags", &self.NotifyFlags).field("DataSetProfile", &self.DataSetProfile).field("Reserved", &self.Reserved).field("DataSetRangesCount", &self.DataSetRangesCount).field("DataSetRanges", &self.DataSetRanges).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DSM_NOTIFICATION_REQUEST_BLOCK {
     type Abi = Self;
 }
@@ -407,6 +486,11 @@ impl ::core::marker::Copy for DUMP_DRIVER {}
 impl ::core::clone::Clone for DUMP_DRIVER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DUMP_DRIVER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUMP_DRIVER").field("DumpDriverList", &self.DumpDriverList).field("DriverName", &self.DriverName).field("BaseName", &self.BaseName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DUMP_DRIVER {
@@ -438,6 +522,12 @@ impl ::core::marker::Copy for DUMP_DRIVER_EX {}
 impl ::core::clone::Clone for DUMP_DRIVER_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DUMP_DRIVER_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUMP_DRIVER_EX").field("DumpDriverList", &self.DumpDriverList).field("DriverName", &self.DriverName).field("BaseName", &self.BaseName).field("DriverFullPath", &self.DriverFullPath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -492,6 +582,23 @@ impl ::core::clone::Clone for DUMP_POINTERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DUMP_POINTERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUMP_POINTERS")
+            .field("AdapterObject", &self.AdapterObject)
+            .field("MappedRegisterBase", &self.MappedRegisterBase)
+            .field("DumpData", &self.DumpData)
+            .field("CommonBufferVa", &self.CommonBufferVa)
+            .field("CommonBufferPa", &self.CommonBufferPa)
+            .field("CommonBufferSize", &self.CommonBufferSize)
+            .field("AllocateCommonBuffers", &self.AllocateCommonBuffers)
+            .field("UseDiskDump", &self.UseDiskDump)
+            .field("Spare1", &self.Spare1)
+            .field("DeviceObject", &self.DeviceObject)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DUMP_POINTERS {
     type Abi = Self;
 }
@@ -539,6 +646,29 @@ impl ::core::clone::Clone for DUMP_POINTERS_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DUMP_POINTERS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUMP_POINTERS_EX")
+            .field("Header", &self.Header)
+            .field("DumpData", &self.DumpData)
+            .field("CommonBufferVa", &self.CommonBufferVa)
+            .field("CommonBufferSize", &self.CommonBufferSize)
+            .field("AllocateCommonBuffers", &self.AllocateCommonBuffers)
+            .field("DeviceObject", &self.DeviceObject)
+            .field("DriverList", &self.DriverList)
+            .field("dwPortFlags", &self.dwPortFlags)
+            .field("MaxDeviceDumpSectionSize", &self.MaxDeviceDumpSectionSize)
+            .field("MaxDeviceDumpLevel", &self.MaxDeviceDumpLevel)
+            .field("MaxTransferSize", &self.MaxTransferSize)
+            .field("AdapterObject", &self.AdapterObject)
+            .field("MappedRegisterBase", &self.MappedRegisterBase)
+            .field("DeviceReady", &self.DeviceReady)
+            .field("DumpDevicePowerOn", &self.DumpDevicePowerOn)
+            .field("DumpDevicePowerOnContext", &self.DumpDevicePowerOnContext)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DUMP_POINTERS_EX {
     type Abi = Self;
 }
@@ -566,6 +696,11 @@ impl ::core::marker::Copy for DUMP_POINTERS_VERSION {}
 impl ::core::clone::Clone for DUMP_POINTERS_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DUMP_POINTERS_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DUMP_POINTERS_VERSION").field("Version", &self.Version).field("Size", &self.Size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DUMP_POINTERS_VERSION {
@@ -612,6 +747,11 @@ impl ::core::marker::Copy for FIRMWARE_REQUEST_BLOCK {}
 impl ::core::clone::Clone for FIRMWARE_REQUEST_BLOCK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FIRMWARE_REQUEST_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FIRMWARE_REQUEST_BLOCK").field("Version", &self.Version).field("Size", &self.Size).field("Function", &self.Function).field("Flags", &self.Flags).field("DataBufferOffset", &self.DataBufferOffset).field("DataBufferLength", &self.DataBufferLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FIRMWARE_REQUEST_BLOCK {
@@ -872,6 +1012,11 @@ impl ::core::clone::Clone for HYBRID_DEMOTE_BY_SIZE {
         *self
     }
 }
+impl ::core::fmt::Debug for HYBRID_DEMOTE_BY_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYBRID_DEMOTE_BY_SIZE").field("Version", &self.Version).field("Size", &self.Size).field("SourcePriority", &self.SourcePriority).field("TargetPriority", &self.TargetPriority).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).field("LbaCount", &self.LbaCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HYBRID_DEMOTE_BY_SIZE {
     type Abi = Self;
 }
@@ -898,6 +1043,11 @@ impl ::core::marker::Copy for HYBRID_DIRTY_THRESHOLDS {}
 impl ::core::clone::Clone for HYBRID_DIRTY_THRESHOLDS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HYBRID_DIRTY_THRESHOLDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYBRID_DIRTY_THRESHOLDS").field("Version", &self.Version).field("Size", &self.Size).field("DirtyLowThreshold", &self.DirtyLowThreshold).field("DirtyHighThreshold", &self.DirtyHighThreshold).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HYBRID_DIRTY_THRESHOLDS {
@@ -948,6 +1098,12 @@ impl ::core::clone::Clone for HYBRID_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HYBRID_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYBRID_INFORMATION").field("Version", &self.Version).field("Size", &self.Size).field("HybridSupported", &self.HybridSupported).field("Status", &self.Status).field("CacheTypeEffective", &self.CacheTypeEffective).field("CacheTypeDefault", &self.CacheTypeDefault).field("FractionBase", &self.FractionBase).field("CacheSize", &self.CacheSize).field("Attributes", &self.Attributes).field("Priorities", &self.Priorities).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HYBRID_INFORMATION {
     type Abi = Self;
 }
@@ -977,6 +1133,12 @@ impl ::core::marker::Copy for HYBRID_INFORMATION_0 {}
 impl ::core::clone::Clone for HYBRID_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HYBRID_INFORMATION_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYBRID_INFORMATION_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1019,6 +1181,12 @@ impl ::core::clone::Clone for HYBRID_INFORMATION_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HYBRID_INFORMATION_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYBRID_INFORMATION_1").field("PriorityLevelCount", &self.PriorityLevelCount).field("MaxPriorityBehavior", &self.MaxPriorityBehavior).field("OptimalWriteGranularity", &self.OptimalWriteGranularity).field("Reserved", &self.Reserved).field("DirtyThresholdLow", &self.DirtyThresholdLow).field("DirtyThresholdHigh", &self.DirtyThresholdHigh).field("SupportedCommands", &self.SupportedCommands).field("Priority", &self.Priority).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HYBRID_INFORMATION_1 {
     type Abi = Self;
 }
@@ -1054,6 +1222,12 @@ impl ::core::clone::Clone for HYBRID_INFORMATION_1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HYBRID_INFORMATION_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYBRID_INFORMATION_1_0").field("_bitfield", &self._bitfield).field("MaxEvictCommands", &self.MaxEvictCommands).field("MaxLbaRangeCountForEvict", &self.MaxLbaRangeCountForEvict).field("MaxLbaRangeCountForChangeLba", &self.MaxLbaRangeCountForChangeLba).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HYBRID_INFORMATION_1_0 {
     type Abi = Self;
 }
@@ -1085,6 +1259,11 @@ impl ::core::marker::Copy for HYBRID_REQUEST_BLOCK {}
 impl ::core::clone::Clone for HYBRID_REQUEST_BLOCK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HYBRID_REQUEST_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYBRID_REQUEST_BLOCK").field("Version", &self.Version).field("Size", &self.Size).field("Function", &self.Function).field("Flags", &self.Flags).field("DataBufferOffset", &self.DataBufferOffset).field("DataBufferLength", &self.DataBufferLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HYBRID_REQUEST_BLOCK {
@@ -1131,6 +1310,11 @@ impl ::core::clone::Clone for IDE_IO_CONTROL {
         *self
     }
 }
+impl ::core::fmt::Debug for IDE_IO_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IDE_IO_CONTROL").field("HeaderLength", &self.HeaderLength).field("Signature", &self.Signature).field("Timeout", &self.Timeout).field("ControlCode", &self.ControlCode).field("ReturnStatus", &self.ReturnStatus).field("DataLength", &self.DataLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IDE_IO_CONTROL {
     type Abi = Self;
 }
@@ -1163,6 +1347,11 @@ impl ::core::marker::Copy for IKE_AUTHENTICATION_INFORMATION {}
 impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IKE_AUTHENTICATION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IKE_AUTHENTICATION_INFORMATION").field("AuthMethod", &self.AuthMethod).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_INFORMATION {
@@ -1222,6 +1411,11 @@ impl ::core::marker::Copy for IKE_AUTHENTICATION_PRESHARED_KEY {}
 impl ::core::clone::Clone for IKE_AUTHENTICATION_PRESHARED_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IKE_AUTHENTICATION_PRESHARED_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IKE_AUTHENTICATION_PRESHARED_KEY").field("SecurityFlags", &self.SecurityFlags).field("IdType", &self.IdType).field("IdLengthInBytes", &self.IdLengthInBytes).field("Id", &self.Id).field("KeyLengthInBytes", &self.KeyLengthInBytes).field("Key", &self.Key).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_PRESHARED_KEY {
@@ -1302,6 +1496,12 @@ impl ::core::clone::Clone for IO_SCSI_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IO_SCSI_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IO_SCSI_CAPABILITIES").field("Length", &self.Length).field("MaximumTransferLength", &self.MaximumTransferLength).field("MaximumPhysicalPages", &self.MaximumPhysicalPages).field("SupportedAsynchronousEvents", &self.SupportedAsynchronousEvents).field("AlignmentMask", &self.AlignmentMask).field("TaggedQueuing", &self.TaggedQueuing).field("AdapterScansDown", &self.AdapterScansDown).field("AdapterUsesPio", &self.AdapterUsesPio).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IO_SCSI_CAPABILITIES {
     type Abi = Self;
 }
@@ -1347,6 +1547,12 @@ impl ::core::clone::Clone for ISCSI_CONNECTION_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_CONNECTION_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_CONNECTION_INFOA").field("ConnectionId", &self.ConnectionId).field("InitiatorAddress", &self.InitiatorAddress).field("TargetAddress", &self.TargetAddress).field("InitiatorSocket", &self.InitiatorSocket).field("TargetSocket", &self.TargetSocket).field("CID", &self.CID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ISCSI_CONNECTION_INFOA {
     type Abi = Self;
 }
@@ -1381,6 +1587,12 @@ impl ::core::marker::Copy for ISCSI_CONNECTION_INFOW {}
 impl ::core::clone::Clone for ISCSI_CONNECTION_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_CONNECTION_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_CONNECTION_INFOW").field("ConnectionId", &self.ConnectionId).field("InitiatorAddress", &self.InitiatorAddress).field("TargetAddress", &self.TargetAddress).field("InitiatorSocket", &self.InitiatorSocket).field("TargetSocket", &self.TargetSocket).field("CID", &self.CID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1420,6 +1632,11 @@ impl ::core::clone::Clone for ISCSI_CONNECTION_INFO_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for ISCSI_CONNECTION_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_CONNECTION_INFO_EX").field("ConnectionId", &self.ConnectionId).field("State", &self.State).field("Protocol", &self.Protocol).field("HeaderDigest", &self.HeaderDigest).field("DataDigest", &self.DataDigest).field("MaxRecvDataSegmentLength", &self.MaxRecvDataSegmentLength).field("AuthType", &self.AuthType).field("EstimatedThroughput", &self.EstimatedThroughput).field("MaxDatagramSize", &self.MaxDatagramSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ISCSI_CONNECTION_INFO_EX {
     type Abi = Self;
 }
@@ -1453,6 +1670,12 @@ impl ::core::marker::Copy for ISCSI_DEVICE_ON_SESSIONA {}
 impl ::core::clone::Clone for ISCSI_DEVICE_ON_SESSIONA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+impl ::core::fmt::Debug for ISCSI_DEVICE_ON_SESSIONA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_DEVICE_ON_SESSIONA").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("ScsiAddress", &self.ScsiAddress).field("DeviceInterfaceType", &self.DeviceInterfaceType).field("DeviceInterfaceName", &self.DeviceInterfaceName).field("LegacyName", &self.LegacyName).field("StorageDeviceNumber", &self.StorageDeviceNumber).field("DeviceInstance", &self.DeviceInstance).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
@@ -1492,6 +1715,12 @@ impl ::core::marker::Copy for ISCSI_DEVICE_ON_SESSIONW {}
 impl ::core::clone::Clone for ISCSI_DEVICE_ON_SESSIONW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Ioctl")]
+impl ::core::fmt::Debug for ISCSI_DEVICE_ON_SESSIONW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_DEVICE_ON_SESSIONW").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("ScsiAddress", &self.ScsiAddress).field("DeviceInterfaceType", &self.DeviceInterfaceType).field("DeviceInterfaceName", &self.DeviceInterfaceName).field("LegacyName", &self.LegacyName).field("StorageDeviceNumber", &self.StorageDeviceNumber).field("DeviceInstance", &self.DeviceInstance).finish()
     }
 }
 #[cfg(feature = "Win32_System_Ioctl")]
@@ -1551,6 +1780,25 @@ impl ::core::marker::Copy for ISCSI_LOGIN_OPTIONS {}
 impl ::core::clone::Clone for ISCSI_LOGIN_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ISCSI_LOGIN_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_LOGIN_OPTIONS")
+            .field("Version", &self.Version)
+            .field("InformationSpecified", &self.InformationSpecified)
+            .field("LoginFlags", &self.LoginFlags)
+            .field("AuthType", &self.AuthType)
+            .field("HeaderDigest", &self.HeaderDigest)
+            .field("DataDigest", &self.DataDigest)
+            .field("MaximumConnections", &self.MaximumConnections)
+            .field("DefaultTime2Wait", &self.DefaultTime2Wait)
+            .field("DefaultTime2Retain", &self.DefaultTime2Retain)
+            .field("UsernameLength", &self.UsernameLength)
+            .field("PasswordLength", &self.PasswordLength)
+            .field("Username", &self.Username)
+            .field("Password", &self.Password)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for ISCSI_LOGIN_OPTIONS {
@@ -1621,6 +1869,12 @@ impl ::core::clone::Clone for ISCSI_SESSION_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_SESSION_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_SESSION_INFOA").field("SessionId", &self.SessionId).field("InitiatorName", &self.InitiatorName).field("TargetNodeName", &self.TargetNodeName).field("TargetName", &self.TargetName).field("ISID", &self.ISID).field("TSID", &self.TSID).field("ConnectionCount", &self.ConnectionCount).field("Connections", &self.Connections).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ISCSI_SESSION_INFOA {
     type Abi = Self;
 }
@@ -1657,6 +1911,12 @@ impl ::core::marker::Copy for ISCSI_SESSION_INFOW {}
 impl ::core::clone::Clone for ISCSI_SESSION_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_SESSION_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_SESSION_INFOW").field("SessionId", &self.SessionId).field("InitiatorName", &self.InitiatorName).field("TargetNodeName", &self.TargetNodeName).field("TargetName", &self.TargetName).field("ISID", &self.ISID).field("TSID", &self.TSID).field("ConnectionCount", &self.ConnectionCount).field("Connections", &self.Connections).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1704,6 +1964,26 @@ impl ::core::clone::Clone for ISCSI_SESSION_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_SESSION_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_SESSION_INFO_EX")
+            .field("SessionId", &self.SessionId)
+            .field("InitialR2t", &self.InitialR2t)
+            .field("ImmediateData", &self.ImmediateData)
+            .field("Type", &self.Type)
+            .field("DataSequenceInOrder", &self.DataSequenceInOrder)
+            .field("DataPduInOrder", &self.DataPduInOrder)
+            .field("ErrorRecoveryLevel", &self.ErrorRecoveryLevel)
+            .field("MaxOutstandingR2t", &self.MaxOutstandingR2t)
+            .field("FirstBurstLength", &self.FirstBurstLength)
+            .field("MaxBurstLength", &self.MaxBurstLength)
+            .field("MaximumConnections", &self.MaximumConnections)
+            .field("ConnectionCount", &self.ConnectionCount)
+            .field("Connections", &self.Connections)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ISCSI_SESSION_INFO_EX {
     type Abi = Self;
 }
@@ -1747,6 +2027,12 @@ impl ::core::clone::Clone for ISCSI_TARGET_MAPPINGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_TARGET_MAPPINGA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_MAPPINGA").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("OSDeviceName", &self.OSDeviceName).field("SessionId", &self.SessionId).field("OSBusNumber", &self.OSBusNumber).field("OSTargetNumber", &self.OSTargetNumber).field("LUNCount", &self.LUNCount).field("LUNList", &self.LUNList).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_MAPPINGA {
     type Abi = Self;
 }
@@ -1782,6 +2068,11 @@ impl ::core::clone::Clone for ISCSI_TARGET_MAPPINGW {
         *self
     }
 }
+impl ::core::fmt::Debug for ISCSI_TARGET_MAPPINGW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_MAPPINGW").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("OSDeviceName", &self.OSDeviceName).field("SessionId", &self.SessionId).field("OSBusNumber", &self.OSBusNumber).field("OSTargetNumber", &self.OSTargetNumber).field("LUNCount", &self.LUNCount).field("LUNList", &self.LUNList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_MAPPINGW {
     type Abi = Self;
 }
@@ -1810,6 +2101,12 @@ impl ::core::marker::Copy for ISCSI_TARGET_PORTALA {}
 impl ::core::clone::Clone for ISCSI_TARGET_PORTALA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_TARGET_PORTALA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_PORTALA").field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1843,6 +2140,11 @@ impl ::core::clone::Clone for ISCSI_TARGET_PORTALW {
         *self
     }
 }
+impl ::core::fmt::Debug for ISCSI_TARGET_PORTALW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_PORTALW").field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTALW {
     type Abi = Self;
 }
@@ -1873,6 +2175,12 @@ impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_GROUPA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_GROUPA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_PORTAL_GROUPA").field("Count", &self.Count).field("Portals", &self.Portals).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_GROUPA {
     type Abi = Self;
 }
@@ -1900,6 +2208,11 @@ impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_GROUPW {}
 impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_GROUPW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_GROUPW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_PORTAL_GROUPW").field("Count", &self.Count).field("Portals", &self.Portals).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_GROUPW {
@@ -1935,6 +2248,12 @@ impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_PORTAL_INFOA").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_INFOA {
     type Abi = Self;
 }
@@ -1965,6 +2284,11 @@ impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_INFOW {}
 impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_PORTAL_INFOW").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_INFOW {
@@ -2002,6 +2326,12 @@ impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFO_EXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_PORTAL_INFO_EXA").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).field("SecurityFlags", &self.SecurityFlags).field("LoginOptions", &self.LoginOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_INFO_EXA {
     type Abi = Self;
 }
@@ -2036,6 +2366,11 @@ impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFO_EXW {
         *self
     }
 }
+impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_TARGET_PORTAL_INFO_EXW").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).field("SecurityFlags", &self.SecurityFlags).field("LoginOptions", &self.LoginOptions).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ISCSI_TARGET_PORTAL_INFO_EXW {
     type Abi = Self;
 }
@@ -2060,6 +2395,11 @@ impl ::core::marker::Copy for ISCSI_UNIQUE_SESSION_ID {}
 impl ::core::clone::Clone for ISCSI_UNIQUE_SESSION_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ISCSI_UNIQUE_SESSION_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_UNIQUE_SESSION_ID").field("AdapterUnique", &self.AdapterUnique).field("AdapterSpecific", &self.AdapterSpecific).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ISCSI_UNIQUE_SESSION_ID {
@@ -2087,6 +2427,11 @@ impl ::core::marker::Copy for ISCSI_VERSION_INFO {}
 impl ::core::clone::Clone for ISCSI_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ISCSI_VERSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ISCSI_VERSION_INFO").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("BuildNumber", &self.BuildNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ISCSI_VERSION_INFO {
@@ -2259,6 +2604,11 @@ impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH {
         *self
     }
 }
+impl ::core::fmt::Debug for MPIO_PASS_THROUGH_PATH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPIO_PASS_THROUGH_PATH").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH {
     type Abi = Self;
 }
@@ -2290,6 +2640,12 @@ impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH32 {}
 impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for MPIO_PASS_THROUGH_PATH32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPIO_PASS_THROUGH_PATH32").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2330,6 +2686,12 @@ impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH32_EX {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for MPIO_PASS_THROUGH_PATH32_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPIO_PASS_THROUGH_PATH32_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH32_EX {
     type Abi = Self;
 }
@@ -2363,6 +2725,11 @@ impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_DIRECT {
         *self
     }
 }
+impl ::core::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_DIRECT {
     type Abi = Self;
 }
@@ -2394,6 +2761,12 @@ impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH_DIRECT32 {}
 impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT32").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2434,6 +2807,12 @@ impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT32_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     type Abi = Self;
 }
@@ -2467,6 +2846,11 @@ impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     type Abi = Self;
 }
@@ -2497,6 +2881,11 @@ impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for MPIO_PASS_THROUGH_PATH_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPIO_PASS_THROUGH_PATH_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MPIO_PASS_THROUGH_PATH_EX {
     type Abi = Self;
 }
@@ -2521,6 +2910,11 @@ impl ::core::marker::Copy for MP_DEVICE_DATA_SET_RANGE {}
 impl ::core::clone::Clone for MP_DEVICE_DATA_SET_RANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MP_DEVICE_DATA_SET_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MP_DEVICE_DATA_SET_RANGE").field("StartingOffset", &self.StartingOffset).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MP_DEVICE_DATA_SET_RANGE {
@@ -2616,6 +3010,12 @@ impl ::core::clone::Clone for NTSCSI_UNICODE_STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NTSCSI_UNICODE_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NTSCSI_UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NTSCSI_UNICODE_STRING {
     type Abi = Self;
 }
@@ -2656,6 +3056,25 @@ impl ::core::clone::Clone for NVCACHE_HINT_PAYLOAD {
         *self
     }
 }
+impl ::core::fmt::Debug for NVCACHE_HINT_PAYLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NVCACHE_HINT_PAYLOAD")
+            .field("Command", &self.Command)
+            .field("Feature7_0", &self.Feature7_0)
+            .field("Feature15_8", &self.Feature15_8)
+            .field("Count15_8", &self.Count15_8)
+            .field("LBA7_0", &self.LBA7_0)
+            .field("LBA15_8", &self.LBA15_8)
+            .field("LBA23_16", &self.LBA23_16)
+            .field("LBA31_24", &self.LBA31_24)
+            .field("LBA39_32", &self.LBA39_32)
+            .field("LBA47_40", &self.LBA47_40)
+            .field("Auxiliary7_0", &self.Auxiliary7_0)
+            .field("Auxiliary23_16", &self.Auxiliary23_16)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NVCACHE_HINT_PAYLOAD {
     type Abi = Self;
 }
@@ -2685,6 +3104,19 @@ impl ::core::marker::Copy for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {}
 impl ::core::clone::Clone for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NVCACHE_PRIORITY_LEVEL_DESCRIPTOR")
+            .field("PriorityLevel", &self.PriorityLevel)
+            .field("Reserved0", &self.Reserved0)
+            .field("ConsumedNVMSizeFraction", &self.ConsumedNVMSizeFraction)
+            .field("ConsumedMappingResourcesFraction", &self.ConsumedMappingResourcesFraction)
+            .field("ConsumedNVMSizeForDirtyDataFraction", &self.ConsumedNVMSizeForDirtyDataFraction)
+            .field("ConsumedMappingResourcesForDirtyDataFraction", &self.ConsumedMappingResourcesForDirtyDataFraction)
+            .field("Reserved1", &self.Reserved1)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
@@ -2718,6 +3150,11 @@ impl ::core::marker::Copy for NVCACHE_REQUEST_BLOCK {}
 impl ::core::clone::Clone for NVCACHE_REQUEST_BLOCK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NVCACHE_REQUEST_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NVCACHE_REQUEST_BLOCK").field("NRBSize", &self.NRBSize).field("Function", &self.Function).field("NRBFlags", &self.NRBFlags).field("NRBStatus", &self.NRBStatus).field("Count", &self.Count).field("LBA", &self.LBA).field("DataBufSize", &self.DataBufSize).field("NVCacheStatus", &self.NVCacheStatus).field("NVCacheSubStatus", &self.NVCacheSubStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NVCACHE_REQUEST_BLOCK {
@@ -2774,6 +3211,22 @@ impl ::core::clone::Clone for NV_FEATURE_PARAMETER {
         *self
     }
 }
+impl ::core::fmt::Debug for NV_FEATURE_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NV_FEATURE_PARAMETER")
+            .field("NVPowerModeEnabled", &self.NVPowerModeEnabled)
+            .field("NVParameterReserv1", &self.NVParameterReserv1)
+            .field("NVCmdEnabled", &self.NVCmdEnabled)
+            .field("NVParameterReserv2", &self.NVParameterReserv2)
+            .field("NVPowerModeVer", &self.NVPowerModeVer)
+            .field("NVCmdVer", &self.NVCmdVer)
+            .field("NVSize", &self.NVSize)
+            .field("NVReadSpeed", &self.NVReadSpeed)
+            .field("NVWrtSpeed", &self.NVWrtSpeed)
+            .field("DeviceSpinUpTime", &self.DeviceSpinUpTime)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NV_FEATURE_PARAMETER {
     type Abi = Self;
 }
@@ -2802,6 +3255,11 @@ impl ::core::marker::Copy for NV_SEP_CACHE_PARAMETER {}
 impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NV_SEP_CACHE_PARAMETER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NV_SEP_CACHE_PARAMETER").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("WriteCacheType", &self.WriteCacheType).field("WriteCacheTypeEffective", &self.WriteCacheTypeEffective).field("ParameterReserve1", &self.ParameterReserve1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NV_SEP_CACHE_PARAMETER {
@@ -2853,6 +3311,11 @@ impl ::core::marker::Copy for NV_SEP_CACHE_PARAMETER_0_0 {}
 impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER_0_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NV_SEP_CACHE_PARAMETER_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NV_SEP_CACHE_PARAMETER_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NV_SEP_CACHE_PARAMETER_0_0 {
@@ -2907,6 +3370,12 @@ impl ::core::clone::Clone for PERSISTENT_ISCSI_LOGIN_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PERSISTENT_ISCSI_LOGIN_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERSISTENT_ISCSI_LOGIN_INFOA").field("TargetName", &self.TargetName).field("IsInformationalSession", &self.IsInformationalSession).field("InitiatorInstance", &self.InitiatorInstance).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("TargetPortal", &self.TargetPortal).field("SecurityFlags", &self.SecurityFlags).field("Mappings", &self.Mappings).field("LoginOptions", &self.LoginOptions).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PERSISTENT_ISCSI_LOGIN_INFOA {
     type Abi = Self;
 }
@@ -2943,6 +3412,12 @@ impl ::core::marker::Copy for PERSISTENT_ISCSI_LOGIN_INFOW {}
 impl ::core::clone::Clone for PERSISTENT_ISCSI_LOGIN_INFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PERSISTENT_ISCSI_LOGIN_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PERSISTENT_ISCSI_LOGIN_INFOW").field("TargetName", &self.TargetName).field("IsInformationalSession", &self.IsInformationalSession).field("InitiatorInstance", &self.InitiatorInstance).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("TargetPortal", &self.TargetPortal).field("SecurityFlags", &self.SecurityFlags).field("Mappings", &self.Mappings).field("LoginOptions", &self.LoginOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3526,6 +4001,11 @@ impl ::core::clone::Clone for SCSI_ADAPTER_BUS_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SCSI_ADAPTER_BUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_ADAPTER_BUS_INFO").field("NumberOfBuses", &self.NumberOfBuses).field("BusData", &self.BusData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCSI_ADAPTER_BUS_INFO {
     type Abi = Self;
 }
@@ -3555,6 +4035,11 @@ impl ::core::clone::Clone for SCSI_ADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for SCSI_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_ADDRESS").field("Length", &self.Length).field("PortNumber", &self.PortNumber).field("PathId", &self.PathId).field("TargetId", &self.TargetId).field("Lun", &self.Lun).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCSI_ADDRESS {
     type Abi = Self;
 }
@@ -3580,6 +4065,11 @@ impl ::core::marker::Copy for SCSI_BUS_DATA {}
 impl ::core::clone::Clone for SCSI_BUS_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCSI_BUS_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_BUS_DATA").field("NumberOfLogicalUnits", &self.NumberOfLogicalUnits).field("InitiatorBusId", &self.InitiatorBusId).field("InquiryDataOffset", &self.InquiryDataOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCSI_BUS_DATA {
@@ -3614,6 +4104,12 @@ impl ::core::marker::Copy for SCSI_INQUIRY_DATA {}
 impl ::core::clone::Clone for SCSI_INQUIRY_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCSI_INQUIRY_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_INQUIRY_DATA").field("PathId", &self.PathId).field("TargetId", &self.TargetId).field("Lun", &self.Lun).field("DeviceClaimed", &self.DeviceClaimed).field("InquiryDataLength", &self.InquiryDataLength).field("NextInquiryDataOffset", &self.NextInquiryDataOffset).field("InquiryData", &self.InquiryData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3654,6 +4150,11 @@ impl ::core::clone::Clone for SCSI_LUN_LIST {
         *self
     }
 }
+impl ::core::fmt::Debug for SCSI_LUN_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_LUN_LIST").field("OSLUN", &self.OSLUN).field("TargetLUN", &self.TargetLUN).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCSI_LUN_LIST {
     type Abi = Self;
 }
@@ -3689,6 +4190,25 @@ impl ::core::marker::Copy for SCSI_PASS_THROUGH {}
 impl ::core::clone::Clone for SCSI_PASS_THROUGH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SCSI_PASS_THROUGH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_PASS_THROUGH")
+            .field("Length", &self.Length)
+            .field("ScsiStatus", &self.ScsiStatus)
+            .field("PathId", &self.PathId)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("CdbLength", &self.CdbLength)
+            .field("SenseInfoLength", &self.SenseInfoLength)
+            .field("DataIn", &self.DataIn)
+            .field("DataTransferLength", &self.DataTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("DataBufferOffset", &self.DataBufferOffset)
+            .field("SenseInfoOffset", &self.SenseInfoOffset)
+            .field("Cdb", &self.Cdb)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH {
@@ -3729,6 +4249,26 @@ impl ::core::marker::Copy for SCSI_PASS_THROUGH32 {}
 impl ::core::clone::Clone for SCSI_PASS_THROUGH32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SCSI_PASS_THROUGH32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_PASS_THROUGH32")
+            .field("Length", &self.Length)
+            .field("ScsiStatus", &self.ScsiStatus)
+            .field("PathId", &self.PathId)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("CdbLength", &self.CdbLength)
+            .field("SenseInfoLength", &self.SenseInfoLength)
+            .field("DataIn", &self.DataIn)
+            .field("DataTransferLength", &self.DataTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("DataBufferOffset", &self.DataBufferOffset)
+            .field("SenseInfoOffset", &self.SenseInfoOffset)
+            .field("Cdb", &self.Cdb)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3779,6 +4319,29 @@ impl ::core::clone::Clone for SCSI_PASS_THROUGH32_EX {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SCSI_PASS_THROUGH32_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_PASS_THROUGH32_EX")
+            .field("Version", &self.Version)
+            .field("Length", &self.Length)
+            .field("CdbLength", &self.CdbLength)
+            .field("StorAddressLength", &self.StorAddressLength)
+            .field("ScsiStatus", &self.ScsiStatus)
+            .field("SenseInfoLength", &self.SenseInfoLength)
+            .field("DataDirection", &self.DataDirection)
+            .field("Reserved", &self.Reserved)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("StorAddressOffset", &self.StorAddressOffset)
+            .field("SenseInfoOffset", &self.SenseInfoOffset)
+            .field("DataOutTransferLength", &self.DataOutTransferLength)
+            .field("DataInTransferLength", &self.DataInTransferLength)
+            .field("DataOutBufferOffset", &self.DataOutBufferOffset)
+            .field("DataInBufferOffset", &self.DataInBufferOffset)
+            .field("Cdb", &self.Cdb)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH32_EX {
     type Abi = Self;
 }
@@ -3819,6 +4382,25 @@ impl ::core::clone::Clone for SCSI_PASS_THROUGH_DIRECT {
         *self
     }
 }
+impl ::core::fmt::Debug for SCSI_PASS_THROUGH_DIRECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_PASS_THROUGH_DIRECT")
+            .field("Length", &self.Length)
+            .field("ScsiStatus", &self.ScsiStatus)
+            .field("PathId", &self.PathId)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("CdbLength", &self.CdbLength)
+            .field("SenseInfoLength", &self.SenseInfoLength)
+            .field("DataIn", &self.DataIn)
+            .field("DataTransferLength", &self.DataTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("DataBuffer", &self.DataBuffer)
+            .field("SenseInfoOffset", &self.SenseInfoOffset)
+            .field("Cdb", &self.Cdb)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_DIRECT {
     type Abi = Self;
 }
@@ -3857,6 +4439,26 @@ impl ::core::marker::Copy for SCSI_PASS_THROUGH_DIRECT32 {}
 impl ::core::clone::Clone for SCSI_PASS_THROUGH_DIRECT32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SCSI_PASS_THROUGH_DIRECT32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_PASS_THROUGH_DIRECT32")
+            .field("Length", &self.Length)
+            .field("ScsiStatus", &self.ScsiStatus)
+            .field("PathId", &self.PathId)
+            .field("TargetId", &self.TargetId)
+            .field("Lun", &self.Lun)
+            .field("CdbLength", &self.CdbLength)
+            .field("SenseInfoLength", &self.SenseInfoLength)
+            .field("DataIn", &self.DataIn)
+            .field("DataTransferLength", &self.DataTransferLength)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("DataBuffer", &self.DataBuffer)
+            .field("SenseInfoOffset", &self.SenseInfoOffset)
+            .field("Cdb", &self.Cdb)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3907,6 +4509,29 @@ impl ::core::clone::Clone for SCSI_PASS_THROUGH_DIRECT32_EX {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SCSI_PASS_THROUGH_DIRECT32_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_PASS_THROUGH_DIRECT32_EX")
+            .field("Version", &self.Version)
+            .field("Length", &self.Length)
+            .field("CdbLength", &self.CdbLength)
+            .field("StorAddressLength", &self.StorAddressLength)
+            .field("ScsiStatus", &self.ScsiStatus)
+            .field("SenseInfoLength", &self.SenseInfoLength)
+            .field("DataDirection", &self.DataDirection)
+            .field("Reserved", &self.Reserved)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("StorAddressOffset", &self.StorAddressOffset)
+            .field("SenseInfoOffset", &self.SenseInfoOffset)
+            .field("DataOutTransferLength", &self.DataOutTransferLength)
+            .field("DataInTransferLength", &self.DataInTransferLength)
+            .field("DataOutBuffer", &self.DataOutBuffer)
+            .field("DataInBuffer", &self.DataInBuffer)
+            .field("Cdb", &self.Cdb)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_DIRECT32_EX {
     type Abi = Self;
 }
@@ -3950,6 +4575,28 @@ impl ::core::clone::Clone for SCSI_PASS_THROUGH_DIRECT_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for SCSI_PASS_THROUGH_DIRECT_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_PASS_THROUGH_DIRECT_EX")
+            .field("Version", &self.Version)
+            .field("Length", &self.Length)
+            .field("CdbLength", &self.CdbLength)
+            .field("StorAddressLength", &self.StorAddressLength)
+            .field("ScsiStatus", &self.ScsiStatus)
+            .field("SenseInfoLength", &self.SenseInfoLength)
+            .field("DataDirection", &self.DataDirection)
+            .field("Reserved", &self.Reserved)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("StorAddressOffset", &self.StorAddressOffset)
+            .field("SenseInfoOffset", &self.SenseInfoOffset)
+            .field("DataOutTransferLength", &self.DataOutTransferLength)
+            .field("DataInTransferLength", &self.DataInTransferLength)
+            .field("DataOutBuffer", &self.DataOutBuffer)
+            .field("DataInBuffer", &self.DataInBuffer)
+            .field("Cdb", &self.Cdb)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_DIRECT_EX {
     type Abi = Self;
 }
@@ -3990,6 +4637,28 @@ impl ::core::clone::Clone for SCSI_PASS_THROUGH_EX {
         *self
     }
 }
+impl ::core::fmt::Debug for SCSI_PASS_THROUGH_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCSI_PASS_THROUGH_EX")
+            .field("Version", &self.Version)
+            .field("Length", &self.Length)
+            .field("CdbLength", &self.CdbLength)
+            .field("StorAddressLength", &self.StorAddressLength)
+            .field("ScsiStatus", &self.ScsiStatus)
+            .field("SenseInfoLength", &self.SenseInfoLength)
+            .field("DataDirection", &self.DataDirection)
+            .field("Reserved", &self.Reserved)
+            .field("TimeOutValue", &self.TimeOutValue)
+            .field("StorAddressOffset", &self.StorAddressOffset)
+            .field("SenseInfoOffset", &self.SenseInfoOffset)
+            .field("DataOutTransferLength", &self.DataOutTransferLength)
+            .field("DataInTransferLength", &self.DataInTransferLength)
+            .field("DataOutBufferOffset", &self.DataOutBufferOffset)
+            .field("DataInBufferOffset", &self.DataInBufferOffset)
+            .field("Cdb", &self.Cdb)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SCSI_PASS_THROUGH_EX {
     type Abi = Self;
 }
@@ -4018,6 +4687,11 @@ impl ::core::marker::Copy for SRB_IO_CONTROL {}
 impl ::core::clone::Clone for SRB_IO_CONTROL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SRB_IO_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SRB_IO_CONTROL").field("HeaderLength", &self.HeaderLength).field("Signature", &self.Signature).field("Timeout", &self.Timeout).field("ControlCode", &self.ControlCode).field("ReturnCode", &self.ReturnCode).field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SRB_IO_CONTROL {
@@ -4050,6 +4724,11 @@ impl ::core::marker::Copy for STORAGE_DIAGNOSTIC_MP_REQUEST {}
 impl ::core::clone::Clone for STORAGE_DIAGNOSTIC_MP_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_DIAGNOSTIC_MP_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DIAGNOSTIC_MP_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("TargetType", &self.TargetType).field("Level", &self.Level).field("ProviderId", &self.ProviderId).field("BufferSize", &self.BufferSize).field("Reserved", &self.Reserved).field("DataBuffer", &self.DataBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_MP_REQUEST {
@@ -4093,6 +4772,11 @@ impl ::core::clone::Clone for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ENDURANCE_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("EnduranceInfo", &self.EnduranceInfo).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     type Abi = Self;
 }
@@ -4123,6 +4807,11 @@ impl ::core::clone::Clone for STORAGE_ENDURANCE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_ENDURANCE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ENDURANCE_INFO").field("ValidFields", &self.ValidFields).field("GroupId", &self.GroupId).field("Flags", &self.Flags).field("LifePercentage", &self.LifePercentage).field("BytesReadCount", &self.BytesReadCount).field("ByteWriteCount", &self.ByteWriteCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_ENDURANCE_INFO {
     type Abi = Self;
 }
@@ -4146,6 +4835,11 @@ impl ::core::marker::Copy for STORAGE_ENDURANCE_INFO_0 {}
 impl ::core::clone::Clone for STORAGE_ENDURANCE_INFO_0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_ENDURANCE_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_ENDURANCE_INFO_0").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ENDURANCE_INFO_0 {
@@ -4174,6 +4868,11 @@ impl ::core::marker::Copy for STORAGE_FIRMWARE_ACTIVATE {}
 impl ::core::clone::Clone for STORAGE_FIRMWARE_ACTIVATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_FIRMWARE_ACTIVATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FIRMWARE_ACTIVATE").field("Version", &self.Version).field("Size", &self.Size).field("SlotToActivate", &self.SlotToActivate).field("Reserved0", &self.Reserved0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_ACTIVATE {
@@ -4205,6 +4904,11 @@ impl ::core::marker::Copy for STORAGE_FIRMWARE_DOWNLOAD {}
 impl ::core::clone::Clone for STORAGE_FIRMWARE_DOWNLOAD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for STORAGE_FIRMWARE_DOWNLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FIRMWARE_DOWNLOAD").field("Version", &self.Version).field("Size", &self.Size).field("Offset", &self.Offset).field("BufferSize", &self.BufferSize).field("ImageBuffer", &self.ImageBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_DOWNLOAD {
@@ -4243,6 +4947,11 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_DOWNLOAD_V2 {
         *self
     }
 }
+impl ::core::fmt::Debug for STORAGE_FIRMWARE_DOWNLOAD_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FIRMWARE_DOWNLOAD_V2").field("Version", &self.Version).field("Size", &self.Size).field("Offset", &self.Offset).field("BufferSize", &self.BufferSize).field("Slot", &self.Slot).field("Reserved", &self.Reserved).field("ImageSize", &self.ImageSize).field("ImageBuffer", &self.ImageBuffer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     type Abi = Self;
 }
@@ -4276,6 +4985,12 @@ impl ::core::marker::Copy for STORAGE_FIRMWARE_INFO {}
 impl ::core::clone::Clone for STORAGE_FIRMWARE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_FIRMWARE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FIRMWARE_INFO").field("Version", &self.Version).field("Size", &self.Size).field("UpgradeSupport", &self.UpgradeSupport).field("SlotCount", &self.SlotCount).field("ActiveSlot", &self.ActiveSlot).field("PendingActivateSlot", &self.PendingActivateSlot).field("Reserved", &self.Reserved).field("Slot", &self.Slot).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4327,6 +5042,24 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_INFO_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_FIRMWARE_INFO_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FIRMWARE_INFO_V2")
+            .field("Version", &self.Version)
+            .field("Size", &self.Size)
+            .field("UpgradeSupport", &self.UpgradeSupport)
+            .field("SlotCount", &self.SlotCount)
+            .field("ActiveSlot", &self.ActiveSlot)
+            .field("PendingActivateSlot", &self.PendingActivateSlot)
+            .field("FirmwareShared", &self.FirmwareShared)
+            .field("Reserved", &self.Reserved)
+            .field("ImagePayloadAlignment", &self.ImagePayloadAlignment)
+            .field("ImagePayloadMaxSize", &self.ImagePayloadMaxSize)
+            .field("Slot", &self.Slot)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_INFO_V2 {
     type Abi = Self;
 }
@@ -4359,6 +5092,12 @@ impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO {}
 impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_FIRMWARE_SLOT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FIRMWARE_SLOT_INFO").field("SlotNumber", &self.SlotNumber).field("ReadOnly", &self.ReadOnly).field("Reserved", &self.Reserved).field("Revision", &self.Revision).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4427,6 +5166,12 @@ impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO_V2 {}
 impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_FIRMWARE_SLOT_INFO_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_FIRMWARE_SLOT_INFO_V2").field("SlotNumber", &self.SlotNumber).field("ReadOnly", &self.ReadOnly).field("Reserved", &self.Reserved).field("Revision", &self.Revision).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

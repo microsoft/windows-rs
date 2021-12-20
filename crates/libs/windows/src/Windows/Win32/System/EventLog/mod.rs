@@ -115,6 +115,28 @@ impl ::core::clone::Clone for EVENTLOGRECORD {
         *self
     }
 }
+impl ::core::fmt::Debug for EVENTLOGRECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENTLOGRECORD")
+            .field("Length", &self.Length)
+            .field("Reserved", &self.Reserved)
+            .field("RecordNumber", &self.RecordNumber)
+            .field("TimeGenerated", &self.TimeGenerated)
+            .field("TimeWritten", &self.TimeWritten)
+            .field("EventID", &self.EventID)
+            .field("EventType", &self.EventType)
+            .field("NumStrings", &self.NumStrings)
+            .field("EventCategory", &self.EventCategory)
+            .field("ReservedFlags", &self.ReservedFlags)
+            .field("ClosingRecordNumber", &self.ClosingRecordNumber)
+            .field("StringOffset", &self.StringOffset)
+            .field("UserSidLength", &self.UserSidLength)
+            .field("UserSidOffset", &self.UserSidOffset)
+            .field("DataLength", &self.DataLength)
+            .field("DataOffset", &self.DataOffset)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EVENTLOGRECORD {
     type Abi = Self;
 }
@@ -138,6 +160,11 @@ impl ::core::marker::Copy for EVENTLOG_FULL_INFORMATION {}
 impl ::core::clone::Clone for EVENTLOG_FULL_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENTLOG_FULL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENTLOG_FULL_INFORMATION").field("dwFull", &self.dwFull).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENTLOG_FULL_INFORMATION {
@@ -166,6 +193,11 @@ impl ::core::marker::Copy for EVENTSFORLOGFILE {}
 impl ::core::clone::Clone for EVENTSFORLOGFILE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EVENTSFORLOGFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVENTSFORLOGFILE").field("ulSize", &self.ulSize).field("szLogicalLogFile", &self.szLogicalLogFile).field("ulNumRecords", &self.ulNumRecords).field("pEventLogRecords", &self.pEventLogRecords).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENTSFORLOGFILE {
@@ -473,6 +505,12 @@ impl ::core::clone::Clone for EVT_RPC_LOGIN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVT_RPC_LOGIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVT_RPC_LOGIN").field("Server", &self.Server).field("User", &self.User).field("Domain", &self.Domain).field("Password", &self.Password).field("Flags", &self.Flags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EVT_RPC_LOGIN {
     type Abi = Self;
 }
@@ -590,6 +628,12 @@ impl ::core::marker::Copy for EVT_VARIANT {}
 impl ::core::clone::Clone for EVT_VARIANT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EVT_VARIANT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EVT_VARIANT").field("Anonymous", &self.Anonymous).field("Count", &self.Count).field("Type", &self.Type).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

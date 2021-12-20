@@ -105,6 +105,12 @@ impl ::core::clone::Clone for GLOBALENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GLOBALENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GLOBALENTRY").field("dwSize", &self.dwSize).field("dwAddress", &self.dwAddress).field("dwBlockSize", &self.dwBlockSize).field("hBlock", &self.hBlock).field("wcLock", &self.wcLock).field("wcPageLock", &self.wcPageLock).field("wFlags", &self.wFlags).field("wHeapPresent", &self.wHeapPresent).field("hOwner", &self.hOwner).field("wType", &self.wType).field("wData", &self.wData).field("dwNext", &self.dwNext).field("dwNextAlt", &self.dwNextAlt).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GLOBALENTRY {
     type Abi = Self;
 }
@@ -168,6 +174,12 @@ impl ::core::clone::Clone for IMAGE_NOTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for IMAGE_NOTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGE_NOTE {
     type Abi = Self;
 }
@@ -209,6 +221,12 @@ impl ::core::clone::Clone for MODULEENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MODULEENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MODULEENTRY").field("dwSize", &self.dwSize).field("szModule", &self.szModule).field("hModule", &self.hModule).field("wcUsage", &self.wcUsage).field("szExePath", &self.szExePath).field("wNext", &self.wNext).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MODULEENTRY {
     type Abi = Self;
 }
@@ -247,6 +265,12 @@ impl ::core::marker::Copy for SEGMENT_NOTE {}
 impl ::core::clone::Clone for SEGMENT_NOTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SEGMENT_NOTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -295,6 +319,12 @@ impl ::core::marker::Copy for TEMP_BP_NOTE {}
 impl ::core::clone::Clone for TEMP_BP_NOTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TEMP_BP_NOTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TEMP_BP_NOTE").field("Seg", &self.Seg).field("Offset", &self.Offset).field("bPM", &self.bPM).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -395,6 +425,39 @@ impl ::core::clone::Clone for VDMCONTEXT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
+impl ::core::fmt::Debug for VDMCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDMCONTEXT")
+            .field("ContextFlags", &self.ContextFlags)
+            .field("Dr0", &self.Dr0)
+            .field("Dr1", &self.Dr1)
+            .field("Dr2", &self.Dr2)
+            .field("Dr3", &self.Dr3)
+            .field("Dr6", &self.Dr6)
+            .field("Dr7", &self.Dr7)
+            .field("FloatSave", &self.FloatSave)
+            .field("SegGs", &self.SegGs)
+            .field("SegFs", &self.SegFs)
+            .field("SegEs", &self.SegEs)
+            .field("SegDs", &self.SegDs)
+            .field("Edi", &self.Edi)
+            .field("Esi", &self.Esi)
+            .field("Ebx", &self.Ebx)
+            .field("Edx", &self.Edx)
+            .field("Ecx", &self.Ecx)
+            .field("Eax", &self.Eax)
+            .field("Ebp", &self.Ebp)
+            .field("Eip", &self.Eip)
+            .field("SegCs", &self.SegCs)
+            .field("EFlags", &self.EFlags)
+            .field("Esp", &self.Esp)
+            .field("SegSs", &self.SegSs)
+            .field("ExtendedRegisters", &self.ExtendedRegisters)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for VDMCONTEXT {
     type Abi = Self;
 }
@@ -450,6 +513,37 @@ impl ::core::marker::Copy for VDMCONTEXT_WITHOUT_XSAVE {}
 impl ::core::clone::Clone for VDMCONTEXT_WITHOUT_XSAVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDMCONTEXT_WITHOUT_XSAVE")
+            .field("ContextFlags", &self.ContextFlags)
+            .field("Dr0", &self.Dr0)
+            .field("Dr1", &self.Dr1)
+            .field("Dr2", &self.Dr2)
+            .field("Dr3", &self.Dr3)
+            .field("Dr6", &self.Dr6)
+            .field("Dr7", &self.Dr7)
+            .field("FloatSave", &self.FloatSave)
+            .field("SegGs", &self.SegGs)
+            .field("SegFs", &self.SegFs)
+            .field("SegEs", &self.SegEs)
+            .field("SegDs", &self.SegDs)
+            .field("Edi", &self.Edi)
+            .field("Esi", &self.Esi)
+            .field("Ebx", &self.Ebx)
+            .field("Edx", &self.Edx)
+            .field("Ecx", &self.Ecx)
+            .field("Eax", &self.Eax)
+            .field("Ebp", &self.Ebp)
+            .field("Eip", &self.Eip)
+            .field("SegCs", &self.SegCs)
+            .field("EFlags", &self.EFlags)
+            .field("Esp", &self.Esp)
+            .field("SegSs", &self.SegSs)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -582,6 +676,12 @@ impl ::core::clone::Clone for VDMLDT_ENTRY {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for VDMLDT_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDMLDT_ENTRY").field("LimitLow", &self.LimitLow).field("BaseLow", &self.BaseLow).field("HighWord", &self.HighWord).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY {
     type Abi = Self;
 }
@@ -647,6 +747,12 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for VDMLDT_ENTRY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDMLDT_ENTRY_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_0 {
     type Abi = Self;
 }
@@ -679,6 +785,12 @@ impl ::core::marker::Copy for VDMLDT_ENTRY_0_1 {}
 impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for VDMLDT_ENTRY_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDMLDT_ENTRY_0_1").field("BaseMid", &self.BaseMid).field("Flags1", &self.Flags1).field("Flags2", &self.Flags2).field("BaseHi", &self.BaseHi).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -746,6 +858,12 @@ impl ::core::marker::Copy for VDM_SEGINFO {}
 impl ::core::clone::Clone for VDM_SEGINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDM_SEGINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

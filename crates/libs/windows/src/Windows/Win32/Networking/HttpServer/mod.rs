@@ -11,6 +11,11 @@ impl ::core::clone::Clone for HTTP2_SETTINGS_LIMITS_PARAM {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP2_SETTINGS_LIMITS_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP2_SETTINGS_LIMITS_PARAM").field("Http2MaxSettingsPerFrame", &self.Http2MaxSettingsPerFrame).field("Http2MaxSettingsPerMinute", &self.Http2MaxSettingsPerMinute).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP2_SETTINGS_LIMITS_PARAM {
     type Abi = Self;
 }
@@ -34,6 +39,11 @@ impl ::core::marker::Copy for HTTP2_WINDOW_SIZE_PARAM {}
 impl ::core::clone::Clone for HTTP2_WINDOW_SIZE_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP2_WINDOW_SIZE_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP2_WINDOW_SIZE_PARAM").field("Http2ReceiveWindowSize", &self.Http2ReceiveWindowSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP2_WINDOW_SIZE_PARAM {
@@ -60,6 +70,11 @@ impl ::core::marker::Copy for HTTPAPI_VERSION {}
 impl ::core::clone::Clone for HTTPAPI_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTPAPI_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTPAPI_VERSION").field("HttpApiMajorVersion", &self.HttpApiMajorVersion).field("HttpApiMinorVersion", &self.HttpApiMinorVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTPAPI_VERSION {
@@ -126,6 +141,11 @@ impl ::core::clone::Clone for HTTP_BANDWIDTH_LIMIT_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_BANDWIDTH_LIMIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_BANDWIDTH_LIMIT_INFO").field("Flags", &self.Flags).field("MaxBandwidth", &self.MaxBandwidth).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_BANDWIDTH_LIMIT_INFO {
     type Abi = Self;
 }
@@ -153,6 +173,12 @@ impl ::core::marker::Copy for HTTP_BINDING_INFO {}
 impl ::core::clone::Clone for HTTP_BINDING_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_BINDING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_BINDING_INFO").field("Flags", &self.Flags).field("RequestQueueHandle", &self.RequestQueueHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -185,6 +211,11 @@ impl ::core::clone::Clone for HTTP_BYTE_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_BYTE_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_BYTE_RANGE").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_BYTE_RANGE {
     type Abi = Self;
 }
@@ -209,6 +240,11 @@ impl ::core::marker::Copy for HTTP_CACHE_POLICY {}
 impl ::core::clone::Clone for HTTP_CACHE_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_CACHE_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_CACHE_POLICY").field("Policy", &self.Policy).field("SecondsToLive", &self.SecondsToLive).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_CACHE_POLICY {
@@ -253,6 +289,11 @@ impl ::core::clone::Clone for HTTP_CHANNEL_BIND_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_CHANNEL_BIND_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_CHANNEL_BIND_INFO").field("Hardening", &self.Hardening).field("Flags", &self.Flags).field("ServiceNames", &self.ServiceNames).field("NumberOfServiceNames", &self.NumberOfServiceNames).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_CHANNEL_BIND_INFO {
     type Abi = Self;
 }
@@ -285,6 +326,11 @@ impl ::core::marker::Copy for HTTP_CONNECTION_LIMIT_INFO {}
 impl ::core::clone::Clone for HTTP_CONNECTION_LIMIT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_CONNECTION_LIMIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_CONNECTION_LIMIT_INFO").field("Flags", &self.Flags).field("MaxConnections", &self.MaxConnections).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_CONNECTION_LIMIT_INFO {
@@ -320,6 +366,12 @@ impl ::core::marker::Copy for HTTP_COOKED_URL {}
 impl ::core::clone::Clone for HTTP_COOKED_URL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_COOKED_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_COOKED_URL").field("FullUrlLength", &self.FullUrlLength).field("HostLength", &self.HostLength).field("AbsPathLength", &self.AbsPathLength).field("QueryStringLength", &self.QueryStringLength).field("pFullUrl", &self.pFullUrl).field("pHost", &self.pHost).field("pAbsPath", &self.pAbsPath).field("pQueryString", &self.pQueryString).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -365,6 +417,11 @@ impl ::core::clone::Clone for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO").field("PropertyId", &self.PropertyId).field("PropertyInfoLength", &self.PropertyInfoLength).field("PropertyInfo", &self.PropertyInfo).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     type Abi = Self;
 }
@@ -392,6 +449,12 @@ impl ::core::marker::Copy for HTTP_DATA_CHUNK {}
 impl ::core::clone::Clone for HTTP_DATA_CHUNK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_DATA_CHUNK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_DATA_CHUNK").field("DataChunkType", &self.DataChunkType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -464,6 +527,12 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_DATA_CHUNK_0_0").field("ByteRange", &self.ByteRange).field("FileHandle", &self.FileHandle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_0 {
     type Abi = Self;
 }
@@ -494,6 +563,12 @@ impl ::core::marker::Copy for HTTP_DATA_CHUNK_0_1 {}
 impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_DATA_CHUNK_0_1").field("ByteRange", &self.ByteRange).field("pFragmentName", &self.pFragmentName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -530,6 +605,12 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_DATA_CHUNK_0_2").field("FragmentNameLength", &self.FragmentNameLength).field("pFragmentName", &self.pFragmentName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_2 {
     type Abi = Self;
 }
@@ -563,6 +644,12 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_DATA_CHUNK_0_3").field("pBuffer", &self.pBuffer).field("BufferLength", &self.BufferLength).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_3 {
     type Abi = Self;
 }
@@ -593,6 +680,12 @@ impl ::core::marker::Copy for HTTP_DATA_CHUNK_0_4 {}
 impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_4 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_DATA_CHUNK_0_4").field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -646,6 +739,11 @@ impl ::core::clone::Clone for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_DELEGATE_REQUEST_PROPERTY_INFO").field("PropertyId", &self.PropertyId).field("PropertyInfoLength", &self.PropertyInfoLength).field("PropertyInfo", &self.PropertyInfo).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     type Abi = Self;
 }
@@ -682,6 +780,12 @@ impl ::core::marker::Copy for HTTP_ERROR_HEADERS_PARAM {}
 impl ::core::clone::Clone for HTTP_ERROR_HEADERS_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_ERROR_HEADERS_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_ERROR_HEADERS_PARAM").field("StatusCode", &self.StatusCode).field("HeaderCount", &self.HeaderCount).field("Headers", &self.Headers).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -728,6 +832,11 @@ impl ::core::marker::Copy for HTTP_FLOWRATE_INFO {}
 impl ::core::clone::Clone for HTTP_FLOWRATE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_FLOWRATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_FLOWRATE_INFO").field("Flags", &self.Flags).field("MaxBandwidth", &self.MaxBandwidth).field("MaxPeakBandwidth", &self.MaxPeakBandwidth).field("BurstSize", &self.BurstSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_FLOWRATE_INFO {
@@ -878,6 +987,12 @@ impl ::core::clone::Clone for HTTP_KNOWN_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_KNOWN_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_KNOWN_HEADER").field("RawValueLength", &self.RawValueLength).field("pRawValue", &self.pRawValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_KNOWN_HEADER {
     type Abi = Self;
 }
@@ -908,6 +1023,12 @@ impl ::core::marker::Copy for HTTP_LISTEN_ENDPOINT_INFO {}
 impl ::core::clone::Clone for HTTP_LISTEN_ENDPOINT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_LISTEN_ENDPOINT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_LISTEN_ENDPOINT_INFO").field("Flags", &self.Flags).field("EnableSharing", &self.EnableSharing).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -964,6 +1085,27 @@ impl ::core::clone::Clone for HTTP_LOGGING_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for HTTP_LOGGING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_LOGGING_INFO")
+            .field("Flags", &self.Flags)
+            .field("LoggingFlags", &self.LoggingFlags)
+            .field("SoftwareName", &self.SoftwareName)
+            .field("SoftwareNameLength", &self.SoftwareNameLength)
+            .field("DirectoryNameLength", &self.DirectoryNameLength)
+            .field("DirectoryName", &self.DirectoryName)
+            .field("Format", &self.Format)
+            .field("Fields", &self.Fields)
+            .field("pExtFields", &self.pExtFields)
+            .field("NumOfExtFields", &self.NumOfExtFields)
+            .field("MaxRecordSize", &self.MaxRecordSize)
+            .field("RolloverType", &self.RolloverType)
+            .field("RolloverSize", &self.RolloverSize)
+            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for HTTP_LOGGING_INFO {
     type Abi = Self;
 }
@@ -1012,6 +1154,11 @@ impl ::core::marker::Copy for HTTP_LOG_DATA {}
 impl ::core::clone::Clone for HTTP_LOG_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_LOG_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_LOG_DATA").field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_LOG_DATA {
@@ -1073,6 +1220,43 @@ impl ::core::marker::Copy for HTTP_LOG_FIELDS_DATA {}
 impl ::core::clone::Clone for HTTP_LOG_FIELDS_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_LOG_FIELDS_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_LOG_FIELDS_DATA")
+            .field("Base", &self.Base)
+            .field("UserNameLength", &self.UserNameLength)
+            .field("UriStemLength", &self.UriStemLength)
+            .field("ClientIpLength", &self.ClientIpLength)
+            .field("ServerNameLength", &self.ServerNameLength)
+            .field("ServiceNameLength", &self.ServiceNameLength)
+            .field("ServerIpLength", &self.ServerIpLength)
+            .field("MethodLength", &self.MethodLength)
+            .field("UriQueryLength", &self.UriQueryLength)
+            .field("HostLength", &self.HostLength)
+            .field("UserAgentLength", &self.UserAgentLength)
+            .field("CookieLength", &self.CookieLength)
+            .field("ReferrerLength", &self.ReferrerLength)
+            .field("UserName", &self.UserName)
+            .field("UriStem", &self.UriStem)
+            .field("ClientIp", &self.ClientIp)
+            .field("ServerName", &self.ServerName)
+            .field("ServiceName", &self.ServiceName)
+            .field("ServerIp", &self.ServerIp)
+            .field("Method", &self.Method)
+            .field("UriQuery", &self.UriQuery)
+            .field("Host", &self.Host)
+            .field("UserAgent", &self.UserAgent)
+            .field("Cookie", &self.Cookie)
+            .field("Referrer", &self.Referrer)
+            .field("ServerPort", &self.ServerPort)
+            .field("ProtocolStatus", &self.ProtocolStatus)
+            .field("Win32Status", &self.Win32Status)
+            .field("MethodNum", &self.MethodNum)
+            .field("SubStatus", &self.SubStatus)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1177,6 +1361,12 @@ impl ::core::clone::Clone for HTTP_MULTIPLE_KNOWN_HEADERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_MULTIPLE_KNOWN_HEADERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_MULTIPLE_KNOWN_HEADERS").field("HeaderId", &self.HeaderId).field("Flags", &self.Flags).field("KnownHeaderCount", &self.KnownHeaderCount).field("KnownHeaders", &self.KnownHeaders).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_MULTIPLE_KNOWN_HEADERS {
     type Abi = Self;
 }
@@ -1205,6 +1395,11 @@ impl ::core::marker::Copy for HTTP_PERFORMANCE_PARAM {}
 impl ::core::clone::Clone for HTTP_PERFORMANCE_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_PERFORMANCE_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_PERFORMANCE_PARAM").field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_PERFORMANCE_PARAM {
@@ -1248,6 +1443,11 @@ impl ::core::clone::Clone for HTTP_PROPERTY_FLAGS {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_PROPERTY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_PROPERTY_FLAGS").field("_bitfield", &self._bitfield).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_PROPERTY_FLAGS {
     type Abi = Self;
 }
@@ -1272,6 +1472,11 @@ impl ::core::marker::Copy for HTTP_PROTECTION_LEVEL_INFO {}
 impl ::core::clone::Clone for HTTP_PROTECTION_LEVEL_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_PROTECTION_LEVEL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_PROTECTION_LEVEL_INFO").field("Flags", &self.Flags).field("Level", &self.Level).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_PROTECTION_LEVEL_INFO {
@@ -1308,6 +1513,11 @@ impl ::core::clone::Clone for HTTP_QOS_SETTING_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_QOS_SETTING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_QOS_SETTING_INFO").field("QosType", &self.QosType).field("QosSetting", &self.QosSetting).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_QOS_SETTING_INFO {
     type Abi = Self;
 }
@@ -1341,6 +1551,11 @@ impl ::core::clone::Clone for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_QUERY_REQUEST_QUALIFIER_QUIC").field("Freshness", &self.Freshness).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     type Abi = Self;
 }
@@ -1364,6 +1579,11 @@ impl ::core::marker::Copy for HTTP_QUERY_REQUEST_QUALIFIER_TCP {}
 impl ::core::clone::Clone for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_QUERY_REQUEST_QUALIFIER_TCP").field("Freshness", &self.Freshness).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
@@ -1390,6 +1610,11 @@ impl ::core::marker::Copy for HTTP_QUIC_API_TIMINGS {}
 impl ::core::clone::Clone for HTTP_QUIC_API_TIMINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_QUIC_API_TIMINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_QUIC_API_TIMINGS").field("ConnectionTimings", &self.ConnectionTimings).field("StreamTimings", &self.StreamTimings).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_QUIC_API_TIMINGS {
@@ -1427,6 +1652,25 @@ impl ::core::marker::Copy for HTTP_QUIC_CONNECTION_API_TIMINGS {}
 impl ::core::clone::Clone for HTTP_QUIC_CONNECTION_API_TIMINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_QUIC_CONNECTION_API_TIMINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_QUIC_CONNECTION_API_TIMINGS")
+            .field("OpenTime", &self.OpenTime)
+            .field("CloseTime", &self.CloseTime)
+            .field("StartTime", &self.StartTime)
+            .field("ShutdownTime", &self.ShutdownTime)
+            .field("SecConfigCreateTime", &self.SecConfigCreateTime)
+            .field("SecConfigDeleteTime", &self.SecConfigDeleteTime)
+            .field("GetParamCount", &self.GetParamCount)
+            .field("GetParamSum", &self.GetParamSum)
+            .field("SetParamCount", &self.SetParamCount)
+            .field("SetParamSum", &self.SetParamSum)
+            .field("SetCallbackHandlerCount", &self.SetCallbackHandlerCount)
+            .field("SetCallbackHandlerSum", &self.SetCallbackHandlerSum)
+            .field("ControlStreamTimings", &self.ControlStreamTimings)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_QUIC_CONNECTION_API_TIMINGS {
@@ -1469,6 +1713,30 @@ impl ::core::marker::Copy for HTTP_QUIC_STREAM_API_TIMINGS {}
 impl ::core::clone::Clone for HTTP_QUIC_STREAM_API_TIMINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_QUIC_STREAM_API_TIMINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_QUIC_STREAM_API_TIMINGS")
+            .field("OpenCount", &self.OpenCount)
+            .field("OpenSum", &self.OpenSum)
+            .field("CloseCount", &self.CloseCount)
+            .field("CloseSum", &self.CloseSum)
+            .field("StartCount", &self.StartCount)
+            .field("StartSum", &self.StartSum)
+            .field("ShutdownCount", &self.ShutdownCount)
+            .field("ShutdownSum", &self.ShutdownSum)
+            .field("SendCount", &self.SendCount)
+            .field("SendSum", &self.SendSum)
+            .field("ReceiveSetEnabledCount", &self.ReceiveSetEnabledCount)
+            .field("ReceiveSetEnabledSum", &self.ReceiveSetEnabledSum)
+            .field("GetParamCount", &self.GetParamCount)
+            .field("GetParamSum", &self.GetParamSum)
+            .field("SetParamCount", &self.SetParamCount)
+            .field("SetParamSum", &self.SetParamSum)
+            .field("SetCallbackHandlerCount", &self.SetCallbackHandlerCount)
+            .field("SetCallbackHandlerSum", &self.SetCallbackHandlerSum)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_QUIC_STREAM_API_TIMINGS {
@@ -1526,6 +1794,26 @@ impl ::core::clone::Clone for HTTP_REQUEST_AUTH_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_REQUEST_AUTH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_AUTH_INFO")
+            .field("AuthStatus", &self.AuthStatus)
+            .field("SecStatus", &self.SecStatus)
+            .field("Flags", &self.Flags)
+            .field("AuthType", &self.AuthType)
+            .field("AccessToken", &self.AccessToken)
+            .field("ContextAttributes", &self.ContextAttributes)
+            .field("PackedContextLength", &self.PackedContextLength)
+            .field("PackedContextType", &self.PackedContextType)
+            .field("PackedContext", &self.PackedContext)
+            .field("MutualAuthDataLength", &self.MutualAuthDataLength)
+            .field("pMutualAuthData", &self.pMutualAuthData)
+            .field("PackageNameLength", &self.PackageNameLength)
+            .field("pPackageName", &self.pPackageName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_AUTH_INFO {
     type Abi = Self;
 }
@@ -1571,6 +1859,11 @@ impl ::core::clone::Clone for HTTP_REQUEST_CHANNEL_BIND_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_REQUEST_CHANNEL_BIND_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_CHANNEL_BIND_STATUS").field("ServiceName", &self.ServiceName).field("ChannelToken", &self.ChannelToken).field("ChannelTokenSize", &self.ChannelTokenSize).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     type Abi = Self;
 }
@@ -1612,6 +1905,12 @@ impl ::core::clone::Clone for HTTP_REQUEST_HEADERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_REQUEST_HEADERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_HEADERS").field("UnknownHeaderCount", &self.UnknownHeaderCount).field("pUnknownHeaders", &self.pUnknownHeaders).field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).field("KnownHeaders", &self.KnownHeaders).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_HEADERS {
     type Abi = Self;
 }
@@ -1640,6 +1939,11 @@ impl ::core::marker::Copy for HTTP_REQUEST_INFO {}
 impl ::core::clone::Clone for HTTP_REQUEST_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_REQUEST_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_INFO").field("InfoType", &self.InfoType).field("InfoLength", &self.InfoLength).field("pInfo", &self.pInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_INFO {
@@ -1708,6 +2012,11 @@ impl ::core::clone::Clone for HTTP_REQUEST_PROPERTY_SNI {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_REQUEST_PROPERTY_SNI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_PROPERTY_SNI").field("Hostname", &self.Hostname).field("Flags", &self.Flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY_SNI {
     type Abi = Self;
 }
@@ -1739,6 +2048,11 @@ impl ::core::clone::Clone for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_PROPERTY_STREAM_ERROR").field("ErrorCode", &self.ErrorCode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     type Abi = Self;
 }
@@ -1765,6 +2079,11 @@ impl ::core::marker::Copy for HTTP_REQUEST_SIZING_INFO {}
 impl ::core::clone::Clone for HTTP_REQUEST_SIZING_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_REQUEST_SIZING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_SIZING_INFO").field("Flags", &self.Flags).field("RequestIndex", &self.RequestIndex).field("RequestSizingCount", &self.RequestSizingCount).field("RequestSizing", &self.RequestSizing).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_SIZING_INFO {
@@ -1813,6 +2132,11 @@ impl ::core::marker::Copy for HTTP_REQUEST_TIMING_INFO {}
 impl ::core::clone::Clone for HTTP_REQUEST_TIMING_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_REQUEST_TIMING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_TIMING_INFO").field("RequestTimingCount", &self.RequestTimingCount).field("RequestTiming", &self.RequestTiming).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMING_INFO {
@@ -1908,6 +2232,11 @@ impl ::core::clone::Clone for HTTP_REQUEST_TOKEN_BINDING_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_REQUEST_TOKEN_BINDING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_TOKEN_BINDING_INFO").field("TokenBinding", &self.TokenBinding).field("TokenBindingSize", &self.TokenBindingSize).field("EKM", &self.EKM).field("EKMSize", &self.EKMSize).field("KeyType", &self.KeyType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_TOKEN_BINDING_INFO {
     type Abi = Self;
 }
@@ -1954,6 +2283,31 @@ impl ::core::clone::Clone for HTTP_REQUEST_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_REQUEST_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_V1")
+            .field("Flags", &self.Flags)
+            .field("ConnectionId", &self.ConnectionId)
+            .field("RequestId", &self.RequestId)
+            .field("UrlContext", &self.UrlContext)
+            .field("Version", &self.Version)
+            .field("Verb", &self.Verb)
+            .field("UnknownVerbLength", &self.UnknownVerbLength)
+            .field("RawUrlLength", &self.RawUrlLength)
+            .field("pUnknownVerb", &self.pUnknownVerb)
+            .field("pRawUrl", &self.pRawUrl)
+            .field("CookedUrl", &self.CookedUrl)
+            .field("Address", &self.Address)
+            .field("Headers", &self.Headers)
+            .field("BytesReceived", &self.BytesReceived)
+            .field("EntityChunkCount", &self.EntityChunkCount)
+            .field("pEntityChunks", &self.pEntityChunks)
+            .field("RawConnectionId", &self.RawConnectionId)
+            .field("pSslInfo", &self.pSslInfo)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_V1 {
     type Abi = Self;
 }
@@ -1985,6 +2339,12 @@ impl ::core::marker::Copy for HTTP_REQUEST_V2 {}
 impl ::core::clone::Clone for HTTP_REQUEST_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_REQUEST_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_REQUEST_V2").field("__AnonymousBase_http_L1861_C35", &self.__AnonymousBase_http_L1861_C35).field("RequestInfoCount", &self.RequestInfoCount).field("pRequestInfo", &self.pRequestInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2028,6 +2388,12 @@ impl ::core::clone::Clone for HTTP_RESPONSE_HEADERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_RESPONSE_HEADERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_RESPONSE_HEADERS").field("UnknownHeaderCount", &self.UnknownHeaderCount).field("pUnknownHeaders", &self.pUnknownHeaders).field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).field("KnownHeaders", &self.KnownHeaders).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_RESPONSE_HEADERS {
     type Abi = Self;
 }
@@ -2056,6 +2422,11 @@ impl ::core::marker::Copy for HTTP_RESPONSE_INFO {}
 impl ::core::clone::Clone for HTTP_RESPONSE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_RESPONSE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_RESPONSE_INFO").field("Type", &self.Type).field("Length", &self.Length).field("pInfo", &self.pInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_RESPONSE_INFO {
@@ -2106,6 +2477,12 @@ impl ::core::clone::Clone for HTTP_RESPONSE_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_RESPONSE_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_RESPONSE_V1").field("Flags", &self.Flags).field("Version", &self.Version).field("StatusCode", &self.StatusCode).field("ReasonLength", &self.ReasonLength).field("pReason", &self.pReason).field("Headers", &self.Headers).field("EntityChunkCount", &self.EntityChunkCount).field("pEntityChunks", &self.pEntityChunks).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_RESPONSE_V1 {
     type Abi = Self;
 }
@@ -2137,6 +2514,12 @@ impl ::core::marker::Copy for HTTP_RESPONSE_V2 {}
 impl ::core::clone::Clone for HTTP_RESPONSE_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_RESPONSE_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_RESPONSE_V2").field("__AnonymousBase_http_L2050_C36", &self.__AnonymousBase_http_L2050_C36).field("ResponseInfoCount", &self.ResponseInfoCount).field("pResponseInfo", &self.pResponseInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2195,6 +2578,12 @@ impl ::core::clone::Clone for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS").field("RealmLength", &self.RealmLength).field("Realm", &self.Realm).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     type Abi = Self;
 }
@@ -2227,6 +2616,12 @@ impl ::core::marker::Copy for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {}
 impl ::core::clone::Clone for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS").field("DomainNameLength", &self.DomainNameLength).field("DomainName", &self.DomainName).field("RealmLength", &self.RealmLength).field("Realm", &self.Realm).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2266,6 +2661,12 @@ impl ::core::marker::Copy for HTTP_SERVER_AUTHENTICATION_INFO {}
 impl ::core::clone::Clone for HTTP_SERVER_AUTHENTICATION_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVER_AUTHENTICATION_INFO").field("Flags", &self.Flags).field("AuthSchemes", &self.AuthSchemes).field("ReceiveMutualAuth", &self.ReceiveMutualAuth).field("ReceiveContextHandle", &self.ReceiveContextHandle).field("DisableNTLMCredentialCaching", &self.DisableNTLMCredentialCaching).field("ExFlags", &self.ExFlags).field("DigestParams", &self.DigestParams).field("BasicParams", &self.BasicParams).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2331,6 +2732,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_BINDING_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_BINDING_A").field("Base", &self.Base).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_A {
     type Abi = Self;
 }
@@ -2357,6 +2764,11 @@ impl ::core::marker::Copy for HTTP_SERVICE_BINDING_BASE {}
 impl ::core::clone::Clone for HTTP_SERVICE_BINDING_BASE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_BASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_BINDING_BASE").field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_BASE {
@@ -2398,6 +2810,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_BINDING_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_BINDING_W").field("Base", &self.Base).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_W {
     type Abi = Self;
 }
@@ -2431,6 +2849,11 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_CACHE_SET {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_CACHE_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_CACHE_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_CACHE_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_CACHE_SET {
@@ -2493,6 +2916,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM").field("AddrLength", &self.AddrLength).field("pAddress", &self.pAddress).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     type Abi = Self;
 }
@@ -2523,6 +2952,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY").field("AddrCount", &self.AddrCount).field("AddrList", &self.AddrList).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2569,6 +3004,11 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SETTING_SET {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SETTING_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SETTING_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SETTING_SET {
     type Abi = Self;
 }
@@ -2595,6 +3035,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_KEY").field("LocalAddress", &self.LocalAddress).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2629,6 +3075,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2667,6 +3119,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).field("ParamType", &self.ParamType).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     type Abi = Self;
 }
@@ -2700,6 +3158,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     type Abi = Self;
 }
@@ -2730,6 +3194,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2793,6 +3263,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_KEY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_KEY").field("pIpPort", &self.pIpPort).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_KEY {
     type Abi = Self;
 }
@@ -2822,6 +3298,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_KEY_EX {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_KEY_EX").field("IpPort", &self.IpPort).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2866,6 +3348,23 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_PARAM")
+            .field("SslHashLength", &self.SslHashLength)
+            .field("pSslHash", &self.pSslHash)
+            .field("AppId", &self.AppId)
+            .field("pSslCertStoreName", &self.pSslCertStoreName)
+            .field("DefaultCertCheckMode", &self.DefaultCertCheckMode)
+            .field("DefaultRevocationFreshnessTime", &self.DefaultRevocationFreshnessTime)
+            .field("DefaultRevocationUrlRetrievalTimeout", &self.DefaultRevocationUrlRetrievalTimeout)
+            .field("pDefaultSslCtlIdentifier", &self.pDefaultSslCtlIdentifier)
+            .field("pDefaultSslCtlStoreName", &self.pDefaultSslCtlStoreName)
+            .field("DefaultFlags", &self.DefaultFlags)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM {
     type Abi = Self;
 }
@@ -2897,6 +3396,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_PARAM_EX").field("ParamType", &self.ParamType).field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2971,6 +3476,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_QUERY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY {
     type Abi = Self;
 }
@@ -3003,6 +3514,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_QUERY_EX").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).field("ParamType", &self.ParamType).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3039,6 +3556,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SET {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SET {
     type Abi = Self;
 }
@@ -3069,6 +3592,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SET_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SET_EX").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3105,6 +3634,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_KEY").field("IpPort", &self.IpPort).field("Host", &self.Host).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     type Abi = Self;
 }
@@ -3136,6 +3671,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3174,6 +3715,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).field("ParamType", &self.ParamType).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     type Abi = Self;
 }
@@ -3207,6 +3754,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     type Abi = Self;
 }
@@ -3237,6 +3790,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3275,6 +3834,11 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_TIMEOUT_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     type Abi = Self;
 }
@@ -3301,6 +3865,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_URLACL_KEY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_KEY").field("pUrlPrefix", &self.pUrlPrefix).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3333,6 +3903,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_URLACL_PARAM {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_PARAM").field("pStringSecurityDescriptor", &self.pStringSecurityDescriptor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3370,6 +3946,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_QUERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     type Abi = Self;
 }
@@ -3400,6 +3982,12 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_URLACL_SET {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3436,6 +4024,12 @@ impl ::core::marker::Copy for HTTP_SSL_CLIENT_CERT_INFO {}
 impl ::core::clone::Clone for HTTP_SSL_CLIENT_CERT_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SSL_CLIENT_CERT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SSL_CLIENT_CERT_INFO").field("CertFlags", &self.CertFlags).field("CertEncodedSize", &self.CertEncodedSize).field("pCertEncoded", &self.pCertEncoded).field("Token", &self.Token).field("CertDeniedByMapper", &self.CertDeniedByMapper).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3478,6 +4072,12 @@ impl ::core::clone::Clone for HTTP_SSL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_SSL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SSL_INFO").field("ServerCertKeySize", &self.ServerCertKeySize).field("ConnectionKeySize", &self.ConnectionKeySize).field("ServerCertIssuerSize", &self.ServerCertIssuerSize).field("ServerCertSubjectSize", &self.ServerCertSubjectSize).field("pServerCertIssuer", &self.pServerCertIssuer).field("pServerCertSubject", &self.pServerCertSubject).field("pClientCertInfo", &self.pClientCertInfo).field("SslClientCertNegotiated", &self.SslClientCertNegotiated).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SSL_INFO {
     type Abi = Self;
 }
@@ -3510,6 +4110,11 @@ impl ::core::marker::Copy for HTTP_SSL_PROTOCOL_INFO {}
 impl ::core::clone::Clone for HTTP_SSL_PROTOCOL_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_SSL_PROTOCOL_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_SSL_PROTOCOL_INFO").field("Protocol", &self.Protocol).field("CipherType", &self.CipherType).field("CipherStrength", &self.CipherStrength).field("HashType", &self.HashType).field("HashStrength", &self.HashStrength).field("KeyExchangeType", &self.KeyExchangeType).field("KeyExchangeStrength", &self.KeyExchangeStrength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_SSL_PROTOCOL_INFO {
@@ -3554,6 +4159,11 @@ impl ::core::clone::Clone for HTTP_STATE_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_STATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_STATE_INFO").field("Flags", &self.Flags).field("State", &self.State).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_STATE_INFO {
     type Abi = Self;
 }
@@ -3585,6 +4195,11 @@ impl ::core::clone::Clone for HTTP_TIMEOUT_LIMIT_INFO {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_TIMEOUT_LIMIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TIMEOUT_LIMIT_INFO").field("Flags", &self.Flags).field("EntityBody", &self.EntityBody).field("DrainEntityBody", &self.DrainEntityBody).field("RequestQueue", &self.RequestQueue).field("IdleConnection", &self.IdleConnection).field("HeaderWait", &self.HeaderWait).field("MinSendRate", &self.MinSendRate).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_TIMEOUT_LIMIT_INFO {
     type Abi = Self;
 }
@@ -3611,6 +4226,11 @@ impl ::core::clone::Clone for HTTP_TLS_RESTRICTIONS_PARAM {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_TLS_RESTRICTIONS_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TLS_RESTRICTIONS_PARAM").field("RestrictionCount", &self.RestrictionCount).field("TlsRestrictions", &self.TlsRestrictions).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_TLS_RESTRICTIONS_PARAM {
     type Abi = Self;
 }
@@ -3635,6 +4255,11 @@ impl ::core::marker::Copy for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {}
 impl ::core::clone::Clone for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TLS_SESSION_TICKET_KEYS_PARAM").field("SessionTicketKeyCount", &self.SessionTicketKeyCount).field("SessionTicketKeys", &self.SessionTicketKeys).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
@@ -3664,6 +4289,12 @@ impl ::core::marker::Copy for HTTP_TRANSPORT_ADDRESS {}
 impl ::core::clone::Clone for HTTP_TRANSPORT_ADDRESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for HTTP_TRANSPORT_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_TRANSPORT_ADDRESS").field("pRemoteAddress", &self.pRemoteAddress).field("pLocalAddress", &self.pLocalAddress).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3699,6 +4330,12 @@ impl ::core::marker::Copy for HTTP_UNKNOWN_HEADER {}
 impl ::core::clone::Clone for HTTP_UNKNOWN_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HTTP_UNKNOWN_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_UNKNOWN_HEADER").field("NameLength", &self.NameLength).field("RawValueLength", &self.RawValueLength).field("pName", &self.pName).field("pRawValue", &self.pRawValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3777,6 +4414,11 @@ impl ::core::clone::Clone for HTTP_VERSION {
         *self
     }
 }
+impl ::core::fmt::Debug for HTTP_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_VERSION {
     type Abi = Self;
 }
@@ -3811,6 +4453,24 @@ impl ::core::marker::Copy for HTTP_WSK_API_TIMINGS {}
 impl ::core::clone::Clone for HTTP_WSK_API_TIMINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_WSK_API_TIMINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_WSK_API_TIMINGS")
+            .field("ConnectCount", &self.ConnectCount)
+            .field("ConnectSum", &self.ConnectSum)
+            .field("DisconnectCount", &self.DisconnectCount)
+            .field("DisconnectSum", &self.DisconnectSum)
+            .field("SendCount", &self.SendCount)
+            .field("SendSum", &self.SendSum)
+            .field("ReceiveCount", &self.ReceiveCount)
+            .field("ReceiveSum", &self.ReceiveSum)
+            .field("ReleaseCount", &self.ReleaseCount)
+            .field("ReleaseSum", &self.ReleaseSum)
+            .field("ControlSocketCount", &self.ControlSocketCount)
+            .field("ControlSocketSum", &self.ControlSocketSum)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_WSK_API_TIMINGS {

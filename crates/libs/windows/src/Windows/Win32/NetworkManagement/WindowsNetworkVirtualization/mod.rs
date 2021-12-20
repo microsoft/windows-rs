@@ -34,6 +34,12 @@ impl ::core::clone::Clone for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_CUSTOMER_ADDRESS_CHANGE_PARAM").field("MACAddress", &self.MACAddress).field("CAFamily", &self.CAFamily).field("CA", &self.CA).field("VirtualSubnetId", &self.VirtualSubnetId).field("PAFamily", &self.PAFamily).field("PA", &self.PA).field("NotificationReason", &self.NotificationReason).finish()
+    }
+}
+#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
 }
@@ -63,6 +69,12 @@ impl ::core::marker::Copy for WNV_IP_ADDRESS {}
 impl ::core::clone::Clone for WNV_IP_ADDRESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for WNV_IP_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_IP_ADDRESS").field("IP", &self.IP).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -131,6 +143,11 @@ impl ::core::clone::Clone for WNV_NOTIFICATION_PARAM {
         *self
     }
 }
+impl ::core::fmt::Debug for WNV_NOTIFICATION_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_NOTIFICATION_PARAM").field("Header", &self.Header).field("NotificationType", &self.NotificationType).field("PendingNotifications", &self.PendingNotifications).field("Buffer", &self.Buffer).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_PARAM {
     type Abi = Self;
 }
@@ -168,6 +185,12 @@ impl ::core::marker::Copy for WNV_OBJECT_CHANGE_PARAM {}
 impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+impl ::core::fmt::Debug for WNV_OBJECT_CHANGE_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_OBJECT_CHANGE_PARAM").field("ObjectType", &self.ObjectType).field("ObjectParam", &self.ObjectParam).finish()
     }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
@@ -234,6 +257,11 @@ impl ::core::clone::Clone for WNV_OBJECT_HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for WNV_OBJECT_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_OBJECT_HEADER").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("Size", &self.Size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WNV_OBJECT_HEADER {
     type Abi = Self;
 }
@@ -275,6 +303,12 @@ impl ::core::clone::Clone for WNV_POLICY_MISMATCH_PARAM {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for WNV_POLICY_MISMATCH_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_POLICY_MISMATCH_PARAM").field("CAFamily", &self.CAFamily).field("PAFamily", &self.PAFamily).field("VirtualSubnetId", &self.VirtualSubnetId).field("CA", &self.CA).field("PA", &self.PA).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for WNV_POLICY_MISMATCH_PARAM {
     type Abi = Self;
 }
@@ -306,6 +340,12 @@ impl ::core::marker::Copy for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {}
 impl ::core::clone::Clone for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_PROVIDER_ADDRESS_CHANGE_PARAM").field("PAFamily", &self.PAFamily).field("PA", &self.PA).field("AddressState", &self.AddressState).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -344,6 +384,12 @@ impl ::core::marker::Copy for WNV_REDIRECT_PARAM {}
 impl ::core::clone::Clone for WNV_REDIRECT_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for WNV_REDIRECT_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WNV_REDIRECT_PARAM").field("CAFamily", &self.CAFamily).field("PAFamily", &self.PAFamily).field("NewPAFamily", &self.NewPAFamily).field("VirtualSubnetId", &self.VirtualSubnetId).field("CA", &self.CA).field("PA", &self.PA).field("NewPA", &self.NewPA).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]

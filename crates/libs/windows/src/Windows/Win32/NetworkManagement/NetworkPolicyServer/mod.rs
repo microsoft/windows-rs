@@ -2038,6 +2038,11 @@ impl ::core::clone::Clone for RADIUS_ATTRIBUTE {
         *self
     }
 }
+impl ::core::fmt::Debug for RADIUS_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RADIUS_ATTRIBUTE").field("dwAttrType", &self.dwAttrType).field("fDataType", &self.fDataType).field("cbDataLength", &self.cbDataLength).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RADIUS_ATTRIBUTE {
     type Abi = Self;
 }
@@ -2093,6 +2098,11 @@ impl ::core::marker::Copy for RADIUS_ATTRIBUTE_ARRAY {}
 impl ::core::clone::Clone for RADIUS_ATTRIBUTE_ARRAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RADIUS_ATTRIBUTE_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RADIUS_ATTRIBUTE_ARRAY").field("cbSize", &self.cbSize).field("Add", &self.Add).field("AttributeAt", &self.AttributeAt).field("GetSize", &self.GetSize).field("InsertAt", &self.InsertAt).field("RemoveAt", &self.RemoveAt).field("SetAt", &self.SetAt).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RADIUS_ATTRIBUTE_ARRAY {
@@ -2335,6 +2345,11 @@ impl ::core::clone::Clone for RADIUS_EXTENSION_CONTROL_BLOCK {
         *self
     }
 }
+impl ::core::fmt::Debug for RADIUS_EXTENSION_CONTROL_BLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RADIUS_EXTENSION_CONTROL_BLOCK").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("repPoint", &self.repPoint).field("rcRequestType", &self.rcRequestType).field("rcResponseType", &self.rcResponseType).field("GetRequest", &self.GetRequest).field("GetResponse", &self.GetResponse).field("SetResponseType", &self.SetResponseType).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RADIUS_EXTENSION_CONTROL_BLOCK {
     type Abi = Self;
 }
@@ -2381,6 +2396,11 @@ impl ::core::marker::Copy for RADIUS_VSA_FORMAT {}
 impl ::core::clone::Clone for RADIUS_VSA_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RADIUS_VSA_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RADIUS_VSA_FORMAT").field("VendorId", &self.VendorId).field("VendorType", &self.VendorType).field("VendorLength", &self.VendorLength).field("AttributeSpecific", &self.AttributeSpecific).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RADIUS_VSA_FORMAT {

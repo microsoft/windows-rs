@@ -276,6 +276,11 @@ impl ::core::clone::Clone for FontWeight {
         *self
     }
 }
+impl ::core::fmt::Debug for FontWeight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FontWeight").field("Weight", &self.Weight).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FontWeight {
     type Abi = Self;
 }

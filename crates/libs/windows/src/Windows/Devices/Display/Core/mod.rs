@@ -1723,6 +1723,12 @@ impl ::core::clone::Clone for DisplayPresentationRate {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for DisplayPresentationRate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DisplayPresentationRate").field("VerticalSyncRate", &self.VerticalSyncRate).field("VerticalSyncsPerPresentation", &self.VerticalSyncsPerPresentation).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for DisplayPresentationRate {
     type Abi = Self;
 }

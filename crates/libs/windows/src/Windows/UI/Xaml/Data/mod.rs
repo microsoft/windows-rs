@@ -2886,6 +2886,11 @@ impl ::core::clone::Clone for LoadMoreItemsResult {
         *self
     }
 }
+impl ::core::fmt::Debug for LoadMoreItemsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LoadMoreItemsResult").field("Count", &self.Count).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LoadMoreItemsResult {
     type Abi = Self;
 }

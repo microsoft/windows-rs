@@ -14794,6 +14794,11 @@ impl ::core::clone::Clone for SPAUDIOBUFFERINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SPAUDIOBUFFERINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPAUDIOBUFFERINFO").field("ulMsMinNotification", &self.ulMsMinNotification).field("ulMsBufferSize", &self.ulMsBufferSize).field("ulMsEventBias", &self.ulMsEventBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPAUDIOBUFFERINFO {
     type Abi = Self;
 }
@@ -14841,6 +14846,11 @@ impl ::core::clone::Clone for SPAUDIOSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for SPAUDIOSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPAUDIOSTATUS").field("cbFreeBuffSpace", &self.cbFreeBuffSpace).field("cbNonBlockingIO", &self.cbNonBlockingIO).field("State", &self.State).field("CurSeekPos", &self.CurSeekPos).field("CurDevicePos", &self.CurDevicePos).field("dwAudioLevel", &self.dwAudioLevel).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPAUDIOSTATUS {
     type Abi = Self;
 }
@@ -14864,6 +14874,11 @@ impl ::core::marker::Copy for SPBINARYGRAMMAR {}
 impl ::core::clone::Clone for SPBINARYGRAMMAR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPBINARYGRAMMAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPBINARYGRAMMAR").field("ulTotalSerializedSize", &self.ulTotalSerializedSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPBINARYGRAMMAR {
@@ -14950,6 +14965,12 @@ impl ::core::clone::Clone for SPDISPLAYPHRASE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPDISPLAYPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPDISPLAYPHRASE").field("ulNumTokens", &self.ulNumTokens).field("pTokens", &self.pTokens).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPDISPLAYPHRASE {
     type Abi = Self;
 }
@@ -14981,6 +15002,12 @@ impl ::core::marker::Copy for SPDISPLAYTOKEN {}
 impl ::core::clone::Clone for SPDISPLAYTOKEN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPDISPLAYTOKEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPDISPLAYTOKEN").field("pszLexical", &self.pszLexical).field("pszDisplay", &self.pszDisplay).field("bDisplayAttributes", &self.bDisplayAttributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15071,6 +15098,12 @@ impl ::core::marker::Copy for SPEVENT {}
 impl ::core::clone::Clone for SPEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15193,6 +15226,12 @@ impl ::core::clone::Clone for SPEVENTEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPEVENTEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENTEX").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).field("ullAudioTimeOffset", &self.ullAudioTimeOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPEVENTEX {
     type Abi = Self;
 }
@@ -15233,6 +15272,11 @@ impl ::core::marker::Copy for SPEVENTSOURCEINFO {}
 impl ::core::clone::Clone for SPEVENTSOURCEINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPEVENTSOURCEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENTSOURCEINFO").field("ullEventInterest", &self.ullEventInterest).field("ullQueuedInterest", &self.ullQueuedInterest).field("ulCount", &self.ulCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPEVENTSOURCEINFO {
@@ -15425,6 +15469,11 @@ impl ::core::clone::Clone for SPNORMALIZATIONLIST {
         *self
     }
 }
+impl ::core::fmt::Debug for SPNORMALIZATIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPNORMALIZATIONLIST").field("ulSize", &self.ulSize).field("ppszzNormalizedList", &self.ppszzNormalizedList).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPNORMALIZATIONLIST {
     type Abi = Self;
 }
@@ -15481,6 +15530,12 @@ impl ::core::clone::Clone for SPPHRASE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASE").field("__AnonymousBase_sapi53_L5821_C34", &self.__AnonymousBase_sapi53_L5821_C34).field("pSML", &self.pSML).field("pSemanticErrorInfo", &self.pSemanticErrorInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASE {
     type Abi = Self;
 }
@@ -15523,6 +15578,27 @@ impl ::core::marker::Copy for SPPHRASEELEMENT {}
 impl ::core::clone::Clone for SPPHRASEELEMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPPHRASEELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEELEMENT")
+            .field("ulAudioTimeOffset", &self.ulAudioTimeOffset)
+            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
+            .field("ulAudioStreamOffset", &self.ulAudioStreamOffset)
+            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
+            .field("ulRetainedStreamOffset", &self.ulRetainedStreamOffset)
+            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
+            .field("pszDisplayText", &self.pszDisplayText)
+            .field("pszLexicalForm", &self.pszLexicalForm)
+            .field("pszPronunciation", &self.pszPronunciation)
+            .field("bDisplayAttributes", &self.bDisplayAttributes)
+            .field("RequiredConfidence", &self.RequiredConfidence)
+            .field("ActualConfidence", &self.ActualConfidence)
+            .field("Reserved", &self.Reserved)
+            .field("SREngineConfidence", &self.SREngineConfidence)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15573,6 +15649,12 @@ impl ::core::clone::Clone for SPPHRASEPROPERTY {
             SREngineConfidence: self.SREngineConfidence,
             Confidence: self.Confidence,
         }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASEPROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEPROPERTY").field("pszName", &self.pszName).field("Anonymous", &self.Anonymous).field("pszValue", &self.pszValue).field("vValue", &self.vValue).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).field("pNextSibling", &self.pNextSibling).field("pFirstChild", &self.pFirstChild).field("SREngineConfidence", &self.SREngineConfidence).field("Confidence", &self.Confidence).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15643,6 +15725,12 @@ impl ::core::clone::Clone for SPPHRASEPROPERTY_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASEPROPERTY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEPROPERTY_0_0").field("bType", &self.bType).field("bReserved", &self.bReserved).field("usArrayIndex", &self.usArrayIndex).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0_0 {
     type Abi = Self;
 }
@@ -15681,6 +15769,12 @@ impl ::core::marker::Copy for SPPHRASEREPLACEMENT {}
 impl ::core::clone::Clone for SPPHRASEREPLACEMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPPHRASEREPLACEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEREPLACEMENT").field("bDisplayAttributes", &self.bDisplayAttributes).field("pszReplacementText", &self.pszReplacementText).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15724,6 +15818,12 @@ impl ::core::marker::Copy for SPPHRASERULE {}
 impl ::core::clone::Clone for SPPHRASERULE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPPHRASERULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASERULE").field("pszName", &self.pszName).field("ulId", &self.ulId).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).field("pNextSibling", &self.pNextSibling).field("pFirstChild", &self.pFirstChild).field("SREngineConfidence", &self.SREngineConfidence).field("Confidence", &self.Confidence).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15775,6 +15875,30 @@ impl ::core::clone::Clone for SPPHRASE_50 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASE_50 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASE_50")
+            .field("cbSize", &self.cbSize)
+            .field("LangID", &self.LangID)
+            .field("wHomophoneGroupId", &self.wHomophoneGroupId)
+            .field("ullGrammarID", &self.ullGrammarID)
+            .field("ftStartTime", &self.ftStartTime)
+            .field("ullAudioStreamPosition", &self.ullAudioStreamPosition)
+            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
+            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
+            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
+            .field("Rule", &self.Rule)
+            .field("pProperties", &self.pProperties)
+            .field("pElements", &self.pElements)
+            .field("cReplacements", &self.cReplacements)
+            .field("pReplacements", &self.pReplacements)
+            .field("SREngineID", &self.SREngineID)
+            .field("ulSREnginePrivateDataSize", &self.ulSREnginePrivateDataSize)
+            .field("pSREnginePrivateData", &self.pSREnginePrivateData)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASE_50 {
     type Abi = Self;
 }
@@ -15812,6 +15936,12 @@ impl ::core::clone::Clone for SPPROPERTYINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPROPERTYINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPROPERTYINFO").field("pszName", &self.pszName).field("ulId", &self.ulId).field("pszValue", &self.pszValue).field("vValue", &self.vValue).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPROPERTYINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -15841,6 +15971,11 @@ impl ::core::marker::Copy for SPRECOCONTEXTSTATUS {}
 impl ::core::clone::Clone for SPRECOCONTEXTSTATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPRECOCONTEXTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECOCONTEXTSTATUS").field("eInterference", &self.eInterference).field("szRequestTypeOfUI", &self.szRequestTypeOfUI).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPRECOCONTEXTSTATUS {
@@ -15891,6 +16026,11 @@ impl ::core::clone::Clone for SPRECOGNIZERSTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for SPRECOGNIZERSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECOGNIZERSTATUS").field("AudioStatus", &self.AudioStatus).field("ullRecognitionStreamPos", &self.ullRecognitionStreamPos).field("ulStreamNumber", &self.ulStreamNumber).field("ulNumActive", &self.ulNumActive).field("clsidEngine", &self.clsidEngine).field("cLangIDs", &self.cLangIDs).field("aLangID", &self.aLangID).field("ullRecognitionStreamTime", &self.ullRecognitionStreamTime).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPRECOGNIZERSTATUS {
     type Abi = Self;
 }
@@ -15920,6 +16060,12 @@ impl ::core::marker::Copy for SPRECORESULTTIMES {}
 impl ::core::clone::Clone for SPRECORESULTTIMES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPRECORESULTTIMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECORESULTTIMES").field("ftStreamTime", &self.ftStreamTime).field("ullLength", &self.ullLength).field("dwTickCount", &self.dwTickCount).field("ullStart", &self.ullStart).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15968,6 +16114,12 @@ impl ::core::marker::Copy for SPRULE {}
 impl ::core::clone::Clone for SPRULE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPRULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRULE").field("pszRuleName", &self.pszRuleName).field("ulRuleId", &self.ulRuleId).field("dwAttributes", &self.dwAttributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16023,6 +16175,12 @@ impl ::core::clone::Clone for SPSEMANTICERRORINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPSEMANTICERRORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSEMANTICERRORINFO").field("ulLineNumber", &self.ulLineNumber).field("pszScriptLine", &self.pszScriptLine).field("pszSource", &self.pszSource).field("pszDescription", &self.pszDescription).field("hrResultCode", &self.hrResultCode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPSEMANTICERRORINFO {
     type Abi = Self;
 }
@@ -16067,6 +16225,11 @@ impl ::core::clone::Clone for SPSERIALIZEDEVENT {
         *self
     }
 }
+impl ::core::fmt::Debug for SPSERIALIZEDEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT {
     type Abi = Self;
 }
@@ -16096,6 +16259,11 @@ impl ::core::clone::Clone for SPSERIALIZEDEVENT64 {
         *self
     }
 }
+impl ::core::fmt::Debug for SPSERIALIZEDEVENT64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDEVENT64").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT64 {
     type Abi = Self;
 }
@@ -16121,6 +16289,11 @@ impl ::core::clone::Clone for SPSERIALIZEDPHRASE {
         *self
     }
 }
+impl ::core::fmt::Debug for SPSERIALIZEDPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDPHRASE").field("ulSerializedSize", &self.ulSerializedSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPSERIALIZEDPHRASE {
     type Abi = Self;
 }
@@ -16144,6 +16317,11 @@ impl ::core::marker::Copy for SPSERIALIZEDRESULT {}
 impl ::core::clone::Clone for SPSERIALIZEDRESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPSERIALIZEDRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDRESULT").field("ulSerializedSize", &self.ulSerializedSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPSERIALIZEDRESULT {
@@ -16179,6 +16357,12 @@ impl ::core::clone::Clone for SPSHORTCUTPAIR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPSHORTCUTPAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSHORTCUTPAIR").field("pNextSHORTCUTPAIR", &self.pNextSHORTCUTPAIR).field("LangID", &self.LangID).field("shType", &self.shType).field("pszDisplay", &self.pszDisplay).field("pszSpoken", &self.pszSpoken).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPSHORTCUTPAIR {
     type Abi = Self;
 }
@@ -16210,6 +16394,12 @@ impl ::core::marker::Copy for SPSHORTCUTPAIRLIST {}
 impl ::core::clone::Clone for SPSHORTCUTPAIRLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPSHORTCUTPAIRLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSHORTCUTPAIRLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstShortcutPair", &self.pFirstShortcutPair).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16257,6 +16447,11 @@ impl ::core::marker::Copy for SPSTATEHANDLE__ {}
 impl ::core::clone::Clone for SPSTATEHANDLE__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPSTATEHANDLE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSTATEHANDLE__").field("unused", &self.unused).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPSTATEHANDLE__ {
@@ -16431,6 +16626,11 @@ impl ::core::clone::Clone for SPTEXTSELECTIONINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for SPTEXTSELECTIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPTEXTSELECTIONINFO").field("ulStartActiveOffset", &self.ulStartActiveOffset).field("cchActiveChars", &self.cchActiveChars).field("ulStartSelection", &self.ulStartSelection).field("cchSelection", &self.cchSelection).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPTEXTSELECTIONINFO {
     type Abi = Self;
 }
@@ -16495,6 +16695,12 @@ impl ::core::marker::Copy for SPVCONTEXT {}
 impl ::core::clone::Clone for SPVCONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPVCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVCONTEXT").field("pCategory", &self.pCategory).field("pBefore", &self.pBefore).field("pAfter", &self.pAfter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16600,6 +16806,25 @@ impl ::core::clone::Clone for SPVOICESTATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for SPVOICESTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVOICESTATUS")
+            .field("ulCurrentStream", &self.ulCurrentStream)
+            .field("ulLastStreamQueued", &self.ulLastStreamQueued)
+            .field("hrLastResult", &self.hrLastResult)
+            .field("dwRunningState", &self.dwRunningState)
+            .field("ulInputWordPos", &self.ulInputWordPos)
+            .field("ulInputWordLen", &self.ulInputWordLen)
+            .field("ulInputSentPos", &self.ulInputSentPos)
+            .field("ulInputSentLen", &self.ulInputSentLen)
+            .field("lBookmarkId", &self.lBookmarkId)
+            .field("PhonemeId", &self.PhonemeId)
+            .field("VisemeId", &self.VisemeId)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPVOICESTATUS {
     type Abi = Self;
 }
@@ -16624,6 +16849,11 @@ impl ::core::marker::Copy for SPVPITCH {}
 impl ::core::clone::Clone for SPVPITCH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPVPITCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVPITCH").field("MiddleAdj", &self.MiddleAdj).field("RangeAdj", &self.RangeAdj).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPVPITCH {
@@ -16673,6 +16903,12 @@ impl ::core::clone::Clone for SPVSTATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPVSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVSTATE").field("eAction", &self.eAction).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("EmphAdj", &self.EmphAdj).field("RateAdj", &self.RateAdj).field("Volume", &self.Volume).field("PitchAdj", &self.PitchAdj).field("SilenceMSecs", &self.SilenceMSecs).field("pPhoneIds", &self.pPhoneIds).field("ePartOfSpeech", &self.ePartOfSpeech).field("Context", &self.Context).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPVSTATE {
     type Abi = Self;
 }
@@ -16716,6 +16952,12 @@ impl ::core::clone::Clone for SPWORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORD").field("pNextWord", &self.pNextWord).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("eWordType", &self.eWordType).field("pszWord", &self.pszWord).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPWORD {
     type Abi = Self;
 }
@@ -16747,6 +16989,12 @@ impl ::core::marker::Copy for SPWORDLIST {}
 impl ::core::clone::Clone for SPWORDLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPWORDLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWord", &self.pFirstWord).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16791,6 +17039,11 @@ impl ::core::clone::Clone for SPWORDPRONUNCIATION {
         *self
     }
 }
+impl ::core::fmt::Debug for SPWORDPRONUNCIATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDPRONUNCIATION").field("pNextWordPronunciation", &self.pNextWordPronunciation).field("eLexiconType", &self.eLexiconType).field("LangID", &self.LangID).field("wPronunciationFlags", &self.wPronunciationFlags).field("ePartOfSpeech", &self.ePartOfSpeech).field("szPronunciation", &self.szPronunciation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATION {
     type Abi = Self;
 }
@@ -16816,6 +17069,11 @@ impl ::core::marker::Copy for SPWORDPRONUNCIATIONLIST {}
 impl ::core::clone::Clone for SPWORDPRONUNCIATIONLIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SPWORDPRONUNCIATIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDPRONUNCIATIONLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATIONLIST {

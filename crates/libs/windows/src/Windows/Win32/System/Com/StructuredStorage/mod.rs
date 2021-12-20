@@ -11,6 +11,11 @@ impl ::core::clone::Clone for BSTRBLOB {
         *self
     }
 }
+impl ::core::fmt::Debug for BSTRBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BSTRBLOB").field("cbSize", &self.cbSize).field("pData", &self.pData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BSTRBLOB {
     type Abi = Self;
 }
@@ -35,6 +40,11 @@ impl ::core::marker::Copy for CABOOL {}
 impl ::core::clone::Clone for CABOOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CABOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABOOL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CABOOL {
@@ -67,6 +77,12 @@ impl ::core::clone::Clone for CABSTR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CABSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CABSTR {
     type Abi = Self;
 }
@@ -94,6 +110,11 @@ impl ::core::marker::Copy for CABSTRBLOB {}
 impl ::core::clone::Clone for CABSTRBLOB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CABSTRBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABSTRBLOB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CABSTRBLOB {
@@ -126,6 +147,12 @@ impl ::core::clone::Clone for CAC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAC").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CAC {
     type Abi = Self;
 }
@@ -155,6 +182,11 @@ impl ::core::clone::Clone for CACLIPDATA {
         *self
     }
 }
+impl ::core::fmt::Debug for CACLIPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CACLIPDATA").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CACLIPDATA {
     type Abi = Self;
 }
@@ -179,6 +211,11 @@ impl ::core::marker::Copy for CACLSID {}
 impl ::core::clone::Clone for CACLSID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CACLSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CACLSID").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CACLSID {
@@ -207,6 +244,11 @@ impl ::core::clone::Clone for CACY {
         *self
     }
 }
+impl ::core::fmt::Debug for CACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CACY").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CACY {
     type Abi = Self;
 }
@@ -233,6 +275,11 @@ impl ::core::clone::Clone for CADATE {
         *self
     }
 }
+impl ::core::fmt::Debug for CADATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CADATE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CADATE {
     type Abi = Self;
 }
@@ -257,6 +304,11 @@ impl ::core::marker::Copy for CADBL {}
 impl ::core::clone::Clone for CADBL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CADBL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CADBL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CADBL {
@@ -289,6 +341,12 @@ impl ::core::clone::Clone for CAFILETIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAFILETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAFILETIME").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CAFILETIME {
     type Abi = Self;
 }
@@ -318,6 +376,11 @@ impl ::core::clone::Clone for CAFLT {
         *self
     }
 }
+impl ::core::fmt::Debug for CAFLT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAFLT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CAFLT {
     type Abi = Self;
 }
@@ -342,6 +405,11 @@ impl ::core::marker::Copy for CAH {}
 impl ::core::clone::Clone for CAH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CAH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CAH {
@@ -370,6 +438,11 @@ impl ::core::clone::Clone for CAI {
         *self
     }
 }
+impl ::core::fmt::Debug for CAI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CAI {
     type Abi = Self;
 }
@@ -394,6 +467,11 @@ impl ::core::marker::Copy for CAL {}
 impl ::core::clone::Clone for CAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CAL {
@@ -423,6 +501,12 @@ impl ::core::marker::Copy for CALPSTR {}
 impl ::core::clone::Clone for CALPSTR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALPSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALPSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -459,6 +543,12 @@ impl ::core::clone::Clone for CALPWSTR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALPWSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALPWSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CALPWSTR {
     type Abi = Self;
 }
@@ -492,6 +582,12 @@ impl ::core::clone::Clone for CAPROPVARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAPROPVARIANT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPROPVARIANT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CAPROPVARIANT {
     type Abi = Self;
 }
@@ -521,6 +617,11 @@ impl ::core::clone::Clone for CASCODE {
         *self
     }
 }
+impl ::core::fmt::Debug for CASCODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CASCODE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CASCODE {
     type Abi = Self;
 }
@@ -545,6 +646,11 @@ impl ::core::marker::Copy for CAUB {}
 impl ::core::clone::Clone for CAUB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CAUB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CAUB {
@@ -573,6 +679,11 @@ impl ::core::clone::Clone for CAUH {
         *self
     }
 }
+impl ::core::fmt::Debug for CAUH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CAUH {
     type Abi = Self;
 }
@@ -599,6 +710,11 @@ impl ::core::clone::Clone for CAUI {
         *self
     }
 }
+impl ::core::fmt::Debug for CAUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CAUI {
     type Abi = Self;
 }
@@ -623,6 +739,11 @@ impl ::core::marker::Copy for CAUL {}
 impl ::core::clone::Clone for CAUL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CAUL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CAUL {
@@ -652,6 +773,11 @@ impl ::core::marker::Copy for CLIPDATA {}
 impl ::core::clone::Clone for CLIPDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CLIPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLIPDATA").field("cbSize", &self.cbSize).field("ulClipFmt", &self.ulClipFmt).field("pClipData", &self.pClipData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLIPDATA {
@@ -1981,6 +2107,11 @@ impl ::core::clone::Clone for OLESTREAM {
         *self
     }
 }
+impl ::core::fmt::Debug for OLESTREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLESTREAM").field("lpstbl", &self.lpstbl).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OLESTREAM {
     type Abi = Self;
 }
@@ -2005,6 +2136,11 @@ impl ::core::marker::Copy for OLESTREAMVTBL {}
 impl ::core::clone::Clone for OLESTREAMVTBL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OLESTREAMVTBL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLESTREAMVTBL").field("Get", &self.Get).field("Put", &self.Put).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OLESTREAMVTBL {
@@ -2233,6 +2369,12 @@ impl ::core::clone::Clone for PROPBAG2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROPBAG2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPBAG2").field("dwType", &self.dwType).field("vt", &self.vt).field("cfType", &self.cfType).field("dwHint", &self.dwHint).field("pstrName", &self.pstrName).field("clsid", &self.clsid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPBAG2 {
     type Abi = Self;
 }
@@ -2277,6 +2419,12 @@ impl ::core::marker::Copy for PROPSPEC {}
 impl ::core::clone::Clone for PROPSPEC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROPSPEC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPSPEC").field("ulKind", &self.ulKind).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2349,6 +2497,12 @@ impl ::core::clone::Clone for PROPVARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROPVARIANT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPVARIANT").field("Anonymous", &self.Anonymous).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPVARIANT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2411,6 +2565,12 @@ pub struct PROPVARIANT_0_0 {
 impl ::core::clone::Clone for PROPVARIANT_0_0 {
     fn clone(&self) -> Self {
         Self { vt: self.vt, wReserved1: self.wReserved1, wReserved2: self.wReserved2, wReserved3: self.wReserved3, Anonymous: self.Anonymous.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROPVARIANT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROPVARIANT_0_0").field("vt", &self.vt).field("wReserved1", &self.wReserved1).field("wReserved2", &self.wReserved2).field("wReserved3", &self.wReserved3).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2639,6 +2799,11 @@ impl ::core::clone::Clone for RemSNB {
         *self
     }
 }
+impl ::core::fmt::Debug for RemSNB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RemSNB").field("ulCntStr", &self.ulCntStr).field("ulCntChar", &self.ulCntChar).field("rgString", &self.rgString).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RemSNB {
     type Abi = Self;
 }
@@ -2663,6 +2828,11 @@ impl ::core::marker::Copy for SERIALIZEDPROPERTYVALUE {}
 impl ::core::clone::Clone for SERIALIZEDPROPERTYVALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SERIALIZEDPROPERTYVALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERIALIZEDPROPERTYVALUE").field("dwType", &self.dwType).field("rgb", &self.rgb).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERIALIZEDPROPERTYVALUE {
@@ -2708,6 +2878,12 @@ impl ::core::clone::Clone for STATPROPSETSTG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STATPROPSETSTG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STATPROPSETSTG").field("fmtid", &self.fmtid).field("clsid", &self.clsid).field("grfFlags", &self.grfFlags).field("mtime", &self.mtime).field("ctime", &self.ctime).field("atime", &self.atime).field("dwOSVersion", &self.dwOSVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STATPROPSETSTG {
     type Abi = Self;
 }
@@ -2739,6 +2915,12 @@ impl ::core::marker::Copy for STATPROPSTG {}
 impl ::core::clone::Clone for STATPROPSTG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STATPROPSTG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STATPROPSTG").field("lpwstrName", &self.lpwstrName).field("propid", &self.propid).field("vt", &self.vt).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2846,6 +3028,12 @@ impl ::core::marker::Copy for STGOPTIONS {}
 impl ::core::clone::Clone for STGOPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STGOPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STGOPTIONS").field("usVersion", &self.usVersion).field("reserved", &self.reserved).field("ulSectorSize", &self.ulSectorSize).field("pwcsTemplateFile", &self.pwcsTemplateFile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3210,6 +3398,11 @@ pub struct VERSIONEDSTREAM {
 impl ::core::clone::Clone for VERSIONEDSTREAM {
     fn clone(&self) -> Self {
         Self { guidVersion: self.guidVersion, pStream: self.pStream.clone() }
+    }
+}
+impl ::core::fmt::Debug for VERSIONEDSTREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VERSIONEDSTREAM").field("guidVersion", &self.guidVersion).field("pStream", &self.pStream).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VERSIONEDSTREAM {

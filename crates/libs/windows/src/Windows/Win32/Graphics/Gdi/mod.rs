@@ -12,6 +12,11 @@ impl ::core::clone::Clone for ABC {
         *self
     }
 }
+impl ::core::fmt::Debug for ABC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ABC").field("abcA", &self.abcA).field("abcB", &self.abcB).field("abcC", &self.abcC).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ABC {
     type Abi = Self;
 }
@@ -39,6 +44,11 @@ impl ::core::clone::Clone for ABCFLOAT {
         *self
     }
 }
+impl ::core::fmt::Debug for ABCFLOAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ABCFLOAT").field("abcfA", &self.abcfA).field("abcfB", &self.abcfB).field("abcfC", &self.abcfC).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ABCFLOAT {
     type Abi = Self;
 }
@@ -64,6 +74,11 @@ impl ::core::marker::Copy for ABORTPATH {}
 impl ::core::clone::Clone for ABORTPATH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ABORTPATH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ABORTPATH").field("emr", &self.emr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ABORTPATH {
@@ -111,6 +126,11 @@ impl ::core::clone::Clone for AXESLISTA {
         *self
     }
 }
+impl ::core::fmt::Debug for AXESLISTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AXESLISTA").field("axlReserved", &self.axlReserved).field("axlNumAxes", &self.axlNumAxes).field("axlAxisInfo", &self.axlAxisInfo).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AXESLISTA {
     type Abi = Self;
 }
@@ -136,6 +156,11 @@ impl ::core::marker::Copy for AXESLISTW {}
 impl ::core::clone::Clone for AXESLISTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AXESLISTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AXESLISTW").field("axlReserved", &self.axlReserved).field("axlNumAxes", &self.axlNumAxes).field("axlAxisInfo", &self.axlAxisInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AXESLISTW {
@@ -165,6 +190,11 @@ impl ::core::clone::Clone for AXISINFOA {
         *self
     }
 }
+impl ::core::fmt::Debug for AXISINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AXISINFOA").field("axMinValue", &self.axMinValue).field("axMaxValue", &self.axMaxValue).field("axAxisName", &self.axAxisName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AXISINFOA {
     type Abi = Self;
 }
@@ -190,6 +220,11 @@ impl ::core::marker::Copy for AXISINFOW {}
 impl ::core::clone::Clone for AXISINFOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AXISINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AXISINFOW").field("axMinValue", &self.axMinValue).field("axMaxValue", &self.axMaxValue).field("axAxisName", &self.axAxisName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AXISINFOW {
@@ -400,6 +435,11 @@ impl ::core::clone::Clone for BITMAP {
         *self
     }
 }
+impl ::core::fmt::Debug for BITMAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAP").field("bmType", &self.bmType).field("bmWidth", &self.bmWidth).field("bmHeight", &self.bmHeight).field("bmWidthBytes", &self.bmWidthBytes).field("bmPlanes", &self.bmPlanes).field("bmBitsPixel", &self.bmBitsPixel).field("bmBits", &self.bmBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BITMAP {
     type Abi = Self;
 }
@@ -429,6 +469,11 @@ impl ::core::clone::Clone for BITMAPCOREHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for BITMAPCOREHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAPCOREHEADER").field("bcSize", &self.bcSize).field("bcWidth", &self.bcWidth).field("bcHeight", &self.bcHeight).field("bcPlanes", &self.bcPlanes).field("bcBitCount", &self.bcBitCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BITMAPCOREHEADER {
     type Abi = Self;
 }
@@ -453,6 +498,11 @@ impl ::core::marker::Copy for BITMAPCOREINFO {}
 impl ::core::clone::Clone for BITMAPCOREINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BITMAPCOREINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAPCOREINFO").field("bmciHeader", &self.bmciHeader).field("bmciColors", &self.bmciColors).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BITMAPCOREINFO {
@@ -484,6 +534,11 @@ impl ::core::clone::Clone for BITMAPFILEHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for BITMAPFILEHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAPFILEHEADER").field("bfType", &self.bfType).field("bfSize", &self.bfSize).field("bfReserved1", &self.bfReserved1).field("bfReserved2", &self.bfReserved2).field("bfOffBits", &self.bfOffBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BITMAPFILEHEADER {
     type Abi = Self;
 }
@@ -508,6 +563,11 @@ impl ::core::marker::Copy for BITMAPINFO {}
 impl ::core::clone::Clone for BITMAPINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BITMAPINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAPINFO").field("bmiHeader", &self.bmiHeader).field("bmiColors", &self.bmiColors).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BITMAPINFO {
@@ -543,6 +603,11 @@ impl ::core::marker::Copy for BITMAPINFOHEADER {}
 impl ::core::clone::Clone for BITMAPINFOHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BITMAPINFOHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAPINFOHEADER").field("biSize", &self.biSize).field("biWidth", &self.biWidth).field("biHeight", &self.biHeight).field("biPlanes", &self.biPlanes).field("biBitCount", &self.biBitCount).field("biCompression", &self.biCompression).field("biSizeImage", &self.biSizeImage).field("biXPelsPerMeter", &self.biXPelsPerMeter).field("biYPelsPerMeter", &self.biYPelsPerMeter).field("biClrUsed", &self.biClrUsed).field("biClrImportant", &self.biClrImportant).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BITMAPINFOHEADER {
@@ -587,6 +652,32 @@ impl ::core::marker::Copy for BITMAPV4HEADER {}
 impl ::core::clone::Clone for BITMAPV4HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BITMAPV4HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAPV4HEADER")
+            .field("bV4Size", &self.bV4Size)
+            .field("bV4Width", &self.bV4Width)
+            .field("bV4Height", &self.bV4Height)
+            .field("bV4Planes", &self.bV4Planes)
+            .field("bV4BitCount", &self.bV4BitCount)
+            .field("bV4V4Compression", &self.bV4V4Compression)
+            .field("bV4SizeImage", &self.bV4SizeImage)
+            .field("bV4XPelsPerMeter", &self.bV4XPelsPerMeter)
+            .field("bV4YPelsPerMeter", &self.bV4YPelsPerMeter)
+            .field("bV4ClrUsed", &self.bV4ClrUsed)
+            .field("bV4ClrImportant", &self.bV4ClrImportant)
+            .field("bV4RedMask", &self.bV4RedMask)
+            .field("bV4GreenMask", &self.bV4GreenMask)
+            .field("bV4BlueMask", &self.bV4BlueMask)
+            .field("bV4AlphaMask", &self.bV4AlphaMask)
+            .field("bV4CSType", &self.bV4CSType)
+            .field("bV4Endpoints", &self.bV4Endpoints)
+            .field("bV4GammaRed", &self.bV4GammaRed)
+            .field("bV4GammaGreen", &self.bV4GammaGreen)
+            .field("bV4GammaBlue", &self.bV4GammaBlue)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for BITMAPV4HEADER {
@@ -637,6 +728,36 @@ impl ::core::clone::Clone for BITMAPV5HEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for BITMAPV5HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAPV5HEADER")
+            .field("bV5Size", &self.bV5Size)
+            .field("bV5Width", &self.bV5Width)
+            .field("bV5Height", &self.bV5Height)
+            .field("bV5Planes", &self.bV5Planes)
+            .field("bV5BitCount", &self.bV5BitCount)
+            .field("bV5Compression", &self.bV5Compression)
+            .field("bV5SizeImage", &self.bV5SizeImage)
+            .field("bV5XPelsPerMeter", &self.bV5XPelsPerMeter)
+            .field("bV5YPelsPerMeter", &self.bV5YPelsPerMeter)
+            .field("bV5ClrUsed", &self.bV5ClrUsed)
+            .field("bV5ClrImportant", &self.bV5ClrImportant)
+            .field("bV5RedMask", &self.bV5RedMask)
+            .field("bV5GreenMask", &self.bV5GreenMask)
+            .field("bV5BlueMask", &self.bV5BlueMask)
+            .field("bV5AlphaMask", &self.bV5AlphaMask)
+            .field("bV5CSType", &self.bV5CSType)
+            .field("bV5Endpoints", &self.bV5Endpoints)
+            .field("bV5GammaRed", &self.bV5GammaRed)
+            .field("bV5GammaGreen", &self.bV5GammaGreen)
+            .field("bV5GammaBlue", &self.bV5GammaBlue)
+            .field("bV5Intent", &self.bV5Intent)
+            .field("bV5ProfileData", &self.bV5ProfileData)
+            .field("bV5ProfileSize", &self.bV5ProfileSize)
+            .field("bV5Reserved", &self.bV5Reserved)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BITMAPV5HEADER {
     type Abi = Self;
 }
@@ -677,6 +798,11 @@ impl ::core::marker::Copy for BLENDFUNCTION {}
 impl ::core::clone::Clone for BLENDFUNCTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BLENDFUNCTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLENDFUNCTION").field("BlendOp", &self.BlendOp).field("BlendFlags", &self.BlendFlags).field("SourceConstantAlpha", &self.SourceConstantAlpha).field("AlphaFormat", &self.AlphaFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BLENDFUNCTION {
@@ -841,6 +967,11 @@ impl ::core::clone::Clone for CIEXYZ {
         *self
     }
 }
+impl ::core::fmt::Debug for CIEXYZ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CIEXYZ").field("ciexyzX", &self.ciexyzX).field("ciexyzY", &self.ciexyzY).field("ciexyzZ", &self.ciexyzZ).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CIEXYZ {
     type Abi = Self;
 }
@@ -866,6 +997,11 @@ impl ::core::marker::Copy for CIEXYZTRIPLE {}
 impl ::core::clone::Clone for CIEXYZTRIPLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CIEXYZTRIPLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CIEXYZTRIPLE").field("ciexyzRed", &self.ciexyzRed).field("ciexyzGreen", &self.ciexyzGreen).field("ciexyzBlue", &self.ciexyzBlue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CIEXYZTRIPLE {
@@ -924,6 +1060,24 @@ impl ::core::clone::Clone for COLORADJUSTMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for COLORADJUSTMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COLORADJUSTMENT")
+            .field("caSize", &self.caSize)
+            .field("caFlags", &self.caFlags)
+            .field("caIlluminantIndex", &self.caIlluminantIndex)
+            .field("caRedGamma", &self.caRedGamma)
+            .field("caGreenGamma", &self.caGreenGamma)
+            .field("caBlueGamma", &self.caBlueGamma)
+            .field("caReferenceBlack", &self.caReferenceBlack)
+            .field("caReferenceWhite", &self.caReferenceWhite)
+            .field("caContrast", &self.caContrast)
+            .field("caBrightness", &self.caBrightness)
+            .field("caColorfulness", &self.caColorfulness)
+            .field("caRedGreenTint", &self.caRedGreenTint)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for COLORADJUSTMENT {
     type Abi = Self;
 }
@@ -951,6 +1105,11 @@ impl ::core::marker::Copy for COLORCORRECTPALETTE {}
 impl ::core::clone::Clone for COLORCORRECTPALETTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COLORCORRECTPALETTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COLORCORRECTPALETTE").field("emr", &self.emr).field("ihPalette", &self.ihPalette).field("nFirstEntry", &self.nFirstEntry).field("nPalEntries", &self.nPalEntries).field("nReserved", &self.nReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COLORCORRECTPALETTE {
@@ -981,6 +1140,11 @@ impl ::core::marker::Copy for COLORMATCHTOTARGET {}
 impl ::core::clone::Clone for COLORMATCHTOTARGET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COLORMATCHTOTARGET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COLORMATCHTOTARGET").field("emr", &self.emr).field("dwAction", &self.dwAction).field("dwFlags", &self.dwFlags).field("cbName", &self.cbName).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COLORMATCHTOTARGET {
@@ -1981,6 +2145,11 @@ impl ::core::clone::Clone for DESIGNVECTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for DESIGNVECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DESIGNVECTOR").field("dvReserved", &self.dvReserved).field("dvNumAxes", &self.dvNumAxes).field("dvValues", &self.dvValues).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DESIGNVECTOR {
     type Abi = Self;
 }
@@ -2037,6 +2206,40 @@ impl ::core::marker::Copy for DEVMODEA {}
 impl ::core::clone::Clone for DEVMODEA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVMODEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVMODEA")
+            .field("dmDeviceName", &self.dmDeviceName)
+            .field("dmSpecVersion", &self.dmSpecVersion)
+            .field("dmDriverVersion", &self.dmDriverVersion)
+            .field("dmSize", &self.dmSize)
+            .field("dmDriverExtra", &self.dmDriverExtra)
+            .field("dmFields", &self.dmFields)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("dmColor", &self.dmColor)
+            .field("dmDuplex", &self.dmDuplex)
+            .field("dmYResolution", &self.dmYResolution)
+            .field("dmTTOption", &self.dmTTOption)
+            .field("dmCollate", &self.dmCollate)
+            .field("dmFormName", &self.dmFormName)
+            .field("dmLogPixels", &self.dmLogPixels)
+            .field("dmBitsPerPel", &self.dmBitsPerPel)
+            .field("dmPelsWidth", &self.dmPelsWidth)
+            .field("dmPelsHeight", &self.dmPelsHeight)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("dmDisplayFrequency", &self.dmDisplayFrequency)
+            .field("dmICMMethod", &self.dmICMMethod)
+            .field("dmICMIntent", &self.dmICMIntent)
+            .field("dmMediaType", &self.dmMediaType)
+            .field("dmDitherType", &self.dmDitherType)
+            .field("dmReserved1", &self.dmReserved1)
+            .field("dmReserved2", &self.dmReserved2)
+            .field("dmPanningWidth", &self.dmPanningWidth)
+            .field("dmPanningHeight", &self.dmPanningHeight)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2112,6 +2315,12 @@ impl ::core::clone::Clone for DEVMODEA_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVMODEA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVMODEA_0_0").field("dmOrientation", &self.dmOrientation).field("dmPaperSize", &self.dmPaperSize).field("dmPaperLength", &self.dmPaperLength).field("dmPaperWidth", &self.dmPaperWidth).field("dmScale", &self.dmScale).field("dmCopies", &self.dmCopies).field("dmDefaultSource", &self.dmDefaultSource).field("dmPrintQuality", &self.dmPrintQuality).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVMODEA_0_0 {
     type Abi = Self;
 }
@@ -2143,6 +2352,12 @@ impl ::core::marker::Copy for DEVMODEA_0_1 {}
 impl ::core::clone::Clone for DEVMODEA_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVMODEA_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVMODEA_0_1").field("dmPosition", &self.dmPosition).field("dmDisplayOrientation", &self.dmDisplayOrientation).field("dmDisplayFixedOutput", &self.dmDisplayFixedOutput).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2237,6 +2452,40 @@ impl ::core::clone::Clone for DEVMODEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVMODEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVMODEW")
+            .field("dmDeviceName", &self.dmDeviceName)
+            .field("dmSpecVersion", &self.dmSpecVersion)
+            .field("dmDriverVersion", &self.dmDriverVersion)
+            .field("dmSize", &self.dmSize)
+            .field("dmDriverExtra", &self.dmDriverExtra)
+            .field("dmFields", &self.dmFields)
+            .field("Anonymous1", &self.Anonymous1)
+            .field("dmColor", &self.dmColor)
+            .field("dmDuplex", &self.dmDuplex)
+            .field("dmYResolution", &self.dmYResolution)
+            .field("dmTTOption", &self.dmTTOption)
+            .field("dmCollate", &self.dmCollate)
+            .field("dmFormName", &self.dmFormName)
+            .field("dmLogPixels", &self.dmLogPixels)
+            .field("dmBitsPerPel", &self.dmBitsPerPel)
+            .field("dmPelsWidth", &self.dmPelsWidth)
+            .field("dmPelsHeight", &self.dmPelsHeight)
+            .field("Anonymous2", &self.Anonymous2)
+            .field("dmDisplayFrequency", &self.dmDisplayFrequency)
+            .field("dmICMMethod", &self.dmICMMethod)
+            .field("dmICMIntent", &self.dmICMIntent)
+            .field("dmMediaType", &self.dmMediaType)
+            .field("dmDitherType", &self.dmDitherType)
+            .field("dmReserved1", &self.dmReserved1)
+            .field("dmReserved2", &self.dmReserved2)
+            .field("dmPanningWidth", &self.dmPanningWidth)
+            .field("dmPanningHeight", &self.dmPanningHeight)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVMODEW {
     type Abi = Self;
 }
@@ -2309,6 +2558,12 @@ impl ::core::clone::Clone for DEVMODEW_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVMODEW_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVMODEW_0_0").field("dmOrientation", &self.dmOrientation).field("dmPaperSize", &self.dmPaperSize).field("dmPaperLength", &self.dmPaperLength).field("dmPaperWidth", &self.dmPaperWidth).field("dmScale", &self.dmScale).field("dmCopies", &self.dmCopies).field("dmDefaultSource", &self.dmDefaultSource).field("dmPrintQuality", &self.dmPrintQuality).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVMODEW_0_0 {
     type Abi = Self;
 }
@@ -2340,6 +2595,12 @@ impl ::core::marker::Copy for DEVMODEW_0_1 {}
 impl ::core::clone::Clone for DEVMODEW_0_1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVMODEW_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVMODEW_0_1").field("dmPosition", &self.dmPosition).field("dmDisplayOrientation", &self.dmDisplayOrientation).field("dmDisplayFixedOutput", &self.dmDisplayFixedOutput).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2486,6 +2747,12 @@ impl ::core::clone::Clone for DIBSECTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIBSECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIBSECTION").field("dsBm", &self.dsBm).field("dsBmih", &self.dsBmih).field("dsBitfields", &self.dsBitfields).field("dshSection", &self.dshSection).field("dsOffset", &self.dsOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIBSECTION {
     type Abi = Self;
 }
@@ -2577,6 +2844,12 @@ impl ::core::clone::Clone for DISPLAY_DEVICEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DISPLAY_DEVICEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISPLAY_DEVICEA").field("cb", &self.cb).field("DeviceName", &self.DeviceName).field("DeviceString", &self.DeviceString).field("StateFlags", &self.StateFlags).field("DeviceID", &self.DeviceID).field("DeviceKey", &self.DeviceKey).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISPLAY_DEVICEA {
     type Abi = Self;
 }
@@ -2608,6 +2881,11 @@ impl ::core::marker::Copy for DISPLAY_DEVICEW {}
 impl ::core::clone::Clone for DISPLAY_DEVICEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DISPLAY_DEVICEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISPLAY_DEVICEW").field("cb", &self.cb).field("DeviceName", &self.DeviceName).field("DeviceString", &self.DeviceString).field("StateFlags", &self.StateFlags).field("DeviceID", &self.DeviceID).field("DeviceKey", &self.DeviceKey).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DISPLAY_DEVICEW {
@@ -3209,6 +3487,11 @@ impl ::core::clone::Clone for DRAWTEXTPARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for DRAWTEXTPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRAWTEXTPARAMS").field("cbSize", &self.cbSize).field("iTabLength", &self.iTabLength).field("iLeftMargin", &self.iLeftMargin).field("iRightMargin", &self.iRightMargin).field("uiLengthDrawn", &self.uiLengthDrawn).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRAWTEXTPARAMS {
     type Abi = Self;
 }
@@ -3619,6 +3902,11 @@ impl ::core::clone::Clone for EMR {
         *self
     }
 }
+impl ::core::fmt::Debug for EMR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMR").field("iType", &self.iType).field("nSize", &self.nSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMR {
     type Abi = Self;
 }
@@ -3665,6 +3953,31 @@ impl ::core::clone::Clone for EMRALPHABLEND {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRALPHABLEND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRALPHABLEND")
+            .field("emr", &self.emr)
+            .field("rclBounds", &self.rclBounds)
+            .field("xDest", &self.xDest)
+            .field("yDest", &self.yDest)
+            .field("cxDest", &self.cxDest)
+            .field("cyDest", &self.cyDest)
+            .field("dwRop", &self.dwRop)
+            .field("xSrc", &self.xSrc)
+            .field("ySrc", &self.ySrc)
+            .field("xformSrc", &self.xformSrc)
+            .field("crBkColorSrc", &self.crBkColorSrc)
+            .field("iUsageSrc", &self.iUsageSrc)
+            .field("offBmiSrc", &self.offBmiSrc)
+            .field("cbBmiSrc", &self.cbBmiSrc)
+            .field("offBitsSrc", &self.offBitsSrc)
+            .field("cbBitsSrc", &self.cbBitsSrc)
+            .field("cxSrc", &self.cxSrc)
+            .field("cySrc", &self.cySrc)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRALPHABLEND {
     type Abi = Self;
 }
@@ -3701,6 +4014,12 @@ impl ::core::clone::Clone for EMRANGLEARC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRANGLEARC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRANGLEARC").field("emr", &self.emr).field("ptlCenter", &self.ptlCenter).field("nRadius", &self.nRadius).field("eStartAngle", &self.eStartAngle).field("eSweepAngle", &self.eSweepAngle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRANGLEARC {
     type Abi = Self;
 }
@@ -3733,6 +4052,12 @@ impl ::core::marker::Copy for EMRARC {}
 impl ::core::clone::Clone for EMRARC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRARC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRARC").field("emr", &self.emr).field("rclBox", &self.rclBox).field("ptlStart", &self.ptlStart).field("ptlEnd", &self.ptlEnd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3783,6 +4108,29 @@ impl ::core::clone::Clone for EMRBITBLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRBITBLT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRBITBLT")
+            .field("emr", &self.emr)
+            .field("rclBounds", &self.rclBounds)
+            .field("xDest", &self.xDest)
+            .field("yDest", &self.yDest)
+            .field("cxDest", &self.cxDest)
+            .field("cyDest", &self.cyDest)
+            .field("dwRop", &self.dwRop)
+            .field("xSrc", &self.xSrc)
+            .field("ySrc", &self.ySrc)
+            .field("xformSrc", &self.xformSrc)
+            .field("crBkColorSrc", &self.crBkColorSrc)
+            .field("iUsageSrc", &self.iUsageSrc)
+            .field("offBmiSrc", &self.offBmiSrc)
+            .field("cbBmiSrc", &self.cbBmiSrc)
+            .field("offBitsSrc", &self.offBitsSrc)
+            .field("cbBitsSrc", &self.cbBitsSrc)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRBITBLT {
     type Abi = Self;
 }
@@ -3811,6 +4159,11 @@ impl ::core::marker::Copy for EMRCREATEBRUSHINDIRECT {}
 impl ::core::clone::Clone for EMRCREATEBRUSHINDIRECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRCREATEBRUSHINDIRECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRCREATEBRUSHINDIRECT").field("emr", &self.emr).field("ihBrush", &self.ihBrush).field("lb", &self.lb).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRCREATEBRUSHINDIRECT {
@@ -3844,6 +4197,11 @@ impl ::core::clone::Clone for EMRCREATEDIBPATTERNBRUSHPT {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRCREATEDIBPATTERNBRUSHPT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRCREATEDIBPATTERNBRUSHPT").field("emr", &self.emr).field("ihBrush", &self.ihBrush).field("iUsage", &self.iUsage).field("offBmi", &self.offBmi).field("cbBmi", &self.cbBmi).field("offBits", &self.offBits).field("cbBits", &self.cbBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRCREATEDIBPATTERNBRUSHPT {
     type Abi = Self;
 }
@@ -3875,6 +4233,11 @@ impl ::core::clone::Clone for EMRCREATEMONOBRUSH {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRCREATEMONOBRUSH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRCREATEMONOBRUSH").field("emr", &self.emr).field("ihBrush", &self.ihBrush).field("iUsage", &self.iUsage).field("offBmi", &self.offBmi).field("cbBmi", &self.cbBmi).field("offBits", &self.offBits).field("cbBits", &self.cbBits).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRCREATEMONOBRUSH {
     type Abi = Self;
 }
@@ -3900,6 +4263,11 @@ impl ::core::marker::Copy for EMRCREATEPALETTE {}
 impl ::core::clone::Clone for EMRCREATEPALETTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRCREATEPALETTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRCREATEPALETTE").field("emr", &self.emr).field("ihPal", &self.ihPal).field("lgpl", &self.lgpl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRCREATEPALETTE {
@@ -3930,6 +4298,12 @@ impl ::core::marker::Copy for EMRCREATEPEN {}
 impl ::core::clone::Clone for EMRCREATEPEN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRCREATEPEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRCREATEPEN").field("emr", &self.emr).field("ihPen", &self.ihPen).field("lopn", &self.lopn).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3966,6 +4340,12 @@ impl ::core::clone::Clone for EMRELLIPSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRELLIPSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRELLIPSE").field("emr", &self.emr).field("rclBox", &self.rclBox).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRELLIPSE {
     type Abi = Self;
 }
@@ -3997,6 +4377,11 @@ impl ::core::clone::Clone for EMREOF {
         *self
     }
 }
+impl ::core::fmt::Debug for EMREOF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMREOF").field("emr", &self.emr).field("nPalEntries", &self.nPalEntries).field("offPalEntries", &self.offPalEntries).field("nSizeLast", &self.nSizeLast).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMREOF {
     type Abi = Self;
 }
@@ -4024,6 +4409,12 @@ impl ::core::marker::Copy for EMREXCLUDECLIPRECT {}
 impl ::core::clone::Clone for EMREXCLUDECLIPRECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMREXCLUDECLIPRECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMREXCLUDECLIPRECT").field("emr", &self.emr).field("rclClip", &self.rclClip).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4057,6 +4448,11 @@ impl ::core::clone::Clone for EMREXTCREATEFONTINDIRECTW {
         *self
     }
 }
+impl ::core::fmt::Debug for EMREXTCREATEFONTINDIRECTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMREXTCREATEFONTINDIRECTW").field("emr", &self.emr).field("ihFont", &self.ihFont).field("elfw", &self.elfw).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMREXTCREATEFONTINDIRECTW {
     type Abi = Self;
 }
@@ -4088,6 +4484,11 @@ impl ::core::clone::Clone for EMREXTCREATEPEN {
         *self
     }
 }
+impl ::core::fmt::Debug for EMREXTCREATEPEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMREXTCREATEPEN").field("emr", &self.emr).field("ihPen", &self.ihPen).field("offBmi", &self.offBmi).field("cbBmi", &self.cbBmi).field("offBits", &self.offBits).field("cbBits", &self.cbBits).field("elp", &self.elp).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMREXTCREATEPEN {
     type Abi = Self;
 }
@@ -4114,6 +4515,11 @@ impl ::core::marker::Copy for EMREXTESCAPE {}
 impl ::core::clone::Clone for EMREXTESCAPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMREXTESCAPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMREXTESCAPE").field("emr", &self.emr).field("iEscape", &self.iEscape).field("cbEscData", &self.cbEscData).field("EscData", &self.EscData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMREXTESCAPE {
@@ -4148,6 +4554,12 @@ impl ::core::clone::Clone for EMREXTFLOODFILL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMREXTFLOODFILL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMREXTFLOODFILL").field("emr", &self.emr).field("ptlStart", &self.ptlStart).field("crColor", &self.crColor).field("iMode", &self.iMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMREXTFLOODFILL {
     type Abi = Self;
 }
@@ -4177,6 +4589,11 @@ impl ::core::marker::Copy for EMREXTSELECTCLIPRGN {}
 impl ::core::clone::Clone for EMREXTSELECTCLIPRGN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMREXTSELECTCLIPRGN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMREXTSELECTCLIPRGN").field("emr", &self.emr).field("cbRgnData", &self.cbRgnData).field("iMode", &self.iMode).field("RgnData", &self.RgnData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMREXTSELECTCLIPRGN {
@@ -4213,6 +4630,12 @@ impl ::core::clone::Clone for EMREXTTEXTOUTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMREXTTEXTOUTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMREXTTEXTOUTA").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("iGraphicsMode", &self.iGraphicsMode).field("exScale", &self.exScale).field("eyScale", &self.eyScale).field("emrtext", &self.emrtext).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMREXTTEXTOUTA {
     type Abi = Self;
 }
@@ -4243,6 +4666,12 @@ impl ::core::marker::Copy for EMRFILLPATH {}
 impl ::core::clone::Clone for EMRFILLPATH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRFILLPATH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRFILLPATH").field("emr", &self.emr).field("rclBounds", &self.rclBounds).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4282,6 +4711,12 @@ impl ::core::clone::Clone for EMRFILLRGN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRFILLRGN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRFILLRGN").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("cbRgnData", &self.cbRgnData).field("ihBrush", &self.ihBrush).field("RgnData", &self.RgnData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRFILLRGN {
     type Abi = Self;
 }
@@ -4311,6 +4746,11 @@ impl ::core::marker::Copy for EMRFORMAT {}
 impl ::core::clone::Clone for EMRFORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRFORMAT").field("dSignature", &self.dSignature).field("nVersion", &self.nVersion).field("cbData", &self.cbData).field("offData", &self.offData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRFORMAT {
@@ -4347,6 +4787,12 @@ impl ::core::clone::Clone for EMRFRAMERGN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRFRAMERGN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRFRAMERGN").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("cbRgnData", &self.cbRgnData).field("ihBrush", &self.ihBrush).field("szlStroke", &self.szlStroke).field("RgnData", &self.RgnData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRFRAMERGN {
     type Abi = Self;
 }
@@ -4375,6 +4821,11 @@ impl ::core::marker::Copy for EMRGDICOMMENT {}
 impl ::core::clone::Clone for EMRGDICOMMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRGDICOMMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRGDICOMMENT").field("emr", &self.emr).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRGDICOMMENT {
@@ -4409,6 +4860,12 @@ impl ::core::clone::Clone for EMRGLSBOUNDEDRECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRGLSBOUNDEDRECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRGLSBOUNDEDRECORD").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("cbData", &self.cbData).field("Data", &self.Data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRGLSBOUNDEDRECORD {
     type Abi = Self;
 }
@@ -4437,6 +4894,11 @@ impl ::core::marker::Copy for EMRGLSRECORD {}
 impl ::core::clone::Clone for EMRGLSRECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRGLSRECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRGLSRECORD").field("emr", &self.emr).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRGLSRECORD {
@@ -4470,6 +4932,12 @@ impl ::core::marker::Copy for EMRGRADIENTFILL {}
 impl ::core::clone::Clone for EMRGRADIENTFILL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRGRADIENTFILL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRGRADIENTFILL").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("nVer", &self.nVer).field("nTri", &self.nTri).field("ulMode", &self.ulMode).field("Ver", &self.Ver).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4508,6 +4976,12 @@ impl ::core::clone::Clone for EMRINVERTRGN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRINVERTRGN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRINVERTRGN").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("cbRgnData", &self.cbRgnData).field("RgnData", &self.RgnData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRINVERTRGN {
     type Abi = Self;
 }
@@ -4538,6 +5012,12 @@ impl ::core::marker::Copy for EMRLINETO {}
 impl ::core::clone::Clone for EMRLINETO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRLINETO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRLINETO").field("emr", &self.emr).field("ptl", &self.ptl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4595,6 +5075,36 @@ impl ::core::clone::Clone for EMRMASKBLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRMASKBLT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRMASKBLT")
+            .field("emr", &self.emr)
+            .field("rclBounds", &self.rclBounds)
+            .field("xDest", &self.xDest)
+            .field("yDest", &self.yDest)
+            .field("cxDest", &self.cxDest)
+            .field("cyDest", &self.cyDest)
+            .field("dwRop", &self.dwRop)
+            .field("xSrc", &self.xSrc)
+            .field("ySrc", &self.ySrc)
+            .field("xformSrc", &self.xformSrc)
+            .field("crBkColorSrc", &self.crBkColorSrc)
+            .field("iUsageSrc", &self.iUsageSrc)
+            .field("offBmiSrc", &self.offBmiSrc)
+            .field("cbBmiSrc", &self.cbBmiSrc)
+            .field("offBitsSrc", &self.offBitsSrc)
+            .field("cbBitsSrc", &self.cbBitsSrc)
+            .field("xMask", &self.xMask)
+            .field("yMask", &self.yMask)
+            .field("iUsageMask", &self.iUsageMask)
+            .field("offBmiMask", &self.offBmiMask)
+            .field("cbBmiMask", &self.cbBmiMask)
+            .field("offBitsMask", &self.offBitsMask)
+            .field("cbBitsMask", &self.cbBitsMask)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRMASKBLT {
     type Abi = Self;
 }
@@ -4623,6 +5133,11 @@ impl ::core::marker::Copy for EMRMODIFYWORLDTRANSFORM {}
 impl ::core::clone::Clone for EMRMODIFYWORLDTRANSFORM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRMODIFYWORLDTRANSFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRMODIFYWORLDTRANSFORM").field("emr", &self.emr).field("xform", &self.xform).field("iMode", &self.iMode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRMODIFYWORLDTRANSFORM {
@@ -4654,6 +5169,11 @@ impl ::core::clone::Clone for EMRNAMEDESCAPE {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRNAMEDESCAPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRNAMEDESCAPE").field("emr", &self.emr).field("iEscape", &self.iEscape).field("cbDriver", &self.cbDriver).field("cbEscData", &self.cbEscData).field("EscData", &self.EscData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRNAMEDESCAPE {
     type Abi = Self;
 }
@@ -4681,6 +5201,12 @@ impl ::core::marker::Copy for EMROFFSETCLIPRGN {}
 impl ::core::clone::Clone for EMROFFSETCLIPRGN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMROFFSETCLIPRGN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMROFFSETCLIPRGN").field("emr", &self.emr).field("ptlOffset", &self.ptlOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4736,6 +5262,34 @@ impl ::core::clone::Clone for EMRPLGBLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRPLGBLT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPLGBLT")
+            .field("emr", &self.emr)
+            .field("rclBounds", &self.rclBounds)
+            .field("aptlDest", &self.aptlDest)
+            .field("xSrc", &self.xSrc)
+            .field("ySrc", &self.ySrc)
+            .field("cxSrc", &self.cxSrc)
+            .field("cySrc", &self.cySrc)
+            .field("xformSrc", &self.xformSrc)
+            .field("crBkColorSrc", &self.crBkColorSrc)
+            .field("iUsageSrc", &self.iUsageSrc)
+            .field("offBmiSrc", &self.offBmiSrc)
+            .field("cbBmiSrc", &self.cbBmiSrc)
+            .field("offBitsSrc", &self.offBitsSrc)
+            .field("cbBitsSrc", &self.cbBitsSrc)
+            .field("xMask", &self.xMask)
+            .field("yMask", &self.yMask)
+            .field("iUsageMask", &self.iUsageMask)
+            .field("offBmiMask", &self.offBmiMask)
+            .field("cbBmiMask", &self.cbBmiMask)
+            .field("offBitsMask", &self.offBitsMask)
+            .field("cbBitsMask", &self.cbBitsMask)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRPLGBLT {
     type Abi = Self;
 }
@@ -4769,6 +5323,12 @@ impl ::core::marker::Copy for EMRPOLYDRAW {}
 impl ::core::clone::Clone for EMRPOLYDRAW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRPOLYDRAW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPOLYDRAW").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("cptl", &self.cptl).field("aptl", &self.aptl).field("abTypes", &self.abTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4808,6 +5368,12 @@ impl ::core::clone::Clone for EMRPOLYDRAW16 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRPOLYDRAW16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPOLYDRAW16").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("cpts", &self.cpts).field("apts", &self.apts).field("abTypes", &self.abTypes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRPOLYDRAW16 {
     type Abi = Self;
 }
@@ -4843,6 +5409,12 @@ impl ::core::clone::Clone for EMRPOLYLINE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRPOLYLINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPOLYLINE").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("cptl", &self.cptl).field("aptl", &self.aptl).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRPOLYLINE {
     type Abi = Self;
 }
@@ -4875,6 +5447,12 @@ impl ::core::marker::Copy for EMRPOLYLINE16 {}
 impl ::core::clone::Clone for EMRPOLYLINE16 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRPOLYLINE16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPOLYLINE16").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("cpts", &self.cpts).field("apts", &self.apts).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4915,6 +5493,12 @@ impl ::core::clone::Clone for EMRPOLYPOLYLINE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRPOLYPOLYLINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPOLYPOLYLINE").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("nPolys", &self.nPolys).field("cptl", &self.cptl).field("aPolyCounts", &self.aPolyCounts).field("aptl", &self.aptl).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRPOLYPOLYLINE {
     type Abi = Self;
 }
@@ -4949,6 +5533,12 @@ impl ::core::marker::Copy for EMRPOLYPOLYLINE16 {}
 impl ::core::clone::Clone for EMRPOLYPOLYLINE16 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRPOLYPOLYLINE16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPOLYPOLYLINE16").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("nPolys", &self.nPolys).field("cpts", &self.cpts).field("aPolyCounts", &self.aPolyCounts).field("apts", &self.apts).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4990,6 +5580,12 @@ impl ::core::clone::Clone for EMRPOLYTEXTOUTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRPOLYTEXTOUTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRPOLYTEXTOUTA").field("emr", &self.emr).field("rclBounds", &self.rclBounds).field("iGraphicsMode", &self.iGraphicsMode).field("exScale", &self.exScale).field("eyScale", &self.eyScale).field("cStrings", &self.cStrings).field("aemrtext", &self.aemrtext).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRPOLYTEXTOUTA {
     type Abi = Self;
 }
@@ -5020,6 +5616,11 @@ impl ::core::clone::Clone for EMRRESIZEPALETTE {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRRESIZEPALETTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRRESIZEPALETTE").field("emr", &self.emr).field("ihPal", &self.ihPal).field("cEntries", &self.cEntries).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRRESIZEPALETTE {
     type Abi = Self;
 }
@@ -5044,6 +5645,11 @@ impl ::core::marker::Copy for EMRRESTOREDC {}
 impl ::core::clone::Clone for EMRRESTOREDC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRRESTOREDC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRRESTOREDC").field("emr", &self.emr).field("iRelative", &self.iRelative).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRRESTOREDC {
@@ -5074,6 +5680,12 @@ impl ::core::marker::Copy for EMRROUNDRECT {}
 impl ::core::clone::Clone for EMRROUNDRECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRROUNDRECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRROUNDRECT").field("emr", &self.emr).field("rclBox", &self.rclBox).field("szlCorner", &self.szlCorner).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5109,6 +5721,11 @@ impl ::core::clone::Clone for EMRSCALEVIEWPORTEXTEX {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRSCALEVIEWPORTEXTEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSCALEVIEWPORTEXTEX").field("emr", &self.emr).field("xNum", &self.xNum).field("xDenom", &self.xDenom).field("yNum", &self.yNum).field("yDenom", &self.yDenom).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRSCALEVIEWPORTEXTEX {
     type Abi = Self;
 }
@@ -5133,6 +5750,11 @@ impl ::core::marker::Copy for EMRSELECTCLIPPATH {}
 impl ::core::clone::Clone for EMRSELECTCLIPPATH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRSELECTCLIPPATH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSELECTCLIPPATH").field("emr", &self.emr).field("iMode", &self.iMode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRSELECTCLIPPATH {
@@ -5161,6 +5783,11 @@ impl ::core::clone::Clone for EMRSELECTOBJECT {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRSELECTOBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSELECTOBJECT").field("emr", &self.emr).field("ihObject", &self.ihObject).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRSELECTOBJECT {
     type Abi = Self;
 }
@@ -5185,6 +5812,11 @@ impl ::core::marker::Copy for EMRSELECTPALETTE {}
 impl ::core::clone::Clone for EMRSELECTPALETTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRSELECTPALETTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSELECTPALETTE").field("emr", &self.emr).field("ihPal", &self.ihPal).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRSELECTPALETTE {
@@ -5213,6 +5845,11 @@ impl ::core::clone::Clone for EMRSETARCDIRECTION {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRSETARCDIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETARCDIRECTION").field("emr", &self.emr).field("iArcDirection", &self.iArcDirection).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRSETARCDIRECTION {
     type Abi = Self;
 }
@@ -5239,6 +5876,11 @@ impl ::core::clone::Clone for EMRSETCOLORADJUSTMENT {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRSETCOLORADJUSTMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETCOLORADJUSTMENT").field("emr", &self.emr).field("ColorAdjustment", &self.ColorAdjustment).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRSETCOLORADJUSTMENT {
     type Abi = Self;
 }
@@ -5263,6 +5905,11 @@ impl ::core::marker::Copy for EMRSETCOLORSPACE {}
 impl ::core::clone::Clone for EMRSETCOLORSPACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRSETCOLORSPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETCOLORSPACE").field("emr", &self.emr).field("ihCS", &self.ihCS).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRSETCOLORSPACE {
@@ -5308,6 +5955,28 @@ impl ::core::clone::Clone for EMRSETDIBITSTODEVICE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRSETDIBITSTODEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETDIBITSTODEVICE")
+            .field("emr", &self.emr)
+            .field("rclBounds", &self.rclBounds)
+            .field("xDest", &self.xDest)
+            .field("yDest", &self.yDest)
+            .field("xSrc", &self.xSrc)
+            .field("ySrc", &self.ySrc)
+            .field("cxSrc", &self.cxSrc)
+            .field("cySrc", &self.cySrc)
+            .field("offBmiSrc", &self.offBmiSrc)
+            .field("cbBmiSrc", &self.cbBmiSrc)
+            .field("offBitsSrc", &self.offBitsSrc)
+            .field("cbBitsSrc", &self.cbBitsSrc)
+            .field("iUsageSrc", &self.iUsageSrc)
+            .field("iStartScan", &self.iStartScan)
+            .field("cScans", &self.cScans)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRSETDIBITSTODEVICE {
     type Abi = Self;
 }
@@ -5340,6 +6009,11 @@ impl ::core::clone::Clone for EMRSETICMPROFILE {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRSETICMPROFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETICMPROFILE").field("emr", &self.emr).field("dwFlags", &self.dwFlags).field("cbName", &self.cbName).field("cbData", &self.cbData).field("Data", &self.Data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRSETICMPROFILE {
     type Abi = Self;
 }
@@ -5366,6 +6040,11 @@ impl ::core::clone::Clone for EMRSETMAPPERFLAGS {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRSETMAPPERFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETMAPPERFLAGS").field("emr", &self.emr).field("dwFlags", &self.dwFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRSETMAPPERFLAGS {
     type Abi = Self;
 }
@@ -5390,6 +6069,11 @@ impl ::core::marker::Copy for EMRSETMITERLIMIT {}
 impl ::core::clone::Clone for EMRSETMITERLIMIT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRSETMITERLIMIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETMITERLIMIT").field("emr", &self.emr).field("eMiterLimit", &self.eMiterLimit).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRSETMITERLIMIT {
@@ -5419,6 +6103,11 @@ impl ::core::marker::Copy for EMRSETPALETTEENTRIES {}
 impl ::core::clone::Clone for EMRSETPALETTEENTRIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRSETPALETTEENTRIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETPALETTEENTRIES").field("emr", &self.emr).field("ihPal", &self.ihPal).field("iStart", &self.iStart).field("cEntries", &self.cEntries).field("aPalEntries", &self.aPalEntries).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRSETPALETTEENTRIES {
@@ -5452,6 +6141,12 @@ impl ::core::clone::Clone for EMRSETPIXELV {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRSETPIXELV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETPIXELV").field("emr", &self.emr).field("ptlPixel", &self.ptlPixel).field("crColor", &self.crColor).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRSETPIXELV {
     type Abi = Self;
 }
@@ -5481,6 +6176,11 @@ impl ::core::clone::Clone for EMRSETTEXTCOLOR {
         *self
     }
 }
+impl ::core::fmt::Debug for EMRSETTEXTCOLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETTEXTCOLOR").field("emr", &self.emr).field("crColor", &self.crColor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EMRSETTEXTCOLOR {
     type Abi = Self;
 }
@@ -5508,6 +6208,12 @@ impl ::core::marker::Copy for EMRSETVIEWPORTEXTEX {}
 impl ::core::clone::Clone for EMRSETVIEWPORTEXTEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRSETVIEWPORTEXTEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETVIEWPORTEXTEX").field("emr", &self.emr).field("szlExtent", &self.szlExtent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5544,6 +6250,12 @@ impl ::core::clone::Clone for EMRSETVIEWPORTORGEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRSETVIEWPORTORGEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETVIEWPORTORGEX").field("emr", &self.emr).field("ptlOrigin", &self.ptlOrigin).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRSETVIEWPORTORGEX {
     type Abi = Self;
 }
@@ -5571,6 +6283,11 @@ impl ::core::marker::Copy for EMRSETWORLDTRANSFORM {}
 impl ::core::clone::Clone for EMRSETWORLDTRANSFORM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EMRSETWORLDTRANSFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSETWORLDTRANSFORM").field("emr", &self.emr).field("xform", &self.xform).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EMRSETWORLDTRANSFORM {
@@ -5616,6 +6333,31 @@ impl ::core::marker::Copy for EMRSTRETCHBLT {}
 impl ::core::clone::Clone for EMRSTRETCHBLT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRSTRETCHBLT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSTRETCHBLT")
+            .field("emr", &self.emr)
+            .field("rclBounds", &self.rclBounds)
+            .field("xDest", &self.xDest)
+            .field("yDest", &self.yDest)
+            .field("cxDest", &self.cxDest)
+            .field("cyDest", &self.cyDest)
+            .field("dwRop", &self.dwRop)
+            .field("xSrc", &self.xSrc)
+            .field("ySrc", &self.ySrc)
+            .field("xformSrc", &self.xformSrc)
+            .field("crBkColorSrc", &self.crBkColorSrc)
+            .field("iUsageSrc", &self.iUsageSrc)
+            .field("offBmiSrc", &self.offBmiSrc)
+            .field("cbBmiSrc", &self.cbBmiSrc)
+            .field("offBitsSrc", &self.offBitsSrc)
+            .field("cbBitsSrc", &self.cbBitsSrc)
+            .field("cxSrc", &self.cxSrc)
+            .field("cySrc", &self.cySrc)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5666,6 +6408,29 @@ impl ::core::clone::Clone for EMRSTRETCHDIBITS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRSTRETCHDIBITS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRSTRETCHDIBITS")
+            .field("emr", &self.emr)
+            .field("rclBounds", &self.rclBounds)
+            .field("xDest", &self.xDest)
+            .field("yDest", &self.yDest)
+            .field("xSrc", &self.xSrc)
+            .field("ySrc", &self.ySrc)
+            .field("cxSrc", &self.cxSrc)
+            .field("cySrc", &self.cySrc)
+            .field("offBmiSrc", &self.offBmiSrc)
+            .field("cbBmiSrc", &self.cbBmiSrc)
+            .field("offBitsSrc", &self.offBitsSrc)
+            .field("cbBitsSrc", &self.cbBitsSrc)
+            .field("iUsageSrc", &self.iUsageSrc)
+            .field("dwRop", &self.dwRop)
+            .field("cxDest", &self.cxDest)
+            .field("cyDest", &self.cyDest)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRSTRETCHDIBITS {
     type Abi = Self;
 }
@@ -5700,6 +6465,12 @@ impl ::core::marker::Copy for EMRTEXT {}
 impl ::core::clone::Clone for EMRTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRTEXT").field("ptlReference", &self.ptlReference).field("nChars", &self.nChars).field("offString", &self.offString).field("fOptions", &self.fOptions).field("rcl", &self.rcl).field("offDx", &self.offDx).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5749,6 +6520,31 @@ impl ::core::marker::Copy for EMRTRANSPARENTBLT {}
 impl ::core::clone::Clone for EMRTRANSPARENTBLT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EMRTRANSPARENTBLT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EMRTRANSPARENTBLT")
+            .field("emr", &self.emr)
+            .field("rclBounds", &self.rclBounds)
+            .field("xDest", &self.xDest)
+            .field("yDest", &self.yDest)
+            .field("cxDest", &self.cxDest)
+            .field("cyDest", &self.cyDest)
+            .field("dwRop", &self.dwRop)
+            .field("xSrc", &self.xSrc)
+            .field("ySrc", &self.ySrc)
+            .field("xformSrc", &self.xformSrc)
+            .field("crBkColorSrc", &self.crBkColorSrc)
+            .field("iUsageSrc", &self.iUsageSrc)
+            .field("offBmiSrc", &self.offBmiSrc)
+            .field("cbBmiSrc", &self.cbBmiSrc)
+            .field("offBitsSrc", &self.offBitsSrc)
+            .field("cbBitsSrc", &self.cbBitsSrc)
+            .field("cxSrc", &self.cxSrc)
+            .field("cySrc", &self.cySrc)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6060,6 +6856,32 @@ impl ::core::clone::Clone for ENHMETAHEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENHMETAHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENHMETAHEADER")
+            .field("iType", &self.iType)
+            .field("nSize", &self.nSize)
+            .field("rclBounds", &self.rclBounds)
+            .field("rclFrame", &self.rclFrame)
+            .field("dSignature", &self.dSignature)
+            .field("nVersion", &self.nVersion)
+            .field("nBytes", &self.nBytes)
+            .field("nRecords", &self.nRecords)
+            .field("nHandles", &self.nHandles)
+            .field("sReserved", &self.sReserved)
+            .field("nDescription", &self.nDescription)
+            .field("offDescription", &self.offDescription)
+            .field("nPalEntries", &self.nPalEntries)
+            .field("szlDevice", &self.szlDevice)
+            .field("szlMillimeters", &self.szlMillimeters)
+            .field("cbPixelFormat", &self.cbPixelFormat)
+            .field("offPixelFormat", &self.offPixelFormat)
+            .field("bOpenGL", &self.bOpenGL)
+            .field("szlMicrometers", &self.szlMicrometers)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENHMETAHEADER {
     type Abi = Self;
 }
@@ -6088,6 +6910,11 @@ impl ::core::marker::Copy for ENHMETARECORD {}
 impl ::core::clone::Clone for ENHMETARECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ENHMETARECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENHMETARECORD").field("iType", &self.iType).field("nSize", &self.nSize).field("dParm", &self.dParm).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ENHMETARECORD {
@@ -6128,6 +6955,12 @@ impl ::core::clone::Clone for ENUMLOGFONTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUMLOGFONTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMLOGFONTA").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENUMLOGFONTA {
     type Abi = Self;
 }
@@ -6160,6 +6993,12 @@ impl ::core::marker::Copy for ENUMLOGFONTEXA {}
 impl ::core::clone::Clone for ENUMLOGFONTEXA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUMLOGFONTEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMLOGFONTEXA").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).field("elfScript", &self.elfScript).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6196,6 +7035,12 @@ impl ::core::clone::Clone for ENUMLOGFONTEXDVA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENUMLOGFONTEXDVA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMLOGFONTEXDVA").field("elfEnumLogfontEx", &self.elfEnumLogfontEx).field("elfDesignVector", &self.elfDesignVector).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENUMLOGFONTEXDVA {
     type Abi = Self;
 }
@@ -6223,6 +7068,11 @@ impl ::core::marker::Copy for ENUMLOGFONTEXDVW {}
 impl ::core::clone::Clone for ENUMLOGFONTEXDVW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ENUMLOGFONTEXDVW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMLOGFONTEXDVW").field("elfEnumLogfontEx", &self.elfEnumLogfontEx).field("elfDesignVector", &self.elfDesignVector).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ENUMLOGFONTEXDVW {
@@ -6253,6 +7103,11 @@ impl ::core::clone::Clone for ENUMLOGFONTEXW {
         *self
     }
 }
+impl ::core::fmt::Debug for ENUMLOGFONTEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMLOGFONTEXW").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).field("elfScript", &self.elfScript).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ENUMLOGFONTEXW {
     type Abi = Self;
 }
@@ -6278,6 +7133,11 @@ impl ::core::marker::Copy for ENUMLOGFONTW {}
 impl ::core::clone::Clone for ENUMLOGFONTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ENUMLOGFONTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUMLOGFONTW").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ENUMLOGFONTW {
@@ -6498,6 +7358,12 @@ impl ::core::clone::Clone for EXTLOGFONTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EXTLOGFONTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTLOGFONTA").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).field("elfVersion", &self.elfVersion).field("elfStyleSize", &self.elfStyleSize).field("elfMatch", &self.elfMatch).field("elfReserved", &self.elfReserved).field("elfVendorId", &self.elfVendorId).field("elfCulture", &self.elfCulture).field("elfPanose", &self.elfPanose).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EXTLOGFONTA {
     type Abi = Self;
 }
@@ -6535,6 +7401,11 @@ impl ::core::clone::Clone for EXTLOGFONTW {
         *self
     }
 }
+impl ::core::fmt::Debug for EXTLOGFONTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTLOGFONTW").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).field("elfVersion", &self.elfVersion).field("elfStyleSize", &self.elfStyleSize).field("elfMatch", &self.elfMatch).field("elfReserved", &self.elfReserved).field("elfVendorId", &self.elfVendorId).field("elfCulture", &self.elfCulture).field("elfPanose", &self.elfPanose).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EXTLOGFONTW {
     type Abi = Self;
 }
@@ -6566,6 +7437,11 @@ impl ::core::clone::Clone for EXTLOGPEN {
         *self
     }
 }
+impl ::core::fmt::Debug for EXTLOGPEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTLOGPEN").field("elpPenStyle", &self.elpPenStyle).field("elpWidth", &self.elpWidth).field("elpBrushStyle", &self.elpBrushStyle).field("elpColor", &self.elpColor).field("elpHatch", &self.elpHatch).field("elpNumEntries", &self.elpNumEntries).field("elpStyleEntry", &self.elpStyleEntry).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EXTLOGPEN {
     type Abi = Self;
 }
@@ -6595,6 +7471,11 @@ impl ::core::marker::Copy for EXTLOGPEN32 {}
 impl ::core::clone::Clone for EXTLOGPEN32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EXTLOGPEN32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXTLOGPEN32").field("elpPenStyle", &self.elpPenStyle).field("elpWidth", &self.elpWidth).field("elpBrushStyle", &self.elpBrushStyle).field("elpColor", &self.elpColor).field("elpHatch", &self.elpHatch).field("elpNumEntries", &self.elpNumEntries).field("elpStyleEntry", &self.elpStyleEntry).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EXTLOGPEN32 {
@@ -7197,6 +8078,11 @@ impl ::core::clone::Clone for FIXED {
         *self
     }
 }
+impl ::core::fmt::Debug for FIXED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FIXED").field("fract", &self.fract).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FIXED {
     type Abi = Self;
 }
@@ -7556,6 +8442,12 @@ impl ::core::clone::Clone for GCP_RESULTSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GCP_RESULTSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GCP_RESULTSA").field("lStructSize", &self.lStructSize).field("lpOutString", &self.lpOutString).field("lpOrder", &self.lpOrder).field("lpDx", &self.lpDx).field("lpCaretPos", &self.lpCaretPos).field("lpClass", &self.lpClass).field("lpGlyphs", &self.lpGlyphs).field("nGlyphs", &self.nGlyphs).field("nMaxFit", &self.nMaxFit).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GCP_RESULTSA {
     type Abi = Self;
 }
@@ -7593,6 +8485,12 @@ impl ::core::marker::Copy for GCP_RESULTSW {}
 impl ::core::clone::Clone for GCP_RESULTSW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GCP_RESULTSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GCP_RESULTSW").field("lStructSize", &self.lStructSize).field("lpOutString", &self.lpOutString).field("lpOrder", &self.lpOrder).field("lpDx", &self.lpDx).field("lpCaretPos", &self.lpCaretPos).field("lpClass", &self.lpClass).field("lpGlyphs", &self.lpGlyphs).field("nGlyphs", &self.nGlyphs).field("nMaxFit", &self.nMaxFit).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7896,6 +8794,12 @@ impl ::core::clone::Clone for GLYPHMETRICS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GLYPHMETRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GLYPHMETRICS").field("gmBlackBoxX", &self.gmBlackBoxX).field("gmBlackBoxY", &self.gmBlackBoxY).field("gmptGlyphOrigin", &self.gmptGlyphOrigin).field("gmCellIncX", &self.gmCellIncX).field("gmCellIncY", &self.gmCellIncY).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GLYPHMETRICS {
     type Abi = Self;
 }
@@ -7926,6 +8830,11 @@ impl ::core::marker::Copy for GLYPHSET {}
 impl ::core::clone::Clone for GLYPHSET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GLYPHSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GLYPHSET").field("cbThis", &self.cbThis).field("flAccel", &self.flAccel).field("cGlyphsSupported", &self.cGlyphsSupported).field("cRanges", &self.cRanges).field("ranges", &self.ranges).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GLYPHSET {
@@ -7969,6 +8878,11 @@ impl ::core::clone::Clone for GRADIENT_RECT {
         *self
     }
 }
+impl ::core::fmt::Debug for GRADIENT_RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GRADIENT_RECT").field("UpperLeft", &self.UpperLeft).field("LowerRight", &self.LowerRight).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GRADIENT_RECT {
     type Abi = Self;
 }
@@ -7994,6 +8908,11 @@ impl ::core::marker::Copy for GRADIENT_TRIANGLE {}
 impl ::core::clone::Clone for GRADIENT_TRIANGLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GRADIENT_TRIANGLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GRADIENT_TRIANGLE").field("Vertex1", &self.Vertex1).field("Vertex2", &self.Vertex2).field("Vertex3", &self.Vertex3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GRADIENT_TRIANGLE {
@@ -9790,6 +10709,11 @@ impl ::core::clone::Clone for HANDLETABLE {
         *self
     }
 }
+impl ::core::fmt::Debug for HANDLETABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HANDLETABLE").field("objectHandle", &self.objectHandle).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HANDLETABLE {
     type Abi = Self;
 }
@@ -10027,6 +10951,11 @@ impl ::core::clone::Clone for KERNINGPAIR {
         *self
     }
 }
+impl ::core::fmt::Debug for KERNINGPAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KERNINGPAIR").field("wFirst", &self.wFirst).field("wSecond", &self.wSecond).field("iKernAmount", &self.iKernAmount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KERNINGPAIR {
     type Abi = Self;
 }
@@ -10091,6 +11020,11 @@ impl ::core::clone::Clone for LOGBRUSH {
         *self
     }
 }
+impl ::core::fmt::Debug for LOGBRUSH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGBRUSH").field("lbStyle", &self.lbStyle).field("lbColor", &self.lbColor).field("lbHatch", &self.lbHatch).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LOGBRUSH {
     type Abi = Self;
 }
@@ -10116,6 +11050,11 @@ impl ::core::marker::Copy for LOGBRUSH32 {}
 impl ::core::clone::Clone for LOGBRUSH32 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LOGBRUSH32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGBRUSH32").field("lbStyle", &self.lbStyle).field("lbColor", &self.lbColor).field("lbHatch", &self.lbHatch).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LOGBRUSH32 {
@@ -10160,6 +11099,27 @@ impl ::core::clone::Clone for LOGFONTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LOGFONTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGFONTA")
+            .field("lfHeight", &self.lfHeight)
+            .field("lfWidth", &self.lfWidth)
+            .field("lfEscapement", &self.lfEscapement)
+            .field("lfOrientation", &self.lfOrientation)
+            .field("lfWeight", &self.lfWeight)
+            .field("lfItalic", &self.lfItalic)
+            .field("lfUnderline", &self.lfUnderline)
+            .field("lfStrikeOut", &self.lfStrikeOut)
+            .field("lfCharSet", &self.lfCharSet)
+            .field("lfOutPrecision", &self.lfOutPrecision)
+            .field("lfClipPrecision", &self.lfClipPrecision)
+            .field("lfQuality", &self.lfQuality)
+            .field("lfPitchAndFamily", &self.lfPitchAndFamily)
+            .field("lfFaceName", &self.lfFaceName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LOGFONTA {
     type Abi = Self;
 }
@@ -10201,6 +11161,26 @@ impl ::core::clone::Clone for LOGFONTW {
         *self
     }
 }
+impl ::core::fmt::Debug for LOGFONTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGFONTW")
+            .field("lfHeight", &self.lfHeight)
+            .field("lfWidth", &self.lfWidth)
+            .field("lfEscapement", &self.lfEscapement)
+            .field("lfOrientation", &self.lfOrientation)
+            .field("lfWeight", &self.lfWeight)
+            .field("lfItalic", &self.lfItalic)
+            .field("lfUnderline", &self.lfUnderline)
+            .field("lfStrikeOut", &self.lfStrikeOut)
+            .field("lfCharSet", &self.lfCharSet)
+            .field("lfOutPrecision", &self.lfOutPrecision)
+            .field("lfClipPrecision", &self.lfClipPrecision)
+            .field("lfQuality", &self.lfQuality)
+            .field("lfPitchAndFamily", &self.lfPitchAndFamily)
+            .field("lfFaceName", &self.lfFaceName)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LOGFONTW {
     type Abi = Self;
 }
@@ -10226,6 +11206,11 @@ impl ::core::marker::Copy for LOGPALETTE {}
 impl ::core::clone::Clone for LOGPALETTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LOGPALETTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGPALETTE").field("palVersion", &self.palVersion).field("palNumEntries", &self.palNumEntries).field("palPalEntry", &self.palPalEntry).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LOGPALETTE {
@@ -10256,6 +11241,12 @@ impl ::core::marker::Copy for LOGPEN {}
 impl ::core::clone::Clone for LOGPEN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LOGPEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOGPEN").field("lopnStyle", &self.lopnStyle).field("lopnWidth", &self.lopnWidth).field("lopnColor", &self.lopnColor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10412,6 +11403,11 @@ impl ::core::clone::Clone for MAT2 {
         *self
     }
 }
+impl ::core::fmt::Debug for MAT2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MAT2").field("eM11", &self.eM11).field("eM12", &self.eM12).field("eM21", &self.eM21).field("eM22", &self.eM22).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MAT2 {
     type Abi = Self;
 }
@@ -10447,6 +11443,11 @@ impl ::core::clone::Clone for METAHEADER {
         *self
     }
 }
+impl ::core::fmt::Debug for METAHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METAHEADER").field("mtType", &self.mtType).field("mtHeaderSize", &self.mtHeaderSize).field("mtVersion", &self.mtVersion).field("mtSize", &self.mtSize).field("mtNoObjects", &self.mtNoObjects).field("mtMaxRecord", &self.mtMaxRecord).field("mtNoParameters", &self.mtNoParameters).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for METAHEADER {
     type Abi = Self;
 }
@@ -10472,6 +11473,11 @@ impl ::core::marker::Copy for METARECORD {}
 impl ::core::clone::Clone for METARECORD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for METARECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("METARECORD").field("rdSize", &self.rdSize).field("rdFunction", &self.rdFunction).field("rdParm", &self.rdParm).finish()
     }
 }
 unsafe impl ::windows::core::Abi for METARECORD {
@@ -10668,6 +11674,12 @@ impl ::core::clone::Clone for MONITORINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONITORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITORINFO").field("cbSize", &self.cbSize).field("rcMonitor", &self.rcMonitor).field("rcWork", &self.rcWork).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MONITORINFO {
     type Abi = Self;
 }
@@ -10701,6 +11713,12 @@ impl ::core::clone::Clone for MONITORINFOEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONITORINFOEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITORINFOEXA").field("monitorInfo", &self.monitorInfo).field("szDevice", &self.szDevice).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MONITORINFOEXA {
     type Abi = Self;
 }
@@ -10731,6 +11749,12 @@ impl ::core::marker::Copy for MONITORINFOEXW {}
 impl ::core::clone::Clone for MONITORINFOEXW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MONITORINFOEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONITORINFOEXW").field("monitorInfo", &self.monitorInfo).field("szDevice", &self.szDevice).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10931,6 +11955,36 @@ impl ::core::clone::Clone for NEWTEXTMETRICA {
         *self
     }
 }
+impl ::core::fmt::Debug for NEWTEXTMETRICA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NEWTEXTMETRICA")
+            .field("tmHeight", &self.tmHeight)
+            .field("tmAscent", &self.tmAscent)
+            .field("tmDescent", &self.tmDescent)
+            .field("tmInternalLeading", &self.tmInternalLeading)
+            .field("tmExternalLeading", &self.tmExternalLeading)
+            .field("tmAveCharWidth", &self.tmAveCharWidth)
+            .field("tmMaxCharWidth", &self.tmMaxCharWidth)
+            .field("tmWeight", &self.tmWeight)
+            .field("tmOverhang", &self.tmOverhang)
+            .field("tmDigitizedAspectX", &self.tmDigitizedAspectX)
+            .field("tmDigitizedAspectY", &self.tmDigitizedAspectY)
+            .field("tmFirstChar", &self.tmFirstChar)
+            .field("tmLastChar", &self.tmLastChar)
+            .field("tmDefaultChar", &self.tmDefaultChar)
+            .field("tmBreakChar", &self.tmBreakChar)
+            .field("tmItalic", &self.tmItalic)
+            .field("tmUnderlined", &self.tmUnderlined)
+            .field("tmStruckOut", &self.tmStruckOut)
+            .field("tmPitchAndFamily", &self.tmPitchAndFamily)
+            .field("tmCharSet", &self.tmCharSet)
+            .field("ntmFlags", &self.ntmFlags)
+            .field("ntmSizeEM", &self.ntmSizeEM)
+            .field("ntmCellHeight", &self.ntmCellHeight)
+            .field("ntmAvgWidth", &self.ntmAvgWidth)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NEWTEXTMETRICA {
     type Abi = Self;
 }
@@ -10977,6 +12031,36 @@ impl ::core::marker::Copy for NEWTEXTMETRICW {}
 impl ::core::clone::Clone for NEWTEXTMETRICW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NEWTEXTMETRICW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NEWTEXTMETRICW")
+            .field("tmHeight", &self.tmHeight)
+            .field("tmAscent", &self.tmAscent)
+            .field("tmDescent", &self.tmDescent)
+            .field("tmInternalLeading", &self.tmInternalLeading)
+            .field("tmExternalLeading", &self.tmExternalLeading)
+            .field("tmAveCharWidth", &self.tmAveCharWidth)
+            .field("tmMaxCharWidth", &self.tmMaxCharWidth)
+            .field("tmWeight", &self.tmWeight)
+            .field("tmOverhang", &self.tmOverhang)
+            .field("tmDigitizedAspectX", &self.tmDigitizedAspectX)
+            .field("tmDigitizedAspectY", &self.tmDigitizedAspectY)
+            .field("tmFirstChar", &self.tmFirstChar)
+            .field("tmLastChar", &self.tmLastChar)
+            .field("tmDefaultChar", &self.tmDefaultChar)
+            .field("tmBreakChar", &self.tmBreakChar)
+            .field("tmItalic", &self.tmItalic)
+            .field("tmUnderlined", &self.tmUnderlined)
+            .field("tmStruckOut", &self.tmStruckOut)
+            .field("tmPitchAndFamily", &self.tmPitchAndFamily)
+            .field("tmCharSet", &self.tmCharSet)
+            .field("ntmFlags", &self.ntmFlags)
+            .field("ntmSizeEM", &self.ntmSizeEM)
+            .field("ntmCellHeight", &self.ntmCellHeight)
+            .field("ntmAvgWidth", &self.ntmAvgWidth)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for NEWTEXTMETRICW {
@@ -11097,6 +12181,45 @@ impl ::core::clone::Clone for OUTLINETEXTMETRICA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OUTLINETEXTMETRICA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OUTLINETEXTMETRICA")
+            .field("otmSize", &self.otmSize)
+            .field("otmTextMetrics", &self.otmTextMetrics)
+            .field("otmFiller", &self.otmFiller)
+            .field("otmPanoseNumber", &self.otmPanoseNumber)
+            .field("otmfsSelection", &self.otmfsSelection)
+            .field("otmfsType", &self.otmfsType)
+            .field("otmsCharSlopeRise", &self.otmsCharSlopeRise)
+            .field("otmsCharSlopeRun", &self.otmsCharSlopeRun)
+            .field("otmItalicAngle", &self.otmItalicAngle)
+            .field("otmEMSquare", &self.otmEMSquare)
+            .field("otmAscent", &self.otmAscent)
+            .field("otmDescent", &self.otmDescent)
+            .field("otmLineGap", &self.otmLineGap)
+            .field("otmsCapEmHeight", &self.otmsCapEmHeight)
+            .field("otmsXHeight", &self.otmsXHeight)
+            .field("otmrcFontBox", &self.otmrcFontBox)
+            .field("otmMacAscent", &self.otmMacAscent)
+            .field("otmMacDescent", &self.otmMacDescent)
+            .field("otmMacLineGap", &self.otmMacLineGap)
+            .field("otmusMinimumPPEM", &self.otmusMinimumPPEM)
+            .field("otmptSubscriptSize", &self.otmptSubscriptSize)
+            .field("otmptSubscriptOffset", &self.otmptSubscriptOffset)
+            .field("otmptSuperscriptSize", &self.otmptSuperscriptSize)
+            .field("otmptSuperscriptOffset", &self.otmptSuperscriptOffset)
+            .field("otmsStrikeoutSize", &self.otmsStrikeoutSize)
+            .field("otmsStrikeoutPosition", &self.otmsStrikeoutPosition)
+            .field("otmsUnderscoreSize", &self.otmsUnderscoreSize)
+            .field("otmsUnderscorePosition", &self.otmsUnderscorePosition)
+            .field("otmpFamilyName", &self.otmpFamilyName)
+            .field("otmpFaceName", &self.otmpFaceName)
+            .field("otmpStyleName", &self.otmpStyleName)
+            .field("otmpFullName", &self.otmpFullName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OUTLINETEXTMETRICA {
     type Abi = Self;
 }
@@ -11157,6 +12280,45 @@ impl ::core::marker::Copy for OUTLINETEXTMETRICW {}
 impl ::core::clone::Clone for OUTLINETEXTMETRICW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OUTLINETEXTMETRICW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OUTLINETEXTMETRICW")
+            .field("otmSize", &self.otmSize)
+            .field("otmTextMetrics", &self.otmTextMetrics)
+            .field("otmFiller", &self.otmFiller)
+            .field("otmPanoseNumber", &self.otmPanoseNumber)
+            .field("otmfsSelection", &self.otmfsSelection)
+            .field("otmfsType", &self.otmfsType)
+            .field("otmsCharSlopeRise", &self.otmsCharSlopeRise)
+            .field("otmsCharSlopeRun", &self.otmsCharSlopeRun)
+            .field("otmItalicAngle", &self.otmItalicAngle)
+            .field("otmEMSquare", &self.otmEMSquare)
+            .field("otmAscent", &self.otmAscent)
+            .field("otmDescent", &self.otmDescent)
+            .field("otmLineGap", &self.otmLineGap)
+            .field("otmsCapEmHeight", &self.otmsCapEmHeight)
+            .field("otmsXHeight", &self.otmsXHeight)
+            .field("otmrcFontBox", &self.otmrcFontBox)
+            .field("otmMacAscent", &self.otmMacAscent)
+            .field("otmMacDescent", &self.otmMacDescent)
+            .field("otmMacLineGap", &self.otmMacLineGap)
+            .field("otmusMinimumPPEM", &self.otmusMinimumPPEM)
+            .field("otmptSubscriptSize", &self.otmptSubscriptSize)
+            .field("otmptSubscriptOffset", &self.otmptSubscriptOffset)
+            .field("otmptSuperscriptSize", &self.otmptSuperscriptSize)
+            .field("otmptSuperscriptOffset", &self.otmptSuperscriptOffset)
+            .field("otmsStrikeoutSize", &self.otmsStrikeoutSize)
+            .field("otmsStrikeoutPosition", &self.otmsStrikeoutPosition)
+            .field("otmsUnderscoreSize", &self.otmsUnderscoreSize)
+            .field("otmsUnderscorePosition", &self.otmsUnderscorePosition)
+            .field("otmpFamilyName", &self.otmpFamilyName)
+            .field("otmpFaceName", &self.otmpFaceName)
+            .field("otmpStyleName", &self.otmpStyleName)
+            .field("otmpFullName", &self.otmpFullName)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11272,6 +12434,12 @@ impl ::core::clone::Clone for PAINTSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PAINTSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PAINTSTRUCT").field("hdc", &self.hdc).field("fErase", &self.fErase).field("rcPaint", &self.rcPaint).field("fRestore", &self.fRestore).field("fIncUpdate", &self.fIncUpdate).field("rgbReserved", &self.rgbReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAINTSTRUCT {
     type Abi = Self;
 }
@@ -11301,6 +12469,11 @@ impl ::core::marker::Copy for PALETTEENTRY {}
 impl ::core::clone::Clone for PALETTEENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PALETTEENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PALETTEENTRY").field("peRed", &self.peRed).field("peGreen", &self.peGreen).field("peBlue", &self.peBlue).field("peFlags", &self.peFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PALETTEENTRY {
@@ -11335,6 +12508,11 @@ impl ::core::marker::Copy for PANOSE {}
 impl ::core::clone::Clone for PANOSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PANOSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PANOSE").field("bFamilyType", &self.bFamilyType).field("bSerifStyle", &self.bSerifStyle).field("bWeight", &self.bWeight).field("bProportion", &self.bProportion).field("bContrast", &self.bContrast).field("bStrokeVariation", &self.bStrokeVariation).field("bArmStyle", &self.bArmStyle).field("bLetterform", &self.bLetterform).field("bMidline", &self.bMidline).field("bXHeight", &self.bXHeight).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PANOSE {
@@ -11612,6 +12790,11 @@ impl ::core::clone::Clone for PELARRAY {
         *self
     }
 }
+impl ::core::fmt::Debug for PELARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PELARRAY").field("paXCount", &self.paXCount).field("paYCount", &self.paYCount).field("paXExt", &self.paXExt).field("paYExt", &self.paYExt).field("paRGBs", &self.paRGBs).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PELARRAY {
     type Abi = Self;
 }
@@ -11730,6 +12913,11 @@ impl ::core::clone::Clone for POINTFX {
         *self
     }
 }
+impl ::core::fmt::Debug for POINTFX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTFX").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for POINTFX {
     type Abi = Self;
 }
@@ -11764,6 +12952,12 @@ impl ::core::marker::Copy for POLYTEXTA {}
 impl ::core::clone::Clone for POLYTEXTA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POLYTEXTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POLYTEXTA").field("x", &self.x).field("y", &self.y).field("n", &self.n).field("lpstr", &self.lpstr).field("uiFlags", &self.uiFlags).field("rcl", &self.rcl).field("pdx", &self.pdx).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11802,6 +12996,12 @@ impl ::core::marker::Copy for POLYTEXTW {}
 impl ::core::clone::Clone for POLYTEXTW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POLYTEXTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POLYTEXTW").field("x", &self.x).field("y", &self.y).field("n", &self.n).field("lpstr", &self.lpstr).field("uiFlags", &self.uiFlags).field("rcl", &self.rcl).field("pdx", &self.pdx).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12283,6 +13483,11 @@ impl ::core::clone::Clone for RASTERIZER_STATUS {
         *self
     }
 }
+impl ::core::fmt::Debug for RASTERIZER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RASTERIZER_STATUS").field("nSize", &self.nSize).field("wFlags", &self.wFlags).field("nLanguageID", &self.nLanguageID).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RASTERIZER_STATUS {
     type Abi = Self;
 }
@@ -12379,6 +13584,11 @@ impl ::core::clone::Clone for RGBQUAD {
         *self
     }
 }
+impl ::core::fmt::Debug for RGBQUAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RGBQUAD").field("rgbBlue", &self.rgbBlue).field("rgbGreen", &self.rgbGreen).field("rgbRed", &self.rgbRed).field("rgbReserved", &self.rgbReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RGBQUAD {
     type Abi = Self;
 }
@@ -12404,6 +13614,11 @@ impl ::core::marker::Copy for RGBTRIPLE {}
 impl ::core::clone::Clone for RGBTRIPLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RGBTRIPLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RGBTRIPLE").field("rgbtBlue", &self.rgbtBlue).field("rgbtGreen", &self.rgbtGreen).field("rgbtRed", &self.rgbtRed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RGBTRIPLE {
@@ -12433,6 +13648,12 @@ impl ::core::marker::Copy for RGNDATA {}
 impl ::core::clone::Clone for RGNDATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RGNDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RGNDATA").field("rdh", &self.rdh).field("Buffer", &self.Buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12469,6 +13690,12 @@ impl ::core::marker::Copy for RGNDATAHEADER {}
 impl ::core::clone::Clone for RGNDATAHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RGNDATAHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RGNDATAHEADER").field("dwSize", &self.dwSize).field("iType", &self.iType).field("nCount", &self.nCount).field("nRgnSize", &self.nRgnSize).field("rcBound", &self.rcBound).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13785,6 +15012,32 @@ impl ::core::clone::Clone for TEXTMETRICA {
         *self
     }
 }
+impl ::core::fmt::Debug for TEXTMETRICA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TEXTMETRICA")
+            .field("tmHeight", &self.tmHeight)
+            .field("tmAscent", &self.tmAscent)
+            .field("tmDescent", &self.tmDescent)
+            .field("tmInternalLeading", &self.tmInternalLeading)
+            .field("tmExternalLeading", &self.tmExternalLeading)
+            .field("tmAveCharWidth", &self.tmAveCharWidth)
+            .field("tmMaxCharWidth", &self.tmMaxCharWidth)
+            .field("tmWeight", &self.tmWeight)
+            .field("tmOverhang", &self.tmOverhang)
+            .field("tmDigitizedAspectX", &self.tmDigitizedAspectX)
+            .field("tmDigitizedAspectY", &self.tmDigitizedAspectY)
+            .field("tmFirstChar", &self.tmFirstChar)
+            .field("tmLastChar", &self.tmLastChar)
+            .field("tmDefaultChar", &self.tmDefaultChar)
+            .field("tmBreakChar", &self.tmBreakChar)
+            .field("tmItalic", &self.tmItalic)
+            .field("tmUnderlined", &self.tmUnderlined)
+            .field("tmStruckOut", &self.tmStruckOut)
+            .field("tmPitchAndFamily", &self.tmPitchAndFamily)
+            .field("tmCharSet", &self.tmCharSet)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TEXTMETRICA {
     type Abi = Self;
 }
@@ -13827,6 +15080,32 @@ impl ::core::marker::Copy for TEXTMETRICW {}
 impl ::core::clone::Clone for TEXTMETRICW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TEXTMETRICW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TEXTMETRICW")
+            .field("tmHeight", &self.tmHeight)
+            .field("tmAscent", &self.tmAscent)
+            .field("tmDescent", &self.tmDescent)
+            .field("tmInternalLeading", &self.tmInternalLeading)
+            .field("tmExternalLeading", &self.tmExternalLeading)
+            .field("tmAveCharWidth", &self.tmAveCharWidth)
+            .field("tmMaxCharWidth", &self.tmMaxCharWidth)
+            .field("tmWeight", &self.tmWeight)
+            .field("tmOverhang", &self.tmOverhang)
+            .field("tmDigitizedAspectX", &self.tmDigitizedAspectX)
+            .field("tmDigitizedAspectY", &self.tmDigitizedAspectY)
+            .field("tmFirstChar", &self.tmFirstChar)
+            .field("tmLastChar", &self.tmLastChar)
+            .field("tmDefaultChar", &self.tmDefaultChar)
+            .field("tmBreakChar", &self.tmBreakChar)
+            .field("tmItalic", &self.tmItalic)
+            .field("tmUnderlined", &self.tmUnderlined)
+            .field("tmStruckOut", &self.tmStruckOut)
+            .field("tmPitchAndFamily", &self.tmPitchAndFamily)
+            .field("tmCharSet", &self.tmCharSet)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for TEXTMETRICW {
@@ -13905,6 +15184,11 @@ impl ::core::clone::Clone for TRIVERTEX {
         *self
     }
 }
+impl ::core::fmt::Debug for TRIVERTEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRIVERTEX").field("x", &self.x).field("y", &self.y).field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).field("Alpha", &self.Alpha).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TRIVERTEX {
     type Abi = Self;
 }
@@ -13963,6 +15247,11 @@ impl ::core::marker::Copy for TTEMBEDINFO {}
 impl ::core::clone::Clone for TTEMBEDINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TTEMBEDINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TTEMBEDINFO").field("usStructSize", &self.usStructSize).field("usRootStrSize", &self.usRootStrSize).field("pusRootStr", &self.pusRootStr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TTEMBEDINFO {
@@ -14187,6 +15476,11 @@ impl ::core::clone::Clone for TTLOADINFO {
         *self
     }
 }
+impl ::core::fmt::Debug for TTLOADINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TTLOADINFO").field("usStructSize", &self.usStructSize).field("usRefStrSize", &self.usRefStrSize).field("pusRefStr", &self.pusRefStr).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TTLOADINFO {
     type Abi = Self;
 }
@@ -14241,6 +15535,11 @@ impl ::core::clone::Clone for TTPOLYCURVE {
         *self
     }
 }
+impl ::core::fmt::Debug for TTPOLYCURVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TTPOLYCURVE").field("wType", &self.wType).field("cpfx", &self.cpfx).field("apfx", &self.apfx).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TTPOLYCURVE {
     type Abi = Self;
 }
@@ -14266,6 +15565,11 @@ impl ::core::marker::Copy for TTPOLYGONHEADER {}
 impl ::core::clone::Clone for TTPOLYGONHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TTPOLYGONHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TTPOLYGONHEADER").field("cb", &self.cb).field("dwType", &self.dwType).field("pfxStart", &self.pfxStart).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TTPOLYGONHEADER {
@@ -14327,6 +15631,11 @@ impl ::core::clone::Clone for TTVALIDATIONTESTSPARAMS {
         *self
     }
 }
+impl ::core::fmt::Debug for TTVALIDATIONTESTSPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TTVALIDATIONTESTSPARAMS").field("ulStructSize", &self.ulStructSize).field("lTestFromSize", &self.lTestFromSize).field("lTestToSize", &self.lTestToSize).field("ulCharSet", &self.ulCharSet).field("usReserved1", &self.usReserved1).field("usCharCodeCount", &self.usCharCodeCount).field("pusCharCodeSet", &self.pusCharCodeSet).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TTVALIDATIONTESTSPARAMS {
     type Abi = Self;
 }
@@ -14356,6 +15665,11 @@ impl ::core::marker::Copy for TTVALIDATIONTESTSPARAMSEX {}
 impl ::core::clone::Clone for TTVALIDATIONTESTSPARAMSEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TTVALIDATIONTESTSPARAMSEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TTVALIDATIONTESTSPARAMSEX").field("ulStructSize", &self.ulStructSize).field("lTestFromSize", &self.lTestFromSize).field("lTestToSize", &self.lTestToSize).field("ulCharSet", &self.ulCharSet).field("usReserved1", &self.usReserved1).field("usCharCodeCount", &self.usCharCodeCount).field("pulCharCodeSet", &self.pulCharCodeSet).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TTVALIDATIONTESTSPARAMSEX {
@@ -14567,6 +15881,11 @@ impl ::core::clone::Clone for WCRANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for WCRANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WCRANGE").field("wcLow", &self.wcLow).field("cGlyphs", &self.cGlyphs).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WCRANGE {
     type Abi = Self;
 }
@@ -14591,6 +15910,11 @@ impl ::core::marker::Copy for WGLSWAP {}
 impl ::core::clone::Clone for WGLSWAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WGLSWAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WGLSWAP").field("hdc", &self.hdc).field("uiFlags", &self.uiFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WGLSWAP {
@@ -14721,6 +16045,11 @@ impl ::core::marker::Copy for XFORM {}
 impl ::core::clone::Clone for XFORM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XFORM").field("eM11", &self.eM11).field("eM12", &self.eM12).field("eM21", &self.eM21).field("eM22", &self.eM22).field("eDx", &self.eDx).field("eDy", &self.eDy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XFORM {

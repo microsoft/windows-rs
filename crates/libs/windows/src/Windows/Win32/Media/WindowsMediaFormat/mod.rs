@@ -11,6 +11,11 @@ impl ::core::clone::Clone for AM_WMT_EVENT_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for AM_WMT_EVENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AM_WMT_EVENT_DATA").field("hrStatus", &self.hrStatus).field("pData", &self.pData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AM_WMT_EVENT_DATA {
     type Abi = Self;
 }
@@ -45,6 +50,11 @@ impl ::core::clone::Clone for DRM_COPY_OPL {
         *self
     }
 }
+impl ::core::fmt::Debug for DRM_COPY_OPL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_COPY_OPL").field("wMinimumCopyLevel", &self.wMinimumCopyLevel).field("oplIdIncludes", &self.oplIdIncludes).field("oplIdExcludes", &self.oplIdExcludes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRM_COPY_OPL {
     type Abi = Self;
 }
@@ -74,6 +84,11 @@ impl ::core::clone::Clone for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
         *self
     }
 }
+impl ::core::fmt::Debug for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS").field("wCompressedDigitalVideo", &self.wCompressedDigitalVideo).field("wUncompressedDigitalVideo", &self.wUncompressedDigitalVideo).field("wAnalogVideo", &self.wAnalogVideo).field("wCompressedDigitalAudio", &self.wCompressedDigitalAudio).field("wUncompressedDigitalAudio", &self.wUncompressedDigitalAudio).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     type Abi = Self;
 }
@@ -98,6 +113,11 @@ impl ::core::marker::Copy for DRM_OPL_OUTPUT_IDS {}
 impl ::core::clone::Clone for DRM_OPL_OUTPUT_IDS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRM_OPL_OUTPUT_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_OPL_OUTPUT_IDS").field("cIds", &self.cIds).field("rgIds", &self.rgIds).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRM_OPL_OUTPUT_IDS {
@@ -128,6 +148,11 @@ impl ::core::clone::Clone for DRM_OUTPUT_PROTECTION {
         *self
     }
 }
+impl ::core::fmt::Debug for DRM_OUTPUT_PROTECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_OUTPUT_PROTECTION").field("guidId", &self.guidId).field("bConfigData", &self.bConfigData).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRM_OUTPUT_PROTECTION {
     type Abi = Self;
 }
@@ -155,6 +180,11 @@ impl ::core::clone::Clone for DRM_PLAY_OPL {
         *self
     }
 }
+impl ::core::fmt::Debug for DRM_PLAY_OPL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_PLAY_OPL").field("minOPL", &self.minOPL).field("oplIdReserved", &self.oplIdReserved).field("vopi", &self.vopi).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DRM_PLAY_OPL {
     type Abi = Self;
 }
@@ -178,6 +208,11 @@ impl ::core::marker::Copy for DRM_VAL16 {}
 impl ::core::clone::Clone for DRM_VAL16 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRM_VAL16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_VAL16").field("val", &self.val).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRM_VAL16 {
@@ -204,6 +239,11 @@ impl ::core::marker::Copy for DRM_VIDEO_OUTPUT_PROTECTION_IDS {}
 impl ::core::clone::Clone for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_VIDEO_OUTPUT_PROTECTION_IDS").field("cEntries", &self.cEntries).field("rgVop", &self.rgVop).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
@@ -13196,6 +13236,11 @@ impl ::core::clone::Clone for WMDRM_IMPORT_INIT_STRUCT {
         *self
     }
 }
+impl ::core::fmt::Debug for WMDRM_IMPORT_INIT_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDRM_IMPORT_INIT_STRUCT").field("dwVersion", &self.dwVersion).field("cbEncryptedSessionKeyMessage", &self.cbEncryptedSessionKeyMessage).field("pbEncryptedSessionKeyMessage", &self.pbEncryptedSessionKeyMessage).field("cbEncryptedKeyMessage", &self.cbEncryptedKeyMessage).field("pbEncryptedKeyMessage", &self.pbEncryptedKeyMessage).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WMDRM_IMPORT_INIT_STRUCT {
     type Abi = Self;
 }
@@ -13301,6 +13346,12 @@ impl ::core::clone::Clone for WMMPEG2VIDEOINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WMMPEG2VIDEOINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMMPEG2VIDEOINFO").field("hdr", &self.hdr).field("dwStartTimeCode", &self.dwStartTimeCode).field("cbSequenceHeader", &self.cbSequenceHeader).field("dwProfile", &self.dwProfile).field("dwLevel", &self.dwLevel).field("dwFlags", &self.dwFlags).field("dwSequenceHeader", &self.dwSequenceHeader).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WMMPEG2VIDEOINFO {
     type Abi = Self;
 }
@@ -13327,6 +13378,11 @@ impl ::core::marker::Copy for WMSCRIPTFORMAT {}
 impl ::core::clone::Clone for WMSCRIPTFORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WMSCRIPTFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMSCRIPTFORMAT").field("scriptType", &self.scriptType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMSCRIPTFORMAT {
@@ -13380,6 +13436,11 @@ impl ::core::clone::Clone for WMT_BUFFER_SEGMENT {
         Self { pBuffer: self.pBuffer.clone(), cbOffset: self.cbOffset, cbLength: self.cbLength }
     }
 }
+impl ::core::fmt::Debug for WMT_BUFFER_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_BUFFER_SEGMENT").field("pBuffer", &self.pBuffer).field("cbOffset", &self.cbOffset).field("cbLength", &self.cbLength).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_BUFFER_SEGMENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -13413,6 +13474,11 @@ impl ::core::marker::Copy for WMT_COLORSPACEINFO_EXTENSION_DATA {}
 impl ::core::clone::Clone for WMT_COLORSPACEINFO_EXTENSION_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WMT_COLORSPACEINFO_EXTENSION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_COLORSPACEINFO_EXTENSION_DATA").field("ucColorPrimaries", &self.ucColorPrimaries).field("ucColorTransferChar", &self.ucColorTransferChar).field("ucColorMatrixCoef", &self.ucColorMatrixCoef).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMT_COLORSPACEINFO_EXTENSION_DATA {
@@ -13469,6 +13535,11 @@ impl ::core::clone::Clone for WMT_FILESINK_DATA_UNIT {
             cPayloadDataFragments: self.cPayloadDataFragments,
             pPayloadDataFragments: self.pPayloadDataFragments,
         }
+    }
+}
+impl ::core::fmt::Debug for WMT_FILESINK_DATA_UNIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_FILESINK_DATA_UNIT").field("packetHeaderBuffer", &self.packetHeaderBuffer).field("cPayloads", &self.cPayloads).field("pPayloadHeaderBuffers", &self.pPayloadHeaderBuffers).field("cPayloadDataFragments", &self.cPayloadDataFragments).field("pPayloadDataFragments", &self.pPayloadDataFragments).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMT_FILESINK_DATA_UNIT {
@@ -13552,6 +13623,11 @@ pub struct WMT_PAYLOAD_FRAGMENT {
 impl ::core::clone::Clone for WMT_PAYLOAD_FRAGMENT {
     fn clone(&self) -> Self {
         Self { dwPayloadIndex: self.dwPayloadIndex, segmentData: self.segmentData.clone() }
+    }
+}
+impl ::core::fmt::Debug for WMT_PAYLOAD_FRAGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_PAYLOAD_FRAGMENT").field("dwPayloadIndex", &self.dwPayloadIndex).field("segmentData", &self.segmentData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMT_PAYLOAD_FRAGMENT {
@@ -13748,6 +13824,11 @@ impl ::core::clone::Clone for WMT_TIMECODE_EXTENSION_DATA {
         *self
     }
 }
+impl ::core::fmt::Debug for WMT_TIMECODE_EXTENSION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_TIMECODE_EXTENSION_DATA").field("wRange", &self.wRange).field("dwTimecode", &self.dwTimecode).field("dwUserbits", &self.dwUserbits).field("dwAmFlags", &self.dwAmFlags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_TIMECODE_EXTENSION_DATA {
     type Abi = Self;
 }
@@ -13825,6 +13906,33 @@ impl ::core::clone::Clone for WMT_VIDEOIMAGE_SAMPLE {
         *self
     }
 }
+impl ::core::fmt::Debug for WMT_VIDEOIMAGE_SAMPLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_VIDEOIMAGE_SAMPLE")
+            .field("dwMagic", &self.dwMagic)
+            .field("cbStruct", &self.cbStruct)
+            .field("dwControlFlags", &self.dwControlFlags)
+            .field("dwInputFlagsCur", &self.dwInputFlagsCur)
+            .field("lCurMotionXtoX", &self.lCurMotionXtoX)
+            .field("lCurMotionYtoX", &self.lCurMotionYtoX)
+            .field("lCurMotionXoffset", &self.lCurMotionXoffset)
+            .field("lCurMotionXtoY", &self.lCurMotionXtoY)
+            .field("lCurMotionYtoY", &self.lCurMotionYtoY)
+            .field("lCurMotionYoffset", &self.lCurMotionYoffset)
+            .field("lCurBlendCoef1", &self.lCurBlendCoef1)
+            .field("lCurBlendCoef2", &self.lCurBlendCoef2)
+            .field("dwInputFlagsPrev", &self.dwInputFlagsPrev)
+            .field("lPrevMotionXtoX", &self.lPrevMotionXtoX)
+            .field("lPrevMotionYtoX", &self.lPrevMotionYtoX)
+            .field("lPrevMotionXoffset", &self.lPrevMotionXoffset)
+            .field("lPrevMotionXtoY", &self.lPrevMotionXtoY)
+            .field("lPrevMotionYtoY", &self.lPrevMotionYtoY)
+            .field("lPrevMotionYoffset", &self.lPrevMotionYoffset)
+            .field("lPrevBlendCoef1", &self.lPrevBlendCoef1)
+            .field("lPrevBlendCoef2", &self.lPrevBlendCoef2)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_VIDEOIMAGE_SAMPLE {
     type Abi = Self;
 }
@@ -13877,6 +13985,40 @@ impl ::core::marker::Copy for WMT_VIDEOIMAGE_SAMPLE2 {}
 impl ::core::clone::Clone for WMT_VIDEOIMAGE_SAMPLE2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WMT_VIDEOIMAGE_SAMPLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_VIDEOIMAGE_SAMPLE2")
+            .field("dwMagic", &self.dwMagic)
+            .field("dwStructSize", &self.dwStructSize)
+            .field("dwControlFlags", &self.dwControlFlags)
+            .field("dwViewportWidth", &self.dwViewportWidth)
+            .field("dwViewportHeight", &self.dwViewportHeight)
+            .field("dwCurrImageWidth", &self.dwCurrImageWidth)
+            .field("dwCurrImageHeight", &self.dwCurrImageHeight)
+            .field("fCurrRegionX0", &self.fCurrRegionX0)
+            .field("fCurrRegionY0", &self.fCurrRegionY0)
+            .field("fCurrRegionWidth", &self.fCurrRegionWidth)
+            .field("fCurrRegionHeight", &self.fCurrRegionHeight)
+            .field("fCurrBlendCoef", &self.fCurrBlendCoef)
+            .field("dwPrevImageWidth", &self.dwPrevImageWidth)
+            .field("dwPrevImageHeight", &self.dwPrevImageHeight)
+            .field("fPrevRegionX0", &self.fPrevRegionX0)
+            .field("fPrevRegionY0", &self.fPrevRegionY0)
+            .field("fPrevRegionWidth", &self.fPrevRegionWidth)
+            .field("fPrevRegionHeight", &self.fPrevRegionHeight)
+            .field("fPrevBlendCoef", &self.fPrevBlendCoef)
+            .field("dwEffectType", &self.dwEffectType)
+            .field("dwNumEffectParas", &self.dwNumEffectParas)
+            .field("fEffectPara0", &self.fEffectPara0)
+            .field("fEffectPara1", &self.fEffectPara1)
+            .field("fEffectPara2", &self.fEffectPara2)
+            .field("fEffectPara3", &self.fEffectPara3)
+            .field("fEffectPara4", &self.fEffectPara4)
+            .field("bKeepPrevImage", &self.bKeepPrevImage)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13965,6 +14107,12 @@ impl ::core::clone::Clone for WMT_WATERMARK_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WMT_WATERMARK_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_WATERMARK_ENTRY").field("wmetType", &self.wmetType).field("clsid", &self.clsid).field("cbDisplayName", &self.cbDisplayName).field("pwszDisplayName", &self.pwszDisplayName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WMT_WATERMARK_ENTRY {
     type Abi = Self;
 }
@@ -14002,6 +14150,11 @@ impl ::core::clone::Clone for WMT_WEBSTREAM_FORMAT {
         *self
     }
 }
+impl ::core::fmt::Debug for WMT_WEBSTREAM_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_WEBSTREAM_FORMAT").field("cbSize", &self.cbSize).field("cbSampleHeaderFixedData", &self.cbSampleHeaderFixedData).field("wVersion", &self.wVersion).field("wReserved", &self.wReserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_WEBSTREAM_FORMAT {
     type Abi = Self;
 }
@@ -14029,6 +14182,11 @@ impl ::core::marker::Copy for WMT_WEBSTREAM_SAMPLE_HEADER {}
 impl ::core::clone::Clone for WMT_WEBSTREAM_SAMPLE_HEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WMT_WEBSTREAM_SAMPLE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_WEBSTREAM_SAMPLE_HEADER").field("cbLength", &self.cbLength).field("wPart", &self.wPart).field("cTotalParts", &self.cTotalParts).field("wSampleType", &self.wSampleType).field("wszURL", &self.wszURL).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMT_WEBSTREAM_SAMPLE_HEADER {
@@ -14062,6 +14220,12 @@ impl ::core::marker::Copy for WMVIDEOINFOHEADER {}
 impl ::core::clone::Clone for WMVIDEOINFOHEADER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WMVIDEOINFOHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMVIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -14108,6 +14272,25 @@ impl ::core::clone::Clone for WMVIDEOINFOHEADER2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WMVIDEOINFOHEADER2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMVIDEOINFOHEADER2")
+            .field("rcSource", &self.rcSource)
+            .field("rcTarget", &self.rcTarget)
+            .field("dwBitRate", &self.dwBitRate)
+            .field("dwBitErrorRate", &self.dwBitErrorRate)
+            .field("AvgTimePerFrame", &self.AvgTimePerFrame)
+            .field("dwInterlaceFlags", &self.dwInterlaceFlags)
+            .field("dwCopyProtectFlags", &self.dwCopyProtectFlags)
+            .field("dwPictAspectRatioX", &self.dwPictAspectRatioX)
+            .field("dwPictAspectRatioY", &self.dwPictAspectRatioY)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("bmiHeader", &self.bmiHeader)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WMVIDEOINFOHEADER2 {
     type Abi = Self;
 }
@@ -14135,6 +14318,11 @@ impl ::core::marker::Copy for WM_ADDRESS_ACCESSENTRY {}
 impl ::core::clone::Clone for WM_ADDRESS_ACCESSENTRY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WM_ADDRESS_ACCESSENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_ADDRESS_ACCESSENTRY").field("dwIPAddress", &self.dwIPAddress).field("dwMask", &self.dwMask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WM_ADDRESS_ACCESSENTRY {
@@ -14169,6 +14357,11 @@ impl ::core::clone::Clone for WM_CLIENT_PROPERTIES {
         *self
     }
 }
+impl ::core::fmt::Debug for WM_CLIENT_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_CLIENT_PROPERTIES").field("dwIPAddress", &self.dwIPAddress).field("dwPort", &self.dwPort).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WM_CLIENT_PROPERTIES {
     type Abi = Self;
 }
@@ -14198,6 +14391,12 @@ impl ::core::marker::Copy for WM_CLIENT_PROPERTIES_EX {}
 impl ::core::clone::Clone for WM_CLIENT_PROPERTIES_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_CLIENT_PROPERTIES_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_CLIENT_PROPERTIES_EX").field("cbSize", &self.cbSize).field("pwszIPAddress", &self.pwszIPAddress).field("pwszPort", &self.pwszPort).field("pwszDNSName", &self.pwszDNSName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14280,6 +14479,11 @@ impl ::core::clone::Clone for WM_LEAKY_BUCKET_PAIR {
         *self
     }
 }
+impl ::core::fmt::Debug for WM_LEAKY_BUCKET_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_LEAKY_BUCKET_PAIR").field("dwBitrate", &self.dwBitrate).field("msBufferWindow", &self.msBufferWindow).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WM_LEAKY_BUCKET_PAIR {
     type Abi = Self;
 }
@@ -14329,6 +14533,12 @@ impl ::core::clone::Clone for WM_MEDIA_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_MEDIA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WM_MEDIA_TYPE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -14362,6 +14572,12 @@ impl ::core::marker::Copy for WM_PICTURE {}
 impl ::core::clone::Clone for WM_PICTURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_PICTURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_PICTURE").field("pwszMIMEType", &self.pwszMIMEType).field("bPictureType", &self.bPictureType).field("pwszDescription", &self.pwszDescription).field("dwDataLen", &self.dwDataLen).field("pbData", &self.pbData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14402,6 +14618,11 @@ impl ::core::clone::Clone for WM_PORT_NUMBER_RANGE {
         *self
     }
 }
+impl ::core::fmt::Debug for WM_PORT_NUMBER_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_PORT_NUMBER_RANGE").field("wPortBegin", &self.wPortBegin).field("wPortEnd", &self.wPortEnd).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WM_PORT_NUMBER_RANGE {
     type Abi = Self;
 }
@@ -14439,6 +14660,12 @@ impl ::core::clone::Clone for WM_READER_CLIENTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_READER_CLIENTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_READER_CLIENTINFO").field("cbSize", &self.cbSize).field("wszLang", &self.wszLang).field("wszBrowserUserAgent", &self.wszBrowserUserAgent).field("wszBrowserWebPage", &self.wszBrowserWebPage).field("qwReserved", &self.qwReserved).field("pReserved", &self.pReserved).field("wszHostExe", &self.wszHostExe).field("qwHostVersion", &self.qwHostVersion).field("wszPlayerUserAgent", &self.wszPlayerUserAgent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WM_READER_CLIENTINFO {
     type Abi = Self;
 }
@@ -14470,6 +14697,11 @@ impl ::core::marker::Copy for WM_READER_STATISTICS {}
 impl ::core::clone::Clone for WM_READER_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WM_READER_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_READER_STATISTICS").field("cbSize", &self.cbSize).field("dwBandwidth", &self.dwBandwidth).field("cPacketsReceived", &self.cPacketsReceived).field("cPacketsRecovered", &self.cPacketsRecovered).field("cPacketsLost", &self.cPacketsLost).field("wQuality", &self.wQuality).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WM_READER_STATISTICS {
@@ -14516,6 +14748,12 @@ impl ::core::clone::Clone for WM_STREAM_PRIORITY_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_STREAM_PRIORITY_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_STREAM_PRIORITY_RECORD").field("wStreamNumber", &self.wStreamNumber).field("fMandatory", &self.fMandatory).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WM_STREAM_PRIORITY_RECORD {
     type Abi = Self;
 }
@@ -14543,6 +14781,11 @@ impl ::core::marker::Copy for WM_STREAM_TYPE_INFO {}
 impl ::core::clone::Clone for WM_STREAM_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WM_STREAM_TYPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_STREAM_TYPE_INFO").field("guidMajorType", &self.guidMajorType).field("cbFormat", &self.cbFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WM_STREAM_TYPE_INFO {
@@ -14575,6 +14818,12 @@ impl ::core::marker::Copy for WM_SYNCHRONISED_LYRICS {}
 impl ::core::clone::Clone for WM_SYNCHRONISED_LYRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_SYNCHRONISED_LYRICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_SYNCHRONISED_LYRICS").field("bTimeStampFormat", &self.bTimeStampFormat).field("bContentType", &self.bContentType).field("pwszContentDescriptor", &self.pwszContentDescriptor).field("dwLyricsLen", &self.dwLyricsLen).field("pbLyrics", &self.pbLyrics).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14633,6 +14882,12 @@ impl ::core::clone::Clone for WM_USER_TEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_USER_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_USER_TEXT").field("pwszDescription", &self.pwszDescription).field("pwszText", &self.pwszText).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WM_USER_TEXT {
     type Abi = Self;
 }
@@ -14663,6 +14918,12 @@ impl ::core::marker::Copy for WM_USER_WEB_URL {}
 impl ::core::clone::Clone for WM_USER_WEB_URL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_USER_WEB_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_USER_WEB_URL").field("pwszDescription", &self.pwszDescription).field("pwszURL", &self.pwszURL).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14703,6 +14964,22 @@ impl ::core::clone::Clone for WM_WRITER_STATISTICS {
         *self
     }
 }
+impl ::core::fmt::Debug for WM_WRITER_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_WRITER_STATISTICS")
+            .field("qwSampleCount", &self.qwSampleCount)
+            .field("qwByteCount", &self.qwByteCount)
+            .field("qwDroppedSampleCount", &self.qwDroppedSampleCount)
+            .field("qwDroppedByteCount", &self.qwDroppedByteCount)
+            .field("dwCurrentBitrate", &self.dwCurrentBitrate)
+            .field("dwAverageBitrate", &self.dwAverageBitrate)
+            .field("dwExpectedBitrate", &self.dwExpectedBitrate)
+            .field("dwCurrentSampleRate", &self.dwCurrentSampleRate)
+            .field("dwAverageSampleRate", &self.dwAverageSampleRate)
+            .field("dwExpectedSampleRate", &self.dwExpectedSampleRate)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WM_WRITER_STATISTICS {
     type Abi = Self;
 }
@@ -14732,6 +15009,19 @@ impl ::core::marker::Copy for WM_WRITER_STATISTICS_EX {}
 impl ::core::clone::Clone for WM_WRITER_STATISTICS_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WM_WRITER_STATISTICS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_WRITER_STATISTICS_EX")
+            .field("dwBitratePlusOverhead", &self.dwBitratePlusOverhead)
+            .field("dwCurrentSampleDropRateInQueue", &self.dwCurrentSampleDropRateInQueue)
+            .field("dwCurrentSampleDropRateInCodec", &self.dwCurrentSampleDropRateInCodec)
+            .field("dwCurrentSampleDropRateInMultiplexer", &self.dwCurrentSampleDropRateInMultiplexer)
+            .field("dwTotalSampleDropsInQueue", &self.dwTotalSampleDropsInQueue)
+            .field("dwTotalSampleDropsInCodec", &self.dwTotalSampleDropsInCodec)
+            .field("dwTotalSampleDropsInMultiplexer", &self.dwTotalSampleDropsInMultiplexer)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for WM_WRITER_STATISTICS_EX {

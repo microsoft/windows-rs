@@ -8391,6 +8391,11 @@ impl ::core::clone::Clone for MI_Application {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Application {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Application").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Application {
     type Abi = Self;
 }
@@ -8424,6 +8429,23 @@ impl ::core::marker::Copy for MI_ApplicationFT {}
 impl ::core::clone::Clone for MI_ApplicationFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ApplicationFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ApplicationFT")
+            .field("Close", &self.Close)
+            .field("NewSession", &self.NewSession)
+            .field("NewHostedProvider", &self.NewHostedProvider)
+            .field("NewInstance", &self.NewInstance)
+            .field("NewDestinationOptions", &self.NewDestinationOptions)
+            .field("NewOperationOptions", &self.NewOperationOptions)
+            .field("NewSubscriptionDeliveryOptions", &self.NewSubscriptionDeliveryOptions)
+            .field("NewSerializer", &self.NewSerializer)
+            .field("NewDeserializer", &self.NewDeserializer)
+            .field("NewInstanceFromClass", &self.NewInstanceFromClass)
+            .field("NewClass", &self.NewClass)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ApplicationFT {
@@ -8466,6 +8488,11 @@ impl ::core::clone::Clone for MI_Array {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Array {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Array").field("data", &self.data).field("size", &self.size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Array {
     type Abi = Self;
 }
@@ -8493,6 +8520,11 @@ impl ::core::clone::Clone for MI_ArrayField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ArrayField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ArrayField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ArrayField {
     type Abi = Self;
 }
@@ -8517,6 +8549,11 @@ impl ::core::marker::Copy for MI_BooleanA {}
 impl ::core::clone::Clone for MI_BooleanA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_BooleanA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_BooleanA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_BooleanA {
@@ -8546,6 +8583,11 @@ impl ::core::clone::Clone for MI_BooleanAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_BooleanAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_BooleanAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_BooleanAField {
     type Abi = Self;
 }
@@ -8571,6 +8613,11 @@ impl ::core::marker::Copy for MI_BooleanField {}
 impl ::core::clone::Clone for MI_BooleanField {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_BooleanField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_BooleanField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_BooleanField {
@@ -8623,6 +8670,11 @@ impl ::core::clone::Clone for MI_Char16A {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Char16A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Char16A").field("data", &self.data).field("size", &self.size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Char16A {
     type Abi = Self;
 }
@@ -8648,6 +8700,11 @@ impl ::core::marker::Copy for MI_Char16AField {}
 impl ::core::clone::Clone for MI_Char16AField {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Char16AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Char16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Char16AField {
@@ -8677,6 +8734,11 @@ impl ::core::clone::Clone for MI_Char16Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Char16Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Char16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Char16Field {
     type Abi = Self;
 }
@@ -8704,6 +8766,11 @@ impl ::core::marker::Copy for MI_Class {}
 impl ::core::clone::Clone for MI_Class {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Class {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Class").field("ft", &self.ft).field("classDecl", &self.classDecl).field("namespaceName", &self.namespaceName).field("serverName", &self.serverName).field("reserved", &self.reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Class {
@@ -8745,6 +8812,27 @@ impl ::core::clone::Clone for MI_ClassDecl {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ClassDecl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ClassDecl")
+            .field("flags", &self.flags)
+            .field("code", &self.code)
+            .field("name", &self.name)
+            .field("qualifiers", &self.qualifiers)
+            .field("numQualifiers", &self.numQualifiers)
+            .field("properties", &self.properties)
+            .field("numProperties", &self.numProperties)
+            .field("size", &self.size)
+            .field("superClass", &self.superClass)
+            .field("superClassDecl", &self.superClassDecl)
+            .field("methods", &self.methods)
+            .field("numMethods", &self.numMethods)
+            .field("schema", &self.schema)
+            .field("providerFT", &self.providerFT)
+            .field("owningClass", &self.owningClass)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ClassDecl {
     type Abi = Self;
 }
@@ -8783,6 +8871,26 @@ impl ::core::clone::Clone for MI_ClassFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ClassFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ClassFT")
+            .field("GetClassNameA", &self.GetClassNameA)
+            .field("GetNameSpace", &self.GetNameSpace)
+            .field("GetServerName", &self.GetServerName)
+            .field("GetElementCount", &self.GetElementCount)
+            .field("GetElement", &self.GetElement)
+            .field("GetElementAt", &self.GetElementAt)
+            .field("GetClassQualifierSet", &self.GetClassQualifierSet)
+            .field("GetMethodCount", &self.GetMethodCount)
+            .field("GetMethodAt", &self.GetMethodAt)
+            .field("GetMethod", &self.GetMethod)
+            .field("GetParentClassName", &self.GetParentClassName)
+            .field("GetParentClass", &self.GetParentClass)
+            .field("Delete", &self.Delete)
+            .field("Clone", &self.Clone)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ClassFT {
     type Abi = Self;
 }
@@ -8817,6 +8925,22 @@ impl ::core::clone::Clone for MI_ClientFT_V1 {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ClientFT_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ClientFT_V1")
+            .field("applicationFT", &self.applicationFT)
+            .field("sessionFT", &self.sessionFT)
+            .field("operationFT", &self.operationFT)
+            .field("hostedProviderFT", &self.hostedProviderFT)
+            .field("serializerFT", &self.serializerFT)
+            .field("deserializerFT", &self.deserializerFT)
+            .field("subscribeDeliveryOptionsFT", &self.subscribeDeliveryOptionsFT)
+            .field("destinationOptionsFT", &self.destinationOptionsFT)
+            .field("operationOptionsFT", &self.operationOptionsFT)
+            .field("utilitiesFT", &self.utilitiesFT)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ClientFT_V1 {
     type Abi = Self;
 }
@@ -8841,6 +8965,11 @@ impl ::core::marker::Copy for MI_ConstBooleanA {}
 impl ::core::clone::Clone for MI_ConstBooleanA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstBooleanA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstBooleanA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstBooleanA {
@@ -8870,6 +8999,11 @@ impl ::core::clone::Clone for MI_ConstBooleanAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstBooleanAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstBooleanAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstBooleanAField {
     type Abi = Self;
 }
@@ -8897,6 +9031,11 @@ impl ::core::clone::Clone for MI_ConstBooleanField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstBooleanField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstBooleanField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstBooleanField {
     type Abi = Self;
 }
@@ -8921,6 +9060,11 @@ impl ::core::marker::Copy for MI_ConstChar16A {}
 impl ::core::clone::Clone for MI_ConstChar16A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstChar16A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstChar16A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstChar16A {
@@ -8950,6 +9094,11 @@ impl ::core::clone::Clone for MI_ConstChar16AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstChar16AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstChar16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstChar16AField {
     type Abi = Self;
 }
@@ -8977,6 +9126,11 @@ impl ::core::clone::Clone for MI_ConstChar16Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstChar16Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstChar16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstChar16Field {
     type Abi = Self;
 }
@@ -9001,6 +9155,11 @@ impl ::core::marker::Copy for MI_ConstDatetimeA {}
 impl ::core::clone::Clone for MI_ConstDatetimeA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstDatetimeA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstDatetimeA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstDatetimeA {
@@ -9030,6 +9189,11 @@ impl ::core::clone::Clone for MI_ConstDatetimeAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstDatetimeAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstDatetimeAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstDatetimeAField {
     type Abi = Self;
 }
@@ -9057,6 +9221,11 @@ impl ::core::clone::Clone for MI_ConstDatetimeField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstDatetimeField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstDatetimeField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstDatetimeField {
     type Abi = Self;
 }
@@ -9081,6 +9250,11 @@ impl ::core::marker::Copy for MI_ConstInstanceA {}
 impl ::core::clone::Clone for MI_ConstInstanceA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstInstanceA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstInstanceA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstInstanceA {
@@ -9110,6 +9284,11 @@ impl ::core::clone::Clone for MI_ConstInstanceAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstInstanceAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstInstanceAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstInstanceAField {
     type Abi = Self;
 }
@@ -9137,6 +9316,11 @@ impl ::core::clone::Clone for MI_ConstInstanceField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstInstanceField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstInstanceField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstInstanceField {
     type Abi = Self;
 }
@@ -9161,6 +9345,11 @@ impl ::core::marker::Copy for MI_ConstReal32A {}
 impl ::core::clone::Clone for MI_ConstReal32A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstReal32A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReal32A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstReal32A {
@@ -9190,6 +9379,11 @@ impl ::core::clone::Clone for MI_ConstReal32AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstReal32AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReal32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstReal32AField {
     type Abi = Self;
 }
@@ -9217,6 +9411,11 @@ impl ::core::clone::Clone for MI_ConstReal32Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstReal32Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReal32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstReal32Field {
     type Abi = Self;
 }
@@ -9241,6 +9440,11 @@ impl ::core::marker::Copy for MI_ConstReal64A {}
 impl ::core::clone::Clone for MI_ConstReal64A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstReal64A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReal64A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstReal64A {
@@ -9270,6 +9474,11 @@ impl ::core::clone::Clone for MI_ConstReal64AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstReal64AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReal64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstReal64AField {
     type Abi = Self;
 }
@@ -9297,6 +9506,11 @@ impl ::core::clone::Clone for MI_ConstReal64Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstReal64Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReal64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstReal64Field {
     type Abi = Self;
 }
@@ -9321,6 +9535,11 @@ impl ::core::marker::Copy for MI_ConstReferenceA {}
 impl ::core::clone::Clone for MI_ConstReferenceA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstReferenceA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReferenceA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstReferenceA {
@@ -9350,6 +9569,11 @@ impl ::core::clone::Clone for MI_ConstReferenceAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstReferenceAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReferenceAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstReferenceAField {
     type Abi = Self;
 }
@@ -9377,6 +9601,11 @@ impl ::core::clone::Clone for MI_ConstReferenceField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstReferenceField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstReferenceField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstReferenceField {
     type Abi = Self;
 }
@@ -9401,6 +9630,11 @@ impl ::core::marker::Copy for MI_ConstSint16A {}
 impl ::core::clone::Clone for MI_ConstSint16A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstSint16A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint16A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstSint16A {
@@ -9430,6 +9664,11 @@ impl ::core::clone::Clone for MI_ConstSint16AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstSint16AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstSint16AField {
     type Abi = Self;
 }
@@ -9457,6 +9696,11 @@ impl ::core::clone::Clone for MI_ConstSint16Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstSint16Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstSint16Field {
     type Abi = Self;
 }
@@ -9481,6 +9725,11 @@ impl ::core::marker::Copy for MI_ConstSint32A {}
 impl ::core::clone::Clone for MI_ConstSint32A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstSint32A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint32A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstSint32A {
@@ -9510,6 +9759,11 @@ impl ::core::clone::Clone for MI_ConstSint32AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstSint32AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstSint32AField {
     type Abi = Self;
 }
@@ -9537,6 +9791,11 @@ impl ::core::clone::Clone for MI_ConstSint32Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstSint32Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstSint32Field {
     type Abi = Self;
 }
@@ -9561,6 +9820,11 @@ impl ::core::marker::Copy for MI_ConstSint64A {}
 impl ::core::clone::Clone for MI_ConstSint64A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstSint64A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint64A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstSint64A {
@@ -9590,6 +9854,11 @@ impl ::core::clone::Clone for MI_ConstSint64AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstSint64AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstSint64AField {
     type Abi = Self;
 }
@@ -9617,6 +9886,11 @@ impl ::core::clone::Clone for MI_ConstSint64Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstSint64Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstSint64Field {
     type Abi = Self;
 }
@@ -9641,6 +9915,11 @@ impl ::core::marker::Copy for MI_ConstSint8A {}
 impl ::core::clone::Clone for MI_ConstSint8A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstSint8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint8A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstSint8A {
@@ -9670,6 +9949,11 @@ impl ::core::clone::Clone for MI_ConstSint8AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstSint8AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint8AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstSint8AField {
     type Abi = Self;
 }
@@ -9697,6 +9981,11 @@ impl ::core::clone::Clone for MI_ConstSint8Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstSint8Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstSint8Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstSint8Field {
     type Abi = Self;
 }
@@ -9721,6 +10010,11 @@ impl ::core::marker::Copy for MI_ConstStringA {}
 impl ::core::clone::Clone for MI_ConstStringA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstStringA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstStringA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstStringA {
@@ -9750,6 +10044,11 @@ impl ::core::clone::Clone for MI_ConstStringAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstStringAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstStringAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstStringAField {
     type Abi = Self;
 }
@@ -9777,6 +10076,11 @@ impl ::core::clone::Clone for MI_ConstStringField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstStringField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstStringField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstStringField {
     type Abi = Self;
 }
@@ -9801,6 +10105,11 @@ impl ::core::marker::Copy for MI_ConstUint16A {}
 impl ::core::clone::Clone for MI_ConstUint16A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstUint16A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint16A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstUint16A {
@@ -9830,6 +10139,11 @@ impl ::core::clone::Clone for MI_ConstUint16AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstUint16AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstUint16AField {
     type Abi = Self;
 }
@@ -9857,6 +10171,11 @@ impl ::core::clone::Clone for MI_ConstUint16Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstUint16Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstUint16Field {
     type Abi = Self;
 }
@@ -9881,6 +10200,11 @@ impl ::core::marker::Copy for MI_ConstUint32A {}
 impl ::core::clone::Clone for MI_ConstUint32A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstUint32A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint32A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstUint32A {
@@ -9910,6 +10234,11 @@ impl ::core::clone::Clone for MI_ConstUint32AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstUint32AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstUint32AField {
     type Abi = Self;
 }
@@ -9937,6 +10266,11 @@ impl ::core::clone::Clone for MI_ConstUint32Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstUint32Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstUint32Field {
     type Abi = Self;
 }
@@ -9961,6 +10295,11 @@ impl ::core::marker::Copy for MI_ConstUint64A {}
 impl ::core::clone::Clone for MI_ConstUint64A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstUint64A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint64A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstUint64A {
@@ -9990,6 +10329,11 @@ impl ::core::clone::Clone for MI_ConstUint64AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstUint64AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstUint64AField {
     type Abi = Self;
 }
@@ -10017,6 +10361,11 @@ impl ::core::clone::Clone for MI_ConstUint64Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstUint64Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstUint64Field {
     type Abi = Self;
 }
@@ -10041,6 +10390,11 @@ impl ::core::marker::Copy for MI_ConstUint8A {}
 impl ::core::clone::Clone for MI_ConstUint8A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ConstUint8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint8A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ConstUint8A {
@@ -10070,6 +10424,11 @@ impl ::core::clone::Clone for MI_ConstUint8AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstUint8AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint8AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstUint8AField {
     type Abi = Self;
 }
@@ -10097,6 +10456,11 @@ impl ::core::clone::Clone for MI_ConstUint8Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ConstUint8Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ConstUint8Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ConstUint8Field {
     type Abi = Self;
 }
@@ -10121,6 +10485,11 @@ impl ::core::marker::Copy for MI_Context {}
 impl ::core::clone::Clone for MI_Context {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Context {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Context").field("ft", &self.ft).field("reserved", &self.reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Context {
@@ -10177,6 +10546,42 @@ impl ::core::clone::Clone for MI_ContextFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ContextFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ContextFT")
+            .field("PostResult", &self.PostResult)
+            .field("PostInstance", &self.PostInstance)
+            .field("PostIndication", &self.PostIndication)
+            .field("ConstructInstance", &self.ConstructInstance)
+            .field("ConstructParameters", &self.ConstructParameters)
+            .field("NewInstance", &self.NewInstance)
+            .field("NewDynamicInstance", &self.NewDynamicInstance)
+            .field("NewParameters", &self.NewParameters)
+            .field("Canceled", &self.Canceled)
+            .field("GetLocale", &self.GetLocale)
+            .field("RegisterCancel", &self.RegisterCancel)
+            .field("RequestUnload", &self.RequestUnload)
+            .field("RefuseUnload", &self.RefuseUnload)
+            .field("GetLocalSession", &self.GetLocalSession)
+            .field("SetStringOption", &self.SetStringOption)
+            .field("GetStringOption", &self.GetStringOption)
+            .field("GetNumberOption", &self.GetNumberOption)
+            .field("GetCustomOption", &self.GetCustomOption)
+            .field("GetCustomOptionCount", &self.GetCustomOptionCount)
+            .field("GetCustomOptionAt", &self.GetCustomOptionAt)
+            .field("WriteMessage", &self.WriteMessage)
+            .field("WriteProgress", &self.WriteProgress)
+            .field("WriteStreamParameter", &self.WriteStreamParameter)
+            .field("WriteCimError", &self.WriteCimError)
+            .field("PromptUser", &self.PromptUser)
+            .field("ShouldProcess", &self.ShouldProcess)
+            .field("ShouldContinue", &self.ShouldContinue)
+            .field("PostError", &self.PostError)
+            .field("PostCimError", &self.PostCimError)
+            .field("WriteError", &self.WriteError)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ContextFT {
     type Abi = Self;
 }
@@ -10201,6 +10606,11 @@ impl ::core::marker::Copy for MI_Datetime {}
 impl ::core::clone::Clone for MI_Datetime {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Datetime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Datetime").field("isTimestamp", &self.isTimestamp).field("u", &self.u).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Datetime {
@@ -10255,6 +10665,11 @@ impl ::core::clone::Clone for MI_DatetimeA {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_DatetimeA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_DatetimeA").field("data", &self.data).field("size", &self.size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_DatetimeA {
     type Abi = Self;
 }
@@ -10280,6 +10695,11 @@ impl ::core::marker::Copy for MI_DatetimeAField {}
 impl ::core::clone::Clone for MI_DatetimeAField {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_DatetimeAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_DatetimeAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_DatetimeAField {
@@ -10309,6 +10729,11 @@ impl ::core::clone::Clone for MI_DatetimeField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_DatetimeField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_DatetimeField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_DatetimeField {
     type Abi = Self;
 }
@@ -10333,6 +10758,11 @@ impl ::core::marker::Copy for MI_Deserializer {}
 impl ::core::clone::Clone for MI_Deserializer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Deserializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Deserializer").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Deserializer {
@@ -10365,6 +10795,11 @@ impl ::core::clone::Clone for MI_DeserializerFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_DeserializerFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_DeserializerFT").field("Close", &self.Close).field("DeserializeClass", &self.DeserializeClass).field("Class_GetClassName", &self.Class_GetClassName).field("Class_GetParentClassName", &self.Class_GetParentClassName).field("DeserializeInstance", &self.DeserializeInstance).field("Instance_GetClassName", &self.Instance_GetClassName).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_DeserializerFT {
     type Abi = Self;
 }
@@ -10392,6 +10827,11 @@ impl ::core::marker::Copy for MI_DestinationOptions {}
 impl ::core::clone::Clone for MI_DestinationOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_DestinationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_DestinationOptions").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_DestinationOptions {
@@ -10431,6 +10871,27 @@ impl ::core::marker::Copy for MI_DestinationOptionsFT {}
 impl ::core::clone::Clone for MI_DestinationOptionsFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_DestinationOptionsFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_DestinationOptionsFT")
+            .field("Delete", &self.Delete)
+            .field("SetString", &self.SetString)
+            .field("SetNumber", &self.SetNumber)
+            .field("AddCredentials", &self.AddCredentials)
+            .field("GetString", &self.GetString)
+            .field("GetNumber", &self.GetNumber)
+            .field("GetOptionCount", &self.GetOptionCount)
+            .field("GetOptionAt", &self.GetOptionAt)
+            .field("GetOption", &self.GetOption)
+            .field("GetCredentialsCount", &self.GetCredentialsCount)
+            .field("GetCredentialsAt", &self.GetCredentialsAt)
+            .field("GetCredentialsPasswordAt", &self.GetCredentialsPasswordAt)
+            .field("Clone", &self.Clone)
+            .field("SetInterval", &self.SetInterval)
+            .field("GetInterval", &self.GetInterval)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_DestinationOptionsFT {
@@ -10598,6 +11059,11 @@ impl ::core::clone::Clone for MI_FeatureDecl {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_FeatureDecl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_FeatureDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_FeatureDecl {
     type Abi = Self;
 }
@@ -10624,6 +11090,11 @@ impl ::core::clone::Clone for MI_Filter {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Filter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Filter").field("ft", &self.ft).field("reserved", &self.reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Filter {
     type Abi = Self;
 }
@@ -10648,6 +11119,11 @@ impl ::core::marker::Copy for MI_FilterFT {}
 impl ::core::clone::Clone for MI_FilterFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_FilterFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_FilterFT").field("Evaluate", &self.Evaluate).field("GetExpression", &self.GetExpression).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_FilterFT {
@@ -10677,6 +11153,11 @@ impl ::core::clone::Clone for MI_HostedProvider {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_HostedProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_HostedProvider").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_HostedProvider {
     type Abi = Self;
 }
@@ -10701,6 +11182,11 @@ impl ::core::marker::Copy for MI_HostedProviderFT {}
 impl ::core::clone::Clone for MI_HostedProviderFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_HostedProviderFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_HostedProviderFT").field("Close", &self.Close).field("GetApplication", &self.GetApplication).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_HostedProviderFT {
@@ -10732,6 +11218,11 @@ impl ::core::clone::Clone for MI_Instance {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Instance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Instance").field("ft", &self.ft).field("classDecl", &self.classDecl).field("serverName", &self.serverName).field("nameSpace", &self.nameSpace).field("reserved", &self.reserved).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Instance {
     type Abi = Self;
 }
@@ -10756,6 +11247,11 @@ impl ::core::marker::Copy for MI_InstanceA {}
 impl ::core::clone::Clone for MI_InstanceA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_InstanceA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_InstanceA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_InstanceA {
@@ -10785,6 +11281,11 @@ impl ::core::clone::Clone for MI_InstanceAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_InstanceAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_InstanceAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_InstanceAField {
     type Abi = Self;
 }
@@ -10809,6 +11310,11 @@ impl ::core::marker::Copy for MI_InstanceExFT {}
 impl ::core::clone::Clone for MI_InstanceExFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_InstanceExFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_InstanceExFT").field("parent", &self.parent).field("Normalize", &self.Normalize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_InstanceExFT {
@@ -10853,6 +11359,30 @@ impl ::core::clone::Clone for MI_InstanceFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_InstanceFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_InstanceFT")
+            .field("Clone", &self.Clone)
+            .field("Destruct", &self.Destruct)
+            .field("Delete", &self.Delete)
+            .field("IsA", &self.IsA)
+            .field("GetClassNameA", &self.GetClassNameA)
+            .field("SetNameSpace", &self.SetNameSpace)
+            .field("GetNameSpace", &self.GetNameSpace)
+            .field("GetElementCount", &self.GetElementCount)
+            .field("AddElement", &self.AddElement)
+            .field("SetElement", &self.SetElement)
+            .field("SetElementAt", &self.SetElementAt)
+            .field("GetElement", &self.GetElement)
+            .field("GetElementAt", &self.GetElementAt)
+            .field("ClearElement", &self.ClearElement)
+            .field("ClearElementAt", &self.ClearElementAt)
+            .field("GetServerName", &self.GetServerName)
+            .field("SetServerName", &self.SetServerName)
+            .field("GetClass", &self.GetClass)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_InstanceFT {
     type Abi = Self;
 }
@@ -10878,6 +11408,11 @@ impl ::core::marker::Copy for MI_InstanceField {}
 impl ::core::clone::Clone for MI_InstanceField {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_InstanceField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_InstanceField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_InstanceField {
@@ -10910,6 +11445,11 @@ impl ::core::marker::Copy for MI_Interval {}
 impl ::core::clone::Clone for MI_Interval {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Interval {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Interval").field("days", &self.days).field("hours", &self.hours).field("minutes", &self.minutes).field("seconds", &self.seconds).field("microseconds", &self.microseconds).field("__padding1", &self.__padding1).field("__padding2", &self.__padding2).field("__padding3", &self.__padding3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Interval {
@@ -10979,6 +11519,11 @@ impl ::core::clone::Clone for MI_MethodDecl {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_MethodDecl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_MethodDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("parameters", &self.parameters).field("numParameters", &self.numParameters).field("size", &self.size).field("returnType", &self.returnType).field("origin", &self.origin).field("propagator", &self.propagator).field("schema", &self.schema).field("function", &self.function).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_MethodDecl {
     type Abi = Self;
 }
@@ -11011,6 +11556,11 @@ impl ::core::marker::Copy for MI_Module {}
 impl ::core::clone::Clone for MI_Module {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Module {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Module").field("version", &self.version).field("generatorVersion", &self.generatorVersion).field("flags", &self.flags).field("charSize", &self.charSize).field("schemaDecl", &self.schemaDecl).field("Load", &self.Load).field("Unload", &self.Unload).field("dynamicProviderFT", &self.dynamicProviderFT).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Module {
@@ -11073,6 +11623,11 @@ impl ::core::clone::Clone for MI_ObjectDecl {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ObjectDecl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ObjectDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("properties", &self.properties).field("numProperties", &self.numProperties).field("size", &self.size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ObjectDecl {
     type Abi = Self;
 }
@@ -11098,6 +11653,11 @@ impl ::core::marker::Copy for MI_Operation {}
 impl ::core::clone::Clone for MI_Operation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Operation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Operation").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Operation {
@@ -11159,6 +11719,11 @@ impl ::core::clone::Clone for MI_OperationCallbacks {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_OperationCallbacks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_OperationCallbacks").field("callbackContext", &self.callbackContext).field("promptUser", &self.promptUser).field("writeError", &self.writeError).field("writeMessage", &self.writeMessage).field("writeProgress", &self.writeProgress).field("instanceResult", &self.instanceResult).field("indicationResult", &self.indicationResult).field("classResult", &self.classResult).field("streamedParameterResult", &self.streamedParameterResult).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_OperationCallbacks {
     type Abi = Self;
 }
@@ -11189,6 +11754,11 @@ impl ::core::clone::Clone for MI_OperationFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_OperationFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_OperationFT").field("Close", &self.Close).field("Cancel", &self.Cancel).field("GetSession", &self.GetSession).field("GetInstance", &self.GetInstance).field("GetIndication", &self.GetIndication).field("GetClass", &self.GetClass).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_OperationFT {
     type Abi = Self;
 }
@@ -11214,6 +11784,11 @@ impl ::core::marker::Copy for MI_OperationOptions {}
 impl ::core::clone::Clone for MI_OperationOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_OperationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_OperationOptions").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_OperationOptions {
@@ -11253,6 +11828,25 @@ impl ::core::clone::Clone for MI_OperationOptionsFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_OperationOptionsFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_OperationOptionsFT")
+            .field("Delete", &self.Delete)
+            .field("SetString", &self.SetString)
+            .field("SetNumber", &self.SetNumber)
+            .field("SetCustomOption", &self.SetCustomOption)
+            .field("GetString", &self.GetString)
+            .field("GetNumber", &self.GetNumber)
+            .field("GetOptionCount", &self.GetOptionCount)
+            .field("GetOptionAt", &self.GetOptionAt)
+            .field("GetOption", &self.GetOption)
+            .field("GetEnabledChannels", &self.GetEnabledChannels)
+            .field("Clone", &self.Clone)
+            .field("SetInterval", &self.SetInterval)
+            .field("GetInterval", &self.GetInterval)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_OperationOptionsFT {
     type Abi = Self;
 }
@@ -11286,6 +11880,11 @@ impl ::core::clone::Clone for MI_ParameterDecl {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ParameterDecl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ParameterDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("type", &self.r#type).field("className", &self.className).field("subscript", &self.subscript).field("offset", &self.offset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ParameterDecl {
     type Abi = Self;
 }
@@ -11311,6 +11910,11 @@ impl ::core::marker::Copy for MI_ParameterSet {}
 impl ::core::clone::Clone for MI_ParameterSet {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ParameterSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ParameterSet").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ParameterSet {
@@ -11339,6 +11943,11 @@ impl ::core::marker::Copy for MI_ParameterSetFT {}
 impl ::core::clone::Clone for MI_ParameterSetFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ParameterSetFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ParameterSetFT").field("GetMethodReturnType", &self.GetMethodReturnType).field("GetParameterCount", &self.GetParameterCount).field("GetParameterAt", &self.GetParameterAt).field("GetParameter", &self.GetParameter).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ParameterSetFT {
@@ -11383,6 +11992,11 @@ impl ::core::clone::Clone for MI_PropertyDecl {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_PropertyDecl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_PropertyDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("type", &self.r#type).field("className", &self.className).field("subscript", &self.subscript).field("offset", &self.offset).field("origin", &self.origin).field("propagator", &self.propagator).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_PropertyDecl {
     type Abi = Self;
 }
@@ -11407,6 +12021,11 @@ impl ::core::marker::Copy for MI_PropertySet {}
 impl ::core::clone::Clone for MI_PropertySet {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_PropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_PropertySet").field("ft", &self.ft).field("reserved", &self.reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_PropertySet {
@@ -11439,6 +12058,11 @@ impl ::core::marker::Copy for MI_PropertySetFT {}
 impl ::core::clone::Clone for MI_PropertySetFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_PropertySetFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_PropertySetFT").field("GetElementCount", &self.GetElementCount).field("ContainsElement", &self.ContainsElement).field("AddElement", &self.AddElement).field("GetElementAt", &self.GetElementAt).field("Clear", &self.Clear).field("Destruct", &self.Destruct).field("Delete", &self.Delete).field("Clone", &self.Clone).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_PropertySetFT {
@@ -11483,6 +12107,26 @@ impl ::core::marker::Copy for MI_ProviderFT {}
 impl ::core::clone::Clone for MI_ProviderFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ProviderFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ProviderFT")
+            .field("Load", &self.Load)
+            .field("Unload", &self.Unload)
+            .field("GetInstance", &self.GetInstance)
+            .field("EnumerateInstances", &self.EnumerateInstances)
+            .field("CreateInstance", &self.CreateInstance)
+            .field("ModifyInstance", &self.ModifyInstance)
+            .field("DeleteInstance", &self.DeleteInstance)
+            .field("AssociatorInstances", &self.AssociatorInstances)
+            .field("ReferenceInstances", &self.ReferenceInstances)
+            .field("EnableIndications", &self.EnableIndications)
+            .field("DisableIndications", &self.DisableIndications)
+            .field("Subscribe", &self.Subscribe)
+            .field("Unsubscribe", &self.Unsubscribe)
+            .field("Invoke", &self.Invoke)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ProviderFT {
@@ -11541,6 +12185,11 @@ impl ::core::clone::Clone for MI_Qualifier {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Qualifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Qualifier").field("name", &self.name).field("type", &self.r#type).field("flavor", &self.flavor).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Qualifier {
     type Abi = Self;
 }
@@ -11571,6 +12220,11 @@ impl ::core::clone::Clone for MI_QualifierDecl {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_QualifierDecl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_QualifierDecl").field("name", &self.name).field("type", &self.r#type).field("scope", &self.scope).field("flavor", &self.flavor).field("subscript", &self.subscript).field("value", &self.value).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_QualifierDecl {
     type Abi = Self;
 }
@@ -11596,6 +12250,11 @@ impl ::core::marker::Copy for MI_QualifierSet {}
 impl ::core::clone::Clone for MI_QualifierSet {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_QualifierSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_QualifierSet").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_QualifierSet {
@@ -11625,6 +12284,11 @@ impl ::core::clone::Clone for MI_QualifierSetFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_QualifierSetFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_QualifierSetFT").field("GetQualifierCount", &self.GetQualifierCount).field("GetQualifierAt", &self.GetQualifierAt).field("GetQualifier", &self.GetQualifier).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_QualifierSetFT {
     type Abi = Self;
 }
@@ -11649,6 +12313,11 @@ impl ::core::marker::Copy for MI_Real32A {}
 impl ::core::clone::Clone for MI_Real32A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Real32A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Real32A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Real32A {
@@ -11678,6 +12347,11 @@ impl ::core::clone::Clone for MI_Real32AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Real32AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Real32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Real32AField {
     type Abi = Self;
 }
@@ -11705,6 +12379,11 @@ impl ::core::clone::Clone for MI_Real32Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Real32Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Real32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Real32Field {
     type Abi = Self;
 }
@@ -11729,6 +12408,11 @@ impl ::core::marker::Copy for MI_Real64A {}
 impl ::core::clone::Clone for MI_Real64A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Real64A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Real64A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Real64A {
@@ -11758,6 +12442,11 @@ impl ::core::clone::Clone for MI_Real64AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Real64AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Real64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Real64AField {
     type Abi = Self;
 }
@@ -11785,6 +12474,11 @@ impl ::core::clone::Clone for MI_Real64Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Real64Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Real64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Real64Field {
     type Abi = Self;
 }
@@ -11809,6 +12503,11 @@ impl ::core::marker::Copy for MI_ReferenceA {}
 impl ::core::clone::Clone for MI_ReferenceA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ReferenceA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ReferenceA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ReferenceA {
@@ -11838,6 +12537,11 @@ impl ::core::clone::Clone for MI_ReferenceAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_ReferenceAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ReferenceAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_ReferenceAField {
     type Abi = Self;
 }
@@ -11863,6 +12567,11 @@ impl ::core::marker::Copy for MI_ReferenceField {}
 impl ::core::clone::Clone for MI_ReferenceField {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ReferenceField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ReferenceField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ReferenceField {
@@ -11953,6 +12662,11 @@ impl ::core::clone::Clone for MI_SchemaDecl {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_SchemaDecl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_SchemaDecl").field("qualifierDecls", &self.qualifierDecls).field("numQualifierDecls", &self.numQualifierDecls).field("classDecls", &self.classDecls).field("numClassDecls", &self.numClassDecls).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_SchemaDecl {
     type Abi = Self;
 }
@@ -11977,6 +12691,11 @@ impl ::core::marker::Copy for MI_Serializer {}
 impl ::core::clone::Clone for MI_Serializer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Serializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Serializer").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Serializer {
@@ -12004,6 +12723,11 @@ impl ::core::marker::Copy for MI_SerializerFT {}
 impl ::core::clone::Clone for MI_SerializerFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_SerializerFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_SerializerFT").field("Close", &self.Close).field("SerializeClass", &self.SerializeClass).field("SerializeInstance", &self.SerializeInstance).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_SerializerFT {
@@ -12035,6 +12759,11 @@ impl ::core::clone::Clone for MI_Server {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Server {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Server").field("serverFT", &self.serverFT).field("contextFT", &self.contextFT).field("instanceFT", &self.instanceFT).field("propertySetFT", &self.propertySetFT).field("filterFT", &self.filterFT).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Server {
     type Abi = Self;
 }
@@ -12059,6 +12788,11 @@ impl ::core::marker::Copy for MI_ServerFT {}
 impl ::core::clone::Clone for MI_ServerFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_ServerFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_ServerFT").field("GetVersion", &self.GetVersion).field("GetSystemName", &self.GetSystemName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ServerFT {
@@ -12088,6 +12822,11 @@ impl ::core::clone::Clone for MI_Session {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Session {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Session").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Session {
     type Abi = Self;
 }
@@ -12113,6 +12852,11 @@ impl ::core::marker::Copy for MI_SessionCallbacks {}
 impl ::core::clone::Clone for MI_SessionCallbacks {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_SessionCallbacks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_SessionCallbacks").field("callbackContext", &self.callbackContext).field("writeMessage", &self.writeMessage).field("writeError", &self.writeError).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_SessionCallbacks {
@@ -12154,6 +12898,27 @@ impl ::core::clone::Clone for MI_SessionFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_SessionFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_SessionFT")
+            .field("Close", &self.Close)
+            .field("GetApplication", &self.GetApplication)
+            .field("GetInstance", &self.GetInstance)
+            .field("ModifyInstance", &self.ModifyInstance)
+            .field("CreateInstance", &self.CreateInstance)
+            .field("DeleteInstance", &self.DeleteInstance)
+            .field("Invoke", &self.Invoke)
+            .field("EnumerateInstances", &self.EnumerateInstances)
+            .field("QueryInstances", &self.QueryInstances)
+            .field("AssociatorInstances", &self.AssociatorInstances)
+            .field("ReferenceInstances", &self.ReferenceInstances)
+            .field("Subscribe", &self.Subscribe)
+            .field("GetClass", &self.GetClass)
+            .field("EnumerateClasses", &self.EnumerateClasses)
+            .field("TestConnection", &self.TestConnection)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_SessionFT {
     type Abi = Self;
 }
@@ -12178,6 +12943,11 @@ impl ::core::marker::Copy for MI_Sint16A {}
 impl ::core::clone::Clone for MI_Sint16A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Sint16A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint16A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Sint16A {
@@ -12207,6 +12977,11 @@ impl ::core::clone::Clone for MI_Sint16AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Sint16AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Sint16AField {
     type Abi = Self;
 }
@@ -12234,6 +13009,11 @@ impl ::core::clone::Clone for MI_Sint16Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Sint16Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Sint16Field {
     type Abi = Self;
 }
@@ -12258,6 +13038,11 @@ impl ::core::marker::Copy for MI_Sint32A {}
 impl ::core::clone::Clone for MI_Sint32A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Sint32A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint32A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Sint32A {
@@ -12287,6 +13072,11 @@ impl ::core::clone::Clone for MI_Sint32AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Sint32AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Sint32AField {
     type Abi = Self;
 }
@@ -12314,6 +13104,11 @@ impl ::core::clone::Clone for MI_Sint32Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Sint32Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Sint32Field {
     type Abi = Self;
 }
@@ -12338,6 +13133,11 @@ impl ::core::marker::Copy for MI_Sint64A {}
 impl ::core::clone::Clone for MI_Sint64A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Sint64A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint64A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Sint64A {
@@ -12367,6 +13167,11 @@ impl ::core::clone::Clone for MI_Sint64AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Sint64AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Sint64AField {
     type Abi = Self;
 }
@@ -12394,6 +13199,11 @@ impl ::core::clone::Clone for MI_Sint64Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Sint64Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Sint64Field {
     type Abi = Self;
 }
@@ -12418,6 +13228,11 @@ impl ::core::marker::Copy for MI_Sint8A {}
 impl ::core::clone::Clone for MI_Sint8A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Sint8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint8A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Sint8A {
@@ -12447,6 +13262,11 @@ impl ::core::clone::Clone for MI_Sint8AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Sint8AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint8AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Sint8AField {
     type Abi = Self;
 }
@@ -12474,6 +13294,11 @@ impl ::core::clone::Clone for MI_Sint8Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Sint8Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Sint8Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Sint8Field {
     type Abi = Self;
 }
@@ -12498,6 +13323,11 @@ impl ::core::marker::Copy for MI_StringA {}
 impl ::core::clone::Clone for MI_StringA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_StringA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_StringA").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_StringA {
@@ -12527,6 +13357,11 @@ impl ::core::clone::Clone for MI_StringAField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_StringAField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_StringAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_StringAField {
     type Abi = Self;
 }
@@ -12554,6 +13389,11 @@ impl ::core::clone::Clone for MI_StringField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_StringField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_StringField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_StringField {
     type Abi = Self;
 }
@@ -12579,6 +13419,11 @@ impl ::core::marker::Copy for MI_SubscriptionDeliveryOptions {}
 impl ::core::clone::Clone for MI_SubscriptionDeliveryOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_SubscriptionDeliveryOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_SubscriptionDeliveryOptions").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_SubscriptionDeliveryOptions {
@@ -12622,6 +13467,29 @@ impl ::core::clone::Clone for MI_SubscriptionDeliveryOptionsFT {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_SubscriptionDeliveryOptionsFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_SubscriptionDeliveryOptionsFT")
+            .field("SetString", &self.SetString)
+            .field("SetNumber", &self.SetNumber)
+            .field("SetDateTime", &self.SetDateTime)
+            .field("SetInterval", &self.SetInterval)
+            .field("AddCredentials", &self.AddCredentials)
+            .field("Delete", &self.Delete)
+            .field("GetString", &self.GetString)
+            .field("GetNumber", &self.GetNumber)
+            .field("GetDateTime", &self.GetDateTime)
+            .field("GetInterval", &self.GetInterval)
+            .field("GetOptionCount", &self.GetOptionCount)
+            .field("GetOptionAt", &self.GetOptionAt)
+            .field("GetOption", &self.GetOption)
+            .field("GetCredentialsCount", &self.GetCredentialsCount)
+            .field("GetCredentialsAt", &self.GetCredentialsAt)
+            .field("GetCredentialsPasswordAt", &self.GetCredentialsPasswordAt)
+            .field("Clone", &self.Clone)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_SubscriptionDeliveryOptionsFT {
     type Abi = Self;
 }
@@ -12658,6 +13526,11 @@ impl ::core::marker::Copy for MI_Timestamp {}
 impl ::core::clone::Clone for MI_Timestamp {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Timestamp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Timestamp").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("microseconds", &self.microseconds).field("utc", &self.utc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Timestamp {
@@ -12754,6 +13627,11 @@ impl ::core::clone::Clone for MI_Uint16A {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Uint16A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint16A").field("data", &self.data).field("size", &self.size).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Uint16A {
     type Abi = Self;
 }
@@ -12779,6 +13657,11 @@ impl ::core::marker::Copy for MI_Uint16AField {}
 impl ::core::clone::Clone for MI_Uint16AField {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Uint16AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Uint16AField {
@@ -12808,6 +13691,11 @@ impl ::core::clone::Clone for MI_Uint16Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Uint16Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Uint16Field {
     type Abi = Self;
 }
@@ -12832,6 +13720,11 @@ impl ::core::marker::Copy for MI_Uint32A {}
 impl ::core::clone::Clone for MI_Uint32A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Uint32A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint32A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Uint32A {
@@ -12861,6 +13754,11 @@ impl ::core::clone::Clone for MI_Uint32AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Uint32AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Uint32AField {
     type Abi = Self;
 }
@@ -12888,6 +13786,11 @@ impl ::core::clone::Clone for MI_Uint32Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Uint32Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Uint32Field {
     type Abi = Self;
 }
@@ -12912,6 +13815,11 @@ impl ::core::marker::Copy for MI_Uint64A {}
 impl ::core::clone::Clone for MI_Uint64A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Uint64A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint64A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Uint64A {
@@ -12941,6 +13849,11 @@ impl ::core::clone::Clone for MI_Uint64AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Uint64AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Uint64AField {
     type Abi = Self;
 }
@@ -12968,6 +13881,11 @@ impl ::core::clone::Clone for MI_Uint64Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Uint64Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Uint64Field {
     type Abi = Self;
 }
@@ -12992,6 +13910,11 @@ impl ::core::marker::Copy for MI_Uint8A {}
 impl ::core::clone::Clone for MI_Uint8A {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_Uint8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint8A").field("data", &self.data).field("size", &self.size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Uint8A {
@@ -13021,6 +13944,11 @@ impl ::core::clone::Clone for MI_Uint8AField {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Uint8AField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint8AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Uint8AField {
     type Abi = Self;
 }
@@ -13048,6 +13976,11 @@ impl ::core::clone::Clone for MI_Uint8Field {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_Uint8Field {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_Uint8Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_Uint8Field {
     type Abi = Self;
 }
@@ -13072,6 +14005,11 @@ impl ::core::marker::Copy for MI_UserCredentials {}
 impl ::core::clone::Clone for MI_UserCredentials {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_UserCredentials {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_UserCredentials").field("authenticationType", &self.authenticationType).field("credentials", &self.credentials).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_UserCredentials {
@@ -13127,6 +14065,11 @@ impl ::core::clone::Clone for MI_UsernamePasswordCreds {
         *self
     }
 }
+impl ::core::fmt::Debug for MI_UsernamePasswordCreds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_UsernamePasswordCreds").field("domain", &self.domain).field("username", &self.username).field("password", &self.password).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MI_UsernamePasswordCreds {
     type Abi = Self;
 }
@@ -13151,6 +14094,11 @@ impl ::core::marker::Copy for MI_UtilitiesFT {}
 impl ::core::clone::Clone for MI_UtilitiesFT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MI_UtilitiesFT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MI_UtilitiesFT").field("MapErrorToMiErrorCategory", &self.MapErrorToMiErrorCategory).field("CimErrorFromErrorCode", &self.CimErrorFromErrorCode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_UtilitiesFT {
@@ -13252,6 +14200,12 @@ impl ::core::clone::Clone for SWbemAnalysisMatrix {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SWbemAnalysisMatrix {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SWbemAnalysisMatrix").field("m_uVersion", &self.m_uVersion).field("m_uMatrixType", &self.m_uMatrixType).field("m_pszProperty", &self.m_pszProperty).field("m_uPropertyType", &self.m_uPropertyType).field("m_uEntries", &self.m_uEntries).field("m_pValues", &self.m_pValues).field("m_pbTruthTable", &self.m_pbTruthTable).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SWbemAnalysisMatrix {
     type Abi = Self;
 }
@@ -13284,6 +14238,12 @@ impl ::core::marker::Copy for SWbemAnalysisMatrixList {}
 impl ::core::clone::Clone for SWbemAnalysisMatrixList {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SWbemAnalysisMatrixList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SWbemAnalysisMatrixList").field("m_uVersion", &self.m_uVersion).field("m_uMatrixType", &self.m_uMatrixType).field("m_uNumMatrices", &self.m_uNumMatrices).field("m_pMatrices", &self.m_pMatrices).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13341,6 +14301,25 @@ impl ::core::clone::Clone for SWbemAssocQueryInf {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SWbemAssocQueryInf {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SWbemAssocQueryInf")
+            .field("m_uVersion", &self.m_uVersion)
+            .field("m_uAnalysisType", &self.m_uAnalysisType)
+            .field("m_uFeatureMask", &self.m_uFeatureMask)
+            .field("m_pPath", &self.m_pPath)
+            .field("m_pszPath", &self.m_pszPath)
+            .field("m_pszQueryText", &self.m_pszQueryText)
+            .field("m_pszResultClass", &self.m_pszResultClass)
+            .field("m_pszAssocClass", &self.m_pszAssocClass)
+            .field("m_pszRole", &self.m_pszRole)
+            .field("m_pszResultRole", &self.m_pszResultRole)
+            .field("m_pszRequiredQualifier", &self.m_pszRequiredQualifier)
+            .field("m_pszRequiredAssocQualifier", &self.m_pszRequiredAssocQualifier)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SWbemAssocQueryInf {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -13394,6 +14373,12 @@ impl ::core::marker::Copy for SWbemQueryQualifiedName {}
 impl ::core::clone::Clone for SWbemQueryQualifiedName {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SWbemQueryQualifiedName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SWbemQueryQualifiedName").field("m_uVersion", &self.m_uVersion).field("m_uTokenType", &self.m_uTokenType).field("m_uNameListSize", &self.m_uNameListSize).field("m_ppszNameList", &self.m_ppszNameList).field("m_bArraysUsed", &self.m_bArraysUsed).field("m_pbArrayElUsed", &self.m_pbArrayElUsed).field("m_puArrayIndex", &self.m_puArrayIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13486,6 +14471,31 @@ impl ::core::clone::Clone for SWbemRpnEncodedQuery {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SWbemRpnEncodedQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SWbemRpnEncodedQuery")
+            .field("m_uVersion", &self.m_uVersion)
+            .field("m_uTokenType", &self.m_uTokenType)
+            .field("m_uParsedFeatureMask", &self.m_uParsedFeatureMask)
+            .field("m_uDetectedArraySize", &self.m_uDetectedArraySize)
+            .field("m_puDetectedFeatures", &self.m_puDetectedFeatures)
+            .field("m_uSelectListSize", &self.m_uSelectListSize)
+            .field("m_ppSelectList", &self.m_ppSelectList)
+            .field("m_uFromTargetType", &self.m_uFromTargetType)
+            .field("m_pszOptionalFromPath", &self.m_pszOptionalFromPath)
+            .field("m_uFromListSize", &self.m_uFromListSize)
+            .field("m_ppszFromList", &self.m_ppszFromList)
+            .field("m_uWhereClauseSize", &self.m_uWhereClauseSize)
+            .field("m_ppRpnWhereClause", &self.m_ppRpnWhereClause)
+            .field("m_dblWithinPolling", &self.m_dblWithinPolling)
+            .field("m_dblWithinWindow", &self.m_dblWithinWindow)
+            .field("m_uOrderByListSize", &self.m_uOrderByListSize)
+            .field("m_ppszOrderByList", &self.m_ppszOrderByList)
+            .field("m_uOrderDirectionEl", &self.m_uOrderDirectionEl)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SWbemRpnEncodedQuery {
     type Abi = Self;
 }
@@ -13529,6 +14539,25 @@ impl ::core::clone::Clone for SWbemRpnQueryToken {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SWbemRpnQueryToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SWbemRpnQueryToken")
+            .field("m_uVersion", &self.m_uVersion)
+            .field("m_uTokenType", &self.m_uTokenType)
+            .field("m_uSubexpressionShape", &self.m_uSubexpressionShape)
+            .field("m_uOperator", &self.m_uOperator)
+            .field("m_pRightIdent", &self.m_pRightIdent)
+            .field("m_pLeftIdent", &self.m_pLeftIdent)
+            .field("m_uConstApparentType", &self.m_uConstApparentType)
+            .field("m_Const", &self.m_Const)
+            .field("m_uConst2ApparentType", &self.m_uConst2ApparentType)
+            .field("m_Const2", &self.m_Const2)
+            .field("m_pszRightFunc", &self.m_pszRightFunc)
+            .field("m_pszLeftFunc", &self.m_pszLeftFunc)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SWbemRpnQueryToken {
     type Abi = Self;
 }
@@ -13557,6 +14586,11 @@ impl ::core::marker::Copy for SWbemRpnTokenList {}
 impl ::core::clone::Clone for SWbemRpnTokenList {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SWbemRpnTokenList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SWbemRpnTokenList").field("m_uVersion", &self.m_uVersion).field("m_uTokenType", &self.m_uTokenType).field("m_uNumTokens", &self.m_uNumTokens).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SWbemRpnTokenList {
@@ -14062,6 +15096,11 @@ impl ::core::marker::Copy for WBEM_COMPILE_STATUS_INFO {}
 impl ::core::clone::Clone for WBEM_COMPILE_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WBEM_COMPILE_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WBEM_COMPILE_STATUS_INFO").field("lPhaseError", &self.lPhaseError).field("hRes", &self.hRes).field("ObjectNum", &self.ObjectNum).field("FirstLine", &self.FirstLine).field("LastLine", &self.LastLine).field("dwOutFlags", &self.dwOutFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_COMPILE_STATUS_INFO {

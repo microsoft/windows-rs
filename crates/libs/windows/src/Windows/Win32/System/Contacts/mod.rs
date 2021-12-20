@@ -24,6 +24,11 @@ impl ::core::clone::Clone for CONTACT_AGGREGATION_BLOB {
         *self
     }
 }
+impl ::core::fmt::Debug for CONTACT_AGGREGATION_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTACT_AGGREGATION_BLOB").field("dwCount", &self.dwCount).field("lpb", &self.lpb).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CONTACT_AGGREGATION_BLOB {
     type Abi = Self;
 }

@@ -42,6 +42,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_CELU_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_CELU_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_CELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_CELU_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -69,6 +74,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_ELU_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_ELU_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_ELU_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -93,6 +103,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_HARDMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
@@ -123,6 +138,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -147,6 +167,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
@@ -174,6 +199,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
@@ -204,6 +234,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -228,6 +263,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
@@ -255,6 +295,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SlopeTensor", &self.SlopeTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
@@ -285,6 +330,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -312,6 +362,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -336,6 +391,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_RELU_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_RELU_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_RELU_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_RELU_OPERATOR_DESC {
@@ -366,6 +426,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Gamma", &self.Gamma).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -392,6 +457,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
@@ -422,6 +492,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_SHRINK_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Bias", &self.Bias).field("Threshold", &self.Threshold).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -448,6 +523,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -472,6 +552,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
@@ -501,6 +586,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Steepness", &self.Steepness).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -525,6 +615,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
@@ -553,6 +648,11 @@ impl ::core::clone::Clone for DML_ACTIVATION_TANH_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ACTIVATION_TANH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_TANH_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -578,6 +678,11 @@ impl ::core::marker::Copy for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
@@ -616,6 +721,24 @@ impl ::core::clone::Clone for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ADAM_OPTIMIZER_OPERATOR_DESC")
+            .field("InputParametersTensor", &self.InputParametersTensor)
+            .field("InputFirstMomentTensor", &self.InputFirstMomentTensor)
+            .field("InputSecondMomentTensor", &self.InputSecondMomentTensor)
+            .field("GradientTensor", &self.GradientTensor)
+            .field("TrainingStepTensor", &self.TrainingStepTensor)
+            .field("OutputParametersTensor", &self.OutputParametersTensor)
+            .field("OutputFirstMomentTensor", &self.OutputFirstMomentTensor)
+            .field("OutputSecondMomentTensor", &self.OutputSecondMomentTensor)
+            .field("LearningRate", &self.LearningRate)
+            .field("Beta1", &self.Beta1)
+            .field("Beta2", &self.Beta2)
+            .field("Epsilon", &self.Epsilon)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -645,6 +768,11 @@ impl ::core::clone::Clone for DML_ARGMAX_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ARGMAX_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ARGMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ARGMAX_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -672,6 +800,11 @@ impl ::core::marker::Copy for DML_ARGMIN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ARGMIN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ARGMIN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ARGMIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ARGMIN_OPERATOR_DESC {
@@ -707,6 +840,12 @@ impl ::core::marker::Copy for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("IncludePadding", &self.IncludePadding).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -746,6 +885,12 @@ impl ::core::marker::Copy for DML_AVERAGE_POOLING_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_AVERAGE_POOLING_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_AVERAGE_POOLING_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_AVERAGE_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("IncludePadding", &self.IncludePadding).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -791,6 +936,21 @@ impl ::core::clone::Clone for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("InputGradientTensor", &self.InputGradientTensor)
+            .field("MeanTensor", &self.MeanTensor)
+            .field("VarianceTensor", &self.VarianceTensor)
+            .field("ScaleTensor", &self.ScaleTensor)
+            .field("OutputGradientTensor", &self.OutputGradientTensor)
+            .field("OutputScaleGradientTensor", &self.OutputScaleGradientTensor)
+            .field("OutputBiasGradientTensor", &self.OutputBiasGradientTensor)
+            .field("Epsilon", &self.Epsilon)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -828,6 +988,12 @@ impl ::core::clone::Clone for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_BATCH_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("MeanTensor", &self.MeanTensor).field("VarianceTensor", &self.VarianceTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("Spatial", &self.Spatial).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -857,6 +1023,11 @@ impl ::core::clone::Clone for DML_BINDING_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_BINDING_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_BINDING_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_BINDING_DESC {
     type Abi = Self;
 }
@@ -882,6 +1053,11 @@ impl ::core::marker::Copy for DML_BINDING_PROPERTIES {}
 impl ::core::clone::Clone for DML_BINDING_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_BINDING_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_BINDING_PROPERTIES").field("RequiredDescriptorCount", &self.RequiredDescriptorCount).field("TemporaryResourceSize", &self.TemporaryResourceSize).field("PersistentResourceSize", &self.PersistentResourceSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_BINDING_PROPERTIES {
@@ -916,6 +1092,12 @@ impl ::core::clone::Clone for DML_BINDING_TABLE_DESC {
             GPUDescriptorHandle: self.GPUDescriptorHandle,
             SizeInDescriptors: self.SizeInDescriptors,
         }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for DML_BINDING_TABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_BINDING_TABLE_DESC").field("Dispatchable", &self.Dispatchable).field("CPUDescriptorHandle", &self.CPUDescriptorHandle).field("GPUDescriptorHandle", &self.GPUDescriptorHandle).field("SizeInDescriptors", &self.SizeInDescriptors).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -960,6 +1142,12 @@ impl ::core::clone::Clone for DML_BUFFER_ARRAY_BINDING {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for DML_BUFFER_ARRAY_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_BUFFER_ARRAY_BINDING").field("BindingCount", &self.BindingCount).field("Bindings", &self.Bindings).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for DML_BUFFER_ARRAY_BINDING {
     type Abi = Self;
 }
@@ -989,6 +1177,12 @@ pub struct DML_BUFFER_BINDING {
 impl ::core::clone::Clone for DML_BUFFER_BINDING {
     fn clone(&self) -> Self {
         Self { Buffer: self.Buffer.clone(), Offset: self.Offset, SizeInBytes: self.SizeInBytes }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for DML_BUFFER_BINDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_BUFFER_BINDING").field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1026,6 +1220,11 @@ impl ::core::clone::Clone for DML_BUFFER_TENSOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_BUFFER_TENSOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_BUFFER_TENSOR_DESC").field("DataType", &self.DataType).field("Flags", &self.Flags).field("DimensionCount", &self.DimensionCount).field("Sizes", &self.Sizes).field("Strides", &self.Strides).field("TotalTensorSizeInBytes", &self.TotalTensorSizeInBytes).field("GuaranteedBaseOffsetAlignment", &self.GuaranteedBaseOffsetAlignment).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_BUFFER_TENSOR_DESC {
     type Abi = Self;
 }
@@ -1050,6 +1249,11 @@ impl ::core::marker::Copy for DML_CAST_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_CAST_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_CAST_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_CAST_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_CAST_OPERATOR_DESC {
@@ -1091,6 +1295,23 @@ impl ::core::marker::Copy for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_CONVOLUTION_INTEGER_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("InputZeroPointTensor", &self.InputZeroPointTensor)
+            .field("FilterTensor", &self.FilterTensor)
+            .field("FilterZeroPointTensor", &self.FilterZeroPointTensor)
+            .field("OutputTensor", &self.OutputTensor)
+            .field("DimensionCount", &self.DimensionCount)
+            .field("Strides", &self.Strides)
+            .field("Dilations", &self.Dilations)
+            .field("StartPadding", &self.StartPadding)
+            .field("EndPadding", &self.EndPadding)
+            .field("GroupCount", &self.GroupCount)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
@@ -1137,6 +1358,26 @@ impl ::core::clone::Clone for DML_CONVOLUTION_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_CONVOLUTION_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_CONVOLUTION_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("FilterTensor", &self.FilterTensor)
+            .field("BiasTensor", &self.BiasTensor)
+            .field("OutputTensor", &self.OutputTensor)
+            .field("Mode", &self.Mode)
+            .field("Direction", &self.Direction)
+            .field("DimensionCount", &self.DimensionCount)
+            .field("Strides", &self.Strides)
+            .field("Dilations", &self.Dilations)
+            .field("StartPadding", &self.StartPadding)
+            .field("EndPadding", &self.EndPadding)
+            .field("OutputPadding", &self.OutputPadding)
+            .field("GroupCount", &self.GroupCount)
+            .field("FusedActivation", &self.FusedActivation)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_CONVOLUTION_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1176,6 +1417,12 @@ impl ::core::clone::Clone for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_CUMULATIVE_PRODUCT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("AxisDirection", &self.AxisDirection).field("HasExclusiveProduct", &self.HasExclusiveProduct).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1209,6 +1456,12 @@ impl ::core::marker::Copy for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_CUMULATIVE_SUMMATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("AxisDirection", &self.AxisDirection).field("HasExclusiveSum", &self.HasExclusiveSum).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1249,6 +1502,11 @@ impl ::core::clone::Clone for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_DEPTH_TO_SPACE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1276,6 +1534,11 @@ impl ::core::clone::Clone for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_DEPTH_TO_SPACE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1301,6 +1564,11 @@ impl ::core::marker::Copy for DML_DIAGONAL_MATRIX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_DIAGONAL_MATRIX_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("Offset", &self.Offset).field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
@@ -1331,6 +1599,11 @@ impl ::core::clone::Clone for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1356,6 +1629,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ABS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
@@ -1385,6 +1663,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1410,6 +1693,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ACOS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
@@ -1440,6 +1728,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ADD1_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).field("FusedActivation", &self.FusedActivation).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1465,6 +1758,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ADD_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
@@ -1494,6 +1792,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ASINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1519,6 +1822,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ASIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
@@ -1548,6 +1856,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ATANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1573,6 +1886,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ATAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
@@ -1602,6 +1920,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1627,6 +1950,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
@@ -1655,6 +1983,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1679,6 +2012,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
@@ -1708,6 +2046,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1733,6 +2076,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
@@ -1762,6 +2110,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1789,6 +2142,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1814,6 +2172,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_CEIL_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
@@ -1845,6 +2208,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("Min", &self.Min).field("Max", &self.Max).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1872,6 +2240,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_CLIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
@@ -1902,6 +2275,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Exponent", &self.Exponent).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1929,6 +2307,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_COSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -1954,6 +2337,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_COS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
@@ -1984,6 +2372,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2009,6 +2402,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
 impl ::core::clone::Clone for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
@@ -2038,6 +2436,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2063,6 +2466,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ERF_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
@@ -2092,6 +2500,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_EXP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2119,6 +2532,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2144,6 +2562,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
@@ -2174,6 +2597,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_IF_OPERATOR_DESC").field("ConditionTensor", &self.ConditionTensor).field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2201,6 +2629,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InfinityMode", &self.InfinityMode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2225,6 +2658,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
@@ -2254,6 +2692,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2279,6 +2722,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
@@ -2308,6 +2756,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DES
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2333,6 +2786,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPE
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
@@ -2362,6 +2820,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2389,6 +2852,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERAT
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2413,6 +2881,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
@@ -2442,6 +2915,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2467,6 +2945,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
@@ -2496,6 +2979,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_LOG_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2521,6 +3009,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_MAX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
@@ -2550,6 +3043,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_MEAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2575,6 +3073,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_MIN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
@@ -2604,6 +3107,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2629,6 +3137,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
@@ -2658,6 +3171,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2684,6 +3202,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ExponentTensor", &self.ExponentTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
@@ -2719,6 +3242,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DES
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AScaleTensor", &self.AScaleTensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BScaleTensor", &self.BScaleTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2745,6 +3273,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
@@ -2774,6 +3307,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_RECIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2801,6 +3339,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_ROUND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RoundingMode", &self.RoundingMode).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2825,6 +3368,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_SIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
@@ -2854,6 +3402,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_SINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2879,6 +3432,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_SIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
@@ -2908,6 +3466,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_SQRT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2933,6 +3496,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
@@ -2962,6 +3530,11 @@ impl ::core::clone::Clone for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -2987,6 +3560,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_TAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
@@ -3015,6 +3593,11 @@ impl ::core::marker::Copy for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
@@ -3058,6 +3641,11 @@ impl ::core::clone::Clone for DML_FEATURE_DATA_FEATURE_LEVELS {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_FEATURE_DATA_FEATURE_LEVELS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_FEATURE_DATA_FEATURE_LEVELS").field("MaxSupportedFeatureLevel", &self.MaxSupportedFeatureLevel).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_FEATURE_DATA_FEATURE_LEVELS {
     type Abi = Self;
 }
@@ -3084,6 +3672,12 @@ impl ::core::marker::Copy for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {}
 impl ::core::clone::Clone for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT").field("IsSupported", &self.IsSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3130,6 +3724,11 @@ impl ::core::clone::Clone for DML_FEATURE_QUERY_FEATURE_LEVELS {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_FEATURE_QUERY_FEATURE_LEVELS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_FEATURE_QUERY_FEATURE_LEVELS").field("RequestedFeatureLevelCount", &self.RequestedFeatureLevelCount).field("RequestedFeatureLevels", &self.RequestedFeatureLevels).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_FEATURE_QUERY_FEATURE_LEVELS {
     type Abi = Self;
 }
@@ -3153,6 +3752,11 @@ impl ::core::marker::Copy for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {}
 impl ::core::clone::Clone for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT").field("DataType", &self.DataType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
@@ -3180,6 +3784,11 @@ impl ::core::marker::Copy for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_FILL_VALUE_CONSTANT_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("ValueDataType", &self.ValueDataType).field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
@@ -3210,6 +3819,11 @@ impl ::core::clone::Clone for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("ValueDataType", &self.ValueDataType).field("ValueStart", &self.ValueStart).field("ValueDelta", &self.ValueDelta).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3236,6 +3850,11 @@ impl ::core::marker::Copy for DML_GATHER_ELEMENTS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_GATHER_ELEMENTS_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GATHER_ELEMENTS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_GATHER_ELEMENTS_OPERATOR_DESC {
@@ -3268,6 +3887,11 @@ impl ::core::clone::Clone for DML_GATHER_ND1_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_GATHER_ND1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GATHER_ND1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).field("BatchDimensionCount", &self.BatchDimensionCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_GATHER_ND1_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3297,6 +3921,11 @@ impl ::core::clone::Clone for DML_GATHER_ND_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_GATHER_ND_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GATHER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_GATHER_ND_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3324,6 +3953,11 @@ impl ::core::marker::Copy for DML_GATHER_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_GATHER_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_GATHER_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GATHER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("IndexDimensions", &self.IndexDimensions).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_GATHER_OPERATOR_DESC {
@@ -3357,6 +3991,11 @@ impl ::core::marker::Copy for DML_GEMM_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_GEMM_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_GEMM_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GEMM_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("CTensor", &self.CTensor).field("OutputTensor", &self.OutputTensor).field("TransA", &self.TransA).field("TransB", &self.TransB).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_GEMM_OPERATOR_DESC {
@@ -3393,6 +4032,11 @@ impl ::core::clone::Clone for DML_GRAPH_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_GRAPH_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GRAPH_DESC").field("InputCount", &self.InputCount).field("OutputCount", &self.OutputCount).field("NodeCount", &self.NodeCount).field("Nodes", &self.Nodes).field("InputEdgeCount", &self.InputEdgeCount).field("InputEdges", &self.InputEdges).field("OutputEdgeCount", &self.OutputEdgeCount).field("OutputEdges", &self.OutputEdges).field("IntermediateEdgeCount", &self.IntermediateEdgeCount).field("IntermediateEdges", &self.IntermediateEdges).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_GRAPH_DESC {
     type Abi = Self;
 }
@@ -3417,6 +4061,11 @@ impl ::core::marker::Copy for DML_GRAPH_EDGE_DESC {}
 impl ::core::clone::Clone for DML_GRAPH_EDGE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_GRAPH_EDGE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GRAPH_EDGE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_GRAPH_EDGE_DESC {
@@ -3453,6 +4102,11 @@ impl ::core::marker::Copy for DML_GRAPH_NODE_DESC {}
 impl ::core::clone::Clone for DML_GRAPH_NODE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_GRAPH_NODE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GRAPH_NODE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_GRAPH_NODE_DESC {
@@ -3501,6 +4155,25 @@ impl ::core::clone::Clone for DML_GRU_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_GRU_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_GRU_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("WeightTensor", &self.WeightTensor)
+            .field("RecurrenceTensor", &self.RecurrenceTensor)
+            .field("BiasTensor", &self.BiasTensor)
+            .field("HiddenInitTensor", &self.HiddenInitTensor)
+            .field("SequenceLengthsTensor", &self.SequenceLengthsTensor)
+            .field("OutputSequenceTensor", &self.OutputSequenceTensor)
+            .field("OutputSingleTensor", &self.OutputSingleTensor)
+            .field("ActivationDescCount", &self.ActivationDescCount)
+            .field("ActivationDescs", &self.ActivationDescs)
+            .field("Direction", &self.Direction)
+            .field("LinearBeforeReset", &self.LinearBeforeReset)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DML_GRU_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3533,6 +4206,12 @@ impl ::core::marker::Copy for DML_INPUT_GRAPH_EDGE_DESC {}
 impl ::core::clone::Clone for DML_INPUT_GRAPH_EDGE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_INPUT_GRAPH_EDGE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_INPUT_GRAPH_EDGE_DESC").field("GraphInputIndex", &self.GraphInputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3569,6 +4248,12 @@ impl ::core::marker::Copy for DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
 impl ::core::clone::Clone for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_INTERMEDIATE_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3617,6 +4302,11 @@ impl ::core::clone::Clone for DML_JOIN_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_JOIN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_JOIN_OPERATOR_DESC").field("InputCount", &self.InputCount).field("InputTensors", &self.InputTensors).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_JOIN_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3650,6 +4340,12 @@ impl ::core::marker::Copy for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DES
 impl ::core::clone::Clone for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("CrossChannel", &self.CrossChannel).field("LocalSize", &self.LocalSize).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("Bias", &self.Bias).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3691,6 +4387,12 @@ impl ::core::clone::Clone for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("CrossChannel", &self.CrossChannel).field("LocalSize", &self.LocalSize).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("Bias", &self.Bias).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3723,6 +4425,11 @@ impl ::core::clone::Clone for DML_LP_NORMALIZATION_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_LP_NORMALIZATION_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_LP_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("Epsilon", &self.Epsilon).field("P", &self.P).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_LP_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3753,6 +4460,11 @@ impl ::core::marker::Copy for DML_LP_POOLING_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_LP_POOLING_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_LP_POOLING_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_LP_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("P", &self.P).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_LP_POOLING_OPERATOR_DESC {
@@ -3800,6 +4512,30 @@ impl ::core::clone::Clone for DML_LSTM_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_LSTM_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_LSTM_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("WeightTensor", &self.WeightTensor)
+            .field("RecurrenceTensor", &self.RecurrenceTensor)
+            .field("BiasTensor", &self.BiasTensor)
+            .field("HiddenInitTensor", &self.HiddenInitTensor)
+            .field("CellMemInitTensor", &self.CellMemInitTensor)
+            .field("SequenceLengthsTensor", &self.SequenceLengthsTensor)
+            .field("PeepholeTensor", &self.PeepholeTensor)
+            .field("OutputSequenceTensor", &self.OutputSequenceTensor)
+            .field("OutputSingleTensor", &self.OutputSingleTensor)
+            .field("OutputCellSingleTensor", &self.OutputCellSingleTensor)
+            .field("ActivationDescCount", &self.ActivationDescCount)
+            .field("ActivationDescs", &self.ActivationDescs)
+            .field("Direction", &self.Direction)
+            .field("ClipThreshold", &self.ClipThreshold)
+            .field("UseClipThreshold", &self.UseClipThreshold)
+            .field("CoupleInputForget", &self.CoupleInputForget)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DML_LSTM_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3830,6 +4566,11 @@ impl ::core::marker::Copy for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
@@ -3870,6 +4611,11 @@ impl ::core::clone::Clone for DML_MAX_POOLING1_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_MAX_POOLING1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_MAX_POOLING1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputIndicesTensor", &self.OutputIndicesTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_MAX_POOLING1_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3901,6 +4647,11 @@ impl ::core::marker::Copy for DML_MAX_POOLING2_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MAX_POOLING2_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_MAX_POOLING2_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_MAX_POOLING2_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputIndicesTensor", &self.OutputIndicesTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("Dilations", &self.Dilations).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_MAX_POOLING2_OPERATOR_DESC {
@@ -3936,6 +4687,11 @@ impl ::core::clone::Clone for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_MAX_POOLING_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("Dilations", &self.Dilations).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3967,6 +4723,11 @@ impl ::core::clone::Clone for DML_MAX_POOLING_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_MAX_POOLING_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_MAX_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_MAX_POOLING_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3992,6 +4753,11 @@ impl ::core::marker::Copy for DML_MAX_UNPOOLING_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MAX_UNPOOLING_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_MAX_UNPOOLING_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_MAX_UNPOOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_MAX_UNPOOLING_OPERATOR_DESC {
@@ -4028,6 +4794,12 @@ impl ::core::marker::Copy for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("NormalizeVariance", &self.NormalizeVariance).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4070,6 +4842,12 @@ impl ::core::clone::Clone for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("CrossChannel", &self.CrossChannel).field("NormalizeVariance", &self.NormalizeVariance).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4102,6 +4880,11 @@ impl ::core::clone::Clone for DML_NONZERO_COORDINATES_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_NONZERO_COORDINATES_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_NONZERO_COORDINATES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCountTensor", &self.OutputCountTensor).field("OutputCoordinatesTensor", &self.OutputCoordinatesTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4130,6 +4913,11 @@ impl ::core::clone::Clone for DML_ONE_HOT_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ONE_HOT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ONE_HOT_OPERATOR_DESC").field("IndicesTensor", &self.IndicesTensor).field("ValuesTensor", &self.ValuesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ONE_HOT_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4154,6 +4942,11 @@ impl ::core::marker::Copy for DML_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_OPERATOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_OPERATOR_DESC {
@@ -4181,6 +4974,12 @@ pub struct DML_OPERATOR_GRAPH_NODE_DESC {
 impl ::core::clone::Clone for DML_OPERATOR_GRAPH_NODE_DESC {
     fn clone(&self) -> Self {
         Self { Operator: self.Operator.clone(), Name: self.Name }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_OPERATOR_GRAPH_NODE_DESC").field("Operator", &self.Operator).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4523,6 +5322,12 @@ impl ::core::clone::Clone for DML_OUTPUT_GRAPH_EDGE_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_OUTPUT_GRAPH_EDGE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_OUTPUT_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("GraphOutputIndex", &self.GraphOutputIndex).field("Name", &self.Name).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DML_OUTPUT_GRAPH_EDGE_DESC {
     type Abi = Self;
 }
@@ -4567,6 +5372,11 @@ impl ::core::clone::Clone for DML_PADDING_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_PADDING_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_PADDING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("PaddingMode", &self.PaddingMode).field("PaddingValue", &self.PaddingValue).field("DimensionCount", &self.DimensionCount).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_PADDING_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4609,6 +5419,28 @@ impl ::core::clone::Clone for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("InputScaleTensor", &self.InputScaleTensor)
+            .field("InputZeroPointTensor", &self.InputZeroPointTensor)
+            .field("FilterTensor", &self.FilterTensor)
+            .field("FilterScaleTensor", &self.FilterScaleTensor)
+            .field("FilterZeroPointTensor", &self.FilterZeroPointTensor)
+            .field("BiasTensor", &self.BiasTensor)
+            .field("OutputScaleTensor", &self.OutputScaleTensor)
+            .field("OutputZeroPointTensor", &self.OutputZeroPointTensor)
+            .field("OutputTensor", &self.OutputTensor)
+            .field("DimensionCount", &self.DimensionCount)
+            .field("Strides", &self.Strides)
+            .field("Dilations", &self.Dilations)
+            .field("StartPadding", &self.StartPadding)
+            .field("EndPadding", &self.EndPadding)
+            .field("GroupCount", &self.GroupCount)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4642,6 +5474,11 @@ impl ::core::clone::Clone for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC
         *self
     }
 }
+impl ::core::fmt::Debug for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AScaleTensor", &self.AScaleTensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BScaleTensor", &self.BScaleTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4668,6 +5505,11 @@ impl ::core::marker::Copy for DML_RANDOM_GENERATOR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_RANDOM_GENERATOR_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_RANDOM_GENERATOR_OPERATOR_DESC").field("InputStateTensor", &self.InputStateTensor).field("OutputTensor", &self.OutputTensor).field("OutputStateTensor", &self.OutputStateTensor).field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_RANDOM_GENERATOR_OPERATOR_DESC {
@@ -4737,6 +5579,11 @@ impl ::core::clone::Clone for DML_REDUCE_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_REDUCE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_REDUCE_OPERATOR_DESC").field("Function", &self.Function).field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_REDUCE_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4766,6 +5613,11 @@ impl ::core::marker::Copy for DML_RESAMPLE1_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_RESAMPLE1_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_RESAMPLE1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_RESAMPLE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("DimensionCount", &self.DimensionCount).field("Scales", &self.Scales).field("InputPixelOffsets", &self.InputPixelOffsets).field("OutputPixelOffsets", &self.OutputPixelOffsets).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_RESAMPLE1_OPERATOR_DESC {
@@ -4799,6 +5651,11 @@ impl ::core::clone::Clone for DML_RESAMPLE_GRAD_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_RESAMPLE_GRAD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_RESAMPLE_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("InterpolationMode", &self.InterpolationMode).field("DimensionCount", &self.DimensionCount).field("Scales", &self.Scales).field("InputPixelOffsets", &self.InputPixelOffsets).field("OutputPixelOffsets", &self.OutputPixelOffsets).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4828,6 +5685,11 @@ impl ::core::clone::Clone for DML_RESAMPLE_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_RESAMPLE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_RESAMPLE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("ScaleCount", &self.ScaleCount).field("Scales", &self.Scales).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_RESAMPLE_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4854,6 +5716,11 @@ impl ::core::marker::Copy for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SequenceLengthsTensor", &self.SequenceLengthsTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
@@ -4889,6 +5756,23 @@ impl ::core::marker::Copy for DML_RNN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_RNN_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_RNN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_RNN_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("WeightTensor", &self.WeightTensor)
+            .field("RecurrenceTensor", &self.RecurrenceTensor)
+            .field("BiasTensor", &self.BiasTensor)
+            .field("HiddenInitTensor", &self.HiddenInitTensor)
+            .field("SequenceLengthsTensor", &self.SequenceLengthsTensor)
+            .field("OutputSequenceTensor", &self.OutputSequenceTensor)
+            .field("OutputSingleTensor", &self.OutputSingleTensor)
+            .field("ActivationDescCount", &self.ActivationDescCount)
+            .field("ActivationDescs", &self.ActivationDescs)
+            .field("Direction", &self.Direction)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_RNN_OPERATOR_DESC {
@@ -4933,6 +5817,27 @@ impl ::core::clone::Clone for DML_ROI_ALIGN1_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DML_ROI_ALIGN1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ROI_ALIGN1_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("ROITensor", &self.ROITensor)
+            .field("BatchIndicesTensor", &self.BatchIndicesTensor)
+            .field("OutputTensor", &self.OutputTensor)
+            .field("ReductionFunction", &self.ReductionFunction)
+            .field("InterpolationMode", &self.InterpolationMode)
+            .field("SpatialScaleX", &self.SpatialScaleX)
+            .field("SpatialScaleY", &self.SpatialScaleY)
+            .field("InputPixelOffset", &self.InputPixelOffset)
+            .field("OutputPixelOffset", &self.OutputPixelOffset)
+            .field("OutOfBoundsInputValue", &self.OutOfBoundsInputValue)
+            .field("MinimumSamplesPerOutput", &self.MinimumSamplesPerOutput)
+            .field("MaximumSamplesPerOutput", &self.MaximumSamplesPerOutput)
+            .field("AlignRegionsToCorners", &self.AlignRegionsToCorners)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DML_ROI_ALIGN1_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4971,6 +5876,23 @@ impl ::core::clone::Clone for DML_ROI_ALIGN_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_ROI_ALIGN_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ROI_ALIGN_OPERATOR_DESC")
+            .field("InputTensor", &self.InputTensor)
+            .field("ROITensor", &self.ROITensor)
+            .field("BatchIndicesTensor", &self.BatchIndicesTensor)
+            .field("OutputTensor", &self.OutputTensor)
+            .field("ReductionFunction", &self.ReductionFunction)
+            .field("InterpolationMode", &self.InterpolationMode)
+            .field("SpatialScaleX", &self.SpatialScaleX)
+            .field("SpatialScaleY", &self.SpatialScaleY)
+            .field("OutOfBoundsInputValue", &self.OutOfBoundsInputValue)
+            .field("MinimumSamplesPerOutput", &self.MinimumSamplesPerOutput)
+            .field("MaximumSamplesPerOutput", &self.MaximumSamplesPerOutput)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_ROI_ALIGN_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -4998,6 +5920,11 @@ impl ::core::marker::Copy for DML_ROI_POOLING_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ROI_POOLING_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_ROI_POOLING_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_ROI_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ROITensor", &self.ROITensor).field("OutputTensor", &self.OutputTensor).field("SpatialScale", &self.SpatialScale).field("PooledSize", &self.PooledSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_ROI_POOLING_OPERATOR_DESC {
@@ -5069,6 +5996,11 @@ impl ::core::clone::Clone for DML_SCALE_BIAS {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_SCALE_BIAS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SCALE_BIAS").field("Scale", &self.Scale).field("Bias", &self.Bias).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_SCALE_BIAS {
     type Abi = Self;
 }
@@ -5097,6 +6029,11 @@ impl ::core::marker::Copy for DML_SCATTER_ND_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_SCATTER_ND_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_SCATTER_ND_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SCATTER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_SCATTER_ND_OPERATOR_DESC {
@@ -5128,6 +6065,11 @@ impl ::core::clone::Clone for DML_SCATTER_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_SCATTER_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SCATTER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_SCATTER_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -5152,6 +6094,11 @@ impl ::core::marker::Copy for DML_SIZE_2D {}
 impl ::core::clone::Clone for DML_SIZE_2D {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_SIZE_2D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SIZE_2D").field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_SIZE_2D {
@@ -5184,6 +6131,11 @@ impl ::core::clone::Clone for DML_SLICE1_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_SLICE1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SLICE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("InputWindowOffsets", &self.InputWindowOffsets).field("InputWindowSizes", &self.InputWindowSizes).field("InputWindowStrides", &self.InputWindowStrides).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_SLICE1_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -5212,6 +6164,11 @@ impl ::core::marker::Copy for DML_SLICE_GRAD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_SLICE_GRAD_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_SLICE_GRAD_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SLICE_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("InputWindowOffsets", &self.InputWindowOffsets).field("InputWindowSizes", &self.InputWindowSizes).field("InputWindowStrides", &self.InputWindowStrides).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_SLICE_GRAD_OPERATOR_DESC {
@@ -5244,6 +6201,11 @@ impl ::core::clone::Clone for DML_SLICE_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_SLICE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SLICE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Offsets", &self.Offsets).field("Sizes", &self.Sizes).field("Strides", &self.Strides).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_SLICE_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -5270,6 +6232,11 @@ impl ::core::marker::Copy for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SPACE_TO_DEPTH1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
@@ -5299,6 +6266,11 @@ impl ::core::clone::Clone for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SPACE_TO_DEPTH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -5325,6 +6297,11 @@ impl ::core::marker::Copy for DML_SPLIT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_SPLIT_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_SPLIT_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_SPLIT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCount", &self.OutputCount).field("OutputTensors", &self.OutputTensors).field("Axis", &self.Axis).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_SPLIT_OPERATOR_DESC {
@@ -5383,6 +6360,11 @@ impl ::core::clone::Clone for DML_TENSOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_TENSOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_TENSOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_TENSOR_DESC {
     type Abi = Self;
 }
@@ -5427,6 +6409,11 @@ impl ::core::clone::Clone for DML_TILE_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_TILE_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_TILE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RepeatsCount", &self.RepeatsCount).field("Repeats", &self.Repeats).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_TILE_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -5455,6 +6442,11 @@ impl ::core::marker::Copy for DML_TOP_K1_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_TOP_K1_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_TOP_K1_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_TOP_K1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_TOP_K1_OPERATOR_DESC {
@@ -5486,6 +6478,11 @@ impl ::core::clone::Clone for DML_TOP_K_OPERATOR_DESC {
         *self
     }
 }
+impl ::core::fmt::Debug for DML_TOP_K_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_TOP_K_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DML_TOP_K_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -5512,6 +6509,11 @@ impl ::core::marker::Copy for DML_UPSAMPLE_2D_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_UPSAMPLE_2D_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_UPSAMPLE_2D_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_UPSAMPLE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleSize", &self.ScaleSize).field("InterpolationMode", &self.InterpolationMode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_UPSAMPLE_2D_OPERATOR_DESC {
@@ -5541,6 +6543,11 @@ impl ::core::marker::Copy for DML_VALUE_SCALE_2D_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DML_VALUE_SCALE_2D_OPERATOR_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DML_VALUE_SCALE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Scale", &self.Scale).field("ChannelCount", &self.ChannelCount).field("Bias", &self.Bias).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_VALUE_SCALE_2D_OPERATOR_DESC {

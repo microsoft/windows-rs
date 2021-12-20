@@ -2507,6 +2507,11 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT {
         Self { r#type: self.r#type, Anonymous: self.Anonymous.clone() }
     }
 }
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2562,6 +2567,11 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_0 {
         Self { pVolumeUnk: self.pVolumeUnk.clone() }
     }
 }
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT_0_0").field("pVolumeUnk", &self.pVolumeUnk).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2584,6 +2594,11 @@ pub struct VDS_ASYNC_OUTPUT_0_1 {
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_1 {
     fn clone(&self) -> Self {
         Self { pLunUnk: self.pLunUnk.clone() }
+    }
+}
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT_0_1").field("pLunUnk", &self.pLunUnk).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_1 {
@@ -2612,6 +2627,11 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_2 {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT_0_2").field("ullOffset", &self.ullOffset).field("volumeId", &self.volumeId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_2 {
     type Abi = Self;
 }
@@ -2634,6 +2654,11 @@ pub struct VDS_ASYNC_OUTPUT_0_3 {
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_3 {
     fn clone(&self) -> Self {
         Self { pPortalGroupUnk: self.pPortalGroupUnk.clone() }
+    }
+}
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT_0_3").field("pPortalGroupUnk", &self.pPortalGroupUnk).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_3 {
@@ -2660,6 +2685,11 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_4 {
         Self { pTargetUnk: self.pTargetUnk.clone() }
     }
 }
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT_0_4").field("pTargetUnk", &self.pTargetUnk).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_4 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2682,6 +2712,11 @@ pub struct VDS_ASYNC_OUTPUT_0_5 {
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_5 {
     fn clone(&self) -> Self {
         Self { pVolumeUnk: self.pVolumeUnk.clone() }
+    }
+}
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT_0_5").field("pVolumeUnk", &self.pVolumeUnk).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_5 {
@@ -2708,6 +2743,11 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_6 {
         Self { pVDiskUnk: self.pVDiskUnk.clone() }
     }
 }
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT_0_6").field("pVDiskUnk", &self.pVDiskUnk).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_6 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2731,6 +2771,11 @@ impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_7 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_7 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ASYNC_OUTPUT_0_7").field("ullReclaimedBytes", &self.ullReclaimedBytes).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_7 {
@@ -2827,6 +2872,11 @@ impl ::core::clone::Clone for VDS_CONTROLLER_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_CONTROLLER_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_CONTROLLER_NOTIFICATION").field("ulEvent", &self.ulEvent).field("controllerId", &self.controllerId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_CONTROLLER_NOTIFICATION {
     type Abi = Self;
 }
@@ -2858,6 +2908,12 @@ impl ::core::marker::Copy for VDS_CONTROLLER_PROP {}
 impl ::core::clone::Clone for VDS_CONTROLLER_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_CONTROLLER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_CONTROLLER_PROP").field("id", &self.id).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("status", &self.status).field("health", &self.health).field("sNumberOfPorts", &self.sNumberOfPorts).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2904,6 +2960,11 @@ impl ::core::clone::Clone for VDS_DISK_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_DISK_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_DISK_NOTIFICATION").field("ulEvent", &self.ulEvent).field("diskId", &self.diskId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_DISK_NOTIFICATION {
     type Abi = Self;
 }
@@ -2933,6 +2994,12 @@ impl ::core::marker::Copy for VDS_DRIVE_EXTENT {}
 impl ::core::clone::Clone for VDS_DRIVE_EXTENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_DRIVE_EXTENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_DRIVE_EXTENT").field("id", &self.id).field("LunId", &self.LunId).field("ullSize", &self.ullSize).field("bUsed", &self.bUsed).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2978,6 +3045,11 @@ impl ::core::clone::Clone for VDS_DRIVE_LETTER_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_DRIVE_LETTER_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_DRIVE_LETTER_NOTIFICATION").field("ulEvent", &self.ulEvent).field("wcLetter", &self.wcLetter).field("volumeId", &self.volumeId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_DRIVE_LETTER_NOTIFICATION {
     type Abi = Self;
 }
@@ -3002,6 +3074,11 @@ impl ::core::marker::Copy for VDS_DRIVE_NOTIFICATION {}
 impl ::core::clone::Clone for VDS_DRIVE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_DRIVE_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_DRIVE_NOTIFICATION").field("ulEvent", &self.ulEvent).field("driveId", &self.driveId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_DRIVE_NOTIFICATION {
@@ -3038,6 +3115,12 @@ impl ::core::marker::Copy for VDS_DRIVE_PROP {}
 impl ::core::clone::Clone for VDS_DRIVE_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_DRIVE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_DRIVE_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("ulFlags", &self.ulFlags).field("status", &self.status).field("health", &self.health).field("sInternalBusNumber", &self.sInternalBusNumber).field("sSlotNumber", &self.sSlotNumber).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3081,6 +3164,25 @@ impl ::core::marker::Copy for VDS_DRIVE_PROP2 {}
 impl ::core::clone::Clone for VDS_DRIVE_PROP2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_DRIVE_PROP2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_DRIVE_PROP2")
+            .field("id", &self.id)
+            .field("ullSize", &self.ullSize)
+            .field("pwszFriendlyName", &self.pwszFriendlyName)
+            .field("pwszIdentification", &self.pwszIdentification)
+            .field("ulFlags", &self.ulFlags)
+            .field("status", &self.status)
+            .field("health", &self.health)
+            .field("sInternalBusNumber", &self.sInternalBusNumber)
+            .field("sSlotNumber", &self.sSlotNumber)
+            .field("ulEnclosureNumber", &self.ulEnclosureNumber)
+            .field("busType", &self.busType)
+            .field("ulSpindleSpeed", &self.ulSpindleSpeed)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3826,6 +3928,11 @@ impl ::core::clone::Clone for VDS_FILE_SYSTEM_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_FILE_SYSTEM_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_FILE_SYSTEM_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).field("dwPercentCompleted", &self.dwPercentCompleted).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_FILE_SYSTEM_NOTIFICATION {
     type Abi = Self;
 }
@@ -3877,6 +3984,11 @@ impl ::core::marker::Copy for VDS_HBAPORT_PROP {}
 impl ::core::clone::Clone for VDS_HBAPORT_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_HBAPORT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_HBAPORT_PROP").field("id", &self.id).field("wwnNode", &self.wwnNode).field("wwnPort", &self.wwnPort).field("type", &self.r#type).field("status", &self.status).field("ulPortSpeed", &self.ulPortSpeed).field("ulSupportedPortSpeed", &self.ulSupportedPortSpeed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_HBAPORT_PROP {
@@ -4007,6 +4119,31 @@ impl ::core::clone::Clone for VDS_HINTS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_HINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_HINTS")
+            .field("ullHintMask", &self.ullHintMask)
+            .field("ullExpectedMaximumSize", &self.ullExpectedMaximumSize)
+            .field("ulOptimalReadSize", &self.ulOptimalReadSize)
+            .field("ulOptimalReadAlignment", &self.ulOptimalReadAlignment)
+            .field("ulOptimalWriteSize", &self.ulOptimalWriteSize)
+            .field("ulOptimalWriteAlignment", &self.ulOptimalWriteAlignment)
+            .field("ulMaximumDriveCount", &self.ulMaximumDriveCount)
+            .field("ulStripeSize", &self.ulStripeSize)
+            .field("bFastCrashRecoveryRequired", &self.bFastCrashRecoveryRequired)
+            .field("bMostlyReads", &self.bMostlyReads)
+            .field("bOptimizeForSequentialReads", &self.bOptimizeForSequentialReads)
+            .field("bOptimizeForSequentialWrites", &self.bOptimizeForSequentialWrites)
+            .field("bRemapEnabled", &self.bRemapEnabled)
+            .field("bReadBackVerifyEnabled", &self.bReadBackVerifyEnabled)
+            .field("bWriteThroughCachingEnabled", &self.bWriteThroughCachingEnabled)
+            .field("bHardwareChecksumEnabled", &self.bHardwareChecksumEnabled)
+            .field("bIsYankable", &self.bIsYankable)
+            .field("sRebuildPriority", &self.sRebuildPriority)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VDS_HINTS {
     type Abi = Self;
 }
@@ -4066,6 +4203,44 @@ impl ::core::marker::Copy for VDS_HINTS2 {}
 impl ::core::clone::Clone for VDS_HINTS2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_HINTS2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_HINTS2")
+            .field("ullHintMask", &self.ullHintMask)
+            .field("ullExpectedMaximumSize", &self.ullExpectedMaximumSize)
+            .field("ulOptimalReadSize", &self.ulOptimalReadSize)
+            .field("ulOptimalReadAlignment", &self.ulOptimalReadAlignment)
+            .field("ulOptimalWriteSize", &self.ulOptimalWriteSize)
+            .field("ulOptimalWriteAlignment", &self.ulOptimalWriteAlignment)
+            .field("ulMaximumDriveCount", &self.ulMaximumDriveCount)
+            .field("ulStripeSize", &self.ulStripeSize)
+            .field("ulReserved1", &self.ulReserved1)
+            .field("ulReserved2", &self.ulReserved2)
+            .field("ulReserved3", &self.ulReserved3)
+            .field("bFastCrashRecoveryRequired", &self.bFastCrashRecoveryRequired)
+            .field("bMostlyReads", &self.bMostlyReads)
+            .field("bOptimizeForSequentialReads", &self.bOptimizeForSequentialReads)
+            .field("bOptimizeForSequentialWrites", &self.bOptimizeForSequentialWrites)
+            .field("bRemapEnabled", &self.bRemapEnabled)
+            .field("bReadBackVerifyEnabled", &self.bReadBackVerifyEnabled)
+            .field("bWriteThroughCachingEnabled", &self.bWriteThroughCachingEnabled)
+            .field("bHardwareChecksumEnabled", &self.bHardwareChecksumEnabled)
+            .field("bIsYankable", &self.bIsYankable)
+            .field("bAllocateHotSpare", &self.bAllocateHotSpare)
+            .field("bUseMirroredCache", &self.bUseMirroredCache)
+            .field("bReadCachingEnabled", &self.bReadCachingEnabled)
+            .field("bWriteCachingEnabled", &self.bWriteCachingEnabled)
+            .field("bMediaScanEnabled", &self.bMediaScanEnabled)
+            .field("bConsistencyCheckEnabled", &self.bConsistencyCheckEnabled)
+            .field("BusType", &self.BusType)
+            .field("bReserved1", &self.bReserved1)
+            .field("bReserved2", &self.bReserved2)
+            .field("bReserved3", &self.bReserved3)
+            .field("sRebuildPriority", &self.sRebuildPriority)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4147,6 +4322,11 @@ impl ::core::clone::Clone for VDS_INTERCONNECT {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_INTERCONNECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_INTERCONNECT").field("m_addressType", &self.m_addressType).field("m_cbPort", &self.m_cbPort).field("m_pbPort", &self.m_pbPort).field("m_cbAddress", &self.m_cbAddress).field("m_pbAddress", &self.m_pbAddress).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_INTERCONNECT {
     type Abi = Self;
 }
@@ -4202,6 +4382,11 @@ impl ::core::clone::Clone for VDS_IPADDRESS {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_IPADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_IPADDRESS").field("type", &self.r#type).field("ipv4Address", &self.ipv4Address).field("ipv6Address", &self.ipv6Address).field("ulIpv6FlowInfo", &self.ulIpv6FlowInfo).field("ulIpv6ScopeId", &self.ulIpv6ScopeId).field("wszTextAddress", &self.wszTextAddress).field("ulPort", &self.ulPort).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_IPADDRESS {
     type Abi = Self;
 }
@@ -4250,6 +4435,12 @@ impl ::core::clone::Clone for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ISCSI_INITIATOR_ADAPTER_PROP").field("id", &self.id).field("pwszName", &self.pwszName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     type Abi = Self;
 }
@@ -4278,6 +4469,11 @@ impl ::core::marker::Copy for VDS_ISCSI_INITIATOR_PORTAL_PROP {}
 impl ::core::clone::Clone for VDS_ISCSI_INITIATOR_PORTAL_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_ISCSI_INITIATOR_PORTAL_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ISCSI_INITIATOR_PORTAL_PROP").field("id", &self.id).field("address", &self.address).field("ulPortIndex", &self.ulPortIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ISCSI_INITIATOR_PORTAL_PROP {
@@ -4322,6 +4518,11 @@ impl ::core::clone::Clone for VDS_ISCSI_IPSEC_KEY {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_ISCSI_IPSEC_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ISCSI_IPSEC_KEY").field("pKey", &self.pKey).field("ulKeySize", &self.ulKeySize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ISCSI_IPSEC_KEY {
     type Abi = Self;
 }
@@ -4362,6 +4563,11 @@ impl ::core::clone::Clone for VDS_ISCSI_PORTALGROUP_PROP {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_ISCSI_PORTALGROUP_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ISCSI_PORTALGROUP_PROP").field("id", &self.id).field("tag", &self.tag).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ISCSI_PORTALGROUP_PROP {
     type Abi = Self;
 }
@@ -4387,6 +4593,11 @@ impl ::core::marker::Copy for VDS_ISCSI_PORTAL_PROP {}
 impl ::core::clone::Clone for VDS_ISCSI_PORTAL_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_ISCSI_PORTAL_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ISCSI_PORTAL_PROP").field("id", &self.id).field("address", &self.address).field("status", &self.status).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ISCSI_PORTAL_PROP {
@@ -4427,6 +4638,11 @@ impl ::core::clone::Clone for VDS_ISCSI_SHARED_SECRET {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_ISCSI_SHARED_SECRET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ISCSI_SHARED_SECRET").field("pSharedSecret", &self.pSharedSecret).field("ulSharedSecretSize", &self.ulSharedSecretSize).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ISCSI_SHARED_SECRET {
     type Abi = Self;
 }
@@ -4456,6 +4672,12 @@ impl ::core::marker::Copy for VDS_ISCSI_TARGET_PROP {}
 impl ::core::clone::Clone for VDS_ISCSI_TARGET_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_ISCSI_TARGET_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_ISCSI_TARGET_PROP").field("id", &self.id).field("pwszIscsiName", &self.pwszIscsiName).field("pwszFriendlyName", &self.pwszFriendlyName).field("bChapEnabled", &self.bChapEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4541,6 +4763,26 @@ impl ::core::clone::Clone for VDS_LUN_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_LUN_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_LUN_INFORMATION")
+            .field("m_version", &self.m_version)
+            .field("m_DeviceType", &self.m_DeviceType)
+            .field("m_DeviceTypeModifier", &self.m_DeviceTypeModifier)
+            .field("m_bCommandQueueing", &self.m_bCommandQueueing)
+            .field("m_BusType", &self.m_BusType)
+            .field("m_szVendorId", &self.m_szVendorId)
+            .field("m_szProductId", &self.m_szProductId)
+            .field("m_szProductRevision", &self.m_szProductRevision)
+            .field("m_szSerialNumber", &self.m_szSerialNumber)
+            .field("m_diskSignature", &self.m_diskSignature)
+            .field("m_deviceIdDescriptor", &self.m_deviceIdDescriptor)
+            .field("m_cInterconnects", &self.m_cInterconnects)
+            .field("m_rgInterconnects", &self.m_rgInterconnects)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VDS_LUN_INFORMATION {
     type Abi = Self;
 }
@@ -4568,6 +4810,11 @@ impl ::core::marker::Copy for VDS_LUN_NOTIFICATION {}
 impl ::core::clone::Clone for VDS_LUN_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_LUN_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_LUN_NOTIFICATION").field("ulEvent", &self.ulEvent).field("LunId", &self.LunId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_LUN_NOTIFICATION {
@@ -4605,6 +4852,11 @@ impl ::core::marker::Copy for VDS_LUN_PLEX_PROP {}
 impl ::core::clone::Clone for VDS_LUN_PLEX_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_LUN_PLEX_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_LUN_PLEX_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("ulFlags", &self.ulFlags).field("ulStripeSize", &self.ulStripeSize).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_PROP {
@@ -4693,6 +4945,12 @@ impl ::core::marker::Copy for VDS_LUN_PROP {}
 impl ::core::clone::Clone for VDS_LUN_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_LUN_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_LUN_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("pwszUnmaskingList", &self.pwszUnmaskingList).field("ulFlags", &self.ulFlags).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4799,6 +5057,11 @@ impl ::core::marker::Copy for VDS_MOUNT_POINT_NOTIFICATION {}
 impl ::core::clone::Clone for VDS_MOUNT_POINT_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_MOUNT_POINT_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_MOUNT_POINT_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_MOUNT_POINT_NOTIFICATION {
@@ -4933,6 +5196,11 @@ impl ::core::marker::Copy for VDS_NOTIFICATION {}
 impl ::core::clone::Clone for VDS_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_NOTIFICATION").field("objectType", &self.objectType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_NOTIFICATION {
@@ -5085,6 +5353,11 @@ impl ::core::clone::Clone for VDS_PACK_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_PACK_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PACK_NOTIFICATION").field("ulEvent", &self.ulEvent).field("packId", &self.packId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_PACK_NOTIFICATION {
     type Abi = Self;
 }
@@ -5112,6 +5385,11 @@ impl ::core::clone::Clone for VDS_PARTITION_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_PARTITION_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PARTITION_NOTIFICATION").field("ulEvent", &self.ulEvent).field("diskId", &self.diskId).field("ullOffset", &self.ullOffset).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_PARTITION_NOTIFICATION {
     type Abi = Self;
 }
@@ -5136,6 +5414,11 @@ impl ::core::marker::Copy for VDS_PATH_ID {}
 impl ::core::clone::Clone for VDS_PATH_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_PATH_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PATH_ID").field("ullSourceId", &self.ullSourceId).field("ullPathId", &self.ullPathId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_PATH_ID {
@@ -5166,6 +5449,11 @@ impl ::core::marker::Copy for VDS_PATH_INFO {}
 impl ::core::clone::Clone for VDS_PATH_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_PATH_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PATH_INFO").field("pathId", &self.pathId).field("type", &self.r#type).field("status", &self.status).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("Anonymous3", &self.Anonymous3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_PATH_INFO {
@@ -5277,6 +5565,12 @@ impl ::core::clone::Clone for VDS_PATH_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_PATH_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PATH_POLICY").field("pathId", &self.pathId).field("bPrimaryPath", &self.bPrimaryPath).field("ulWeight", &self.ulWeight).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VDS_PATH_POLICY {
     type Abi = Self;
 }
@@ -5353,6 +5647,51 @@ impl ::core::marker::Copy for VDS_POOL_ATTRIBUTES {}
 impl ::core::clone::Clone for VDS_POOL_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_POOL_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_POOL_ATTRIBUTES")
+            .field("ullAttributeMask", &self.ullAttributeMask)
+            .field("raidType", &self.raidType)
+            .field("busType", &self.busType)
+            .field("pwszIntendedUsage", &self.pwszIntendedUsage)
+            .field("bSpinDown", &self.bSpinDown)
+            .field("bIsThinProvisioned", &self.bIsThinProvisioned)
+            .field("ullProvisionedSpace", &self.ullProvisionedSpace)
+            .field("bNoSinglePointOfFailure", &self.bNoSinglePointOfFailure)
+            .field("ulDataRedundancyMax", &self.ulDataRedundancyMax)
+            .field("ulDataRedundancyMin", &self.ulDataRedundancyMin)
+            .field("ulDataRedundancyDefault", &self.ulDataRedundancyDefault)
+            .field("ulPackageRedundancyMax", &self.ulPackageRedundancyMax)
+            .field("ulPackageRedundancyMin", &self.ulPackageRedundancyMin)
+            .field("ulPackageRedundancyDefault", &self.ulPackageRedundancyDefault)
+            .field("ulStripeSize", &self.ulStripeSize)
+            .field("ulStripeSizeMax", &self.ulStripeSizeMax)
+            .field("ulStripeSizeMin", &self.ulStripeSizeMin)
+            .field("ulDefaultStripeSize", &self.ulDefaultStripeSize)
+            .field("ulNumberOfColumns", &self.ulNumberOfColumns)
+            .field("ulNumberOfColumnsMax", &self.ulNumberOfColumnsMax)
+            .field("ulNumberOfColumnsMin", &self.ulNumberOfColumnsMin)
+            .field("ulDefaultNumberofColumns", &self.ulDefaultNumberofColumns)
+            .field("ulDataAvailabilityHint", &self.ulDataAvailabilityHint)
+            .field("ulAccessRandomnessHint", &self.ulAccessRandomnessHint)
+            .field("ulAccessDirectionHint", &self.ulAccessDirectionHint)
+            .field("ulAccessSizeHint", &self.ulAccessSizeHint)
+            .field("ulAccessLatencyHint", &self.ulAccessLatencyHint)
+            .field("ulAccessBandwidthWeightHint", &self.ulAccessBandwidthWeightHint)
+            .field("ulStorageCostHint", &self.ulStorageCostHint)
+            .field("ulStorageEfficiencyHint", &self.ulStorageEfficiencyHint)
+            .field("ulNumOfCustomAttributes", &self.ulNumOfCustomAttributes)
+            .field("pPoolCustomAttributes", &self.pPoolCustomAttributes)
+            .field("bReserved1", &self.bReserved1)
+            .field("bReserved2", &self.bReserved2)
+            .field("ulReserved1", &self.ulReserved1)
+            .field("ulReserved2", &self.ulReserved2)
+            .field("ullReserved1", &self.ullReserved1)
+            .field("ullReserved2", &self.ullReserved2)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5445,6 +5784,12 @@ impl ::core::clone::Clone for VDS_POOL_CUSTOM_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_POOL_CUSTOM_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_POOL_CUSTOM_ATTRIBUTES").field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VDS_POOL_CUSTOM_ATTRIBUTES {
     type Abi = Self;
 }
@@ -5474,6 +5819,11 @@ impl ::core::clone::Clone for VDS_PORTAL_GROUP_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_PORTAL_GROUP_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PORTAL_GROUP_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portalGroupId", &self.portalGroupId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_PORTAL_GROUP_NOTIFICATION {
     type Abi = Self;
 }
@@ -5500,6 +5850,11 @@ impl ::core::clone::Clone for VDS_PORTAL_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_PORTAL_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PORTAL_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portalId", &self.portalId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_PORTAL_NOTIFICATION {
     type Abi = Self;
 }
@@ -5524,6 +5879,11 @@ impl ::core::marker::Copy for VDS_PORT_NOTIFICATION {}
 impl ::core::clone::Clone for VDS_PORT_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_PORT_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PORT_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portId", &self.portId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_PORT_NOTIFICATION {
@@ -5555,6 +5915,12 @@ impl ::core::marker::Copy for VDS_PORT_PROP {}
 impl ::core::clone::Clone for VDS_PORT_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_PORT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PORT_PROP").field("id", &self.id).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("status", &self.status).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5646,6 +6012,12 @@ impl ::core::marker::Copy for VDS_PROVIDER_PROP {}
 impl ::core::clone::Clone for VDS_PROVIDER_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_PROVIDER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_PROVIDER_PROP").field("id", &self.id).field("pwszName", &self.pwszName).field("guidVersionId", &self.guidVersionId).field("pwszVersion", &self.pwszVersion).field("type", &self.r#type).field("ulFlags", &self.ulFlags).field("ulStripeSizeFlags", &self.ulStripeSizeFlags).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5742,6 +6114,11 @@ impl ::core::clone::Clone for VDS_SERVICE_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_SERVICE_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_SERVICE_NOTIFICATION").field("ulEvent", &self.ulEvent).field("action", &self.action).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_SERVICE_NOTIFICATION {
     type Abi = Self;
 }
@@ -5815,6 +6192,11 @@ impl ::core::clone::Clone for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_STORAGE_DEVICE_ID_DESCRIPTOR").field("m_version", &self.m_version).field("m_cIdentifiers", &self.m_cIdentifiers).field("m_rgIdentifiers", &self.m_rgIdentifiers).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     type Abi = Self;
 }
@@ -5841,6 +6223,11 @@ impl ::core::marker::Copy for VDS_STORAGE_IDENTIFIER {}
 impl ::core::clone::Clone for VDS_STORAGE_IDENTIFIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_STORAGE_IDENTIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_STORAGE_IDENTIFIER").field("m_CodeSet", &self.m_CodeSet).field("m_Type", &self.m_Type).field("m_cbIdentifier", &self.m_cbIdentifier).field("m_rgbIdentifier", &self.m_rgbIdentifier).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_STORAGE_IDENTIFIER {
@@ -5904,6 +6291,12 @@ impl ::core::clone::Clone for VDS_STORAGE_POOL_DRIVE_EXTENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_STORAGE_POOL_DRIVE_EXTENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_STORAGE_POOL_DRIVE_EXTENT").field("id", &self.id).field("ullSize", &self.ullSize).field("bUsed", &self.bUsed).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_DRIVE_EXTENT {
     type Abi = Self;
 }
@@ -5941,6 +6334,12 @@ impl ::core::marker::Copy for VDS_STORAGE_POOL_PROP {}
 impl ::core::clone::Clone for VDS_STORAGE_POOL_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_STORAGE_POOL_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_STORAGE_POOL_PROP").field("id", &self.id).field("status", &self.status).field("health", &self.health).field("type", &self.r#type).field("pwszName", &self.pwszName).field("pwszDescription", &self.pwszDescription).field("ullTotalConsumedSpace", &self.ullTotalConsumedSpace).field("ullTotalManagedSpace", &self.ullTotalManagedSpace).field("ullRemainingFreeSpace", &self.ullRemainingFreeSpace).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6041,6 +6440,11 @@ impl ::core::clone::Clone for VDS_SUB_SYSTEM_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_SUB_SYSTEM_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_SUB_SYSTEM_NOTIFICATION").field("ulEvent", &self.ulEvent).field("subSystemId", &self.subSystemId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_NOTIFICATION {
     type Abi = Self;
 }
@@ -6077,6 +6481,24 @@ impl ::core::marker::Copy for VDS_SUB_SYSTEM_PROP {}
 impl ::core::clone::Clone for VDS_SUB_SYSTEM_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_SUB_SYSTEM_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_SUB_SYSTEM_PROP")
+            .field("id", &self.id)
+            .field("pwszFriendlyName", &self.pwszFriendlyName)
+            .field("pwszIdentification", &self.pwszIdentification)
+            .field("ulFlags", &self.ulFlags)
+            .field("ulStripeSizeFlags", &self.ulStripeSizeFlags)
+            .field("status", &self.status)
+            .field("health", &self.health)
+            .field("sNumberOfInternalBuses", &self.sNumberOfInternalBuses)
+            .field("sMaxNumberOfSlotsEachBus", &self.sMaxNumberOfSlotsEachBus)
+            .field("sMaxNumberOfControllers", &self.sMaxNumberOfControllers)
+            .field("sRebuildPriority", &self.sRebuildPriority)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6121,6 +6543,26 @@ impl ::core::marker::Copy for VDS_SUB_SYSTEM_PROP2 {}
 impl ::core::clone::Clone for VDS_SUB_SYSTEM_PROP2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VDS_SUB_SYSTEM_PROP2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_SUB_SYSTEM_PROP2")
+            .field("id", &self.id)
+            .field("pwszFriendlyName", &self.pwszFriendlyName)
+            .field("pwszIdentification", &self.pwszIdentification)
+            .field("ulFlags", &self.ulFlags)
+            .field("ulStripeSizeFlags", &self.ulStripeSizeFlags)
+            .field("ulSupportedRaidTypeFlags", &self.ulSupportedRaidTypeFlags)
+            .field("status", &self.status)
+            .field("health", &self.health)
+            .field("sNumberOfInternalBuses", &self.sNumberOfInternalBuses)
+            .field("sMaxNumberOfSlotsEachBus", &self.sMaxNumberOfSlotsEachBus)
+            .field("sMaxNumberOfControllers", &self.sMaxNumberOfControllers)
+            .field("sRebuildPriority", &self.sRebuildPriority)
+            .field("ulNumberOfEnclosures", &self.ulNumberOfEnclosures)
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6269,6 +6711,11 @@ impl ::core::clone::Clone for VDS_TARGET_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_TARGET_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_TARGET_NOTIFICATION").field("ulEvent", &self.ulEvent).field("targetId", &self.targetId).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_TARGET_NOTIFICATION {
     type Abi = Self;
 }
@@ -6323,6 +6770,11 @@ impl ::core::clone::Clone for VDS_VOLUME_NOTIFICATION {
         *self
     }
 }
+impl ::core::fmt::Debug for VDS_VOLUME_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_VOLUME_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).field("plexId", &self.plexId).field("ulPercentCompleted", &self.ulPercentCompleted).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_VOLUME_NOTIFICATION {
     type Abi = Self;
 }
@@ -6346,6 +6798,11 @@ impl ::core::marker::Copy for VDS_WWN {}
 impl ::core::clone::Clone for VDS_WWN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VDS_WWN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VDS_WWN").field("rguchWwn", &self.rguchWwn).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_WWN {

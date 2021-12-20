@@ -19639,6 +19639,11 @@ impl ::core::clone::Clone for XHR_CERT {
         *self
     }
 }
+impl ::core::fmt::Debug for XHR_CERT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XHR_CERT").field("cbCert", &self.cbCert).field("pbCert", &self.pbCert).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XHR_CERT {
     type Abi = Self;
 }
@@ -19694,6 +19699,12 @@ impl ::core::marker::Copy for XHR_COOKIE {}
 impl ::core::clone::Clone for XHR_COOKIE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for XHR_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XHR_COOKIE").field("pwszUrl", &self.pwszUrl).field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).field("pwszP3PPolicy", &self.pwszP3PPolicy).field("ftExpires", &self.ftExpires).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19943,6 +19954,12 @@ impl ::core::clone::Clone for XML_ERROR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for XML_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XML_ERROR").field("_nLine", &self._nLine).field("_pchBuf", &self._pchBuf).field("_cchBuf", &self._cchBuf).field("_ich", &self._ich).field("_pszFound", &self._pszFound).field("_pszExpected", &self._pszExpected).field("_reserved1", &self._reserved1).field("_reserved2", &self._reserved2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for XML_ERROR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -19991,6 +20008,34 @@ impl ::core::marker::Copy for __msxml6_ReferenceRemainingTypes__ {}
 impl ::core::clone::Clone for __msxml6_ReferenceRemainingTypes__ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for __msxml6_ReferenceRemainingTypes__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("__msxml6_ReferenceRemainingTypes__")
+            .field("__tagDomNodeType__", &self.__tagDomNodeType__)
+            .field("__domNodeType__", &self.__domNodeType__)
+            .field("__serverXmlHttpOptionEnum__", &self.__serverXmlHttpOptionEnum__)
+            .field("__serverXmlHttpOption__", &self.__serverXmlHttpOption__)
+            .field("__serverCertOptionEnum__", &self.__serverCertOptionEnum__)
+            .field("__serverCertOption__", &self.__serverCertOption__)
+            .field("__proxySettingEnum__", &self.__proxySettingEnum__)
+            .field("__proxySetting__", &self.__proxySetting__)
+            .field("__somItemTypeEnum__", &self.__somItemTypeEnum__)
+            .field("__somItemType__", &self.__somItemType__)
+            .field("__schemaUseEnum__", &self.__schemaUseEnum__)
+            .field("__schemaUse__", &self.__schemaUse__)
+            .field("__schemaDerivationMethodEnum__", &self.__schemaDerivationMethodEnum__)
+            .field("__schemaDerivationMethod__", &self.__schemaDerivationMethod__)
+            .field("__schemaContentTypeEnum__", &self.__schemaContentTypeEnum__)
+            .field("__schemaContentType__", &self.__schemaContentType__)
+            .field("__schemaProcessContentsEnum__", &self.__schemaProcessContentsEnum__)
+            .field("__schemaProcessContents__", &self.__schemaProcessContents__)
+            .field("__schemaWhitespaceEnum__", &self.__schemaWhitespaceEnum__)
+            .field("__schemaWhitespace__", &self.__schemaWhitespace__)
+            .field("__schemaTypeVarietyEnum__", &self.__schemaTypeVarietyEnum__)
+            .field("__schemaTypeVariety__", &self.__schemaTypeVariety__)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for __msxml6_ReferenceRemainingTypes__ {

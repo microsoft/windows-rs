@@ -49,6 +49,11 @@ impl ::core::clone::Clone for GameControllerVersionInfo {
         *self
     }
 }
+impl ::core::fmt::Debug for GameControllerVersionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GameControllerVersionInfo").field("Major", &self.Major).field("Minor", &self.Minor).field("Build", &self.Build).field("Revision", &self.Revision).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GameControllerVersionInfo {
     type Abi = Self;
 }
@@ -79,6 +84,11 @@ impl ::core::marker::Copy for GipFirmwareUpdateProgress {}
 impl ::core::clone::Clone for GipFirmwareUpdateProgress {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GipFirmwareUpdateProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GipFirmwareUpdateProgress").field("PercentCompleted", &self.PercentCompleted).field("CurrentComponentId", &self.CurrentComponentId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GipFirmwareUpdateProgress {

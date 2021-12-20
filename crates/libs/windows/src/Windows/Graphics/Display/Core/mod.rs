@@ -51,6 +51,24 @@ impl ::core::clone::Clone for HdmiDisplayHdr2086Metadata {
         *self
     }
 }
+impl ::core::fmt::Debug for HdmiDisplayHdr2086Metadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HdmiDisplayHdr2086Metadata")
+            .field("RedPrimaryX", &self.RedPrimaryX)
+            .field("RedPrimaryY", &self.RedPrimaryY)
+            .field("GreenPrimaryX", &self.GreenPrimaryX)
+            .field("GreenPrimaryY", &self.GreenPrimaryY)
+            .field("BluePrimaryX", &self.BluePrimaryX)
+            .field("BluePrimaryY", &self.BluePrimaryY)
+            .field("WhitePointX", &self.WhitePointX)
+            .field("WhitePointY", &self.WhitePointY)
+            .field("MaxMasteringLuminance", &self.MaxMasteringLuminance)
+            .field("MinMasteringLuminance", &self.MinMasteringLuminance)
+            .field("MaxContentLightLevel", &self.MaxContentLightLevel)
+            .field("MaxFrameAverageLightLevel", &self.MaxFrameAverageLightLevel)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HdmiDisplayHdr2086Metadata {
     type Abi = Self;
 }
