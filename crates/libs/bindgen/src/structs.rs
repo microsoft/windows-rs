@@ -85,6 +85,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
 
     tokens.combine(&gen_struct_constants(def, &name, &cfg, gen));
     tokens.combine(&gen_copy_clone(def, &name, &cfg, gen));
+    tokens.combine(&gen_debug(def, &name, &cfg, gen));
     tokens.combine(&gen_windows_traits(def, &name, &cfg, gen));
     tokens.combine(&gen_compare_traits(def, &name, &cfg, gen));
 
@@ -193,6 +194,34 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
             }
             #cfg
             impl ::core::cmp::Eq for #name {}
+        }
+    }
+}
+
+fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
+    if gen.sys || def.is_union() {
+        quote! {}
+    } else {
+        let name = ident.as_str();
+        let cfg = cfg.gen(gen);
+
+        let fields = def.fields().map(|f| {
+            let name = f.name();
+            let ident = gen_ident(name);
+            if f.is_literal() {
+                quote! {}
+            } else {
+                quote! { .field(#name, &self.#ident) }
+            }
+        });
+
+        quote! {
+            #cfg
+            impl ::core::fmt::Debug for #ident {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_struct(#name) #(#fields)* .finish()
+                }
+            }
         }
     }
 }
