@@ -646,6 +646,11 @@ impl ::core::clone::Clone for KeyCredentialAttestationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for KeyCredentialAttestationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialAttestationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KeyCredentialAttestationStatus {
     type Abi = Self;
 }
@@ -672,6 +677,11 @@ impl ::core::marker::Copy for KeyCredentialCreationOption {}
 impl ::core::clone::Clone for KeyCredentialCreationOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KeyCredentialCreationOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialCreationOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KeyCredentialCreationOption {
@@ -926,6 +936,11 @@ impl ::core::marker::Copy for KeyCredentialStatus {}
 impl ::core::clone::Clone for KeyCredentialStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KeyCredentialStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KeyCredentialStatus {
@@ -1682,6 +1697,11 @@ impl ::core::clone::Clone for WebAccountPictureSize {
         *self
     }
 }
+impl ::core::fmt::Debug for WebAccountPictureSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountPictureSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WebAccountPictureSize {
     type Abi = Self;
 }
@@ -1848,6 +1868,11 @@ impl ::core::marker::Copy for WebAccountState {}
 impl ::core::clone::Clone for WebAccountState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WebAccountState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WebAccountState {

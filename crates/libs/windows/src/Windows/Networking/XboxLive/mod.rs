@@ -697,6 +697,11 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
         *self
     }
 }
+impl ::core::fmt::Debug for XboxLiveEndpointPairCreationBehaviors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairCreationBehaviors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationBehaviors {
     type Abi = Self;
 }
@@ -832,6 +837,11 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for XboxLiveEndpointPairCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationStatus {
     type Abi = Self;
 }
@@ -863,6 +873,11 @@ impl ::core::marker::Copy for XboxLiveEndpointPairState {}
 impl ::core::clone::Clone for XboxLiveEndpointPairState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XboxLiveEndpointPairState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairState {
@@ -1250,6 +1265,11 @@ impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
         *self
     }
 }
+impl ::core::fmt::Debug for XboxLiveNetworkAccessKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveNetworkAccessKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XboxLiveNetworkAccessKind {
     type Abi = Self;
 }
@@ -1555,6 +1575,11 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurementStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServiceMeasurementStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMeasurementStatus {
     type Abi = Self;
 }
@@ -1588,6 +1613,11 @@ impl ::core::marker::Copy for XboxLiveQualityOfServiceMetric {}
 impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetric {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServiceMetric").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMetric {
@@ -1810,6 +1840,11 @@ impl ::core::marker::Copy for XboxLiveSocketKind {}
 impl ::core::clone::Clone for XboxLiveSocketKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XboxLiveSocketKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveSocketKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XboxLiveSocketKind {

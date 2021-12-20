@@ -274,6 +274,11 @@ impl ::core::clone::Clone for PlatformTelemetryRegistrationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PlatformTelemetryRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformTelemetryRegistrationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformTelemetryRegistrationStatus {
     type Abi = Self;
 }

@@ -2490,6 +2490,11 @@ impl ::core::clone::Clone for LearningModelDeviceKind {
         *self
     }
 }
+impl ::core::fmt::Debug for LearningModelDeviceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LearningModelDeviceKind {
     type Abi = Self;
 }
@@ -2621,6 +2626,11 @@ impl ::core::clone::Clone for LearningModelFeatureKind {
         *self
     }
 }
+impl ::core::fmt::Debug for LearningModelFeatureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LearningModelFeatureKind {
     type Abi = Self;
 }
@@ -2648,6 +2658,11 @@ impl ::core::marker::Copy for LearningModelPixelRange {}
 impl ::core::clone::Clone for LearningModelPixelRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LearningModelPixelRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LearningModelPixelRange {
@@ -5546,6 +5561,11 @@ impl ::core::marker::Copy for TensorKind {}
 impl ::core::clone::Clone for TensorKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TensorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TensorKind {

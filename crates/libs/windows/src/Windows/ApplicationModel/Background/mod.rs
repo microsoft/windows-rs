@@ -150,6 +150,11 @@ impl ::core::clone::Clone for AlarmAccessStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AlarmAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlarmAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AlarmAccessStatus {
     type Abi = Self;
 }
@@ -662,6 +667,11 @@ impl ::core::clone::Clone for ApplicationTriggerResult {
         *self
     }
 }
+impl ::core::fmt::Debug for ApplicationTriggerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationTriggerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationTriggerResult {
     type Abi = Self;
 }
@@ -787,6 +797,11 @@ impl ::core::clone::Clone for BackgroundAccessRequestKind {
         *self
     }
 }
+impl ::core::fmt::Debug for BackgroundAccessRequestKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundAccessRequestKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundAccessRequestKind {
     type Abi = Self;
 }
@@ -819,6 +834,11 @@ impl ::core::marker::Copy for BackgroundAccessStatus {}
 impl ::core::clone::Clone for BackgroundAccessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BackgroundAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundAccessStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundAccessStatus {
@@ -1178,6 +1198,11 @@ impl ::core::marker::Copy for BackgroundTaskCancellationReason {}
 impl ::core::clone::Clone for BackgroundTaskCancellationReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BackgroundTaskCancellationReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskCancellationReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundTaskCancellationReason {
@@ -1948,6 +1973,11 @@ impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
         *self
     }
 }
+impl ::core::fmt::Debug for BackgroundTaskThrottleCounter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskThrottleCounter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTaskThrottleCounter {
     type Abi = Self;
 }
@@ -1994,6 +2024,11 @@ impl ::core::marker::Copy for BackgroundWorkCostValue {}
 impl ::core::clone::Clone for BackgroundWorkCostValue {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BackgroundWorkCostValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundWorkCostValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundWorkCostValue {
@@ -3267,6 +3302,11 @@ impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
         *self
     }
 }
+impl ::core::fmt::Debug for CustomSystemEventTriggerRecurrence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomSystemEventTriggerRecurrence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CustomSystemEventTriggerRecurrence {
     type Abi = Self;
 }
@@ -3682,6 +3722,11 @@ impl ::core::marker::Copy for DeviceTriggerResult {}
 impl ::core::clone::Clone for DeviceTriggerResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeviceTriggerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceTriggerResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeviceTriggerResult {
@@ -7466,6 +7511,11 @@ impl ::core::clone::Clone for LocationTriggerType {
         *self
     }
 }
+impl ::core::fmt::Debug for LocationTriggerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocationTriggerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LocationTriggerType {
     type Abi = Self;
 }
@@ -7723,6 +7773,11 @@ impl ::core::marker::Copy for MediaProcessingTriggerResult {}
 impl ::core::clone::Clone for MediaProcessingTriggerResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaProcessingTriggerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaProcessingTriggerResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaProcessingTriggerResult {
@@ -9982,6 +10037,11 @@ impl ::core::clone::Clone for SystemConditionType {
         *self
     }
 }
+impl ::core::fmt::Debug for SystemConditionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemConditionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SystemConditionType {
     type Abi = Self;
 }
@@ -10138,6 +10198,11 @@ impl ::core::marker::Copy for SystemTriggerType {}
 impl ::core::clone::Clone for SystemTriggerType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SystemTriggerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemTriggerType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SystemTriggerType {

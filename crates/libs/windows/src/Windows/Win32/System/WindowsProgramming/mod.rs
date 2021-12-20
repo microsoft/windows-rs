@@ -659,6 +659,11 @@ impl ::core::clone::Clone for CameraUIControlCaptureMode {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraUIControlCaptureMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlCaptureMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraUIControlCaptureMode {
     type Abi = Self;
 }
@@ -681,6 +686,11 @@ impl ::core::clone::Clone for CameraUIControlLinearSelectionMode {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlLinearSelectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraUIControlLinearSelectionMode {
     type Abi = Self;
 }
@@ -701,6 +711,11 @@ impl ::core::marker::Copy for CameraUIControlMode {}
 impl ::core::clone::Clone for CameraUIControlMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CameraUIControlMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CameraUIControlMode {
@@ -726,6 +741,11 @@ impl ::core::clone::Clone for CameraUIControlPhotoFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlPhotoFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraUIControlPhotoFormat {
     type Abi = Self;
 }
@@ -748,6 +768,11 @@ impl ::core::clone::Clone for CameraUIControlVideoFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraUIControlVideoFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlVideoFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraUIControlVideoFormat {
     type Abi = Self;
 }
@@ -768,6 +793,11 @@ impl ::core::marker::Copy for CameraUIControlViewType {}
 impl ::core::clone::Clone for CameraUIControlViewType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CameraUIControlViewType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlViewType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CameraUIControlViewType {

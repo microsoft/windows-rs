@@ -31,6 +31,11 @@ impl ::core::clone::Clone for ApplicationProfileModes {
         *self
     }
 }
+impl ::core::fmt::Debug for ApplicationProfileModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationProfileModes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationProfileModes {
     type Abi = Self;
 }

@@ -498,6 +498,11 @@ impl ::core::clone::Clone for WiFiDirectServiceAdvertisementStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectServiceAdvertisementStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceAdvertisementStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceAdvertisementStatus {
     type Abi = Self;
 }
@@ -889,6 +894,11 @@ impl ::core::clone::Clone for WiFiDirectServiceConfigurationMethod {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectServiceConfigurationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceConfigurationMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceConfigurationMethod {
     type Abi = Self;
 }
@@ -920,6 +930,11 @@ impl ::core::clone::Clone for WiFiDirectServiceError {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectServiceError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceError {
     type Abi = Self;
 }
@@ -946,6 +961,11 @@ impl ::core::marker::Copy for WiFiDirectServiceIPProtocol {}
 impl ::core::clone::Clone for WiFiDirectServiceIPProtocol {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiFiDirectServiceIPProtocol {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceIPProtocol").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectServiceIPProtocol {
@@ -1439,6 +1459,11 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionErrorStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectServiceSessionErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceSessionErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceSessionErrorStatus {
     type Abi = Self;
 }
@@ -1671,6 +1696,11 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectServiceSessionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceSessionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceSessionStatus {
     type Abi = Self;
 }
@@ -1698,6 +1728,11 @@ impl ::core::marker::Copy for WiFiDirectServiceStatus {}
 impl ::core::clone::Clone for WiFiDirectServiceStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiFiDirectServiceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectServiceStatus {

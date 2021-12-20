@@ -434,6 +434,11 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationStat
         *self
     }
 }
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationCreationStatus {
     type Abi = Self;
 }
@@ -462,6 +467,11 @@ impl ::core::marker::Copy for ActivationSignalDetectionConfigurationRemovalResul
 impl ::core::clone::Clone for ActivationSignalDetectionConfigurationRemovalResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationRemovalResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationRemovalResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationRemovalResult {
@@ -498,6 +508,11 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationSetModelData
         *self
     }
 }
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationSetModelDataResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationSetModelDataResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationSetModelDataResult {
     type Abi = Self;
 }
@@ -525,6 +540,11 @@ impl ::core::marker::Copy for ActivationSignalDetectionConfigurationStateChangeR
 impl ::core::clone::Clone for ActivationSignalDetectionConfigurationStateChangeResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationStateChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationStateChangeResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationStateChangeResult {
@@ -562,6 +582,11 @@ impl ::core::marker::Copy for ActivationSignalDetectionTrainingDataFormat {}
 impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ActivationSignalDetectionTrainingDataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionTrainingDataFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionTrainingDataFormat {
@@ -853,6 +878,11 @@ impl ::core::clone::Clone for ActivationSignalDetectorKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ActivationSignalDetectorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ActivationSignalDetectorKind {
     type Abi = Self;
 }
@@ -880,6 +910,11 @@ impl ::core::marker::Copy for ActivationSignalDetectorPowerState {}
 impl ::core::clone::Clone for ActivationSignalDetectorPowerState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ActivationSignalDetectorPowerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectorPowerState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ActivationSignalDetectorPowerState {
@@ -910,6 +945,11 @@ impl ::core::clone::Clone for ConversationalAgentActivationKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ConversationalAgentActivationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentActivationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ConversationalAgentActivationKind {
     type Abi = Self;
 }
@@ -938,6 +978,11 @@ impl ::core::marker::Copy for ConversationalAgentActivationResult {}
 impl ::core::clone::Clone for ConversationalAgentActivationResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ConversationalAgentActivationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentActivationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ConversationalAgentActivationResult {
@@ -1618,6 +1663,11 @@ impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
         *self
     }
 }
+impl ::core::fmt::Debug for ConversationalAgentSessionUpdateResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSessionUpdateResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ConversationalAgentSessionUpdateResponse {
     type Abi = Self;
 }
@@ -1883,6 +1933,11 @@ impl ::core::clone::Clone for ConversationalAgentState {
         *self
     }
 }
+impl ::core::fmt::Debug for ConversationalAgentState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ConversationalAgentState {
     type Abi = Self;
 }
@@ -1911,6 +1966,11 @@ impl ::core::marker::Copy for ConversationalAgentSystemStateChangeType {}
 impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ConversationalAgentSystemStateChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSystemStateChangeType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ConversationalAgentSystemStateChangeType {
@@ -2021,6 +2081,11 @@ impl ::core::clone::Clone for ConversationalAgentVoiceActivationPrerequisiteKind
         *self
     }
 }
+impl ::core::fmt::Debug for ConversationalAgentVoiceActivationPrerequisiteKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentVoiceActivationPrerequisiteKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ConversationalAgentVoiceActivationPrerequisiteKind {
     type Abi = Self;
 }
@@ -2048,6 +2113,11 @@ impl ::core::marker::Copy for DetectionConfigurationAvailabilityChangeKind {}
 impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DetectionConfigurationAvailabilityChangeKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DetectionConfigurationAvailabilityChangeKind {
@@ -2269,6 +2339,11 @@ impl ::core::marker::Copy for DetectionConfigurationTrainingStatus {}
 impl ::core::clone::Clone for DetectionConfigurationTrainingStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DetectionConfigurationTrainingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DetectionConfigurationTrainingStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DetectionConfigurationTrainingStatus {
@@ -2818,6 +2893,11 @@ impl ::core::marker::Copy for SignalDetectorResourceKind {}
 impl ::core::clone::Clone for SignalDetectorResourceKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SignalDetectorResourceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SignalDetectorResourceKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SignalDetectorResourceKind {

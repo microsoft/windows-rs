@@ -264,6 +264,11 @@ impl ::core::clone::Clone for CrossSlidingState {
         *self
     }
 }
+impl ::core::fmt::Debug for CrossSlidingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CrossSlidingState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CrossSlidingState {
     type Abi = Self;
 }
@@ -391,6 +396,11 @@ impl ::core::marker::Copy for DraggingState {}
 impl ::core::clone::Clone for DraggingState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DraggingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DraggingState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DraggingState {
@@ -619,6 +629,11 @@ impl ::core::clone::Clone for EdgeGestureKind {
         *self
     }
 }
+impl ::core::fmt::Debug for EdgeGestureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeGestureKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EdgeGestureKind {
     type Abi = Self;
 }
@@ -647,6 +662,11 @@ impl ::core::marker::Copy for GazeInputAccessStatus {}
 impl ::core::clone::Clone for GazeInputAccessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GazeInputAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeInputAccessStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GazeInputAccessStatus {
@@ -1267,6 +1287,11 @@ impl ::core::clone::Clone for GestureSettings {
         *self
     }
 }
+impl ::core::fmt::Debug for GestureSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GestureSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GestureSettings {
     type Abi = Self;
 }
@@ -1402,6 +1427,11 @@ impl ::core::marker::Copy for HoldingState {}
 impl ::core::clone::Clone for HoldingState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HoldingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HoldingState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HoldingState {
@@ -3301,6 +3331,11 @@ impl ::core::clone::Clone for InputActivationState {
         *self
     }
 }
+impl ::core::fmt::Debug for InputActivationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputActivationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InputActivationState {
     type Abi = Self;
 }
@@ -4582,6 +4617,11 @@ impl ::core::clone::Clone for PointerUpdateKind {
         *self
     }
 }
+impl ::core::fmt::Debug for PointerUpdateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerUpdateKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PointerUpdateKind {
     type Abi = Self;
 }
@@ -5834,6 +5874,11 @@ impl ::core::clone::Clone for RadialControllerMenuKnownIcon {
         *self
     }
 }
+impl ::core::fmt::Debug for RadialControllerMenuKnownIcon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerMenuKnownIcon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RadialControllerMenuKnownIcon {
     type Abi = Self;
 }
@@ -6321,6 +6366,11 @@ impl ::core::marker::Copy for RadialControllerSystemMenuItemKind {}
 impl ::core::clone::Clone for RadialControllerSystemMenuItemKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RadialControllerSystemMenuItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerSystemMenuItemKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RadialControllerSystemMenuItemKind {

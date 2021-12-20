@@ -356,6 +356,11 @@ impl ::core::clone::Clone for CoreDragUIContentMode {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreDragUIContentMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDragUIContentMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreDragUIContentMode {
     type Abi = Self;
 }

@@ -1187,6 +1187,11 @@ impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintWorkflowJobAbortReason {
     type Abi = Self;
 }
@@ -2018,6 +2023,11 @@ impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintWorkflowPdlConversionType {
     type Abi = Self;
 }
@@ -2683,6 +2693,11 @@ impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintWorkflowPrinterJobStatus {
     type Abi = Self;
 }
@@ -2712,6 +2727,11 @@ impl ::core::marker::Copy for PrintWorkflowSessionStatus {}
 impl ::core::clone::Clone for PrintWorkflowSessionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintWorkflowSessionStatus {
@@ -3173,6 +3193,11 @@ impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintWorkflowSubmittedStatus {
     type Abi = Self;
 }
@@ -3525,6 +3550,11 @@ impl ::core::marker::Copy for PrintWorkflowUICompletionStatus {}
 impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintWorkflowUICompletionStatus {

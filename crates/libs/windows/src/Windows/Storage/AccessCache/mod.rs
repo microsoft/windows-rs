@@ -15,6 +15,11 @@ impl ::core::clone::Clone for AccessCacheOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for AccessCacheOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessCacheOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AccessCacheOptions {
     type Abi = Self;
 }
@@ -663,6 +668,11 @@ impl ::core::marker::Copy for RecentStorageItemVisibility {}
 impl ::core::clone::Clone for RecentStorageItemVisibility {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RecentStorageItemVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RecentStorageItemVisibility").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RecentStorageItemVisibility {

@@ -329,6 +329,12 @@ impl ::core::clone::Clone for CortanaPermission {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaPermission {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermission").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for CortanaPermission {
     type Abi = Self;
 }
@@ -364,6 +370,12 @@ impl ::core::marker::Copy for CortanaPermissionsChangeResult {}
 impl ::core::clone::Clone for CortanaPermissionsChangeResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaPermissionsChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermissionsChangeResult").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]

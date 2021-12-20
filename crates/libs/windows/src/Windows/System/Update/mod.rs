@@ -112,6 +112,11 @@ impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
         *self
     }
 }
+impl ::core::fmt::Debug for SystemUpdateAttentionRequiredReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateAttentionRequiredReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SystemUpdateAttentionRequiredReason {
     type Abi = Self;
 }
@@ -277,6 +282,11 @@ impl ::core::marker::Copy for SystemUpdateItemState {}
 impl ::core::clone::Clone for SystemUpdateItemState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SystemUpdateItemState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateItemState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SystemUpdateItemState {
@@ -588,6 +598,11 @@ impl ::core::clone::Clone for SystemUpdateManagerState {
         *self
     }
 }
+impl ::core::fmt::Debug for SystemUpdateManagerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateManagerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SystemUpdateManagerState {
     type Abi = Self;
 }
@@ -614,6 +629,11 @@ impl ::core::marker::Copy for SystemUpdateStartInstallAction {}
 impl ::core::clone::Clone for SystemUpdateStartInstallAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateStartInstallAction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SystemUpdateStartInstallAction {

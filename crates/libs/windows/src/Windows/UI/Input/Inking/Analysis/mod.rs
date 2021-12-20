@@ -452,6 +452,11 @@ impl ::core::clone::Clone for InkAnalysisDrawingKind {
         *self
     }
 }
+impl ::core::fmt::Debug for InkAnalysisDrawingKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkAnalysisDrawingKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InkAnalysisDrawingKind {
     type Abi = Self;
 }
@@ -1462,6 +1467,11 @@ impl ::core::clone::Clone for InkAnalysisNodeKind {
         *self
     }
 }
+impl ::core::fmt::Debug for InkAnalysisNodeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkAnalysisNodeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InkAnalysisNodeKind {
     type Abi = Self;
 }
@@ -1891,6 +1901,11 @@ impl ::core::clone::Clone for InkAnalysisStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for InkAnalysisStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkAnalysisStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InkAnalysisStatus {
     type Abi = Self;
 }
@@ -1918,6 +1933,11 @@ impl ::core::marker::Copy for InkAnalysisStrokeKind {}
 impl ::core::clone::Clone for InkAnalysisStrokeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InkAnalysisStrokeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkAnalysisStrokeKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InkAnalysisStrokeKind {

@@ -194,6 +194,11 @@ impl ::core::clone::Clone for WebErrorStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WebErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WebErrorStatus {
     type Abi = Self;
 }

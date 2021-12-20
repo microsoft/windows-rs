@@ -239,6 +239,11 @@ impl ::core::clone::Clone for EmailAttachmentDownloadState {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailAttachmentDownloadState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailAttachmentDownloadState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailAttachmentDownloadState {
     type Abi = Self;
 }
@@ -266,6 +271,11 @@ impl ::core::marker::Copy for EmailBatchStatus {}
 impl ::core::clone::Clone for EmailBatchStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailBatchStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailBatchStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailBatchStatus {
@@ -303,6 +313,11 @@ impl ::core::marker::Copy for EmailCertificateValidationStatus {}
 impl ::core::clone::Clone for EmailCertificateValidationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailCertificateValidationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailCertificateValidationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailCertificateValidationStatus {
@@ -688,6 +703,11 @@ impl ::core::clone::Clone for EmailFlagState {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailFlagState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailFlagState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailFlagState {
     type Abi = Self;
 }
@@ -982,6 +1002,11 @@ impl ::core::marker::Copy for EmailImportance {}
 impl ::core::clone::Clone for EmailImportance {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailImportance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailImportance").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailImportance {
@@ -2145,6 +2170,11 @@ impl ::core::clone::Clone for EmailMailboxActionKind {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailMailboxActionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxActionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxActionKind {
     type Abi = Self;
 }
@@ -2172,6 +2202,11 @@ impl ::core::marker::Copy for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotia
 impl ::core::clone::Clone for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
@@ -2294,6 +2329,11 @@ impl ::core::marker::Copy for EmailMailboxAutoReplyMessageResponseKind {}
 impl ::core::clone::Clone for EmailMailboxAutoReplyMessageResponseKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMailboxAutoReplyMessageResponseKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxAutoReplyMessageResponseKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxAutoReplyMessageResponseKind {
@@ -3016,6 +3056,11 @@ impl ::core::clone::Clone for EmailMailboxChangeType {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailMailboxChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxChangeType {
     type Abi = Self;
 }
@@ -3282,6 +3327,11 @@ impl ::core::clone::Clone for EmailMailboxCreateFolderStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailMailboxCreateFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxCreateFolderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxCreateFolderStatus {
     type Abi = Self;
 }
@@ -3312,6 +3362,11 @@ impl ::core::marker::Copy for EmailMailboxDeleteFolderStatus {}
 impl ::core::clone::Clone for EmailMailboxDeleteFolderStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMailboxDeleteFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxDeleteFolderStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxDeleteFolderStatus {
@@ -3346,6 +3401,11 @@ impl ::core::clone::Clone for EmailMailboxEmptyFolderStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailMailboxEmptyFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxEmptyFolderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxEmptyFolderStatus {
     type Abi = Self;
 }
@@ -3375,6 +3435,11 @@ impl ::core::clone::Clone for EmailMailboxOtherAppReadAccess {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailMailboxOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxOtherAppReadAccess {
     type Abi = Self;
 }
@@ -3401,6 +3466,11 @@ impl ::core::marker::Copy for EmailMailboxOtherAppWriteAccess {}
 impl ::core::clone::Clone for EmailMailboxOtherAppWriteAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMailboxOtherAppWriteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxOtherAppWriteAccess").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxOtherAppWriteAccess {
@@ -3585,6 +3655,11 @@ impl ::core::clone::Clone for EmailMailboxSmimeEncryptionAlgorithm {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailMailboxSmimeEncryptionAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSmimeEncryptionAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxSmimeEncryptionAlgorithm {
     type Abi = Self;
 }
@@ -3612,6 +3687,11 @@ impl ::core::marker::Copy for EmailMailboxSmimeSigningAlgorithm {}
 impl ::core::clone::Clone for EmailMailboxSmimeSigningAlgorithm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMailboxSmimeSigningAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSmimeSigningAlgorithm").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxSmimeSigningAlgorithm {
@@ -3780,6 +3860,11 @@ impl ::core::marker::Copy for EmailMailboxSyncStatus {}
 impl ::core::clone::Clone for EmailMailboxSyncStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMailboxSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSyncStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxSyncStatus {
@@ -4216,6 +4301,11 @@ impl ::core::marker::Copy for EmailMeetingResponseType {}
 impl ::core::clone::Clone for EmailMeetingResponseType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMeetingResponseType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMeetingResponseType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMeetingResponseType {
@@ -4831,6 +4921,11 @@ impl ::core::clone::Clone for EmailMessageBodyKind {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailMessageBodyKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMessageBodyKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMessageBodyKind {
     type Abi = Self;
 }
@@ -4859,6 +4954,11 @@ impl ::core::marker::Copy for EmailMessageDownloadState {}
 impl ::core::clone::Clone for EmailMessageDownloadState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMessageDownloadState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMessageDownloadState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMessageDownloadState {
@@ -4968,6 +5068,11 @@ impl ::core::clone::Clone for EmailMessageResponseKind {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailMessageResponseKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMessageResponseKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMessageResponseKind {
     type Abi = Self;
 }
@@ -4996,6 +5101,11 @@ impl ::core::marker::Copy for EmailMessageSmimeKind {}
 impl ::core::clone::Clone for EmailMessageSmimeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailMessageSmimeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMessageSmimeKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailMessageSmimeKind {
@@ -5028,6 +5138,11 @@ impl ::core::marker::Copy for EmailQueryKind {}
 impl ::core::clone::Clone for EmailQueryKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailQueryKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQueryKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailQueryKind {
@@ -5212,6 +5327,11 @@ impl ::core::clone::Clone for EmailQuerySearchFields {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailQuerySearchFields {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQuerySearchFields").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailQuerySearchFields {
     type Abi = Self;
 }
@@ -5238,6 +5358,11 @@ impl ::core::marker::Copy for EmailQuerySearchScope {}
 impl ::core::clone::Clone for EmailQuerySearchScope {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailQuerySearchScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQuerySearchScope").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailQuerySearchScope {
@@ -5268,6 +5393,11 @@ impl ::core::clone::Clone for EmailQuerySortDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailQuerySortDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQuerySortDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailQuerySortDirection {
     type Abi = Self;
 }
@@ -5293,6 +5423,11 @@ impl ::core::marker::Copy for EmailQuerySortProperty {}
 impl ::core::clone::Clone for EmailQuerySortProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailQuerySortProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQuerySortProperty").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailQuerySortProperty {
@@ -5659,6 +5794,11 @@ impl ::core::clone::Clone for EmailRecipientResolutionStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for EmailRecipientResolutionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailRecipientResolutionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EmailRecipientResolutionStatus {
     type Abi = Self;
 }
@@ -5690,6 +5830,11 @@ impl ::core::marker::Copy for EmailSpecialFolderKind {}
 impl ::core::clone::Clone for EmailSpecialFolderKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailSpecialFolderKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailSpecialFolderKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailSpecialFolderKind {
@@ -5881,6 +6026,11 @@ impl ::core::marker::Copy for EmailStoreAccessType {}
 impl ::core::clone::Clone for EmailStoreAccessType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EmailStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailStoreAccessType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EmailStoreAccessType {

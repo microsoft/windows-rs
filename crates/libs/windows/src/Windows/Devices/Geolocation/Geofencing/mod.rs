@@ -322,6 +322,11 @@ impl ::core::clone::Clone for GeofenceMonitorStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for GeofenceMonitorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceMonitorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GeofenceMonitorStatus {
     type Abi = Self;
 }
@@ -348,6 +353,11 @@ impl ::core::marker::Copy for GeofenceRemovalReason {}
 impl ::core::clone::Clone for GeofenceRemovalReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GeofenceRemovalReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceRemovalReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GeofenceRemovalReason {
@@ -378,6 +388,11 @@ impl ::core::marker::Copy for GeofenceState {}
 impl ::core::clone::Clone for GeofenceState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GeofenceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GeofenceState {
@@ -628,6 +643,11 @@ impl ::core::marker::Copy for MonitoredGeofenceStates {}
 impl ::core::clone::Clone for MonitoredGeofenceStates {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MonitoredGeofenceStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MonitoredGeofenceStates").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MonitoredGeofenceStates {

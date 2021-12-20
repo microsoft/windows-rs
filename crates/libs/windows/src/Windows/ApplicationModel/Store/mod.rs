@@ -342,6 +342,11 @@ impl ::core::clone::Clone for FulfillmentResult {
         *self
     }
 }
+impl ::core::fmt::Debug for FulfillmentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FulfillmentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FulfillmentResult {
     type Abi = Self;
 }
@@ -1601,6 +1606,11 @@ impl ::core::clone::Clone for ProductPurchaseStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for ProductPurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductPurchaseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProductPurchaseStatus {
     type Abi = Self;
 }
@@ -1628,6 +1638,11 @@ impl ::core::marker::Copy for ProductType {}
 impl ::core::clone::Clone for ProductType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ProductType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ProductType {

@@ -82,6 +82,11 @@ impl ::core::clone::Clone for ServiceDeviceType {
         *self
     }
 }
+impl ::core::fmt::Debug for ServiceDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServiceDeviceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ServiceDeviceType {
     type Abi = Self;
 }

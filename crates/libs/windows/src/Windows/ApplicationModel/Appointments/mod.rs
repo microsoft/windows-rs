@@ -440,6 +440,11 @@ impl ::core::clone::Clone for AppointmentBusyStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentBusyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentBusyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentBusyStatus {
     type Abi = Self;
 }
@@ -934,6 +939,11 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppReadAccess {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentCalendarOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentCalendarOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentCalendarOtherAppReadAccess {
     type Abi = Self;
 }
@@ -961,6 +971,11 @@ impl ::core::marker::Copy for AppointmentCalendarOtherAppWriteAccess {}
 impl ::core::clone::Clone for AppointmentCalendarOtherAppWriteAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppointmentCalendarOtherAppWriteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentCalendarOtherAppWriteAccess").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentCalendarOtherAppWriteAccess {
@@ -1131,6 +1146,11 @@ impl ::core::clone::Clone for AppointmentCalendarSyncStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentCalendarSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentCalendarSyncStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentCalendarSyncStatus {
     type Abi = Self;
 }
@@ -1245,6 +1265,11 @@ impl ::core::clone::Clone for AppointmentConflictType {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentConflictType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentConflictType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentConflictType {
     type Abi = Self;
 }
@@ -1279,6 +1304,11 @@ impl ::core::clone::Clone for AppointmentDaysOfWeek {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentDaysOfWeek {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentDaysOfWeek").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentDaysOfWeek {
     type Abi = Self;
 }
@@ -1305,6 +1335,11 @@ impl ::core::marker::Copy for AppointmentDetailsKind {}
 impl ::core::clone::Clone for AppointmentDetailsKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppointmentDetailsKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentDetailsKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentDetailsKind {
@@ -2031,6 +2066,11 @@ impl ::core::clone::Clone for AppointmentParticipantResponse {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentParticipantResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentParticipantResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentParticipantResponse {
     type Abi = Self;
 }
@@ -2058,6 +2098,11 @@ impl ::core::marker::Copy for AppointmentParticipantRole {}
 impl ::core::clone::Clone for AppointmentParticipantRole {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppointmentParticipantRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentParticipantRole").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentParticipantRole {
@@ -2504,6 +2549,11 @@ impl ::core::clone::Clone for AppointmentRecurrenceUnit {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentRecurrenceUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentRecurrenceUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentRecurrenceUnit {
     type Abi = Self;
 }
@@ -2530,6 +2580,11 @@ impl ::core::marker::Copy for AppointmentSensitivity {}
 impl ::core::clone::Clone for AppointmentSensitivity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppointmentSensitivity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentSensitivity").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentSensitivity {
@@ -2849,6 +2904,11 @@ impl ::core::clone::Clone for AppointmentStoreAccessType {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentStoreAccessType {
     type Abi = Self;
 }
@@ -3155,6 +3215,11 @@ impl ::core::clone::Clone for AppointmentStoreChangeType {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentStoreChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentStoreChangeType {
     type Abi = Self;
 }
@@ -3399,6 +3464,11 @@ impl ::core::clone::Clone for AppointmentSummaryCardView {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentSummaryCardView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentSummaryCardView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentSummaryCardView {
     type Abi = Self;
 }
@@ -3430,6 +3500,11 @@ impl ::core::clone::Clone for AppointmentWeekOfMonth {
         *self
     }
 }
+impl ::core::fmt::Debug for AppointmentWeekOfMonth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentWeekOfMonth").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentWeekOfMonth {
     type Abi = Self;
 }
@@ -3456,6 +3531,11 @@ impl ::core::marker::Copy for FindAppointmentCalendarsOptions {}
 impl ::core::clone::Clone for FindAppointmentCalendarsOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FindAppointmentCalendarsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindAppointmentCalendarsOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FindAppointmentCalendarsOptions {
@@ -4590,6 +4670,11 @@ impl ::core::marker::Copy for RecurrenceType {}
 impl ::core::clone::Clone for RecurrenceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RecurrenceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RecurrenceType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RecurrenceType {

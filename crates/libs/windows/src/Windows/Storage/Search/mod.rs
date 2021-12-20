@@ -16,6 +16,11 @@ impl ::core::clone::Clone for CommonFileQuery {
         *self
     }
 }
+impl ::core::fmt::Debug for CommonFileQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommonFileQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CommonFileQuery {
     type Abi = Self;
 }
@@ -53,6 +58,11 @@ impl ::core::marker::Copy for CommonFolderQuery {}
 impl ::core::clone::Clone for CommonFolderQuery {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CommonFolderQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommonFolderQuery").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CommonFolderQuery {
@@ -381,6 +391,11 @@ impl ::core::clone::Clone for DateStackOption {
         *self
     }
 }
+impl ::core::fmt::Debug for DateStackOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DateStackOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DateStackOption {
     type Abi = Self;
 }
@@ -407,6 +422,11 @@ impl ::core::marker::Copy for FolderDepth {}
 impl ::core::clone::Clone for FolderDepth {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FolderDepth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderDepth").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FolderDepth {
@@ -1434,6 +1454,11 @@ impl ::core::clone::Clone for IndexedState {
         *self
     }
 }
+impl ::core::fmt::Debug for IndexedState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexedState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IndexedState {
     type Abi = Self;
 }
@@ -1462,6 +1487,11 @@ impl ::core::marker::Copy for IndexerOption {}
 impl ::core::clone::Clone for IndexerOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IndexerOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexerOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IndexerOption {

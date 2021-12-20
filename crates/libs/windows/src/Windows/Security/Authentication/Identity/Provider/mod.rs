@@ -519,6 +519,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationMessage
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationMessage").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationMessage {
     type Abi = Self;
 }
@@ -660,6 +666,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationScenari
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationScenario").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationScenario {
     type Abi = Self;
 }
@@ -701,6 +713,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationStage {
 impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStage").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -952,6 +970,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStatus 
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationStatus {
     type Abi = Self;
 }
@@ -995,6 +1019,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceCapabilities {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDeviceCapabilities").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDeviceCapabilities {
     type Abi = Self;
 }
@@ -1032,6 +1062,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceFindScope {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceFindScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDeviceFindScope").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDeviceFindScope {
     type Abi = Self;
 }
@@ -1066,6 +1102,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorDevicePresence {}
 impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDevicePresence").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1107,6 +1149,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitor
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDevicePresenceMonitoringMode").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     type Abi = Self;
 }
@@ -1145,6 +1193,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitor
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     type Abi = Self;
 }
@@ -1180,6 +1234,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorFinishAuthenticationS
 impl ::core::clone::Clone for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorFinishAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorFinishAuthenticationStatus").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1653,6 +1713,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorRegistrationStatus {}
 impl ::core::clone::Clone for SecondaryAuthenticationFactorRegistrationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorRegistrationStatus").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]

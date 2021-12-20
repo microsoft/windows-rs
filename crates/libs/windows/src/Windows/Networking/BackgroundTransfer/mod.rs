@@ -393,6 +393,11 @@ impl ::core::clone::Clone for BackgroundTransferBehavior {
         *self
     }
 }
+impl ::core::fmt::Debug for BackgroundTransferBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTransferBehavior {
     type Abi = Self;
 }
@@ -715,6 +720,11 @@ impl ::core::clone::Clone for BackgroundTransferCostPolicy {
         *self
     }
 }
+impl ::core::fmt::Debug for BackgroundTransferCostPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferCostPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTransferCostPolicy {
     type Abi = Self;
 }
@@ -902,6 +912,11 @@ impl ::core::clone::Clone for BackgroundTransferPriority {
         *self
     }
 }
+impl ::core::fmt::Debug for BackgroundTransferPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTransferPriority {
     type Abi = Self;
 }
@@ -1030,6 +1045,11 @@ impl ::core::marker::Copy for BackgroundTransferStatus {}
 impl ::core::clone::Clone for BackgroundTransferStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BackgroundTransferStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundTransferStatus {

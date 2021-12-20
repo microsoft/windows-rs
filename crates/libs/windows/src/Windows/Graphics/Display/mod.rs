@@ -175,6 +175,11 @@ impl ::core::clone::Clone for AdvancedColorKind {
         *self
     }
 }
+impl ::core::fmt::Debug for AdvancedColorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedColorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AdvancedColorKind {
     type Abi = Self;
 }
@@ -593,6 +598,11 @@ impl ::core::clone::Clone for DisplayBrightnessOverrideOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayBrightnessOverrideOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessOverrideOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideOptions {
     type Abi = Self;
 }
@@ -620,6 +630,11 @@ impl ::core::marker::Copy for DisplayBrightnessOverrideScenario {}
 impl ::core::clone::Clone for DisplayBrightnessOverrideScenario {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayBrightnessOverrideScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessOverrideScenario").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideScenario {
@@ -652,6 +667,11 @@ impl ::core::clone::Clone for DisplayBrightnessScenario {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayBrightnessScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessScenario").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayBrightnessScenario {
     type Abi = Self;
 }
@@ -677,6 +697,11 @@ impl ::core::marker::Copy for DisplayColorOverrideScenario {}
 impl ::core::clone::Clone for DisplayColorOverrideScenario {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayColorOverrideScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayColorOverrideScenario").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayColorOverrideScenario {
@@ -1349,6 +1374,11 @@ impl ::core::clone::Clone for DisplayOrientations {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayOrientations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayOrientations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayOrientations {
     type Abi = Self;
 }
@@ -1684,6 +1714,11 @@ impl ::core::marker::Copy for HdrMetadataFormat {}
 impl ::core::clone::Clone for HdrMetadataFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HdrMetadataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdrMetadataFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HdrMetadataFormat {
@@ -2260,6 +2295,11 @@ impl ::core::marker::Copy for ResolutionScale {}
 impl ::core::clone::Clone for ResolutionScale {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ResolutionScale {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResolutionScale").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ResolutionScale {

@@ -1630,6 +1630,11 @@ impl ::core::clone::Clone for UserActivityState {
         *self
     }
 }
+impl ::core::fmt::Debug for UserActivityState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserActivityState {
     type Abi = Self;
 }

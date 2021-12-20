@@ -223,6 +223,11 @@ impl ::core::clone::Clone for AudioBufferAccessMode {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioBufferAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioBufferAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioBufferAccessMode {
     type Abi = Self;
 }
@@ -474,6 +479,11 @@ impl ::core::marker::Copy for AudioProcessing {}
 impl ::core::clone::Clone for AudioProcessing {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AudioProcessing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioProcessing").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AudioProcessing {
@@ -2382,6 +2392,11 @@ impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaPlaybackAutoRepeatMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackAutoRepeatMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlaybackAutoRepeatMode {
     type Abi = Self;
 }
@@ -2413,6 +2428,11 @@ impl ::core::clone::Clone for MediaPlaybackStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaPlaybackStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlaybackStatus {
     type Abi = Self;
 }
@@ -2441,6 +2461,11 @@ impl ::core::marker::Copy for MediaPlaybackType {}
 impl ::core::clone::Clone for MediaPlaybackType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaPlaybackType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlaybackType {
@@ -2887,6 +2912,11 @@ impl ::core::clone::Clone for MediaTimelineControllerState {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaTimelineControllerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTimelineControllerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaTimelineControllerState {
     type Abi = Self;
 }
@@ -3298,6 +3328,11 @@ impl ::core::marker::Copy for SoundLevel {}
 impl ::core::clone::Clone for SoundLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SoundLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SoundLevel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SoundLevel {
@@ -3722,6 +3757,11 @@ impl ::core::clone::Clone for SystemMediaTransportControlsButton {
         *self
     }
 }
+impl ::core::fmt::Debug for SystemMediaTransportControlsButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemMediaTransportControlsButton").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SystemMediaTransportControlsButton {
     type Abi = Self;
 }
@@ -3975,6 +4015,11 @@ impl ::core::marker::Copy for SystemMediaTransportControlsProperty {}
 impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SystemMediaTransportControlsProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemMediaTransportControlsProperty").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SystemMediaTransportControlsProperty {

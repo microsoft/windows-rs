@@ -751,6 +751,11 @@ impl ::core::clone::Clone for CoreInputViewKind {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreInputViewKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreInputViewKind {
     type Abi = Self;
 }
@@ -863,6 +868,11 @@ impl ::core::marker::Copy for CoreInputViewOcclusionKind {}
 impl ::core::clone::Clone for CoreInputViewOcclusionKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreInputViewOcclusionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewOcclusionKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreInputViewOcclusionKind {
@@ -1170,6 +1180,11 @@ impl ::core::marker::Copy for CoreInputViewXYFocusTransferDirection {}
 impl ::core::clone::Clone for CoreInputViewXYFocusTransferDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreInputViewXYFocusTransferDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewXYFocusTransferDirection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreInputViewXYFocusTransferDirection {

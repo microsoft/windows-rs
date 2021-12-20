@@ -726,6 +726,11 @@ impl ::core::clone::Clone for BarcodeScannerStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for BarcodeScannerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BarcodeScannerStatus {
     type Abi = Self;
 }
@@ -1678,6 +1683,11 @@ impl ::core::clone::Clone for BarcodeSymbologyDecodeLengthKind {
         *self
     }
 }
+impl ::core::fmt::Debug for BarcodeSymbologyDecodeLengthKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeSymbologyDecodeLengthKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BarcodeSymbologyDecodeLengthKind {
     type Abi = Self;
 }
@@ -2573,6 +2583,11 @@ impl ::core::marker::Copy for CashDrawerStatusKind {}
 impl ::core::clone::Clone for CashDrawerStatusKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CashDrawerStatusKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerStatusKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CashDrawerStatusKind {
@@ -10255,6 +10270,11 @@ impl ::core::clone::Clone for LineDisplayCursorType {
         *self
     }
 }
+impl ::core::fmt::Debug for LineDisplayCursorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayCursorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayCursorType {
     type Abi = Self;
 }
@@ -10379,6 +10399,11 @@ impl ::core::clone::Clone for LineDisplayDescriptorState {
         *self
     }
 }
+impl ::core::fmt::Debug for LineDisplayDescriptorState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayDescriptorState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayDescriptorState {
     type Abi = Self;
 }
@@ -10406,6 +10431,11 @@ impl ::core::marker::Copy for LineDisplayHorizontalAlignment {}
 impl ::core::clone::Clone for LineDisplayHorizontalAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LineDisplayHorizontalAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayHorizontalAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LineDisplayHorizontalAlignment {
@@ -10566,6 +10596,11 @@ impl ::core::clone::Clone for LineDisplayMarqueeFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for LineDisplayMarqueeFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayMarqueeFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayMarqueeFormat {
     type Abi = Self;
 }
@@ -10597,6 +10632,11 @@ impl ::core::clone::Clone for LineDisplayPowerStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for LineDisplayPowerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayPowerStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayPowerStatus {
     type Abi = Self;
 }
@@ -10625,6 +10665,11 @@ impl ::core::marker::Copy for LineDisplayScrollDirection {}
 impl ::core::clone::Clone for LineDisplayScrollDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LineDisplayScrollDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayScrollDirection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LineDisplayScrollDirection {
@@ -10910,6 +10955,11 @@ impl ::core::clone::Clone for LineDisplayTextAttribute {
         *self
     }
 }
+impl ::core::fmt::Debug for LineDisplayTextAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayTextAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayTextAttribute {
     type Abi = Self;
 }
@@ -10939,6 +10989,11 @@ impl ::core::clone::Clone for LineDisplayTextAttributeGranularity {
         *self
     }
 }
+impl ::core::fmt::Debug for LineDisplayTextAttributeGranularity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayTextAttributeGranularity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayTextAttributeGranularity {
     type Abi = Self;
 }
@@ -10966,6 +11021,11 @@ impl ::core::marker::Copy for LineDisplayVerticalAlignment {}
 impl ::core::clone::Clone for LineDisplayVerticalAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LineDisplayVerticalAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayVerticalAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LineDisplayVerticalAlignment {
@@ -11696,6 +11756,11 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderAuthenticationLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationLevel {
     type Abi = Self;
 }
@@ -11722,6 +11787,11 @@ impl ::core::marker::Copy for MagneticStripeReaderAuthenticationProtocol {}
 impl ::core::clone::Clone for MagneticStripeReaderAuthenticationProtocol {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationProtocol {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderAuthenticationProtocol").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationProtocol {
@@ -12237,6 +12307,11 @@ impl ::core::clone::Clone for MagneticStripeReaderErrorReportingType {
         *self
     }
 }
+impl ::core::fmt::Debug for MagneticStripeReaderErrorReportingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderErrorReportingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderErrorReportingType {
     type Abi = Self;
 }
@@ -12407,6 +12482,11 @@ impl ::core::marker::Copy for MagneticStripeReaderStatus {}
 impl ::core::clone::Clone for MagneticStripeReaderStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MagneticStripeReaderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MagneticStripeReaderStatus {
@@ -12620,6 +12700,11 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackErrorType {
         *self
     }
 }
+impl ::core::fmt::Debug for MagneticStripeReaderTrackErrorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderTrackErrorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackErrorType {
     type Abi = Self;
 }
@@ -12649,6 +12734,11 @@ impl ::core::marker::Copy for MagneticStripeReaderTrackIds {}
 impl ::core::clone::Clone for MagneticStripeReaderTrackIds {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MagneticStripeReaderTrackIds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderTrackIds").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackIds {
@@ -12755,6 +12845,11 @@ impl ::core::marker::Copy for PosConnectionTypes {}
 impl ::core::clone::Clone for PosConnectionTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PosConnectionTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosConnectionTypes").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PosConnectionTypes {
@@ -13027,6 +13122,11 @@ impl ::core::clone::Clone for PosPrinterAlignment {
         *self
     }
 }
+impl ::core::fmt::Debug for PosPrinterAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterAlignment {
     type Abi = Self;
 }
@@ -13054,6 +13154,11 @@ impl ::core::marker::Copy for PosPrinterBarcodeTextPosition {}
 impl ::core::clone::Clone for PosPrinterBarcodeTextPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PosPrinterBarcodeTextPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterBarcodeTextPosition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterBarcodeTextPosition {
@@ -13235,6 +13340,11 @@ impl ::core::clone::Clone for PosPrinterCartridgeSensors {
         *self
     }
 }
+impl ::core::fmt::Debug for PosPrinterCartridgeSensors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterCartridgeSensors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterCartridgeSensors {
     type Abi = Self;
 }
@@ -13306,6 +13416,11 @@ impl ::core::clone::Clone for PosPrinterColorCapabilities {
         *self
     }
 }
+impl ::core::fmt::Debug for PosPrinterColorCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterColorCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterColorCapabilities {
     type Abi = Self;
 }
@@ -13341,6 +13456,11 @@ impl ::core::marker::Copy for PosPrinterColorCartridge {}
 impl ::core::clone::Clone for PosPrinterColorCartridge {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PosPrinterColorCartridge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterColorCartridge").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterColorCartridge {
@@ -13464,6 +13584,11 @@ impl ::core::clone::Clone for PosPrinterLineDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for PosPrinterLineDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterLineDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterLineDirection {
     type Abi = Self;
 }
@@ -13494,6 +13619,11 @@ impl ::core::clone::Clone for PosPrinterLineStyle {
         *self
     }
 }
+impl ::core::fmt::Debug for PosPrinterLineStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterLineStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterLineStyle {
     type Abi = Self;
 }
@@ -13522,6 +13652,11 @@ impl ::core::marker::Copy for PosPrinterMapMode {}
 impl ::core::clone::Clone for PosPrinterMapMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PosPrinterMapMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterMapMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterMapMode {
@@ -13555,6 +13690,11 @@ impl ::core::clone::Clone for PosPrinterMarkFeedCapabilities {
         *self
     }
 }
+impl ::core::fmt::Debug for PosPrinterMarkFeedCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterMarkFeedCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedCapabilities {
     type Abi = Self;
 }
@@ -13583,6 +13723,11 @@ impl ::core::marker::Copy for PosPrinterMarkFeedKind {}
 impl ::core::clone::Clone for PosPrinterMarkFeedKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PosPrinterMarkFeedKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterMarkFeedKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedKind {
@@ -13858,6 +14003,11 @@ impl ::core::clone::Clone for PosPrinterPrintSide {
         *self
     }
 }
+impl ::core::fmt::Debug for PosPrinterPrintSide {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterPrintSide").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterPrintSide {
     type Abi = Self;
 }
@@ -13955,6 +14105,11 @@ impl ::core::clone::Clone for PosPrinterRotation {
         *self
     }
 }
+impl ::core::fmt::Debug for PosPrinterRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterRotation {
     type Abi = Self;
 }
@@ -13982,6 +14137,11 @@ impl ::core::marker::Copy for PosPrinterRuledLineCapabilities {}
 impl ::core::clone::Clone for PosPrinterRuledLineCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PosPrinterRuledLineCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterRuledLineCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterRuledLineCapabilities {
@@ -14097,6 +14257,11 @@ impl ::core::marker::Copy for PosPrinterStatusKind {}
 impl ::core::clone::Clone for PosPrinterStatusKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PosPrinterStatusKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterStatusKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterStatusKind {
@@ -15569,6 +15734,11 @@ impl ::core::clone::Clone for UnifiedPosErrorReason {
         *self
     }
 }
+impl ::core::fmt::Debug for UnifiedPosErrorReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosErrorReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UnifiedPosErrorReason {
     type Abi = Self;
 }
@@ -15601,6 +15771,11 @@ impl ::core::clone::Clone for UnifiedPosErrorSeverity {
         *self
     }
 }
+impl ::core::fmt::Debug for UnifiedPosErrorSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosErrorSeverity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UnifiedPosErrorSeverity {
     type Abi = Self;
 }
@@ -15631,6 +15806,11 @@ impl ::core::clone::Clone for UnifiedPosHealthCheckLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for UnifiedPosHealthCheckLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosHealthCheckLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UnifiedPosHealthCheckLevel {
     type Abi = Self;
 }
@@ -15658,6 +15838,11 @@ impl ::core::marker::Copy for UnifiedPosPowerReportingType {}
 impl ::core::clone::Clone for UnifiedPosPowerReportingType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UnifiedPosPowerReportingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosPowerReportingType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UnifiedPosPowerReportingType {

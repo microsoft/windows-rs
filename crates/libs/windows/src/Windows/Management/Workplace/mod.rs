@@ -122,6 +122,11 @@ impl ::core::clone::Clone for MessagingSyncPolicy {
         *self
     }
 }
+impl ::core::fmt::Debug for MessagingSyncPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessagingSyncPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MessagingSyncPolicy {
     type Abi = Self;
 }

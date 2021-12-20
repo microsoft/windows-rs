@@ -746,6 +746,11 @@ impl ::core::clone::Clone for JsonErrorStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for JsonErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsonErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JsonErrorStatus {
     type Abi = Self;
 }
@@ -1451,6 +1456,11 @@ impl ::core::marker::Copy for JsonValueType {}
 impl ::core::clone::Clone for JsonValueType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JsonValueType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsonValueType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JsonValueType {

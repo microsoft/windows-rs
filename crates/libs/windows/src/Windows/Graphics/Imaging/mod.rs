@@ -13,6 +13,11 @@ impl ::core::clone::Clone for BitmapAlphaMode {
         *self
     }
 }
+impl ::core::fmt::Debug for BitmapAlphaMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapAlphaMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapAlphaMode {
     type Abi = Self;
 }
@@ -230,6 +235,11 @@ impl ::core::marker::Copy for BitmapBufferAccessMode {}
 impl ::core::clone::Clone for BitmapBufferAccessMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BitmapBufferAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapBufferAccessMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BitmapBufferAccessMode {
@@ -1015,6 +1025,11 @@ impl ::core::clone::Clone for BitmapFlip {
         *self
     }
 }
+impl ::core::fmt::Debug for BitmapFlip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapFlip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapFlip {
     type Abi = Self;
 }
@@ -1283,6 +1298,11 @@ impl ::core::clone::Clone for BitmapInterpolationMode {
         *self
     }
 }
+impl ::core::fmt::Debug for BitmapInterpolationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapInterpolationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapInterpolationMode {
     type Abi = Self;
 }
@@ -1316,6 +1336,11 @@ impl ::core::marker::Copy for BitmapPixelFormat {}
 impl ::core::clone::Clone for BitmapPixelFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BitmapPixelFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapPixelFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BitmapPixelFormat {
@@ -1821,6 +1846,11 @@ impl ::core::clone::Clone for BitmapRotation {
         *self
     }
 }
+impl ::core::fmt::Debug for BitmapRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapRotation {
     type Abi = Self;
 }
@@ -2137,6 +2167,11 @@ impl ::core::clone::Clone for ColorManagementMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ColorManagementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorManagementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ColorManagementMode {
     type Abi = Self;
 }
@@ -2163,6 +2198,11 @@ impl ::core::marker::Copy for ExifOrientationMode {}
 impl ::core::clone::Clone for ExifOrientationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ExifOrientationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExifOrientationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ExifOrientationMode {
@@ -3455,6 +3495,11 @@ impl ::core::clone::Clone for JpegSubsamplingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for JpegSubsamplingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JpegSubsamplingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JpegSubsamplingMode {
     type Abi = Self;
 }
@@ -3562,6 +3607,11 @@ impl ::core::marker::Copy for PngFilterMode {}
 impl ::core::clone::Clone for PngFilterMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PngFilterMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PngFilterMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PngFilterMode {
@@ -3872,6 +3922,11 @@ impl ::core::marker::Copy for TiffCompressionMode {}
 impl ::core::clone::Clone for TiffCompressionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TiffCompressionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TiffCompressionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TiffCompressionMode {

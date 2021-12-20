@@ -466,6 +466,11 @@ impl ::core::clone::Clone for VoiceCommandCompletionReason {
         *self
     }
 }
+impl ::core::fmt::Debug for VoiceCommandCompletionReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandCompletionReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VoiceCommandCompletionReason {
     type Abi = Self;
 }
@@ -755,6 +760,11 @@ impl ::core::marker::Copy for VoiceCommandContentTileType {}
 impl ::core::clone::Clone for VoiceCommandContentTileType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VoiceCommandContentTileType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandContentTileType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VoiceCommandContentTileType {

@@ -169,6 +169,11 @@ impl ::core::clone::Clone for AnimationEffect {
         *self
     }
 }
+impl ::core::fmt::Debug for AnimationEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AnimationEffect {
     type Abi = Self;
 }
@@ -213,6 +218,11 @@ impl ::core::marker::Copy for AnimationEffectTarget {}
 impl ::core::clone::Clone for AnimationEffectTarget {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AnimationEffectTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationEffectTarget").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AnimationEffectTarget {
@@ -741,6 +751,11 @@ impl ::core::marker::Copy for PropertyAnimationType {}
 impl ::core::clone::Clone for PropertyAnimationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PropertyAnimationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyAnimationType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PropertyAnimationType {

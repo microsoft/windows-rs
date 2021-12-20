@@ -769,6 +769,11 @@ impl ::core::clone::Clone for SpiMode {
         *self
     }
 }
+impl ::core::fmt::Debug for SpiMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpiMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpiMode {
     type Abi = Self;
 }
@@ -795,6 +800,11 @@ impl ::core::marker::Copy for SpiSharingMode {}
 impl ::core::clone::Clone for SpiSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpiSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpiSharingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpiSharingMode {

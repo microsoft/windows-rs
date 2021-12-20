@@ -2104,6 +2104,11 @@ impl ::core::clone::Clone for ConnectorType {
         *self
     }
 }
+impl ::core::fmt::Debug for ConnectorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ConnectorType {
     type Abi = Self;
 }

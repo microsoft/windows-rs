@@ -1395,6 +1395,11 @@ impl ::core::clone::Clone for MediaTrimmingPreference {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaTrimmingPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTrimmingPreference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaTrimmingPreference {
     type Abi = Self;
 }
@@ -1421,6 +1426,11 @@ impl ::core::marker::Copy for VideoFramePrecision {}
 impl ::core::clone::Clone for VideoFramePrecision {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VideoFramePrecision {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoFramePrecision").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VideoFramePrecision {

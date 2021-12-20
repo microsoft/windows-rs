@@ -646,6 +646,11 @@ impl ::core::clone::Clone for HolographicDepthReprojectionMethod {
         *self
     }
 }
+impl ::core::fmt::Debug for HolographicDepthReprojectionMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicDepthReprojectionMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicDepthReprojectionMethod {
     type Abi = Self;
 }
@@ -1095,6 +1100,11 @@ impl ::core::clone::Clone for HolographicFramePresentResult {
         *self
     }
 }
+impl ::core::fmt::Debug for HolographicFramePresentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFramePresentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicFramePresentResult {
     type Abi = Self;
 }
@@ -1121,6 +1131,11 @@ impl ::core::marker::Copy for HolographicFramePresentWaitBehavior {}
 impl ::core::clone::Clone for HolographicFramePresentWaitBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HolographicFramePresentWaitBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFramePresentWaitBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HolographicFramePresentWaitBehavior {
@@ -2003,6 +2018,11 @@ impl ::core::clone::Clone for HolographicReprojectionMode {
         *self
     }
 }
+impl ::core::fmt::Debug for HolographicReprojectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicReprojectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicReprojectionMode {
     type Abi = Self;
 }
@@ -2421,6 +2441,11 @@ impl ::core::clone::Clone for HolographicSpaceUserPresence {
         *self
     }
 }
+impl ::core::fmt::Debug for HolographicSpaceUserPresence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicSpaceUserPresence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicSpaceUserPresence {
     type Abi = Self;
 }
@@ -2667,6 +2692,11 @@ impl ::core::marker::Copy for HolographicViewConfigurationKind {}
 impl ::core::clone::Clone for HolographicViewConfigurationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HolographicViewConfigurationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicViewConfigurationKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HolographicViewConfigurationKind {

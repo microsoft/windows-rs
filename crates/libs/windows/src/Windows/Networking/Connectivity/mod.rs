@@ -123,6 +123,11 @@ impl ::core::clone::Clone for CellularApnAuthenticationType {
         *self
     }
 }
+impl ::core::fmt::Debug for CellularApnAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularApnAuthenticationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CellularApnAuthenticationType {
     type Abi = Self;
 }
@@ -679,6 +684,11 @@ impl ::core::marker::Copy for ConnectionProfileDeleteStatus {}
 impl ::core::clone::Clone for ConnectionProfileDeleteStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ConnectionProfileDeleteStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionProfileDeleteStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ConnectionProfileDeleteStatus {
@@ -1454,6 +1464,11 @@ impl ::core::clone::Clone for DataUsageGranularity {
         *self
     }
 }
+impl ::core::fmt::Debug for DataUsageGranularity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataUsageGranularity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DataUsageGranularity {
     type Abi = Self;
 }
@@ -1481,6 +1496,11 @@ impl ::core::marker::Copy for DomainConnectivityLevel {}
 impl ::core::clone::Clone for DomainConnectivityLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DomainConnectivityLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DomainConnectivityLevel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DomainConnectivityLevel {
@@ -2716,6 +2736,11 @@ impl ::core::clone::Clone for NetworkAuthenticationType {
         *self
     }
 }
+impl ::core::fmt::Debug for NetworkAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkAuthenticationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkAuthenticationType {
     type Abi = Self;
 }
@@ -2746,6 +2771,11 @@ impl ::core::clone::Clone for NetworkConnectivityLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for NetworkConnectivityLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkConnectivityLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkConnectivityLevel {
     type Abi = Self;
 }
@@ -2774,6 +2804,11 @@ impl ::core::marker::Copy for NetworkCostType {}
 impl ::core::clone::Clone for NetworkCostType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NetworkCostType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkCostType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NetworkCostType {
@@ -2812,6 +2847,11 @@ impl ::core::marker::Copy for NetworkEncryptionType {}
 impl ::core::clone::Clone for NetworkEncryptionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NetworkEncryptionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkEncryptionType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NetworkEncryptionType {
@@ -3298,6 +3338,11 @@ impl ::core::clone::Clone for NetworkTypes {
         *self
     }
 }
+impl ::core::fmt::Debug for NetworkTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkTypes {
     type Abi = Self;
 }
@@ -3634,6 +3679,11 @@ impl ::core::clone::Clone for RoamingStates {
         *self
     }
 }
+impl ::core::fmt::Debug for RoamingStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoamingStates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RoamingStates {
     type Abi = Self;
 }
@@ -3765,6 +3815,11 @@ impl ::core::marker::Copy for TriStates {}
 impl ::core::clone::Clone for TriStates {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TriStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriStates").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TriStates {
@@ -4001,6 +4056,11 @@ impl ::core::clone::Clone for WwanDataClass {
         *self
     }
 }
+impl ::core::fmt::Debug for WwanDataClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwanDataClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WwanDataClass {
     type Abi = Self;
 }
@@ -4030,6 +4090,11 @@ impl ::core::marker::Copy for WwanNetworkIPKind {}
 impl ::core::clone::Clone for WwanNetworkIPKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WwanNetworkIPKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwanNetworkIPKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WwanNetworkIPKind {
@@ -4063,6 +4128,11 @@ impl ::core::marker::Copy for WwanNetworkRegistrationState {}
 impl ::core::clone::Clone for WwanNetworkRegistrationState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WwanNetworkRegistrationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwanNetworkRegistrationState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WwanNetworkRegistrationState {

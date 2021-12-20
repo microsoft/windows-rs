@@ -711,6 +711,11 @@ impl ::core::clone::Clone for UserDataTaskDaysOfWeek {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataTaskDaysOfWeek {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskDaysOfWeek").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskDaysOfWeek {
     type Abi = Self;
 }
@@ -737,6 +742,11 @@ impl ::core::marker::Copy for UserDataTaskDetailsKind {}
 impl ::core::clone::Clone for UserDataTaskDetailsKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataTaskDetailsKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskDetailsKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskDetailsKind {
@@ -766,6 +776,11 @@ impl ::core::marker::Copy for UserDataTaskKind {}
 impl ::core::clone::Clone for UserDataTaskKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataTaskKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskKind {
@@ -1118,6 +1133,11 @@ impl ::core::clone::Clone for UserDataTaskListOtherAppReadAccess {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataTaskListOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskListOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskListOtherAppReadAccess {
     type Abi = Self;
 }
@@ -1144,6 +1164,11 @@ impl ::core::marker::Copy for UserDataTaskListOtherAppWriteAccess {}
 impl ::core::clone::Clone for UserDataTaskListOtherAppWriteAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataTaskListOtherAppWriteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskListOtherAppWriteAccess").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskListOtherAppWriteAccess {
@@ -1313,6 +1338,11 @@ impl ::core::clone::Clone for UserDataTaskListSyncStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataTaskListSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskListSyncStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskListSyncStatus {
     type Abi = Self;
 }
@@ -1448,6 +1478,11 @@ impl ::core::clone::Clone for UserDataTaskPriority {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataTaskPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskPriority {
     type Abi = Self;
 }
@@ -1475,6 +1510,11 @@ impl ::core::marker::Copy for UserDataTaskQueryKind {}
 impl ::core::clone::Clone for UserDataTaskQueryKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataTaskQueryKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskQueryKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskQueryKind {
@@ -1603,6 +1643,11 @@ impl ::core::marker::Copy for UserDataTaskQuerySortProperty {}
 impl ::core::clone::Clone for UserDataTaskQuerySortProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataTaskQuerySortProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskQuerySortProperty").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskQuerySortProperty {
@@ -1905,6 +1950,11 @@ impl ::core::clone::Clone for UserDataTaskRecurrenceUnit {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataTaskRecurrenceUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskRecurrenceUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskRecurrenceUnit {
     type Abi = Self;
 }
@@ -2066,6 +2116,11 @@ impl ::core::clone::Clone for UserDataTaskRegenerationUnit {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataTaskRegenerationUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskRegenerationUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskRegenerationUnit {
     type Abi = Self;
 }
@@ -2092,6 +2147,11 @@ impl ::core::marker::Copy for UserDataTaskSensitivity {}
 impl ::core::clone::Clone for UserDataTaskSensitivity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataTaskSensitivity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskSensitivity").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskSensitivity {
@@ -2226,6 +2286,11 @@ impl ::core::clone::Clone for UserDataTaskStoreAccessType {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataTaskStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskStoreAccessType {
     type Abi = Self;
 }
@@ -2255,6 +2320,11 @@ impl ::core::marker::Copy for UserDataTaskWeekOfMonth {}
 impl ::core::clone::Clone for UserDataTaskWeekOfMonth {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataTaskWeekOfMonth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataTaskWeekOfMonth").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskWeekOfMonth {

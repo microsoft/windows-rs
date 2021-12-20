@@ -287,6 +287,11 @@ impl ::core::clone::Clone for ArcadeStickButtons {
         *self
     }
 }
+impl ::core::fmt::Debug for ArcadeStickButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ArcadeStickButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ArcadeStickButtons {
     type Abi = Self;
 }
@@ -614,6 +619,11 @@ impl ::core::clone::Clone for FlightStickButtons {
         *self
     }
 }
+impl ::core::fmt::Debug for FlightStickButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlightStickButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FlightStickButtons {
     type Abi = Self;
 }
@@ -751,6 +761,11 @@ impl ::core::clone::Clone for GameControllerButtonLabel {
         *self
     }
 }
+impl ::core::fmt::Debug for GameControllerButtonLabel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerButtonLabel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GameControllerButtonLabel {
     type Abi = Self;
 }
@@ -778,6 +793,11 @@ impl ::core::marker::Copy for GameControllerSwitchKind {}
 impl ::core::clone::Clone for GameControllerSwitchKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GameControllerSwitchKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerSwitchKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GameControllerSwitchKind {
@@ -813,6 +833,11 @@ impl ::core::marker::Copy for GameControllerSwitchPosition {}
 impl ::core::clone::Clone for GameControllerSwitchPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GameControllerSwitchPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerSwitchPosition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GameControllerSwitchPosition {
@@ -1129,6 +1154,11 @@ impl ::core::marker::Copy for GamepadButtons {}
 impl ::core::clone::Clone for GamepadButtons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GamepadButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GamepadButtons").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GamepadButtons {
@@ -2036,6 +2066,11 @@ impl ::core::clone::Clone for OptionalUINavigationButtons {
         *self
     }
 }
+impl ::core::fmt::Debug for OptionalUINavigationButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OptionalUINavigationButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OptionalUINavigationButtons {
     type Abi = Self;
 }
@@ -2390,6 +2425,11 @@ impl ::core::marker::Copy for RacingWheelButtons {}
 impl ::core::clone::Clone for RacingWheelButtons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RacingWheelButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RacingWheelButtons").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RacingWheelButtons {
@@ -2803,6 +2843,11 @@ impl ::core::marker::Copy for RequiredUINavigationButtons {}
 impl ::core::clone::Clone for RequiredUINavigationButtons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RequiredUINavigationButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RequiredUINavigationButtons").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RequiredUINavigationButtons {

@@ -64,6 +64,11 @@ impl ::core::clone::Clone for GameChatMessageOrigin {
         *self
     }
 }
+impl ::core::fmt::Debug for GameChatMessageOrigin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatMessageOrigin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GameChatMessageOrigin {
     type Abi = Self;
 }
@@ -398,6 +403,11 @@ impl ::core::marker::Copy for GameChatOverlayPosition {}
 impl ::core::clone::Clone for GameChatOverlayPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GameChatOverlayPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatOverlayPosition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GameChatOverlayPosition {

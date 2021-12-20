@@ -809,6 +809,11 @@ impl ::core::clone::Clone for AppBroadcastCameraCaptureState {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastCameraCaptureState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastCameraCaptureState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastCameraCaptureState {
     type Abi = Self;
 }
@@ -928,6 +933,11 @@ impl ::core::clone::Clone for AppBroadcastCameraOverlayLocation {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastCameraOverlayLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastCameraOverlayLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastCameraOverlayLocation {
     type Abi = Self;
 }
@@ -955,6 +965,11 @@ impl ::core::marker::Copy for AppBroadcastCameraOverlaySize {}
 impl ::core::clone::Clone for AppBroadcastCameraOverlaySize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppBroadcastCameraOverlaySize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastCameraOverlaySize").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastCameraOverlaySize {
@@ -985,6 +1000,11 @@ impl ::core::clone::Clone for AppBroadcastCaptureTargetType {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastCaptureTargetType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastCaptureTargetType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastCaptureTargetType {
     type Abi = Self;
 }
@@ -1013,6 +1033,11 @@ impl ::core::marker::Copy for AppBroadcastExitBroadcastModeReason {}
 impl ::core::clone::Clone for AppBroadcastExitBroadcastModeReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppBroadcastExitBroadcastModeReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastExitBroadcastModeReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastExitBroadcastModeReason {
@@ -1385,6 +1410,11 @@ impl ::core::clone::Clone for AppBroadcastMicrophoneCaptureState {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastMicrophoneCaptureState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastMicrophoneCaptureState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastMicrophoneCaptureState {
     type Abi = Self;
 }
@@ -1721,6 +1751,11 @@ impl ::core::clone::Clone for AppBroadcastPlugInState {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastPlugInState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastPlugInState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastPlugInState {
     type Abi = Self;
 }
@@ -1937,6 +1972,11 @@ impl ::core::marker::Copy for AppBroadcastPreviewState {}
 impl ::core::clone::Clone for AppBroadcastPreviewState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppBroadcastPreviewState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastPreviewState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastPreviewState {
@@ -2701,6 +2741,11 @@ impl ::core::clone::Clone for AppBroadcastSignInResult {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastSignInResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastSignInResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastSignInResult {
     type Abi = Self;
 }
@@ -2730,6 +2775,11 @@ impl ::core::marker::Copy for AppBroadcastSignInState {}
 impl ::core::clone::Clone for AppBroadcastSignInState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppBroadcastSignInState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastSignInState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastSignInState {
@@ -3535,6 +3585,11 @@ impl ::core::clone::Clone for AppBroadcastStreamState {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastStreamState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastStreamState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastStreamState {
     type Abi = Self;
 }
@@ -3845,6 +3900,11 @@ impl ::core::clone::Clone for AppBroadcastTerminationReason {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastTerminationReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastTerminationReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastTerminationReason {
     type Abi = Self;
 }
@@ -3947,6 +4007,11 @@ impl ::core::clone::Clone for AppBroadcastVideoEncodingBitrateMode {
         *self
     }
 }
+impl ::core::fmt::Debug for AppBroadcastVideoEncodingBitrateMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastVideoEncodingBitrateMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastVideoEncodingBitrateMode {
     type Abi = Self;
 }
@@ -3973,6 +4038,11 @@ impl ::core::marker::Copy for AppBroadcastVideoEncodingResolutionMode {}
 impl ::core::clone::Clone for AppBroadcastVideoEncodingResolutionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppBroadcastVideoEncodingResolutionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastVideoEncodingResolutionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastVideoEncodingResolutionMode {
@@ -4661,6 +4731,11 @@ impl ::core::clone::Clone for AppCaptureHistoricalBufferLengthUnit {
         *self
     }
 }
+impl ::core::fmt::Debug for AppCaptureHistoricalBufferLengthUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCaptureHistoricalBufferLengthUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppCaptureHistoricalBufferLengthUnit {
     type Abi = Self;
 }
@@ -4710,6 +4785,11 @@ impl ::core::marker::Copy for AppCaptureMetadataPriority {}
 impl ::core::clone::Clone for AppCaptureMetadataPriority {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppCaptureMetadataPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCaptureMetadataPriority").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureMetadataPriority {
@@ -4909,6 +4989,11 @@ impl ::core::marker::Copy for AppCaptureMicrophoneCaptureState {}
 impl ::core::clone::Clone for AppCaptureMicrophoneCaptureState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppCaptureMicrophoneCaptureState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCaptureMicrophoneCaptureState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureMicrophoneCaptureState {
@@ -5184,6 +5269,11 @@ impl ::core::marker::Copy for AppCaptureRecordingState {}
 impl ::core::clone::Clone for AppCaptureRecordingState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppCaptureRecordingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCaptureRecordingState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureRecordingState {
@@ -5967,6 +6057,11 @@ impl ::core::clone::Clone for AppCaptureVideoEncodingBitrateMode {
         *self
     }
 }
+impl ::core::fmt::Debug for AppCaptureVideoEncodingBitrateMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCaptureVideoEncodingBitrateMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingBitrateMode {
     type Abi = Self;
 }
@@ -5993,6 +6088,11 @@ impl ::core::marker::Copy for AppCaptureVideoEncodingFrameRateMode {}
 impl ::core::clone::Clone for AppCaptureVideoEncodingFrameRateMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppCaptureVideoEncodingFrameRateMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCaptureVideoEncodingFrameRateMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingFrameRateMode {
@@ -6022,6 +6122,11 @@ impl ::core::marker::Copy for AppCaptureVideoEncodingResolutionMode {}
 impl ::core::clone::Clone for AppCaptureVideoEncodingResolutionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppCaptureVideoEncodingResolutionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCaptureVideoEncodingResolutionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingResolutionMode {
@@ -6154,6 +6259,11 @@ impl ::core::clone::Clone for CameraCaptureUIMaxPhotoResolution {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraCaptureUIMaxPhotoResolution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraCaptureUIMaxPhotoResolution").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraCaptureUIMaxPhotoResolution {
     type Abi = Self;
 }
@@ -6184,6 +6294,11 @@ impl ::core::clone::Clone for CameraCaptureUIMaxVideoResolution {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraCaptureUIMaxVideoResolution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraCaptureUIMaxVideoResolution").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraCaptureUIMaxVideoResolution {
     type Abi = Self;
 }
@@ -6211,6 +6326,11 @@ impl ::core::marker::Copy for CameraCaptureUIMode {}
 impl ::core::clone::Clone for CameraCaptureUIMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CameraCaptureUIMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraCaptureUIMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CameraCaptureUIMode {
@@ -6379,6 +6499,11 @@ impl ::core::clone::Clone for CameraCaptureUIPhotoFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraCaptureUIPhotoFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraCaptureUIPhotoFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraCaptureUIPhotoFormat {
     type Abi = Self;
 }
@@ -6525,6 +6650,11 @@ impl ::core::marker::Copy for CameraCaptureUIVideoFormat {}
 impl ::core::clone::Clone for CameraCaptureUIVideoFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CameraCaptureUIVideoFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraCaptureUIVideoFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CameraCaptureUIVideoFormat {
@@ -7232,6 +7362,11 @@ impl ::core::clone::Clone for ForegroundActivationArgument {
         *self
     }
 }
+impl ::core::fmt::Debug for ForegroundActivationArgument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForegroundActivationArgument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ForegroundActivationArgument {
     type Abi = Self;
 }
@@ -7272,6 +7407,11 @@ impl ::core::clone::Clone for GameBarCommand {
         *self
     }
 }
+impl ::core::fmt::Debug for GameBarCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameBarCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GameBarCommand {
     type Abi = Self;
 }
@@ -7299,6 +7439,11 @@ impl ::core::marker::Copy for GameBarCommandOrigin {}
 impl ::core::clone::Clone for GameBarCommandOrigin {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GameBarCommandOrigin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameBarCommandOrigin").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GameBarCommandOrigin {
@@ -7544,6 +7689,11 @@ impl ::core::marker::Copy for GameBarServicesDisplayMode {}
 impl ::core::clone::Clone for GameBarServicesDisplayMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GameBarServicesDisplayMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameBarServicesDisplayMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GameBarServicesDisplayMode {
@@ -7846,6 +7996,11 @@ impl ::core::marker::Copy for GameBarTargetCapturePolicy {}
 impl ::core::clone::Clone for GameBarTargetCapturePolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GameBarTargetCapturePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameBarTargetCapturePolicy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GameBarTargetCapturePolicy {
@@ -10668,6 +10823,11 @@ impl ::core::clone::Clone for KnownVideoProfile {
         *self
     }
 }
+impl ::core::fmt::Debug for KnownVideoProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KnownVideoProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KnownVideoProfile {
     type Abi = Self;
 }
@@ -11709,6 +11869,11 @@ impl ::core::clone::Clone for MediaCaptureDeviceExclusiveControlStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaCaptureDeviceExclusiveControlStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureDeviceExclusiveControlStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCaptureDeviceExclusiveControlStatus {
     type Abi = Self;
 }
@@ -12369,6 +12534,11 @@ impl ::core::clone::Clone for MediaCaptureMemoryPreference {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaCaptureMemoryPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureMemoryPreference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCaptureMemoryPreference {
     type Abi = Self;
 }
@@ -12828,6 +12998,11 @@ impl ::core::clone::Clone for MediaCaptureSharingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaCaptureSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureSharingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCaptureSharingMode {
     type Abi = Self;
 }
@@ -12969,6 +13144,11 @@ impl ::core::marker::Copy for MediaCaptureThermalStatus {}
 impl ::core::clone::Clone for MediaCaptureThermalStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaCaptureThermalStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureThermalStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaCaptureThermalStatus {
@@ -13270,6 +13450,11 @@ impl ::core::clone::Clone for MediaCategory {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCategory {
     type Abi = Self;
 }
@@ -13299,6 +13484,11 @@ impl ::core::marker::Copy for MediaStreamType {}
 impl ::core::clone::Clone for MediaStreamType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaStreamType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaStreamType {
@@ -13412,6 +13602,11 @@ impl ::core::marker::Copy for PhotoCaptureSource {}
 impl ::core::clone::Clone for PhotoCaptureSource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhotoCaptureSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoCaptureSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhotoCaptureSource {
@@ -13620,6 +13815,11 @@ impl ::core::marker::Copy for PowerlineFrequency {}
 impl ::core::clone::Clone for PowerlineFrequency {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PowerlineFrequency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PowerlineFrequency").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PowerlineFrequency {
@@ -13934,6 +14134,11 @@ impl ::core::clone::Clone for StreamingCaptureMode {
         *self
     }
 }
+impl ::core::fmt::Debug for StreamingCaptureMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamingCaptureMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StreamingCaptureMode {
     type Abi = Self;
 }
@@ -13965,6 +14170,11 @@ impl ::core::clone::Clone for VideoDeviceCharacteristic {
         *self
     }
 }
+impl ::core::fmt::Debug for VideoDeviceCharacteristic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceCharacteristic").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VideoDeviceCharacteristic {
     type Abi = Self;
 }
@@ -13993,6 +14203,11 @@ impl ::core::marker::Copy for VideoRotation {}
 impl ::core::clone::Clone for VideoRotation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VideoRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoRotation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VideoRotation {

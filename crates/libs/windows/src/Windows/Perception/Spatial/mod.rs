@@ -817,6 +817,11 @@ impl ::core::clone::Clone for SpatialAnchorExportPurpose {
         *self
     }
 }
+impl ::core::fmt::Debug for SpatialAnchorExportPurpose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAnchorExportPurpose").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialAnchorExportPurpose {
     type Abi = Self;
 }
@@ -2255,6 +2260,11 @@ impl ::core::clone::Clone for SpatialEntityWatcherStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SpatialEntityWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntityWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialEntityWatcherStatus {
     type Abi = Self;
 }
@@ -2284,6 +2294,11 @@ impl ::core::marker::Copy for SpatialLocatability {}
 impl ::core::clone::Clone for SpatialLocatability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpatialLocatability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLocatability").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpatialLocatability {
@@ -2851,6 +2866,11 @@ impl ::core::clone::Clone for SpatialLookDirectionRange {
         *self
     }
 }
+impl ::core::fmt::Debug for SpatialLookDirectionRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLookDirectionRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialLookDirectionRange {
     type Abi = Self;
 }
@@ -2877,6 +2897,11 @@ impl ::core::marker::Copy for SpatialMovementRange {}
 impl ::core::clone::Clone for SpatialMovementRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpatialMovementRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialMovementRange").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpatialMovementRange {
@@ -2907,6 +2932,11 @@ impl ::core::marker::Copy for SpatialPerceptionAccessStatus {}
 impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpatialPerceptionAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialPerceptionAccessStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpatialPerceptionAccessStatus {

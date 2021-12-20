@@ -12,6 +12,11 @@ impl ::core::clone::Clone for ForegroundText {
         *self
     }
 }
+impl ::core::fmt::Debug for ForegroundText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForegroundText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ForegroundText {
     type Abi = Self;
 }
@@ -858,6 +863,11 @@ impl ::core::clone::Clone for JumpListItemKind {
         *self
     }
 }
+impl ::core::fmt::Debug for JumpListItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for JumpListItemKind {
     type Abi = Self;
 }
@@ -885,6 +895,11 @@ impl ::core::marker::Copy for JumpListSystemGroupKind {}
 impl ::core::clone::Clone for JumpListSystemGroupKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JumpListSystemGroupKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListSystemGroupKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JumpListSystemGroupKind {
@@ -1868,6 +1883,11 @@ impl ::core::clone::Clone for TileMixedRealityModelActivationBehavior {
         *self
     }
 }
+impl ::core::fmt::Debug for TileMixedRealityModelActivationBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileMixedRealityModelActivationBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TileMixedRealityModelActivationBehavior {
     type Abi = Self;
 }
@@ -1896,6 +1916,11 @@ impl ::core::marker::Copy for TileOptions {}
 impl ::core::clone::Clone for TileOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TileOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TileOptions {
@@ -1930,6 +1955,11 @@ impl ::core::marker::Copy for TileSize {}
 impl ::core::clone::Clone for TileSize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TileSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileSize").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TileSize {

@@ -13,6 +13,11 @@ impl ::core::clone::Clone for AddContactResult {
         *self
     }
 }
+impl ::core::fmt::Debug for AddContactResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddContactResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AddContactResult {
     type Abi = Self;
 }

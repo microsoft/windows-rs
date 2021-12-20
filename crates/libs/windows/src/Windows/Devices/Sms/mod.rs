@@ -13,6 +13,11 @@ impl ::core::clone::Clone for CellularClass {
         *self
     }
 }
+impl ::core::fmt::Debug for CellularClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CellularClass {
     type Abi = Self;
 }
@@ -3547,6 +3552,11 @@ impl ::core::clone::Clone for SmsBroadcastType {
         *self
     }
 }
+impl ::core::fmt::Debug for SmsBroadcastType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsBroadcastType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmsBroadcastType {
     type Abi = Self;
 }
@@ -3576,6 +3586,11 @@ impl ::core::marker::Copy for SmsDataFormat {}
 impl ::core::clone::Clone for SmsDataFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmsDataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsDataFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmsDataFormat {
@@ -4159,6 +4174,11 @@ impl ::core::clone::Clone for SmsDeviceStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SmsDeviceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsDeviceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmsDeviceStatus {
     type Abi = Self;
 }
@@ -4323,6 +4343,11 @@ impl ::core::clone::Clone for SmsEncoding {
         *self
     }
 }
+impl ::core::fmt::Debug for SmsEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmsEncoding {
     type Abi = Self;
 }
@@ -4351,6 +4376,11 @@ impl ::core::marker::Copy for SmsFilterActionType {}
 impl ::core::clone::Clone for SmsFilterActionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmsFilterActionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsFilterActionType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmsFilterActionType {
@@ -4681,6 +4711,11 @@ impl ::core::clone::Clone for SmsGeographicalScope {
         *self
     }
 }
+impl ::core::fmt::Debug for SmsGeographicalScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsGeographicalScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmsGeographicalScope {
     type Abi = Self;
 }
@@ -4710,6 +4745,11 @@ impl ::core::marker::Copy for SmsMessageClass {}
 impl ::core::clone::Clone for SmsMessageClass {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmsMessageClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageClass").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmsMessageClass {
@@ -4745,6 +4785,12 @@ impl ::core::marker::Copy for SmsMessageFilter {}
 impl ::core::clone::Clone for SmsMessageFilter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsMessageFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageFilter").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5220,6 +5266,11 @@ impl ::core::clone::Clone for SmsMessageType {
         *self
     }
 }
+impl ::core::fmt::Debug for SmsMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmsMessageType {
     type Abi = Self;
 }
@@ -5256,6 +5307,11 @@ impl ::core::marker::Copy for SmsModemErrorCode {}
 impl ::core::clone::Clone for SmsModemErrorCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmsModemErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsModemErrorCode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmsModemErrorCode {

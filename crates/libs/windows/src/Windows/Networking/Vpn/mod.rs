@@ -2246,6 +2246,11 @@ impl ::core::clone::Clone for VpnAppIdType {
         *self
     }
 }
+impl ::core::fmt::Debug for VpnAppIdType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnAppIdType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VpnAppIdType {
     type Abi = Self;
 }
@@ -2274,6 +2279,11 @@ impl ::core::marker::Copy for VpnAuthenticationMethod {}
 impl ::core::clone::Clone for VpnAuthenticationMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VpnAuthenticationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnAuthenticationMethod").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VpnAuthenticationMethod {
@@ -2754,6 +2764,11 @@ impl ::core::clone::Clone for VpnChannelActivityEventType {
         *self
     }
 }
+impl ::core::fmt::Debug for VpnChannelActivityEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelActivityEventType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VpnChannelActivityEventType {
     type Abi = Self;
 }
@@ -2961,6 +2976,11 @@ impl ::core::clone::Clone for VpnChannelRequestCredentialsOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for VpnChannelRequestCredentialsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelRequestCredentialsOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VpnChannelRequestCredentialsOptions {
     type Abi = Self;
 }
@@ -3117,6 +3137,11 @@ impl ::core::marker::Copy for VpnCredentialType {}
 impl ::core::clone::Clone for VpnCredentialType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VpnCredentialType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCredentialType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VpnCredentialType {
@@ -4547,6 +4572,11 @@ impl ::core::clone::Clone for VpnDataPathType {
         *self
     }
 }
+impl ::core::fmt::Debug for VpnDataPathType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnDataPathType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VpnDataPathType {
     type Abi = Self;
 }
@@ -4807,6 +4837,11 @@ impl ::core::marker::Copy for VpnDomainNameType {}
 impl ::core::clone::Clone for VpnDomainNameType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VpnDomainNameType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnDomainNameType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VpnDomainNameType {
@@ -5097,6 +5132,11 @@ impl ::core::clone::Clone for VpnIPProtocol {
         *self
     }
 }
+impl ::core::fmt::Debug for VpnIPProtocol {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnIPProtocol").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VpnIPProtocol {
     type Abi = Self;
 }
@@ -5368,6 +5408,11 @@ impl ::core::clone::Clone for VpnManagementConnectionStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for VpnManagementConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnManagementConnectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VpnManagementConnectionStatus {
     type Abi = Self;
 }
@@ -5411,6 +5456,11 @@ impl ::core::marker::Copy for VpnManagementErrorStatus {}
 impl ::core::clone::Clone for VpnManagementErrorStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VpnManagementErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnManagementErrorStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VpnManagementErrorStatus {
@@ -5938,6 +5988,11 @@ impl ::core::clone::Clone for VpnNativeProtocolType {
         *self
     }
 }
+impl ::core::fmt::Debug for VpnNativeProtocolType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnNativeProtocolType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VpnNativeProtocolType {
     type Abi = Self;
 }
@@ -6271,6 +6326,11 @@ impl ::core::marker::Copy for VpnPacketBufferStatus {}
 impl ::core::clone::Clone for VpnPacketBufferStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VpnPacketBufferStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnPacketBufferStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VpnPacketBufferStatus {
@@ -6875,6 +6935,11 @@ impl ::core::marker::Copy for VpnRoutingPolicyType {}
 impl ::core::clone::Clone for VpnRoutingPolicyType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VpnRoutingPolicyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnRoutingPolicyType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VpnRoutingPolicyType {

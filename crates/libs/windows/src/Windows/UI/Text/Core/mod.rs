@@ -723,6 +723,11 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingReason {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreTextFormatUpdatingReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingReason {
     type Abi = Self;
 }
@@ -751,6 +756,11 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingResult {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreTextFormatUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingResult {
     type Abi = Self;
 }
@@ -777,6 +787,11 @@ impl ::core::marker::Copy for CoreTextInputPaneDisplayPolicy {}
 impl ::core::clone::Clone for CoreTextInputPaneDisplayPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextInputPaneDisplayPolicy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreTextInputPaneDisplayPolicy {
@@ -870,6 +885,11 @@ impl ::core::marker::Copy for CoreTextInputScope {}
 impl ::core::clone::Clone for CoreTextInputScope {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreTextInputScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextInputScope").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreTextInputScope {
@@ -1500,6 +1520,11 @@ impl ::core::clone::Clone for CoreTextSelectionUpdatingResult {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreTextSelectionUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextSelectionUpdatingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreTextSelectionUpdatingResult {
     type Abi = Self;
 }
@@ -1970,6 +1995,11 @@ impl ::core::marker::Copy for CoreTextTextUpdatingResult {}
 impl ::core::clone::Clone for CoreTextTextUpdatingResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreTextTextUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextTextUpdatingResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreTextTextUpdatingResult {

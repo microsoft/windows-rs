@@ -107,6 +107,11 @@ impl ::core::clone::Clone for FindAllWebAccountsStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for FindAllWebAccountsStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindAllWebAccountsStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FindAllWebAccountsStatus {
     type Abi = Self;
 }
@@ -1133,6 +1138,11 @@ impl ::core::clone::Clone for WebTokenRequestPromptType {
         *self
     }
 }
+impl ::core::fmt::Debug for WebTokenRequestPromptType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebTokenRequestPromptType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WebTokenRequestPromptType {
     type Abi = Self;
 }
@@ -1265,6 +1275,11 @@ impl ::core::marker::Copy for WebTokenRequestStatus {}
 impl ::core::clone::Clone for WebTokenRequestStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WebTokenRequestStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebTokenRequestStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WebTokenRequestStatus {

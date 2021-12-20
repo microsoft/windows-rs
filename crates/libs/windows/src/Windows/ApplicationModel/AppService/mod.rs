@@ -110,6 +110,11 @@ impl ::core::clone::Clone for AppServiceClosedStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AppServiceClosedStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppServiceClosedStatus {
     type Abi = Self;
 }
@@ -364,6 +369,11 @@ impl ::core::marker::Copy for AppServiceConnectionStatus {}
 impl ::core::clone::Clone for AppServiceConnectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppServiceConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppServiceConnectionStatus {
@@ -729,6 +739,11 @@ impl ::core::marker::Copy for AppServiceResponseStatus {}
 impl ::core::clone::Clone for AppServiceResponseStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppServiceResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppServiceResponseStatus {
@@ -1257,6 +1272,11 @@ impl ::core::marker::Copy for StatelessAppServiceResponseStatus {}
 impl ::core::clone::Clone for StatelessAppServiceResponseStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StatelessAppServiceResponseStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StatelessAppServiceResponseStatus {

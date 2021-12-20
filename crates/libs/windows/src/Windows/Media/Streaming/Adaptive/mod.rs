@@ -748,6 +748,11 @@ impl ::core::clone::Clone for AdaptiveMediaSourceCreationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AdaptiveMediaSourceCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceCreationStatus {
     type Abi = Self;
 }
@@ -956,6 +961,11 @@ impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticType {
         *self
     }
 }
+impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDiagnosticType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceDiagnosticType {
     type Abi = Self;
 }
@@ -1162,6 +1172,11 @@ impl ::core::marker::Copy for AdaptiveMediaSourceDownloadBitrateChangedReason {}
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadBitrateChangedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadBitrateChangedReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceDownloadBitrateChangedReason {
@@ -2100,6 +2115,11 @@ impl ::core::marker::Copy for AdaptiveMediaSourceResourceType {}
 impl ::core::clone::Clone for AdaptiveMediaSourceResourceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AdaptiveMediaSourceResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceResourceType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceResourceType {

@@ -15,6 +15,11 @@ impl ::core::clone::Clone for AlternateNormalizationFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for AlternateNormalizationFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlternateNormalizationFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AlternateNormalizationFormat {
     type Abi = Self;
 }
@@ -1272,6 +1277,11 @@ impl ::core::clone::Clone for TextPredictionOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for TextPredictionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPredictionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextPredictionOptions {
     type Abi = Self;
 }
@@ -1607,6 +1617,11 @@ impl ::core::clone::Clone for UnicodeGeneralCategory {
         *self
     }
 }
+impl ::core::fmt::Debug for UnicodeGeneralCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeGeneralCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UnicodeGeneralCategory {
     type Abi = Self;
 }
@@ -1635,6 +1650,11 @@ impl ::core::marker::Copy for UnicodeNumericType {}
 impl ::core::clone::Clone for UnicodeNumericType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UnicodeNumericType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeNumericType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UnicodeNumericType {

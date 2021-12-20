@@ -217,6 +217,11 @@ impl ::core::clone::Clone for DeviceAccessStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for DeviceAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccessStatus {
     type Abi = Self;
 }
@@ -248,6 +253,11 @@ impl ::core::marker::Copy for DeviceClass {}
 impl ::core::clone::Clone for DeviceClass {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeviceClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceClass").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeviceClass {
@@ -1020,6 +1030,11 @@ impl ::core::clone::Clone for DeviceInformationKind {
         *self
     }
 }
+impl ::core::fmt::Debug for DeviceInformationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceInformationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceInformationKind {
     type Abi = Self;
 }
@@ -1305,6 +1320,11 @@ impl ::core::clone::Clone for DevicePairingKinds {
         *self
     }
 }
+impl ::core::fmt::Debug for DevicePairingKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePairingKinds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DevicePairingKinds {
     type Abi = Self;
 }
@@ -1333,6 +1353,11 @@ impl ::core::marker::Copy for DevicePairingProtectionLevel {}
 impl ::core::clone::Clone for DevicePairingProtectionLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DevicePairingProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePairingProtectionLevel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DevicePairingProtectionLevel {
@@ -1580,6 +1605,11 @@ impl ::core::marker::Copy for DevicePairingResultStatus {}
 impl ::core::clone::Clone for DevicePairingResultStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DevicePairingResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePairingResultStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DevicePairingResultStatus {
@@ -1966,6 +1996,11 @@ impl ::core::marker::Copy for DevicePickerDisplayStatusOptions {}
 impl ::core::clone::Clone for DevicePickerDisplayStatusOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DevicePickerDisplayStatusOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePickerDisplayStatusOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DevicePickerDisplayStatusOptions {
@@ -2596,6 +2631,11 @@ impl ::core::clone::Clone for DeviceUnpairingResultStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for DeviceUnpairingResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceUnpairingResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceUnpairingResultStatus {
     type Abi = Self;
 }
@@ -2887,6 +2927,11 @@ impl ::core::clone::Clone for DeviceWatcherEventKind {
         *self
     }
 }
+impl ::core::fmt::Debug for DeviceWatcherEventKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceWatcherEventKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceWatcherEventKind {
     type Abi = Self;
 }
@@ -2917,6 +2962,11 @@ impl ::core::marker::Copy for DeviceWatcherStatus {}
 impl ::core::clone::Clone for DeviceWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeviceWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceWatcherStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeviceWatcherStatus {
@@ -3907,6 +3957,11 @@ impl ::core::marker::Copy for Panel {}
 impl ::core::clone::Clone for Panel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Panel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Panel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Panel {

@@ -14,6 +14,11 @@ impl ::core::clone::Clone for CaretType {
         *self
     }
 }
+impl ::core::fmt::Debug for CaretType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaretType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CaretType {
     type Abi = Self;
 }
@@ -185,6 +190,11 @@ impl ::core::clone::Clone for FindOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for FindOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FindOptions {
     type Abi = Self;
 }
@@ -221,6 +231,11 @@ impl ::core::clone::Clone for FontStretch {
         *self
     }
 }
+impl ::core::fmt::Debug for FontStretch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontStretch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FontStretch {
     type Abi = Self;
 }
@@ -248,6 +263,11 @@ impl ::core::marker::Copy for FontStyle {}
 impl ::core::clone::Clone for FontStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FontStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontStyle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FontStyle {
@@ -466,6 +486,11 @@ impl ::core::clone::Clone for FormatEffect {
         *self
     }
 }
+impl ::core::fmt::Debug for FormatEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FormatEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FormatEffect {
     type Abi = Self;
 }
@@ -493,6 +518,11 @@ impl ::core::marker::Copy for HorizontalCharacterAlignment {}
 impl ::core::clone::Clone for HorizontalCharacterAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HorizontalCharacterAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HorizontalCharacterAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HorizontalCharacterAlignment {
@@ -2859,6 +2889,11 @@ impl ::core::clone::Clone for LetterCase {
         *self
     }
 }
+impl ::core::fmt::Debug for LetterCase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LetterCase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LetterCase {
     type Abi = Self;
 }
@@ -2891,6 +2926,11 @@ impl ::core::marker::Copy for LineSpacingRule {}
 impl ::core::clone::Clone for LineSpacingRule {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LineSpacingRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineSpacingRule").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LineSpacingRule {
@@ -2928,6 +2968,11 @@ impl ::core::clone::Clone for LinkType {
         *self
     }
 }
+impl ::core::fmt::Debug for LinkType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LinkType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LinkType {
     type Abi = Self;
 }
@@ -2956,6 +3001,11 @@ impl ::core::marker::Copy for MarkerAlignment {}
 impl ::core::clone::Clone for MarkerAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MarkerAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MarkerAlignment {
@@ -2989,6 +3039,11 @@ impl ::core::marker::Copy for MarkerStyle {}
 impl ::core::clone::Clone for MarkerStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MarkerStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerStyle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MarkerStyle {
@@ -3042,6 +3097,11 @@ impl ::core::clone::Clone for MarkerType {
         *self
     }
 }
+impl ::core::fmt::Debug for MarkerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MarkerType {
     type Abi = Self;
 }
@@ -3071,6 +3131,11 @@ impl ::core::marker::Copy for ParagraphAlignment {}
 impl ::core::clone::Clone for ParagraphAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ParagraphAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ParagraphAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ParagraphAlignment {
@@ -3111,6 +3176,11 @@ impl ::core::clone::Clone for ParagraphStyle {
         *self
     }
 }
+impl ::core::fmt::Debug for ParagraphStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ParagraphStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ParagraphStyle {
     type Abi = Self;
 }
@@ -3145,6 +3215,11 @@ impl ::core::clone::Clone for PointOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for PointOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PointOptions {
     type Abi = Self;
 }
@@ -3176,6 +3251,11 @@ impl ::core::clone::Clone for RangeGravity {
         *self
     }
 }
+impl ::core::fmt::Debug for RangeGravity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RangeGravity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RangeGravity {
     type Abi = Self;
 }
@@ -3202,6 +3282,11 @@ impl ::core::marker::Copy for RichEditMathMode {}
 impl ::core::clone::Clone for RichEditMathMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RichEditMathMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichEditMathMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RichEditMathMode {
@@ -3995,6 +4080,11 @@ impl ::core::clone::Clone for SelectionOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for SelectionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SelectionOptions {
     type Abi = Self;
 }
@@ -4024,6 +4114,11 @@ impl ::core::marker::Copy for SelectionType {}
 impl ::core::clone::Clone for SelectionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SelectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectionType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SelectionType {
@@ -4057,6 +4152,11 @@ impl ::core::clone::Clone for TabAlignment {
         *self
     }
 }
+impl ::core::fmt::Debug for TabAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TabAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TabAlignment {
     type Abi = Self;
 }
@@ -4087,6 +4187,11 @@ impl ::core::marker::Copy for TabLeader {}
 impl ::core::clone::Clone for TabLeader {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TabLeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TabLeader").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TabLeader {
@@ -4186,6 +4291,11 @@ impl ::core::clone::Clone for TextDecorations {
         *self
     }
 }
+impl ::core::fmt::Debug for TextDecorations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextDecorations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextDecorations {
     type Abi = Self;
 }
@@ -4219,6 +4329,11 @@ impl ::core::marker::Copy for TextGetOptions {}
 impl ::core::clone::Clone for TextGetOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TextGetOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextGetOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TextGetOptions {
@@ -4278,6 +4393,11 @@ impl ::core::marker::Copy for TextRangeUnit {}
 impl ::core::clone::Clone for TextRangeUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TextRangeUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextRangeUnit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TextRangeUnit {
@@ -4370,6 +4490,11 @@ impl ::core::clone::Clone for TextScript {
         *self
     }
 }
+impl ::core::fmt::Debug for TextScript {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextScript").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextScript {
     type Abi = Self;
 }
@@ -4401,6 +4526,11 @@ impl ::core::marker::Copy for TextSetOptions {}
 impl ::core::clone::Clone for TextSetOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TextSetOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextSetOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TextSetOptions {
@@ -4449,6 +4579,11 @@ impl ::core::clone::Clone for UnderlineType {
         *self
     }
 }
+impl ::core::fmt::Debug for UnderlineType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnderlineType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UnderlineType {
     type Abi = Self;
 }
@@ -4476,6 +4611,11 @@ impl ::core::marker::Copy for VerticalCharacterAlignment {}
 impl ::core::clone::Clone for VerticalCharacterAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VerticalCharacterAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VerticalCharacterAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VerticalCharacterAlignment {

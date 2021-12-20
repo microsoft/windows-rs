@@ -506,6 +506,11 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcherStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AppDiagnosticInfoWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppDiagnosticInfoWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppDiagnosticInfoWatcherStatus {
     type Abi = Self;
 }
@@ -718,6 +723,11 @@ impl ::core::marker::Copy for AppMemoryUsageLevel {}
 impl ::core::clone::Clone for AppMemoryUsageLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppMemoryUsageLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppMemoryUsageLevel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppMemoryUsageLevel {
@@ -933,6 +943,11 @@ impl ::core::clone::Clone for AppResourceGroupEnergyQuotaState {
         *self
     }
 }
+impl ::core::fmt::Debug for AppResourceGroupEnergyQuotaState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupEnergyQuotaState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppResourceGroupEnergyQuotaState {
     type Abi = Self;
 }
@@ -962,6 +977,11 @@ impl ::core::marker::Copy for AppResourceGroupExecutionState {}
 impl ::core::clone::Clone for AppResourceGroupExecutionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppResourceGroupExecutionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupExecutionState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppResourceGroupExecutionState {
@@ -1470,6 +1490,11 @@ impl ::core::marker::Copy for AppResourceGroupInfoWatcherStatus {}
 impl ::core::clone::Clone for AppResourceGroupInfoWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppResourceGroupInfoWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppResourceGroupInfoWatcherStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppResourceGroupInfoWatcherStatus {
@@ -2053,6 +2078,11 @@ impl ::core::clone::Clone for AutoUpdateTimeZoneStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AutoUpdateTimeZoneStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoUpdateTimeZoneStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutoUpdateTimeZoneStatus {
     type Abi = Self;
 }
@@ -2098,6 +2128,11 @@ impl ::core::marker::Copy for DiagnosticAccessStatus {}
 impl ::core::clone::Clone for DiagnosticAccessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DiagnosticAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiagnosticAccessStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DiagnosticAccessStatus {
@@ -2436,6 +2471,11 @@ impl ::core::marker::Copy for DispatcherQueuePriority {}
 impl ::core::clone::Clone for DispatcherQueuePriority {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DispatcherQueuePriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DispatcherQueuePriority").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DispatcherQueuePriority {
@@ -4726,6 +4766,11 @@ impl ::core::clone::Clone for LaunchFileStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for LaunchFileStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchFileStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LaunchFileStatus {
     type Abi = Self;
 }
@@ -4757,6 +4802,11 @@ impl ::core::clone::Clone for LaunchQuerySupportStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for LaunchQuerySupportStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchQuerySupportStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LaunchQuerySupportStatus {
     type Abi = Self;
 }
@@ -4783,6 +4833,11 @@ impl ::core::marker::Copy for LaunchQuerySupportType {}
 impl ::core::clone::Clone for LaunchQuerySupportType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LaunchQuerySupportType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchQuerySupportType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LaunchQuerySupportType {
@@ -4898,6 +4953,11 @@ impl ::core::marker::Copy for LaunchUriStatus {}
 impl ::core::clone::Clone for LaunchUriStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LaunchUriStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LaunchUriStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LaunchUriStatus {
@@ -5666,6 +5726,11 @@ impl ::core::clone::Clone for PowerState {
         *self
     }
 }
+impl ::core::fmt::Debug for PowerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PowerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PowerState {
     type Abi = Self;
 }
@@ -6020,6 +6085,11 @@ impl ::core::clone::Clone for ProcessorArchitecture {
         *self
     }
 }
+impl ::core::fmt::Debug for ProcessorArchitecture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProcessorArchitecture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProcessorArchitecture {
     type Abi = Self;
 }
@@ -6126,6 +6196,11 @@ impl ::core::marker::Copy for RemoteLaunchUriStatus {}
 impl ::core::clone::Clone for RemoteLaunchUriStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RemoteLaunchUriStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteLaunchUriStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemoteLaunchUriStatus {
@@ -6289,6 +6364,11 @@ impl ::core::marker::Copy for ShutdownKind {}
 impl ::core::clone::Clone for ShutdownKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ShutdownKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShutdownKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ShutdownKind {
@@ -6596,6 +6676,11 @@ impl ::core::clone::Clone for UserAgeConsentGroup {
         *self
     }
 }
+impl ::core::fmt::Debug for UserAgeConsentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserAgeConsentGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserAgeConsentGroup {
     type Abi = Self;
 }
@@ -6627,6 +6712,11 @@ impl ::core::clone::Clone for UserAgeConsentResult {
         *self
     }
 }
+impl ::core::fmt::Debug for UserAgeConsentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserAgeConsentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserAgeConsentResult {
     type Abi = Self;
 }
@@ -6654,6 +6744,11 @@ impl ::core::marker::Copy for UserAuthenticationStatus {}
 impl ::core::clone::Clone for UserAuthenticationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserAuthenticationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserAuthenticationStatus {
@@ -7190,6 +7285,11 @@ impl ::core::clone::Clone for UserPictureSize {
         *self
     }
 }
+impl ::core::fmt::Debug for UserPictureSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserPictureSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserPictureSize {
     type Abi = Self;
 }
@@ -7219,6 +7319,11 @@ impl ::core::marker::Copy for UserType {}
 impl ::core::clone::Clone for UserType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserType {
@@ -7444,6 +7549,11 @@ impl ::core::clone::Clone for UserWatcherStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for UserWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserWatcherStatus {
     type Abi = Self;
 }
@@ -7470,6 +7580,11 @@ impl ::core::marker::Copy for UserWatcherUpdateKind {}
 impl ::core::clone::Clone for UserWatcherUpdateKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserWatcherUpdateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserWatcherUpdateKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserWatcherUpdateKind {
@@ -7670,6 +7785,11 @@ impl ::core::clone::Clone for VirtualKey {
         *self
     }
 }
+impl ::core::fmt::Debug for VirtualKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VirtualKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VirtualKey {
     type Abi = Self;
 }
@@ -7699,6 +7819,11 @@ impl ::core::marker::Copy for VirtualKeyModifiers {}
 impl ::core::clone::Clone for VirtualKeyModifiers {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VirtualKeyModifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VirtualKeyModifiers").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VirtualKeyModifiers {

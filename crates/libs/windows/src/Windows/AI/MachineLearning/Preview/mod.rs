@@ -31,6 +31,12 @@ impl ::core::clone::Clone for FeatureElementKindPreview {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for FeatureElementKindPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FeatureElementKindPreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for FeatureElementKindPreview {
     type Abi = Self;
 }
@@ -1213,6 +1219,12 @@ impl ::core::clone::Clone for LearningModelDeviceKindPreview {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for LearningModelDeviceKindPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelDeviceKindPreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for LearningModelDeviceKindPreview {
     type Abi = Self;
 }
@@ -1350,6 +1362,12 @@ impl ::core::marker::Copy for LearningModelFeatureKindPreview {}
 impl ::core::clone::Clone for LearningModelFeatureKindPreview {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for LearningModelFeatureKindPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelFeatureKindPreview").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]

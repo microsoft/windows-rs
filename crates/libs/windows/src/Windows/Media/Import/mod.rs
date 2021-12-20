@@ -473,6 +473,11 @@ impl ::core::clone::Clone for PhotoImportAccessMode {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoImportAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportAccessMode {
     type Abi = Self;
 }
@@ -501,6 +506,11 @@ impl ::core::marker::Copy for PhotoImportConnectionTransport {}
 impl ::core::clone::Clone for PhotoImportConnectionTransport {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhotoImportConnectionTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportConnectionTransport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportConnectionTransport {
@@ -532,6 +542,11 @@ impl ::core::clone::Clone for PhotoImportContentType {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoImportContentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportContentType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportContentType {
     type Abi = Self;
 }
@@ -560,6 +575,11 @@ impl ::core::marker::Copy for PhotoImportContentTypeFilter {}
 impl ::core::clone::Clone for PhotoImportContentTypeFilter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportContentTypeFilter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportContentTypeFilter {
@@ -1277,6 +1297,11 @@ impl ::core::clone::Clone for PhotoImportImportMode {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoImportImportMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportImportMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportImportMode {
     type Abi = Self;
 }
@@ -1565,6 +1590,11 @@ impl ::core::clone::Clone for PhotoImportItemSelectionMode {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportItemSelectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportItemSelectionMode {
     type Abi = Self;
 }
@@ -1739,6 +1769,11 @@ impl ::core::marker::Copy for PhotoImportPowerSource {}
 impl ::core::clone::Clone for PhotoImportPowerSource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhotoImportPowerSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportPowerSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportPowerSource {
@@ -2418,6 +2453,11 @@ impl ::core::clone::Clone for PhotoImportSourceType {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoImportSourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSourceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportSourceType {
     type Abi = Self;
 }
@@ -2446,6 +2486,11 @@ impl ::core::marker::Copy for PhotoImportStage {}
 impl ::core::clone::Clone for PhotoImportStage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhotoImportStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportStage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportStage {
@@ -2606,6 +2651,11 @@ impl ::core::clone::Clone for PhotoImportStorageMediumType {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoImportStorageMediumType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportStorageMediumType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportStorageMediumType {
     type Abi = Self;
 }
@@ -2636,6 +2686,11 @@ impl ::core::clone::Clone for PhotoImportSubfolderCreationMode {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSubfolderCreationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportSubfolderCreationMode {
     type Abi = Self;
 }
@@ -2663,6 +2718,11 @@ impl ::core::marker::Copy for PhotoImportSubfolderDateFormat {}
 impl ::core::clone::Clone for PhotoImportSubfolderDateFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhotoImportSubfolderDateFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSubfolderDateFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportSubfolderDateFormat {

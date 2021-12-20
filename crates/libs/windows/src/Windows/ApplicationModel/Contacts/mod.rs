@@ -800,6 +800,11 @@ impl ::core::clone::Clone for ContactAddressKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactAddressKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAddressKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactAddressKind {
     type Abi = Self;
 }
@@ -1139,6 +1144,11 @@ impl ::core::clone::Clone for ContactAnnotationOperations {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactAnnotationOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAnnotationOperations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactAnnotationOperations {
     type Abi = Self;
 }
@@ -1316,6 +1326,11 @@ impl ::core::clone::Clone for ContactAnnotationStoreAccessType {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactAnnotationStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactAnnotationStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactAnnotationStoreAccessType {
     type Abi = Self;
 }
@@ -1428,6 +1443,11 @@ impl ::core::marker::Copy for ContactBatchStatus {}
 impl ::core::clone::Clone for ContactBatchStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactBatchStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactBatchStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactBatchStatus {
@@ -1562,6 +1582,11 @@ impl ::core::marker::Copy for ContactCardHeaderKind {}
 impl ::core::clone::Clone for ContactCardHeaderKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactCardHeaderKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactCardHeaderKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactCardHeaderKind {
@@ -1704,6 +1729,11 @@ impl ::core::marker::Copy for ContactCardTabKind {}
 impl ::core::clone::Clone for ContactCardTabKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactCardTabKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactCardTabKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactCardTabKind {
@@ -1999,6 +2029,11 @@ impl ::core::marker::Copy for ContactChangeType {}
 impl ::core::clone::Clone for ContactChangeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChangeType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactChangeType {
@@ -2426,6 +2461,11 @@ impl ::core::clone::Clone for ContactDateKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactDateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactDateKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactDateKind {
     type Abi = Self;
 }
@@ -2567,6 +2607,11 @@ impl ::core::marker::Copy for ContactEmailKind {}
 impl ::core::clone::Clone for ContactEmailKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactEmailKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactEmailKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactEmailKind {
@@ -2746,6 +2791,11 @@ impl ::core::marker::Copy for ContactFieldCategory {}
 impl ::core::clone::Clone for ContactFieldCategory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactFieldCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactFieldCategory").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactFieldCategory {
@@ -2998,6 +3048,11 @@ impl ::core::marker::Copy for ContactFieldType {}
 impl ::core::clone::Clone for ContactFieldType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactFieldType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactFieldType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactFieldType {
@@ -4028,6 +4083,11 @@ impl ::core::clone::Clone for ContactListOtherAppReadAccess {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactListOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactListOtherAppReadAccess {
     type Abi = Self;
 }
@@ -4055,6 +4115,11 @@ impl ::core::marker::Copy for ContactListOtherAppWriteAccess {}
 impl ::core::clone::Clone for ContactListOtherAppWriteAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactListOtherAppWriteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListOtherAppWriteAccess").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactListOtherAppWriteAccess {
@@ -4711,6 +4776,11 @@ impl ::core::clone::Clone for ContactListSyncStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactListSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListSyncStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactListSyncStatus {
     type Abi = Self;
 }
@@ -5363,6 +5433,11 @@ impl ::core::clone::Clone for ContactMatchReasonKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactMatchReasonKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactMatchReasonKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactMatchReasonKind {
     type Abi = Self;
 }
@@ -5389,6 +5464,11 @@ impl ::core::marker::Copy for ContactNameOrder {}
 impl ::core::clone::Clone for ContactNameOrder {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactNameOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactNameOrder").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactNameOrder {
@@ -5817,6 +5897,11 @@ impl ::core::clone::Clone for ContactPhoneKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactPhoneKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPhoneKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactPhoneKind {
     type Abi = Self;
 }
@@ -6030,6 +6115,11 @@ impl ::core::clone::Clone for ContactQueryDesiredFields {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactQueryDesiredFields {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQueryDesiredFields").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactQueryDesiredFields {
     type Abi = Self;
 }
@@ -6220,6 +6310,11 @@ impl ::core::clone::Clone for ContactQuerySearchFields {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactQuerySearchFields {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQuerySearchFields").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactQuerySearchFields {
     type Abi = Self;
 }
@@ -6246,6 +6341,11 @@ impl ::core::marker::Copy for ContactQuerySearchScope {}
 impl ::core::clone::Clone for ContactQuerySearchScope {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactQuerySearchScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQuerySearchScope").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactQuerySearchScope {
@@ -6473,6 +6573,11 @@ impl ::core::clone::Clone for ContactRelationship {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactRelationship {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactRelationship").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactRelationship {
     type Abi = Self;
 }
@@ -6499,6 +6604,11 @@ impl ::core::marker::Copy for ContactSelectionMode {}
 impl ::core::clone::Clone for ContactSelectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactSelectionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactSelectionMode {
@@ -6837,6 +6947,11 @@ impl ::core::marker::Copy for ContactStoreAccessType {}
 impl ::core::clone::Clone for ContactStoreAccessType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStoreAccessType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactStoreAccessType {
@@ -9671,6 +9786,11 @@ impl ::core::marker::Copy for PinnedContactSurface {}
 impl ::core::clone::Clone for PinnedContactSurface {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PinnedContactSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PinnedContactSurface").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PinnedContactSurface {

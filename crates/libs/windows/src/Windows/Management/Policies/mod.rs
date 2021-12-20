@@ -270,6 +270,11 @@ impl ::core::clone::Clone for NamedPolicyKind {
         *self
     }
 }
+impl ::core::fmt::Debug for NamedPolicyKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NamedPolicyKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NamedPolicyKind {
     type Abi = Self;
 }

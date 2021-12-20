@@ -18,6 +18,11 @@ impl ::core::clone::Clone for AudioRoutingEndpoint {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioRoutingEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioRoutingEndpoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioRoutingEndpoint {
     type Abi = Self;
 }
@@ -162,6 +167,11 @@ impl ::core::marker::Copy for AvailableAudioRoutingEndpoints {}
 impl ::core::clone::Clone for AvailableAudioRoutingEndpoints {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AvailableAudioRoutingEndpoints {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AvailableAudioRoutingEndpoints").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AvailableAudioRoutingEndpoints {

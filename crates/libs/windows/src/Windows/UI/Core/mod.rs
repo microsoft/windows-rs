@@ -153,6 +153,11 @@ impl ::core::clone::Clone for AppViewBackButtonVisibility {
         *self
     }
 }
+impl ::core::fmt::Debug for AppViewBackButtonVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppViewBackButtonVisibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppViewBackButtonVisibility {
     type Abi = Self;
 }
@@ -597,6 +602,11 @@ impl ::core::marker::Copy for CoreAcceleratorKeyEventType {}
 impl ::core::clone::Clone for CoreAcceleratorKeyEventType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreAcceleratorKeyEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreAcceleratorKeyEventType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreAcceleratorKeyEventType {
@@ -1296,6 +1306,11 @@ impl ::core::clone::Clone for CoreCursorType {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreCursorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreCursorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreCursorType {
     type Abi = Self;
 }
@@ -1514,6 +1529,11 @@ impl ::core::clone::Clone for CoreDispatcherPriority {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreDispatcherPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDispatcherPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreDispatcherPriority {
     type Abi = Self;
 }
@@ -1544,6 +1564,11 @@ impl ::core::marker::Copy for CoreIndependentInputFilters {}
 impl ::core::clone::Clone for CoreIndependentInputFilters {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreIndependentInputFilters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreIndependentInputFilters").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreIndependentInputFilters {
@@ -2132,6 +2157,11 @@ impl ::core::clone::Clone for CoreInputDeviceTypes {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreInputDeviceTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputDeviceTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreInputDeviceTypes {
     type Abi = Self;
 }
@@ -2201,6 +2231,11 @@ impl ::core::marker::Copy for CoreProcessEventsOption {}
 impl ::core::clone::Clone for CoreProcessEventsOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreProcessEventsOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreProcessEventsOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreProcessEventsOption {
@@ -2278,6 +2313,11 @@ impl ::core::clone::Clone for CoreProximityEvaluationScore {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreProximityEvaluationScore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreProximityEvaluationScore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreProximityEvaluationScore {
     type Abi = Self;
 }
@@ -2305,6 +2345,11 @@ impl ::core::marker::Copy for CoreVirtualKeyStates {}
 impl ::core::clone::Clone for CoreVirtualKeyStates {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreVirtualKeyStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreVirtualKeyStates").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreVirtualKeyStates {
@@ -2971,6 +3016,11 @@ impl ::core::clone::Clone for CoreWindowActivationMode {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreWindowActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWindowActivationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreWindowActivationMode {
     type Abi = Self;
 }
@@ -2998,6 +3048,11 @@ impl ::core::marker::Copy for CoreWindowActivationState {}
 impl ::core::clone::Clone for CoreWindowActivationState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreWindowActivationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWindowActivationState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreWindowActivationState {
@@ -3330,6 +3385,11 @@ impl ::core::marker::Copy for CoreWindowFlowDirection {}
 impl ::core::clone::Clone for CoreWindowFlowDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CoreWindowFlowDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWindowFlowDirection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CoreWindowFlowDirection {

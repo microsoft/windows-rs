@@ -266,6 +266,11 @@ impl ::core::clone::Clone for InjectedInputButtonChangeKind {
         *self
     }
 }
+impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputButtonChangeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputButtonChangeKind {
     type Abi = Self;
 }
@@ -474,6 +479,11 @@ impl ::core::marker::Copy for InjectedInputKeyOptions {}
 impl ::core::clone::Clone for InjectedInputKeyOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputKeyOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputKeyOptions {
@@ -767,6 +777,11 @@ impl ::core::clone::Clone for InjectedInputMouseOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for InjectedInputMouseOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputMouseOptions {
     type Abi = Self;
 }
@@ -795,6 +810,11 @@ impl ::core::marker::Copy for InjectedInputPenButtons {}
 impl ::core::clone::Clone for InjectedInputPenButtons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputPenButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputPenButtons {
@@ -992,6 +1012,11 @@ impl ::core::clone::Clone for InjectedInputPenParameters {
         *self
     }
 }
+impl ::core::fmt::Debug for InjectedInputPenParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputPenParameters {
     type Abi = Self;
 }
@@ -1108,6 +1133,11 @@ impl ::core::clone::Clone for InjectedInputPointerOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for InjectedInputPointerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputPointerOptions {
     type Abi = Self;
 }
@@ -1174,6 +1204,11 @@ impl ::core::marker::Copy for InjectedInputShortcut {}
 impl ::core::clone::Clone for InjectedInputShortcut {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputShortcut {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputShortcut").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputShortcut {
@@ -1344,6 +1379,11 @@ impl ::core::clone::Clone for InjectedInputTouchParameters {
         *self
     }
 }
+impl ::core::fmt::Debug for InjectedInputTouchParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputTouchParameters {
     type Abi = Self;
 }
@@ -1371,6 +1411,11 @@ impl ::core::marker::Copy for InjectedInputVisualizationMode {}
 impl ::core::clone::Clone for InjectedInputVisualizationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputVisualizationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputVisualizationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputVisualizationMode {

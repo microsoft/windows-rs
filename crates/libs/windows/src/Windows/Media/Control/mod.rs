@@ -951,6 +951,11 @@ impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackS
         *self
     }
 }
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type Abi = Self;
 }

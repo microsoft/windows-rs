@@ -519,6 +519,11 @@ impl ::core::clone::Clone for ClipboardHistoryItemsResultStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for ClipboardHistoryItemsResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClipboardHistoryItemsResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ClipboardHistoryItemsResultStatus {
     type Abi = Self;
 }
@@ -781,6 +786,11 @@ impl ::core::marker::Copy for DataPackageOperation {}
 impl ::core::clone::Clone for DataPackageOperation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DataPackageOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPackageOperation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DataPackageOperation {
@@ -3544,6 +3554,11 @@ impl ::core::clone::Clone for SetHistoryItemAsContentStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SetHistoryItemAsContentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetHistoryItemAsContentStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SetHistoryItemAsContentStatus {
     type Abi = Self;
 }
@@ -4207,6 +4222,11 @@ impl ::core::marker::Copy for ShareUITheme {}
 impl ::core::clone::Clone for ShareUITheme {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ShareUITheme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareUITheme").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ShareUITheme {

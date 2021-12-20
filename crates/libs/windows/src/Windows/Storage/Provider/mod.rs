@@ -14,6 +14,11 @@ impl ::core::clone::Clone for CachedFileOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for CachedFileOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CachedFileOptions {
     type Abi = Self;
 }
@@ -40,6 +45,11 @@ impl ::core::marker::Copy for CachedFileTarget {}
 impl ::core::clone::Clone for CachedFileTarget {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CachedFileTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileTarget").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CachedFileTarget {
@@ -495,6 +505,11 @@ impl ::core::marker::Copy for FileUpdateStatus {}
 impl ::core::clone::Clone for FileUpdateStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FileUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FileUpdateStatus {
@@ -1505,6 +1520,11 @@ impl ::core::clone::Clone for ReadActivationMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ReadActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReadActivationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ReadActivationMode {
     type Abi = Self;
 }
@@ -2098,6 +2118,11 @@ impl ::core::clone::Clone for StorageProviderHardlinkPolicy {
         *self
     }
 }
+impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHardlinkPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StorageProviderHardlinkPolicy {
     type Abi = Self;
 }
@@ -2126,6 +2151,11 @@ impl ::core::marker::Copy for StorageProviderHydrationPolicy {}
 impl ::core::clone::Clone for StorageProviderHydrationPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHydrationPolicy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicy {
@@ -2157,6 +2187,11 @@ impl ::core::marker::Copy for StorageProviderHydrationPolicyModifier {}
 impl ::core::clone::Clone for StorageProviderHydrationPolicyModifier {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHydrationPolicyModifier").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicyModifier {
@@ -2195,6 +2230,11 @@ impl ::core::marker::Copy for StorageProviderInSyncPolicy {}
 impl ::core::clone::Clone for StorageProviderInSyncPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderInSyncPolicy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderInSyncPolicy {
@@ -2460,6 +2500,11 @@ impl ::core::clone::Clone for StorageProviderPopulationPolicy {
         *self
     }
 }
+impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderPopulationPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StorageProviderPopulationPolicy {
     type Abi = Self;
 }
@@ -2486,6 +2531,11 @@ impl ::core::marker::Copy for StorageProviderProtectionMode {}
 impl ::core::clone::Clone for StorageProviderProtectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorageProviderProtectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderProtectionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderProtectionMode {
@@ -2518,6 +2568,11 @@ impl ::core::marker::Copy for StorageProviderState {}
 impl ::core::clone::Clone for StorageProviderState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorageProviderState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderState {
@@ -3021,6 +3076,11 @@ impl ::core::clone::Clone for StorageProviderUriSourceStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for StorageProviderUriSourceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderUriSourceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StorageProviderUriSourceStatus {
     type Abi = Self;
 }
@@ -3051,6 +3111,11 @@ impl ::core::clone::Clone for UIStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for UIStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UIStatus {
     type Abi = Self;
 }
@@ -3078,6 +3143,11 @@ impl ::core::marker::Copy for WriteActivationMode {}
 impl ::core::clone::Clone for WriteActivationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WriteActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WriteActivationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WriteActivationMode {

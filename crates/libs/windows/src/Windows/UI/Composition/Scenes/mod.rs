@@ -604,6 +604,11 @@ impl ::core::clone::Clone for SceneAlphaMode {
         *self
     }
 }
+impl ::core::fmt::Debug for SceneAlphaMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAlphaMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SceneAlphaMode {
     type Abi = Self;
 }
@@ -635,6 +640,11 @@ impl ::core::marker::Copy for SceneAttributeSemantic {}
 impl ::core::clone::Clone for SceneAttributeSemantic {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SceneAttributeSemantic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAttributeSemantic").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SceneAttributeSemantic {
@@ -1674,6 +1684,11 @@ impl ::core::marker::Copy for SceneComponentType {}
 impl ::core::clone::Clone for SceneComponentType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SceneComponentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneComponentType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SceneComponentType {
@@ -6699,6 +6714,11 @@ impl ::core::marker::Copy for SceneWrappingMode {}
 impl ::core::clone::Clone for SceneWrappingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SceneWrappingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneWrappingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SceneWrappingMode {

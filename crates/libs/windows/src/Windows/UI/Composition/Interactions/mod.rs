@@ -1629,6 +1629,11 @@ impl ::core::clone::Clone for InteractionBindingAxisModes {
         *self
     }
 }
+impl ::core::fmt::Debug for InteractionBindingAxisModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionBindingAxisModes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InteractionBindingAxisModes {
     type Abi = Self;
 }
@@ -1656,6 +1661,11 @@ impl ::core::marker::Copy for InteractionChainingMode {}
 impl ::core::clone::Clone for InteractionChainingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InteractionChainingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionChainingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InteractionChainingMode {
@@ -1961,6 +1971,11 @@ impl ::core::clone::Clone for InteractionSourceMode {
         *self
     }
 }
+impl ::core::fmt::Debug for InteractionSourceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionSourceMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InteractionSourceMode {
     type Abi = Self;
 }
@@ -1987,6 +2002,11 @@ impl ::core::marker::Copy for InteractionSourceRedirectionMode {}
 impl ::core::clone::Clone for InteractionSourceRedirectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionSourceRedirectionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InteractionSourceRedirectionMode {
@@ -2589,6 +2609,11 @@ impl ::core::marker::Copy for InteractionTrackerClampingOption {}
 impl ::core::clone::Clone for InteractionTrackerClampingOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InteractionTrackerClampingOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerClampingOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InteractionTrackerClampingOption {
@@ -4129,6 +4154,11 @@ impl ::core::clone::Clone for InteractionTrackerPositionUpdateOption {
         *self
     }
 }
+impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerPositionUpdateOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InteractionTrackerPositionUpdateOption {
     type Abi = Self;
 }
@@ -5355,6 +5385,11 @@ impl ::core::marker::Copy for VisualInteractionSourceRedirectionMode {}
 impl ::core::clone::Clone for VisualInteractionSourceRedirectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VisualInteractionSourceRedirectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualInteractionSourceRedirectionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VisualInteractionSourceRedirectionMode {

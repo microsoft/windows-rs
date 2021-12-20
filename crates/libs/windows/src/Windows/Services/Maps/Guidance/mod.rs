@@ -13,6 +13,11 @@ impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
         *self
     }
 }
+impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioMeasurementSystem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GuidanceAudioMeasurementSystem {
     type Abi = Self;
 }
@@ -43,6 +48,11 @@ impl ::core::marker::Copy for GuidanceAudioNotificationKind {}
 impl ::core::clone::Clone for GuidanceAudioNotificationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotificationKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GuidanceAudioNotificationKind {
@@ -171,6 +181,11 @@ impl ::core::clone::Clone for GuidanceAudioNotifications {
         *self
     }
 }
+impl ::core::fmt::Debug for GuidanceAudioNotifications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GuidanceAudioNotifications {
     type Abi = Self;
 }
@@ -290,6 +305,11 @@ impl ::core::marker::Copy for GuidanceLaneMarkers {}
 impl ::core::clone::Clone for GuidanceLaneMarkers {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GuidanceLaneMarkers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GuidanceLaneMarkers {
@@ -531,6 +551,11 @@ impl ::core::clone::Clone for GuidanceManeuverKind {
         *self
     }
 }
+impl ::core::fmt::Debug for GuidanceManeuverKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceManeuverKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GuidanceManeuverKind {
     type Abi = Self;
 }
@@ -668,6 +693,11 @@ impl ::core::marker::Copy for GuidanceMode {}
 impl ::core::clone::Clone for GuidanceMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GuidanceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GuidanceMode {

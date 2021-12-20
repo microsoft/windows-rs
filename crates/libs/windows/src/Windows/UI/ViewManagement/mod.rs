@@ -685,6 +685,11 @@ impl ::core::clone::Clone for ApplicationViewBoundsMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ApplicationViewBoundsMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewBoundsMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationViewBoundsMode {
     type Abi = Self;
 }
@@ -797,6 +802,11 @@ impl ::core::clone::Clone for ApplicationViewMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ApplicationViewMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationViewMode {
     type Abi = Self;
 }
@@ -823,6 +833,11 @@ impl ::core::marker::Copy for ApplicationViewOrientation {}
 impl ::core::clone::Clone for ApplicationViewOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ApplicationViewOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewOrientation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationViewOrientation {
@@ -942,6 +957,12 @@ impl ::core::marker::Copy for ApplicationViewState {}
 impl ::core::clone::Clone for ApplicationViewState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for ApplicationViewState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewState").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1078,6 +1099,11 @@ impl ::core::marker::Copy for ApplicationViewSwitchingOptions {}
 impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ApplicationViewSwitchingOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewSwitchingOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationViewSwitchingOptions {
@@ -1457,6 +1483,11 @@ impl ::core::clone::Clone for ApplicationViewWindowingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ApplicationViewWindowingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewWindowingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationViewWindowingMode {
     type Abi = Self;
 }
@@ -1485,6 +1516,11 @@ impl ::core::clone::Clone for FullScreenSystemOverlayMode {
         *self
     }
 }
+impl ::core::fmt::Debug for FullScreenSystemOverlayMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullScreenSystemOverlayMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FullScreenSystemOverlayMode {
     type Abi = Self;
 }
@@ -1511,6 +1547,11 @@ impl ::core::marker::Copy for HandPreference {}
 impl ::core::clone::Clone for HandPreference {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HandPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandPreference").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HandPreference {
@@ -3314,6 +3355,11 @@ impl ::core::clone::Clone for UIColorType {
         *self
     }
 }
+impl ::core::fmt::Debug for UIColorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIColorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UIColorType {
     type Abi = Self;
 }
@@ -3364,6 +3410,11 @@ impl ::core::marker::Copy for UIElementType {}
 impl ::core::clone::Clone for UIElementType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UIElementType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIElementType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UIElementType {
@@ -3988,6 +4039,11 @@ impl ::core::clone::Clone for UserInteractionMode {
         *self
     }
 }
+impl ::core::fmt::Debug for UserInteractionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserInteractionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserInteractionMode {
     type Abi = Self;
 }
@@ -4125,6 +4181,11 @@ impl ::core::marker::Copy for ViewSizePreference {}
 impl ::core::clone::Clone for ViewSizePreference {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ViewSizePreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ViewSizePreference").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ViewSizePreference {

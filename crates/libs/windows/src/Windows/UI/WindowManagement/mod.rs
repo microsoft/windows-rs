@@ -612,6 +612,11 @@ impl ::core::clone::Clone for AppWindowClosedReason {
         *self
     }
 }
+impl ::core::fmt::Debug for AppWindowClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppWindowClosedReason {
     type Abi = Self;
 }
@@ -728,6 +733,11 @@ impl ::core::marker::Copy for AppWindowFrameStyle {}
 impl ::core::clone::Clone for AppWindowFrameStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppWindowFrameStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowFrameStyle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppWindowFrameStyle {
@@ -927,6 +937,11 @@ impl ::core::marker::Copy for AppWindowPresentationKind {}
 impl ::core::clone::Clone for AppWindowPresentationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppWindowPresentationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowPresentationKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppWindowPresentationKind {
@@ -1423,6 +1438,11 @@ impl ::core::marker::Copy for AppWindowTitleBarVisibility {}
 impl ::core::clone::Clone for AppWindowTitleBarVisibility {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppWindowTitleBarVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowTitleBarVisibility").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppWindowTitleBarVisibility {
@@ -2759,6 +2779,11 @@ impl ::core::marker::Copy for WindowingEnvironmentKind {}
 impl ::core::clone::Clone for WindowingEnvironmentKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WindowingEnvironmentKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowingEnvironmentKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WindowingEnvironmentKind {

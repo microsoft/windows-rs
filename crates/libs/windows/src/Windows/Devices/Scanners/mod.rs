@@ -901,6 +901,11 @@ impl ::core::clone::Clone for ImageScannerAutoCroppingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ImageScannerAutoCroppingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerAutoCroppingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ImageScannerAutoCroppingMode {
     type Abi = Self;
 }
@@ -929,6 +934,11 @@ impl ::core::marker::Copy for ImageScannerColorMode {}
 impl ::core::clone::Clone for ImageScannerColorMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ImageScannerColorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerColorMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ImageScannerColorMode {
@@ -1806,6 +1816,11 @@ impl ::core::clone::Clone for ImageScannerFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for ImageScannerFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ImageScannerFormat {
     type Abi = Self;
 }
@@ -2032,6 +2047,11 @@ impl ::core::marker::Copy for ImageScannerScanSource {}
 impl ::core::clone::Clone for ImageScannerScanSource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ImageScannerScanSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerScanSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ImageScannerScanSource {

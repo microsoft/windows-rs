@@ -1418,6 +1418,11 @@ impl ::core::clone::Clone for StoreCanLicenseStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for StoreCanLicenseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreCanLicenseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StoreCanLicenseStatus {
     type Abi = Self;
 }
@@ -1682,6 +1687,11 @@ impl ::core::marker::Copy for StoreConsumableStatus {}
 impl ::core::clone::Clone for StoreConsumableStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StoreConsumableStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreConsumableStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StoreConsumableStatus {
@@ -2140,6 +2150,11 @@ impl ::core::marker::Copy for StoreDurationUnit {}
 impl ::core::clone::Clone for StoreDurationUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StoreDurationUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreDurationUnit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StoreDurationUnit {
@@ -2797,6 +2812,11 @@ impl ::core::marker::Copy for StorePackageUpdateState {}
 impl ::core::clone::Clone for StorePackageUpdateState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorePackageUpdateState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePackageUpdateState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorePackageUpdateState {
@@ -3766,6 +3786,11 @@ impl ::core::clone::Clone for StorePurchaseStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for StorePurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePurchaseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StorePurchaseStatus {
     type Abi = Self;
 }
@@ -4040,6 +4065,11 @@ impl ::core::clone::Clone for StoreQueueItemExtendedState {
         *self
     }
 }
+impl ::core::fmt::Debug for StoreQueueItemExtendedState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemExtendedState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StoreQueueItemExtendedState {
     type Abi = Self;
 }
@@ -4067,6 +4097,11 @@ impl ::core::marker::Copy for StoreQueueItemKind {}
 impl ::core::clone::Clone for StoreQueueItemKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StoreQueueItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StoreQueueItemKind {
@@ -4098,6 +4133,11 @@ impl ::core::marker::Copy for StoreQueueItemState {}
 impl ::core::clone::Clone for StoreQueueItemState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StoreQueueItemState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StoreQueueItemState {
@@ -4328,6 +4368,11 @@ impl ::core::marker::Copy for StoreRateAndReviewStatus {}
 impl ::core::clone::Clone for StoreRateAndReviewStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StoreRateAndReviewStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreRateAndReviewStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StoreRateAndReviewStatus {
@@ -4891,6 +4936,11 @@ impl ::core::marker::Copy for StoreUninstallStorePackageStatus {}
 impl ::core::clone::Clone for StoreUninstallStorePackageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StoreUninstallStorePackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreUninstallStorePackageStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StoreUninstallStorePackageStatus {

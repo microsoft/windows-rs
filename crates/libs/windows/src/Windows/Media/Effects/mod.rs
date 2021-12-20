@@ -325,6 +325,11 @@ impl ::core::clone::Clone for AudioEffectType {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioEffectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEffectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioEffectType {
     type Abi = Self;
 }
@@ -1691,6 +1696,11 @@ impl ::core::clone::Clone for MediaEffectClosedReason {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaEffectClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaEffectClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaEffectClosedReason {
     type Abi = Self;
 }
@@ -1718,6 +1728,11 @@ impl ::core::marker::Copy for MediaMemoryTypes {}
 impl ::core::clone::Clone for MediaMemoryTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaMemoryTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaMemoryTypes").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaMemoryTypes {

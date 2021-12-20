@@ -715,6 +715,11 @@ impl ::core::clone::Clone for PdfPageRotation {
         *self
     }
 }
+impl ::core::fmt::Debug for PdfPageRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdfPageRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PdfPageRotation {
     type Abi = Self;
 }

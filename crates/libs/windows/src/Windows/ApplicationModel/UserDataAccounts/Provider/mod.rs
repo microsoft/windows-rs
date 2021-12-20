@@ -386,6 +386,11 @@ impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataAccountProviderOperationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountProviderOperationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataAccountProviderOperationKind {
     type Abi = Self;
 }
@@ -412,6 +417,11 @@ impl ::core::marker::Copy for UserDataAccountProviderPartnerAccountKind {}
 impl ::core::clone::Clone for UserDataAccountProviderPartnerAccountKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataAccountProviderPartnerAccountKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountProviderPartnerAccountKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataAccountProviderPartnerAccountKind {

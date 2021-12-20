@@ -324,6 +324,11 @@ impl ::core::clone::Clone for Capi1KdfTargetAlgorithm {
         *self
     }
 }
+impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Capi1KdfTargetAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Capi1KdfTargetAlgorithm {
     type Abi = Self;
 }
@@ -662,6 +667,11 @@ impl ::core::clone::Clone for CryptographicPadding {
         *self
     }
 }
+impl ::core::fmt::Debug for CryptographicPadding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPadding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CryptographicPadding {
     type Abi = Self;
 }
@@ -693,6 +703,11 @@ impl ::core::clone::Clone for CryptographicPrivateKeyBlobType {
         *self
     }
 }
+impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPrivateKeyBlobType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CryptographicPrivateKeyBlobType {
     type Abi = Self;
 }
@@ -722,6 +737,11 @@ impl ::core::marker::Copy for CryptographicPublicKeyBlobType {}
 impl ::core::clone::Clone for CryptographicPublicKeyBlobType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPublicKeyBlobType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CryptographicPublicKeyBlobType {

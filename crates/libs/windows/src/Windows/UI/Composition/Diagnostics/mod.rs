@@ -107,6 +107,11 @@ impl ::core::clone::Clone for CompositionDebugOverdrawContentKinds {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionDebugOverdrawContentKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionDebugOverdrawContentKinds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionDebugOverdrawContentKinds {
     type Abi = Self;
 }

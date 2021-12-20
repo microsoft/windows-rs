@@ -18,6 +18,11 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
         *self
     }
 }
+impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeliveryOptimizationDownloadMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadMode {
     type Abi = Self;
 }
@@ -44,6 +49,11 @@ impl ::core::marker::Copy for DeliveryOptimizationDownloadModeSource {}
 impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeliveryOptimizationDownloadModeSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadModeSource {
@@ -778,6 +788,11 @@ impl ::core::clone::Clone for StoreLogOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for StoreLogOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreLogOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StoreLogOptions {
     type Abi = Self;
 }
@@ -943,6 +958,11 @@ impl ::core::marker::Copy for StorePreviewProductPurchaseStatus {}
 impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePreviewProductPurchaseStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorePreviewProductPurchaseStatus {
@@ -1220,6 +1240,11 @@ impl ::core::marker::Copy for StoreSystemFeature {}
 impl ::core::clone::Clone for StoreSystemFeature {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StoreSystemFeature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreSystemFeature").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StoreSystemFeature {

@@ -22,6 +22,11 @@ impl ::core::clone::Clone for AudioRenderCategory {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioRenderCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioRenderCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioRenderCategory {
     type Abi = Self;
 }

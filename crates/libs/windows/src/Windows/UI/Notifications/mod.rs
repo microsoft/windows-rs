@@ -13,6 +13,11 @@ impl ::core::clone::Clone for AdaptiveNotificationContentKind {
         *self
     }
 }
+impl ::core::fmt::Debug for AdaptiveNotificationContentKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveNotificationContentKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AdaptiveNotificationContentKind {
     type Abi = Self;
 }
@@ -284,6 +289,11 @@ impl ::core::marker::Copy for BadgeTemplateType {}
 impl ::core::clone::Clone for BadgeTemplateType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BadgeTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeTemplateType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BadgeTemplateType {
@@ -2612,6 +2622,11 @@ impl ::core::clone::Clone for NotificationKinds {
         *self
     }
 }
+impl ::core::fmt::Debug for NotificationKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationKinds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NotificationKinds {
     type Abi = Self;
 }
@@ -2638,6 +2653,11 @@ impl ::core::marker::Copy for NotificationMirroring {}
 impl ::core::clone::Clone for NotificationMirroring {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NotificationMirroring {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationMirroring").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NotificationMirroring {
@@ -2671,6 +2691,11 @@ impl ::core::clone::Clone for NotificationSetting {
         *self
     }
 }
+impl ::core::fmt::Debug for NotificationSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationSetting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NotificationSetting {
     type Abi = Self;
 }
@@ -2698,6 +2723,11 @@ impl ::core::marker::Copy for NotificationUpdateResult {}
 impl ::core::clone::Clone for NotificationUpdateResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NotificationUpdateResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationUpdateResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NotificationUpdateResult {
@@ -2827,6 +2857,11 @@ impl ::core::marker::Copy for PeriodicUpdateRecurrence {}
 impl ::core::clone::Clone for PeriodicUpdateRecurrence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PeriodicUpdateRecurrence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeriodicUpdateRecurrence").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PeriodicUpdateRecurrence {
@@ -3492,6 +3527,11 @@ impl ::core::clone::Clone for TileFlyoutTemplateType {
         *self
     }
 }
+impl ::core::fmt::Debug for TileFlyoutTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileFlyoutTemplateType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TileFlyoutTemplateType {
     type Abi = Self;
 }
@@ -3902,6 +3942,11 @@ impl ::core::marker::Copy for TileTemplateType {}
 impl ::core::clone::Clone for TileTemplateType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TileTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileTemplateType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TileTemplateType {
@@ -4585,6 +4630,11 @@ impl ::core::clone::Clone for ToastDismissalReason {
         *self
     }
 }
+impl ::core::fmt::Debug for ToastDismissalReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastDismissalReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ToastDismissalReason {
     type Abi = Self;
 }
@@ -4765,6 +4815,11 @@ impl ::core::marker::Copy for ToastHistoryChangedType {}
 impl ::core::clone::Clone for ToastHistoryChangedType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ToastHistoryChangedType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastHistoryChangedType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ToastHistoryChangedType {
@@ -5543,6 +5598,11 @@ impl ::core::clone::Clone for ToastNotificationPriority {
         *self
     }
 }
+impl ::core::fmt::Debug for ToastNotificationPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ToastNotificationPriority {
     type Abi = Self;
 }
@@ -5711,6 +5771,11 @@ impl ::core::marker::Copy for ToastTemplateType {}
 impl ::core::clone::Clone for ToastTemplateType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ToastTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastTemplateType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ToastTemplateType {
@@ -5925,6 +5990,11 @@ impl ::core::marker::Copy for UserNotificationChangedKind {}
 impl ::core::clone::Clone for UserNotificationChangedKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserNotificationChangedKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserNotificationChangedKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserNotificationChangedKind {

@@ -14,6 +14,11 @@ impl ::core::clone::Clone for AutoLoadedDisplayPropertyKind {
         *self
     }
 }
+impl ::core::fmt::Debug for AutoLoadedDisplayPropertyKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoLoadedDisplayPropertyKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutoLoadedDisplayPropertyKind {
     type Abi = Self;
 }
@@ -206,6 +211,11 @@ impl ::core::marker::Copy for FailedMediaStreamKind {}
 impl ::core::clone::Clone for FailedMediaStreamKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FailedMediaStreamKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FailedMediaStreamKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FailedMediaStreamKind {
@@ -2272,6 +2282,11 @@ impl ::core::clone::Clone for MediaBreakInsertionMethod {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaBreakInsertionMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreakInsertionMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaBreakInsertionMethod {
     type Abi = Self;
 }
@@ -2836,6 +2851,11 @@ impl ::core::marker::Copy for MediaCommandEnablingRule {}
 impl ::core::clone::Clone for MediaCommandEnablingRule {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaCommandEnablingRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCommandEnablingRule").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaCommandEnablingRule {
@@ -4908,6 +4928,11 @@ impl ::core::clone::Clone for MediaPlaybackItemChangedReason {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaPlaybackItemChangedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackItemChangedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlaybackItemChangedReason {
     type Abi = Self;
 }
@@ -5022,6 +5047,11 @@ impl ::core::marker::Copy for MediaPlaybackItemErrorCode {}
 impl ::core::clone::Clone for MediaPlaybackItemErrorCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaPlaybackItemErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackItemErrorCode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlaybackItemErrorCode {
@@ -6140,6 +6170,11 @@ impl ::core::clone::Clone for MediaPlaybackSessionVideoConstrictionReason {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaPlaybackSessionVideoConstrictionReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackSessionVideoConstrictionReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlaybackSessionVideoConstrictionReason {
     type Abi = Self;
 }
@@ -6306,6 +6341,11 @@ impl ::core::marker::Copy for MediaPlaybackState {}
 impl ::core::clone::Clone for MediaPlaybackState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaPlaybackState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlaybackState {
@@ -7599,6 +7639,11 @@ impl ::core::clone::Clone for MediaPlayerAudioCategory {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaPlayerAudioCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerAudioCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlayerAudioCategory {
     type Abi = Self;
 }
@@ -7626,6 +7671,11 @@ impl ::core::marker::Copy for MediaPlayerAudioDeviceType {}
 impl ::core::clone::Clone for MediaPlayerAudioDeviceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaPlayerAudioDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerAudioDeviceType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlayerAudioDeviceType {
@@ -7734,6 +7784,11 @@ impl ::core::marker::Copy for MediaPlayerError {}
 impl ::core::clone::Clone for MediaPlayerError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaPlayerError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerError").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlayerError {
@@ -7938,6 +7993,12 @@ impl ::core::marker::Copy for MediaPlayerState {}
 impl ::core::clone::Clone for MediaPlayerState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for MediaPlayerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerState").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -8426,6 +8487,11 @@ impl ::core::clone::Clone for SphericalVideoProjectionMode {
         *self
     }
 }
+impl ::core::fmt::Debug for SphericalVideoProjectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SphericalVideoProjectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SphericalVideoProjectionMode {
     type Abi = Self;
 }
@@ -8452,6 +8518,11 @@ impl ::core::marker::Copy for StereoscopicVideoRenderMode {}
 impl ::core::clone::Clone for StereoscopicVideoRenderMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StereoscopicVideoRenderMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StereoscopicVideoRenderMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StereoscopicVideoRenderMode {
@@ -8575,6 +8646,11 @@ impl ::core::marker::Copy for TimedMetadataTrackPresentationMode {}
 impl ::core::clone::Clone for TimedMetadataTrackPresentationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedMetadataTrackPresentationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataTrackPresentationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedMetadataTrackPresentationMode {

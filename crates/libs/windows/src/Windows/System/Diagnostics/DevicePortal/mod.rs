@@ -248,6 +248,11 @@ impl ::core::clone::Clone for DevicePortalConnectionClosedReason {
         *self
     }
 }
+impl ::core::fmt::Debug for DevicePortalConnectionClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePortalConnectionClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DevicePortalConnectionClosedReason {
     type Abi = Self;
 }

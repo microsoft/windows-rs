@@ -54,6 +54,11 @@ impl ::core::clone::Clone for ActivationKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ActivationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ActivationKind {
     type Abi = Self;
 }
@@ -83,6 +88,11 @@ impl ::core::marker::Copy for ApplicationExecutionState {}
 impl ::core::clone::Clone for ApplicationExecutionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ApplicationExecutionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationExecutionState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationExecutionState {

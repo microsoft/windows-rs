@@ -164,6 +164,11 @@ impl ::core::clone::Clone for DisplayBitsPerChannel {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayBitsPerChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBitsPerChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayBitsPerChannel {
     type Abi = Self;
 }
@@ -320,6 +325,11 @@ impl ::core::marker::Copy for DisplayDeviceCapability {}
 impl ::core::clone::Clone for DisplayDeviceCapability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayDeviceCapability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayDeviceCapability").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayDeviceCapability {
@@ -944,6 +954,11 @@ impl ::core::clone::Clone for DisplayManagerOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayManagerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayManagerOptions {
     type Abi = Self;
 }
@@ -1063,6 +1078,11 @@ impl ::core::marker::Copy for DisplayManagerResult {}
 impl ::core::clone::Clone for DisplayManagerResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayManagerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayManagerResult {
@@ -1337,6 +1357,11 @@ impl ::core::marker::Copy for DisplayModeQueryOptions {}
 impl ::core::clone::Clone for DisplayModeQueryOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayModeQueryOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayModeQueryOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayModeQueryOptions {
@@ -1628,6 +1653,11 @@ impl ::core::clone::Clone for DisplayPathScaling {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayPathScaling {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPathScaling").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayPathScaling {
     type Abi = Self;
 }
@@ -1660,6 +1690,11 @@ impl ::core::clone::Clone for DisplayPathStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayPathStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPathStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayPathStatus {
     type Abi = Self;
 }
@@ -1690,6 +1725,11 @@ impl ::core::marker::Copy for DisplayPresentStatus {}
 impl ::core::clone::Clone for DisplayPresentStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayPresentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPresentStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayPresentStatus {
@@ -1923,6 +1963,11 @@ impl ::core::clone::Clone for DisplayRotation {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayRotation {
     type Abi = Self;
 }
@@ -2016,6 +2061,11 @@ impl ::core::marker::Copy for DisplayScanoutOptions {}
 impl ::core::clone::Clone for DisplayScanoutOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayScanoutOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayScanoutOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayScanoutOptions {
@@ -2164,6 +2214,11 @@ impl ::core::marker::Copy for DisplaySourceStatus {}
 impl ::core::clone::Clone for DisplaySourceStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplaySourceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplaySourceStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplaySourceStatus {
@@ -2376,6 +2431,11 @@ impl ::core::clone::Clone for DisplayStateApplyOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayStateApplyOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayStateApplyOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayStateApplyOptions {
     type Abi = Self;
 }
@@ -2403,6 +2463,11 @@ impl ::core::marker::Copy for DisplayStateFunctionalizeOptions {}
 impl ::core::clone::Clone for DisplayStateFunctionalizeOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayStateFunctionalizeOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayStateFunctionalizeOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayStateFunctionalizeOptions {
@@ -2521,6 +2586,11 @@ impl ::core::marker::Copy for DisplayStateOperationStatus {}
 impl ::core::clone::Clone for DisplayStateOperationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayStateOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayStateOperationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayStateOperationStatus {
@@ -2799,6 +2869,11 @@ impl ::core::marker::Copy for DisplayTargetPersistence {}
 impl ::core::clone::Clone for DisplayTargetPersistence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayTargetPersistence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTargetPersistence").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayTargetPersistence {
@@ -3094,6 +3169,11 @@ impl ::core::clone::Clone for DisplayTaskSignalKind {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayTaskSignalKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTaskSignalKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayTaskSignalKind {
     type Abi = Self;
 }
@@ -3371,6 +3451,11 @@ impl ::core::clone::Clone for DisplayWireFormatColorSpace {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayWireFormatColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatColorSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayWireFormatColorSpace {
     type Abi = Self;
 }
@@ -3397,6 +3482,11 @@ impl ::core::marker::Copy for DisplayWireFormatEotf {}
 impl ::core::clone::Clone for DisplayWireFormatEotf {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayWireFormatEotf {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatEotf").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayWireFormatEotf {
@@ -3429,6 +3519,11 @@ impl ::core::clone::Clone for DisplayWireFormatHdrMetadata {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayWireFormatHdrMetadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatHdrMetadata").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayWireFormatHdrMetadata {
     type Abi = Self;
 }
@@ -3458,6 +3553,11 @@ impl ::core::marker::Copy for DisplayWireFormatPixelEncoding {}
 impl ::core::clone::Clone for DisplayWireFormatPixelEncoding {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayWireFormatPixelEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatPixelEncoding").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayWireFormatPixelEncoding {

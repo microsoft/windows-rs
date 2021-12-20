@@ -905,6 +905,11 @@ impl ::core::clone::Clone for SettingsLaunchKind {
         *self
     }
 }
+impl ::core::fmt::Debug for SettingsLaunchKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsLaunchKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SettingsLaunchKind {
     type Abi = Self;
 }
@@ -932,6 +937,11 @@ impl ::core::marker::Copy for WorkflowPrintTicketValidationStatus {}
 impl ::core::clone::Clone for WorkflowPrintTicketValidationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WorkflowPrintTicketValidationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkflowPrintTicketValidationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WorkflowPrintTicketValidationStatus {

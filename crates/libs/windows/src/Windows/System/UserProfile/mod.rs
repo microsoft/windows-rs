@@ -18,6 +18,12 @@ impl ::core::clone::Clone for AccountPictureKind {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AccountPictureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccountPictureKind").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AccountPictureKind {
     type Abi = Self;
 }
@@ -1259,6 +1265,12 @@ impl ::core::clone::Clone for SetAccountPictureResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SetAccountPictureResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetAccountPictureResult").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SetAccountPictureResult {
     type Abi = Self;
 }
@@ -1290,6 +1302,11 @@ impl ::core::marker::Copy for SetImageFeedResult {}
 impl ::core::clone::Clone for SetImageFeedResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SetImageFeedResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetImageFeedResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SetImageFeedResult {

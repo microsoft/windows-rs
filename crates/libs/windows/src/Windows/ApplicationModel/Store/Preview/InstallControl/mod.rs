@@ -1118,6 +1118,11 @@ impl ::core::clone::Clone for AppInstallState {
         *self
     }
 }
+impl ::core::fmt::Debug for AppInstallState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppInstallState {
     type Abi = Self;
 }
@@ -1280,6 +1285,11 @@ impl ::core::clone::Clone for AppInstallType {
         *self
     }
 }
+impl ::core::fmt::Debug for AppInstallType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppInstallType {
     type Abi = Self;
 }
@@ -1308,6 +1318,11 @@ impl ::core::marker::Copy for AppInstallationToastNotificationMode {}
 impl ::core::clone::Clone for AppInstallationToastNotificationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppInstallationToastNotificationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallationToastNotificationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppInstallationToastNotificationMode {
@@ -1454,6 +1469,11 @@ impl ::core::clone::Clone for AutoUpdateSetting {
         *self
     }
 }
+impl ::core::fmt::Debug for AutoUpdateSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoUpdateSetting").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutoUpdateSetting {
     type Abi = Self;
 }
@@ -1558,6 +1578,11 @@ impl ::core::marker::Copy for GetEntitlementStatus {}
 impl ::core::clone::Clone for GetEntitlementStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GetEntitlementStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetEntitlementStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GetEntitlementStatus {

@@ -250,6 +250,11 @@ impl ::core::clone::Clone for ProviderAdcChannelMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ProviderAdcChannelMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderAdcChannelMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderAdcChannelMode {
     type Abi = Self;
 }

@@ -485,6 +485,11 @@ impl ::core::clone::Clone for WiFiDirectAdvertisementListenStateDiscoverability 
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectAdvertisementListenStateDiscoverability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectAdvertisementListenStateDiscoverability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectAdvertisementListenStateDiscoverability {
     type Abi = Self;
 }
@@ -631,6 +636,11 @@ impl ::core::clone::Clone for WiFiDirectAdvertisementPublisherStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectAdvertisementPublisherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectAdvertisementPublisherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectAdvertisementPublisherStatus {
     type Abi = Self;
 }
@@ -742,6 +752,11 @@ impl ::core::marker::Copy for WiFiDirectConfigurationMethod {}
 impl ::core::clone::Clone for WiFiDirectConfigurationMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiFiDirectConfigurationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectConfigurationMethod").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectConfigurationMethod {
@@ -1196,6 +1211,11 @@ impl ::core::clone::Clone for WiFiDirectConnectionStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectConnectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectConnectionStatus {
     type Abi = Self;
 }
@@ -1404,6 +1424,11 @@ impl ::core::clone::Clone for WiFiDirectDeviceSelectorType {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiDirectDeviceSelectorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectDeviceSelectorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectDeviceSelectorType {
     type Abi = Self;
 }
@@ -1431,6 +1456,11 @@ impl ::core::marker::Copy for WiFiDirectError {}
 impl ::core::clone::Clone for WiFiDirectError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiFiDirectError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectError").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectError {
@@ -1707,6 +1737,11 @@ impl ::core::marker::Copy for WiFiDirectPairingProcedure {}
 impl ::core::clone::Clone for WiFiDirectPairingProcedure {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiFiDirectPairingProcedure {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectPairingProcedure").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectPairingProcedure {

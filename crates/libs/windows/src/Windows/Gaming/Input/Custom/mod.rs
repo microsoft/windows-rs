@@ -217,6 +217,11 @@ impl ::core::clone::Clone for GipFirmwareUpdateStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for GipFirmwareUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GipFirmwareUpdateStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GipFirmwareUpdateStatus {
     type Abi = Self;
 }
@@ -393,6 +398,11 @@ impl ::core::marker::Copy for GipMessageClass {}
 impl ::core::clone::Clone for GipMessageClass {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GipMessageClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GipMessageClass").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GipMessageClass {
@@ -1348,6 +1358,11 @@ impl ::core::clone::Clone for XusbDeviceSubtype {
         *self
     }
 }
+impl ::core::fmt::Debug for XusbDeviceSubtype {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XusbDeviceSubtype").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XusbDeviceSubtype {
     type Abi = Self;
 }
@@ -1374,6 +1389,11 @@ impl ::core::marker::Copy for XusbDeviceType {}
 impl ::core::clone::Clone for XusbDeviceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XusbDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XusbDeviceType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XusbDeviceType {

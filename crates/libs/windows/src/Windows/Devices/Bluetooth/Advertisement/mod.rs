@@ -672,6 +672,11 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementFlags {
         *self
     }
 }
+impl ::core::fmt::Debug for BluetoothLEAdvertisementFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementFlags").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementFlags {
     type Abi = Self;
 }
@@ -884,6 +889,11 @@ impl ::core::marker::Copy for BluetoothLEAdvertisementPublisherStatus {}
 impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementPublisherStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementPublisherStatus {
@@ -1177,6 +1187,11 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementType {
         *self
     }
 }
+impl ::core::fmt::Debug for BluetoothLEAdvertisementType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementType {
     type Abi = Self;
 }
@@ -1431,6 +1446,11 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementWatcherStatus {
     type Abi = Self;
 }
@@ -1650,6 +1670,11 @@ impl ::core::marker::Copy for BluetoothLEScanningMode {}
 impl ::core::clone::Clone for BluetoothLEScanningMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BluetoothLEScanningMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEScanningMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothLEScanningMode {

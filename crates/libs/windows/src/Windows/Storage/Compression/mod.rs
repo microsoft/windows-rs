@@ -16,6 +16,11 @@ impl ::core::clone::Clone for CompressAlgorithm {
         *self
     }
 }
+impl ::core::fmt::Debug for CompressAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompressAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompressAlgorithm {
     type Abi = Self;
 }

@@ -1291,6 +1291,11 @@ impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
         *self
     }
 }
+impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayEffectCompletionBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LampArrayEffectCompletionBehavior {
     type Abi = Self;
 }
@@ -1591,6 +1596,11 @@ impl ::core::clone::Clone for LampArrayEffectStartMode {
         *self
     }
 }
+impl ::core::fmt::Debug for LampArrayEffectStartMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayEffectStartMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LampArrayEffectStartMode {
     type Abi = Self;
 }
@@ -1617,6 +1627,11 @@ impl ::core::marker::Copy for LampArrayRepetitionMode {}
 impl ::core::clone::Clone for LampArrayRepetitionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LampArrayRepetitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayRepetitionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LampArrayRepetitionMode {

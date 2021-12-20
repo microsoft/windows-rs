@@ -195,6 +195,11 @@ impl ::core::clone::Clone for AutomationRemoteOperationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationRemoteOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationRemoteOperationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationRemoteOperationStatus {
     type Abi = Self;
 }

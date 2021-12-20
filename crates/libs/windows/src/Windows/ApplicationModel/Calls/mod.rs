@@ -244,6 +244,11 @@ impl ::core::clone::Clone for CellularDtmfMode {
         *self
     }
 }
+impl ::core::fmt::Debug for CellularDtmfMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularDtmfMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CellularDtmfMode {
     type Abi = Self;
 }
@@ -282,6 +287,11 @@ impl ::core::clone::Clone for DtmfKey {
         *self
     }
 }
+impl ::core::fmt::Debug for DtmfKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtmfKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DtmfKey {
     type Abi = Self;
 }
@@ -308,6 +318,11 @@ impl ::core::marker::Copy for DtmfToneAudioPlayback {}
 impl ::core::clone::Clone for DtmfToneAudioPlayback {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DtmfToneAudioPlayback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtmfToneAudioPlayback").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DtmfToneAudioPlayback {
@@ -1858,6 +1873,11 @@ impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneAudioRoutingEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneAudioRoutingEndpoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneAudioRoutingEndpoint {
     type Abi = Self;
 }
@@ -2214,6 +2234,11 @@ impl ::core::clone::Clone for PhoneCallAudioDevice {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneCallAudioDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallAudioDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallAudioDevice {
     type Abi = Self;
 }
@@ -2283,6 +2308,11 @@ impl ::core::marker::Copy for PhoneCallDirection {}
 impl ::core::clone::Clone for PhoneCallDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneCallDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallDirection {
@@ -2755,6 +2785,11 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryMedia {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneCallHistoryEntryMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryMedia {
     type Abi = Self;
 }
@@ -2781,6 +2816,11 @@ impl ::core::marker::Copy for PhoneCallHistoryEntryOtherAppReadAccess {}
 impl ::core::clone::Clone for PhoneCallHistoryEntryOtherAppReadAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryOtherAppReadAccess").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryOtherAppReadAccess {
@@ -2811,6 +2851,11 @@ impl ::core::marker::Copy for PhoneCallHistoryEntryQueryDesiredMedia {}
 impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryDesiredMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryQueryDesiredMedia").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryQueryDesiredMedia {
@@ -2936,6 +2981,11 @@ impl ::core::marker::Copy for PhoneCallHistoryEntryRawAddressKind {}
 impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryRawAddressKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryRawAddressKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryRawAddressKind {
@@ -3162,6 +3212,11 @@ impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneCallHistorySourceIdKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistorySourceIdKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallHistorySourceIdKind {
     type Abi = Self;
 }
@@ -3363,6 +3418,11 @@ impl ::core::marker::Copy for PhoneCallHistoryStoreAccessType {}
 impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneCallHistoryStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryStoreAccessType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallHistoryStoreAccessType {
@@ -3571,6 +3631,11 @@ impl ::core::clone::Clone for PhoneCallMedia {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneCallMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallMedia {
     type Abi = Self;
 }
@@ -3600,6 +3665,11 @@ impl ::core::marker::Copy for PhoneCallOperationStatus {}
 impl ::core::clone::Clone for PhoneCallOperationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneCallOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallOperationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallOperationStatus {
@@ -3632,6 +3702,11 @@ impl ::core::marker::Copy for PhoneCallStatus {}
 impl ::core::clone::Clone for PhoneCallStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneCallStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallStatus {
@@ -4632,6 +4707,11 @@ impl ::core::clone::Clone for PhoneLineNetworkOperatorDisplayTextLocation {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneLineNetworkOperatorDisplayTextLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineNetworkOperatorDisplayTextLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineNetworkOperatorDisplayTextLocation {
     type Abi = Self;
 }
@@ -4663,6 +4743,11 @@ impl ::core::clone::Clone for PhoneLineOperationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneLineOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineOperationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineOperationStatus {
     type Abi = Self;
 }
@@ -4690,6 +4775,11 @@ impl ::core::marker::Copy for PhoneLineTransport {}
 impl ::core::clone::Clone for PhoneLineTransport {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneLineTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineTransport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneLineTransport {
@@ -5171,6 +5261,11 @@ impl ::core::clone::Clone for PhoneLineWatcherStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneLineWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineWatcherStatus {
     type Abi = Self;
 }
@@ -5205,6 +5300,11 @@ impl ::core::clone::Clone for PhoneNetworkState {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneNetworkState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNetworkState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneNetworkState {
     type Abi = Self;
 }
@@ -5237,6 +5337,11 @@ impl ::core::marker::Copy for PhoneSimState {}
 impl ::core::clone::Clone for PhoneSimState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneSimState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneSimState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneSimState {
@@ -5369,6 +5474,11 @@ impl ::core::clone::Clone for PhoneVoicemailType {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneVoicemailType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneVoicemailType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneVoicemailType {
     type Abi = Self;
 }
@@ -5396,6 +5506,11 @@ impl ::core::marker::Copy for TransportDeviceAudioRoutingStatus {}
 impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TransportDeviceAudioRoutingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TransportDeviceAudioRoutingStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TransportDeviceAudioRoutingStatus {
@@ -5869,6 +5984,11 @@ impl ::core::clone::Clone for VoipPhoneCallMedia {
         *self
     }
 }
+impl ::core::fmt::Debug for VoipPhoneCallMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoipPhoneCallMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VoipPhoneCallMedia {
     type Abi = Self;
 }
@@ -5900,6 +6020,11 @@ impl ::core::clone::Clone for VoipPhoneCallRejectReason {
         *self
     }
 }
+impl ::core::fmt::Debug for VoipPhoneCallRejectReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoipPhoneCallRejectReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VoipPhoneCallRejectReason {
     type Abi = Self;
 }
@@ -5926,6 +6051,11 @@ impl ::core::marker::Copy for VoipPhoneCallResourceReservationStatus {}
 impl ::core::clone::Clone for VoipPhoneCallResourceReservationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VoipPhoneCallResourceReservationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoipPhoneCallResourceReservationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VoipPhoneCallResourceReservationStatus {
@@ -5957,6 +6087,11 @@ impl ::core::marker::Copy for VoipPhoneCallState {}
 impl ::core::clone::Clone for VoipPhoneCallState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VoipPhoneCallState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoipPhoneCallState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VoipPhoneCallState {

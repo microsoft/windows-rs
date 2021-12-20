@@ -1446,6 +1446,11 @@ impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReaderAcquisitionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaFrameReaderAcquisitionMode {
     type Abi = Self;
 }
@@ -1475,6 +1480,11 @@ impl ::core::marker::Copy for MediaFrameReaderStartStatus {}
 impl ::core::clone::Clone for MediaFrameReaderStartStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReaderStartStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaFrameReaderStartStatus {
@@ -2025,6 +2035,11 @@ impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceGetPropertyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaFrameSourceGetPropertyStatus {
     type Abi = Self;
 }
@@ -2332,6 +2347,11 @@ impl ::core::clone::Clone for MediaFrameSourceKind {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaFrameSourceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaFrameSourceKind {
     type Abi = Self;
 }
@@ -2362,6 +2382,11 @@ impl ::core::marker::Copy for MediaFrameSourceSetPropertyStatus {}
 impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceSetPropertyStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaFrameSourceSetPropertyStatus {
@@ -2614,6 +2639,11 @@ impl ::core::marker::Copy for MultiSourceMediaFrameReaderStartStatus {}
 impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MultiSourceMediaFrameReaderStartStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MultiSourceMediaFrameReaderStartStatus {

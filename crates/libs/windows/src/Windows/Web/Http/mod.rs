@@ -602,6 +602,11 @@ impl ::core::clone::Clone for HttpCompletionOption {
         *self
     }
 }
+impl ::core::fmt::Debug for HttpCompletionOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCompletionOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HttpCompletionOption {
     type Abi = Self;
 }
@@ -2725,6 +2730,11 @@ impl ::core::clone::Clone for HttpProgressStage {
         *self
     }
 }
+impl ::core::fmt::Debug for HttpProgressStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpProgressStage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HttpProgressStage {
     type Abi = Self;
 }
@@ -3400,6 +3410,11 @@ impl ::core::clone::Clone for HttpResponseMessageSource {
         *self
     }
 }
+impl ::core::fmt::Debug for HttpResponseMessageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpResponseMessageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HttpResponseMessageSource {
     type Abi = Self;
 }
@@ -3482,6 +3497,11 @@ impl ::core::marker::Copy for HttpStatusCode {}
 impl ::core::clone::Clone for HttpStatusCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HttpStatusCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpStatusCode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HttpStatusCode {
@@ -4130,6 +4150,11 @@ impl ::core::marker::Copy for HttpVersion {}
 impl ::core::clone::Clone for HttpVersion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HttpVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpVersion").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HttpVersion {

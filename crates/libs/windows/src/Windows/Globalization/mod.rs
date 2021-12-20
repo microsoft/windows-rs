@@ -2329,6 +2329,11 @@ impl ::core::clone::Clone for DayOfWeek {
         *self
     }
 }
+impl ::core::fmt::Debug for DayOfWeek {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DayOfWeek").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DayOfWeek {
     type Abi = Self;
 }
@@ -3703,6 +3708,11 @@ impl ::core::marker::Copy for LanguageLayoutDirection {}
 impl ::core::clone::Clone for LanguageLayoutDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LanguageLayoutDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LanguageLayoutDirection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LanguageLayoutDirection {

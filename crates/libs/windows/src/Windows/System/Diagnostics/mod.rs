@@ -108,6 +108,11 @@ impl ::core::clone::Clone for DiagnosticActionState {
         *self
     }
 }
+impl ::core::fmt::Debug for DiagnosticActionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiagnosticActionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DiagnosticActionState {
     type Abi = Self;
 }

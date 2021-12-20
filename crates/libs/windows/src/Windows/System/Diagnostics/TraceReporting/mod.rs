@@ -83,6 +83,11 @@ impl ::core::clone::Clone for PlatformDiagnosticActionState {
         *self
     }
 }
+impl ::core::fmt::Debug for PlatformDiagnosticActionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticActionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDiagnosticActionState {
     type Abi = Self;
 }
@@ -182,6 +187,11 @@ impl ::core::clone::Clone for PlatformDiagnosticEscalationType {
         *self
     }
 }
+impl ::core::fmt::Debug for PlatformDiagnosticEscalationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticEscalationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDiagnosticEscalationType {
     type Abi = Self;
 }
@@ -209,6 +219,11 @@ impl ::core::marker::Copy for PlatformDiagnosticEventBufferLatencies {}
 impl ::core::clone::Clone for PlatformDiagnosticEventBufferLatencies {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PlatformDiagnosticEventBufferLatencies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticEventBufferLatencies").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PlatformDiagnosticEventBufferLatencies {
@@ -355,6 +370,11 @@ impl ::core::clone::Clone for PlatformDiagnosticTracePriority {
         *self
     }
 }
+impl ::core::fmt::Debug for PlatformDiagnosticTracePriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTracePriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTracePriority {
     type Abi = Self;
 }
@@ -468,6 +488,11 @@ impl ::core::clone::Clone for PlatformDiagnosticTraceSlotState {
         *self
     }
 }
+impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTraceSlotState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTraceSlotState {
     type Abi = Self;
 }
@@ -495,6 +520,11 @@ impl ::core::marker::Copy for PlatformDiagnosticTraceSlotType {}
 impl ::core::clone::Clone for PlatformDiagnosticTraceSlotType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTraceSlotType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTraceSlotType {

@@ -15,6 +15,11 @@ impl ::core::clone::Clone for GazeDeviceConfigurationStatePreview {
         *self
     }
 }
+impl ::core::fmt::Debug for GazeDeviceConfigurationStatePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeDeviceConfigurationStatePreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GazeDeviceConfigurationStatePreview {
     type Abi = Self;
 }

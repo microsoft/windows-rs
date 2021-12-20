@@ -443,6 +443,11 @@ impl ::core::clone::Clone for CoreWetStrokeDisposition {
         *self
     }
 }
+impl ::core::fmt::Debug for CoreWetStrokeDisposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWetStrokeDisposition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CoreWetStrokeDisposition {
     type Abi = Self;
 }

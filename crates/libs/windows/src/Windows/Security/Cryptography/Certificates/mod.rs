@@ -383,6 +383,11 @@ impl ::core::clone::Clone for CertificateChainPolicy {
         *self
     }
 }
+impl ::core::fmt::Debug for CertificateChainPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateChainPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CertificateChainPolicy {
     type Abi = Self;
 }
@@ -1697,6 +1702,11 @@ impl ::core::clone::Clone for ChainValidationResult {
         *self
     }
 }
+impl ::core::fmt::Debug for ChainValidationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChainValidationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ChainValidationResult {
     type Abi = Self;
 }
@@ -2180,6 +2190,11 @@ impl ::core::clone::Clone for EnrollKeyUsages {
         *self
     }
 }
+impl ::core::fmt::Debug for EnrollKeyUsages {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EnrollKeyUsages {
     type Abi = Self;
 }
@@ -2206,6 +2221,11 @@ impl ::core::marker::Copy for ExportOption {}
 impl ::core::clone::Clone for ExportOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ExportOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExportOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ExportOption {
@@ -3231,6 +3251,11 @@ impl ::core::clone::Clone for InstallOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for InstallOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InstallOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InstallOptions {
     type Abi = Self;
 }
@@ -3388,6 +3413,11 @@ impl ::core::clone::Clone for KeyProtectionLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for KeyProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyProtectionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KeyProtectionLevel {
     type Abi = Self;
 }
@@ -3415,6 +3445,11 @@ impl ::core::marker::Copy for KeySize {}
 impl ::core::clone::Clone for KeySize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KeySize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeySize").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KeySize {
@@ -3657,6 +3692,11 @@ impl ::core::marker::Copy for SignatureValidationResult {}
 impl ::core::clone::Clone for SignatureValidationResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SignatureValidationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SignatureValidationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SignatureValidationResult {

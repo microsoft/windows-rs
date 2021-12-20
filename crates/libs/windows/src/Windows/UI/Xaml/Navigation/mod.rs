@@ -655,6 +655,11 @@ impl ::core::clone::Clone for NavigationCacheMode {
         *self
     }
 }
+impl ::core::fmt::Debug for NavigationCacheMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationCacheMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NavigationCacheMode {
     type Abi = Self;
 }
@@ -976,6 +981,11 @@ impl ::core::marker::Copy for NavigationMode {}
 impl ::core::clone::Clone for NavigationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NavigationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NavigationMode {

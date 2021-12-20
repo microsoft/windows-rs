@@ -16,6 +16,11 @@ impl ::core::clone::Clone for AudioDecoderDegradation {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioDecoderDegradation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDecoderDegradation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioDecoderDegradation {
     type Abi = Self;
 }
@@ -43,6 +48,11 @@ impl ::core::marker::Copy for AudioDecoderDegradationReason {}
 impl ::core::clone::Clone for AudioDecoderDegradationReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AudioDecoderDegradationReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDecoderDegradationReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AudioDecoderDegradationReason {
@@ -797,6 +807,11 @@ impl ::core::clone::Clone for CodecCategory {
         *self
     }
 }
+impl ::core::fmt::Debug for CodecCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CodecCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CodecCategory {
     type Abi = Self;
 }
@@ -932,6 +947,11 @@ impl ::core::marker::Copy for CodecKind {}
 impl ::core::clone::Clone for CodecKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CodecKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CodecKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CodecKind {
@@ -2170,6 +2190,11 @@ impl ::core::marker::Copy for FaceDetectionMode {}
 impl ::core::clone::Clone for FaceDetectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FaceDetectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FaceDetectionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FaceDetectionMode {
@@ -6219,6 +6244,11 @@ impl ::core::clone::Clone for MediaDecoderStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaDecoderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaDecoderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaDecoderStatus {
     type Abi = Self;
 }
@@ -6870,6 +6900,11 @@ impl ::core::clone::Clone for MediaSourceState {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaSourceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaSourceState {
     type Abi = Self;
 }
@@ -6980,6 +7015,11 @@ impl ::core::marker::Copy for MediaSourceStatus {}
 impl ::core::clone::Clone for MediaSourceStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaSourceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaSourceStatus {
@@ -7965,6 +8005,11 @@ impl ::core::clone::Clone for MediaStreamSourceClosedReason {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaStreamSourceClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaStreamSourceClosedReason {
     type Abi = Self;
 }
@@ -8073,6 +8118,11 @@ impl ::core::marker::Copy for MediaStreamSourceErrorStatus {}
 impl ::core::clone::Clone for MediaStreamSourceErrorStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaStreamSourceErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaStreamSourceErrorStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaStreamSourceErrorStatus {
@@ -8913,6 +8963,11 @@ impl ::core::clone::Clone for MediaTrackKind {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaTrackKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTrackKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaTrackKind {
     type Abi = Self;
 }
@@ -8939,6 +8994,11 @@ impl ::core::marker::Copy for MseAppendMode {}
 impl ::core::clone::Clone for MseAppendMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MseAppendMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseAppendMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MseAppendMode {
@@ -8971,6 +9031,11 @@ impl ::core::clone::Clone for MseEndOfStreamStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MseEndOfStreamStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseEndOfStreamStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MseEndOfStreamStatus {
     type Abi = Self;
 }
@@ -8998,6 +9063,11 @@ impl ::core::marker::Copy for MseReadyState {}
 impl ::core::clone::Clone for MseReadyState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MseReadyState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MseReadyState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MseReadyState {
@@ -10157,6 +10227,11 @@ impl ::core::clone::Clone for SceneAnalysisRecommendation {
         *self
     }
 }
+impl ::core::fmt::Debug for SceneAnalysisRecommendation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAnalysisRecommendation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SceneAnalysisRecommendation {
     type Abi = Self;
 }
@@ -10448,6 +10523,11 @@ impl ::core::marker::Copy for TimedMetadataKind {}
 impl ::core::clone::Clone for TimedMetadataKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedMetadataKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedMetadataKind {
@@ -10998,6 +11078,11 @@ impl ::core::clone::Clone for TimedMetadataTrackErrorCode {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedMetadataTrackErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataTrackErrorCode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedMetadataTrackErrorCode {
     type Abi = Self;
 }
@@ -11212,6 +11297,11 @@ impl ::core::clone::Clone for TimedTextBoutenPosition {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextBoutenPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextBoutenPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextBoutenPosition {
     type Abi = Self;
 }
@@ -11244,6 +11334,11 @@ impl ::core::marker::Copy for TimedTextBoutenType {}
 impl ::core::clone::Clone for TimedTextBoutenType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextBoutenType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextBoutenType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextBoutenType {
@@ -11450,6 +11545,11 @@ impl ::core::clone::Clone for TimedTextDisplayAlignment {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextDisplayAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextDisplayAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextDisplayAlignment {
     type Abi = Self;
 }
@@ -11515,6 +11615,11 @@ impl ::core::clone::Clone for TimedTextFlowDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextFlowDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextFlowDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextFlowDirection {
     type Abi = Self;
 }
@@ -11542,6 +11647,11 @@ impl ::core::marker::Copy for TimedTextFontStyle {}
 impl ::core::clone::Clone for TimedTextFontStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextFontStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextFontStyle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextFontStyle {
@@ -11668,6 +11778,11 @@ impl ::core::marker::Copy for TimedTextLineAlignment {}
 impl ::core::clone::Clone for TimedTextLineAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextLineAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextLineAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextLineAlignment {
@@ -12133,6 +12248,11 @@ impl ::core::clone::Clone for TimedTextRubyAlign {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextRubyAlign {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextRubyAlign").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextRubyAlign {
     type Abi = Self;
 }
@@ -12160,6 +12280,11 @@ impl ::core::marker::Copy for TimedTextRubyPosition {}
 impl ::core::clone::Clone for TimedTextRubyPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextRubyPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextRubyPosition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextRubyPosition {
@@ -12193,6 +12318,11 @@ impl ::core::clone::Clone for TimedTextRubyReserve {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextRubyReserve {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextRubyReserve").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextRubyReserve {
     type Abi = Self;
 }
@@ -12219,6 +12349,11 @@ impl ::core::marker::Copy for TimedTextScrollMode {}
 impl ::core::clone::Clone for TimedTextScrollMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextScrollMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextScrollMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextScrollMode {
@@ -12974,6 +13109,11 @@ impl ::core::clone::Clone for TimedTextUnit {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextUnit {
     type Abi = Self;
 }
@@ -13002,6 +13142,11 @@ impl ::core::clone::Clone for TimedTextWeight {
         *self
     }
 }
+impl ::core::fmt::Debug for TimedTextWeight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextWeight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TimedTextWeight {
     type Abi = Self;
 }
@@ -13028,6 +13173,11 @@ impl ::core::marker::Copy for TimedTextWrapping {}
 impl ::core::clone::Clone for TimedTextWrapping {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextWrapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextWrapping").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextWrapping {
@@ -13061,6 +13211,11 @@ impl ::core::marker::Copy for TimedTextWritingMode {}
 impl ::core::clone::Clone for TimedTextWritingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TimedTextWritingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedTextWritingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TimedTextWritingMode {
@@ -13436,6 +13591,11 @@ impl ::core::marker::Copy for VideoStabilizationEffectEnabledChangedReason {}
 impl ::core::clone::Clone for VideoStabilizationEffectEnabledChangedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VideoStabilizationEffectEnabledChangedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoStabilizationEffectEnabledChangedReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VideoStabilizationEffectEnabledChangedReason {

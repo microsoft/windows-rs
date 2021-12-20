@@ -514,6 +514,11 @@ impl ::core::clone::Clone for LocalLocationFinderStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for LocalLocationFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocalLocationFinderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LocalLocationFinderStatus {
     type Abi = Self;
 }

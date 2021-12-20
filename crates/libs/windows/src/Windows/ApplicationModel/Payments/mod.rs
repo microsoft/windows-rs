@@ -1016,6 +1016,11 @@ impl ::core::clone::Clone for PaymentCanMakePaymentResultStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PaymentCanMakePaymentResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentCanMakePaymentResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PaymentCanMakePaymentResultStatus {
     type Abi = Self;
 }
@@ -1896,6 +1901,11 @@ impl ::core::clone::Clone for PaymentOptionPresence {
         *self
     }
 }
+impl ::core::fmt::Debug for PaymentOptionPresence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentOptionPresence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PaymentOptionPresence {
     type Abi = Self;
 }
@@ -2213,6 +2223,11 @@ impl ::core::marker::Copy for PaymentRequestChangeKind {}
 impl ::core::clone::Clone for PaymentRequestChangeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PaymentRequestChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestChangeKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PaymentRequestChangeKind {
@@ -2537,6 +2552,11 @@ impl ::core::clone::Clone for PaymentRequestCompletionStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PaymentRequestCompletionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestCompletionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PaymentRequestCompletionStatus {
     type Abi = Self;
 }
@@ -2564,6 +2584,11 @@ impl ::core::marker::Copy for PaymentRequestStatus {}
 impl ::core::clone::Clone for PaymentRequestStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PaymentRequestStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PaymentRequestStatus {
@@ -2948,6 +2973,11 @@ impl ::core::marker::Copy for PaymentShippingType {}
 impl ::core::clone::Clone for PaymentShippingType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PaymentShippingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentShippingType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PaymentShippingType {

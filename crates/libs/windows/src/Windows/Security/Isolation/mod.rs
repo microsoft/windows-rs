@@ -876,6 +876,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentActivator {
         *self
     }
 }
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentActivator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentActivator {
     type Abi = Self;
 }
@@ -903,6 +908,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentAllowedClipboardFormats 
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentAllowedClipboardFormats").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAllowedClipboardFormats {
@@ -936,6 +946,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentAvailablePrinters {
         *self
     }
 }
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentAvailablePrinters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAvailablePrinters {
     type Abi = Self;
 }
@@ -963,6 +978,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentClipboardCopyPasteDirect
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentClipboardCopyPasteDirections").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
@@ -1121,6 +1141,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentCreateStatus {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentCreateStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateStatus {
@@ -1286,6 +1311,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentHostError {
         *self
     }
 }
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentHostError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentHostError {
     type Abi = Self;
 }
@@ -1408,6 +1438,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentLaunchFileStatus {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentLaunchFileStatus {
@@ -1859,6 +1894,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationStatus 
         *self
     }
 }
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     type Abi = Self;
 }
@@ -1970,6 +2010,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentPostMessageStatus {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentPostMessageStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentPostMessageStatus {
@@ -2104,6 +2149,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcessState {
         *self
     }
 }
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentProcessState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProcessState {
     type Abi = Self;
 }
@@ -2131,6 +2181,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentProgressState {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentProgressState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentProgressState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProgressState {
@@ -2345,6 +2400,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentShareFileStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFileStatus {
     type Abi = Self;
 }
@@ -2548,6 +2608,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentShareFolderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFolderStatus {
     type Abi = Self;
 }
@@ -2669,6 +2734,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentStartProcessStatus {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentStartProcessStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentStartProcessStatus {

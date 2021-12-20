@@ -2212,6 +2212,11 @@ impl ::core::clone::Clone for BarcodeScannerTriggerState {
         *self
     }
 }
+impl ::core::fmt::Debug for BarcodeScannerTriggerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerTriggerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BarcodeScannerTriggerState {
     type Abi = Self;
 }

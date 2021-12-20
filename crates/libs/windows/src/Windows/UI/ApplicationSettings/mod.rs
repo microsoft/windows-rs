@@ -1129,6 +1129,12 @@ impl ::core::clone::Clone for SettingsEdgeLocation {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SettingsEdgeLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsEdgeLocation").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SettingsEdgeLocation {
     type Abi = Self;
 }
@@ -1471,6 +1477,11 @@ impl ::core::clone::Clone for SupportedWebAccountActions {
         *self
     }
 }
+impl ::core::fmt::Debug for SupportedWebAccountActions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SupportedWebAccountActions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SupportedWebAccountActions {
     type Abi = Self;
 }
@@ -1500,6 +1511,11 @@ impl ::core::marker::Copy for WebAccountAction {}
 impl ::core::clone::Clone for WebAccountAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WebAccountAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountAction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WebAccountAction {

@@ -910,6 +910,11 @@ impl ::core::clone::Clone for NotifyCollectionChangedAction {
         *self
     }
 }
+impl ::core::fmt::Debug for NotifyCollectionChangedAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotifyCollectionChangedAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NotifyCollectionChangedAction {
     type Abi = Self;
 }
@@ -1127,6 +1132,11 @@ impl ::core::marker::Copy for TypeKind {}
 impl ::core::clone::Clone for TypeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TypeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TypeKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TypeKind {

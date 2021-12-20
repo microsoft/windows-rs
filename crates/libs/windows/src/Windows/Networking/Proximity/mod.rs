@@ -655,6 +655,11 @@ impl ::core::clone::Clone for PeerDiscoveryTypes {
         *self
     }
 }
+impl ::core::fmt::Debug for PeerDiscoveryTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerDiscoveryTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PeerDiscoveryTypes {
     type Abi = Self;
 }
@@ -954,6 +959,11 @@ impl ::core::clone::Clone for PeerRole {
         *self
     }
 }
+impl ::core::fmt::Debug for PeerRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerRole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PeerRole {
     type Abi = Self;
 }
@@ -1145,6 +1155,11 @@ impl ::core::marker::Copy for PeerWatcherStatus {}
 impl ::core::clone::Clone for PeerWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PeerWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerWatcherStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PeerWatcherStatus {
@@ -1496,6 +1511,11 @@ impl ::core::marker::Copy for TriggeredConnectState {}
 impl ::core::clone::Clone for TriggeredConnectState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TriggeredConnectState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriggeredConnectState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TriggeredConnectState {

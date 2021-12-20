@@ -202,6 +202,11 @@ impl ::core::clone::Clone for AdvancedPhotoMode {
         *self
     }
 }
+impl ::core::fmt::Debug for AdvancedPhotoMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedPhotoMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AdvancedPhotoMode {
     type Abi = Self;
 }
@@ -684,6 +689,11 @@ impl ::core::clone::Clone for AudioDeviceRole {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioDeviceRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceRole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioDeviceRole {
     type Abi = Self;
 }
@@ -711,6 +721,11 @@ impl ::core::marker::Copy for AutoFocusRange {}
 impl ::core::clone::Clone for AutoFocusRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutoFocusRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoFocusRange").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutoFocusRange {
@@ -1121,6 +1136,11 @@ impl ::core::clone::Clone for CameraOcclusionKind {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraOcclusionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraOcclusionKind {
     type Abi = Self;
 }
@@ -1311,6 +1331,11 @@ impl ::core::clone::Clone for CameraStreamState {
         *self
     }
 }
+impl ::core::fmt::Debug for CameraStreamState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraStreamState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CameraStreamState {
     type Abi = Self;
 }
@@ -1350,6 +1375,11 @@ impl ::core::clone::Clone for CaptureSceneMode {
         *self
     }
 }
+impl ::core::fmt::Debug for CaptureSceneMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaptureSceneMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CaptureSceneMode {
     type Abi = Self;
 }
@@ -1377,6 +1407,11 @@ impl ::core::marker::Copy for CaptureUse {}
 impl ::core::clone::Clone for CaptureUse {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CaptureUse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaptureUse").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CaptureUse {
@@ -1411,6 +1446,11 @@ impl ::core::marker::Copy for ColorTemperaturePreset {}
 impl ::core::clone::Clone for ColorTemperaturePreset {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ColorTemperaturePreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorTemperaturePreset").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ColorTemperaturePreset {
@@ -2161,6 +2201,11 @@ impl ::core::marker::Copy for DigitalWindowMode {}
 impl ::core::clone::Clone for DigitalWindowMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DigitalWindowMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DigitalWindowMode {
@@ -2937,6 +2982,11 @@ impl ::core::clone::Clone for FocusMode {
         *self
     }
 }
+impl ::core::fmt::Debug for FocusMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FocusMode {
     type Abi = Self;
 }
@@ -2967,6 +3017,11 @@ impl ::core::marker::Copy for FocusPreset {}
 impl ::core::clone::Clone for FocusPreset {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FocusPreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusPreset").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FocusPreset {
@@ -3251,6 +3306,11 @@ impl ::core::marker::Copy for HdrVideoMode {}
 impl ::core::clone::Clone for HdrVideoMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HdrVideoMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdrVideoMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HdrVideoMode {
@@ -5060,6 +5120,11 @@ impl ::core::clone::Clone for InfraredTorchMode {
         *self
     }
 }
+impl ::core::fmt::Debug for InfraredTorchMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InfraredTorchMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InfraredTorchMode {
     type Abi = Self;
 }
@@ -5259,6 +5324,12 @@ impl ::core::marker::Copy for IsoSpeedPreset {}
 impl ::core::clone::Clone for IsoSpeedPreset {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IsoSpeedPreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsoSpeedPreset").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5757,6 +5828,11 @@ impl ::core::clone::Clone for ManualFocusDistance {
         *self
     }
 }
+impl ::core::fmt::Debug for ManualFocusDistance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManualFocusDistance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ManualFocusDistance {
     type Abi = Self;
 }
@@ -5786,6 +5862,11 @@ impl ::core::marker::Copy for MediaCaptureFocusState {}
 impl ::core::clone::Clone for MediaCaptureFocusState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaCaptureFocusState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureFocusState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaCaptureFocusState {
@@ -5821,6 +5902,11 @@ impl ::core::clone::Clone for MediaCaptureOptimization {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaCaptureOptimization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureOptimization").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCaptureOptimization {
     type Abi = Self;
 }
@@ -5847,6 +5933,11 @@ impl ::core::marker::Copy for MediaCapturePauseBehavior {}
 impl ::core::clone::Clone for MediaCapturePauseBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaCapturePauseBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCapturePauseBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaCapturePauseBehavior {
@@ -6350,6 +6441,11 @@ impl ::core::marker::Copy for OpticalImageStabilizationMode {}
 impl ::core::clone::Clone for OpticalImageStabilizationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OpticalImageStabilizationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OpticalImageStabilizationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OpticalImageStabilizationMode {
@@ -6884,6 +6980,11 @@ impl ::core::clone::Clone for RegionOfInterestType {
         *self
     }
 }
+impl ::core::fmt::Debug for RegionOfInterestType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RegionOfInterestType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RegionOfInterestType {
     type Abi = Self;
 }
@@ -7129,6 +7230,11 @@ impl ::core::clone::Clone for SendCommandStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SendCommandStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SendCommandStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SendCommandStatus {
     type Abi = Self;
 }
@@ -7169,6 +7275,11 @@ impl ::core::marker::Copy for TelephonyKey {}
 impl ::core::clone::Clone for TelephonyKey {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TelephonyKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TelephonyKey").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TelephonyKey {
@@ -7883,6 +7994,11 @@ impl ::core::clone::Clone for VideoDeviceControllerGetDevicePropertyStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceControllerGetDevicePropertyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VideoDeviceControllerGetDevicePropertyStatus {
     type Abi = Self;
 }
@@ -7913,6 +8029,11 @@ impl ::core::marker::Copy for VideoDeviceControllerSetDevicePropertyStatus {}
 impl ::core::clone::Clone for VideoDeviceControllerSetDevicePropertyStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VideoDeviceControllerSetDevicePropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceControllerSetDevicePropertyStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VideoDeviceControllerSetDevicePropertyStatus {
@@ -8040,6 +8161,11 @@ impl ::core::marker::Copy for VideoTemporalDenoisingMode {}
 impl ::core::clone::Clone for VideoTemporalDenoisingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VideoTemporalDenoisingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTemporalDenoisingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VideoTemporalDenoisingMode {
@@ -8435,6 +8561,11 @@ impl ::core::marker::Copy for ZoomTransitionMode {}
 impl ::core::clone::Clone for ZoomTransitionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ZoomTransitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ZoomTransitionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ZoomTransitionMode {

@@ -147,6 +147,11 @@ impl ::core::clone::Clone for AnnotationType {
         *self
     }
 }
+impl ::core::fmt::Debug for AnnotationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnnotationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AnnotationType {
     type Abi = Self;
 }
@@ -174,6 +179,11 @@ impl ::core::marker::Copy for AutomationActiveEnd {}
 impl ::core::clone::Clone for AutomationActiveEnd {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationActiveEnd {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationActiveEnd").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationActiveEnd {
@@ -208,6 +218,11 @@ impl ::core::marker::Copy for AutomationAnimationStyle {}
 impl ::core::clone::Clone for AutomationAnimationStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationAnimationStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationAnimationStyle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationAnimationStyle {
@@ -402,6 +417,11 @@ impl ::core::clone::Clone for AutomationBulletStyle {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationBulletStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationBulletStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationBulletStyle {
     type Abi = Self;
 }
@@ -428,6 +448,11 @@ impl ::core::marker::Copy for AutomationCaretBidiMode {}
 impl ::core::clone::Clone for AutomationCaretBidiMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationCaretBidiMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationCaretBidiMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationCaretBidiMode {
@@ -457,6 +482,11 @@ impl ::core::marker::Copy for AutomationCaretPosition {}
 impl ::core::clone::Clone for AutomationCaretPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationCaretPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationCaretPosition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationCaretPosition {
@@ -870,6 +900,11 @@ impl ::core::clone::Clone for AutomationFlowDirections {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationFlowDirections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationFlowDirections").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationFlowDirections {
     type Abi = Self;
 }
@@ -899,6 +934,11 @@ impl ::core::marker::Copy for AutomationOutlineStyles {}
 impl ::core::clone::Clone for AutomationOutlineStyles {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationOutlineStyles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationOutlineStyles").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationOutlineStyles {
@@ -1639,6 +1679,11 @@ impl ::core::clone::Clone for AutomationStyleId {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationStyleId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationStyleId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationStyleId {
     type Abi = Self;
 }
@@ -1684,6 +1729,11 @@ impl ::core::clone::Clone for AutomationTextDecorationLineStyle {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationTextDecorationLineStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationTextDecorationLineStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationTextDecorationLineStyle {
     type Abi = Self;
 }
@@ -1712,6 +1762,11 @@ impl ::core::marker::Copy for AutomationTextEditChangeType {}
 impl ::core::clone::Clone for AutomationTextEditChangeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationTextEditChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationTextEditChangeType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationTextEditChangeType {
@@ -1824,6 +1879,11 @@ impl ::core::marker::Copy for DockPosition {}
 impl ::core::clone::Clone for DockPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DockPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DockPosition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DockPosition {
@@ -2122,6 +2182,11 @@ impl ::core::marker::Copy for ExpandCollapseState {}
 impl ::core::clone::Clone for ExpandCollapseState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ExpandCollapseState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExpandCollapseState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ExpandCollapseState {
@@ -3868,6 +3933,11 @@ impl ::core::clone::Clone for RowOrColumnMajor {
         *self
     }
 }
+impl ::core::fmt::Debug for RowOrColumnMajor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RowOrColumnMajor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RowOrColumnMajor {
     type Abi = Self;
 }
@@ -3897,6 +3967,11 @@ impl ::core::marker::Copy for ScrollAmount {}
 impl ::core::clone::Clone for ScrollAmount {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ScrollAmount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollAmount").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ScrollAmount {
@@ -4433,6 +4508,11 @@ impl ::core::clone::Clone for SupportedTextSelection {
         *self
     }
 }
+impl ::core::fmt::Debug for SupportedTextSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SupportedTextSelection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SupportedTextSelection {
     type Abi = Self;
 }
@@ -4463,6 +4543,11 @@ impl ::core::marker::Copy for SynchronizedInputType {}
 impl ::core::clone::Clone for SynchronizedInputType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SynchronizedInputType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SynchronizedInputType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SynchronizedInputType {
@@ -4753,6 +4838,11 @@ impl ::core::marker::Copy for ToggleState {}
 impl ::core::clone::Clone for ToggleState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ToggleState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ToggleState {
@@ -5068,6 +5158,11 @@ impl ::core::clone::Clone for WindowInteractionState {
         *self
     }
 }
+impl ::core::fmt::Debug for WindowInteractionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowInteractionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WindowInteractionState {
     type Abi = Self;
 }
@@ -5212,6 +5307,11 @@ impl ::core::clone::Clone for WindowVisualState {
         *self
     }
 }
+impl ::core::fmt::Debug for WindowVisualState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowVisualState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WindowVisualState {
     type Abi = Self;
 }
@@ -5241,6 +5341,11 @@ impl ::core::marker::Copy for ZoomUnit {}
 impl ::core::clone::Clone for ZoomUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ZoomUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ZoomUnit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ZoomUnit {

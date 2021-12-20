@@ -122,6 +122,11 @@ impl ::core::clone::Clone for BatteryStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for BatteryStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BatteryStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BatteryStatus {
     type Abi = Self;
 }
@@ -149,6 +154,11 @@ impl ::core::marker::Copy for EnergySaverStatus {}
 impl ::core::clone::Clone for EnergySaverStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EnergySaverStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnergySaverStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EnergySaverStatus {
@@ -508,6 +518,11 @@ impl ::core::marker::Copy for PowerSupplyStatus {}
 impl ::core::clone::Clone for PowerSupplyStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PowerSupplyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PowerSupplyStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PowerSupplyStatus {

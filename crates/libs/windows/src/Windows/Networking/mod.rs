@@ -30,6 +30,11 @@ impl ::core::clone::Clone for DomainNameType {
         *self
     }
 }
+impl ::core::fmt::Debug for DomainNameType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DomainNameType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DomainNameType {
     type Abi = Self;
 }
@@ -366,6 +371,11 @@ impl ::core::clone::Clone for HostNameSortOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for HostNameSortOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HostNameSortOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HostNameSortOptions {
     type Abi = Self;
 }
@@ -394,6 +404,11 @@ impl ::core::marker::Copy for HostNameType {}
 impl ::core::clone::Clone for HostNameType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HostNameType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HostNameType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HostNameType {

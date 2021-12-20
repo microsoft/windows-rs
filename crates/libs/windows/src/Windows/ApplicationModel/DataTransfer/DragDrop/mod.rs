@@ -19,6 +19,11 @@ impl ::core::clone::Clone for DragDropModifiers {
         *self
     }
 }
+impl ::core::fmt::Debug for DragDropModifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragDropModifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DragDropModifiers {
     type Abi = Self;
 }

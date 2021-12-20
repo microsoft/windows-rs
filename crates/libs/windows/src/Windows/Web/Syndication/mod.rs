@@ -2021,6 +2021,11 @@ impl ::core::clone::Clone for SyndicationErrorStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SyndicationErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SyndicationErrorStatus {
     type Abi = Self;
 }
@@ -2465,6 +2470,11 @@ impl ::core::marker::Copy for SyndicationFormat {}
 impl ::core::clone::Clone for SyndicationFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SyndicationFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SyndicationFormat {
@@ -4167,6 +4177,11 @@ impl ::core::marker::Copy for SyndicationTextType {}
 impl ::core::clone::Clone for SyndicationTextType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SyndicationTextType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationTextType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SyndicationTextType {

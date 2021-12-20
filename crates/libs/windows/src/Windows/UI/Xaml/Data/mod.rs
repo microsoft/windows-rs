@@ -552,6 +552,11 @@ impl ::core::clone::Clone for BindingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for BindingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BindingMode {
     type Abi = Self;
 }
@@ -3196,6 +3201,11 @@ impl ::core::clone::Clone for RelativeSourceMode {
         *self
     }
 }
+impl ::core::fmt::Debug for RelativeSourceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RelativeSourceMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RelativeSourceMode {
     type Abi = Self;
 }
@@ -3224,6 +3234,11 @@ impl ::core::marker::Copy for UpdateSourceTrigger {}
 impl ::core::clone::Clone for UpdateSourceTrigger {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UpdateSourceTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateSourceTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UpdateSourceTrigger {

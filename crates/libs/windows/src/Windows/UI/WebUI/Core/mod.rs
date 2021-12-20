@@ -955,6 +955,11 @@ impl ::core::clone::Clone for WebUICommandBarClosedDisplayMode {
         *self
     }
 }
+impl ::core::fmt::Debug for WebUICommandBarClosedDisplayMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarClosedDisplayMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WebUICommandBarClosedDisplayMode {
     type Abi = Self;
 }

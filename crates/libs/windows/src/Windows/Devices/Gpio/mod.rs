@@ -223,6 +223,11 @@ impl ::core::clone::Clone for GpioChangePolarity {
         *self
     }
 }
+impl ::core::fmt::Debug for GpioChangePolarity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioChangePolarity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GpioChangePolarity {
     type Abi = Self;
 }
@@ -657,6 +662,11 @@ impl ::core::clone::Clone for GpioOpenStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for GpioOpenStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioOpenStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GpioOpenStatus {
     type Abi = Self;
 }
@@ -871,6 +881,11 @@ impl ::core::clone::Clone for GpioPinDriveMode {
         *self
     }
 }
+impl ::core::fmt::Debug for GpioPinDriveMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinDriveMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GpioPinDriveMode {
     type Abi = Self;
 }
@@ -899,6 +914,11 @@ impl ::core::clone::Clone for GpioPinEdge {
         *self
     }
 }
+impl ::core::fmt::Debug for GpioPinEdge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinEdge").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GpioPinEdge {
     type Abi = Self;
 }
@@ -925,6 +945,11 @@ impl ::core::marker::Copy for GpioPinValue {}
 impl ::core::clone::Clone for GpioPinValue {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GpioPinValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GpioPinValue {
@@ -1029,6 +1054,11 @@ impl ::core::marker::Copy for GpioSharingMode {}
 impl ::core::clone::Clone for GpioSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GpioSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioSharingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GpioSharingMode {

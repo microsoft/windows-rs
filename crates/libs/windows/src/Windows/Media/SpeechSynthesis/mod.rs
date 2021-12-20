@@ -198,6 +198,11 @@ impl ::core::clone::Clone for SpeechAppendedSilence {
         *self
     }
 }
+impl ::core::fmt::Debug for SpeechAppendedSilence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechAppendedSilence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechAppendedSilence {
     type Abi = Self;
 }
@@ -224,6 +229,11 @@ impl ::core::marker::Copy for SpeechPunctuationSilence {}
 impl ::core::clone::Clone for SpeechPunctuationSilence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpeechPunctuationSilence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechPunctuationSilence").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpeechPunctuationSilence {
@@ -975,6 +985,11 @@ impl ::core::marker::Copy for VoiceGender {}
 impl ::core::clone::Clone for VoiceGender {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VoiceGender {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceGender").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VoiceGender {

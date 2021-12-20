@@ -14,6 +14,11 @@ impl ::core::clone::Clone for CollectionChange {
         *self
     }
 }
+impl ::core::fmt::Debug for CollectionChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CollectionChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CollectionChange {
     type Abi = Self;
 }

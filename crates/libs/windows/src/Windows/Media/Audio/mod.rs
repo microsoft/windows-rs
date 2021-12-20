@@ -293,6 +293,11 @@ impl ::core::clone::Clone for AudioDeviceNodeCreationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioDeviceNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceNodeCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioDeviceNodeCreationStatus {
     type Abi = Self;
 }
@@ -934,6 +939,11 @@ impl ::core::marker::Copy for AudioFileNodeCreationStatus {}
 impl ::core::clone::Clone for AudioFileNodeCreationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AudioFileNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFileNodeCreationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AudioFileNodeCreationStatus {
@@ -2400,6 +2410,11 @@ impl ::core::clone::Clone for AudioGraphCreationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioGraphCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioGraphCreationStatus {
     type Abi = Self;
 }
@@ -2606,6 +2621,11 @@ impl ::core::marker::Copy for AudioGraphUnrecoverableError {}
 impl ::core::clone::Clone for AudioGraphUnrecoverableError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AudioGraphUnrecoverableError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphUnrecoverableError").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AudioGraphUnrecoverableError {
@@ -3012,6 +3032,11 @@ impl ::core::clone::Clone for AudioNodeEmitterDecayKind {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioNodeEmitterDecayKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterDecayKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterDecayKind {
     type Abi = Self;
 }
@@ -3243,6 +3268,11 @@ impl ::core::clone::Clone for AudioNodeEmitterSettings {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioNodeEmitterSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterSettings {
     type Abi = Self;
 }
@@ -3372,6 +3402,11 @@ impl ::core::marker::Copy for AudioNodeEmitterShapeKind {}
 impl ::core::clone::Clone for AudioNodeEmitterShapeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AudioNodeEmitterShapeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterShapeKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AudioNodeEmitterShapeKind {
@@ -3802,6 +3837,11 @@ impl ::core::clone::Clone for AudioPlaybackConnectionOpenResultStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioPlaybackConnectionOpenResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionOpenResultStatus {
     type Abi = Self;
 }
@@ -3828,6 +3868,11 @@ impl ::core::marker::Copy for AudioPlaybackConnectionState {}
 impl ::core::clone::Clone for AudioPlaybackConnectionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AudioPlaybackConnectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioPlaybackConnectionState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionState {
@@ -8131,6 +8176,11 @@ impl ::core::clone::Clone for MediaSourceAudioInputNodeCreationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaSourceAudioInputNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceAudioInputNodeCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaSourceAudioInputNodeCreationStatus {
     type Abi = Self;
 }
@@ -8157,6 +8207,11 @@ impl ::core::marker::Copy for MixedRealitySpatialAudioFormatPolicy {}
 impl ::core::clone::Clone for MixedRealitySpatialAudioFormatPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MixedRealitySpatialAudioFormatPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MixedRealitySpatialAudioFormatPolicy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MixedRealitySpatialAudioFormatPolicy {
@@ -8186,6 +8241,11 @@ impl ::core::marker::Copy for QuantumSizeSelectionMode {}
 impl ::core::clone::Clone for QuantumSizeSelectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for QuantumSizeSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuantumSizeSelectionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for QuantumSizeSelectionMode {
@@ -8719,6 +8779,11 @@ impl ::core::clone::Clone for SetDefaultSpatialAudioFormatStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetDefaultSpatialAudioFormatStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SetDefaultSpatialAudioFormatStatus {
     type Abi = Self;
 }
@@ -9066,6 +9131,11 @@ impl ::core::marker::Copy for SpatialAudioModel {}
 impl ::core::clone::Clone for SpatialAudioModel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpatialAudioModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioModel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpatialAudioModel {

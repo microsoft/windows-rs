@@ -245,6 +245,11 @@ impl ::core::clone::Clone for DataProtectionStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for DataProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataProtectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DataProtectionStatus {
     type Abi = Self;
 }
@@ -273,6 +278,11 @@ impl ::core::marker::Copy for EnforcementLevel {}
 impl ::core::clone::Clone for EnforcementLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EnforcementLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnforcementLevel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EnforcementLevel {
@@ -529,6 +539,11 @@ impl ::core::marker::Copy for FileProtectionStatus {}
 impl ::core::clone::Clone for FileProtectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FileProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileProtectionStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FileProtectionStatus {
@@ -1816,6 +1831,11 @@ impl ::core::clone::Clone for ProtectedImportExportStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for ProtectedImportExportStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedImportExportStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProtectedImportExportStatus {
     type Abi = Self;
 }
@@ -1844,6 +1864,11 @@ impl ::core::marker::Copy for ProtectionPolicyAuditAction {}
 impl ::core::clone::Clone for ProtectionPolicyAuditAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ProtectionPolicyAuditAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyAuditAction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ProtectionPolicyAuditAction {
@@ -2012,6 +2037,11 @@ impl ::core::marker::Copy for ProtectionPolicyEvaluationResult {}
 impl ::core::clone::Clone for ProtectionPolicyEvaluationResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ProtectionPolicyEvaluationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyEvaluationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ProtectionPolicyEvaluationResult {
@@ -2437,6 +2467,11 @@ impl ::core::marker::Copy for ProtectionPolicyRequestAccessBehavior {}
 impl ::core::clone::Clone for ProtectionPolicyRequestAccessBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ProtectionPolicyRequestAccessBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyRequestAccessBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ProtectionPolicyRequestAccessBehavior {

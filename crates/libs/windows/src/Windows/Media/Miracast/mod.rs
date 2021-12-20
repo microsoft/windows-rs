@@ -731,6 +731,11 @@ impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MiracastReceiverApplySettingsStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverApplySettingsStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MiracastReceiverApplySettingsStatus {
     type Abi = Self;
 }
@@ -759,6 +764,11 @@ impl ::core::marker::Copy for MiracastReceiverAuthorizationMethod {}
 impl ::core::clone::Clone for MiracastReceiverAuthorizationMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MiracastReceiverAuthorizationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverAuthorizationMethod").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MiracastReceiverAuthorizationMethod {
@@ -1287,6 +1297,11 @@ impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
         *self
     }
 }
+impl ::core::fmt::Debug for MiracastReceiverDisconnectReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverDisconnectReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MiracastReceiverDisconnectReason {
     type Abi = Self;
 }
@@ -1516,6 +1531,11 @@ impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
         *self
     }
 }
+impl ::core::fmt::Debug for MiracastReceiverGameControllerDeviceUsageMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverGameControllerDeviceUsageMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MiracastReceiverGameControllerDeviceUsageMode {
     type Abi = Self;
 }
@@ -1742,6 +1762,11 @@ impl ::core::marker::Copy for MiracastReceiverListeningStatus {}
 impl ::core::clone::Clone for MiracastReceiverListeningStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MiracastReceiverListeningStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverListeningStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MiracastReceiverListeningStatus {
@@ -2146,6 +2171,11 @@ impl ::core::marker::Copy for MiracastReceiverSessionStartStatus {}
 impl ::core::clone::Clone for MiracastReceiverSessionStartStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MiracastReceiverSessionStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverSessionStartStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MiracastReceiverSessionStartStatus {
@@ -2628,6 +2658,11 @@ impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MiracastReceiverWiFiStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverWiFiStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MiracastReceiverWiFiStatus {
     type Abi = Self;
 }
@@ -2776,6 +2811,11 @@ impl ::core::marker::Copy for MiracastTransmitterAuthorizationStatus {}
 impl ::core::clone::Clone for MiracastTransmitterAuthorizationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MiracastTransmitterAuthorizationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastTransmitterAuthorizationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MiracastTransmitterAuthorizationStatus {

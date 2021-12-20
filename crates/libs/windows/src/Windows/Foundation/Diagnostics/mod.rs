@@ -58,6 +58,11 @@ impl ::core::clone::Clone for CausalityRelation {
         *self
     }
 }
+impl ::core::fmt::Debug for CausalityRelation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalityRelation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CausalityRelation {
     type Abi = Self;
 }
@@ -85,6 +90,11 @@ impl ::core::marker::Copy for CausalitySource {}
 impl ::core::clone::Clone for CausalitySource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CausalitySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalitySource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CausalitySource {
@@ -116,6 +126,11 @@ impl ::core::clone::Clone for CausalitySynchronousWork {
         *self
     }
 }
+impl ::core::fmt::Debug for CausalitySynchronousWork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalitySynchronousWork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CausalitySynchronousWork {
     type Abi = Self;
 }
@@ -143,6 +158,11 @@ impl ::core::marker::Copy for CausalityTraceLevel {}
 impl ::core::clone::Clone for CausalityTraceLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CausalityTraceLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalityTraceLevel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CausalityTraceLevel {
@@ -278,6 +298,11 @@ impl ::core::marker::Copy for ErrorOptions {}
 impl ::core::clone::Clone for ErrorOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ErrorOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ErrorOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ErrorOptions {
@@ -2411,6 +2436,11 @@ impl ::core::clone::Clone for LoggingFieldFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for LoggingFieldFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingFieldFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LoggingFieldFormat {
     type Abi = Self;
 }
@@ -3092,6 +3122,11 @@ impl ::core::clone::Clone for LoggingLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for LoggingLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LoggingLevel {
     type Abi = Self;
 }
@@ -3123,6 +3158,11 @@ impl ::core::marker::Copy for LoggingOpcode {}
 impl ::core::clone::Clone for LoggingOpcode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LoggingOpcode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingOpcode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LoggingOpcode {

@@ -101,6 +101,11 @@ impl ::core::clone::Clone for GameListCategory {
         *self
     }
 }
+impl ::core::fmt::Debug for GameListCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameListCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GameListCategory {
     type Abi = Self;
 }
@@ -401,6 +406,11 @@ impl ::core::marker::Copy for GameListEntryLaunchableState {}
 impl ::core::clone::Clone for GameListEntryLaunchableState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GameListEntryLaunchableState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameListEntryLaunchableState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GameListEntryLaunchableState {

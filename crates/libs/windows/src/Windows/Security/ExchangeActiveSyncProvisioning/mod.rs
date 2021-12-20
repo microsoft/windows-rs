@@ -495,6 +495,11 @@ impl ::core::clone::Clone for EasDisallowConvenienceLogonResult {
         *self
     }
 }
+impl ::core::fmt::Debug for EasDisallowConvenienceLogonResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasDisallowConvenienceLogonResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EasDisallowConvenienceLogonResult {
     type Abi = Self;
 }
@@ -522,6 +527,11 @@ impl ::core::marker::Copy for EasEncryptionProviderType {}
 impl ::core::clone::Clone for EasEncryptionProviderType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EasEncryptionProviderType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasEncryptionProviderType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EasEncryptionProviderType {
@@ -555,6 +565,11 @@ impl ::core::clone::Clone for EasMaxInactivityTimeLockResult {
         *self
     }
 }
+impl ::core::fmt::Debug for EasMaxInactivityTimeLockResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasMaxInactivityTimeLockResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EasMaxInactivityTimeLockResult {
     type Abi = Self;
 }
@@ -584,6 +599,11 @@ impl ::core::marker::Copy for EasMaxPasswordFailedAttemptsResult {}
 impl ::core::clone::Clone for EasMaxPasswordFailedAttemptsResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EasMaxPasswordFailedAttemptsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasMaxPasswordFailedAttemptsResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EasMaxPasswordFailedAttemptsResult {
@@ -627,6 +647,11 @@ impl ::core::clone::Clone for EasMinPasswordComplexCharactersResult {
         *self
     }
 }
+impl ::core::fmt::Debug for EasMinPasswordComplexCharactersResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasMinPasswordComplexCharactersResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EasMinPasswordComplexCharactersResult {
     type Abi = Self;
 }
@@ -668,6 +693,11 @@ impl ::core::clone::Clone for EasMinPasswordLengthResult {
         *self
     }
 }
+impl ::core::fmt::Debug for EasMinPasswordLengthResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasMinPasswordLengthResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EasMinPasswordLengthResult {
     type Abi = Self;
 }
@@ -703,6 +733,11 @@ impl ::core::clone::Clone for EasPasswordExpirationResult {
         *self
     }
 }
+impl ::core::fmt::Debug for EasPasswordExpirationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasPasswordExpirationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EasPasswordExpirationResult {
     type Abi = Self;
 }
@@ -732,6 +767,11 @@ impl ::core::marker::Copy for EasPasswordHistoryResult {}
 impl ::core::clone::Clone for EasPasswordHistoryResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EasPasswordHistoryResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasPasswordHistoryResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EasPasswordHistoryResult {
@@ -777,6 +817,11 @@ impl ::core::marker::Copy for EasRequireEncryptionResult {}
 impl ::core::clone::Clone for EasRequireEncryptionResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for EasRequireEncryptionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasRequireEncryptionResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EasRequireEncryptionResult {

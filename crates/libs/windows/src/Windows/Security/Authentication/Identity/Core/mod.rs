@@ -328,6 +328,11 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
         *self
     }
 }
+impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorAuthenticationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorAuthenticationType {
     type Abi = Self;
 }
@@ -563,6 +568,11 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorServiceResponse {
         *self
     }
 }
+impl ::core::fmt::Debug for MicrosoftAccountMultiFactorServiceResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorServiceResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorServiceResponse {
     type Abi = Self;
 }
@@ -592,6 +602,11 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionApprovalStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorSessionApprovalStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type Abi = Self;
 }
@@ -618,6 +633,11 @@ impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionAuthenticationSt
 impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorSessionAuthenticationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionAuthenticationStatus {

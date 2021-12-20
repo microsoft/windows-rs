@@ -1642,6 +1642,11 @@ impl ::core::clone::Clone for PickerLocationId {
         *self
     }
 }
+impl ::core::fmt::Debug for PickerLocationId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PickerLocationId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PickerLocationId {
     type Abi = Self;
 }
@@ -1668,6 +1673,11 @@ impl ::core::marker::Copy for PickerViewMode {}
 impl ::core::clone::Clone for PickerViewMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PickerViewMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PickerViewMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PickerViewMode {

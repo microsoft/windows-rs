@@ -340,6 +340,11 @@ impl ::core::clone::Clone for OfflineMapPackageQueryStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for OfflineMapPackageQueryStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageQueryStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OfflineMapPackageQueryStatus {
     type Abi = Self;
 }
@@ -446,6 +451,11 @@ impl ::core::clone::Clone for OfflineMapPackageStartDownloadStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for OfflineMapPackageStartDownloadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageStartDownloadStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for OfflineMapPackageStartDownloadStatus {
     type Abi = Self;
 }
@@ -474,6 +484,11 @@ impl ::core::marker::Copy for OfflineMapPackageStatus {}
 impl ::core::clone::Clone for OfflineMapPackageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OfflineMapPackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OfflineMapPackageStatus {

@@ -182,6 +182,11 @@ impl ::core::clone::Clone for WiFiAccessStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiAccessStatus {
     type Abi = Self;
 }
@@ -565,6 +570,11 @@ impl ::core::clone::Clone for WiFiConnectionMethod {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiConnectionMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiConnectionMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiConnectionMethod {
     type Abi = Self;
 }
@@ -674,6 +684,11 @@ impl ::core::clone::Clone for WiFiConnectionStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiConnectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiConnectionStatus {
     type Abi = Self;
 }
@@ -701,6 +716,11 @@ impl ::core::marker::Copy for WiFiNetworkKind {}
 impl ::core::clone::Clone for WiFiNetworkKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiFiNetworkKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiNetworkKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiFiNetworkKind {
@@ -826,6 +846,11 @@ impl ::core::clone::Clone for WiFiPhyKind {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiPhyKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiPhyKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiPhyKind {
     type Abi = Self;
 }
@@ -852,6 +877,11 @@ impl ::core::marker::Copy for WiFiReconnectionKind {}
 impl ::core::clone::Clone for WiFiReconnectionKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiFiReconnectionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiReconnectionKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiFiReconnectionKind {
@@ -968,6 +998,11 @@ impl ::core::clone::Clone for WiFiWpsConfigurationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for WiFiWpsConfigurationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiWpsConfigurationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiWpsConfigurationStatus {
     type Abi = Self;
 }
@@ -998,6 +1033,11 @@ impl ::core::marker::Copy for WiFiWpsKind {}
 impl ::core::clone::Clone for WiFiWpsKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WiFiWpsKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiWpsKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WiFiWpsKind {

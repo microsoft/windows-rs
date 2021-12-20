@@ -192,6 +192,11 @@ impl ::core::clone::Clone for GraphicsTrustStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for GraphicsTrustStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GraphicsTrustStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GraphicsTrustStatus {
     type Abi = Self;
 }
@@ -219,6 +224,11 @@ impl ::core::marker::Copy for HdcpProtection {}
 impl ::core::clone::Clone for HdcpProtection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HdcpProtection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdcpProtection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HdcpProtection {
@@ -397,6 +407,11 @@ impl ::core::marker::Copy for HdcpSetProtectionResult {}
 impl ::core::clone::Clone for HdcpSetProtectionResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HdcpSetProtectionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdcpSetProtectionResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HdcpSetProtectionResult {
@@ -1142,6 +1157,11 @@ impl ::core::clone::Clone for ProtectionCapabilityResult {
         *self
     }
 }
+impl ::core::fmt::Debug for ProtectionCapabilityResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionCapabilityResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProtectionCapabilityResult {
     type Abi = Self;
 }
@@ -1241,6 +1261,11 @@ impl ::core::marker::Copy for RenewalStatus {}
 impl ::core::clone::Clone for RenewalStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RenewalStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RenewalStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RenewalStatus {
@@ -1467,6 +1492,11 @@ impl ::core::marker::Copy for RevocationAndRenewalReasons {}
 impl ::core::clone::Clone for RevocationAndRenewalReasons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RevocationAndRenewalReasons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevocationAndRenewalReasons").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RevocationAndRenewalReasons {

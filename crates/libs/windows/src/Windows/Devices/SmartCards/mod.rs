@@ -1499,6 +1499,11 @@ impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardActivationPolicyChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardActivationPolicyChangeResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardActivationPolicyChangeResult {
     type Abi = Self;
 }
@@ -1737,6 +1742,11 @@ impl ::core::marker::Copy for SmartCardAppletIdGroupActivationPolicy {}
 impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardAppletIdGroupActivationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardAppletIdGroupActivationPolicy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardAppletIdGroupActivationPolicy {
@@ -2092,6 +2102,11 @@ impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardAutomaticResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardAutomaticResponseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardAutomaticResponseStatus {
     type Abi = Self;
 }
@@ -2381,6 +2396,11 @@ impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardCryptogramAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramAlgorithm {
     type Abi = Self;
 }
@@ -2665,6 +2685,11 @@ impl ::core::marker::Copy for SmartCardCryptogramGeneratorOperationStatus {}
 impl ::core::clone::Clone for SmartCardCryptogramGeneratorOperationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardCryptogramGeneratorOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramGeneratorOperationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardCryptogramGeneratorOperationStatus {
@@ -3221,6 +3246,11 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageConfirmationResp
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramMaterialPackageConfirmationResponseFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     type Abi = Self;
 }
@@ -3247,6 +3277,11 @@ impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageFormat {}
 impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramMaterialPackageFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageFormat {
@@ -3362,6 +3397,11 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialProtectionMethod {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardCryptogramMaterialProtectionMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramMaterialProtectionMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialProtectionMethod {
     type Abi = Self;
 }
@@ -3393,6 +3433,11 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialType {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardCryptogramMaterialType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramMaterialType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialType {
     type Abi = Self;
 }
@@ -3420,6 +3465,11 @@ impl ::core::marker::Copy for SmartCardCryptogramPlacementOptions {}
 impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardCryptogramPlacementOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramPlacementOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardCryptogramPlacementOptions {
@@ -3644,6 +3694,11 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyAlgorithm {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramStorageKeyAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyAlgorithm {
     type Abi = Self;
 }
@@ -3671,6 +3726,11 @@ impl ::core::marker::Copy for SmartCardCryptogramStorageKeyCapabilities {}
 impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramStorageKeyCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyCapabilities {
@@ -3951,6 +4011,11 @@ impl ::core::clone::Clone for SmartCardCryptographicKeyAttestationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardCryptographicKeyAttestationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptographicKeyAttestationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptographicKeyAttestationStatus {
     type Abi = Self;
 }
@@ -3977,6 +4042,11 @@ impl ::core::marker::Copy for SmartCardEmulationCategory {}
 impl ::core::clone::Clone for SmartCardEmulationCategory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardEmulationCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulationCategory").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardEmulationCategory {
@@ -4006,6 +4076,11 @@ impl ::core::marker::Copy for SmartCardEmulationType {}
 impl ::core::clone::Clone for SmartCardEmulationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardEmulationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulationType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardEmulationType {
@@ -4437,6 +4512,11 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulatorConnectionDeactivatedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionDeactivatedReason {
     type Abi = Self;
 }
@@ -4549,6 +4629,11 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionSource {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardEmulatorConnectionSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulatorConnectionSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionSource {
     type Abi = Self;
 }
@@ -4579,6 +4664,11 @@ impl ::core::clone::Clone for SmartCardEmulatorEnablementPolicy {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardEmulatorEnablementPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulatorEnablementPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorEnablementPolicy {
     type Abi = Self;
 }
@@ -4605,6 +4695,11 @@ impl ::core::marker::Copy for SmartCardLaunchBehavior {}
 impl ::core::clone::Clone for SmartCardLaunchBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardLaunchBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardLaunchBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardLaunchBehavior {
@@ -4634,6 +4729,11 @@ impl ::core::marker::Copy for SmartCardPinCharacterPolicyOption {}
 impl ::core::clone::Clone for SmartCardPinCharacterPolicyOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardPinCharacterPolicyOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardPinCharacterPolicyOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardPinCharacterPolicyOption {
@@ -5419,6 +5519,11 @@ impl ::core::clone::Clone for SmartCardReaderKind {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardReaderKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardReaderKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardReaderKind {
     type Abi = Self;
 }
@@ -5446,6 +5551,11 @@ impl ::core::marker::Copy for SmartCardReaderStatus {}
 impl ::core::clone::Clone for SmartCardReaderStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardReaderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardReaderStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardReaderStatus {
@@ -5477,6 +5587,11 @@ impl ::core::marker::Copy for SmartCardStatus {}
 impl ::core::clone::Clone for SmartCardStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardStatus {
@@ -5639,6 +5754,11 @@ impl ::core::clone::Clone for SmartCardTriggerType {
         *self
     }
 }
+impl ::core::fmt::Debug for SmartCardTriggerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardTriggerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardTriggerType {
     type Abi = Self;
 }
@@ -5666,6 +5786,11 @@ impl ::core::marker::Copy for SmartCardUnlockPromptingBehavior {}
 impl ::core::clone::Clone for SmartCardUnlockPromptingBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SmartCardUnlockPromptingBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardUnlockPromptingBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardUnlockPromptingBehavior {

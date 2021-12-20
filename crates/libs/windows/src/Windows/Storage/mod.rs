@@ -1177,6 +1177,11 @@ impl ::core::clone::Clone for ApplicationDataCreateDisposition {
         *self
     }
 }
+impl ::core::fmt::Debug for ApplicationDataCreateDisposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationDataCreateDisposition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationDataCreateDisposition {
     type Abi = Self;
 }
@@ -1206,6 +1211,11 @@ impl ::core::marker::Copy for ApplicationDataLocality {}
 impl ::core::clone::Clone for ApplicationDataLocality {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ApplicationDataLocality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationDataLocality").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationDataLocality {
@@ -1332,6 +1342,11 @@ impl ::core::clone::Clone for CreationCollisionOption {
         *self
     }
 }
+impl ::core::fmt::Debug for CreationCollisionOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreationCollisionOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CreationCollisionOption {
     type Abi = Self;
 }
@@ -1441,6 +1456,11 @@ impl ::core::clone::Clone for FileAccessMode {
         *self
     }
 }
+impl ::core::fmt::Debug for FileAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FileAccessMode {
     type Abi = Self;
 }
@@ -1471,6 +1491,11 @@ impl ::core::marker::Copy for FileAttributes {}
 impl ::core::clone::Clone for FileAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FileAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileAttributes").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FileAttributes {
@@ -4760,6 +4785,11 @@ impl ::core::clone::Clone for KnownFolderId {
         *self
     }
 }
+impl ::core::fmt::Debug for KnownFolderId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KnownFolderId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KnownFolderId {
     type Abi = Self;
 }
@@ -4957,6 +4987,11 @@ impl ::core::clone::Clone for KnownFoldersAccessStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for KnownFoldersAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KnownFoldersAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KnownFoldersAccessStatus {
     type Abi = Self;
 }
@@ -4987,6 +5022,11 @@ impl ::core::clone::Clone for KnownLibraryId {
         *self
     }
 }
+impl ::core::fmt::Debug for KnownLibraryId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KnownLibraryId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KnownLibraryId {
     type Abi = Self;
 }
@@ -5014,6 +5054,11 @@ impl ::core::marker::Copy for NameCollisionOption {}
 impl ::core::clone::Clone for NameCollisionOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for NameCollisionOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NameCollisionOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NameCollisionOption {
@@ -5339,6 +5384,11 @@ impl ::core::marker::Copy for StorageDeleteOption {}
 impl ::core::clone::Clone for StorageDeleteOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorageDeleteOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageDeleteOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorageDeleteOption {
@@ -6808,6 +6858,11 @@ impl ::core::clone::Clone for StorageItemTypes {
         *self
     }
 }
+impl ::core::fmt::Debug for StorageItemTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageItemTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StorageItemTypes {
     type Abi = Self;
 }
@@ -7390,6 +7445,11 @@ impl ::core::clone::Clone for StorageLibraryChangeType {
         *self
     }
 }
+impl ::core::fmt::Debug for StorageLibraryChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StorageLibraryChangeType {
     type Abi = Self;
 }
@@ -7497,6 +7557,11 @@ impl ::core::marker::Copy for StorageOpenOptions {}
 impl ::core::clone::Clone for StorageOpenOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StorageOpenOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageOpenOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StorageOpenOptions {
@@ -8009,6 +8074,11 @@ impl ::core::marker::Copy for StreamedFileFailureMode {}
 impl ::core::clone::Clone for StreamedFileFailureMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StreamedFileFailureMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamedFileFailureMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StreamedFileFailureMode {

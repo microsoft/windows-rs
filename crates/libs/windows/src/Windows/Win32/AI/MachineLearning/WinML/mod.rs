@@ -1380,6 +1380,11 @@ impl ::core::clone::Clone for MLOperatorAttributeType {
         *self
     }
 }
+impl ::core::fmt::Debug for MLOperatorAttributeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorAttributeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorAttributeType {
     type Abi = Self;
 }
@@ -1459,6 +1464,11 @@ impl ::core::clone::Clone for MLOperatorEdgeType {
         *self
     }
 }
+impl ::core::fmt::Debug for MLOperatorEdgeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorEdgeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorEdgeType {
     type Abi = Self;
 }
@@ -1520,6 +1530,11 @@ impl ::core::marker::Copy for MLOperatorExecutionType {}
 impl ::core::clone::Clone for MLOperatorExecutionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MLOperatorExecutionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorExecutionType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MLOperatorExecutionType {
@@ -1602,6 +1617,11 @@ impl ::core::clone::Clone for MLOperatorKernelOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for MLOperatorKernelOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorKernelOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorKernelOptions {
     type Abi = Self;
 }
@@ -1623,6 +1643,11 @@ impl ::core::marker::Copy for MLOperatorParameterOptions {}
 impl ::core::clone::Clone for MLOperatorParameterOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MLOperatorParameterOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorParameterOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MLOperatorParameterOptions {
@@ -1783,6 +1808,11 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeTypeFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for MLOperatorSchemaEdgeTypeFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorSchemaEdgeTypeFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeTypeFormat {
     type Abi = Self;
 }
@@ -1856,6 +1886,11 @@ impl ::core::marker::Copy for MLOperatorTensorDataType {}
 impl ::core::clone::Clone for MLOperatorTensorDataType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MLOperatorTensorDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorTensorDataType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MLOperatorTensorDataType {

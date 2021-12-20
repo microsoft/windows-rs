@@ -350,6 +350,11 @@ impl ::core::clone::Clone for SecurityAppKind {
         *self
     }
 }
+impl ::core::fmt::Debug for SecurityAppKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SecurityAppKind {
     type Abi = Self;
 }
@@ -473,6 +478,11 @@ impl ::core::clone::Clone for SecurityAppState {
         *self
     }
 }
+impl ::core::fmt::Debug for SecurityAppState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SecurityAppState {
     type Abi = Self;
 }
@@ -503,6 +513,11 @@ impl ::core::clone::Clone for SecurityAppSubstatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SecurityAppSubstatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppSubstatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SecurityAppSubstatus {
     type Abi = Self;
 }
@@ -530,6 +545,11 @@ impl ::core::marker::Copy for ShareWindowCommand {}
 impl ::core::clone::Clone for ShareWindowCommand {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ShareWindowCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareWindowCommand").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ShareWindowCommand {

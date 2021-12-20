@@ -1267,6 +1267,11 @@ impl ::core::clone::Clone for WebAccountClientViewType {
         *self
     }
 }
+impl ::core::fmt::Debug for WebAccountClientViewType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountClientViewType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WebAccountClientViewType {
     type Abi = Self;
 }
@@ -2102,6 +2107,11 @@ impl ::core::clone::Clone for WebAccountProviderOperationKind {
         *self
     }
 }
+impl ::core::fmt::Debug for WebAccountProviderOperationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderOperationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WebAccountProviderOperationKind {
     type Abi = Self;
 }
@@ -2801,6 +2811,11 @@ impl ::core::clone::Clone for WebAccountScope {
         *self
     }
 }
+impl ::core::fmt::Debug for WebAccountScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WebAccountScope {
     type Abi = Self;
 }
@@ -2827,6 +2842,11 @@ impl ::core::marker::Copy for WebAccountSelectionOptions {}
 impl ::core::clone::Clone for WebAccountSelectionOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WebAccountSelectionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountSelectionOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WebAccountSelectionOptions {

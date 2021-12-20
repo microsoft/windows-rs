@@ -802,6 +802,11 @@ impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
         *self
     }
 }
+impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechContinuousRecognitionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechContinuousRecognitionMode {
     type Abi = Self;
 }
@@ -1074,6 +1079,11 @@ impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
         *self
     }
 }
+impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionAudioProblem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionAudioProblem {
     type Abi = Self;
 }
@@ -1180,6 +1190,11 @@ impl ::core::clone::Clone for SpeechRecognitionConfidence {
         *self
     }
 }
+impl ::core::fmt::Debug for SpeechRecognitionConfidence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConfidence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionConfidence {
     type Abi = Self;
 }
@@ -1207,6 +1222,11 @@ impl ::core::marker::Copy for SpeechRecognitionConstraintProbability {}
 impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConstraintProbability").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintProbability {
@@ -1237,6 +1257,11 @@ impl ::core::marker::Copy for SpeechRecognitionConstraintType {}
 impl ::core::clone::Clone for SpeechRecognitionConstraintType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConstraintType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintType {
@@ -1990,6 +2015,11 @@ impl ::core::clone::Clone for SpeechRecognitionResultStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionResultStatus {
     type Abi = Self;
 }
@@ -2017,6 +2047,11 @@ impl ::core::marker::Copy for SpeechRecognitionScenario {}
 impl ::core::clone::Clone for SpeechRecognitionScenario {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpeechRecognitionScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionScenario").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecognitionScenario {
@@ -2729,6 +2764,11 @@ impl ::core::marker::Copy for SpeechRecognizerState {}
 impl ::core::clone::Clone for SpeechRecognizerState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpeechRecognizerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecognizerState {

@@ -1102,6 +1102,11 @@ impl ::core::clone::Clone for FocusInputDeviceKind {
         *self
     }
 }
+impl ::core::fmt::Debug for FocusInputDeviceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusInputDeviceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FocusInputDeviceKind {
     type Abi = Self;
 }
@@ -1627,6 +1632,11 @@ impl ::core::marker::Copy for FocusNavigationDirection {}
 impl ::core::clone::Clone for FocusNavigationDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FocusNavigationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusNavigationDirection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FocusNavigationDirection {
@@ -4130,6 +4140,11 @@ impl ::core::clone::Clone for InputScopeNameValue {
         *self
     }
 }
+impl ::core::fmt::Debug for InputScopeNameValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputScopeNameValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InputScopeNameValue {
     type Abi = Self;
 }
@@ -4367,6 +4382,11 @@ impl ::core::marker::Copy for KeyTipPlacementMode {}
 impl ::core::clone::Clone for KeyTipPlacementMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KeyTipPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyTipPlacementMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KeyTipPlacementMode {
@@ -4698,6 +4718,11 @@ impl ::core::clone::Clone for KeyboardAcceleratorPlacementMode {
         *self
     }
 }
+impl ::core::fmt::Debug for KeyboardAcceleratorPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyboardAcceleratorPlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for KeyboardAcceleratorPlacementMode {
     type Abi = Self;
 }
@@ -4725,6 +4750,11 @@ impl ::core::marker::Copy for KeyboardNavigationMode {}
 impl ::core::clone::Clone for KeyboardNavigationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for KeyboardNavigationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyboardNavigationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KeyboardNavigationMode {
@@ -5681,6 +5711,11 @@ impl ::core::marker::Copy for ManipulationModes {}
 impl ::core::clone::Clone for ManipulationModes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ManipulationModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManipulationModes").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ManipulationModes {
@@ -7183,6 +7218,11 @@ impl ::core::clone::Clone for StandardUICommandKind {
         *self
     }
 }
+impl ::core::fmt::Debug for StandardUICommandKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StandardUICommandKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StandardUICommandKind {
     type Abi = Self;
 }
@@ -7408,6 +7448,11 @@ impl ::core::clone::Clone for XYFocusKeyboardNavigationMode {
         *self
     }
 }
+impl ::core::fmt::Debug for XYFocusKeyboardNavigationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XYFocusKeyboardNavigationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XYFocusKeyboardNavigationMode {
     type Abi = Self;
 }
@@ -7436,6 +7481,11 @@ impl ::core::marker::Copy for XYFocusNavigationStrategy {}
 impl ::core::clone::Clone for XYFocusNavigationStrategy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XYFocusNavigationStrategy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XYFocusNavigationStrategy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XYFocusNavigationStrategy {
@@ -7467,6 +7517,11 @@ impl ::core::marker::Copy for XYFocusNavigationStrategyOverride {}
 impl ::core::clone::Clone for XYFocusNavigationStrategyOverride {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XYFocusNavigationStrategyOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XYFocusNavigationStrategyOverride").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XYFocusNavigationStrategyOverride {

@@ -67,6 +67,11 @@ impl ::core::clone::Clone for AddResourcePackageOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for AddResourcePackageOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddResourcePackageOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AddResourcePackageOptions {
     type Abi = Self;
 }
@@ -187,6 +192,11 @@ impl ::core::marker::Copy for AppExecutionContext {}
 impl ::core::clone::Clone for AppExecutionContext {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AppExecutionContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExecutionContext").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AppExecutionContext {
@@ -571,6 +581,11 @@ impl ::core::clone::Clone for AppInstallerPolicySource {
         *self
     }
 }
+impl ::core::fmt::Debug for AppInstallerPolicySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallerPolicySource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AppInstallerPolicySource {
     type Abi = Self;
 }
@@ -873,6 +888,11 @@ impl ::core::marker::Copy for FullTrustLaunchResult {}
 impl ::core::clone::Clone for FullTrustLaunchResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FullTrustLaunchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullTrustLaunchResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FullTrustLaunchResult {
@@ -2799,6 +2819,11 @@ impl ::core::clone::Clone for LimitedAccessFeatureStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for LimitedAccessFeatureStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LimitedAccessFeatureStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LimitedAccessFeatureStatus {
     type Abi = Self;
 }
@@ -4063,6 +4088,11 @@ impl ::core::clone::Clone for PackageContentGroupState {
         *self
     }
 }
+impl ::core::fmt::Debug for PackageContentGroupState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageContentGroupState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PackageContentGroupState {
     type Abi = Self;
 }
@@ -4385,6 +4415,11 @@ impl ::core::marker::Copy for PackageSignatureKind {}
 impl ::core::clone::Clone for PackageSignatureKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PackageSignatureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageSignatureKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PackageSignatureKind {
@@ -4882,6 +4917,11 @@ impl ::core::clone::Clone for PackageUpdateAvailability {
         *self
     }
 }
+impl ::core::fmt::Debug for PackageUpdateAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageUpdateAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PackageUpdateAvailability {
     type Abi = Self;
 }
@@ -5269,6 +5309,11 @@ impl ::core::marker::Copy for StartupTaskState {}
 impl ::core::clone::Clone for StartupTaskState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StartupTaskState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StartupTaskState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StartupTaskState {

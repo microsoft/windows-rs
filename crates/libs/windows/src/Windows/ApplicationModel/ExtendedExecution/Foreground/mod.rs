@@ -14,6 +14,11 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundReason {
         *self
     }
 }
+impl ::core::fmt::Debug for ExtendedExecutionForegroundReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionForegroundReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundReason {
     type Abi = Self;
 }
@@ -40,6 +45,11 @@ impl ::core::marker::Copy for ExtendedExecutionForegroundResult {}
 impl ::core::clone::Clone for ExtendedExecutionForegroundResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ExtendedExecutionForegroundResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionForegroundResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundResult {
@@ -144,6 +154,11 @@ impl ::core::marker::Copy for ExtendedExecutionForegroundRevokedReason {}
 impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionForegroundRevokedReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundRevokedReason {

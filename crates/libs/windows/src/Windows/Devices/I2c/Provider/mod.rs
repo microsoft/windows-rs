@@ -360,6 +360,11 @@ impl ::core::clone::Clone for ProviderI2cBusSpeed {
         *self
     }
 }
+impl ::core::fmt::Debug for ProviderI2cBusSpeed {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cBusSpeed").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderI2cBusSpeed {
     type Abi = Self;
 }
@@ -495,6 +500,11 @@ impl ::core::clone::Clone for ProviderI2cSharingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ProviderI2cSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cSharingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderI2cSharingMode {
     type Abi = Self;
 }
@@ -559,6 +569,11 @@ impl ::core::marker::Copy for ProviderI2cTransferStatus {}
 impl ::core::clone::Clone for ProviderI2cTransferStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ProviderI2cTransferStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cTransferStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ProviderI2cTransferStatus {

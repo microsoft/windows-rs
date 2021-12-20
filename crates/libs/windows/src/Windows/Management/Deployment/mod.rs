@@ -17,6 +17,11 @@ impl ::core::clone::Clone for AddPackageByAppInstallerOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for AddPackageByAppInstallerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddPackageByAppInstallerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AddPackageByAppInstallerOptions {
     type Abi = Self;
 }
@@ -1069,6 +1074,11 @@ impl ::core::clone::Clone for DeploymentOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for DeploymentOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeploymentOptions {
     type Abi = Self;
 }
@@ -1132,6 +1142,11 @@ impl ::core::marker::Copy for DeploymentProgressState {}
 impl ::core::clone::Clone for DeploymentProgressState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeploymentProgressState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentProgressState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeploymentProgressState {
@@ -2408,6 +2423,11 @@ impl ::core::clone::Clone for PackageInstallState {
         *self
     }
 }
+impl ::core::fmt::Debug for PackageInstallState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageInstallState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PackageInstallState {
     type Abi = Self;
 }
@@ -3184,6 +3204,11 @@ impl ::core::clone::Clone for PackageState {
         *self
     }
 }
+impl ::core::fmt::Debug for PackageState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PackageState {
     type Abi = Self;
 }
@@ -3215,6 +3240,11 @@ impl ::core::clone::Clone for PackageStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for PackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PackageStatus {
     type Abi = Self;
 }
@@ -3241,6 +3271,11 @@ impl ::core::marker::Copy for PackageStubPreference {}
 impl ::core::clone::Clone for PackageStubPreference {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PackageStubPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStubPreference").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PackageStubPreference {
@@ -3275,6 +3310,11 @@ impl ::core::marker::Copy for PackageTypes {}
 impl ::core::clone::Clone for PackageTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PackageTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageTypes").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PackageTypes {
@@ -3883,6 +3923,11 @@ impl ::core::clone::Clone for RemovalOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for RemovalOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemovalOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RemovalOptions {
     type Abi = Self;
 }
@@ -4019,6 +4064,11 @@ impl ::core::marker::Copy for SharedPackageContainerCreationCollisionOptions {}
 impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SharedPackageContainerCreationCollisionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainerCreationCollisionOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SharedPackageContainerCreationCollisionOptions {
@@ -4275,6 +4325,11 @@ impl ::core::marker::Copy for SharedPackageContainerOperationStatus {}
 impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SharedPackageContainerOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainerOperationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SharedPackageContainerOperationStatus {
@@ -4535,6 +4590,11 @@ impl ::core::marker::Copy for StubPackageOption {}
 impl ::core::clone::Clone for StubPackageOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StubPackageOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StubPackageOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StubPackageOption {

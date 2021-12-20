@@ -16,6 +16,11 @@ impl ::core::clone::Clone for DirectXAlphaMode {
         *self
     }
 }
+impl ::core::fmt::Debug for DirectXAlphaMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectXAlphaMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DirectXAlphaMode {
     type Abi = Self;
 }
@@ -65,6 +70,11 @@ impl ::core::marker::Copy for DirectXColorSpace {}
 impl ::core::clone::Clone for DirectXColorSpace {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DirectXColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectXColorSpace").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DirectXColorSpace {
@@ -214,6 +224,11 @@ impl ::core::clone::Clone for DirectXPixelFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for DirectXPixelFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectXPixelFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DirectXPixelFormat {
     type Abi = Self;
 }
@@ -244,6 +259,11 @@ impl ::core::marker::Copy for DirectXPrimitiveTopology {}
 impl ::core::clone::Clone for DirectXPrimitiveTopology {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DirectXPrimitiveTopology {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectXPrimitiveTopology").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DirectXPrimitiveTopology {

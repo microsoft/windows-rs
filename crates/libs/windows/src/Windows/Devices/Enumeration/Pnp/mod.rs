@@ -471,6 +471,11 @@ impl ::core::clone::Clone for PnpObjectType {
         *self
     }
 }
+impl ::core::fmt::Debug for PnpObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PnpObjectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PnpObjectType {
     type Abi = Self;
 }

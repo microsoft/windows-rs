@@ -13,6 +13,11 @@ impl ::core::clone::Clone for DeviceAccountAuthenticationType {
         *self
     }
 }
+impl ::core::fmt::Debug for DeviceAccountAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountAuthenticationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccountAuthenticationType {
     type Abi = Self;
 }
@@ -701,6 +706,11 @@ impl ::core::clone::Clone for DeviceAccountIconId {
         *self
     }
 }
+impl ::core::fmt::Debug for DeviceAccountIconId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountIconId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccountIconId {
     type Abi = Self;
 }
@@ -734,6 +744,11 @@ impl ::core::clone::Clone for DeviceAccountMailAgeFilter {
         *self
     }
 }
+impl ::core::fmt::Debug for DeviceAccountMailAgeFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountMailAgeFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccountMailAgeFilter {
     type Abi = Self;
 }
@@ -761,6 +776,11 @@ impl ::core::marker::Copy for DeviceAccountServerType {}
 impl ::core::clone::Clone for DeviceAccountServerType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeviceAccountServerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountServerType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeviceAccountServerType {
@@ -794,6 +814,11 @@ impl ::core::marker::Copy for DeviceAccountSyncScheduleKind {}
 impl ::core::clone::Clone for DeviceAccountSyncScheduleKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeviceAccountSyncScheduleKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountSyncScheduleKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeviceAccountSyncScheduleKind {

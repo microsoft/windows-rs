@@ -135,6 +135,11 @@ impl ::core::clone::Clone for PhoneCallBlockedReason {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneCallBlockedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallBlockedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallBlockedReason {
     type Abi = Self;
 }
@@ -339,6 +344,11 @@ impl ::core::marker::Copy for PhoneIncomingCallDismissedReason {}
 impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneIncomingCallDismissedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneIncomingCallDismissedReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneIncomingCallDismissedReason {
@@ -571,6 +581,11 @@ impl ::core::clone::Clone for PhoneLineChangeKind {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneLineChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineChangeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineChangeKind {
     type Abi = Self;
 }
@@ -699,6 +714,11 @@ impl ::core::clone::Clone for PhoneLineProperties {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneLineProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineProperties {
     type Abi = Self;
 }
@@ -823,6 +843,11 @@ impl ::core::marker::Copy for PhoneTriggerType {}
 impl ::core::clone::Clone for PhoneTriggerType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneTriggerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneTriggerType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneTriggerType {

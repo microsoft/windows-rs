@@ -390,6 +390,11 @@ impl ::core::clone::Clone for WalletActionKind {
         *self
     }
 }
+impl ::core::fmt::Debug for WalletActionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletActionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WalletActionKind {
     type Abi = Self;
 }
@@ -541,6 +546,11 @@ impl ::core::clone::Clone for WalletBarcodeSymbology {
         *self
     }
 }
+impl ::core::fmt::Debug for WalletBarcodeSymbology {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WalletBarcodeSymbology {
     type Abi = Self;
 }
@@ -580,6 +590,11 @@ impl ::core::marker::Copy for WalletDetailViewPosition {}
 impl ::core::clone::Clone for WalletDetailViewPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WalletDetailViewPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WalletDetailViewPosition {
@@ -1219,6 +1234,11 @@ impl ::core::clone::Clone for WalletItemKind {
         *self
     }
 }
+impl ::core::fmt::Debug for WalletItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WalletItemKind {
     type Abi = Self;
 }
@@ -1527,6 +1547,11 @@ impl ::core::marker::Copy for WalletSummaryViewPosition {}
 impl ::core::clone::Clone for WalletSummaryViewPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WalletSummaryViewPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WalletSummaryViewPosition {

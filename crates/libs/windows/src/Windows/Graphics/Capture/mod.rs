@@ -330,6 +330,11 @@ impl ::core::clone::Clone for GraphicsCaptureAccessKind {
         *self
     }
 }
+impl ::core::fmt::Debug for GraphicsCaptureAccessKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GraphicsCaptureAccessKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GraphicsCaptureAccessKind {
     type Abi = Self;
 }

@@ -255,6 +255,11 @@ impl ::core::clone::Clone for ContactChangeType {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactChangeType {
     type Abi = Self;
 }
@@ -713,6 +718,11 @@ impl ::core::clone::Clone for ContactQueryResultOrdering {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactQueryResultOrdering {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQueryResultOrdering").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactQueryResultOrdering {
     type Abi = Self;
 }
@@ -926,6 +936,11 @@ impl ::core::clone::Clone for ContactStoreApplicationAccessMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ContactStoreApplicationAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStoreApplicationAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContactStoreApplicationAccessMode {
     type Abi = Self;
 }
@@ -952,6 +967,11 @@ impl ::core::marker::Copy for ContactStoreSystemAccessMode {}
 impl ::core::clone::Clone for ContactStoreSystemAccessMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ContactStoreSystemAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStoreSystemAccessMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ContactStoreSystemAccessMode {
@@ -2148,6 +2168,11 @@ impl ::core::marker::Copy for VCardFormat {}
 impl ::core::clone::Clone for VCardFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VCardFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VCardFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VCardFormat {

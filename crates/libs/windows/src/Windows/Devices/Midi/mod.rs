@@ -1538,6 +1538,11 @@ impl ::core::clone::Clone for MidiMessageType {
         *self
     }
 }
+impl ::core::fmt::Debug for MidiMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiMessageType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MidiMessageType {
     type Abi = Self;
 }

@@ -1836,6 +1836,11 @@ impl ::core::clone::Clone for WebViewControlPermissionState {
         *self
     }
 }
+impl ::core::fmt::Debug for WebViewControlPermissionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WebViewControlPermissionState {
     type Abi = Self;
 }
@@ -1867,6 +1872,11 @@ impl ::core::marker::Copy for WebViewControlPermissionType {}
 impl ::core::clone::Clone for WebViewControlPermissionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WebViewControlPermissionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WebViewControlPermissionType {

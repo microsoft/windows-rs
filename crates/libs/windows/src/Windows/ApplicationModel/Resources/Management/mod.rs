@@ -329,6 +329,11 @@ impl ::core::clone::Clone for IndexedResourceType {
         *self
     }
 }
+impl ::core::fmt::Debug for IndexedResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexedResourceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IndexedResourceType {
     type Abi = Self;
 }

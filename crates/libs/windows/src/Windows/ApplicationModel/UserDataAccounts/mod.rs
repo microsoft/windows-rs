@@ -553,6 +553,11 @@ impl ::core::clone::Clone for UserDataAccountContentKinds {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataAccountContentKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountContentKinds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataAccountContentKinds {
     type Abi = Self;
 }
@@ -725,6 +730,11 @@ impl ::core::clone::Clone for UserDataAccountOtherAppReadAccess {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataAccountOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataAccountOtherAppReadAccess {
     type Abi = Self;
 }
@@ -879,6 +889,11 @@ impl ::core::marker::Copy for UserDataAccountStoreAccessType {}
 impl ::core::clone::Clone for UserDataAccountStoreAccessType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataAccountStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountStoreAccessType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataAccountStoreAccessType {

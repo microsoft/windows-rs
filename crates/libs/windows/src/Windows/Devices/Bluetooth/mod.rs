@@ -214,6 +214,11 @@ impl ::core::clone::Clone for BluetoothAddressType {
         *self
     }
 }
+impl ::core::fmt::Debug for BluetoothAddressType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothAddressType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothAddressType {
     type Abi = Self;
 }
@@ -240,6 +245,11 @@ impl ::core::marker::Copy for BluetoothCacheMode {}
 impl ::core::clone::Clone for BluetoothCacheMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BluetoothCacheMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothCacheMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothCacheMode {
@@ -387,6 +397,11 @@ impl ::core::marker::Copy for BluetoothConnectionStatus {}
 impl ::core::clone::Clone for BluetoothConnectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BluetoothConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothConnectionStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothConnectionStatus {
@@ -894,6 +909,11 @@ impl ::core::marker::Copy for BluetoothError {}
 impl ::core::clone::Clone for BluetoothError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BluetoothError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothError").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothError {
@@ -2340,6 +2360,11 @@ impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequestSta
         *self
     }
 }
+impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequestStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEPreferredConnectionParametersRequestStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothLEPreferredConnectionParametersRequestStatus {
     type Abi = Self;
 }
@@ -2374,6 +2399,11 @@ impl ::core::marker::Copy for BluetoothMajorClass {}
 impl ::core::clone::Clone for BluetoothMajorClass {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BluetoothMajorClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothMajorClass").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothMajorClass {
@@ -2473,6 +2503,11 @@ impl ::core::clone::Clone for BluetoothMinorClass {
         *self
     }
 }
+impl ::core::fmt::Debug for BluetoothMinorClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothMinorClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothMinorClass {
     type Abi = Self;
 }
@@ -2507,6 +2542,11 @@ impl ::core::marker::Copy for BluetoothServiceCapabilities {}
 impl ::core::clone::Clone for BluetoothServiceCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for BluetoothServiceCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothServiceCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothServiceCapabilities {

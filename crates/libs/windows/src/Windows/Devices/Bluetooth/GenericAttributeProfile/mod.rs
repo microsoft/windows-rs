@@ -314,6 +314,11 @@ impl ::core::clone::Clone for GattCharacteristicProperties {
         *self
     }
 }
+impl ::core::fmt::Debug for GattCharacteristicProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattCharacteristicProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GattCharacteristicProperties {
     type Abi = Self;
 }
@@ -1021,6 +1026,11 @@ impl ::core::clone::Clone for GattClientCharacteristicConfigurationDescriptorVal
         *self
     }
 }
+impl ::core::fmt::Debug for GattClientCharacteristicConfigurationDescriptorValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattClientCharacteristicConfigurationDescriptorValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GattClientCharacteristicConfigurationDescriptorValue {
     type Abi = Self;
 }
@@ -1150,6 +1160,11 @@ impl ::core::marker::Copy for GattCommunicationStatus {}
 impl ::core::clone::Clone for GattCommunicationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GattCommunicationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattCommunicationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GattCommunicationStatus {
@@ -2818,6 +2833,11 @@ impl ::core::clone::Clone for GattOpenStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for GattOpenStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattOpenStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GattOpenStatus {
     type Abi = Self;
 }
@@ -3179,6 +3199,11 @@ impl ::core::marker::Copy for GattProtectionLevel {}
 impl ::core::clone::Clone for GattProtectionLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GattProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattProtectionLevel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GattProtectionLevel {
@@ -3839,6 +3864,11 @@ impl ::core::clone::Clone for GattRequestState {
         *self
     }
 }
+impl ::core::fmt::Debug for GattRequestState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattRequestState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GattRequestState {
     type Abi = Self;
 }
@@ -4079,6 +4109,11 @@ impl ::core::marker::Copy for GattServiceProviderAdvertisementStatus {}
 impl ::core::clone::Clone for GattServiceProviderAdvertisementStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GattServiceProviderAdvertisementStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProviderAdvertisementStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GattServiceProviderAdvertisementStatus {
@@ -4752,6 +4787,11 @@ impl ::core::clone::Clone for GattSessionStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for GattSessionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattSessionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GattSessionStatus {
     type Abi = Self;
 }
@@ -4864,6 +4904,11 @@ impl ::core::marker::Copy for GattSharingMode {}
 impl ::core::clone::Clone for GattSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GattSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattSharingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GattSharingMode {
@@ -5077,6 +5122,11 @@ impl ::core::marker::Copy for GattWriteOption {}
 impl ::core::clone::Clone for GattWriteOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GattWriteOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattWriteOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GattWriteOption {

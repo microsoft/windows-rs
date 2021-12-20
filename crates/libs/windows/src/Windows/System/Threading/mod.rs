@@ -475,6 +475,11 @@ impl ::core::clone::Clone for WorkItemOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for WorkItemOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WorkItemOptions {
     type Abi = Self;
 }
@@ -502,6 +507,11 @@ impl ::core::marker::Copy for WorkItemPriority {}
 impl ::core::clone::Clone for WorkItemPriority {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WorkItemPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemPriority").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WorkItemPriority {

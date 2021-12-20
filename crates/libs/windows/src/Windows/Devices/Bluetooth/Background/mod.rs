@@ -13,6 +13,11 @@ impl ::core::clone::Clone for BluetoothEventTriggeringMode {
         *self
     }
 }
+impl ::core::fmt::Debug for BluetoothEventTriggeringMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothEventTriggeringMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothEventTriggeringMode {
     type Abi = Self;
 }

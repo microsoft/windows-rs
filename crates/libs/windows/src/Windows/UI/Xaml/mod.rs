@@ -464,6 +464,11 @@ impl ::core::clone::Clone for ApplicationHighContrastAdjustment {
         *self
     }
 }
+impl ::core::fmt::Debug for ApplicationHighContrastAdjustment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationHighContrastAdjustment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationHighContrastAdjustment {
     type Abi = Self;
 }
@@ -629,6 +634,11 @@ impl ::core::clone::Clone for ApplicationRequiresPointerMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ApplicationRequiresPointerMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationRequiresPointerMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationRequiresPointerMode {
     type Abi = Self;
 }
@@ -655,6 +665,11 @@ impl ::core::marker::Copy for ApplicationTheme {}
 impl ::core::clone::Clone for ApplicationTheme {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ApplicationTheme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationTheme").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationTheme {
@@ -721,6 +736,11 @@ impl ::core::marker::Copy for AutomationTextAttributesEnum {}
 impl ::core::clone::Clone for AutomationTextAttributesEnum {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationTextAttributesEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationTextAttributesEnum").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationTextAttributesEnum {
@@ -4653,6 +4673,11 @@ impl ::core::clone::Clone for DurationType {
         *self
     }
 }
+impl ::core::fmt::Debug for DurationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DurationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DurationType {
     type Abi = Self;
 }
@@ -4996,6 +5021,11 @@ impl ::core::clone::Clone for ElementHighContrastAdjustment {
         *self
     }
 }
+impl ::core::fmt::Debug for ElementHighContrastAdjustment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementHighContrastAdjustment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ElementHighContrastAdjustment {
     type Abi = Self;
 }
@@ -5029,6 +5059,11 @@ impl ::core::clone::Clone for ElementSoundKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ElementSoundKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementSoundKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ElementSoundKind {
     type Abi = Self;
 }
@@ -5056,6 +5091,11 @@ impl ::core::marker::Copy for ElementSoundMode {}
 impl ::core::clone::Clone for ElementSoundMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ElementSoundMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementSoundMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ElementSoundMode {
@@ -5202,6 +5242,11 @@ impl ::core::clone::Clone for ElementSoundPlayerState {
         *self
     }
 }
+impl ::core::fmt::Debug for ElementSoundPlayerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementSoundPlayerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ElementSoundPlayerState {
     type Abi = Self;
 }
@@ -5231,6 +5276,11 @@ impl ::core::clone::Clone for ElementSpatialAudioMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ElementSpatialAudioMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementSpatialAudioMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ElementSpatialAudioMode {
     type Abi = Self;
 }
@@ -5258,6 +5308,11 @@ impl ::core::marker::Copy for ElementTheme {}
 impl ::core::clone::Clone for ElementTheme {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ElementTheme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementTheme").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ElementTheme {
@@ -5678,6 +5733,11 @@ impl ::core::clone::Clone for FlowDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for FlowDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlowDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FlowDirection {
     type Abi = Self;
 }
@@ -5708,6 +5768,11 @@ impl ::core::clone::Clone for FocusState {
         *self
     }
 }
+impl ::core::fmt::Debug for FocusState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FocusState {
     type Abi = Self;
 }
@@ -5735,6 +5800,11 @@ impl ::core::marker::Copy for FocusVisualKind {}
 impl ::core::clone::Clone for FocusVisualKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FocusVisualKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusVisualKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FocusVisualKind {
@@ -5768,6 +5838,11 @@ impl ::core::marker::Copy for FontCapitals {}
 impl ::core::clone::Clone for FontCapitals {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FontCapitals {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontCapitals").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FontCapitals {
@@ -5806,6 +5881,11 @@ impl ::core::clone::Clone for FontEastAsianLanguage {
         *self
     }
 }
+impl ::core::fmt::Debug for FontEastAsianLanguage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontEastAsianLanguage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FontEastAsianLanguage {
     type Abi = Self;
 }
@@ -5838,6 +5918,11 @@ impl ::core::clone::Clone for FontEastAsianWidths {
         *self
     }
 }
+impl ::core::fmt::Debug for FontEastAsianWidths {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontEastAsianWidths").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FontEastAsianWidths {
     type Abi = Self;
 }
@@ -5865,6 +5950,11 @@ impl ::core::marker::Copy for FontFraction {}
 impl ::core::clone::Clone for FontFraction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FontFraction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontFraction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FontFraction {
@@ -5896,6 +5986,11 @@ impl ::core::clone::Clone for FontNumeralAlignment {
         *self
     }
 }
+impl ::core::fmt::Debug for FontNumeralAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontNumeralAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FontNumeralAlignment {
     type Abi = Self;
 }
@@ -5923,6 +6018,11 @@ impl ::core::marker::Copy for FontNumeralStyle {}
 impl ::core::clone::Clone for FontNumeralStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FontNumeralStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontNumeralStyle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FontNumeralStyle {
@@ -5955,6 +6055,11 @@ impl ::core::marker::Copy for FontVariants {}
 impl ::core::clone::Clone for FontVariants {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FontVariants {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontVariants").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FontVariants {
@@ -7366,6 +7471,11 @@ impl ::core::clone::Clone for GridUnitType {
         *self
     }
 }
+impl ::core::fmt::Debug for GridUnitType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridUnitType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GridUnitType {
     type Abi = Self;
 }
@@ -7394,6 +7504,11 @@ impl ::core::marker::Copy for HorizontalAlignment {}
 impl ::core::clone::Clone for HorizontalAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HorizontalAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HorizontalAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HorizontalAlignment {
@@ -11799,6 +11914,11 @@ impl ::core::clone::Clone for LineStackingStrategy {
         *self
     }
 }
+impl ::core::fmt::Debug for LineStackingStrategy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineStackingStrategy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LineStackingStrategy {
     type Abi = Self;
 }
@@ -11941,6 +12061,11 @@ impl ::core::marker::Copy for OpticalMarginAlignment {}
 impl ::core::clone::Clone for OpticalMarginAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OpticalMarginAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OpticalMarginAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OpticalMarginAlignment {
@@ -14523,6 +14648,11 @@ impl ::core::clone::Clone for TextAlignment {
         *self
     }
 }
+impl ::core::fmt::Debug for TextAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextAlignment {
     type Abi = Self;
 }
@@ -14553,6 +14683,11 @@ impl ::core::clone::Clone for TextLineBounds {
         *self
     }
 }
+impl ::core::fmt::Debug for TextLineBounds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextLineBounds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextLineBounds {
     type Abi = Self;
 }
@@ -14580,6 +14715,11 @@ impl ::core::marker::Copy for TextReadingOrder {}
 impl ::core::clone::Clone for TextReadingOrder {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TextReadingOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextReadingOrder").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TextReadingOrder {
@@ -14612,6 +14752,11 @@ impl ::core::clone::Clone for TextTrimming {
         *self
     }
 }
+impl ::core::fmt::Debug for TextTrimming {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextTrimming").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextTrimming {
     type Abi = Self;
 }
@@ -14639,6 +14784,11 @@ impl ::core::marker::Copy for TextWrapping {}
 impl ::core::clone::Clone for TextWrapping {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TextWrapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextWrapping").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TextWrapping {
@@ -18188,6 +18338,11 @@ impl ::core::clone::Clone for Vector3TransitionComponents {
         *self
     }
 }
+impl ::core::fmt::Debug for Vector3TransitionComponents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Vector3TransitionComponents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Vector3TransitionComponents {
     type Abi = Self;
 }
@@ -18218,6 +18373,11 @@ impl ::core::clone::Clone for VerticalAlignment {
         *self
     }
 }
+impl ::core::fmt::Debug for VerticalAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VerticalAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for VerticalAlignment {
     type Abi = Self;
 }
@@ -18244,6 +18404,11 @@ impl ::core::marker::Copy for Visibility {}
 impl ::core::clone::Clone for Visibility {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Visibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Visibility").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Visibility {

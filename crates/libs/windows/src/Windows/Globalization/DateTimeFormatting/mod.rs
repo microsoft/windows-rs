@@ -324,6 +324,11 @@ impl ::core::clone::Clone for DayFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for DayFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DayFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DayFormat {
     type Abi = Self;
 }
@@ -354,6 +359,11 @@ impl ::core::clone::Clone for DayOfWeekFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for DayOfWeekFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DayOfWeekFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DayOfWeekFormat {
     type Abi = Self;
 }
@@ -380,6 +390,11 @@ impl ::core::marker::Copy for HourFormat {}
 impl ::core::clone::Clone for HourFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HourFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HourFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HourFormat {
@@ -516,6 +531,11 @@ impl ::core::clone::Clone for MinuteFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for MinuteFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MinuteFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MinuteFormat {
     type Abi = Self;
 }
@@ -547,6 +567,11 @@ impl ::core::clone::Clone for MonthFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for MonthFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MonthFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MonthFormat {
     type Abi = Self;
 }
@@ -573,6 +598,11 @@ impl ::core::marker::Copy for SecondFormat {}
 impl ::core::clone::Clone for SecondFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SecondFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SecondFormat {
@@ -603,6 +633,11 @@ impl ::core::marker::Copy for YearFormat {}
 impl ::core::clone::Clone for YearFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for YearFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("YearFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for YearFormat {

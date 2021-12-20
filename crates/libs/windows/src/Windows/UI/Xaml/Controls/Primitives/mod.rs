@@ -14,6 +14,11 @@ impl ::core::clone::Clone for AnimationDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for AnimationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
 }
@@ -3188,6 +3193,11 @@ impl ::core::clone::Clone for ComponentResourceLocation {
         *self
     }
 }
+impl ::core::fmt::Debug for ComponentResourceLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComponentResourceLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ComponentResourceLocation {
     type Abi = Self;
 }
@@ -3784,6 +3794,11 @@ impl ::core::clone::Clone for EdgeTransitionLocation {
         *self
     }
 }
+impl ::core::fmt::Debug for EdgeTransitionLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeTransitionLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for EdgeTransitionLocation {
     type Abi = Self;
 }
@@ -4367,6 +4382,11 @@ impl ::core::clone::Clone for FlyoutPlacementMode {
         *self
     }
 }
+impl ::core::fmt::Debug for FlyoutPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutPlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FlyoutPlacementMode {
     type Abi = Self;
 }
@@ -4395,6 +4415,11 @@ impl ::core::marker::Copy for FlyoutShowMode {}
 impl ::core::clone::Clone for FlyoutShowMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FlyoutShowMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutShowMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FlyoutShowMode {
@@ -4559,6 +4584,11 @@ impl ::core::marker::Copy for GeneratorDirection {}
 impl ::core::clone::Clone for GeneratorDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GeneratorDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeneratorDirection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GeneratorDirection {
@@ -5490,6 +5520,11 @@ impl ::core::marker::Copy for GroupHeaderPlacement {}
 impl ::core::clone::Clone for GroupHeaderPlacement {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GroupHeaderPlacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GroupHeaderPlacement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GroupHeaderPlacement {
@@ -10959,6 +10994,11 @@ impl ::core::clone::Clone for ListViewItemPresenterCheckMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ListViewItemPresenterCheckMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemPresenterCheckMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ListViewItemPresenterCheckMode {
     type Abi = Self;
 }
@@ -10985,6 +11025,11 @@ impl ::core::marker::Copy for ListViewItemPresenterSelectionIndicatorMode {}
 impl ::core::clone::Clone for ListViewItemPresenterSelectionIndicatorMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ListViewItemPresenterSelectionIndicatorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemPresenterSelectionIndicatorMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ListViewItemPresenterSelectionIndicatorMode {
@@ -13830,6 +13875,11 @@ impl ::core::clone::Clone for PlacementMode {
         *self
     }
 }
+impl ::core::fmt::Debug for PlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PlacementMode {
     type Abi = Self;
 }
@@ -14337,6 +14387,11 @@ impl ::core::marker::Copy for PopupPlacementMode {}
 impl ::core::clone::Clone for PopupPlacementMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PopupPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PopupPlacementMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PopupPlacementMode {
@@ -15904,6 +15959,11 @@ impl ::core::clone::Clone for ScrollEventType {
         *self
     }
 }
+impl ::core::fmt::Debug for ScrollEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollEventType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ScrollEventType {
     type Abi = Self;
 }
@@ -15931,6 +15991,11 @@ impl ::core::marker::Copy for ScrollingIndicatorMode {}
 impl ::core::clone::Clone for ScrollingIndicatorMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ScrollingIndicatorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollingIndicatorMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ScrollingIndicatorMode {
@@ -16718,6 +16783,11 @@ impl ::core::clone::Clone for SliderSnapsTo {
         *self
     }
 }
+impl ::core::fmt::Debug for SliderSnapsTo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SliderSnapsTo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SliderSnapsTo {
     type Abi = Self;
 }
@@ -16745,6 +16815,11 @@ impl ::core::marker::Copy for SnapPointsAlignment {}
 impl ::core::clone::Clone for SnapPointsAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SnapPointsAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SnapPointsAlignment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SnapPointsAlignment {
@@ -17403,6 +17478,11 @@ impl ::core::marker::Copy for TickPlacement {}
 impl ::core::clone::Clone for TickPlacement {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TickPlacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TickPlacement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TickPlacement {

@@ -17,6 +17,11 @@ impl ::core::clone::Clone for AuthenticationProtocol {
         *self
     }
 }
+impl ::core::fmt::Debug for AuthenticationProtocol {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AuthenticationProtocol").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AuthenticationProtocol {
     type Abi = Self;
 }
@@ -410,6 +415,11 @@ impl ::core::clone::Clone for CredentialSaveOption {
         *self
     }
 }
+impl ::core::fmt::Debug for CredentialSaveOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialSaveOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CredentialSaveOption {
     type Abi = Self;
 }
@@ -551,6 +561,11 @@ impl ::core::clone::Clone for UserConsentVerificationResult {
         *self
     }
 }
+impl ::core::fmt::Debug for UserConsentVerificationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserConsentVerificationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserConsentVerificationResult {
     type Abi = Self;
 }
@@ -608,6 +623,11 @@ impl ::core::marker::Copy for UserConsentVerifierAvailability {}
 impl ::core::clone::Clone for UserConsentVerifierAvailability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserConsentVerifierAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserConsentVerifierAvailability").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserConsentVerifierAvailability {

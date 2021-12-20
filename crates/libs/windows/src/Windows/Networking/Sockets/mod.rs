@@ -260,6 +260,11 @@ impl ::core::clone::Clone for ControlChannelTriggerResetReason {
         *self
     }
 }
+impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerResetReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResetReason {
     type Abi = Self;
 }
@@ -286,6 +291,11 @@ impl ::core::marker::Copy for ControlChannelTriggerResourceType {}
 impl ::core::clone::Clone for ControlChannelTriggerResourceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerResourceType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResourceType {
@@ -319,6 +329,11 @@ impl ::core::marker::Copy for ControlChannelTriggerStatus {}
 impl ::core::clone::Clone for ControlChannelTriggerStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ControlChannelTriggerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ControlChannelTriggerStatus {
@@ -3826,6 +3841,11 @@ impl ::core::clone::Clone for MessageWebSocketReceiveMode {
         *self
     }
 }
+impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageWebSocketReceiveMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MessageWebSocketReceiveMode {
     type Abi = Self;
 }
@@ -4464,6 +4484,11 @@ impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
         *self
     }
 }
+impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityConnectedStandbyAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SocketActivityConnectedStandbyAction {
     type Abi = Self;
 }
@@ -4721,6 +4746,11 @@ impl ::core::clone::Clone for SocketActivityKind {
         *self
     }
 }
+impl ::core::fmt::Debug for SocketActivityKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SocketActivityKind {
     type Abi = Self;
 }
@@ -4836,6 +4866,11 @@ impl ::core::clone::Clone for SocketActivityTriggerReason {
         *self
     }
 }
+impl ::core::fmt::Debug for SocketActivityTriggerReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityTriggerReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SocketActivityTriggerReason {
     type Abi = Self;
 }
@@ -4912,6 +4947,11 @@ impl ::core::clone::Clone for SocketErrorStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for SocketErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SocketErrorStatus {
     type Abi = Self;
 }
@@ -4938,6 +4978,11 @@ impl ::core::marker::Copy for SocketMessageType {}
 impl ::core::clone::Clone for SocketMessageType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SocketMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketMessageType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SocketMessageType {
@@ -4976,6 +5021,11 @@ impl ::core::clone::Clone for SocketProtectionLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for SocketProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketProtectionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SocketProtectionLevel {
     type Abi = Self;
 }
@@ -5002,6 +5052,11 @@ impl ::core::marker::Copy for SocketQualityOfService {}
 impl ::core::clone::Clone for SocketQualityOfService {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SocketQualityOfService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketQualityOfService").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SocketQualityOfService {
@@ -5031,6 +5086,11 @@ impl ::core::marker::Copy for SocketSslErrorSeverity {}
 impl ::core::clone::Clone for SocketSslErrorSeverity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SocketSslErrorSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketSslErrorSeverity").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SocketSslErrorSeverity {

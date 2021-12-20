@@ -14,6 +14,11 @@ impl ::core::clone::Clone for ContentAccessRestrictionLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentAccessRestrictionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ContentAccessRestrictionLevel {
     type Abi = Self;
 }
@@ -254,6 +259,11 @@ impl ::core::marker::Copy for RatedContentCategory {}
 impl ::core::clone::Clone for RatedContentCategory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RatedContentCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RatedContentCategory").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RatedContentCategory {

@@ -657,6 +657,11 @@ impl ::core::clone::Clone for SerialError {
         *self
     }
 }
+impl ::core::fmt::Debug for SerialError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SerialError {
     type Abi = Self;
 }
@@ -685,6 +690,11 @@ impl ::core::marker::Copy for SerialHandshake {}
 impl ::core::clone::Clone for SerialHandshake {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SerialHandshake {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialHandshake").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SerialHandshake {
@@ -718,6 +728,11 @@ impl ::core::clone::Clone for SerialParity {
         *self
     }
 }
+impl ::core::fmt::Debug for SerialParity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialParity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SerialParity {
     type Abi = Self;
 }
@@ -749,6 +764,11 @@ impl ::core::clone::Clone for SerialPinChange {
         *self
     }
 }
+impl ::core::fmt::Debug for SerialPinChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialPinChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SerialPinChange {
     type Abi = Self;
 }
@@ -776,6 +796,11 @@ impl ::core::marker::Copy for SerialStopBitCount {}
 impl ::core::clone::Clone for SerialStopBitCount {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SerialStopBitCount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialStopBitCount").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SerialStopBitCount {

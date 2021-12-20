@@ -105,6 +105,11 @@ impl ::core::clone::Clone for AttributeTargets {
         *self
     }
 }
+impl ::core::fmt::Debug for AttributeTargets {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AttributeTargets").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AttributeTargets {
     type Abi = Self;
 }
@@ -133,6 +138,11 @@ impl ::core::clone::Clone for CompositionType {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionType {
     type Abi = Self;
 }
@@ -159,6 +169,11 @@ impl ::core::marker::Copy for DeprecationType {}
 impl ::core::clone::Clone for DeprecationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeprecationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeprecationType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeprecationType {
@@ -191,6 +206,11 @@ impl ::core::clone::Clone for FeatureStage {
         *self
     }
 }
+impl ::core::fmt::Debug for FeatureStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FeatureStage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FeatureStage {
     type Abi = Self;
 }
@@ -218,6 +238,11 @@ impl ::core::marker::Copy for GCPressureAmount {}
 impl ::core::clone::Clone for GCPressureAmount {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GCPressureAmount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GCPressureAmount").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GCPressureAmount {
@@ -277,6 +302,11 @@ impl ::core::clone::Clone for MarshalingType {
         *self
     }
 }
+impl ::core::fmt::Debug for MarshalingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarshalingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MarshalingType {
     type Abi = Self;
 }
@@ -303,6 +333,11 @@ impl ::core::marker::Copy for Platform {}
 impl ::core::clone::Clone for Platform {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Platform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Platform").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Platform {
@@ -333,6 +368,11 @@ impl ::core::marker::Copy for ThreadingModel {}
 impl ::core::clone::Clone for ThreadingModel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ThreadingModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThreadingModel").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ThreadingModel {

@@ -287,6 +287,11 @@ impl ::core::clone::Clone for DisplayMonitorConnectionKind {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayMonitorConnectionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorConnectionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayMonitorConnectionKind {
     type Abi = Self;
 }
@@ -313,6 +318,11 @@ impl ::core::marker::Copy for DisplayMonitorDescriptorKind {}
 impl ::core::clone::Clone for DisplayMonitorDescriptorKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayMonitorDescriptorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorDescriptorKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayMonitorDescriptorKind {
@@ -349,6 +359,11 @@ impl ::core::clone::Clone for DisplayMonitorPhysicalConnectorKind {
         *self
     }
 }
+impl ::core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorPhysicalConnectorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayMonitorPhysicalConnectorKind {
     type Abi = Self;
 }
@@ -376,6 +391,11 @@ impl ::core::marker::Copy for DisplayMonitorUsageKind {}
 impl ::core::clone::Clone for DisplayMonitorUsageKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DisplayMonitorUsageKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorUsageKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DisplayMonitorUsageKind {

@@ -156,6 +156,11 @@ impl ::core::clone::Clone for ByteOrder {
         *self
     }
 }
+impl ::core::fmt::Debug for ByteOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ByteOrder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ByteOrder {
     type Abi = Self;
 }
@@ -1432,6 +1437,11 @@ impl ::core::marker::Copy for FileOpenDisposition {}
 impl ::core::clone::Clone for FileOpenDisposition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FileOpenDisposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOpenDisposition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FileOpenDisposition {
@@ -4165,6 +4175,11 @@ impl ::core::clone::Clone for InputStreamOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for InputStreamOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputStreamOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InputStreamOptions {
     type Abi = Self;
 }
@@ -4884,6 +4899,11 @@ impl ::core::marker::Copy for UnicodeEncoding {}
 impl ::core::clone::Clone for UnicodeEncoding {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UnicodeEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeEncoding").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UnicodeEncoding {

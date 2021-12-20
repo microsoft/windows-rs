@@ -3935,6 +3935,11 @@ impl ::core::clone::Clone for PrintOptionStates {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintOptionStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintOptionStates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintOptionStates {
     type Abi = Self;
 }
@@ -3964,6 +3969,11 @@ impl ::core::marker::Copy for PrintOptionType {}
 impl ::core::clone::Clone for PrintOptionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintOptionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintOptionType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintOptionType {

@@ -79,6 +79,11 @@ impl ::core::clone::Clone for WalletItemAppAssociation {
         *self
     }
 }
+impl ::core::fmt::Debug for WalletItemAppAssociation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemAppAssociation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for WalletItemAppAssociation {
     type Abi = Self;
 }

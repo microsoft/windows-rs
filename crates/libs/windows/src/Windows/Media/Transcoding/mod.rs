@@ -292,6 +292,11 @@ impl ::core::clone::Clone for MediaVideoProcessingAlgorithm {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaVideoProcessingAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaVideoProcessingAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaVideoProcessingAlgorithm {
     type Abi = Self;
 }
@@ -413,6 +418,11 @@ impl ::core::marker::Copy for TranscodeFailureReason {}
 impl ::core::clone::Clone for TranscodeFailureReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TranscodeFailureReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TranscodeFailureReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TranscodeFailureReason {

@@ -19,6 +19,11 @@ impl ::core::clone::Clone for HandwritingLineHeight {
         *self
     }
 }
+impl ::core::fmt::Debug for HandwritingLineHeight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandwritingLineHeight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HandwritingLineHeight {
     type Abi = Self;
 }
@@ -1852,6 +1857,11 @@ impl ::core::clone::Clone for InkDrawingAttributesKind {
         *self
     }
 }
+impl ::core::fmt::Debug for InkDrawingAttributesKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkDrawingAttributesKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InkDrawingAttributesKind {
     type Abi = Self;
 }
@@ -1960,6 +1970,11 @@ impl ::core::marker::Copy for InkHighContrastAdjustment {}
 impl ::core::clone::Clone for InkHighContrastAdjustment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InkHighContrastAdjustment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkHighContrastAdjustment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InkHighContrastAdjustment {
@@ -2192,6 +2207,11 @@ impl ::core::clone::Clone for InkInputProcessingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for InkInputProcessingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkInputProcessingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InkInputProcessingMode {
     type Abi = Self;
 }
@@ -2218,6 +2238,11 @@ impl ::core::marker::Copy for InkInputRightDragAction {}
 impl ::core::clone::Clone for InkInputRightDragAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InkInputRightDragAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkInputRightDragAction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InkInputRightDragAction {
@@ -2552,6 +2577,11 @@ impl ::core::clone::Clone for InkManipulationMode {
         *self
     }
 }
+impl ::core::fmt::Debug for InkManipulationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkManipulationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InkManipulationMode {
     type Abi = Self;
 }
@@ -2687,6 +2717,11 @@ impl ::core::marker::Copy for InkPersistenceFormat {}
 impl ::core::clone::Clone for InkPersistenceFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InkPersistenceFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPersistenceFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InkPersistenceFormat {
@@ -3060,6 +3095,11 @@ impl ::core::marker::Copy for InkPresenterPredefinedConfiguration {}
 impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InkPresenterPredefinedConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPresenterPredefinedConfiguration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InkPresenterPredefinedConfiguration {
@@ -3562,6 +3602,11 @@ impl ::core::clone::Clone for InkPresenterStencilKind {
         *self
     }
 }
+impl ::core::fmt::Debug for InkPresenterStencilKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPresenterStencilKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for InkPresenterStencilKind {
     type Abi = Self;
 }
@@ -3684,6 +3729,11 @@ impl ::core::marker::Copy for InkRecognitionTarget {}
 impl ::core::clone::Clone for InkRecognitionTarget {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for InkRecognitionTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkRecognitionTarget").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for InkRecognitionTarget {
@@ -5274,6 +5324,11 @@ impl ::core::clone::Clone for PenHandedness {
         *self
     }
 }
+impl ::core::fmt::Debug for PenHandedness {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenHandedness").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PenHandedness {
     type Abi = Self;
 }
@@ -5300,6 +5355,11 @@ impl ::core::marker::Copy for PenTipShape {}
 impl ::core::clone::Clone for PenTipShape {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PenTipShape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenTipShape").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PenTipShape {

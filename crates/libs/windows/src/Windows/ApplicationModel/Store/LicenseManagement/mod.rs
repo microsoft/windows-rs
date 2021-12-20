@@ -137,6 +137,11 @@ impl ::core::clone::Clone for LicenseRefreshOption {
         *self
     }
 }
+impl ::core::fmt::Debug for LicenseRefreshOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseRefreshOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LicenseRefreshOption {
     type Abi = Self;
 }

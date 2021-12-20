@@ -14,6 +14,11 @@ impl ::core::clone::Clone for AddFileResult {
         *self
     }
 }
+impl ::core::fmt::Debug for AddFileResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddFileResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AddFileResult {
     type Abi = Self;
 }
@@ -436,6 +441,11 @@ impl ::core::marker::Copy for FileSelectionMode {}
 impl ::core::clone::Clone for FileSelectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FileSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileSelectionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FileSelectionMode {
@@ -903,6 +913,11 @@ impl ::core::marker::Copy for SetFileNameResult {}
 impl ::core::clone::Clone for SetFileNameResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SetFileNameResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetFileNameResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SetFileNameResult {

@@ -1283,6 +1283,11 @@ impl ::core::clone::Clone for UsbControlRecipient {
         *self
     }
 }
+impl ::core::fmt::Debug for UsbControlRecipient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlRecipient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UsbControlRecipient {
     type Abi = Self;
 }
@@ -1437,6 +1442,11 @@ impl ::core::marker::Copy for UsbControlTransferType {}
 impl ::core::clone::Clone for UsbControlTransferType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UsbControlTransferType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlTransferType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UsbControlTransferType {
@@ -2271,6 +2281,11 @@ impl ::core::marker::Copy for UsbEndpointType {}
 impl ::core::clone::Clone for UsbEndpointType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UsbEndpointType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbEndpointType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UsbEndpointType {
@@ -3185,6 +3200,11 @@ impl ::core::clone::Clone for UsbReadOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for UsbReadOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbReadOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UsbReadOptions {
     type Abi = Self;
 }
@@ -3366,6 +3386,11 @@ impl ::core::clone::Clone for UsbTransferDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for UsbTransferDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbTransferDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UsbTransferDirection {
     type Abi = Self;
 }
@@ -3393,6 +3418,11 @@ impl ::core::marker::Copy for UsbWriteOptions {}
 impl ::core::clone::Clone for UsbWriteOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UsbWriteOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbWriteOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UsbWriteOptions {

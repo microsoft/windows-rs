@@ -996,6 +996,11 @@ impl ::core::clone::Clone for PrintBinding {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintBinding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintBinding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintBinding {
     type Abi = Self;
 }
@@ -1027,6 +1032,11 @@ impl ::core::clone::Clone for PrintBordering {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintBordering {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintBordering").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintBordering {
     type Abi = Self;
 }
@@ -1056,6 +1066,11 @@ impl ::core::marker::Copy for PrintCollation {}
 impl ::core::clone::Clone for PrintCollation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintCollation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintCollation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintCollation {
@@ -1090,6 +1105,11 @@ impl ::core::clone::Clone for PrintColorMode {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintColorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintColorMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintColorMode {
     type Abi = Self;
 }
@@ -1120,6 +1140,11 @@ impl ::core::marker::Copy for PrintDuplex {}
 impl ::core::clone::Clone for PrintDuplex {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintDuplex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintDuplex").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintDuplex {
@@ -1154,6 +1179,11 @@ impl ::core::marker::Copy for PrintHolePunch {}
 impl ::core::clone::Clone for PrintHolePunch {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintHolePunch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintHolePunch").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintHolePunch {
@@ -1470,6 +1500,11 @@ impl ::core::clone::Clone for PrintMediaSize {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintMediaSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintMediaSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintMediaSize {
     type Abi = Self;
 }
@@ -1528,6 +1563,11 @@ impl ::core::clone::Clone for PrintMediaType {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintMediaType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintMediaType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintMediaType {
     type Abi = Self;
 }
@@ -1559,6 +1599,11 @@ impl ::core::marker::Copy for PrintOrientation {}
 impl ::core::clone::Clone for PrintOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintOrientation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintOrientation {
@@ -1998,6 +2043,11 @@ impl ::core::clone::Clone for PrintQuality {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintQuality").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintQuality {
     type Abi = Self;
 }
@@ -2035,6 +2085,11 @@ impl ::core::marker::Copy for PrintStaple {}
 impl ::core::clone::Clone for PrintStaple {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintStaple {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintStaple").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintStaple {
@@ -2333,6 +2388,11 @@ impl ::core::marker::Copy for PrintTaskCompletion {}
 impl ::core::clone::Clone for PrintTaskCompletion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintTaskCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskCompletion").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintTaskCompletion {

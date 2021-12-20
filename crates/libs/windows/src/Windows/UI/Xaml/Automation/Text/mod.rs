@@ -12,6 +12,11 @@ impl ::core::clone::Clone for TextPatternRangeEndpoint {
         *self
     }
 }
+impl ::core::fmt::Debug for TextPatternRangeEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPatternRangeEndpoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TextPatternRangeEndpoint {
     type Abi = Self;
 }
@@ -43,6 +48,11 @@ impl ::core::marker::Copy for TextUnit {}
 impl ::core::clone::Clone for TextUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TextUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextUnit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TextUnit {

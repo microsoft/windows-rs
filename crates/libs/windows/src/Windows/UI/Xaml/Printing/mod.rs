@@ -610,6 +610,11 @@ impl ::core::clone::Clone for PreviewPageCountType {
         *self
     }
 }
+impl ::core::fmt::Debug for PreviewPageCountType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PreviewPageCountType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PreviewPageCountType {
     type Abi = Self;
 }

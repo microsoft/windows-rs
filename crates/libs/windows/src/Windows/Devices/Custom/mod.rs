@@ -137,6 +137,11 @@ impl ::core::clone::Clone for DeviceAccessMode {
         *self
     }
 }
+impl ::core::fmt::Debug for DeviceAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccessMode {
     type Abi = Self;
 }
@@ -163,6 +168,11 @@ impl ::core::marker::Copy for DeviceSharingMode {}
 impl ::core::clone::Clone for DeviceSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DeviceSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceSharingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DeviceSharingMode {
@@ -394,6 +404,11 @@ impl ::core::clone::Clone for IOControlAccessMode {
         *self
     }
 }
+impl ::core::fmt::Debug for IOControlAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOControlAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IOControlAccessMode {
     type Abi = Self;
 }
@@ -422,6 +437,11 @@ impl ::core::marker::Copy for IOControlBufferingMethod {}
 impl ::core::clone::Clone for IOControlBufferingMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IOControlBufferingMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOControlBufferingMethod").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IOControlBufferingMethod {

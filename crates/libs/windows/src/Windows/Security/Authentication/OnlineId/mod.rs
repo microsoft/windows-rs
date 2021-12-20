@@ -13,6 +13,11 @@ impl ::core::clone::Clone for CredentialPromptType {
         *self
     }
 }
+impl ::core::fmt::Debug for CredentialPromptType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialPromptType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CredentialPromptType {
     type Abi = Self;
 }
@@ -861,6 +866,11 @@ impl ::core::marker::Copy for OnlineIdSystemTicketStatus {}
 impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OnlineIdSystemTicketStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OnlineIdSystemTicketStatus {

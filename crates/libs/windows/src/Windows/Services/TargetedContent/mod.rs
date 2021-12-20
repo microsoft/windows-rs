@@ -439,6 +439,11 @@ impl ::core::clone::Clone for TargetedContentAppInstallationState {
         *self
     }
 }
+impl ::core::fmt::Debug for TargetedContentAppInstallationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAppInstallationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TargetedContentAppInstallationState {
     type Abi = Self;
 }
@@ -466,6 +471,11 @@ impl ::core::marker::Copy for TargetedContentAvailability {}
 impl ::core::clone::Clone for TargetedContentAvailability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TargetedContentAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAvailability").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TargetedContentAvailability {
@@ -1152,6 +1162,11 @@ impl ::core::clone::Clone for TargetedContentInteraction {
         *self
     }
 }
+impl ::core::fmt::Debug for TargetedContentInteraction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentInteraction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TargetedContentInteraction {
     type Abi = Self;
 }
@@ -1475,6 +1490,11 @@ impl ::core::marker::Copy for TargetedContentObjectKind {}
 impl ::core::clone::Clone for TargetedContentObjectKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TargetedContentObjectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentObjectKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TargetedContentObjectKind {
@@ -2059,6 +2079,11 @@ impl ::core::marker::Copy for TargetedContentValueKind {}
 impl ::core::clone::Clone for TargetedContentValueKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for TargetedContentValueKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentValueKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TargetedContentValueKind {

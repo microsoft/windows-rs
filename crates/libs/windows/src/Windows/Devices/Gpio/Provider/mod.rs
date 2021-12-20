@@ -485,6 +485,11 @@ impl ::core::clone::Clone for ProviderGpioPinDriveMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ProviderGpioPinDriveMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderGpioPinDriveMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderGpioPinDriveMode {
     type Abi = Self;
 }
@@ -511,6 +516,11 @@ impl ::core::marker::Copy for ProviderGpioPinEdge {}
 impl ::core::clone::Clone for ProviderGpioPinEdge {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ProviderGpioPinEdge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderGpioPinEdge").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ProviderGpioPinEdge {
@@ -541,6 +551,11 @@ impl ::core::clone::Clone for ProviderGpioPinValue {
         *self
     }
 }
+impl ::core::fmt::Debug for ProviderGpioPinValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderGpioPinValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderGpioPinValue {
     type Abi = Self;
 }
@@ -567,6 +582,11 @@ impl ::core::marker::Copy for ProviderGpioSharingMode {}
 impl ::core::clone::Clone for ProviderGpioSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ProviderGpioSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderGpioSharingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ProviderGpioSharingMode {

@@ -383,6 +383,11 @@ impl ::core::clone::Clone for DesignerAppViewState {
         *self
     }
 }
+impl ::core::fmt::Debug for DesignerAppViewState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DesignerAppViewState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DesignerAppViewState {
     type Abi = Self;
 }
@@ -1681,6 +1686,11 @@ impl ::core::marker::Copy for XamlSourceFocusNavigationReason {}
 impl ::core::clone::Clone for XamlSourceFocusNavigationReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XamlSourceFocusNavigationReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlSourceFocusNavigationReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XamlSourceFocusNavigationReason {

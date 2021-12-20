@@ -356,6 +356,11 @@ impl ::core::clone::Clone for HidCollectionType {
         *self
     }
 }
+impl ::core::fmt::Debug for HidCollectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HidCollectionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HidCollectionType {
     type Abi = Self;
 }
@@ -1457,6 +1462,11 @@ impl ::core::marker::Copy for HidReportType {}
 impl ::core::clone::Clone for HidReportType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HidReportType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HidReportType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HidReportType {

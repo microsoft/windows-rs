@@ -161,6 +161,11 @@ impl ::core::clone::Clone for ConditionForceEffectKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ConditionForceEffectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConditionForceEffectKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ConditionForceEffectKind {
     type Abi = Self;
 }
@@ -331,6 +336,11 @@ impl ::core::clone::Clone for ForceFeedbackEffectAxes {
         *self
     }
 }
+impl ::core::fmt::Debug for ForceFeedbackEffectAxes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackEffectAxes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ForceFeedbackEffectAxes {
     type Abi = Self;
 }
@@ -361,6 +371,11 @@ impl ::core::clone::Clone for ForceFeedbackEffectState {
         *self
     }
 }
+impl ::core::fmt::Debug for ForceFeedbackEffectState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackEffectState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ForceFeedbackEffectState {
     type Abi = Self;
 }
@@ -388,6 +403,11 @@ impl ::core::marker::Copy for ForceFeedbackLoadEffectResult {}
 impl ::core::clone::Clone for ForceFeedbackLoadEffectResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ForceFeedbackLoadEffectResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackLoadEffectResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ForceFeedbackLoadEffectResult {
@@ -1001,6 +1021,11 @@ impl ::core::marker::Copy for PeriodicForceEffectKind {}
 impl ::core::clone::Clone for PeriodicForceEffectKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PeriodicForceEffectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeriodicForceEffectKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PeriodicForceEffectKind {

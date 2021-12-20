@@ -967,6 +967,11 @@ impl ::core::clone::Clone for ManeuverWarningKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ManeuverWarningKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManeuverWarningKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ManeuverWarningKind {
     type Abi = Self;
 }
@@ -996,6 +1001,11 @@ impl ::core::marker::Copy for ManeuverWarningSeverity {}
 impl ::core::clone::Clone for ManeuverWarningSeverity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ManeuverWarningSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManeuverWarningSeverity").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ManeuverWarningSeverity {
@@ -1323,6 +1333,11 @@ impl ::core::clone::Clone for MapLocationDesiredAccuracy {
         *self
     }
 }
+impl ::core::fmt::Debug for MapLocationDesiredAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLocationDesiredAccuracy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapLocationDesiredAccuracy {
     type Abi = Self;
 }
@@ -1490,6 +1505,11 @@ impl ::core::clone::Clone for MapLocationFinderStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MapLocationFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLocationFinderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapLocationFinderStatus {
     type Abi = Self;
 }
@@ -1537,6 +1557,11 @@ impl ::core::marker::Copy for MapManeuverNotices {}
 impl ::core::clone::Clone for MapManeuverNotices {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapManeuverNotices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapManeuverNotices {
@@ -2099,6 +2124,11 @@ impl ::core::clone::Clone for MapRouteFinderStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MapRouteFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteFinderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapRouteFinderStatus {
     type Abi = Self;
 }
@@ -2429,6 +2459,11 @@ impl ::core::clone::Clone for MapRouteManeuverKind {
         *self
     }
 }
+impl ::core::fmt::Debug for MapRouteManeuverKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteManeuverKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapRouteManeuverKind {
     type Abi = Self;
 }
@@ -2457,6 +2492,11 @@ impl ::core::marker::Copy for MapRouteOptimization {}
 impl ::core::clone::Clone for MapRouteOptimization {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapRouteOptimization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteOptimization").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapRouteOptimization {
@@ -2490,6 +2530,11 @@ impl ::core::marker::Copy for MapRouteRestrictions {}
 impl ::core::clone::Clone for MapRouteRestrictions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapRouteRestrictions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapRouteRestrictions {
@@ -2581,6 +2626,11 @@ impl ::core::marker::Copy for MapServiceDataUsagePreference {}
 impl ::core::clone::Clone for MapServiceDataUsagePreference {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapServiceDataUsagePreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapServiceDataUsagePreference").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapServiceDataUsagePreference {
@@ -2897,6 +2947,11 @@ impl ::core::clone::Clone for TrafficCongestion {
         *self
     }
 }
+impl ::core::fmt::Debug for TrafficCongestion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TrafficCongestion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TrafficCongestion {
     type Abi = Self;
 }
@@ -2923,6 +2978,11 @@ impl ::core::marker::Copy for WaypointKind {}
 impl ::core::clone::Clone for WaypointKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for WaypointKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WaypointKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WaypointKind {

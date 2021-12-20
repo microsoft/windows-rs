@@ -1334,6 +1334,11 @@ impl ::core::clone::Clone for SpatialGestureSettings {
         *self
     }
 }
+impl ::core::fmt::Debug for SpatialGestureSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialGestureSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialGestureSettings {
     type Abi = Self;
 }
@@ -2230,6 +2235,11 @@ impl ::core::clone::Clone for SpatialInteractionPressKind {
         *self
     }
 }
+impl ::core::fmt::Debug for SpatialInteractionPressKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionPressKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialInteractionPressKind {
     type Abi = Self;
 }
@@ -2494,6 +2504,11 @@ impl ::core::clone::Clone for SpatialInteractionSourceHandedness {
         *self
     }
 }
+impl ::core::fmt::Debug for SpatialInteractionSourceHandedness {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourceHandedness").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceHandedness {
     type Abi = Self;
 }
@@ -2522,6 +2537,11 @@ impl ::core::marker::Copy for SpatialInteractionSourceKind {}
 impl ::core::clone::Clone for SpatialInteractionSourceKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpatialInteractionSourceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourceKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceKind {
@@ -2670,6 +2690,11 @@ impl ::core::marker::Copy for SpatialInteractionSourcePositionAccuracy {}
 impl ::core::clone::Clone for SpatialInteractionSourcePositionAccuracy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SpatialInteractionSourcePositionAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourcePositionAccuracy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpatialInteractionSourcePositionAccuracy {

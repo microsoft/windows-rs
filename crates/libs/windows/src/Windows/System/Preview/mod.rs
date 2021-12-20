@@ -21,6 +21,12 @@ impl ::core::clone::Clone for HingeState {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for HingeState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HingeState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for HingeState {
     type Abi = Self;
 }

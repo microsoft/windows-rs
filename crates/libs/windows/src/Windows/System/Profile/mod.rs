@@ -844,6 +844,11 @@ impl ::core::clone::Clone for PlatformDataCollectionLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for PlatformDataCollectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDataCollectionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDataCollectionLevel {
     type Abi = Self;
 }
@@ -1082,6 +1087,11 @@ impl ::core::clone::Clone for SystemIdentificationSource {
         *self
     }
 }
+impl ::core::fmt::Debug for SystemIdentificationSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemIdentificationSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SystemIdentificationSource {
     type Abi = Self;
 }
@@ -1109,6 +1119,11 @@ impl ::core::marker::Copy for SystemOutOfBoxExperienceState {}
 impl ::core::clone::Clone for SystemOutOfBoxExperienceState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SystemOutOfBoxExperienceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemOutOfBoxExperienceState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SystemOutOfBoxExperienceState {
@@ -1253,6 +1268,11 @@ impl ::core::marker::Copy for UnsupportedAppRequirementReasons {}
 impl ::core::clone::Clone for UnsupportedAppRequirementReasons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UnsupportedAppRequirementReasons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnsupportedAppRequirementReasons").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UnsupportedAppRequirementReasons {

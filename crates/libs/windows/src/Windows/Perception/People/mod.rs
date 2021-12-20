@@ -149,6 +149,11 @@ impl ::core::clone::Clone for HandJointKind {
         *self
     }
 }
+impl ::core::fmt::Debug for HandJointKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandJointKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HandJointKind {
     type Abi = Self;
 }
@@ -825,6 +830,11 @@ impl ::core::marker::Copy for JointPoseAccuracy {}
 impl ::core::clone::Clone for JointPoseAccuracy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for JointPoseAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JointPoseAccuracy {

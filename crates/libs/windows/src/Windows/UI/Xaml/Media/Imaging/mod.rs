@@ -12,6 +12,11 @@ impl ::core::clone::Clone for BitmapCreateOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for BitmapCreateOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapCreateOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapCreateOptions {
     type Abi = Self;
 }
@@ -566,6 +571,11 @@ impl ::core::marker::Copy for DecodePixelType {}
 impl ::core::clone::Clone for DecodePixelType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DecodePixelType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DecodePixelType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DecodePixelType {
@@ -2092,6 +2102,11 @@ impl ::core::marker::Copy for SvgImageSourceLoadStatus {}
 impl ::core::clone::Clone for SvgImageSourceLoadStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SvgImageSourceLoadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SvgImageSourceLoadStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SvgImageSourceLoadStatus {

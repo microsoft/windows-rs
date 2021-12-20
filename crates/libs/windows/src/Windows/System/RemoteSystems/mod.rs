@@ -1700,6 +1700,11 @@ impl ::core::clone::Clone for RemoteSystemAccessStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for RemoteSystemAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemAccessStatus {
     type Abi = Self;
 }
@@ -2040,6 +2045,11 @@ impl ::core::marker::Copy for RemoteSystemAuthorizationKind {}
 impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RemoteSystemAuthorizationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAuthorizationKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemAuthorizationKind {
@@ -2404,6 +2414,11 @@ impl ::core::marker::Copy for RemoteSystemDiscoveryType {}
 impl ::core::clone::Clone for RemoteSystemDiscoveryType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RemoteSystemDiscoveryType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemDiscoveryType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemDiscoveryType {
@@ -2797,6 +2812,11 @@ impl ::core::marker::Copy for RemoteSystemPlatform {}
 impl ::core::clone::Clone for RemoteSystemPlatform {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RemoteSystemPlatform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemPlatform").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemPlatform {
@@ -3352,6 +3372,11 @@ impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for RemoteSystemSessionCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionCreationStatus {
     type Abi = Self;
 }
@@ -3455,6 +3480,11 @@ impl ::core::marker::Copy for RemoteSystemSessionDisconnectedReason {}
 impl ::core::clone::Clone for RemoteSystemSessionDisconnectedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionDisconnectedReason").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemSessionDisconnectedReason {
@@ -4081,6 +4111,11 @@ impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for RemoteSystemSessionJoinStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionJoinStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionJoinStatus {
     type Abi = Self;
 }
@@ -4244,6 +4279,11 @@ impl ::core::marker::Copy for RemoteSystemSessionMessageChannelReliability {}
 impl ::core::clone::Clone for RemoteSystemSessionMessageChannelReliability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RemoteSystemSessionMessageChannelReliability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionMessageChannelReliability").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemSessionMessageChannelReliability {
@@ -4734,6 +4774,11 @@ impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcherStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionParticipantWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionParticipantWatcherStatus {
     type Abi = Self;
 }
@@ -5134,6 +5179,11 @@ impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for RemoteSystemSessionWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionWatcherStatus {
     type Abi = Self;
 }
@@ -5164,6 +5214,11 @@ impl ::core::clone::Clone for RemoteSystemStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for RemoteSystemStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemStatus {
     type Abi = Self;
 }
@@ -5190,6 +5245,11 @@ impl ::core::marker::Copy for RemoteSystemStatusType {}
 impl ::core::clone::Clone for RemoteSystemStatusType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RemoteSystemStatusType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemStatusType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemStatusType {
@@ -5566,6 +5626,11 @@ impl ::core::marker::Copy for RemoteSystemWatcherError {}
 impl ::core::clone::Clone for RemoteSystemWatcherError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RemoteSystemWatcherError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemWatcherError").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemWatcherError {

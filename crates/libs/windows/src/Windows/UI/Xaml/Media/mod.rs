@@ -18,6 +18,11 @@ impl ::core::clone::Clone for AcrylicBackgroundSource {
         *self
     }
 }
+impl ::core::fmt::Debug for AcrylicBackgroundSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AcrylicBackgroundSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AcrylicBackgroundSource {
     type Abi = Self;
 }
@@ -347,6 +352,11 @@ impl ::core::clone::Clone for AlignmentX {
         *self
     }
 }
+impl ::core::fmt::Debug for AlignmentX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlignmentX").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AlignmentX {
     type Abi = Self;
 }
@@ -374,6 +384,11 @@ impl ::core::marker::Copy for AlignmentY {}
 impl ::core::clone::Clone for AlignmentY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AlignmentY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlignmentY").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AlignmentY {
@@ -638,6 +653,11 @@ impl ::core::clone::Clone for AudioCategory {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioCategory {
     type Abi = Self;
 }
@@ -665,6 +685,11 @@ impl ::core::marker::Copy for AudioDeviceType {}
 impl ::core::clone::Clone for AudioDeviceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AudioDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AudioDeviceType {
@@ -1438,6 +1463,11 @@ impl ::core::clone::Clone for BrushMappingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for BrushMappingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BrushMappingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for BrushMappingMode {
     type Abi = Self;
 }
@@ -1551,6 +1581,11 @@ impl ::core::marker::Copy for ColorInterpolationMode {}
 impl ::core::clone::Clone for ColorInterpolationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ColorInterpolationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorInterpolationMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ColorInterpolationMode {
@@ -2276,6 +2311,11 @@ impl ::core::clone::Clone for ElementCompositeMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ElementCompositeMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementCompositeMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ElementCompositeMode {
     type Abi = Self;
 }
@@ -2487,6 +2527,11 @@ impl ::core::clone::Clone for FastPlayFallbackBehaviour {
         *self
     }
 }
+impl ::core::fmt::Debug for FastPlayFallbackBehaviour {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FastPlayFallbackBehaviour").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for FastPlayFallbackBehaviour {
     type Abi = Self;
 }
@@ -2513,6 +2558,11 @@ impl ::core::marker::Copy for FillRule {}
 impl ::core::clone::Clone for FillRule {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for FillRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FillRule").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FillRule {
@@ -3541,6 +3591,11 @@ impl ::core::marker::Copy for GradientSpreadMethod {}
 impl ::core::clone::Clone for GradientSpreadMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GradientSpreadMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GradientSpreadMethod").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GradientSpreadMethod {
@@ -7579,6 +7634,11 @@ impl ::core::clone::Clone for LoadedImageSourceLoadStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for LoadedImageSourceLoadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoadedImageSourceLoadStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LoadedImageSourceLoadStatus {
     type Abi = Self;
 }
@@ -8258,6 +8318,11 @@ impl ::core::clone::Clone for MediaCanPlayResponse {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaCanPlayResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCanPlayResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCanPlayResponse {
     type Abi = Self;
 }
@@ -8288,6 +8353,11 @@ impl ::core::marker::Copy for MediaElementState {}
 impl ::core::clone::Clone for MediaElementState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaElementState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaElementState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaElementState {
@@ -9442,6 +9512,11 @@ impl ::core::clone::Clone for PenLineCap {
         *self
     }
 }
+impl ::core::fmt::Debug for PenLineCap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenLineCap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PenLineCap {
     type Abi = Self;
 }
@@ -9469,6 +9544,11 @@ impl ::core::marker::Copy for PenLineJoin {}
 impl ::core::clone::Clone for PenLineJoin {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PenLineJoin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenLineJoin").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PenLineJoin {
@@ -11880,6 +11960,11 @@ impl ::core::clone::Clone for RevealBrushState {
         *self
     }
 }
+impl ::core::fmt::Debug for RevealBrushState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevealBrushState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for RevealBrushState {
     type Abi = Self;
 }
@@ -12814,6 +12899,11 @@ impl ::core::clone::Clone for Stereo3DVideoPackingMode {
         *self
     }
 }
+impl ::core::fmt::Debug for Stereo3DVideoPackingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Stereo3DVideoPackingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Stereo3DVideoPackingMode {
     type Abi = Self;
 }
@@ -12840,6 +12930,11 @@ impl ::core::marker::Copy for Stereo3DVideoRenderMode {}
 impl ::core::clone::Clone for Stereo3DVideoRenderMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Stereo3DVideoRenderMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Stereo3DVideoRenderMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Stereo3DVideoRenderMode {
@@ -12872,6 +12967,11 @@ impl ::core::clone::Clone for Stretch {
         *self
     }
 }
+impl ::core::fmt::Debug for Stretch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Stretch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Stretch {
     type Abi = Self;
 }
@@ -12902,6 +13002,11 @@ impl ::core::clone::Clone for StyleSimulations {
         *self
     }
 }
+impl ::core::fmt::Debug for StyleSimulations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StyleSimulations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for StyleSimulations {
     type Abi = Self;
 }
@@ -12928,6 +13033,11 @@ impl ::core::marker::Copy for SweepDirection {}
 impl ::core::clone::Clone for SweepDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SweepDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SweepDirection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SweepDirection {

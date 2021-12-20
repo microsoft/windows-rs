@@ -607,6 +607,11 @@ impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
         *self
     }
 }
+impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketFeatureSelectionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PrintTicketFeatureSelectionType {
     type Abi = Self;
 }
@@ -769,6 +774,11 @@ impl ::core::marker::Copy for PrintTicketParameterDataType {}
 impl ::core::clone::Clone for PrintTicketParameterDataType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintTicketParameterDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketParameterDataType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintTicketParameterDataType {
@@ -1121,6 +1131,11 @@ impl ::core::marker::Copy for PrintTicketValueType {}
 impl ::core::clone::Clone for PrintTicketValueType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PrintTicketValueType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketValueType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PrintTicketValueType {

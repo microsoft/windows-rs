@@ -96,6 +96,11 @@ impl ::core::clone::Clone for GameServiceGameOutcome {
         *self
     }
 }
+impl ::core::fmt::Debug for GameServiceGameOutcome {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameServiceGameOutcome").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for GameServiceGameOutcome {
     type Abi = Self;
 }
@@ -199,6 +204,11 @@ impl ::core::marker::Copy for GameServiceScoreKind {}
 impl ::core::clone::Clone for GameServiceScoreKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for GameServiceScoreKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameServiceScoreKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GameServiceScoreKind {

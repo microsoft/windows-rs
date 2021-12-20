@@ -754,6 +754,11 @@ impl ::core::clone::Clone for XamlEventIndex {
         *self
     }
 }
+impl ::core::fmt::Debug for XamlEventIndex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlEventIndex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XamlEventIndex {
     type Abi = Self;
 }
@@ -2449,6 +2454,11 @@ impl ::core::clone::Clone for XamlPropertyIndex {
         *self
     }
 }
+impl ::core::fmt::Debug for XamlPropertyIndex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlPropertyIndex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for XamlPropertyIndex {
     type Abi = Self;
 }
@@ -2723,6 +2733,11 @@ impl ::core::marker::Copy for XamlTypeIndex {}
 impl ::core::clone::Clone for XamlTypeIndex {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for XamlTypeIndex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlTypeIndex").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XamlTypeIndex {

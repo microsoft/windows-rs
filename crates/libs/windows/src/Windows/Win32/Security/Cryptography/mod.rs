@@ -22120,6 +22120,11 @@ impl ::core::clone::Clone for HandleType {
         *self
     }
 }
+impl ::core::fmt::Debug for HandleType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandleType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HandleType {
     type Abi = Self;
 }
@@ -26555,6 +26560,11 @@ impl ::core::marker::Copy for PaddingMode {}
 impl ::core::clone::Clone for PaddingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PaddingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaddingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PaddingMode {

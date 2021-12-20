@@ -12688,6 +12688,11 @@ impl ::core::clone::Clone for SECURITY_LOGON_TYPE {
         *self
     }
 }
+impl ::core::fmt::Debug for SECURITY_LOGON_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECURITY_LOGON_TYPE").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SECURITY_LOGON_TYPE {
     type Abi = Self;
 }

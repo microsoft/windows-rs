@@ -148,6 +148,11 @@ impl ::core::clone::Clone for DnssdRegistrationStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for DnssdRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdRegistrationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DnssdRegistrationStatus {
     type Abi = Self;
 }
@@ -733,6 +738,11 @@ impl ::core::marker::Copy for DnssdServiceWatcherStatus {}
 impl ::core::clone::Clone for DnssdServiceWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DnssdServiceWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdServiceWatcherStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DnssdServiceWatcherStatus {

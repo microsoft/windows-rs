@@ -13,6 +13,11 @@ impl ::core::clone::Clone for AccessibilityView {
         *self
     }
 }
+impl ::core::fmt::Debug for AccessibilityView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessibilityView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AccessibilityView {
     type Abi = Self;
 }
@@ -1044,6 +1049,11 @@ impl ::core::clone::Clone for AutomationControlType {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationControlType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationControlType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationControlType {
     type Abi = Self;
 }
@@ -1100,6 +1110,11 @@ impl ::core::clone::Clone for AutomationEvents {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationEvents {
     type Abi = Self;
 }
@@ -1136,6 +1151,11 @@ impl ::core::clone::Clone for AutomationHeadingLevel {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationHeadingLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationHeadingLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationHeadingLevel {
     type Abi = Self;
 }
@@ -1168,6 +1188,11 @@ impl ::core::clone::Clone for AutomationLandmarkType {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationLandmarkType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationLandmarkType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationLandmarkType {
     type Abi = Self;
 }
@@ -1195,6 +1220,11 @@ impl ::core::marker::Copy for AutomationLiveSetting {}
 impl ::core::clone::Clone for AutomationLiveSetting {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationLiveSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationLiveSetting").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationLiveSetting {
@@ -1228,6 +1258,11 @@ impl ::core::clone::Clone for AutomationNavigationDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationNavigationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationNavigationDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationNavigationDirection {
     type Abi = Self;
 }
@@ -1257,6 +1292,11 @@ impl ::core::marker::Copy for AutomationNotificationKind {}
 impl ::core::clone::Clone for AutomationNotificationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationNotificationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationNotificationKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationNotificationKind {
@@ -1290,6 +1330,11 @@ impl ::core::clone::Clone for AutomationNotificationProcessing {
         *self
     }
 }
+impl ::core::fmt::Debug for AutomationNotificationProcessing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationNotificationProcessing").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationNotificationProcessing {
     type Abi = Self;
 }
@@ -1317,6 +1362,11 @@ impl ::core::marker::Copy for AutomationOrientation {}
 impl ::core::clone::Clone for AutomationOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationOrientation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationOrientation {
@@ -2049,6 +2099,11 @@ impl ::core::marker::Copy for AutomationStructureChangeType {}
 impl ::core::clone::Clone for AutomationStructureChangeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AutomationStructureChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationStructureChangeType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AutomationStructureChangeType {
@@ -15522,6 +15577,11 @@ impl ::core::marker::Copy for PatternInterface {}
 impl ::core::clone::Clone for PatternInterface {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PatternInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PatternInterface").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PatternInterface {

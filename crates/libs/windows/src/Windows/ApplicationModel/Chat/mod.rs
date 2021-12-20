@@ -640,6 +640,11 @@ impl ::core::clone::Clone for ChatConversationThreadingKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ChatConversationThreadingKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatConversationThreadingKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ChatConversationThreadingKind {
     type Abi = Self;
 }
@@ -666,6 +671,11 @@ impl ::core::marker::Copy for ChatItemKind {}
 impl ::core::clone::Clone for ChatItemKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ChatItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatItemKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ChatItemKind {
@@ -1588,6 +1598,11 @@ impl ::core::clone::Clone for ChatMessageChangeType {
         *self
     }
 }
+impl ::core::fmt::Debug for ChatMessageChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ChatMessageChangeType {
     type Abi = Self;
 }
@@ -1768,6 +1783,11 @@ impl ::core::marker::Copy for ChatMessageKind {}
 impl ::core::clone::Clone for ChatMessageKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ChatMessageKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ChatMessageKind {
@@ -1982,6 +2002,11 @@ impl ::core::clone::Clone for ChatMessageOperatorKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ChatMessageOperatorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageOperatorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ChatMessageOperatorKind {
     type Abi = Self;
 }
@@ -2106,6 +2131,11 @@ impl ::core::marker::Copy for ChatMessageStatus {}
 impl ::core::clone::Clone for ChatMessageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ChatMessageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ChatMessageStatus {
@@ -2784,6 +2814,11 @@ impl ::core::clone::Clone for ChatMessageTransportKind {
         *self
     }
 }
+impl ::core::fmt::Debug for ChatMessageTransportKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageTransportKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ChatMessageTransportKind {
     type Abi = Self;
 }
@@ -2925,6 +2960,11 @@ impl ::core::marker::Copy for ChatMessageValidationStatus {}
 impl ::core::clone::Clone for ChatMessageValidationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ChatMessageValidationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageValidationStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ChatMessageValidationStatus {
@@ -3202,6 +3242,11 @@ impl ::core::clone::Clone for ChatRestoreHistorySpan {
         *self
     }
 }
+impl ::core::fmt::Debug for ChatRestoreHistorySpan {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatRestoreHistorySpan").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ChatRestoreHistorySpan {
     type Abi = Self;
 }
@@ -3320,6 +3365,11 @@ impl ::core::marker::Copy for ChatStoreChangedEventKind {}
 impl ::core::clone::Clone for ChatStoreChangedEventKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ChatStoreChangedEventKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatStoreChangedEventKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ChatStoreChangedEventKind {
@@ -3563,6 +3613,11 @@ impl ::core::clone::Clone for ChatTransportErrorCodeCategory {
         *self
     }
 }
+impl ::core::fmt::Debug for ChatTransportErrorCodeCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatTransportErrorCodeCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ChatTransportErrorCodeCategory {
     type Abi = Self;
 }
@@ -3593,6 +3648,11 @@ impl ::core::marker::Copy for ChatTransportInterpretedErrorCode {}
 impl ::core::clone::Clone for ChatTransportInterpretedErrorCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ChatTransportInterpretedErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatTransportInterpretedErrorCode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ChatTransportInterpretedErrorCode {
@@ -5418,6 +5478,11 @@ impl ::core::marker::Copy for RcsServiceKind {}
 impl ::core::clone::Clone for RcsServiceKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RcsServiceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsServiceKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RcsServiceKind {

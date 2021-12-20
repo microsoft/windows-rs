@@ -517,6 +517,11 @@ impl ::core::clone::Clone for ProviderSpiMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ProviderSpiMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderSpiMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderSpiMode {
     type Abi = Self;
 }
@@ -543,6 +548,11 @@ impl ::core::marker::Copy for ProviderSpiSharingMode {}
 impl ::core::clone::Clone for ProviderSpiSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ProviderSpiSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderSpiSharingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ProviderSpiSharingMode {

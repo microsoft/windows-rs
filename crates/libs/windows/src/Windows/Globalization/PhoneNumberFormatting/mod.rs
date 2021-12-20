@@ -119,6 +119,11 @@ impl ::core::clone::Clone for PhoneNumberFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneNumberFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneNumberFormat {
     type Abi = Self;
 }
@@ -492,6 +497,11 @@ impl ::core::clone::Clone for PhoneNumberMatchResult {
         *self
     }
 }
+impl ::core::fmt::Debug for PhoneNumberMatchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberMatchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneNumberMatchResult {
     type Abi = Self;
 }
@@ -521,6 +531,11 @@ impl ::core::marker::Copy for PhoneNumberParseResult {}
 impl ::core::clone::Clone for PhoneNumberParseResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PhoneNumberParseResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberParseResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PhoneNumberParseResult {
@@ -559,6 +574,11 @@ impl ::core::marker::Copy for PredictedPhoneNumberKind {}
 impl ::core::clone::Clone for PredictedPhoneNumberKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PredictedPhoneNumberKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PredictedPhoneNumberKind").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PredictedPhoneNumberKind {

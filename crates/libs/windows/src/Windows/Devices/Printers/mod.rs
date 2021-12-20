@@ -484,6 +484,11 @@ impl ::core::clone::Clone for IppAttributeErrorReason {
         *self
     }
 }
+impl ::core::fmt::Debug for IppAttributeErrorReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IppAttributeErrorReason {
     type Abi = Self;
 }
@@ -1069,6 +1074,11 @@ impl ::core::clone::Clone for IppAttributeValueKind {
         *self
     }
 }
+impl ::core::fmt::Debug for IppAttributeValueKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for IppAttributeValueKind {
     type Abi = Self;
 }
@@ -1416,6 +1426,11 @@ impl ::core::marker::Copy for IppResolutionUnit {}
 impl ::core::clone::Clone for IppResolutionUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for IppResolutionUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IppResolutionUnit {

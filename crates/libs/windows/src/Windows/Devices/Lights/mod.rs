@@ -681,6 +681,11 @@ impl ::core::clone::Clone for LampArrayKind {
         *self
     }
 }
+impl ::core::fmt::Debug for LampArrayKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LampArrayKind {
     type Abi = Self;
 }
@@ -940,6 +945,11 @@ impl ::core::marker::Copy for LampPurposes {}
 impl ::core::clone::Clone for LampPurposes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for LampPurposes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampPurposes").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LampPurposes {

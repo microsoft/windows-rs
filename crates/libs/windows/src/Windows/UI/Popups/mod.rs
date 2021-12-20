@@ -393,6 +393,11 @@ impl ::core::clone::Clone for MessageDialogOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for MessageDialogOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageDialogOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MessageDialogOptions {
     type Abi = Self;
 }
@@ -422,6 +427,11 @@ impl ::core::marker::Copy for Placement {}
 impl ::core::clone::Clone for Placement {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Placement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Placement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Placement {

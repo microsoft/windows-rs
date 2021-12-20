@@ -14,6 +14,11 @@ impl ::core::clone::Clone for HdmiDisplayColorSpace {
         *self
     }
 }
+impl ::core::fmt::Debug for HdmiDisplayColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayColorSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HdmiDisplayColorSpace {
     type Abi = Self;
 }
@@ -102,6 +107,11 @@ impl ::core::marker::Copy for HdmiDisplayHdrOption {}
 impl ::core::clone::Clone for HdmiDisplayHdrOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HdmiDisplayHdrOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayHdrOption").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HdmiDisplayHdrOption {
@@ -444,6 +454,11 @@ impl ::core::marker::Copy for HdmiDisplayPixelEncoding {}
 impl ::core::clone::Clone for HdmiDisplayPixelEncoding {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HdmiDisplayPixelEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayPixelEncoding").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HdmiDisplayPixelEncoding {

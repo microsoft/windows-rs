@@ -1695,6 +1695,11 @@ impl ::core::clone::Clone for PointerDeviceType {
         *self
     }
 }
+impl ::core::fmt::Debug for PointerDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerDeviceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PointerDeviceType {
     type Abi = Self;
 }

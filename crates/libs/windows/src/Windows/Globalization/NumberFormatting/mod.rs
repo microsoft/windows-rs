@@ -498,6 +498,11 @@ impl ::core::clone::Clone for CurrencyFormatterMode {
         *self
     }
 }
+impl ::core::fmt::Debug for CurrencyFormatterMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrencyFormatterMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CurrencyFormatterMode {
     type Abi = Self;
 }
@@ -3276,6 +3281,11 @@ impl ::core::marker::Copy for RoundingAlgorithm {}
 impl ::core::clone::Clone for RoundingAlgorithm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for RoundingAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoundingAlgorithm").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RoundingAlgorithm {

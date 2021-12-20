@@ -278,6 +278,11 @@ impl ::core::clone::Clone for AudioEncodingQuality {
         *self
     }
 }
+impl ::core::fmt::Debug for AudioEncodingQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEncodingQuality").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AudioEncodingQuality {
     type Abi = Self;
 }
@@ -2300,6 +2305,11 @@ impl ::core::clone::Clone for MediaMirroringOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaMirroringOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaMirroringOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaMirroringOptions {
     type Abi = Self;
 }
@@ -2327,6 +2337,11 @@ impl ::core::marker::Copy for MediaPixelFormat {}
 impl ::core::clone::Clone for MediaPixelFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaPixelFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPixelFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaPixelFormat {
@@ -2680,6 +2695,11 @@ impl ::core::clone::Clone for MediaRotation {
         *self
     }
 }
+impl ::core::fmt::Debug for MediaRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MediaRotation {
     type Abi = Self;
 }
@@ -2706,6 +2726,11 @@ impl ::core::marker::Copy for MediaThumbnailFormat {}
 impl ::core::clone::Clone for MediaThumbnailFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MediaThumbnailFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaThumbnailFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MediaThumbnailFormat {
@@ -2784,6 +2809,11 @@ impl ::core::clone::Clone for SphericalVideoFrameFormat {
         *self
     }
 }
+impl ::core::fmt::Debug for SphericalVideoFrameFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SphericalVideoFrameFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SphericalVideoFrameFormat {
     type Abi = Self;
 }
@@ -2811,6 +2841,11 @@ impl ::core::marker::Copy for StereoscopicVideoPackingMode {}
 impl ::core::clone::Clone for StereoscopicVideoPackingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StereoscopicVideoPackingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for StereoscopicVideoPackingMode {
@@ -3292,6 +3327,11 @@ impl ::core::marker::Copy for VideoEncodingQuality {}
 impl ::core::clone::Clone for VideoEncodingQuality {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VideoEncodingQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoEncodingQuality").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VideoEncodingQuality {

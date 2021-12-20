@@ -117,6 +117,11 @@ impl ::core::clone::Clone for DialAppLaunchResult {
         *self
     }
 }
+impl ::core::fmt::Debug for DialAppLaunchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppLaunchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for DialAppLaunchResult {
     type Abi = Self;
 }
@@ -145,6 +150,11 @@ impl ::core::marker::Copy for DialAppState {}
 impl ::core::clone::Clone for DialAppState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DialAppState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DialAppState {
@@ -259,6 +269,11 @@ impl ::core::marker::Copy for DialAppStopResult {}
 impl ::core::clone::Clone for DialAppStopResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DialAppStopResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppStopResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DialAppStopResult {
@@ -420,6 +435,11 @@ impl ::core::marker::Copy for DialDeviceDisplayStatus {}
 impl ::core::clone::Clone for DialDeviceDisplayStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for DialDeviceDisplayStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialDeviceDisplayStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DialDeviceDisplayStatus {

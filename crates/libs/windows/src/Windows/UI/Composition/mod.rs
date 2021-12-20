@@ -637,6 +637,11 @@ impl ::core::clone::Clone for AnimationControllerProgressBehavior {
         *self
     }
 }
+impl ::core::fmt::Debug for AnimationControllerProgressBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationControllerProgressBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AnimationControllerProgressBehavior {
     type Abi = Self;
 }
@@ -663,6 +668,11 @@ impl ::core::marker::Copy for AnimationDelayBehavior {}
 impl ::core::clone::Clone for AnimationDelayBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AnimationDelayBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDelayBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AnimationDelayBehavior {
@@ -695,6 +705,11 @@ impl ::core::clone::Clone for AnimationDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for AnimationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
 }
@@ -721,6 +736,11 @@ impl ::core::marker::Copy for AnimationIterationBehavior {}
 impl ::core::clone::Clone for AnimationIterationBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AnimationIterationBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationIterationBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AnimationIterationBehavior {
@@ -751,6 +771,11 @@ impl ::core::marker::Copy for AnimationPropertyAccessMode {}
 impl ::core::clone::Clone for AnimationPropertyAccessMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AnimationPropertyAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationPropertyAccessMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AnimationPropertyAccessMode {
@@ -1044,6 +1069,11 @@ impl ::core::marker::Copy for AnimationStopBehavior {}
 impl ::core::clone::Clone for AnimationStopBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for AnimationStopBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationStopBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AnimationStopBehavior {
@@ -5422,6 +5452,11 @@ impl ::core::clone::Clone for CompositionBackfaceVisibility {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionBackfaceVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBackfaceVisibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionBackfaceVisibility {
     type Abi = Self;
 }
@@ -5688,6 +5723,11 @@ impl ::core::clone::Clone for CompositionBatchTypes {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionBatchTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBatchTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionBatchTypes {
     type Abi = Self;
 }
@@ -5724,6 +5764,11 @@ impl ::core::clone::Clone for CompositionBitmapInterpolationMode {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionBitmapInterpolationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBitmapInterpolationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionBitmapInterpolationMode {
     type Abi = Self;
 }
@@ -5751,6 +5796,11 @@ impl ::core::marker::Copy for CompositionBorderMode {}
 impl ::core::clone::Clone for CompositionBorderMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CompositionBorderMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBorderMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CompositionBorderMode {
@@ -7227,6 +7277,11 @@ impl ::core::clone::Clone for CompositionColorSpace {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionColorSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionColorSpace {
     type Abi = Self;
 }
@@ -7521,6 +7576,11 @@ impl ::core::marker::Copy for CompositionCompositeMode {}
 impl ::core::clone::Clone for CompositionCompositeMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CompositionCompositeMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionCompositeMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CompositionCompositeMode {
@@ -8224,6 +8284,11 @@ impl ::core::clone::Clone for CompositionDropShadowSourcePolicy {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionDropShadowSourcePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionDropShadowSourcePolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionDropShadowSourcePolicy {
     type Abi = Self;
 }
@@ -8569,6 +8634,11 @@ impl ::core::marker::Copy for CompositionEasingFunctionMode {}
 impl ::core::clone::Clone for CompositionEasingFunctionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CompositionEasingFunctionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEasingFunctionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CompositionEasingFunctionMode {
@@ -9126,6 +9196,11 @@ impl ::core::marker::Copy for CompositionEffectFactoryLoadStatus {}
 impl ::core::clone::Clone for CompositionEffectFactoryLoadStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CompositionEffectFactoryLoadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEffectFactoryLoadStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CompositionEffectFactoryLoadStatus {
@@ -10251,6 +10326,11 @@ impl ::core::clone::Clone for CompositionGetValueStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionGetValueStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionGetValueStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionGetValueStatus {
     type Abi = Self;
 }
@@ -10681,6 +10761,11 @@ impl ::core::marker::Copy for CompositionGradientExtendMode {}
 impl ::core::clone::Clone for CompositionGradientExtendMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CompositionGradientExtendMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionGradientExtendMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CompositionGradientExtendMode {
@@ -12050,6 +12135,11 @@ impl ::core::marker::Copy for CompositionMappingMode {}
 impl ::core::clone::Clone for CompositionMappingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CompositionMappingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionMappingMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CompositionMappingMode {
@@ -18417,6 +18507,11 @@ impl ::core::clone::Clone for CompositionStretch {
         *self
     }
 }
+impl ::core::fmt::Debug for CompositionStretch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionStretch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionStretch {
     type Abi = Self;
 }
@@ -18445,6 +18540,11 @@ impl ::core::marker::Copy for CompositionStrokeCap {}
 impl ::core::clone::Clone for CompositionStrokeCap {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CompositionStrokeCap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionStrokeCap").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CompositionStrokeCap {
@@ -18900,6 +19000,11 @@ impl ::core::marker::Copy for CompositionStrokeLineJoin {}
 impl ::core::clone::Clone for CompositionStrokeLineJoin {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for CompositionStrokeLineJoin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionStrokeLineJoin").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CompositionStrokeLineJoin {

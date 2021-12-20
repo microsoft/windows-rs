@@ -548,6 +548,11 @@ impl ::core::clone::Clone for AccelerometerReadingType {
         *self
     }
 }
+impl ::core::fmt::Debug for AccelerometerReadingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccelerometerReadingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for AccelerometerReadingType {
     type Abi = Self;
 }
@@ -1076,6 +1081,11 @@ impl ::core::clone::Clone for ActivitySensorReadingConfidence {
         *self
     }
 }
+impl ::core::fmt::Debug for ActivitySensorReadingConfidence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensorReadingConfidence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ActivitySensorReadingConfidence {
     type Abi = Self;
 }
@@ -1185,6 +1195,11 @@ impl ::core::marker::Copy for ActivityType {}
 impl ::core::clone::Clone for ActivityType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ActivityType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivityType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ActivityType {
@@ -7220,6 +7235,11 @@ impl ::core::clone::Clone for MagnetometerAccuracy {
         *self
     }
 }
+impl ::core::fmt::Debug for MagnetometerAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
     type Abi = Self;
 }
@@ -8454,6 +8474,11 @@ impl ::core::clone::Clone for PedometerStepKind {
         *self
     }
 }
+impl ::core::fmt::Debug for PedometerStepKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PedometerStepKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PedometerStepKind {
     type Abi = Self;
 }
@@ -9114,6 +9139,11 @@ impl ::core::clone::Clone for SensorOptimizationGoal {
         *self
     }
 }
+impl ::core::fmt::Debug for SensorOptimizationGoal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorOptimizationGoal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SensorOptimizationGoal {
     type Abi = Self;
 }
@@ -9240,6 +9270,11 @@ impl ::core::marker::Copy for SensorReadingType {}
 impl ::core::clone::Clone for SensorReadingType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SensorReadingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorReadingType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SensorReadingType {
@@ -9422,6 +9457,11 @@ impl ::core::clone::Clone for SensorType {
         *self
     }
 }
+impl ::core::fmt::Debug for SensorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SensorType {
     type Abi = Self;
 }
@@ -9452,6 +9492,11 @@ impl ::core::marker::Copy for SimpleOrientation {}
 impl ::core::clone::Clone for SimpleOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for SimpleOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SimpleOrientation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SimpleOrientation {

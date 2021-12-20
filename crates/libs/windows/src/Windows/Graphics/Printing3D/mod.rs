@@ -1215,6 +1215,11 @@ impl ::core::clone::Clone for Print3DTaskCompletion {
         *self
     }
 }
+impl ::core::fmt::Debug for Print3DTaskCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Print3DTaskCompletion {
     type Abi = Self;
 }
@@ -1246,6 +1251,11 @@ impl ::core::marker::Copy for Print3DTaskDetail {}
 impl ::core::clone::Clone for Print3DTaskDetail {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Print3DTaskDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Print3DTaskDetail {
@@ -2084,6 +2094,11 @@ impl ::core::marker::Copy for Printing3DBufferFormat {}
 impl ::core::clone::Clone for Printing3DBufferFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Printing3DBufferFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Printing3DBufferFormat {
@@ -3239,6 +3254,11 @@ impl ::core::clone::Clone for Printing3DMeshVerificationMode {
         *self
     }
 }
+impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Printing3DMeshVerificationMode {
     type Abi = Self;
 }
@@ -3722,6 +3742,11 @@ impl ::core::clone::Clone for Printing3DModelUnit {
         *self
     }
 }
+impl ::core::fmt::Debug for Printing3DModelUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Printing3DModelUnit {
     type Abi = Self;
 }
@@ -3941,6 +3966,11 @@ impl ::core::clone::Clone for Printing3DObjectType {
         *self
     }
 }
+impl ::core::fmt::Debug for Printing3DObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Printing3DObjectType {
     type Abi = Self;
 }
@@ -3968,6 +3998,11 @@ impl ::core::marker::Copy for Printing3DPackageCompression {}
 impl ::core::clone::Clone for Printing3DPackageCompression {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Printing3DPackageCompression {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Printing3DPackageCompression {
@@ -4222,6 +4257,11 @@ impl ::core::marker::Copy for Printing3DTextureEdgeBehavior {}
 impl ::core::clone::Clone for Printing3DTextureEdgeBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Printing3DTextureEdgeBehavior {

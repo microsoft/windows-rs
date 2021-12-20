@@ -1246,6 +1246,11 @@ impl ::core::clone::Clone for PhotoOrientation {
         *self
     }
 }
+impl ::core::fmt::Debug for PhotoOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoOrientation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoOrientation {
     type Abi = Self;
 }
@@ -1276,6 +1281,11 @@ impl ::core::marker::Copy for PropertyPrefetchOptions {}
 impl ::core::clone::Clone for PropertyPrefetchOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for PropertyPrefetchOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyPrefetchOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PropertyPrefetchOptions {
@@ -1848,6 +1858,11 @@ impl ::core::clone::Clone for ThumbnailMode {
         *self
     }
 }
+impl ::core::fmt::Debug for ThumbnailMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ThumbnailMode {
     type Abi = Self;
 }
@@ -1878,6 +1893,11 @@ impl ::core::clone::Clone for ThumbnailOptions {
         *self
     }
 }
+impl ::core::fmt::Debug for ThumbnailOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for ThumbnailOptions {
     type Abi = Self;
 }
@@ -1904,6 +1924,11 @@ impl ::core::marker::Copy for ThumbnailType {}
 impl ::core::clone::Clone for ThumbnailType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for ThumbnailType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailType").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ThumbnailType {
@@ -1934,6 +1959,11 @@ impl ::core::marker::Copy for VideoOrientation {}
 impl ::core::clone::Clone for VideoOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for VideoOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoOrientation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VideoOrientation {

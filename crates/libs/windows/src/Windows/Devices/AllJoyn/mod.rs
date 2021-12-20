@@ -786,6 +786,12 @@ impl ::core::clone::Clone for AllJoynAuthenticationMechanism {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AllJoynAuthenticationMechanism {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AllJoynAuthenticationMechanism").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynAuthenticationMechanism {
     type Abi = Self;
 }
@@ -1125,6 +1131,12 @@ impl ::core::marker::Copy for AllJoynBusAttachmentState {}
 impl ::core::clone::Clone for AllJoynBusAttachmentState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AllJoynBusAttachmentState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AllJoynBusAttachmentState").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2840,6 +2852,12 @@ impl ::core::clone::Clone for AllJoynSessionLostReason {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AllJoynSessionLostReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AllJoynSessionLostReason").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynSessionLostReason {
     type Abi = Self;
 }
@@ -3254,6 +3272,12 @@ impl ::core::marker::Copy for AllJoynTrafficType {}
 impl ::core::clone::Clone for AllJoynTrafficType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AllJoynTrafficType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AllJoynTrafficType").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]

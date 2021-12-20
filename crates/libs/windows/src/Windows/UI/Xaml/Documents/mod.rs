@@ -4931,6 +4931,11 @@ impl ::core::clone::Clone for LogicalDirection {
         *self
     }
 }
+impl ::core::fmt::Debug for LogicalDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LogicalDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for LogicalDirection {
     type Abi = Self;
 }
@@ -7538,6 +7543,11 @@ impl ::core::marker::Copy for UnderlineStyle {}
 impl ::core::clone::Clone for UnderlineStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UnderlineStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnderlineStyle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UnderlineStyle {

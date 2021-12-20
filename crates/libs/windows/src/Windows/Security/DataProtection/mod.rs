@@ -120,6 +120,11 @@ impl ::core::clone::Clone for UserDataAvailability {
         *self
     }
 }
+impl ::core::fmt::Debug for UserDataAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataAvailability {
     type Abi = Self;
 }
@@ -308,6 +313,11 @@ impl ::core::marker::Copy for UserDataBufferUnprotectStatus {}
 impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataBufferUnprotectStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataBufferUnprotectStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataBufferUnprotectStatus {
@@ -560,6 +570,11 @@ impl ::core::marker::Copy for UserDataStorageItemProtectionStatus {}
 impl ::core::clone::Clone for UserDataStorageItemProtectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for UserDataStorageItemProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataStorageItemProtectionStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UserDataStorageItemProtectionStatus {

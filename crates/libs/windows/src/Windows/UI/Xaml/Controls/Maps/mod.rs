@@ -3389,6 +3389,11 @@ impl ::core::clone::Clone for MapAnimationKind {
         *self
     }
 }
+impl ::core::fmt::Debug for MapAnimationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapAnimationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapAnimationKind {
     type Abi = Self;
 }
@@ -3822,6 +3827,11 @@ impl ::core::clone::Clone for MapCameraChangeReason {
         *self
     }
 }
+impl ::core::fmt::Debug for MapCameraChangeReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapCameraChangeReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapCameraChangeReason {
     type Abi = Self;
 }
@@ -3848,6 +3858,11 @@ impl ::core::marker::Copy for MapColorScheme {}
 impl ::core::clone::Clone for MapColorScheme {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapColorScheme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapColorScheme").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapColorScheme {
@@ -7286,6 +7301,11 @@ impl ::core::clone::Clone for MapElementCollisionBehavior {
         *self
     }
 }
+impl ::core::fmt::Debug for MapElementCollisionBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementCollisionBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapElementCollisionBehavior {
     type Abi = Self;
 }
@@ -8467,6 +8487,11 @@ impl ::core::clone::Clone for MapInteractionMode {
         *self
     }
 }
+impl ::core::fmt::Debug for MapInteractionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapInteractionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapInteractionMode {
     type Abi = Self;
 }
@@ -8818,6 +8843,11 @@ impl ::core::clone::Clone for MapLoadingStatus {
         *self
     }
 }
+impl ::core::fmt::Debug for MapLoadingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLoadingStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapLoadingStatus {
     type Abi = Self;
 }
@@ -8968,6 +8998,11 @@ impl ::core::clone::Clone for MapModel3DShadingOption {
         *self
     }
 }
+impl ::core::fmt::Debug for MapModel3DShadingOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapModel3DShadingOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapModel3DShadingOption {
     type Abi = Self;
 }
@@ -8994,6 +9029,11 @@ impl ::core::marker::Copy for MapPanInteractionMode {}
 impl ::core::clone::Clone for MapPanInteractionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapPanInteractionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapPanInteractionMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapPanInteractionMode {
@@ -9427,6 +9467,11 @@ impl ::core::marker::Copy for MapProjection {}
 impl ::core::clone::Clone for MapProjection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapProjection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapProjection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapProjection {
@@ -9877,6 +9922,11 @@ impl ::core::marker::Copy for MapStyle {}
 impl ::core::clone::Clone for MapStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapStyle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapStyle {
@@ -10649,6 +10699,11 @@ impl ::core::clone::Clone for MapTileAnimationState {
         *self
     }
 }
+impl ::core::fmt::Debug for MapTileAnimationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileAnimationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapTileAnimationState {
     type Abi = Self;
 }
@@ -11071,6 +11126,11 @@ impl ::core::marker::Copy for MapTileLayer {}
 impl ::core::clone::Clone for MapTileLayer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapTileLayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileLayer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapTileLayer {
@@ -11848,6 +11908,11 @@ impl ::core::clone::Clone for MapVisibleRegionKind {
         *self
     }
 }
+impl ::core::fmt::Debug for MapVisibleRegionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapVisibleRegionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for MapVisibleRegionKind {
     type Abi = Self;
 }
@@ -11874,6 +11939,11 @@ impl ::core::marker::Copy for MapWatermarkMode {}
 impl ::core::clone::Clone for MapWatermarkMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for MapWatermarkMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapWatermarkMode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MapWatermarkMode {

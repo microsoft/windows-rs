@@ -20,6 +20,11 @@ impl ::core::clone::Clone for Direct3DBindings {
         *self
     }
 }
+impl ::core::fmt::Debug for Direct3DBindings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direct3DBindings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for Direct3DBindings {
     type Abi = Self;
 }
@@ -124,6 +129,11 @@ impl ::core::marker::Copy for Direct3DUsage {}
 impl ::core::clone::Clone for Direct3DUsage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for Direct3DUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direct3DUsage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Direct3DUsage {

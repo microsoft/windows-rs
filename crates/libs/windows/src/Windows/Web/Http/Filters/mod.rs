@@ -449,6 +449,11 @@ impl ::core::clone::Clone for HttpCacheReadBehavior {
         *self
     }
 }
+impl ::core::fmt::Debug for HttpCacheReadBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCacheReadBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HttpCacheReadBehavior {
     type Abi = Self;
 }
@@ -477,6 +482,11 @@ impl ::core::clone::Clone for HttpCacheWriteBehavior {
         *self
     }
 }
+impl ::core::fmt::Debug for HttpCacheWriteBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCacheWriteBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HttpCacheWriteBehavior {
     type Abi = Self;
 }
@@ -503,6 +513,11 @@ impl ::core::marker::Copy for HttpCookieUsageBehavior {}
 impl ::core::clone::Clone for HttpCookieUsageBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for HttpCookieUsageBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCookieUsageBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HttpCookieUsageBehavior {
