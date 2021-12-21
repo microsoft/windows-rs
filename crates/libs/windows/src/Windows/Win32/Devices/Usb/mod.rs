@@ -962,11 +962,6 @@ impl ::core::clone::Clone for USBD_DEVICE_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for USBD_DEVICE_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBD_DEVICE_INFORMATION").field("OffsetNext", &self.OffsetNext).field("UsbdDeviceHandle", &self.UsbdDeviceHandle).field("DeviceDescriptor", &self.DeviceDescriptor).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBD_DEVICE_INFORMATION {
     type Abi = Self;
 }
@@ -1317,12 +1312,6 @@ impl ::core::clone::Clone for USBFN_CLASS_INFORMATION_PACKET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for USBFN_CLASS_INFORMATION_PACKET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBFN_CLASS_INFORMATION_PACKET").field("FullSpeedClassInterface", &self.FullSpeedClassInterface).field("HighSpeedClassInterface", &self.HighSpeedClassInterface).field("InterfaceName", &self.InterfaceName).field("InterfaceGuid", &self.InterfaceGuid).field("HasInterfaceGuid", &self.HasInterfaceGuid).field("SuperSpeedClassInterface", &self.SuperSpeedClassInterface).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INFORMATION_PACKET {
     type Abi = Self;
 }
@@ -1360,12 +1349,6 @@ impl ::core::clone::Clone for USBFN_CLASS_INFORMATION_PACKET_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for USBFN_CLASS_INFORMATION_PACKET_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBFN_CLASS_INFORMATION_PACKET_EX").field("FullSpeedClassInterfaceEx", &self.FullSpeedClassInterfaceEx).field("HighSpeedClassInterfaceEx", &self.HighSpeedClassInterfaceEx).field("SuperSpeedClassInterfaceEx", &self.SuperSpeedClassInterfaceEx).field("InterfaceName", &self.InterfaceName).field("InterfaceGuid", &self.InterfaceGuid).field("HasInterfaceGuid", &self.HasInterfaceGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INFORMATION_PACKET_EX {
     type Abi = Self;
 }
@@ -1396,11 +1379,6 @@ impl ::core::clone::Clone for USBFN_CLASS_INTERFACE {
         *self
     }
 }
-impl ::core::fmt::Debug for USBFN_CLASS_INTERFACE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBFN_CLASS_INTERFACE").field("InterfaceNumber", &self.InterfaceNumber).field("PipeCount", &self.PipeCount).field("PipeArr", &self.PipeArr).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INTERFACE {
     type Abi = Self;
 }
@@ -1427,11 +1405,6 @@ impl ::core::marker::Copy for USBFN_CLASS_INTERFACE_EX {}
 impl ::core::clone::Clone for USBFN_CLASS_INTERFACE_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for USBFN_CLASS_INTERFACE_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBFN_CLASS_INTERFACE_EX").field("BaseInterfaceNumber", &self.BaseInterfaceNumber).field("InterfaceCount", &self.InterfaceCount).field("PipeCount", &self.PipeCount).field("PipeArr", &self.PipeArr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INTERFACE_EX {
@@ -1608,11 +1581,6 @@ impl ::core::marker::Copy for USBFN_PIPE_INFORMATION {}
 impl ::core::clone::Clone for USBFN_PIPE_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for USBFN_PIPE_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBFN_PIPE_INFORMATION").field("EpDesc", &self.EpDesc).field("PipeId", &self.PipeId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBFN_PIPE_INFORMATION {
@@ -1816,11 +1784,6 @@ impl ::core::clone::Clone for USBUSER_BANDWIDTH_INFO_REQUEST {
         *self
     }
 }
-impl ::core::fmt::Debug for USBUSER_BANDWIDTH_INFO_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_BANDWIDTH_INFO_REQUEST").field("Header", &self.Header).field("BandwidthInformation", &self.BandwidthInformation).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBUSER_BANDWIDTH_INFO_REQUEST {
     type Abi = Self;
 }
@@ -1848,12 +1811,6 @@ impl ::core::marker::Copy for USBUSER_BUS_STATISTICS_0_REQUEST {}
 impl ::core::clone::Clone for USBUSER_BUS_STATISTICS_0_REQUEST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for USBUSER_BUS_STATISTICS_0_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_BUS_STATISTICS_0_REQUEST").field("Header", &self.Header).field("BusStatistics0", &self.BusStatistics0).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1888,11 +1845,6 @@ impl ::core::clone::Clone for USBUSER_CLOSE_RAW_DEVICE {
         *self
     }
 }
-impl ::core::fmt::Debug for USBUSER_CLOSE_RAW_DEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_CLOSE_RAW_DEVICE").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBUSER_CLOSE_RAW_DEVICE {
     type Abi = Self;
 }
@@ -1919,11 +1871,6 @@ impl ::core::clone::Clone for USBUSER_CONTROLLER_INFO_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for USBUSER_CONTROLLER_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_CONTROLLER_INFO_0").field("Header", &self.Header).field("Info0", &self.Info0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBUSER_CONTROLLER_INFO_0 {
     type Abi = Self;
 }
@@ -1948,11 +1895,6 @@ impl ::core::marker::Copy for USBUSER_CONTROLLER_UNICODE_NAME {}
 impl ::core::clone::Clone for USBUSER_CONTROLLER_UNICODE_NAME {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for USBUSER_CONTROLLER_UNICODE_NAME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_CONTROLLER_UNICODE_NAME").field("Header", &self.Header).field("UnicodeName", &self.UnicodeName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_CONTROLLER_UNICODE_NAME {
@@ -1993,12 +1935,6 @@ impl ::core::clone::Clone for USBUSER_GET_DRIVER_VERSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for USBUSER_GET_DRIVER_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_GET_DRIVER_VERSION").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USBUSER_GET_DRIVER_VERSION {
     type Abi = Self;
 }
@@ -2034,11 +1970,6 @@ impl ::core::clone::Clone for USBUSER_GET_USB2HW_VERSION {
         *self
     }
 }
-impl ::core::fmt::Debug for USBUSER_GET_USB2HW_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_GET_USB2HW_VERSION").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBUSER_GET_USB2HW_VERSION {
     type Abi = Self;
 }
@@ -2069,11 +2000,6 @@ impl ::core::marker::Copy for USBUSER_OPEN_RAW_DEVICE {}
 impl ::core::clone::Clone for USBUSER_OPEN_RAW_DEVICE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for USBUSER_OPEN_RAW_DEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_OPEN_RAW_DEVICE").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_OPEN_RAW_DEVICE {
@@ -2118,11 +2044,6 @@ impl ::core::clone::Clone for USBUSER_PASS_THRU_REQUEST {
         *self
     }
 }
-impl ::core::fmt::Debug for USBUSER_PASS_THRU_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_PASS_THRU_REQUEST").field("Header", &self.Header).field("PassThru", &self.PassThru).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBUSER_PASS_THRU_REQUEST {
     type Abi = Self;
 }
@@ -2153,12 +2074,6 @@ impl ::core::clone::Clone for USBUSER_POWER_INFO_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for USBUSER_POWER_INFO_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_POWER_INFO_REQUEST").field("Header", &self.Header).field("PowerInformation", &self.PowerInformation).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for USBUSER_POWER_INFO_REQUEST {
     type Abi = Self;
 }
@@ -2186,11 +2101,6 @@ impl ::core::marker::Copy for USBUSER_RAW_RESET_ROOT_PORT {}
 impl ::core::clone::Clone for USBUSER_RAW_RESET_ROOT_PORT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for USBUSER_RAW_RESET_ROOT_PORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_RAW_RESET_ROOT_PORT").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_RAW_RESET_ROOT_PORT {
@@ -2273,11 +2183,6 @@ impl ::core::clone::Clone for USBUSER_ROOTPORT_FEATURE_REQUEST {
         *self
     }
 }
-impl ::core::fmt::Debug for USBUSER_ROOTPORT_FEATURE_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_ROOTPORT_FEATURE_REQUEST").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBUSER_ROOTPORT_FEATURE_REQUEST {
     type Abi = Self;
 }
@@ -2302,11 +2207,6 @@ impl ::core::marker::Copy for USBUSER_ROOTPORT_PARAMETERS {}
 impl ::core::clone::Clone for USBUSER_ROOTPORT_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for USBUSER_ROOTPORT_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_ROOTPORT_PARAMETERS").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_ROOTPORT_PARAMETERS {
@@ -2335,11 +2235,6 @@ impl ::core::clone::Clone for USBUSER_SEND_ONE_PACKET {
         *self
     }
 }
-impl ::core::fmt::Debug for USBUSER_SEND_ONE_PACKET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_SEND_ONE_PACKET").field("Header", &self.Header).field("PacketParameters", &self.PacketParameters).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USBUSER_SEND_ONE_PACKET {
     type Abi = Self;
 }
@@ -2364,11 +2259,6 @@ impl ::core::marker::Copy for USBUSER_SEND_RAW_COMMAND {}
 impl ::core::clone::Clone for USBUSER_SEND_RAW_COMMAND {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for USBUSER_SEND_RAW_COMMAND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USBUSER_SEND_RAW_COMMAND").field("Header", &self.Header).field("Parameters", &self.Parameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USBUSER_SEND_RAW_COMMAND {

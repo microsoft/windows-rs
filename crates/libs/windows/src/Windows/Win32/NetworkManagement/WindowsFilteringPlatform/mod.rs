@@ -18327,11 +18327,6 @@ impl ::core::clone::Clone for tcp_opt_sack {
         *self
     }
 }
-impl ::core::fmt::Debug for tcp_opt_sack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_opt_sack").field("Kind", &self.Kind).field("Length", &self.Length).field("Block", &self.Block).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for tcp_opt_sack {
     type Abi = Self;
 }

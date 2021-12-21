@@ -4179,11 +4179,6 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_EX_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_EX_0").field("TokenDef", &self.TokenDef).field("rgbReserved", &self.rgbReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_0 {
     type Abi = Self;
 }

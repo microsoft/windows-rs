@@ -1290,11 +1290,6 @@ impl ::core::clone::Clone for DMUS_WAVE {
         *self
     }
 }
-impl ::core::fmt::Debug for DMUS_WAVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_WAVE").field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulWaveDataIdx", &self.ulWaveDataIdx).field("WaveformatEx", &self.WaveformatEx).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DMUS_WAVE {
     type Abi = Self;
 }

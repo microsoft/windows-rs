@@ -4736,11 +4736,6 @@ impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE {
         *self
     }
 }
-impl ::core::fmt::Debug for PXE_DHCPV6_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PXE_DHCPV6_MESSAGE").field("MessageType", &self.MessageType).field("TransactionIDByte1", &self.TransactionIDByte1).field("TransactionIDByte2", &self.TransactionIDByte2).field("TransactionIDByte3", &self.TransactionIDByte3).field("Options", &self.Options).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_MESSAGE {
     type Abi = Self;
 }
@@ -4861,11 +4856,6 @@ impl ::core::marker::Copy for PXE_DHCPV6_RELAY_MESSAGE {}
 impl ::core::clone::Clone for PXE_DHCPV6_RELAY_MESSAGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PXE_DHCPV6_RELAY_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PXE_DHCPV6_RELAY_MESSAGE").field("MessageType", &self.MessageType).field("HopCount", &self.HopCount).field("LinkAddress", &self.LinkAddress).field("PeerAddress", &self.PeerAddress).field("Options", &self.Options).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_RELAY_MESSAGE {

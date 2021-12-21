@@ -12365,11 +12365,6 @@ impl ::core::clone::Clone for icmpv6_echo_reply_lh {
         *self
     }
 }
-impl ::core::fmt::Debug for icmpv6_echo_reply_lh {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("icmpv6_echo_reply_lh").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for icmpv6_echo_reply_lh {
     type Abi = Self;
 }

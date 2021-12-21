@@ -15460,11 +15460,6 @@ impl ::core::clone::Clone for TXF_ID {
         *self
     }
 }
-impl ::core::fmt::Debug for TXF_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TXF_ID").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TXF_ID {
     type Abi = Self;
 }
@@ -15520,11 +15515,6 @@ impl ::core::marker::Copy for TXF_LOG_RECORD_AFFECTED_FILE {}
 impl ::core::clone::Clone for TXF_LOG_RECORD_AFFECTED_FILE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for TXF_LOG_RECORD_AFFECTED_FILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TXF_LOG_RECORD_AFFECTED_FILE").field("Version", &self.Version).field("RecordLength", &self.RecordLength).field("Flags", &self.Flags).field("TxfFileId", &self.TxfFileId).field("KtmGuid", &self.KtmGuid).field("FileNameLength", &self.FileNameLength).field("FileNameByteOffsetInStructure", &self.FileNameByteOffsetInStructure).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_AFFECTED_FILE {

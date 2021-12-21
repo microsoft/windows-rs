@@ -74,11 +74,6 @@ impl ::core::clone::Clone for BUSNUMBER_RESOURCE {
         *self
     }
 }
-impl ::core::fmt::Debug for BUSNUMBER_RESOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BUSNUMBER_RESOURCE").field("BusNumber_Header", &self.BusNumber_Header).field("BusNumber_Data", &self.BusNumber_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BUSNUMBER_RESOURCE {
     type Abi = Self;
 }
@@ -4909,11 +4904,6 @@ impl ::core::clone::Clone for CS_RESOURCE {
         *self
     }
 }
-impl ::core::fmt::Debug for CS_RESOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CS_RESOURCE").field("CS_Header", &self.CS_Header).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CS_RESOURCE {
     type Abi = Self;
 }
@@ -4968,11 +4958,6 @@ impl ::core::marker::Copy for Connection_Resource_s {}
 impl ::core::clone::Clone for Connection_Resource_s {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for Connection_Resource_s {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Connection_Resource_s").field("Connection_Header", &self.Connection_Header).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Connection_Resource_s {
@@ -5450,11 +5435,6 @@ impl ::core::clone::Clone for DMA_RESOURCE {
         *self
     }
 }
-impl ::core::fmt::Debug for DMA_RESOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMA_RESOURCE").field("DMA_Header", &self.DMA_Header).field("DMA_Data", &self.DMA_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DMA_RESOURCE {
     type Abi = Self;
 }
@@ -5722,11 +5702,6 @@ impl ::core::marker::Copy for DevPrivate_Resource_s {}
 impl ::core::clone::Clone for DevPrivate_Resource_s {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DevPrivate_Resource_s {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DevPrivate_Resource_s").field("PRV_Header", &self.PRV_Header).field("PRV_Data", &self.PRV_Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DevPrivate_Resource_s {
@@ -7053,11 +7028,6 @@ impl ::core::clone::Clone for IO_RESOURCE {
         *self
     }
 }
-impl ::core::fmt::Debug for IO_RESOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IO_RESOURCE").field("IO_Header", &self.IO_Header).field("IO_Data", &self.IO_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IO_RESOURCE {
     type Abi = Self;
 }
@@ -7169,11 +7139,6 @@ impl ::core::clone::Clone for IRQ_RESOURCE_32 {
         *self
     }
 }
-impl ::core::fmt::Debug for IRQ_RESOURCE_32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IRQ_RESOURCE_32").field("IRQ_Header", &self.IRQ_Header).field("IRQ_Data", &self.IRQ_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IRQ_RESOURCE_32 {
     type Abi = Self;
 }
@@ -7198,11 +7163,6 @@ impl ::core::marker::Copy for IRQ_RESOURCE_64 {}
 impl ::core::clone::Clone for IRQ_RESOURCE_64 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IRQ_RESOURCE_64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IRQ_RESOURCE_64").field("IRQ_Header", &self.IRQ_Header).field("IRQ_Data", &self.IRQ_Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IRQ_RESOURCE_64 {
@@ -7413,11 +7373,6 @@ impl ::core::clone::Clone for MEM_RESOURCE {
         *self
     }
 }
-impl ::core::fmt::Debug for MEM_RESOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEM_RESOURCE").field("MEM_Header", &self.MEM_Header).field("MEM_Data", &self.MEM_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MEM_RESOURCE {
     type Abi = Self;
 }
@@ -7472,11 +7427,6 @@ impl ::core::marker::Copy for MFCARD_RESOURCE {}
 impl ::core::clone::Clone for MFCARD_RESOURCE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MFCARD_RESOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MFCARD_RESOURCE").field("MfCard_Header", &self.MfCard_Header).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MFCARD_RESOURCE {
@@ -7565,11 +7515,6 @@ impl ::core::marker::Copy for Mem_Large_Resource_s {}
 impl ::core::clone::Clone for Mem_Large_Resource_s {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for Mem_Large_Resource_s {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Mem_Large_Resource_s").field("MEM_LARGE_Header", &self.MEM_LARGE_Header).field("MEM_LARGE_Data", &self.MEM_LARGE_Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for Mem_Large_Resource_s {
@@ -7691,11 +7636,6 @@ impl ::core::marker::Copy for PCCARD_RESOURCE {}
 impl ::core::clone::Clone for PCCARD_RESOURCE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PCCARD_RESOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PCCARD_RESOURCE").field("PcCard_Header", &self.PcCard_Header).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PCCARD_RESOURCE {

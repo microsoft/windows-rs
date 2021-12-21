@@ -1302,12 +1302,6 @@ impl ::core::clone::Clone for DNS_MESSAGE_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_MESSAGE_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_MESSAGE_BUFFER").field("MessageHead", &self.MessageHead).field("MessageBody", &self.MessageBody).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_MESSAGE_BUFFER {
     type Abi = Self;
 }

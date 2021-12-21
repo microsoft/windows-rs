@@ -130,11 +130,6 @@ impl ::core::clone::Clone for ENCLAVE_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for ENCLAVE_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENCLAVE_INFORMATION").field("EnclaveType", &self.EnclaveType).field("Reserved", &self.Reserved).field("BaseAddress", &self.BaseAddress).field("Size", &self.Size).field("Identity", &self.Identity).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ENCLAVE_INFORMATION {
     type Abi = Self;
 }

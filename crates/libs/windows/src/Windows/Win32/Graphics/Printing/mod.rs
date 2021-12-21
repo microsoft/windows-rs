@@ -19240,11 +19240,6 @@ impl ::core::clone::Clone for MxdcPrintTicketEscape {
         *self
     }
 }
-impl ::core::fmt::Debug for MxdcPrintTicketEscape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MxdcPrintTicketEscape").field("mxdcEscape", &self.mxdcEscape).field("printTicketData", &self.printTicketData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MxdcPrintTicketEscape {
     type Abi = Self;
 }
@@ -19345,11 +19340,6 @@ impl ::core::clone::Clone for MxdcS0PagePassthroughEscape {
         *self
     }
 }
-impl ::core::fmt::Debug for MxdcS0PagePassthroughEscape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MxdcS0PagePassthroughEscape").field("mxdcEscape", &self.mxdcEscape).field("xpsS0PageData", &self.xpsS0PageData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MxdcS0PagePassthroughEscape {
     type Abi = Self;
 }
@@ -19374,11 +19364,6 @@ impl ::core::marker::Copy for MxdcS0PageResourceEscape {}
 impl ::core::clone::Clone for MxdcS0PageResourceEscape {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MxdcS0PageResourceEscape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MxdcS0PageResourceEscape").field("mxdcEscape", &self.mxdcEscape).field("xpsS0PageResourcePassthrough", &self.xpsS0PageResourcePassthrough).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MxdcS0PageResourceEscape {

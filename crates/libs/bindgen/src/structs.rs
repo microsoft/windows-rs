@@ -199,7 +199,7 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
 }
 
 fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    if gen.sys || def.is_union() || def.has_explicit() || def.class_layout().is_some() {
+    if gen.sys || def.is_union() || def.has_explicit() || def.is_packed() {
         quote! {}
     } else {
         let name = ident.as_str();

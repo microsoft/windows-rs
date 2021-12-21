@@ -253,11 +253,6 @@ impl ::core::clone::Clone for ITEMIDLIST {
         *self
     }
 }
-impl ::core::fmt::Debug for ITEMIDLIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ITEMIDLIST").field("mkid", &self.mkid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ITEMIDLIST {
     type Abi = Self;
 }

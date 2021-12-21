@@ -10149,11 +10149,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
         *self
     }
 }
-impl ::core::fmt::Debug for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST").field("channelHdr", &self.channelHdr).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     type Abi = Self;
 }
@@ -10213,11 +10208,6 @@ impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
 impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM").field("channelHdr", &self.channelHdr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
@@ -10302,11 +10292,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
         *self
     }
 }
-impl ::core::fmt::Debug for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_DESKTOP_RESEND_REQUEST").field("channelHdr", &self.channelHdr).field("RedrawRect", &self.RedrawRect).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     type Abi = Self;
 }
@@ -10387,11 +10372,6 @@ impl ::core::marker::Copy for RFX_GFX_MSG_RDP_DATA {}
 impl ::core::clone::Clone for RFX_GFX_MSG_RDP_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RFX_GFX_MSG_RDP_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_RDP_DATA").field("channelHdr", &self.channelHdr).field("rdpData", &self.rdpData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_RDP_DATA {
