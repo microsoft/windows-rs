@@ -455,7 +455,7 @@ impl ::core::fmt::Debug for ACMFILTERCHOOSEA {
             .field("hInstance", &self.hInstance)
             .field("pszTemplateName", &self.pszTemplateName)
             .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook)
+            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
             .finish()
     }
 }
@@ -531,7 +531,7 @@ impl ::core::fmt::Debug for ACMFILTERCHOOSEW {
             .field("hInstance", &self.hInstance)
             .field("pszTemplateName", &self.pszTemplateName)
             .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook)
+            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
             .finish()
     }
 }
@@ -789,7 +789,7 @@ impl ::core::fmt::Debug for ACMFORMATCHOOSEA {
             .field("hInstance", &self.hInstance)
             .field("pszTemplateName", &self.pszTemplateName)
             .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook)
+            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
             .finish()
     }
 }
@@ -865,7 +865,7 @@ impl ::core::fmt::Debug for ACMFORMATCHOOSEW {
             .field("hInstance", &self.hInstance)
             .field("pszTemplateName", &self.pszTemplateName)
             .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook)
+            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
             .finish()
     }
 }

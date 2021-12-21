@@ -6042,7 +6042,7 @@ impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WDS_TRANSPORTCLIENT_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WDS_TRANSPORTCLIENT_CALLBACKS").field("SessionStart", &self.SessionStart).field("SessionStartEx", &self.SessionStartEx).field("ReceiveContents", &self.ReceiveContents).field("ReceiveMetadata", &self.ReceiveMetadata).field("SessionComplete", &self.SessionComplete).field("SessionNegotiate", &self.SessionNegotiate).finish()
+        f.debug_struct("WDS_TRANSPORTCLIENT_CALLBACKS").field("SessionStart", &self.SessionStart.map(|f| f as usize)).field("SessionStartEx", &self.SessionStartEx.map(|f| f as usize)).field("ReceiveContents", &self.ReceiveContents.map(|f| f as usize)).field("ReceiveMetadata", &self.ReceiveMetadata.map(|f| f as usize)).field("SessionComplete", &self.SessionComplete.map(|f| f as usize)).field("SessionNegotiate", &self.SessionNegotiate.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

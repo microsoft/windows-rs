@@ -11073,7 +11073,7 @@ impl ::core::fmt::Debug for MMIOINFO {
         f.debug_struct("MMIOINFO")
             .field("dwFlags", &self.dwFlags)
             .field("fccIOProc", &self.fccIOProc)
-            .field("pIOProc", &self.pIOProc)
+            .field("pIOProc", &self.pIOProc.map(|f| f as usize))
             .field("wErrorRet", &self.wErrorRet)
             .field("htask", &self.htask)
             .field("cchBuffer", &self.cchBuffer)
@@ -17161,7 +17161,7 @@ impl ::core::clone::Clone for TIMEREVENT {
 }
 impl ::core::fmt::Debug for TIMEREVENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TIMEREVENT").field("wDelay", &self.wDelay).field("wResolution", &self.wResolution).field("lpFunction", &self.lpFunction).field("dwUser", &self.dwUser).field("wFlags", &self.wFlags).field("wReserved1", &self.wReserved1).finish()
+        f.debug_struct("TIMEREVENT").field("wDelay", &self.wDelay).field("wResolution", &self.wResolution).field("lpFunction", &self.lpFunction.map(|f| f as usize)).field("dwUser", &self.dwUser).field("wFlags", &self.wFlags).field("wReserved1", &self.wReserved1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TIMEREVENT {

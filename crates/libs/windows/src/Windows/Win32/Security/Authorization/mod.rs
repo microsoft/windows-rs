@@ -1338,7 +1338,15 @@ impl ::core::clone::Clone for AUTHZ_INIT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for AUTHZ_INIT_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_INIT_INFO").field("version", &self.version).field("szResourceManagerName", &self.szResourceManagerName).field("pfnDynamicAccessCheck", &self.pfnDynamicAccessCheck).field("pfnComputeDynamicGroups", &self.pfnComputeDynamicGroups).field("pfnFreeDynamicGroups", &self.pfnFreeDynamicGroups).field("pfnGetCentralAccessPolicy", &self.pfnGetCentralAccessPolicy).field("pfnFreeCentralAccessPolicy", &self.pfnFreeCentralAccessPolicy).finish()
+        f.debug_struct("AUTHZ_INIT_INFO")
+            .field("version", &self.version)
+            .field("szResourceManagerName", &self.szResourceManagerName)
+            .field("pfnDynamicAccessCheck", &self.pfnDynamicAccessCheck.map(|f| f as usize))
+            .field("pfnComputeDynamicGroups", &self.pfnComputeDynamicGroups.map(|f| f as usize))
+            .field("pfnFreeDynamicGroups", &self.pfnFreeDynamicGroups.map(|f| f as usize))
+            .field("pfnGetCentralAccessPolicy", &self.pfnGetCentralAccessPolicy.map(|f| f as usize))
+            .field("pfnFreeCentralAccessPolicy", &self.pfnFreeCentralAccessPolicy.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

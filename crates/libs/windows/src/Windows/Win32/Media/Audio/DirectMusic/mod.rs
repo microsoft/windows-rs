@@ -1664,7 +1664,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Callback", &self.Callback).field("Context", &self.Context).finish()
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1703,7 +1703,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Callback", &self.Callback).field("Context", &self.Context).finish()
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1742,7 +1742,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Callback", &self.Callback).field("Context", &self.Context).finish()
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

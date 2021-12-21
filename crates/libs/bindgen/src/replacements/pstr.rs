@@ -27,6 +27,11 @@ pub fn gen() -> TokenStream {
             }
         }
         impl ::core::cmp::Eq for PSTR {}
+        impl ::core::fmt::Debug for PSTR {
+            fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                f.debug_tuple("PSTR").field(&self.0).finish()
+            }
+        }
         unsafe impl ::windows::core::Abi for PSTR {
             type Abi = Self;
 

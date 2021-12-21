@@ -2096,7 +2096,7 @@ impl ::core::clone::Clone for CQPAGE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for CQPAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CQPAGE").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("pPageProc", &self.pPageProc).field("hInstance", &self.hInstance).field("idPageName", &self.idPageName).field("idPageTemplate", &self.idPageTemplate).field("pDlgProc", &self.pDlgProc).field("lParam", &self.lParam).finish()
+        f.debug_struct("CQPAGE").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("pPageProc", &self.pPageProc.map(|f| f as usize)).field("hInstance", &self.hInstance).field("idPageName", &self.idPageName).field("idPageTemplate", &self.idPageTemplate).field("pDlgProc", &self.pDlgProc.map(|f| f as usize)).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2569,7 +2569,7 @@ impl ::core::fmt::Debug for DSBROWSEINFOA {
             .field("pszPath", &self.pszPath)
             .field("cchPath", &self.cchPath)
             .field("dwFlags", &self.dwFlags)
-            .field("pfnCallback", &self.pfnCallback)
+            .field("pfnCallback", &self.pfnCallback.map(|f| f as usize))
             .field("lParam", &self.lParam)
             .field("dwReturnFormat", &self.dwReturnFormat)
             .field("pUserName", &self.pUserName)
@@ -2637,7 +2637,7 @@ impl ::core::fmt::Debug for DSBROWSEINFOW {
             .field("pszPath", &self.pszPath)
             .field("cchPath", &self.cchPath)
             .field("dwFlags", &self.dwFlags)
-            .field("pfnCallback", &self.pfnCallback)
+            .field("pfnCallback", &self.pfnCallback.map(|f| f as usize))
             .field("lParam", &self.lParam)
             .field("dwReturnFormat", &self.dwReturnFormat)
             .field("pUserName", &self.pUserName)

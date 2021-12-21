@@ -46,6 +46,11 @@ pub fn gen() -> TokenStream {
             }
         }
         impl ::core::cmp::Eq for NTSTATUS {}
+        impl ::core::fmt::Debug for NTSTATUS {
+            fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                f.debug_tuple("NTSTATUS").field(&self.0).finish()
+            }
+        }
         unsafe impl ::windows::core::Abi for NTSTATUS {
             type Abi = Self;
         }

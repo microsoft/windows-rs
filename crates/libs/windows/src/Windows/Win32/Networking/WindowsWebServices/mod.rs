@@ -1228,7 +1228,7 @@ impl ::core::clone::Clone for WS_ASYNC_CONTEXT {
 }
 impl ::core::fmt::Debug for WS_ASYNC_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_ASYNC_CONTEXT").field("callback", &self.callback).field("callbackState", &self.callbackState).finish()
+        f.debug_struct("WS_ASYNC_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("callbackState", &self.callbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_ASYNC_CONTEXT {
@@ -1260,7 +1260,7 @@ impl ::core::clone::Clone for WS_ASYNC_OPERATION {
 }
 impl ::core::fmt::Debug for WS_ASYNC_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_ASYNC_OPERATION").field("function", &self.function).finish()
+        f.debug_struct("WS_ASYNC_OPERATION").field("function", &self.function.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_ASYNC_OPERATION {
@@ -1645,7 +1645,7 @@ impl ::core::clone::Clone for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT").field("callback", &self.callback).field("state", &self.state).finish()
+        f.debug_struct("WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("state", &self.state).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1801,7 +1801,7 @@ impl ::core::clone::Clone for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CERT_SIGNED_SAML_AUTHENTICATOR").field("authenticator", &self.authenticator).field("trustedIssuerCerts", &self.trustedIssuerCerts).field("trustedIssuerCertCount", &self.trustedIssuerCertCount).field("decryptionCert", &self.decryptionCert).field("samlValidator", &self.samlValidator).field("samlValidatorCallbackState", &self.samlValidatorCallbackState).finish()
+        f.debug_struct("WS_CERT_SIGNED_SAML_AUTHENTICATOR").field("authenticator", &self.authenticator).field("trustedIssuerCerts", &self.trustedIssuerCerts).field("trustedIssuerCertCount", &self.trustedIssuerCertCount).field("decryptionCert", &self.decryptionCert).field("samlValidator", &self.samlValidator.map(|f| f as usize)).field("samlValidatorCallbackState", &self.samlValidatorCallbackState).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1859,7 +1859,15 @@ impl ::core::clone::Clone for WS_CHANNEL_DECODER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CHANNEL_DECODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CHANNEL_DECODER").field("createContext", &self.createContext).field("createDecoderCallback", &self.createDecoderCallback).field("decoderGetContentTypeCallback", &self.decoderGetContentTypeCallback).field("decoderStartCallback", &self.decoderStartCallback).field("decoderDecodeCallback", &self.decoderDecodeCallback).field("decoderEndCallback", &self.decoderEndCallback).field("freeDecoderCallback", &self.freeDecoderCallback).finish()
+        f.debug_struct("WS_CHANNEL_DECODER")
+            .field("createContext", &self.createContext)
+            .field("createDecoderCallback", &self.createDecoderCallback.map(|f| f as usize))
+            .field("decoderGetContentTypeCallback", &self.decoderGetContentTypeCallback.map(|f| f as usize))
+            .field("decoderStartCallback", &self.decoderStartCallback.map(|f| f as usize))
+            .field("decoderDecodeCallback", &self.decoderDecodeCallback.map(|f| f as usize))
+            .field("decoderEndCallback", &self.decoderEndCallback.map(|f| f as usize))
+            .field("freeDecoderCallback", &self.freeDecoderCallback.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1903,7 +1911,15 @@ impl ::core::clone::Clone for WS_CHANNEL_ENCODER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CHANNEL_ENCODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CHANNEL_ENCODER").field("createContext", &self.createContext).field("createEncoderCallback", &self.createEncoderCallback).field("encoderGetContentTypeCallback", &self.encoderGetContentTypeCallback).field("encoderStartCallback", &self.encoderStartCallback).field("encoderEncodeCallback", &self.encoderEncodeCallback).field("encoderEndCallback", &self.encoderEndCallback).field("freeEncoderCallback", &self.freeEncoderCallback).finish()
+        f.debug_struct("WS_CHANNEL_ENCODER")
+            .field("createContext", &self.createContext)
+            .field("createEncoderCallback", &self.createEncoderCallback.map(|f| f as usize))
+            .field("encoderGetContentTypeCallback", &self.encoderGetContentTypeCallback.map(|f| f as usize))
+            .field("encoderStartCallback", &self.encoderStartCallback.map(|f| f as usize))
+            .field("encoderEncodeCallback", &self.encoderEncodeCallback.map(|f| f as usize))
+            .field("encoderEndCallback", &self.encoderEndCallback.map(|f| f as usize))
+            .field("freeEncoderCallback", &self.freeEncoderCallback.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2309,7 +2325,7 @@ impl ::core::clone::Clone for WS_CUSTOM_CERT_CREDENTIAL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WS_CUSTOM_CERT_CREDENTIAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CUSTOM_CERT_CREDENTIAL").field("credential", &self.credential).field("getCertCallback", &self.getCertCallback).field("getCertCallbackState", &self.getCertCallbackState).field("certIssuerListNotificationCallback", &self.certIssuerListNotificationCallback).field("certIssuerListNotificationCallbackState", &self.certIssuerListNotificationCallbackState).finish()
+        f.debug_struct("WS_CUSTOM_CERT_CREDENTIAL").field("credential", &self.credential).field("getCertCallback", &self.getCertCallback.map(|f| f as usize)).field("getCertCallbackState", &self.getCertCallbackState).field("certIssuerListNotificationCallback", &self.certIssuerListNotificationCallback.map(|f| f as usize)).field("certIssuerListNotificationCallbackState", &self.certIssuerListNotificationCallbackState).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
@@ -2361,20 +2377,20 @@ impl ::core::clone::Clone for WS_CUSTOM_CHANNEL_CALLBACKS {
 impl ::core::fmt::Debug for WS_CUSTOM_CHANNEL_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_CUSTOM_CHANNEL_CALLBACKS")
-            .field("createChannelCallback", &self.createChannelCallback)
-            .field("freeChannelCallback", &self.freeChannelCallback)
-            .field("resetChannelCallback", &self.resetChannelCallback)
-            .field("openChannelCallback", &self.openChannelCallback)
-            .field("closeChannelCallback", &self.closeChannelCallback)
-            .field("abortChannelCallback", &self.abortChannelCallback)
-            .field("getChannelPropertyCallback", &self.getChannelPropertyCallback)
-            .field("setChannelPropertyCallback", &self.setChannelPropertyCallback)
-            .field("writeMessageStartCallback", &self.writeMessageStartCallback)
-            .field("writeMessageEndCallback", &self.writeMessageEndCallback)
-            .field("readMessageStartCallback", &self.readMessageStartCallback)
-            .field("readMessageEndCallback", &self.readMessageEndCallback)
-            .field("abandonMessageCallback", &self.abandonMessageCallback)
-            .field("shutdownSessionChannelCallback", &self.shutdownSessionChannelCallback)
+            .field("createChannelCallback", &self.createChannelCallback.map(|f| f as usize))
+            .field("freeChannelCallback", &self.freeChannelCallback.map(|f| f as usize))
+            .field("resetChannelCallback", &self.resetChannelCallback.map(|f| f as usize))
+            .field("openChannelCallback", &self.openChannelCallback.map(|f| f as usize))
+            .field("closeChannelCallback", &self.closeChannelCallback.map(|f| f as usize))
+            .field("abortChannelCallback", &self.abortChannelCallback.map(|f| f as usize))
+            .field("getChannelPropertyCallback", &self.getChannelPropertyCallback.map(|f| f as usize))
+            .field("setChannelPropertyCallback", &self.setChannelPropertyCallback.map(|f| f as usize))
+            .field("writeMessageStartCallback", &self.writeMessageStartCallback.map(|f| f as usize))
+            .field("writeMessageEndCallback", &self.writeMessageEndCallback.map(|f| f as usize))
+            .field("readMessageStartCallback", &self.readMessageStartCallback.map(|f| f as usize))
+            .field("readMessageEndCallback", &self.readMessageEndCallback.map(|f| f as usize))
+            .field("abandonMessageCallback", &self.abandonMessageCallback.map(|f| f as usize))
+            .field("shutdownSessionChannelCallback", &self.shutdownSessionChannelCallback.map(|f| f as usize))
             .finish()
     }
 }
@@ -2462,16 +2478,16 @@ impl ::core::clone::Clone for WS_CUSTOM_LISTENER_CALLBACKS {
 impl ::core::fmt::Debug for WS_CUSTOM_LISTENER_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_CUSTOM_LISTENER_CALLBACKS")
-            .field("createListenerCallback", &self.createListenerCallback)
-            .field("freeListenerCallback", &self.freeListenerCallback)
-            .field("resetListenerCallback", &self.resetListenerCallback)
-            .field("openListenerCallback", &self.openListenerCallback)
-            .field("closeListenerCallback", &self.closeListenerCallback)
-            .field("abortListenerCallback", &self.abortListenerCallback)
-            .field("getListenerPropertyCallback", &self.getListenerPropertyCallback)
-            .field("setListenerPropertyCallback", &self.setListenerPropertyCallback)
-            .field("createChannelForListenerCallback", &self.createChannelForListenerCallback)
-            .field("acceptChannelCallback", &self.acceptChannelCallback)
+            .field("createListenerCallback", &self.createListenerCallback.map(|f| f as usize))
+            .field("freeListenerCallback", &self.freeListenerCallback.map(|f| f as usize))
+            .field("resetListenerCallback", &self.resetListenerCallback.map(|f| f as usize))
+            .field("openListenerCallback", &self.openListenerCallback.map(|f| f as usize))
+            .field("closeListenerCallback", &self.closeListenerCallback.map(|f| f as usize))
+            .field("abortListenerCallback", &self.abortListenerCallback.map(|f| f as usize))
+            .field("getListenerPropertyCallback", &self.getListenerPropertyCallback.map(|f| f as usize))
+            .field("setListenerPropertyCallback", &self.setListenerPropertyCallback.map(|f| f as usize))
+            .field("createChannelForListenerCallback", &self.createChannelForListenerCallback.map(|f| f as usize))
+            .field("acceptChannelCallback", &self.acceptChannelCallback.map(|f| f as usize))
             .finish()
     }
 }
@@ -2515,7 +2531,7 @@ impl ::core::clone::Clone for WS_CUSTOM_TYPE_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CUSTOM_TYPE_DESCRIPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CUSTOM_TYPE_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("readCallback", &self.readCallback).field("writeCallback", &self.writeCallback).field("descriptionData", &self.descriptionData).field("isDefaultValueCallback", &self.isDefaultValueCallback).finish()
+        f.debug_struct("WS_CUSTOM_TYPE_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("readCallback", &self.readCallback.map(|f| f as usize)).field("writeCallback", &self.writeCallback.map(|f| f as usize)).field("descriptionData", &self.descriptionData).field("isDefaultValueCallback", &self.isDefaultValueCallback.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2886,7 +2902,7 @@ impl ::core::clone::Clone for WS_DURATION_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_DURATION_DESCRIPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_DURATION_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).field("comparer", &self.comparer).finish()
+        f.debug_struct("WS_DURATION_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).field("comparer", &self.comparer.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4250,7 +4266,7 @@ impl ::core::clone::Clone for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_HTTP_REDIRECT_CALLBACK_CONTEXT").field("callback", &self.callback).field("state", &self.state).finish()
+        f.debug_struct("WS_HTTP_REDIRECT_CALLBACK_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("state", &self.state).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5863,7 +5879,7 @@ impl ::core::fmt::Debug for WS_OPERATION_DESCRIPTION {
             .field("outputMessageOptions", &self.outputMessageOptions)
             .field("parameterCount", &self.parameterCount)
             .field("parameterDescription", &self.parameterDescription)
-            .field("stubCallback", &self.stubCallback)
+            .field("stubCallback", &self.stubCallback.map(|f| f as usize))
             .field("style", &self.style)
             .finish()
     }
@@ -6110,7 +6126,7 @@ impl ::core::clone::Clone for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
 }
 impl ::core::fmt::Debug for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_PROXY_MESSAGE_CALLBACK_CONTEXT").field("callback", &self.callback).field("state", &self.state).finish()
+        f.debug_struct("WS_PROXY_MESSAGE_CALLBACK_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("state", &self.state).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
@@ -7523,7 +7539,7 @@ impl ::core::clone::Clone for WS_SERVICE_CONTRACT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SERVICE_CONTRACT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_SERVICE_CONTRACT").field("contractDescription", &self.contractDescription).field("defaultMessageHandlerCallback", &self.defaultMessageHandlerCallback).field("methodTable", &self.methodTable).finish()
+        f.debug_struct("WS_SERVICE_CONTRACT").field("contractDescription", &self.contractDescription).field("defaultMessageHandlerCallback", &self.defaultMessageHandlerCallback.map(|f| f as usize)).field("methodTable", &self.methodTable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7569,7 +7585,7 @@ impl ::core::clone::Clone for WS_SERVICE_ENDPOINT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_SERVICE_ENDPOINT").field("address", &self.address).field("channelBinding", &self.channelBinding).field("channelType", &self.channelType).field("securityDescription", &self.securityDescription).field("contract", &self.contract).field("authorizationCallback", &self.authorizationCallback).field("properties", &self.properties).field("propertyCount", &self.propertyCount).field("channelProperties", &self.channelProperties).finish()
+        f.debug_struct("WS_SERVICE_ENDPOINT").field("address", &self.address).field("channelBinding", &self.channelBinding).field("channelType", &self.channelType).field("securityDescription", &self.securityDescription).field("contract", &self.contract).field("authorizationCallback", &self.authorizationCallback.map(|f| f as usize)).field("properties", &self.properties).field("propertyCount", &self.propertyCount).field("channelProperties", &self.channelProperties).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7839,7 +7855,7 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
 }
 impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_SERVICE_PROPERTY_ACCEPT_CALLBACK").field("callback", &self.callback).finish()
+        f.debug_struct("WS_SERVICE_PROPERTY_ACCEPT_CALLBACK").field("callback", &self.callback.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
@@ -7869,7 +7885,7 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
 }
 impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_SERVICE_PROPERTY_CLOSE_CALLBACK").field("callback", &self.callback).finish()
+        f.debug_struct("WS_SERVICE_PROPERTY_CLOSE_CALLBACK").field("callback", &self.callback.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
@@ -10037,7 +10053,7 @@ impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
+        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator.map(|f| f as usize)).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10140,7 +10156,7 @@ impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
+        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator.map(|f| f as usize)).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11497,7 +11513,7 @@ impl ::core::clone::Clone for WS_XML_READER_STREAM_INPUT {
 }
 impl ::core::fmt::Debug for WS_XML_READER_STREAM_INPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_XML_READER_STREAM_INPUT").field("input", &self.input).field("readCallback", &self.readCallback).field("readCallbackState", &self.readCallbackState).finish()
+        f.debug_struct("WS_XML_READER_STREAM_INPUT").field("input", &self.input).field("readCallback", &self.readCallback.map(|f| f as usize)).field("readCallbackState", &self.readCallbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_READER_STREAM_INPUT {
@@ -11972,7 +11988,7 @@ impl ::core::clone::Clone for WS_XML_WRITER_BINARY_ENCODING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_XML_WRITER_BINARY_ENCODING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_XML_WRITER_BINARY_ENCODING").field("encoding", &self.encoding).field("staticDictionary", &self.staticDictionary).field("dynamicStringCallback", &self.dynamicStringCallback).field("dynamicStringCallbackState", &self.dynamicStringCallbackState).finish()
+        f.debug_struct("WS_XML_WRITER_BINARY_ENCODING").field("encoding", &self.encoding).field("staticDictionary", &self.staticDictionary).field("dynamicStringCallback", &self.dynamicStringCallback.map(|f| f as usize)).field("dynamicStringCallbackState", &self.dynamicStringCallbackState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12291,7 +12307,7 @@ impl ::core::clone::Clone for WS_XML_WRITER_STREAM_OUTPUT {
 }
 impl ::core::fmt::Debug for WS_XML_WRITER_STREAM_OUTPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_XML_WRITER_STREAM_OUTPUT").field("output", &self.output).field("writeCallback", &self.writeCallback).field("writeCallbackState", &self.writeCallbackState).finish()
+        f.debug_struct("WS_XML_WRITER_STREAM_OUTPUT").field("output", &self.output).field("writeCallback", &self.writeCallback.map(|f| f as usize)).field("writeCallbackState", &self.writeCallbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_STREAM_OUTPUT {

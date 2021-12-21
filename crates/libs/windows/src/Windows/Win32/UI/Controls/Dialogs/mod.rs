@@ -54,7 +54,7 @@ impl ::core::clone::Clone for CHOOSECOLORA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHOOSECOLORA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHOOSECOLORA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook).field("lpTemplateName", &self.lpTemplateName).finish()
+        f.debug_struct("CHOOSECOLORA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -108,7 +108,7 @@ impl ::core::clone::Clone for CHOOSECOLORA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHOOSECOLORA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHOOSECOLORA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook).field("lpTemplateName", &self.lpTemplateName).finish()
+        f.debug_struct("CHOOSECOLORA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -162,7 +162,7 @@ impl ::core::clone::Clone for CHOOSECOLORW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHOOSECOLORW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHOOSECOLORW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook).field("lpTemplateName", &self.lpTemplateName).finish()
+        f.debug_struct("CHOOSECOLORW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -216,7 +216,7 @@ impl ::core::clone::Clone for CHOOSECOLORW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHOOSECOLORW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHOOSECOLORW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook).field("lpTemplateName", &self.lpTemplateName).finish()
+        f.debug_struct("CHOOSECOLORW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -286,7 +286,7 @@ impl ::core::fmt::Debug for CHOOSEFONTA {
             .field("Flags", &self.Flags)
             .field("rgbColors", &self.rgbColors)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .field("hInstance", &self.hInstance)
             .field("lpszStyle", &self.lpszStyle)
@@ -364,7 +364,7 @@ impl ::core::fmt::Debug for CHOOSEFONTA {
             .field("Flags", &self.Flags)
             .field("rgbColors", &self.rgbColors)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .field("hInstance", &self.hInstance)
             .field("lpszStyle", &self.lpszStyle)
@@ -442,7 +442,7 @@ impl ::core::fmt::Debug for CHOOSEFONTW {
             .field("Flags", &self.Flags)
             .field("rgbColors", &self.rgbColors)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .field("hInstance", &self.hInstance)
             .field("lpszStyle", &self.lpszStyle)
@@ -520,7 +520,7 @@ impl ::core::fmt::Debug for CHOOSEFONTW {
             .field("Flags", &self.Flags)
             .field("rgbColors", &self.rgbColors)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .field("hInstance", &self.hInstance)
             .field("lpszStyle", &self.lpszStyle)
@@ -954,7 +954,19 @@ impl ::core::clone::Clone for FINDREPLACEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FINDREPLACEA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FINDREPLACEA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("Flags", &self.Flags).field("lpstrFindWhat", &self.lpstrFindWhat).field("lpstrReplaceWith", &self.lpstrReplaceWith).field("wFindWhatLen", &self.wFindWhatLen).field("wReplaceWithLen", &self.wReplaceWithLen).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook).field("lpTemplateName", &self.lpTemplateName).finish()
+        f.debug_struct("FINDREPLACEA")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("Flags", &self.Flags)
+            .field("lpstrFindWhat", &self.lpstrFindWhat)
+            .field("lpstrReplaceWith", &self.lpstrReplaceWith)
+            .field("wFindWhatLen", &self.wFindWhatLen)
+            .field("wReplaceWithLen", &self.wReplaceWithLen)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1010,7 +1022,19 @@ impl ::core::clone::Clone for FINDREPLACEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FINDREPLACEA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FINDREPLACEA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("Flags", &self.Flags).field("lpstrFindWhat", &self.lpstrFindWhat).field("lpstrReplaceWith", &self.lpstrReplaceWith).field("wFindWhatLen", &self.wFindWhatLen).field("wReplaceWithLen", &self.wReplaceWithLen).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook).field("lpTemplateName", &self.lpTemplateName).finish()
+        f.debug_struct("FINDREPLACEA")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("Flags", &self.Flags)
+            .field("lpstrFindWhat", &self.lpstrFindWhat)
+            .field("lpstrReplaceWith", &self.lpstrReplaceWith)
+            .field("wFindWhatLen", &self.wFindWhatLen)
+            .field("wReplaceWithLen", &self.wReplaceWithLen)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -1066,7 +1090,19 @@ impl ::core::clone::Clone for FINDREPLACEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FINDREPLACEW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FINDREPLACEW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("Flags", &self.Flags).field("lpstrFindWhat", &self.lpstrFindWhat).field("lpstrReplaceWith", &self.lpstrReplaceWith).field("wFindWhatLen", &self.wFindWhatLen).field("wReplaceWithLen", &self.wReplaceWithLen).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook).field("lpTemplateName", &self.lpTemplateName).finish()
+        f.debug_struct("FINDREPLACEW")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("Flags", &self.Flags)
+            .field("lpstrFindWhat", &self.lpstrFindWhat)
+            .field("lpstrReplaceWith", &self.lpstrReplaceWith)
+            .field("wFindWhatLen", &self.wFindWhatLen)
+            .field("wReplaceWithLen", &self.wReplaceWithLen)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1122,7 +1158,19 @@ impl ::core::clone::Clone for FINDREPLACEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FINDREPLACEW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FINDREPLACEW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("Flags", &self.Flags).field("lpstrFindWhat", &self.lpstrFindWhat).field("lpstrReplaceWith", &self.lpstrReplaceWith).field("wFindWhatLen", &self.wFindWhatLen).field("wReplaceWithLen", &self.wReplaceWithLen).field("lCustData", &self.lCustData).field("lpfnHook", &self.lpfnHook).field("lpTemplateName", &self.lpTemplateName).finish()
+        f.debug_struct("FINDREPLACEW")
+            .field("lStructSize", &self.lStructSize)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("hInstance", &self.hInstance)
+            .field("Flags", &self.Flags)
+            .field("lpstrFindWhat", &self.lpstrFindWhat)
+            .field("lpstrReplaceWith", &self.lpstrReplaceWith)
+            .field("wFindWhatLen", &self.wFindWhatLen)
+            .field("wReplaceWithLen", &self.wReplaceWithLen)
+            .field("lCustData", &self.lCustData)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
+            .field("lpTemplateName", &self.lpTemplateName)
+            .finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -1945,7 +1993,7 @@ impl ::core::fmt::Debug for OPENFILENAMEA {
             .field("nFileExtension", &self.nFileExtension)
             .field("lpstrDefExt", &self.lpstrDefExt)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .field("pvReserved", &self.pvReserved)
             .field("dwReserved", &self.dwReserved)
@@ -2037,7 +2085,7 @@ impl ::core::fmt::Debug for OPENFILENAMEA {
             .field("nFileExtension", &self.nFileExtension)
             .field("lpstrDefExt", &self.lpstrDefExt)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .field("pvReserved", &self.pvReserved)
             .field("dwReserved", &self.dwReserved)
@@ -2129,7 +2177,7 @@ impl ::core::fmt::Debug for OPENFILENAMEW {
             .field("nFileExtension", &self.nFileExtension)
             .field("lpstrDefExt", &self.lpstrDefExt)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .field("pvReserved", &self.pvReserved)
             .field("dwReserved", &self.dwReserved)
@@ -2221,7 +2269,7 @@ impl ::core::fmt::Debug for OPENFILENAMEW {
             .field("nFileExtension", &self.nFileExtension)
             .field("lpstrDefExt", &self.lpstrDefExt)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .field("pvReserved", &self.pvReserved)
             .field("dwReserved", &self.dwReserved)
@@ -2310,7 +2358,7 @@ impl ::core::fmt::Debug for OPENFILENAME_NT4A {
             .field("nFileExtension", &self.nFileExtension)
             .field("lpstrDefExt", &self.lpstrDefExt)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .finish()
     }
@@ -2396,7 +2444,7 @@ impl ::core::fmt::Debug for OPENFILENAME_NT4A {
             .field("nFileExtension", &self.nFileExtension)
             .field("lpstrDefExt", &self.lpstrDefExt)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .finish()
     }
@@ -2482,7 +2530,7 @@ impl ::core::fmt::Debug for OPENFILENAME_NT4W {
             .field("nFileExtension", &self.nFileExtension)
             .field("lpstrDefExt", &self.lpstrDefExt)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .finish()
     }
@@ -2568,7 +2616,7 @@ impl ::core::fmt::Debug for OPENFILENAME_NT4W {
             .field("nFileExtension", &self.nFileExtension)
             .field("lpstrDefExt", &self.lpstrDefExt)
             .field("lCustData", &self.lCustData)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lpTemplateName", &self.lpTemplateName)
             .finish()
     }
@@ -2700,8 +2748,8 @@ impl ::core::fmt::Debug for PAGESETUPDLGA {
             .field("rtMargin", &self.rtMargin)
             .field("hInstance", &self.hInstance)
             .field("lCustData", &self.lCustData)
-            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook)
-            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook)
+            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook.map(|f| f as usize))
+            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook.map(|f| f as usize))
             .field("lpPageSetupTemplateName", &self.lpPageSetupTemplateName)
             .field("hPageSetupTemplate", &self.hPageSetupTemplate)
             .finish()
@@ -2774,8 +2822,8 @@ impl ::core::fmt::Debug for PAGESETUPDLGA {
             .field("rtMargin", &self.rtMargin)
             .field("hInstance", &self.hInstance)
             .field("lCustData", &self.lCustData)
-            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook)
-            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook)
+            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook.map(|f| f as usize))
+            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook.map(|f| f as usize))
             .field("lpPageSetupTemplateName", &self.lpPageSetupTemplateName)
             .field("hPageSetupTemplate", &self.hPageSetupTemplate)
             .finish()
@@ -2848,8 +2896,8 @@ impl ::core::fmt::Debug for PAGESETUPDLGW {
             .field("rtMargin", &self.rtMargin)
             .field("hInstance", &self.hInstance)
             .field("lCustData", &self.lCustData)
-            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook)
-            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook)
+            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook.map(|f| f as usize))
+            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook.map(|f| f as usize))
             .field("lpPageSetupTemplateName", &self.lpPageSetupTemplateName)
             .field("hPageSetupTemplate", &self.hPageSetupTemplate)
             .finish()
@@ -2922,8 +2970,8 @@ impl ::core::fmt::Debug for PAGESETUPDLGW {
             .field("rtMargin", &self.rtMargin)
             .field("hInstance", &self.hInstance)
             .field("lCustData", &self.lCustData)
-            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook)
-            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook)
+            .field("lpfnPageSetupHook", &self.lpfnPageSetupHook.map(|f| f as usize))
+            .field("lpfnPagePaintHook", &self.lpfnPagePaintHook.map(|f| f as usize))
             .field("lpPageSetupTemplateName", &self.lpPageSetupTemplateName)
             .field("hPageSetupTemplate", &self.hPageSetupTemplate)
             .finish()
@@ -3050,8 +3098,8 @@ impl ::core::fmt::Debug for PRINTDLGA {
             .field("nCopies", &self.nCopies)
             .field("hInstance", &self.hInstance)
             .field("lCustData", &self.lCustData)
-            .field("lpfnPrintHook", &self.lpfnPrintHook)
-            .field("lpfnSetupHook", &self.lpfnSetupHook)
+            .field("lpfnPrintHook", &self.lpfnPrintHook.map(|f| f as usize))
+            .field("lpfnSetupHook", &self.lpfnSetupHook.map(|f| f as usize))
             .field("lpPrintTemplateName", &self.lpPrintTemplateName)
             .field("lpSetupTemplateName", &self.lpSetupTemplateName)
             .field("hPrintTemplate", &self.hPrintTemplate)
@@ -3134,8 +3182,8 @@ impl ::core::fmt::Debug for PRINTDLGA {
             .field("nCopies", &self.nCopies)
             .field("hInstance", &self.hInstance)
             .field("lCustData", &self.lCustData)
-            .field("lpfnPrintHook", &self.lpfnPrintHook)
-            .field("lpfnSetupHook", &self.lpfnSetupHook)
+            .field("lpfnPrintHook", &self.lpfnPrintHook.map(|f| f as usize))
+            .field("lpfnSetupHook", &self.lpfnSetupHook.map(|f| f as usize))
             .field("lpPrintTemplateName", &self.lpPrintTemplateName)
             .field("lpSetupTemplateName", &self.lpSetupTemplateName)
             .field("hPrintTemplate", &self.hPrintTemplate)
@@ -3686,8 +3734,8 @@ impl ::core::fmt::Debug for PRINTDLGW {
             .field("nCopies", &self.nCopies)
             .field("hInstance", &self.hInstance)
             .field("lCustData", &self.lCustData)
-            .field("lpfnPrintHook", &self.lpfnPrintHook)
-            .field("lpfnSetupHook", &self.lpfnSetupHook)
+            .field("lpfnPrintHook", &self.lpfnPrintHook.map(|f| f as usize))
+            .field("lpfnSetupHook", &self.lpfnSetupHook.map(|f| f as usize))
             .field("lpPrintTemplateName", &self.lpPrintTemplateName)
             .field("lpSetupTemplateName", &self.lpSetupTemplateName)
             .field("hPrintTemplate", &self.hPrintTemplate)
@@ -3770,8 +3818,8 @@ impl ::core::fmt::Debug for PRINTDLGW {
             .field("nCopies", &self.nCopies)
             .field("hInstance", &self.hInstance)
             .field("lCustData", &self.lCustData)
-            .field("lpfnPrintHook", &self.lpfnPrintHook)
-            .field("lpfnSetupHook", &self.lpfnSetupHook)
+            .field("lpfnPrintHook", &self.lpfnPrintHook.map(|f| f as usize))
+            .field("lpfnSetupHook", &self.lpfnSetupHook.map(|f| f as usize))
             .field("lpPrintTemplateName", &self.lpPrintTemplateName)
             .field("lpSetupTemplateName", &self.lpSetupTemplateName)
             .field("hPrintTemplate", &self.hPrintTemplate)

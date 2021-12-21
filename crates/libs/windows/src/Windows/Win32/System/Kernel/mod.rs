@@ -79,7 +79,7 @@ impl ::core::clone::Clone for EXCEPTION_REGISTRATION_RECORD {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::fmt::Debug for EXCEPTION_REGISTRATION_RECORD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EXCEPTION_REGISTRATION_RECORD").field("Next", &self.Next).field("Handler", &self.Handler).finish()
+        f.debug_struct("EXCEPTION_REGISTRATION_RECORD").field("Next", &self.Next).field("Handler", &self.Handler.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]

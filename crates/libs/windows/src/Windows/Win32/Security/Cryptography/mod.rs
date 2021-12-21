@@ -3244,7 +3244,7 @@ impl ::core::clone::Clone for CERT_CHAIN_FIND_BY_ISSUER_PARA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CERT_CHAIN_FIND_BY_ISSUER_PARA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CERT_CHAIN_FIND_BY_ISSUER_PARA").field("cbSize", &self.cbSize).field("pszUsageIdentifier", &self.pszUsageIdentifier).field("dwKeySpec", &self.dwKeySpec).field("dwAcquirePrivateKeyFlags", &self.dwAcquirePrivateKeyFlags).field("cIssuer", &self.cIssuer).field("rgIssuer", &self.rgIssuer).field("pfnFindCallback", &self.pfnFindCallback).field("pvFindArg", &self.pvFindArg).finish()
+        f.debug_struct("CERT_CHAIN_FIND_BY_ISSUER_PARA").field("cbSize", &self.cbSize).field("pszUsageIdentifier", &self.pszUsageIdentifier).field("dwKeySpec", &self.dwKeySpec).field("dwAcquirePrivateKeyFlags", &self.dwAcquirePrivateKeyFlags).field("cIssuer", &self.cIssuer).field("rgIssuer", &self.rgIssuer).field("pfnFindCallback", &self.pfnFindCallback.map(|f| f as usize)).field("pvFindArg", &self.pvFindArg).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3623,7 +3623,7 @@ impl ::core::clone::Clone for CERT_CREATE_CONTEXT_PARA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CERT_CREATE_CONTEXT_PARA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CERT_CREATE_CONTEXT_PARA").field("cbSize", &self.cbSize).field("pfnFree", &self.pfnFree).field("pvFree", &self.pvFree).field("pfnSort", &self.pfnSort).field("pvSort", &self.pvSort).finish()
+        f.debug_struct("CERT_CREATE_CONTEXT_PARA").field("cbSize", &self.cbSize).field("pfnFree", &self.pfnFree.map(|f| f as usize)).field("pvFree", &self.pvFree).field("pfnSort", &self.pfnSort.map(|f| f as usize)).field("pvSort", &self.pvSort).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6871,7 +6871,7 @@ impl ::core::clone::Clone for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CERT_SERVER_OCSP_RESPONSE_OPEN_PARA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("pcbUsedSize", &self.pcbUsedSize).field("pwszOcspDirectory", &self.pwszOcspDirectory).field("pfnUpdateCallback", &self.pfnUpdateCallback).field("pvUpdateCallbackArg", &self.pvUpdateCallbackArg).finish()
+        f.debug_struct("CERT_SERVER_OCSP_RESPONSE_OPEN_PARA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("pcbUsedSize", &self.pcbUsedSize).field("pwszOcspDirectory", &self.pwszOcspDirectory).field("pfnUpdateCallback", &self.pfnUpdateCallback.map(|f| f as usize)).field("pvUpdateCallbackArg", &self.pvUpdateCallbackArg).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8699,8 +8699,8 @@ impl ::core::fmt::Debug for CMSG_CNG_CONTENT_DECRYPT_INFO {
         f.debug_struct("CMSG_CNG_CONTENT_DECRYPT_INFO")
             .field("cbSize", &self.cbSize)
             .field("ContentEncryptionAlgorithm", &self.ContentEncryptionAlgorithm)
-            .field("pfnAlloc", &self.pfnAlloc)
-            .field("pfnFree", &self.pfnFree)
+            .field("pfnAlloc", &self.pfnAlloc.map(|f| f as usize))
+            .field("pfnFree", &self.pfnFree.map(|f| f as usize))
             .field("hNCryptKey", &self.hNCryptKey)
             .field("pbContentEncryptKey", &self.pbContentEncryptKey)
             .field("cbContentEncryptKey", &self.cbContentEncryptKey)
@@ -10474,7 +10474,7 @@ impl ::core::clone::Clone for CMSG_STREAM_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMSG_STREAM_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMSG_STREAM_INFO").field("cbContent", &self.cbContent).field("pfnStreamOutput", &self.pfnStreamOutput).field("pvArg", &self.pvArg).finish()
+        f.debug_struct("CMSG_STREAM_INFO").field("cbContent", &self.cbContent).field("pfnStreamOutput", &self.pfnStreamOutput.map(|f| f as usize)).field("pvArg", &self.pvArg).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11579,7 +11579,7 @@ impl ::core::clone::Clone for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_ASYNC_RETRIEVAL_COMPLETION").field("pfnCompletion", &self.pfnCompletion).field("pvCompletion", &self.pvCompletion).finish()
+        f.debug_struct("CRYPT_ASYNC_RETRIEVAL_COMPLETION").field("pfnCompletion", &self.pfnCompletion.map(|f| f as usize)).field("pvCompletion", &self.pvCompletion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12156,7 +12156,7 @@ impl ::core::clone::Clone for CRYPT_DECODE_PARA {
 }
 impl ::core::fmt::Debug for CRYPT_DECODE_PARA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_DECODE_PARA").field("cbSize", &self.cbSize).field("pfnAlloc", &self.pfnAlloc).field("pfnFree", &self.pfnFree).finish()
+        f.debug_struct("CRYPT_DECODE_PARA").field("cbSize", &self.cbSize).field("pfnAlloc", &self.pfnAlloc.map(|f| f as usize)).field("pfnFree", &self.pfnFree.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_DECODE_PARA {
@@ -12433,7 +12433,7 @@ impl ::core::clone::Clone for CRYPT_ENCODE_PARA {
 }
 impl ::core::fmt::Debug for CRYPT_ENCODE_PARA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_ENCODE_PARA").field("cbSize", &self.cbSize).field("pfnAlloc", &self.pfnAlloc).field("pfnFree", &self.pfnFree).finish()
+        f.debug_struct("CRYPT_ENCODE_PARA").field("cbSize", &self.cbSize).field("pfnAlloc", &self.pfnAlloc.map(|f| f as usize)).field("pfnFree", &self.pfnFree.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_ENCODE_PARA {
@@ -13344,7 +13344,7 @@ impl ::core::clone::Clone for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE").field("cbSize", &self.cbSize).field("pfnGet", &self.pfnGet).field("pfnRelease", &self.pfnRelease).field("pfnFreePassword", &self.pfnFreePassword).field("pfnFree", &self.pfnFree).field("pfnFreeIdentifier", &self.pfnFreeIdentifier).finish()
+        f.debug_struct("CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE").field("cbSize", &self.cbSize).field("pfnGet", &self.pfnGet.map(|f| f as usize)).field("pfnRelease", &self.pfnRelease.map(|f| f as usize)).field("pfnFreePassword", &self.pfnFreePassword.map(|f| f as usize)).field("pfnFree", &self.pfnFree.map(|f| f as usize)).field("pfnFreeIdentifier", &self.pfnFreeIdentifier.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13702,7 +13702,7 @@ impl ::core::clone::Clone for CRYPT_PKCS8_EXPORT_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_PKCS8_EXPORT_PARAMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_PKCS8_EXPORT_PARAMS").field("hCryptProv", &self.hCryptProv).field("dwKeySpec", &self.dwKeySpec).field("pszPrivateKeyObjId", &self.pszPrivateKeyObjId).field("pEncryptPrivateKeyFunc", &self.pEncryptPrivateKeyFunc).field("pVoidEncryptFunc", &self.pVoidEncryptFunc).finish()
+        f.debug_struct("CRYPT_PKCS8_EXPORT_PARAMS").field("hCryptProv", &self.hCryptProv).field("dwKeySpec", &self.dwKeySpec).field("pszPrivateKeyObjId", &self.pszPrivateKeyObjId).field("pEncryptPrivateKeyFunc", &self.pEncryptPrivateKeyFunc.map(|f| f as usize)).field("pVoidEncryptFunc", &self.pVoidEncryptFunc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13744,7 +13744,7 @@ impl ::core::clone::Clone for CRYPT_PKCS8_IMPORT_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_PKCS8_IMPORT_PARAMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_PKCS8_IMPORT_PARAMS").field("PrivateKey", &self.PrivateKey).field("pResolvehCryptProvFunc", &self.pResolvehCryptProvFunc).field("pVoidResolveFunc", &self.pVoidResolveFunc).field("pDecryptPrivateKeyFunc", &self.pDecryptPrivateKeyFunc).field("pVoidDecryptFunc", &self.pVoidDecryptFunc).finish()
+        f.debug_struct("CRYPT_PKCS8_IMPORT_PARAMS").field("PrivateKey", &self.PrivateKey).field("pResolvehCryptProvFunc", &self.pResolvehCryptProvFunc.map(|f| f as usize)).field("pVoidResolveFunc", &self.pVoidResolveFunc).field("pDecryptPrivateKeyFunc", &self.pDecryptPrivateKeyFunc.map(|f| f as usize)).field("pVoidDecryptFunc", &self.pVoidDecryptFunc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15151,7 +15151,7 @@ impl ::core::clone::Clone for CRYPT_VERIFY_MESSAGE_PARA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_VERIFY_MESSAGE_PARA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_VERIFY_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgAndCertEncodingType", &self.dwMsgAndCertEncodingType).field("hCryptProv", &self.hCryptProv).field("pfnGetSignerCertificate", &self.pfnGetSignerCertificate).field("pvGetArg", &self.pvGetArg).finish()
+        f.debug_struct("CRYPT_VERIFY_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgAndCertEncodingType", &self.dwMsgAndCertEncodingType).field("hCryptProv", &self.hCryptProv).field("pfnGetSignerCertificate", &self.pfnGetSignerCertificate.map(|f| f as usize)).field("pvGetArg", &self.pvGetArg).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15389,14 +15389,14 @@ impl ::core::fmt::Debug for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPT_XML_CRYPTOGRAPHIC_INTERFACE")
             .field("cbSize", &self.cbSize)
-            .field("fpCryptXmlEncodeAlgorithm", &self.fpCryptXmlEncodeAlgorithm)
-            .field("fpCryptXmlCreateDigest", &self.fpCryptXmlCreateDigest)
-            .field("fpCryptXmlDigestData", &self.fpCryptXmlDigestData)
-            .field("fpCryptXmlFinalizeDigest", &self.fpCryptXmlFinalizeDigest)
-            .field("fpCryptXmlCloseDigest", &self.fpCryptXmlCloseDigest)
-            .field("fpCryptXmlSignData", &self.fpCryptXmlSignData)
-            .field("fpCryptXmlVerifySignature", &self.fpCryptXmlVerifySignature)
-            .field("fpCryptXmlGetAlgorithmInfo", &self.fpCryptXmlGetAlgorithmInfo)
+            .field("fpCryptXmlEncodeAlgorithm", &self.fpCryptXmlEncodeAlgorithm.map(|f| f as usize))
+            .field("fpCryptXmlCreateDigest", &self.fpCryptXmlCreateDigest.map(|f| f as usize))
+            .field("fpCryptXmlDigestData", &self.fpCryptXmlDigestData.map(|f| f as usize))
+            .field("fpCryptXmlFinalizeDigest", &self.fpCryptXmlFinalizeDigest.map(|f| f as usize))
+            .field("fpCryptXmlCloseDigest", &self.fpCryptXmlCloseDigest.map(|f| f as usize))
+            .field("fpCryptXmlSignData", &self.fpCryptXmlSignData.map(|f| f as usize))
+            .field("fpCryptXmlVerifySignature", &self.fpCryptXmlVerifySignature.map(|f| f as usize))
+            .field("fpCryptXmlGetAlgorithmInfo", &self.fpCryptXmlGetAlgorithmInfo.map(|f| f as usize))
             .finish()
     }
 }
@@ -15465,7 +15465,7 @@ impl ::core::clone::Clone for CRYPT_XML_DATA_PROVIDER {
 }
 impl ::core::fmt::Debug for CRYPT_XML_DATA_PROVIDER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_XML_DATA_PROVIDER").field("pvCallbackState", &self.pvCallbackState).field("cbBufferSize", &self.cbBufferSize).field("pfnRead", &self.pfnRead).field("pfnClose", &self.pfnClose).finish()
+        f.debug_struct("CRYPT_XML_DATA_PROVIDER").field("pvCallbackState", &self.pvCallbackState).field("cbBufferSize", &self.cbBufferSize).field("pfnRead", &self.pfnRead.map(|f| f as usize)).field("pfnClose", &self.pfnClose.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_XML_DATA_PROVIDER {
@@ -16402,7 +16402,7 @@ impl ::core::clone::Clone for CRYPT_XML_TRANSFORM_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_XML_TRANSFORM_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_XML_TRANSFORM_INFO").field("cbSize", &self.cbSize).field("wszAlgorithm", &self.wszAlgorithm).field("cbBufferSize", &self.cbBufferSize).field("dwFlags", &self.dwFlags).field("pfnCreateTransform", &self.pfnCreateTransform).finish()
+        f.debug_struct("CRYPT_XML_TRANSFORM_INFO").field("cbSize", &self.cbSize).field("wszAlgorithm", &self.wszAlgorithm).field("cbBufferSize", &self.cbBufferSize).field("dwFlags", &self.dwFlags).field("pfnCreateTransform", &self.pfnCreateTransform.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23442,7 +23442,7 @@ impl ::core::clone::Clone for NCRYPT_ALLOC_PARA {
 }
 impl ::core::fmt::Debug for NCRYPT_ALLOC_PARA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NCRYPT_ALLOC_PARA").field("cbSize", &self.cbSize).field("pfnAlloc", &self.pfnAlloc).field("pfnFree", &self.pfnFree).finish()
+        f.debug_struct("NCRYPT_ALLOC_PARA").field("cbSize", &self.cbSize).field("pfnAlloc", &self.pfnAlloc.map(|f| f as usize)).field("pfnFree", &self.pfnFree.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NCRYPT_ALLOC_PARA {
@@ -24016,7 +24016,7 @@ impl ::core::clone::Clone for NCRYPT_PROTECT_STREAM_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NCRYPT_PROTECT_STREAM_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NCRYPT_PROTECT_STREAM_INFO").field("pfnStreamOutput", &self.pfnStreamOutput).field("pvCallbackCtxt", &self.pvCallbackCtxt).finish()
+        f.debug_struct("NCRYPT_PROTECT_STREAM_INFO").field("pfnStreamOutput", &self.pfnStreamOutput.map(|f| f as usize)).field("pvCallbackCtxt", &self.pvCallbackCtxt).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -24055,7 +24055,7 @@ impl ::core::clone::Clone for NCRYPT_PROTECT_STREAM_INFO_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NCRYPT_PROTECT_STREAM_INFO_EX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NCRYPT_PROTECT_STREAM_INFO_EX").field("pfnStreamOutput", &self.pfnStreamOutput).field("pvCallbackCtxt", &self.pvCallbackCtxt).finish()
+        f.debug_struct("NCRYPT_PROTECT_STREAM_INFO_EX").field("pfnStreamOutput", &self.pfnStreamOutput.map(|f| f as usize)).field("pvCallbackCtxt", &self.pvCallbackCtxt).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

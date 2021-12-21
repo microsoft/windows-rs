@@ -129,8 +129,8 @@ impl ::core::fmt::Debug for CERT_SELECT_STRUCT_A {
             .field("cCertContext", &self.cCertContext)
             .field("arrayCertContext", &self.arrayCertContext)
             .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook)
-            .field("pfnFilter", &self.pfnFilter)
+            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
+            .field("pfnFilter", &self.pfnFilter.map(|f| f as usize))
             .field("szHelpFileName", &self.szHelpFileName)
             .field("dwHelpId", &self.dwHelpId)
             .field("hprov", &self.hprov)
@@ -215,8 +215,8 @@ impl ::core::fmt::Debug for CERT_SELECT_STRUCT_W {
             .field("cCertContext", &self.cCertContext)
             .field("arrayCertContext", &self.arrayCertContext)
             .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook)
-            .field("pfnFilter", &self.pfnFilter)
+            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
+            .field("pfnFilter", &self.pfnFilter.map(|f| f as usize))
             .field("szHelpFileName", &self.szHelpFileName)
             .field("dwHelpId", &self.dwHelpId)
             .field("hprov", &self.hprov)
@@ -339,7 +339,7 @@ impl ::core::fmt::Debug for CERT_VERIFY_CERTIFICATE_TRUST {
             .field("cTrustStores", &self.cTrustStores)
             .field("rghstoreTrust", &self.rghstoreTrust)
             .field("lCustData", &self.lCustData)
-            .field("pfnTrustHelper", &self.pfnTrustHelper)
+            .field("pfnTrustHelper", &self.pfnTrustHelper.map(|f| f as usize))
             .field("pcChain", &self.pcChain)
             .field("prgChain", &self.prgChain)
             .field("prgdwErrors", &self.prgdwErrors)
@@ -1356,7 +1356,7 @@ impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO").field("dwSize", &self.dwSize).field("cCertStore", &self.cCertStore).field("rghCertStore", &self.rghCertStore).field("pFilterCallback", &self.pFilterCallback).field("pvCallbackData", &self.pvCallbackData).finish()
+        f.debug_struct("CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO").field("dwSize", &self.dwSize).field("cCertStore", &self.cCertStore).field("rghCertStore", &self.rghCertStore).field("pFilterCallback", &self.pFilterCallback.map(|f| f as usize)).field("pvCallbackData", &self.pvCallbackData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

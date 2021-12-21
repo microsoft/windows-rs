@@ -687,9 +687,9 @@ impl ::core::fmt::Debug for COLORMATCHSETUPA {
             .field("ccPrinterProfile", &self.ccPrinterProfile)
             .field("pTargetProfile", &self.pTargetProfile)
             .field("ccTargetProfile", &self.ccTargetProfile)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lParam", &self.lParam)
-            .field("lpfnApplyCallback", &self.lpfnApplyCallback)
+            .field("lpfnApplyCallback", &self.lpfnApplyCallback.map(|f| f as usize))
             .field("lParamApplyCallback", &self.lParamApplyCallback)
             .finish()
     }
@@ -763,9 +763,9 @@ impl ::core::fmt::Debug for COLORMATCHSETUPW {
             .field("ccPrinterProfile", &self.ccPrinterProfile)
             .field("pTargetProfile", &self.pTargetProfile)
             .field("ccTargetProfile", &self.ccTargetProfile)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lParam", &self.lParam)
-            .field("lpfnApplyCallback", &self.lpfnApplyCallback)
+            .field("lpfnApplyCallback", &self.lpfnApplyCallback.map(|f| f as usize))
             .field("lParamApplyCallback", &self.lParamApplyCallback)
             .finish()
     }

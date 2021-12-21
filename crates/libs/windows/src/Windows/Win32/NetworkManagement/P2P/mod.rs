@@ -3479,10 +3479,10 @@ impl ::core::fmt::Debug for PEER_SECURITY_INTERFACE {
             .field("cbSecurityInfo", &self.cbSecurityInfo)
             .field("pbSecurityInfo", &self.pbSecurityInfo)
             .field("pvContext", &self.pvContext)
-            .field("pfnValidateRecord", &self.pfnValidateRecord)
-            .field("pfnSecureRecord", &self.pfnSecureRecord)
-            .field("pfnFreeSecurityData", &self.pfnFreeSecurityData)
-            .field("pfnAuthFailed", &self.pfnAuthFailed)
+            .field("pfnValidateRecord", &self.pfnValidateRecord.map(|f| f as usize))
+            .field("pfnSecureRecord", &self.pfnSecureRecord.map(|f| f as usize))
+            .field("pfnFreeSecurityData", &self.pfnFreeSecurityData.map(|f| f as usize))
+            .field("pfnAuthFailed", &self.pfnAuthFailed.map(|f| f as usize))
             .finish()
     }
 }

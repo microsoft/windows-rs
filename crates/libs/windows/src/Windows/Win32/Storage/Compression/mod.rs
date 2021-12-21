@@ -31,7 +31,7 @@ impl ::core::clone::Clone for COMPRESS_ALLOCATION_ROUTINES {
 }
 impl ::core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("Allocate", &self.Allocate).field("Free", &self.Free).field("UserContext", &self.UserContext).finish()
+        f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("Allocate", &self.Allocate.map(|f| f as usize)).field("Free", &self.Free.map(|f| f as usize)).field("UserContext", &self.UserContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {

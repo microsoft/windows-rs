@@ -11241,7 +11241,7 @@ impl ::core::fmt::Debug for PATCH_OPTION_DATA {
             .field("NewFileSymbolPath", &self.NewFileSymbolPath)
             .field("OldFileSymbolPathArray", &self.OldFileSymbolPathArray)
             .field("ExtendedOptionFlags", &self.ExtendedOptionFlags)
-            .field("SymLoadCallback", &self.SymLoadCallback)
+            .field("SymLoadCallback", &self.SymLoadCallback.map(|f| f as usize))
             .field("SymLoadContext", &self.SymLoadContext)
             .field("InterleaveMapArray", &self.InterleaveMapArray)
             .field("MaxLzxWindowSize", &self.MaxLzxWindowSize)

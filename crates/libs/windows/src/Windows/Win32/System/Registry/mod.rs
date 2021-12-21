@@ -1837,7 +1837,7 @@ impl ::core::clone::Clone for provider_info {
 }
 impl ::core::fmt::Debug for provider_info {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("provider_info").field("pi_R0_1val", &self.pi_R0_1val).field("pi_R0_allvals", &self.pi_R0_allvals).field("pi_R3_1val", &self.pi_R3_1val).field("pi_R3_allvals", &self.pi_R3_allvals).field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
+        f.debug_struct("provider_info").field("pi_R0_1val", &self.pi_R0_1val.map(|f| f as usize)).field("pi_R0_allvals", &self.pi_R0_allvals.map(|f| f as usize)).field("pi_R3_1val", &self.pi_R3_1val.map(|f| f as usize)).field("pi_R3_allvals", &self.pi_R3_allvals.map(|f| f as usize)).field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
     }
 }
 unsafe impl ::windows::core::Abi for provider_info {

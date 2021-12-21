@@ -654,7 +654,7 @@ impl ::core::clone::Clone for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
 }
 impl ::core::fmt::Debug for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS").field("Callback", &self.Callback).field("Context", &self.Context).finish()
+        f.debug_struct("DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {

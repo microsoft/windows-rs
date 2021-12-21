@@ -1382,7 +1382,7 @@ impl ::core::fmt::Debug for COMPROPSHEETUI {
             .field("pCallerName", &self.pCallerName)
             .field("UserData", &self.UserData)
             .field("pHelpFile", &self.pHelpFile)
-            .field("pfnCallBack", &self.pfnCallBack)
+            .field("pfnCallBack", &self.pfnCallBack.map(|f| f as usize))
             .field("pOptItem", &self.pOptItem)
             .field("pDlgPage", &self.pDlgPage)
             .field("cOptItem", &self.cOptItem)
@@ -19479,7 +19479,7 @@ impl ::core::clone::Clone for NOTIFICATION_CONFIG_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NOTIFICATION_CONFIG_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NOTIFICATION_CONFIG_1").field("cbSize", &self.cbSize).field("fdwFlags", &self.fdwFlags).field("pfnNotifyCallback", &self.pfnNotifyCallback).field("pContext", &self.pContext).finish()
+        f.debug_struct("NOTIFICATION_CONFIG_1").field("cbSize", &self.cbSize).field("fdwFlags", &self.fdwFlags).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19566,7 +19566,7 @@ impl ::core::fmt::Debug for OEMCUIPPARAM {
             .field("pOEMOptItems", &self.pOEMOptItems)
             .field("cOEMOptItems", &self.cOEMOptItems)
             .field("pOEMUserData", &self.pOEMUserData)
-            .field("OEMCUIPCallback", &self.OEMCUIPCallback)
+            .field("OEMCUIPCallback", &self.OEMCUIPCallback.map(|f| f as usize))
             .finish()
     }
 }
@@ -19804,7 +19804,7 @@ impl ::core::clone::Clone for OEMUIPROCS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OEMUIPROCS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OEMUIPROCS").field("DrvGetDriverSetting", &self.DrvGetDriverSetting).field("DrvUpdateUISetting", &self.DrvUpdateUISetting).finish()
+        f.debug_struct("OEMUIPROCS").field("DrvGetDriverSetting", &self.DrvGetDriverSetting.map(|f| f as usize)).field("DrvUpdateUISetting", &self.DrvUpdateUISetting.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23210,7 +23210,7 @@ impl ::core::clone::Clone for PROPSHEETUI_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PROPSHEETUI_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETUI_INFO").field("cbSize", &self.cbSize).field("Version", &self.Version).field("Flags", &self.Flags).field("Reason", &self.Reason).field("hComPropSheet", &self.hComPropSheet).field("pfnComPropSheet", &self.pfnComPropSheet).field("lParamInit", &self.lParamInit).field("UserData", &self.UserData).field("Result", &self.Result).finish()
+        f.debug_struct("PROPSHEETUI_INFO").field("cbSize", &self.cbSize).field("Version", &self.Version).field("Flags", &self.Flags).field("Reason", &self.Reason).field("hComPropSheet", &self.hComPropSheet).field("pfnComPropSheet", &self.pfnComPropSheet.map(|f| f as usize)).field("lParamInit", &self.lParamInit).field("UserData", &self.UserData).field("Result", &self.Result).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23529,7 +23529,7 @@ impl ::core::clone::Clone for PSPINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PSPINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PSPINFO").field("cbSize", &self.cbSize).field("wReserved", &self.wReserved).field("hComPropSheet", &self.hComPropSheet).field("hCPSUIPage", &self.hCPSUIPage).field("pfnComPropSheet", &self.pfnComPropSheet).finish()
+        f.debug_struct("PSPINFO").field("cbSize", &self.cbSize).field("wReserved", &self.wReserved).field("hComPropSheet", &self.hComPropSheet).field("hCPSUIPage", &self.hCPSUIPage).field("pfnComPropSheet", &self.pfnComPropSheet.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -258,7 +258,7 @@ impl ::core::clone::Clone for GENERIC_BINDING_INFO {
 }
 impl ::core::fmt::Debug for GENERIC_BINDING_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GENERIC_BINDING_INFO").field("pObj", &self.pObj).field("Size", &self.Size).field("pfnBind", &self.pfnBind).field("pfnUnbind", &self.pfnUnbind).finish()
+        f.debug_struct("GENERIC_BINDING_INFO").field("pObj", &self.pObj).field("Size", &self.Size).field("pfnBind", &self.pfnBind.map(|f| f as usize)).field("pfnUnbind", &self.pfnUnbind.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GENERIC_BINDING_INFO {
@@ -291,7 +291,7 @@ impl ::core::clone::Clone for GENERIC_BINDING_ROUTINE_PAIR {
 }
 impl ::core::fmt::Debug for GENERIC_BINDING_ROUTINE_PAIR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GENERIC_BINDING_ROUTINE_PAIR").field("pfnBind", &self.pfnBind).field("pfnUnbind", &self.pfnUnbind).finish()
+        f.debug_struct("GENERIC_BINDING_ROUTINE_PAIR").field("pfnBind", &self.pfnBind.map(|f| f as usize)).field("pfnUnbind", &self.pfnUnbind.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GENERIC_BINDING_ROUTINE_PAIR {
@@ -1003,15 +1003,15 @@ impl ::core::clone::Clone for I_RpcProxyCallbackInterface {
 impl ::core::fmt::Debug for I_RpcProxyCallbackInterface {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("I_RpcProxyCallbackInterface")
-            .field("IsValidMachineFn", &self.IsValidMachineFn)
-            .field("GetClientAddressFn", &self.GetClientAddressFn)
-            .field("GetConnectionTimeoutFn", &self.GetConnectionTimeoutFn)
-            .field("PerformCalloutFn", &self.PerformCalloutFn)
-            .field("FreeCalloutStateFn", &self.FreeCalloutStateFn)
-            .field("GetClientSessionAndResourceUUIDFn", &self.GetClientSessionAndResourceUUIDFn)
-            .field("ProxyFilterIfFn", &self.ProxyFilterIfFn)
-            .field("RpcProxyUpdatePerfCounterFn", &self.RpcProxyUpdatePerfCounterFn)
-            .field("RpcProxyUpdatePerfCounterBackendServerFn", &self.RpcProxyUpdatePerfCounterBackendServerFn)
+            .field("IsValidMachineFn", &self.IsValidMachineFn.map(|f| f as usize))
+            .field("GetClientAddressFn", &self.GetClientAddressFn.map(|f| f as usize))
+            .field("GetConnectionTimeoutFn", &self.GetConnectionTimeoutFn.map(|f| f as usize))
+            .field("PerformCalloutFn", &self.PerformCalloutFn.map(|f| f as usize))
+            .field("FreeCalloutStateFn", &self.FreeCalloutStateFn.map(|f| f as usize))
+            .field("GetClientSessionAndResourceUUIDFn", &self.GetClientSessionAndResourceUUIDFn.map(|f| f as usize))
+            .field("ProxyFilterIfFn", &self.ProxyFilterIfFn.map(|f| f as usize))
+            .field("RpcProxyUpdatePerfCounterFn", &self.RpcProxyUpdatePerfCounterFn.map(|f| f as usize))
+            .field("RpcProxyUpdatePerfCounterBackendServerFn", &self.RpcProxyUpdatePerfCounterBackendServerFn.map(|f| f as usize))
             .finish()
     }
 }
@@ -4661,7 +4661,7 @@ impl ::core::clone::Clone for NDR_CS_SIZE_CONVERT_ROUTINES {
 }
 impl ::core::fmt::Debug for NDR_CS_SIZE_CONVERT_ROUTINES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDR_CS_SIZE_CONVERT_ROUTINES").field("pfnNetSize", &self.pfnNetSize).field("pfnToNetCs", &self.pfnToNetCs).field("pfnLocalSize", &self.pfnLocalSize).field("pfnFromNetCs", &self.pfnFromNetCs).finish()
+        f.debug_struct("NDR_CS_SIZE_CONVERT_ROUTINES").field("pfnNetSize", &self.pfnNetSize.map(|f| f as usize)).field("pfnToNetCs", &self.pfnToNetCs.map(|f| f as usize)).field("pfnLocalSize", &self.pfnLocalSize.map(|f| f as usize)).field("pfnFromNetCs", &self.pfnFromNetCs.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDR_CS_SIZE_CONVERT_ROUTINES {
@@ -7622,7 +7622,7 @@ impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_ASYNC_NOTIFICATION_INFO_0").field("NotificationRoutine", &self.NotificationRoutine).field("hThread", &self.hThread).finish()
+        f.debug_struct("RPC_ASYNC_NOTIFICATION_INFO_0").field("NotificationRoutine", &self.NotificationRoutine.map(|f| f as usize)).field("hThread", &self.hThread).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -8917,7 +8917,7 @@ impl ::core::clone::Clone for RPC_DISPATCH_TABLE {
 }
 impl ::core::fmt::Debug for RPC_DISPATCH_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_DISPATCH_TABLE").field("DispatchTableCount", &self.DispatchTableCount).field("DispatchTable", &self.DispatchTable).field("Reserved", &self.Reserved).finish()
+        f.debug_struct("RPC_DISPATCH_TABLE").field("DispatchTableCount", &self.DispatchTableCount).field("DispatchTable", &self.DispatchTable.map(|f| f as usize)).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_DISPATCH_TABLE {
@@ -9604,7 +9604,7 @@ impl ::core::clone::Clone for RPC_INTERFACE_TEMPLATEA {
 }
 impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_INTERFACE_TEMPLATEA").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("IfCallback", &self.IfCallback).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
+        f.debug_struct("RPC_INTERFACE_TEMPLATEA").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("IfCallback", &self.IfCallback.map(|f| f as usize)).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEA {
@@ -9644,7 +9644,7 @@ impl ::core::clone::Clone for RPC_INTERFACE_TEMPLATEW {
 }
 impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_INTERFACE_TEMPLATEW").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("IfCallback", &self.IfCallback).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
+        f.debug_struct("RPC_INTERFACE_TEMPLATEW").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("IfCallback", &self.IfCallback.map(|f| f as usize)).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEW {
@@ -14453,7 +14453,7 @@ impl ::core::clone::Clone for USER_MARSHAL_ROUTINE_QUADRUPLE {
 }
 impl ::core::fmt::Debug for USER_MARSHAL_ROUTINE_QUADRUPLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USER_MARSHAL_ROUTINE_QUADRUPLE").field("pfnBufferSize", &self.pfnBufferSize).field("pfnMarshall", &self.pfnMarshall).field("pfnUnmarshall", &self.pfnUnmarshall).field("pfnFree", &self.pfnFree).finish()
+        f.debug_struct("USER_MARSHAL_ROUTINE_QUADRUPLE").field("pfnBufferSize", &self.pfnBufferSize.map(|f| f as usize)).field("pfnMarshall", &self.pfnMarshall.map(|f| f as usize)).field("pfnUnmarshall", &self.pfnUnmarshall.map(|f| f as usize)).field("pfnFree", &self.pfnFree.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
@@ -14688,7 +14688,7 @@ impl ::core::clone::Clone for XMIT_ROUTINE_QUINTUPLE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for XMIT_ROUTINE_QUINTUPLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XMIT_ROUTINE_QUINTUPLE").field("pfnTranslateToXmit", &self.pfnTranslateToXmit).field("pfnTranslateFromXmit", &self.pfnTranslateFromXmit).field("pfnFreeXmit", &self.pfnFreeXmit).field("pfnFreeInst", &self.pfnFreeInst).finish()
+        f.debug_struct("XMIT_ROUTINE_QUINTUPLE").field("pfnTranslateToXmit", &self.pfnTranslateToXmit.map(|f| f as usize)).field("pfnTranslateFromXmit", &self.pfnTranslateFromXmit.map(|f| f as usize)).field("pfnFreeXmit", &self.pfnFreeXmit.map(|f| f as usize)).field("pfnFreeInst", &self.pfnFreeInst.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

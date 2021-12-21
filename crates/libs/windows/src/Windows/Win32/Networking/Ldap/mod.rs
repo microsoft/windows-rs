@@ -428,7 +428,7 @@ impl ::core::clone::Clone for LDAP_REFERRAL_CALLBACK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LDAP_REFERRAL_CALLBACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LDAP_REFERRAL_CALLBACK").field("SizeOfCallbacks", &self.SizeOfCallbacks).field("QueryForConnection", &self.QueryForConnection).field("NotifyRoutine", &self.NotifyRoutine).field("DereferenceRoutine", &self.DereferenceRoutine).finish()
+        f.debug_struct("LDAP_REFERRAL_CALLBACK").field("SizeOfCallbacks", &self.SizeOfCallbacks).field("QueryForConnection", &self.QueryForConnection.map(|f| f as usize)).field("NotifyRoutine", &self.NotifyRoutine.map(|f| f as usize)).field("DereferenceRoutine", &self.DereferenceRoutine.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

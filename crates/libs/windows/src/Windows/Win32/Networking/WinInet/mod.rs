@@ -4492,7 +4492,7 @@ impl ::core::clone::Clone for INTERNET_AUTH_NOTIFY_DATA {
 }
 impl ::core::fmt::Debug for INTERNET_AUTH_NOTIFY_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_AUTH_NOTIFY_DATA").field("cbStruct", &self.cbStruct).field("dwOptions", &self.dwOptions).field("pfnNotify", &self.pfnNotify).field("dwContext", &self.dwContext).finish()
+        f.debug_struct("INTERNET_AUTH_NOTIFY_DATA").field("cbStruct", &self.cbStruct).field("dwOptions", &self.dwOptions).field("pfnNotify", &self.pfnNotify.map(|f| f as usize)).field("dwContext", &self.dwContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_AUTH_NOTIFY_DATA {

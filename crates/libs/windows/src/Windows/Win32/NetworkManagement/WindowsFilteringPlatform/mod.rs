@@ -13044,7 +13044,7 @@ impl ::core::clone::Clone for IPSEC_KEY_MANAGER_CALLBACKS0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for IPSEC_KEY_MANAGER_CALLBACKS0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_KEY_MANAGER_CALLBACKS0").field("reserved", &self.reserved).field("flags", &self.flags).field("keyDictationCheck", &self.keyDictationCheck).field("keyDictation", &self.keyDictation).field("keyNotify", &self.keyNotify).finish()
+        f.debug_struct("IPSEC_KEY_MANAGER_CALLBACKS0").field("reserved", &self.reserved).field("flags", &self.flags).field("keyDictationCheck", &self.keyDictationCheck.map(|f| f as usize)).field("keyDictation", &self.keyDictation.map(|f| f as usize)).field("keyNotify", &self.keyNotify.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

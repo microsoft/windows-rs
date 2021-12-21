@@ -7443,7 +7443,7 @@ impl ::core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_A {
             .field("szDataSource", &self.szDataSource)
             .field("szReturnPathBuffer", &self.szReturnPathBuffer)
             .field("cchReturnPathLength", &self.cchReturnPathLength)
-            .field("pCallBack", &self.pCallBack)
+            .field("pCallBack", &self.pCallBack.map(|f| f as usize))
             .field("dwCallBackArg", &self.dwCallBackArg)
             .field("CallBackStatus", &self.CallBackStatus)
             .field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel)
@@ -7501,7 +7501,7 @@ impl ::core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_HA {
             .field("hDataSource", &self.hDataSource)
             .field("szReturnPathBuffer", &self.szReturnPathBuffer)
             .field("cchReturnPathLength", &self.cchReturnPathLength)
-            .field("pCallBack", &self.pCallBack)
+            .field("pCallBack", &self.pCallBack.map(|f| f as usize))
             .field("dwCallBackArg", &self.dwCallBackArg)
             .field("CallBackStatus", &self.CallBackStatus)
             .field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel)
@@ -7559,7 +7559,7 @@ impl ::core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_HW {
             .field("hDataSource", &self.hDataSource)
             .field("szReturnPathBuffer", &self.szReturnPathBuffer)
             .field("cchReturnPathLength", &self.cchReturnPathLength)
-            .field("pCallBack", &self.pCallBack)
+            .field("pCallBack", &self.pCallBack.map(|f| f as usize))
             .field("dwCallBackArg", &self.dwCallBackArg)
             .field("CallBackStatus", &self.CallBackStatus)
             .field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel)
@@ -7617,7 +7617,7 @@ impl ::core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_W {
             .field("szDataSource", &self.szDataSource)
             .field("szReturnPathBuffer", &self.szReturnPathBuffer)
             .field("cchReturnPathLength", &self.cchReturnPathLength)
-            .field("pCallBack", &self.pCallBack)
+            .field("pCallBack", &self.pCallBack.map(|f| f as usize))
             .field("dwCallBackArg", &self.dwCallBackArg)
             .field("CallBackStatus", &self.CallBackStatus)
             .field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel)
@@ -9997,7 +9997,7 @@ impl ::core::clone::Clone for PERF_PROVIDER_CONTEXT {
 }
 impl ::core::fmt::Debug for PERF_PROVIDER_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PERF_PROVIDER_CONTEXT").field("ContextSize", &self.ContextSize).field("Reserved", &self.Reserved).field("ControlCallback", &self.ControlCallback).field("MemAllocRoutine", &self.MemAllocRoutine).field("MemFreeRoutine", &self.MemFreeRoutine).field("pMemContext", &self.pMemContext).finish()
+        f.debug_struct("PERF_PROVIDER_CONTEXT").field("ContextSize", &self.ContextSize).field("Reserved", &self.Reserved).field("ControlCallback", &self.ControlCallback.map(|f| f as usize)).field("MemAllocRoutine", &self.MemAllocRoutine.map(|f| f as usize)).field("MemFreeRoutine", &self.MemFreeRoutine.map(|f| f as usize)).field("pMemContext", &self.pMemContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PERF_PROVIDER_CONTEXT {

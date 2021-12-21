@@ -574,8 +574,8 @@ impl ::core::fmt::Debug for CCINFOA {
             .field("szTextDefault", &self.szTextDefault)
             .field("cStyleFlags", &self.cStyleFlags)
             .field("aStyleFlags", &self.aStyleFlags)
-            .field("lpfnStyle", &self.lpfnStyle)
-            .field("lpfnSizeToText", &self.lpfnSizeToText)
+            .field("lpfnStyle", &self.lpfnStyle.map(|f| f as usize))
+            .field("lpfnSizeToText", &self.lpfnSizeToText.map(|f| f as usize))
             .field("dwReserved1", &self.dwReserved1)
             .field("dwReserved2", &self.dwReserved2)
             .finish()
@@ -642,8 +642,8 @@ impl ::core::fmt::Debug for CCINFOW {
             .field("cStyleFlags", &self.cStyleFlags)
             .field("aStyleFlags", &self.aStyleFlags)
             .field("szTextDefault", &self.szTextDefault)
-            .field("lpfnStyle", &self.lpfnStyle)
-            .field("lpfnSizeToText", &self.lpfnSizeToText)
+            .field("lpfnStyle", &self.lpfnStyle.map(|f| f as usize))
+            .field("lpfnSizeToText", &self.lpfnSizeToText.map(|f| f as usize))
             .field("dwReserved1", &self.dwReserved1)
             .field("dwReserved2", &self.dwReserved2)
             .finish()
@@ -2304,7 +2304,7 @@ impl ::core::fmt::Debug for DTTOPTS {
             .field("iStateId", &self.iStateId)
             .field("fApplyOverlay", &self.fApplyOverlay)
             .field("iGlowSize", &self.iGlowSize)
-            .field("pfnDrawTextCallback", &self.pfnDrawTextCallback)
+            .field("pfnDrawTextCallback", &self.pfnDrawTextCallback.map(|f| f as usize))
             .field("lParam", &self.lParam)
             .finish()
     }
@@ -7205,7 +7205,7 @@ impl ::core::clone::Clone for LVINSERTGROUPSORTED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LVINSERTGROUPSORTED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LVINSERTGROUPSORTED").field("pfnGroupCompare", &self.pfnGroupCompare).field("pvData", &self.pvData).field("lvGroup", &self.lvGroup).finish()
+        f.debug_struct("LVINSERTGROUPSORTED").field("pfnGroupCompare", &self.pfnGroupCompare.map(|f| f as usize)).field("pvData", &self.pvData).field("lvGroup", &self.lvGroup).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19235,7 +19235,7 @@ impl ::core::clone::Clone for TVSORTCB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TVSORTCB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TVSORTCB").field("hParent", &self.hParent).field("lpfnCompare", &self.lpfnCompare).field("lParam", &self.lParam).finish()
+        f.debug_struct("TVSORTCB").field("hParent", &self.hParent).field("lpfnCompare", &self.lpfnCompare.map(|f| f as usize)).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

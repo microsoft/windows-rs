@@ -1871,7 +1871,7 @@ impl ::core::clone::Clone for FAX_ROUTE_CALLBACKROUTINES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FAX_ROUTE_CALLBACKROUTINES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FAX_ROUTE_CALLBACKROUTINES").field("SizeOfStruct", &self.SizeOfStruct).field("FaxRouteAddFile", &self.FaxRouteAddFile).field("FaxRouteDeleteFile", &self.FaxRouteDeleteFile).field("FaxRouteGetFile", &self.FaxRouteGetFile).field("FaxRouteEnumFiles", &self.FaxRouteEnumFiles).field("FaxRouteModifyRoutingData", &self.FaxRouteModifyRoutingData).finish()
+        f.debug_struct("FAX_ROUTE_CALLBACKROUTINES").field("SizeOfStruct", &self.SizeOfStruct).field("FaxRouteAddFile", &self.FaxRouteAddFile.map(|f| f as usize)).field("FaxRouteDeleteFile", &self.FaxRouteDeleteFile.map(|f| f as usize)).field("FaxRouteGetFile", &self.FaxRouteGetFile.map(|f| f as usize)).field("FaxRouteEnumFiles", &self.FaxRouteEnumFiles.map(|f| f as usize)).field("FaxRouteModifyRoutingData", &self.FaxRouteModifyRoutingData.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -773,7 +773,7 @@ impl ::core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
             .field("fShowUnknown", &self.fShowUnknown)
             .field("fAddNewDeviceWizard", &self.fAddNewDeviceWizard)
             .field("fSkipServicesPage", &self.fSkipServicesPage)
-            .field("pfnDeviceCallback", &self.pfnDeviceCallback)
+            .field("pfnDeviceCallback", &self.pfnDeviceCallback.map(|f| f as usize))
             .field("pvParam", &self.pvParam)
             .field("cNumDevices", &self.cNumDevices)
             .field("pDevices", &self.pDevices)

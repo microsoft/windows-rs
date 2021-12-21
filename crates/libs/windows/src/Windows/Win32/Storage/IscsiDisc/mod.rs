@@ -663,7 +663,7 @@ impl ::core::fmt::Debug for DUMP_POINTERS_EX {
             .field("AdapterObject", &self.AdapterObject)
             .field("MappedRegisterBase", &self.MappedRegisterBase)
             .field("DeviceReady", &self.DeviceReady)
-            .field("DumpDevicePowerOn", &self.DumpDevicePowerOn)
+            .field("DumpDevicePowerOn", &self.DumpDevicePowerOn.map(|f| f as usize))
             .field("DumpDevicePowerOnContext", &self.DumpDevicePowerOnContext)
             .finish()
     }

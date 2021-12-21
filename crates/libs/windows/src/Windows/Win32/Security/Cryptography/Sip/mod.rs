@@ -510,7 +510,7 @@ impl ::core::clone::Clone for SIP_DISPATCH_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::core::fmt::Debug for SIP_DISPATCH_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIP_DISPATCH_INFO").field("cbSize", &self.cbSize).field("hSIP", &self.hSIP).field("pfGet", &self.pfGet).field("pfPut", &self.pfPut).field("pfCreate", &self.pfCreate).field("pfVerify", &self.pfVerify).field("pfRemove", &self.pfRemove).finish()
+        f.debug_struct("SIP_DISPATCH_INFO").field("cbSize", &self.cbSize).field("hSIP", &self.hSIP).field("pfGet", &self.pfGet.map(|f| f as usize)).field("pfPut", &self.pfPut.map(|f| f as usize)).field("pfCreate", &self.pfCreate.map(|f| f as usize)).field("pfVerify", &self.pfVerify.map(|f| f as usize)).field("pfRemove", &self.pfRemove.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

@@ -2131,7 +2131,7 @@ impl ::core::clone::Clone for DNS_QUERY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_QUERY_REQUEST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_QUERY_REQUEST").field("Version", &self.Version).field("QueryName", &self.QueryName).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("pDnsServerList", &self.pDnsServerList).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryCompletionCallback", &self.pQueryCompletionCallback).field("pQueryContext", &self.pQueryContext).finish()
+        f.debug_struct("DNS_QUERY_REQUEST").field("Version", &self.Version).field("QueryName", &self.QueryName).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("pDnsServerList", &self.pDnsServerList).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryCompletionCallback", &self.pQueryCompletionCallback.map(|f| f as usize)).field("pQueryContext", &self.pQueryContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2187,7 +2187,7 @@ impl ::core::fmt::Debug for DNS_QUERY_REQUEST3 {
             .field("QueryOptions", &self.QueryOptions)
             .field("pDnsServerList", &self.pDnsServerList)
             .field("InterfaceIndex", &self.InterfaceIndex)
-            .field("pQueryCompletionCallback", &self.pQueryCompletionCallback)
+            .field("pQueryCompletionCallback", &self.pQueryCompletionCallback.map(|f| f as usize))
             .field("pQueryContext", &self.pQueryContext)
             .field("IsNetworkQueryRequired", &self.IsNetworkQueryRequired)
             .field("RequiredNetworkIndex", &self.RequiredNetworkIndex)
@@ -3085,7 +3085,7 @@ impl ::core::clone::Clone for DNS_SERVICE_REGISTER_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SERVICE_REGISTER_REQUEST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_REGISTER_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("pServiceInstance", &self.pServiceInstance).field("pRegisterCompletionCallback", &self.pRegisterCompletionCallback).field("pQueryContext", &self.pQueryContext).field("hCredentials", &self.hCredentials).field("unicastEnabled", &self.unicastEnabled).finish()
+        f.debug_struct("DNS_SERVICE_REGISTER_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("pServiceInstance", &self.pServiceInstance).field("pRegisterCompletionCallback", &self.pRegisterCompletionCallback.map(|f| f as usize)).field("pQueryContext", &self.pQueryContext).field("hCredentials", &self.hCredentials).field("unicastEnabled", &self.unicastEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3127,7 +3127,7 @@ impl ::core::clone::Clone for DNS_SERVICE_RESOLVE_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SERVICE_RESOLVE_REQUEST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_RESOLVE_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("QueryName", &self.QueryName).field("pResolveCompletionCallback", &self.pResolveCompletionCallback).field("pQueryContext", &self.pQueryContext).finish()
+        f.debug_struct("DNS_SERVICE_RESOLVE_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("QueryName", &self.QueryName).field("pResolveCompletionCallback", &self.pResolveCompletionCallback.map(|f| f as usize)).field("pQueryContext", &self.pQueryContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5259,7 +5259,7 @@ impl ::core::clone::Clone for MDNS_QUERY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MDNS_QUERY_REQUEST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MDNS_QUERY_REQUEST").field("Version", &self.Version).field("ulRefCount", &self.ulRefCount).field("Query", &self.Query).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryCallback", &self.pQueryCallback).field("pQueryContext", &self.pQueryContext).field("fAnswerReceived", &self.fAnswerReceived).field("ulResendCount", &self.ulResendCount).finish()
+        f.debug_struct("MDNS_QUERY_REQUEST").field("Version", &self.Version).field("ulRefCount", &self.ulRefCount).field("Query", &self.Query).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryCallback", &self.pQueryCallback.map(|f| f as usize)).field("pQueryContext", &self.pQueryContext).field("fAnswerReceived", &self.fAnswerReceived).field("ulResendCount", &self.ulResendCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

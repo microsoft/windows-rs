@@ -12050,7 +12050,7 @@ impl ::core::clone::Clone for OLEUIBUSYA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 impl ::core::fmt::Debug for OLEUIBUSYA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIBUSYA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
+        f.debug_struct("OLEUIBUSYA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
@@ -12098,7 +12098,7 @@ impl ::core::clone::Clone for OLEUIBUSYW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 impl ::core::fmt::Debug for OLEUIBUSYW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIBUSYW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
+        f.debug_struct("OLEUIBUSYW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
@@ -12153,7 +12153,7 @@ impl ::core::fmt::Debug for OLEUICHANGEICONA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -12217,7 +12217,7 @@ impl ::core::fmt::Debug for OLEUICHANGEICONW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -12301,7 +12301,7 @@ impl ::core::fmt::Debug for OLEUICHANGESOURCEA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -12389,7 +12389,7 @@ impl ::core::fmt::Debug for OLEUICHANGESOURCEW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -12466,7 +12466,7 @@ impl ::core::fmt::Debug for OLEUICONVERTA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -12548,7 +12548,7 @@ impl ::core::fmt::Debug for OLEUICONVERTW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -12622,7 +12622,7 @@ impl ::core::clone::Clone for OLEUIEDITLINKSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OLEUIEDITLINKSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIEDITLINKSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
+        f.debug_struct("OLEUIEDITLINKSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12678,7 +12678,7 @@ impl ::core::clone::Clone for OLEUIEDITLINKSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OLEUIEDITLINKSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIEDITLINKSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
+        f.debug_struct("OLEUIEDITLINKSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12722,7 +12722,7 @@ impl ::core::clone::Clone for OLEUIGNRLPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUIGNRLPROPSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIGNRLPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+        f.debug_struct("OLEUIGNRLPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -12766,7 +12766,7 @@ impl ::core::clone::Clone for OLEUIGNRLPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUIGNRLPROPSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIGNRLPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+        f.debug_struct("OLEUIGNRLPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -12851,7 +12851,7 @@ impl ::core::fmt::Debug for OLEUIINSERTOBJECTA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -12975,7 +12975,7 @@ impl ::core::fmt::Debug for OLEUIINSERTOBJECTW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -13058,7 +13058,7 @@ impl ::core::clone::Clone for OLEUILINKPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUILINKPROPSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUILINKPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+        f.debug_struct("OLEUILINKPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13102,7 +13102,7 @@ impl ::core::clone::Clone for OLEUILINKPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUILINKPROPSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUILINKPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+        f.debug_struct("OLEUILINKPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13405,7 +13405,7 @@ impl ::core::fmt::Debug for OLEUIPASTESPECIALA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -13521,7 +13521,7 @@ impl ::core::fmt::Debug for OLEUIPASTESPECIALW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook)
+            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -13602,7 +13602,7 @@ impl ::core::clone::Clone for OLEUIVIEWPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUIVIEWPROPSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIVIEWPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
+        f.debug_struct("OLEUIVIEWPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13648,7 +13648,7 @@ impl ::core::clone::Clone for OLEUIVIEWPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUIVIEWPROPSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIVIEWPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
+        f.debug_struct("OLEUIVIEWPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]

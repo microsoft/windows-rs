@@ -280,7 +280,7 @@ impl ::core::clone::Clone for SCESVC_CALLBACK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCESVC_CALLBACK_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).field("pfQueryInfo", &self.pfQueryInfo).field("pfSetInfo", &self.pfSetInfo).field("pfFreeInfo", &self.pfFreeInfo).field("pfLogInfo", &self.pfLogInfo).finish()
+        f.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).field("pfQueryInfo", &self.pfQueryInfo.map(|f| f as usize)).field("pfSetInfo", &self.pfSetInfo.map(|f| f as usize)).field("pfFreeInfo", &self.pfFreeInfo.map(|f| f as usize)).field("pfLogInfo", &self.pfLogInfo.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

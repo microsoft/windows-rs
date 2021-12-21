@@ -1680,7 +1680,7 @@ impl ::core::clone::Clone for alljoyn_aboutdatalistener_callbacks {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_aboutdatalistener_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_aboutdatalistener_callbacks").field("about_datalistener_getaboutdata", &self.about_datalistener_getaboutdata).field("about_datalistener_getannouncedaboutdata", &self.about_datalistener_getannouncedaboutdata).finish()
+        f.debug_struct("alljoyn_aboutdatalistener_callbacks").field("about_datalistener_getaboutdata", &self.about_datalistener_getaboutdata.map(|f| f as usize)).field("about_datalistener_getannouncedaboutdata", &self.about_datalistener_getannouncedaboutdata.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1952,7 +1952,7 @@ impl ::core::clone::Clone for alljoyn_aboutlistener_callback {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_aboutlistener_callback {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_aboutlistener_callback").field("about_listener_announced", &self.about_listener_announced).finish()
+        f.debug_struct("alljoyn_aboutlistener_callback").field("about_listener_announced", &self.about_listener_announced.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2344,7 +2344,7 @@ impl ::core::clone::Clone for alljoyn_applicationstatelistener_callbacks {
 }
 impl ::core::fmt::Debug for alljoyn_applicationstatelistener_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_applicationstatelistener_callbacks").field("state", &self.state).finish()
+        f.debug_struct("alljoyn_applicationstatelistener_callbacks").field("state", &self.state.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_applicationstatelistener_callbacks {
@@ -2415,7 +2415,7 @@ impl ::core::clone::Clone for alljoyn_authlistener_callbacks {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_authlistener_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_authlistener_callbacks").field("request_credentials", &self.request_credentials).field("verify_credentials", &self.verify_credentials).field("security_violation", &self.security_violation).field("authentication_complete", &self.authentication_complete).finish()
+        f.debug_struct("alljoyn_authlistener_callbacks").field("request_credentials", &self.request_credentials.map(|f| f as usize)).field("verify_credentials", &self.verify_credentials.map(|f| f as usize)).field("security_violation", &self.security_violation.map(|f| f as usize)).field("authentication_complete", &self.authentication_complete.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2541,7 +2541,7 @@ impl ::core::clone::Clone for alljoyn_authlistenerasync_callbacks {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_authlistenerasync_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_authlistenerasync_callbacks").field("request_credentials", &self.request_credentials).field("verify_credentials", &self.verify_credentials).field("security_violation", &self.security_violation).field("authentication_complete", &self.authentication_complete).finish()
+        f.debug_struct("alljoyn_authlistenerasync_callbacks").field("request_credentials", &self.request_credentials.map(|f| f as usize)).field("verify_credentials", &self.verify_credentials.map(|f| f as usize)).field("security_violation", &self.security_violation.map(|f| f as usize)).field("authentication_complete", &self.authentication_complete.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3958,14 +3958,14 @@ impl ::core::clone::Clone for alljoyn_buslistener_callbacks {
 impl ::core::fmt::Debug for alljoyn_buslistener_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("alljoyn_buslistener_callbacks")
-            .field("listener_registered", &self.listener_registered)
-            .field("listener_unregistered", &self.listener_unregistered)
-            .field("found_advertised_name", &self.found_advertised_name)
-            .field("lost_advertised_name", &self.lost_advertised_name)
-            .field("name_owner_changed", &self.name_owner_changed)
-            .field("bus_stopping", &self.bus_stopping)
-            .field("bus_disconnected", &self.bus_disconnected)
-            .field("property_changed", &self.property_changed)
+            .field("listener_registered", &self.listener_registered.map(|f| f as usize))
+            .field("listener_unregistered", &self.listener_unregistered.map(|f| f as usize))
+            .field("found_advertised_name", &self.found_advertised_name.map(|f| f as usize))
+            .field("lost_advertised_name", &self.lost_advertised_name.map(|f| f as usize))
+            .field("name_owner_changed", &self.name_owner_changed.map(|f| f as usize))
+            .field("bus_stopping", &self.bus_stopping.map(|f| f as usize))
+            .field("bus_disconnected", &self.bus_disconnected.map(|f| f as usize))
+            .field("property_changed", &self.property_changed.map(|f| f as usize))
             .finish()
     }
 }
@@ -4108,7 +4108,7 @@ impl ::core::clone::Clone for alljoyn_busobject_callbacks {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_busobject_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_busobject_callbacks").field("property_get", &self.property_get).field("property_set", &self.property_set).field("object_registered", &self.object_registered).field("object_unregistered", &self.object_unregistered).finish()
+        f.debug_struct("alljoyn_busobject_callbacks").field("property_get", &self.property_get.map(|f| f as usize)).field("property_set", &self.property_set.map(|f| f as usize)).field("object_registered", &self.object_registered.map(|f| f as usize)).field("object_unregistered", &self.object_unregistered.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4306,7 +4306,7 @@ impl ::core::clone::Clone for alljoyn_busobject_methodentry {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_busobject_methodentry {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_busobject_methodentry").field("member", &self.member).field("method_handler", &self.method_handler).finish()
+        f.debug_struct("alljoyn_busobject_methodentry").field("member", &self.member).field("method_handler", &self.method_handler.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5756,7 +5756,7 @@ impl ::core::clone::Clone for alljoyn_keystorelistener_callbacks {
 }
 impl ::core::fmt::Debug for alljoyn_keystorelistener_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_keystorelistener_callbacks").field("load_request", &self.load_request).field("store_request", &self.store_request).finish()
+        f.debug_struct("alljoyn_keystorelistener_callbacks").field("load_request", &self.load_request.map(|f| f as usize)).field("store_request", &self.store_request.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_keystorelistener_callbacks {
@@ -5853,7 +5853,7 @@ impl ::core::clone::Clone for alljoyn_keystorelistener_with_synchronization_call
 }
 impl ::core::fmt::Debug for alljoyn_keystorelistener_with_synchronization_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_keystorelistener_with_synchronization_callbacks").field("load_request", &self.load_request).field("store_request", &self.store_request).field("acquire_exclusive_lock", &self.acquire_exclusive_lock).field("release_exclusive_lock", &self.release_exclusive_lock).finish()
+        f.debug_struct("alljoyn_keystorelistener_with_synchronization_callbacks").field("load_request", &self.load_request.map(|f| f as usize)).field("store_request", &self.store_request.map(|f| f as usize)).field("acquire_exclusive_lock", &self.acquire_exclusive_lock.map(|f| f as usize)).field("release_exclusive_lock", &self.release_exclusive_lock.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_keystorelistener_with_synchronization_callbacks {
@@ -7640,7 +7640,7 @@ impl ::core::clone::Clone for alljoyn_observerlistener_callback {
 }
 impl ::core::fmt::Debug for alljoyn_observerlistener_callback {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_observerlistener_callback").field("object_discovered", &self.object_discovered).field("object_lost", &self.object_lost).finish()
+        f.debug_struct("alljoyn_observerlistener_callback").field("object_discovered", &self.object_discovered.map(|f| f as usize)).field("object_lost", &self.object_lost.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_observerlistener_callback {
@@ -7717,7 +7717,7 @@ impl ::core::clone::Clone for alljoyn_permissionconfigurationlistener_callbacks 
 }
 impl ::core::fmt::Debug for alljoyn_permissionconfigurationlistener_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_permissionconfigurationlistener_callbacks").field("factory_reset", &self.factory_reset).field("policy_changed", &self.policy_changed).field("start_management", &self.start_management).field("end_management", &self.end_management).finish()
+        f.debug_struct("alljoyn_permissionconfigurationlistener_callbacks").field("factory_reset", &self.factory_reset.map(|f| f as usize)).field("policy_changed", &self.policy_changed.map(|f| f as usize)).field("start_management", &self.start_management.map(|f| f as usize)).field("end_management", &self.end_management.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurationlistener_callbacks {
@@ -8252,7 +8252,7 @@ impl ::core::clone::Clone for alljoyn_pinglistener_callback {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_pinglistener_callback {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_pinglistener_callback").field("destination_found", &self.destination_found).field("destination_lost", &self.destination_lost).finish()
+        f.debug_struct("alljoyn_pinglistener_callback").field("destination_found", &self.destination_found.map(|f| f as usize)).field("destination_lost", &self.destination_lost.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9369,7 +9369,7 @@ impl ::core::clone::Clone for alljoyn_sessionlistener_callbacks {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_sessionlistener_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_sessionlistener_callbacks").field("session_lost", &self.session_lost).field("session_member_added", &self.session_member_added).field("session_member_removed", &self.session_member_removed).finish()
+        f.debug_struct("alljoyn_sessionlistener_callbacks").field("session_lost", &self.session_lost.map(|f| f as usize)).field("session_member_added", &self.session_member_added.map(|f| f as usize)).field("session_member_removed", &self.session_member_removed.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9632,7 +9632,7 @@ impl ::core::clone::Clone for alljoyn_sessionportlistener_callbacks {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_sessionportlistener_callbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("alljoyn_sessionportlistener_callbacks").field("accept_session_joiner", &self.accept_session_joiner).field("session_joined", &self.session_joined).finish()
+        f.debug_struct("alljoyn_sessionportlistener_callbacks").field("accept_session_joiner", &self.accept_session_joiner.map(|f| f as usize)).field("session_joined", &self.session_joined.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

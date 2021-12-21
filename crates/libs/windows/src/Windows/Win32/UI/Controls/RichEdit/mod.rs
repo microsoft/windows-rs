@@ -705,7 +705,7 @@ impl ::core::clone::Clone for EDITSTREAM {
 }
 impl ::core::fmt::Debug for EDITSTREAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EDITSTREAM").field("dwCookie", &self.dwCookie).field("dwError", &self.dwError).field("pfnCallback", &self.pfnCallback).finish()
+        f.debug_struct("EDITSTREAM").field("dwCookie", &self.dwCookie).field("dwError", &self.dwError).field("pfnCallback", &self.pfnCallback.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EDITSTREAM {

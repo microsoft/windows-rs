@@ -1395,7 +1395,7 @@ impl ::core::clone::Clone for COPYFILE2_EXTENDED_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COPYFILE2_EXTENDED_PARAMETERS").field("dwSize", &self.dwSize).field("dwCopyFlags", &self.dwCopyFlags).field("pfCancel", &self.pfCancel).field("pProgressRoutine", &self.pProgressRoutine).field("pvCallbackContext", &self.pvCallbackContext).finish()
+        f.debug_struct("COPYFILE2_EXTENDED_PARAMETERS").field("dwSize", &self.dwSize).field("dwCopyFlags", &self.dwCopyFlags).field("pfCancel", &self.pfCancel).field("pProgressRoutine", &self.pProgressRoutine.map(|f| f as usize)).field("pvCallbackContext", &self.pvCallbackContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1441,7 +1441,7 @@ impl ::core::clone::Clone for COPYFILE2_EXTENDED_PARAMETERS_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS_V2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COPYFILE2_EXTENDED_PARAMETERS_V2").field("dwSize", &self.dwSize).field("dwCopyFlags", &self.dwCopyFlags).field("pfCancel", &self.pfCancel).field("pProgressRoutine", &self.pProgressRoutine).field("pvCallbackContext", &self.pvCallbackContext).field("dwCopyFlagsV2", &self.dwCopyFlagsV2).field("ioDesiredSize", &self.ioDesiredSize).field("ioDesiredRate", &self.ioDesiredRate).field("reserved", &self.reserved).finish()
+        f.debug_struct("COPYFILE2_EXTENDED_PARAMETERS_V2").field("dwSize", &self.dwSize).field("dwCopyFlags", &self.dwCopyFlags).field("pfCancel", &self.pfCancel).field("pProgressRoutine", &self.pProgressRoutine.map(|f| f as usize)).field("pvCallbackContext", &self.pvCallbackContext).field("dwCopyFlagsV2", &self.dwCopyFlagsV2).field("ioDesiredSize", &self.ioDesiredSize).field("ioDesiredRate", &self.ioDesiredRate).field("reserved", &self.reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3760,7 +3760,7 @@ impl ::core::clone::Clone for FH_OVERLAPPED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FH_OVERLAPPED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FH_OVERLAPPED").field("Internal", &self.Internal).field("InternalHigh", &self.InternalHigh).field("Offset", &self.Offset).field("OffsetHigh", &self.OffsetHigh).field("hEvent", &self.hEvent).field("pfnCompletion", &self.pfnCompletion).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
+        f.debug_struct("FH_OVERLAPPED").field("Internal", &self.Internal).field("InternalHigh", &self.InternalHigh).field("Offset", &self.Offset).field("OffsetHigh", &self.OffsetHigh).field("hEvent", &self.hEvent).field("pfnCompletion", &self.pfnCompletion.map(|f| f as usize)).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8386,7 +8386,7 @@ impl ::core::clone::Clone for LOG_MANAGEMENT_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LOG_MANAGEMENT_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOG_MANAGEMENT_CALLBACKS").field("CallbackContext", &self.CallbackContext).field("AdvanceTailCallback", &self.AdvanceTailCallback).field("LogFullHandlerCallback", &self.LogFullHandlerCallback).field("LogUnpinnedCallback", &self.LogUnpinnedCallback).finish()
+        f.debug_struct("LOG_MANAGEMENT_CALLBACKS").field("CallbackContext", &self.CallbackContext).field("AdvanceTailCallback", &self.AdvanceTailCallback.map(|f| f as usize)).field("LogFullHandlerCallback", &self.LogFullHandlerCallback.map(|f| f as usize)).field("LogUnpinnedCallback", &self.LogUnpinnedCallback.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

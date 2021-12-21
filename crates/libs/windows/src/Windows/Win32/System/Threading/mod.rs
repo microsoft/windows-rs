@@ -2956,7 +2956,7 @@ impl ::core::fmt::Debug for PEB {
             .field("AtlThunkSListPtr32", &self.AtlThunkSListPtr32)
             .field("Reserved9", &self.Reserved9)
             .field("Reserved10", &self.Reserved10)
-            .field("PostProcessInitRoutine", &self.PostProcessInitRoutine)
+            .field("PostProcessInitRoutine", &self.PostProcessInitRoutine.map(|f| f as usize))
             .field("Reserved11", &self.Reserved11)
             .field("Reserved12", &self.Reserved12)
             .field("SessionId", &self.SessionId)
@@ -5856,7 +5856,7 @@ impl ::core::clone::Clone for UMS_SCHEDULER_STARTUP_INFO {
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::fmt::Debug for UMS_SCHEDULER_STARTUP_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UMS_SCHEDULER_STARTUP_INFO").field("UmsVersion", &self.UmsVersion).field("CompletionList", &self.CompletionList).field("SchedulerProc", &self.SchedulerProc).field("SchedulerParam", &self.SchedulerParam).finish()
+        f.debug_struct("UMS_SCHEDULER_STARTUP_INFO").field("UmsVersion", &self.UmsVersion).field("CompletionList", &self.CompletionList).field("SchedulerProc", &self.SchedulerProc.map(|f| f as usize)).field("SchedulerParam", &self.SchedulerParam).finish()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]

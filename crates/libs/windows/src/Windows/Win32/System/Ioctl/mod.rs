@@ -8932,7 +8932,7 @@ impl ::core::clone::Clone for IO_IRP_EXT_TRACK_OFFSET_HEADER {
 }
 impl ::core::fmt::Debug for IO_IRP_EXT_TRACK_OFFSET_HEADER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IO_IRP_EXT_TRACK_OFFSET_HEADER").field("Validation", &self.Validation).field("Flags", &self.Flags).field("TrackedOffsetCallback", &self.TrackedOffsetCallback).finish()
+        f.debug_struct("IO_IRP_EXT_TRACK_OFFSET_HEADER").field("Validation", &self.Validation).field("Flags", &self.Flags).field("TrackedOffsetCallback", &self.TrackedOffsetCallback.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IO_IRP_EXT_TRACK_OFFSET_HEADER {

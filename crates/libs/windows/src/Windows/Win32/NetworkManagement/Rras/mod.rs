@@ -1266,18 +1266,18 @@ impl ::core::fmt::Debug for MPRAPI_ADMIN_DLL_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MPRAPI_ADMIN_DLL_CALLBACKS")
             .field("revision", &self.revision)
-            .field("lpfnMprAdminGetIpAddressForUser", &self.lpfnMprAdminGetIpAddressForUser)
-            .field("lpfnMprAdminReleaseIpAddress", &self.lpfnMprAdminReleaseIpAddress)
-            .field("lpfnMprAdminGetIpv6AddressForUser", &self.lpfnMprAdminGetIpv6AddressForUser)
-            .field("lpfnMprAdminReleaseIpV6AddressForUser", &self.lpfnMprAdminReleaseIpV6AddressForUser)
-            .field("lpfnRasAdminAcceptNewLink", &self.lpfnRasAdminAcceptNewLink)
-            .field("lpfnRasAdminLinkHangupNotification", &self.lpfnRasAdminLinkHangupNotification)
-            .field("lpfnRasAdminTerminateDll", &self.lpfnRasAdminTerminateDll)
-            .field("lpfnRasAdminAcceptNewConnectionEx", &self.lpfnRasAdminAcceptNewConnectionEx)
-            .field("lpfnRasAdminAcceptEndpointChangeEx", &self.lpfnRasAdminAcceptEndpointChangeEx)
-            .field("lpfnRasAdminAcceptReauthenticationEx", &self.lpfnRasAdminAcceptReauthenticationEx)
-            .field("lpfnRasAdminConnectionHangupNotificationEx", &self.lpfnRasAdminConnectionHangupNotificationEx)
-            .field("lpfnRASValidatePreAuthenticatedConnectionEx", &self.lpfnRASValidatePreAuthenticatedConnectionEx)
+            .field("lpfnMprAdminGetIpAddressForUser", &self.lpfnMprAdminGetIpAddressForUser.map(|f| f as usize))
+            .field("lpfnMprAdminReleaseIpAddress", &self.lpfnMprAdminReleaseIpAddress.map(|f| f as usize))
+            .field("lpfnMprAdminGetIpv6AddressForUser", &self.lpfnMprAdminGetIpv6AddressForUser.map(|f| f as usize))
+            .field("lpfnMprAdminReleaseIpV6AddressForUser", &self.lpfnMprAdminReleaseIpV6AddressForUser.map(|f| f as usize))
+            .field("lpfnRasAdminAcceptNewLink", &self.lpfnRasAdminAcceptNewLink.map(|f| f as usize))
+            .field("lpfnRasAdminLinkHangupNotification", &self.lpfnRasAdminLinkHangupNotification.map(|f| f as usize))
+            .field("lpfnRasAdminTerminateDll", &self.lpfnRasAdminTerminateDll.map(|f| f as usize))
+            .field("lpfnRasAdminAcceptNewConnectionEx", &self.lpfnRasAdminAcceptNewConnectionEx.map(|f| f as usize))
+            .field("lpfnRasAdminAcceptEndpointChangeEx", &self.lpfnRasAdminAcceptEndpointChangeEx.map(|f| f as usize))
+            .field("lpfnRasAdminAcceptReauthenticationEx", &self.lpfnRasAdminAcceptReauthenticationEx.map(|f| f as usize))
+            .field("lpfnRasAdminConnectionHangupNotificationEx", &self.lpfnRasAdminConnectionHangupNotificationEx.map(|f| f as usize))
+            .field("lpfnRASValidatePreAuthenticatedConnectionEx", &self.lpfnRASValidatePreAuthenticatedConnectionEx.map(|f| f as usize))
             .finish()
     }
 }
@@ -6100,7 +6100,7 @@ impl ::core::clone::Clone for RASCUSTOMSCRIPTEXTENSIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RASCUSTOMSCRIPTEXTENSIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASCUSTOMSCRIPTEXTENSIONS").field("dwSize", &self.dwSize).field("pfnRasSetCommSettings", &self.pfnRasSetCommSettings).finish()
+        f.debug_struct("RASCUSTOMSCRIPTEXTENSIONS").field("dwSize", &self.dwSize).field("pfnRasSetCommSettings", &self.pfnRasSetCommSettings.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7347,7 +7347,7 @@ impl ::core::clone::Clone for RASPBDLGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RASPBDLGA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASPBDLGA").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("dwCallbackId", &self.dwCallbackId).field("pCallback", &self.pCallback).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
+        f.debug_struct("RASPBDLGA").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("dwCallbackId", &self.dwCallbackId).field("pCallback", &self.pCallback.map(|f| f as usize)).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7400,7 +7400,7 @@ impl ::core::clone::Clone for RASPBDLGW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RASPBDLGW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASPBDLGW").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("dwCallbackId", &self.dwCallbackId).field("pCallback", &self.pCallback).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
+        f.debug_struct("RASPBDLGW").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("dwCallbackId", &self.dwCallbackId).field("pCallback", &self.pCallback.map(|f| f as usize)).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9252,15 +9252,15 @@ impl ::core::fmt::Debug for ROUTING_PROTOCOL_CONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ROUTING_PROTOCOL_CONFIG")
             .field("dwCallbackFlags", &self.dwCallbackFlags)
-            .field("pfnRpfCallback", &self.pfnRpfCallback)
-            .field("pfnCreationAlertCallback", &self.pfnCreationAlertCallback)
-            .field("pfnPruneAlertCallback", &self.pfnPruneAlertCallback)
-            .field("pfnJoinAlertCallback", &self.pfnJoinAlertCallback)
-            .field("pfnWrongIfCallback", &self.pfnWrongIfCallback)
-            .field("pfnLocalJoinCallback", &self.pfnLocalJoinCallback)
-            .field("pfnLocalLeaveCallback", &self.pfnLocalLeaveCallback)
-            .field("pfnDisableIgmpCallback", &self.pfnDisableIgmpCallback)
-            .field("pfnEnableIgmpCallback", &self.pfnEnableIgmpCallback)
+            .field("pfnRpfCallback", &self.pfnRpfCallback.map(|f| f as usize))
+            .field("pfnCreationAlertCallback", &self.pfnCreationAlertCallback.map(|f| f as usize))
+            .field("pfnPruneAlertCallback", &self.pfnPruneAlertCallback.map(|f| f as usize))
+            .field("pfnJoinAlertCallback", &self.pfnJoinAlertCallback.map(|f| f as usize))
+            .field("pfnWrongIfCallback", &self.pfnWrongIfCallback.map(|f| f as usize))
+            .field("pfnLocalJoinCallback", &self.pfnLocalJoinCallback.map(|f| f as usize))
+            .field("pfnLocalLeaveCallback", &self.pfnLocalLeaveCallback.map(|f| f as usize))
+            .field("pfnDisableIgmpCallback", &self.pfnDisableIgmpCallback.map(|f| f as usize))
+            .field("pfnEnableIgmpCallback", &self.pfnEnableIgmpCallback.map(|f| f as usize))
             .finish()
     }
 }

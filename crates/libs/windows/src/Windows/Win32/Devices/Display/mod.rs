@@ -3250,7 +3250,7 @@ impl ::core::clone::Clone for DRIVEROBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRIVEROBJ {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRIVEROBJ").field("pvObj", &self.pvObj).field("pFreeProc", &self.pFreeProc).field("hdev", &self.hdev).field("dhpdev", &self.dhpdev).finish()
+        f.debug_struct("DRIVEROBJ").field("pvObj", &self.pvObj).field("pFreeProc", &self.pFreeProc.map(|f| f as usize)).field("hdev", &self.hdev).field("dhpdev", &self.dhpdev).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3317,7 +3317,7 @@ impl ::core::clone::Clone for DRVFN {
 }
 impl ::core::fmt::Debug for DRVFN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRVFN").field("iFunc", &self.iFunc).field("pfn", &self.pfn).finish()
+        f.debug_struct("DRVFN").field("iFunc", &self.iFunc).field("pfn", &self.pfn.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRVFN {
@@ -11828,7 +11828,7 @@ impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VIDEO_WIN32K_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VIDEO_WIN32K_CALLBACKS").field("PhysDisp", &self.PhysDisp).field("Callout", &self.Callout).field("bACPI", &self.bACPI).field("pPhysDeviceObject", &self.pPhysDeviceObject).field("DualviewFlags", &self.DualviewFlags).finish()
+        f.debug_struct("VIDEO_WIN32K_CALLBACKS").field("PhysDisp", &self.PhysDisp).field("Callout", &self.Callout.map(|f| f as usize)).field("bACPI", &self.bACPI).field("pPhysDeviceObject", &self.pPhysDeviceObject).field("DualviewFlags", &self.DualviewFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

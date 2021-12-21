@@ -30742,7 +30742,7 @@ impl ::core::clone::Clone for TEXT_SOURCE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TEXT_SOURCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TEXT_SOURCE").field("pfnFillTextBuffer", &self.pfnFillTextBuffer).field("awcBuffer", &self.awcBuffer).field("iEnd", &self.iEnd).field("iCur", &self.iCur).finish()
+        f.debug_struct("TEXT_SOURCE").field("pfnFillTextBuffer", &self.pfnFillTextBuffer.map(|f| f as usize)).field("awcBuffer", &self.awcBuffer).field("iEnd", &self.iEnd).field("iCur", &self.iCur).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

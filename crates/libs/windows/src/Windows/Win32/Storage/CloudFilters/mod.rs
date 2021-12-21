@@ -779,7 +779,7 @@ impl ::core::clone::Clone for CF_CALLBACK_REGISTRATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::fmt::Debug for CF_CALLBACK_REGISTRATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_REGISTRATION").field("Type", &self.Type).field("Callback", &self.Callback).finish()
+        f.debug_struct("CF_CALLBACK_REGISTRATION").field("Type", &self.Type).field("Callback", &self.Callback.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]

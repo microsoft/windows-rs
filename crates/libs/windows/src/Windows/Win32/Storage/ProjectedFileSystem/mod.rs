@@ -24,14 +24,14 @@ impl ::core::clone::Clone for PRJ_CALLBACKS {
 impl ::core::fmt::Debug for PRJ_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PRJ_CALLBACKS")
-            .field("StartDirectoryEnumerationCallback", &self.StartDirectoryEnumerationCallback)
-            .field("EndDirectoryEnumerationCallback", &self.EndDirectoryEnumerationCallback)
-            .field("GetDirectoryEnumerationCallback", &self.GetDirectoryEnumerationCallback)
-            .field("GetPlaceholderInfoCallback", &self.GetPlaceholderInfoCallback)
-            .field("GetFileDataCallback", &self.GetFileDataCallback)
-            .field("QueryFileNameCallback", &self.QueryFileNameCallback)
-            .field("NotificationCallback", &self.NotificationCallback)
-            .field("CancelCommandCallback", &self.CancelCommandCallback)
+            .field("StartDirectoryEnumerationCallback", &self.StartDirectoryEnumerationCallback.map(|f| f as usize))
+            .field("EndDirectoryEnumerationCallback", &self.EndDirectoryEnumerationCallback.map(|f| f as usize))
+            .field("GetDirectoryEnumerationCallback", &self.GetDirectoryEnumerationCallback.map(|f| f as usize))
+            .field("GetPlaceholderInfoCallback", &self.GetPlaceholderInfoCallback.map(|f| f as usize))
+            .field("GetFileDataCallback", &self.GetFileDataCallback.map(|f| f as usize))
+            .field("QueryFileNameCallback", &self.QueryFileNameCallback.map(|f| f as usize))
+            .field("NotificationCallback", &self.NotificationCallback.map(|f| f as usize))
+            .field("CancelCommandCallback", &self.CancelCommandCallback.map(|f| f as usize))
             .finish()
     }
 }

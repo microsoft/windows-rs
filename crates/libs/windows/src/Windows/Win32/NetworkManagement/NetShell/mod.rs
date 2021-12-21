@@ -21,7 +21,7 @@ impl ::core::clone::Clone for CMD_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMD_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("pfnCmdHandler", &self.pfnCmdHandler).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).field("pOsVersionCheck", &self.pOsVersionCheck).finish()
+        f.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("pfnCmdHandler", &self.pfnCmdHandler.map(|f| f as usize)).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).field("pOsVersionCheck", &self.pOsVersionCheck.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -64,7 +64,7 @@ impl ::core::clone::Clone for CMD_GROUP_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).field("pOsVersionCheck", &self.pOsVersionCheck).finish()
+        f.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).field("pOsVersionCheck", &self.pOsVersionCheck.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

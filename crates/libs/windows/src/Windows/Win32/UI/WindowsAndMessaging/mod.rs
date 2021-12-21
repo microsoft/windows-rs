@@ -7689,7 +7689,7 @@ impl ::core::clone::Clone for MSGBOXPARAMSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::fmt::Debug for MSGBOXPARAMSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSGBOXPARAMSA").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("lpfnMsgBoxCallback", &self.lpfnMsgBoxCallback).field("dwLanguageId", &self.dwLanguageId).finish()
+        f.debug_struct("MSGBOXPARAMSA").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("lpfnMsgBoxCallback", &self.lpfnMsgBoxCallback.map(|f| f as usize)).field("dwLanguageId", &self.dwLanguageId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -7736,7 +7736,7 @@ impl ::core::clone::Clone for MSGBOXPARAMSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::fmt::Debug for MSGBOXPARAMSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSGBOXPARAMSW").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("lpfnMsgBoxCallback", &self.lpfnMsgBoxCallback).field("dwLanguageId", &self.dwLanguageId).finish()
+        f.debug_struct("MSGBOXPARAMSW").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("lpfnMsgBoxCallback", &self.lpfnMsgBoxCallback.map(|f| f as usize)).field("dwLanguageId", &self.dwLanguageId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -13538,7 +13538,7 @@ impl ::core::clone::Clone for WNDCLASSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNDCLASSA").field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
+        f.debug_struct("WNDCLASSA").field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc.map(|f| f as usize)).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13587,7 +13587,20 @@ impl ::core::clone::Clone for WNDCLASSEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSEXA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNDCLASSEXA").field("cbSize", &self.cbSize).field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
+        f.debug_struct("WNDCLASSEXA")
+            .field("cbSize", &self.cbSize)
+            .field("style", &self.style)
+            .field("lpfnWndProc", &self.lpfnWndProc.map(|f| f as usize))
+            .field("cbClsExtra", &self.cbClsExtra)
+            .field("cbWndExtra", &self.cbWndExtra)
+            .field("hInstance", &self.hInstance)
+            .field("hIcon", &self.hIcon)
+            .field("hCursor", &self.hCursor)
+            .field("hbrBackground", &self.hbrBackground)
+            .field("lpszMenuName", &self.lpszMenuName)
+            .field("lpszClassName", &self.lpszClassName)
+            .field("hIconSm", &self.hIconSm)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13636,7 +13649,20 @@ impl ::core::clone::Clone for WNDCLASSEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSEXW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNDCLASSEXW").field("cbSize", &self.cbSize).field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
+        f.debug_struct("WNDCLASSEXW")
+            .field("cbSize", &self.cbSize)
+            .field("style", &self.style)
+            .field("lpfnWndProc", &self.lpfnWndProc.map(|f| f as usize))
+            .field("cbClsExtra", &self.cbClsExtra)
+            .field("cbWndExtra", &self.cbWndExtra)
+            .field("hInstance", &self.hInstance)
+            .field("hIcon", &self.hIcon)
+            .field("hCursor", &self.hCursor)
+            .field("hbrBackground", &self.hbrBackground)
+            .field("lpszMenuName", &self.lpszMenuName)
+            .field("lpszClassName", &self.lpszClassName)
+            .field("hIconSm", &self.hIconSm)
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13683,7 +13709,7 @@ impl ::core::clone::Clone for WNDCLASSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNDCLASSW").field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
+        f.debug_struct("WNDCLASSW").field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc.map(|f| f as usize)).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

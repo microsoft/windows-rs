@@ -11856,7 +11856,21 @@ impl ::core::clone::Clone for MI_MethodDecl {
 }
 impl ::core::fmt::Debug for MI_MethodDecl {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_MethodDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("parameters", &self.parameters).field("numParameters", &self.numParameters).field("size", &self.size).field("returnType", &self.returnType).field("origin", &self.origin).field("propagator", &self.propagator).field("schema", &self.schema).field("function", &self.function).finish()
+        f.debug_struct("MI_MethodDecl")
+            .field("flags", &self.flags)
+            .field("code", &self.code)
+            .field("name", &self.name)
+            .field("qualifiers", &self.qualifiers)
+            .field("numQualifiers", &self.numQualifiers)
+            .field("parameters", &self.parameters)
+            .field("numParameters", &self.numParameters)
+            .field("size", &self.size)
+            .field("returnType", &self.returnType)
+            .field("origin", &self.origin)
+            .field("propagator", &self.propagator)
+            .field("schema", &self.schema)
+            .field("function", &self.function.map(|f| f as usize))
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_MethodDecl {
@@ -11895,7 +11909,7 @@ impl ::core::clone::Clone for MI_Module {
 }
 impl ::core::fmt::Debug for MI_Module {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_Module").field("version", &self.version).field("generatorVersion", &self.generatorVersion).field("flags", &self.flags).field("charSize", &self.charSize).field("schemaDecl", &self.schemaDecl).field("Load", &self.Load).field("Unload", &self.Unload).field("dynamicProviderFT", &self.dynamicProviderFT).finish()
+        f.debug_struct("MI_Module").field("version", &self.version).field("generatorVersion", &self.generatorVersion).field("flags", &self.flags).field("charSize", &self.charSize).field("schemaDecl", &self.schemaDecl).field("Load", &self.Load.map(|f| f as usize)).field("Unload", &self.Unload.map(|f| f as usize)).field("dynamicProviderFT", &self.dynamicProviderFT).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Module {
@@ -12056,7 +12070,17 @@ impl ::core::clone::Clone for MI_OperationCallbacks {
 }
 impl ::core::fmt::Debug for MI_OperationCallbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_OperationCallbacks").field("callbackContext", &self.callbackContext).field("promptUser", &self.promptUser).field("writeError", &self.writeError).field("writeMessage", &self.writeMessage).field("writeProgress", &self.writeProgress).field("instanceResult", &self.instanceResult).field("indicationResult", &self.indicationResult).field("classResult", &self.classResult).field("streamedParameterResult", &self.streamedParameterResult).finish()
+        f.debug_struct("MI_OperationCallbacks")
+            .field("callbackContext", &self.callbackContext)
+            .field("promptUser", &self.promptUser.map(|f| f as usize))
+            .field("writeError", &self.writeError.map(|f| f as usize))
+            .field("writeMessage", &self.writeMessage.map(|f| f as usize))
+            .field("writeProgress", &self.writeProgress.map(|f| f as usize))
+            .field("instanceResult", &self.instanceResult.map(|f| f as usize))
+            .field("indicationResult", &self.indicationResult.map(|f| f as usize))
+            .field("classResult", &self.classResult.map(|f| f as usize))
+            .field("streamedParameterResult", &self.streamedParameterResult.map(|f| f as usize))
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_OperationCallbacks {
@@ -12447,20 +12471,20 @@ impl ::core::clone::Clone for MI_ProviderFT {
 impl ::core::fmt::Debug for MI_ProviderFT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MI_ProviderFT")
-            .field("Load", &self.Load)
-            .field("Unload", &self.Unload)
-            .field("GetInstance", &self.GetInstance)
-            .field("EnumerateInstances", &self.EnumerateInstances)
-            .field("CreateInstance", &self.CreateInstance)
-            .field("ModifyInstance", &self.ModifyInstance)
-            .field("DeleteInstance", &self.DeleteInstance)
-            .field("AssociatorInstances", &self.AssociatorInstances)
-            .field("ReferenceInstances", &self.ReferenceInstances)
-            .field("EnableIndications", &self.EnableIndications)
-            .field("DisableIndications", &self.DisableIndications)
-            .field("Subscribe", &self.Subscribe)
-            .field("Unsubscribe", &self.Unsubscribe)
-            .field("Invoke", &self.Invoke)
+            .field("Load", &self.Load.map(|f| f as usize))
+            .field("Unload", &self.Unload.map(|f| f as usize))
+            .field("GetInstance", &self.GetInstance.map(|f| f as usize))
+            .field("EnumerateInstances", &self.EnumerateInstances.map(|f| f as usize))
+            .field("CreateInstance", &self.CreateInstance.map(|f| f as usize))
+            .field("ModifyInstance", &self.ModifyInstance.map(|f| f as usize))
+            .field("DeleteInstance", &self.DeleteInstance.map(|f| f as usize))
+            .field("AssociatorInstances", &self.AssociatorInstances.map(|f| f as usize))
+            .field("ReferenceInstances", &self.ReferenceInstances.map(|f| f as usize))
+            .field("EnableIndications", &self.EnableIndications.map(|f| f as usize))
+            .field("DisableIndications", &self.DisableIndications.map(|f| f as usize))
+            .field("Subscribe", &self.Subscribe.map(|f| f as usize))
+            .field("Unsubscribe", &self.Unsubscribe.map(|f| f as usize))
+            .field("Invoke", &self.Invoke.map(|f| f as usize))
             .finish()
     }
 }

@@ -463,21 +463,21 @@ impl ::core::fmt::Debug for CRYPT_PROVIDER_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPT_PROVIDER_FUNCTIONS")
             .field("cbStruct", &self.cbStruct)
-            .field("pfnAlloc", &self.pfnAlloc)
-            .field("pfnFree", &self.pfnFree)
-            .field("pfnAddStore2Chain", &self.pfnAddStore2Chain)
-            .field("pfnAddSgnr2Chain", &self.pfnAddSgnr2Chain)
-            .field("pfnAddCert2Chain", &self.pfnAddCert2Chain)
-            .field("pfnAddPrivData2Chain", &self.pfnAddPrivData2Chain)
-            .field("pfnInitialize", &self.pfnInitialize)
-            .field("pfnObjectTrust", &self.pfnObjectTrust)
-            .field("pfnSignatureTrust", &self.pfnSignatureTrust)
-            .field("pfnCertificateTrust", &self.pfnCertificateTrust)
-            .field("pfnFinalPolicy", &self.pfnFinalPolicy)
-            .field("pfnCertCheckPolicy", &self.pfnCertCheckPolicy)
-            .field("pfnTestFinalPolicy", &self.pfnTestFinalPolicy)
+            .field("pfnAlloc", &self.pfnAlloc.map(|f| f as usize))
+            .field("pfnFree", &self.pfnFree.map(|f| f as usize))
+            .field("pfnAddStore2Chain", &self.pfnAddStore2Chain.map(|f| f as usize))
+            .field("pfnAddSgnr2Chain", &self.pfnAddSgnr2Chain.map(|f| f as usize))
+            .field("pfnAddCert2Chain", &self.pfnAddCert2Chain.map(|f| f as usize))
+            .field("pfnAddPrivData2Chain", &self.pfnAddPrivData2Chain.map(|f| f as usize))
+            .field("pfnInitialize", &self.pfnInitialize.map(|f| f as usize))
+            .field("pfnObjectTrust", &self.pfnObjectTrust.map(|f| f as usize))
+            .field("pfnSignatureTrust", &self.pfnSignatureTrust.map(|f| f as usize))
+            .field("pfnCertificateTrust", &self.pfnCertificateTrust.map(|f| f as usize))
+            .field("pfnFinalPolicy", &self.pfnFinalPolicy.map(|f| f as usize))
+            .field("pfnCertCheckPolicy", &self.pfnCertCheckPolicy.map(|f| f as usize))
+            .field("pfnTestFinalPolicy", &self.pfnTestFinalPolicy.map(|f| f as usize))
             .field("psUIpfns", &self.psUIpfns)
-            .field("pfnCleanupPolicy", &self.pfnCleanupPolicy)
+            .field("pfnCleanupPolicy", &self.pfnCleanupPolicy.map(|f| f as usize))
             .finish()
     }
 }
@@ -761,7 +761,7 @@ impl ::core::clone::Clone for CRYPT_PROVUI_FUNCS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::fmt::Debug for CRYPT_PROVUI_FUNCS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_PROVUI_FUNCS").field("cbStruct", &self.cbStruct).field("psUIData", &self.psUIData).field("pfnOnMoreInfoClick", &self.pfnOnMoreInfoClick).field("pfnOnMoreInfoClickDefault", &self.pfnOnMoreInfoClickDefault).field("pfnOnAdvancedClick", &self.pfnOnAdvancedClick).field("pfnOnAdvancedClickDefault", &self.pfnOnAdvancedClickDefault).finish()
+        f.debug_struct("CRYPT_PROVUI_FUNCS").field("cbStruct", &self.cbStruct).field("psUIData", &self.psUIData).field("pfnOnMoreInfoClick", &self.pfnOnMoreInfoClick.map(|f| f as usize)).field("pfnOnMoreInfoClickDefault", &self.pfnOnMoreInfoClickDefault.map(|f| f as usize)).field("pfnOnAdvancedClick", &self.pfnOnAdvancedClick.map(|f| f as usize)).field("pfnOnAdvancedClickDefault", &self.pfnOnAdvancedClickDefault.map(|f| f as usize)).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]

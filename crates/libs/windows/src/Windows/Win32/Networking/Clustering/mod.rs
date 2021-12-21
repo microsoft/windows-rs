@@ -604,21 +604,21 @@ impl ::core::clone::Clone for CLRES_CALLBACK_FUNCTION_TABLE {
 impl ::core::fmt::Debug for CLRES_CALLBACK_FUNCTION_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CLRES_CALLBACK_FUNCTION_TABLE")
-            .field("LogEvent", &self.LogEvent)
-            .field("SetResourceStatusEx", &self.SetResourceStatusEx)
-            .field("SetResourceLockedMode", &self.SetResourceLockedMode)
-            .field("SignalFailure", &self.SignalFailure)
-            .field("SetResourceInMemoryNodeLocalProperties", &self.SetResourceInMemoryNodeLocalProperties)
-            .field("EndControlCall", &self.EndControlCall)
-            .field("EndTypeControlCall", &self.EndTypeControlCall)
-            .field("ExtendControlCall", &self.ExtendControlCall)
-            .field("ExtendTypeControlCall", &self.ExtendTypeControlCall)
-            .field("RaiseResTypeNotification", &self.RaiseResTypeNotification)
-            .field("ChangeResourceProcessForDumps", &self.ChangeResourceProcessForDumps)
-            .field("ChangeResTypeProcessForDumps", &self.ChangeResTypeProcessForDumps)
-            .field("SetInternalState", &self.SetInternalState)
-            .field("SetResourceLockedModeEx", &self.SetResourceLockedModeEx)
-            .field("RequestDump", &self.RequestDump)
+            .field("LogEvent", &self.LogEvent.map(|f| f as usize))
+            .field("SetResourceStatusEx", &self.SetResourceStatusEx.map(|f| f as usize))
+            .field("SetResourceLockedMode", &self.SetResourceLockedMode.map(|f| f as usize))
+            .field("SignalFailure", &self.SignalFailure.map(|f| f as usize))
+            .field("SetResourceInMemoryNodeLocalProperties", &self.SetResourceInMemoryNodeLocalProperties.map(|f| f as usize))
+            .field("EndControlCall", &self.EndControlCall.map(|f| f as usize))
+            .field("EndTypeControlCall", &self.EndTypeControlCall.map(|f| f as usize))
+            .field("ExtendControlCall", &self.ExtendControlCall.map(|f| f as usize))
+            .field("ExtendTypeControlCall", &self.ExtendTypeControlCall.map(|f| f as usize))
+            .field("RaiseResTypeNotification", &self.RaiseResTypeNotification.map(|f| f as usize))
+            .field("ChangeResourceProcessForDumps", &self.ChangeResourceProcessForDumps.map(|f| f as usize))
+            .field("ChangeResTypeProcessForDumps", &self.ChangeResTypeProcessForDumps.map(|f| f as usize))
+            .field("SetInternalState", &self.SetInternalState.map(|f| f as usize))
+            .field("SetResourceLockedModeEx", &self.SetResourceLockedModeEx.map(|f| f as usize))
+            .field("RequestDump", &self.RequestDump.map(|f| f as usize))
             .finish()
     }
 }
@@ -736,7 +736,19 @@ impl ::core::clone::Clone for CLRES_V1_FUNCTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::fmt::Debug for CLRES_V1_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLRES_V1_FUNCTIONS").field("Open", &self.Open).field("Close", &self.Close).field("Online", &self.Online).field("Offline", &self.Offline).field("Terminate", &self.Terminate).field("LooksAlive", &self.LooksAlive).field("IsAlive", &self.IsAlive).field("Arbitrate", &self.Arbitrate).field("Release", &self.Release).field("ResourceControl", &self.ResourceControl).field("ResourceTypeControl", &self.ResourceTypeControl).finish()
+        f.debug_struct("CLRES_V1_FUNCTIONS")
+            .field("Open", &self.Open.map(|f| f as usize))
+            .field("Close", &self.Close.map(|f| f as usize))
+            .field("Online", &self.Online.map(|f| f as usize))
+            .field("Offline", &self.Offline.map(|f| f as usize))
+            .field("Terminate", &self.Terminate.map(|f| f as usize))
+            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
+            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
+            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
+            .field("Release", &self.Release.map(|f| f as usize))
+            .field("ResourceControl", &self.ResourceControl.map(|f| f as usize))
+            .field("ResourceTypeControl", &self.ResourceTypeControl.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -785,7 +797,20 @@ impl ::core::clone::Clone for CLRES_V2_FUNCTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::fmt::Debug for CLRES_V2_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLRES_V2_FUNCTIONS").field("Open", &self.Open).field("Close", &self.Close).field("Online", &self.Online).field("Offline", &self.Offline).field("Terminate", &self.Terminate).field("LooksAlive", &self.LooksAlive).field("IsAlive", &self.IsAlive).field("Arbitrate", &self.Arbitrate).field("Release", &self.Release).field("ResourceControl", &self.ResourceControl).field("ResourceTypeControl", &self.ResourceTypeControl).field("Cancel", &self.Cancel).finish()
+        f.debug_struct("CLRES_V2_FUNCTIONS")
+            .field("Open", &self.Open.map(|f| f as usize))
+            .field("Close", &self.Close.map(|f| f as usize))
+            .field("Online", &self.Online.map(|f| f as usize))
+            .field("Offline", &self.Offline.map(|f| f as usize))
+            .field("Terminate", &self.Terminate.map(|f| f as usize))
+            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
+            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
+            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
+            .field("Release", &self.Release.map(|f| f as usize))
+            .field("ResourceControl", &self.ResourceControl.map(|f| f as usize))
+            .field("ResourceTypeControl", &self.ResourceTypeControl.map(|f| f as usize))
+            .field("Cancel", &self.Cancel.map(|f| f as usize))
+            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -835,18 +860,18 @@ impl ::core::clone::Clone for CLRES_V3_FUNCTIONS {
 impl ::core::fmt::Debug for CLRES_V3_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CLRES_V3_FUNCTIONS")
-            .field("Open", &self.Open)
-            .field("Close", &self.Close)
-            .field("Online", &self.Online)
-            .field("Offline", &self.Offline)
-            .field("Terminate", &self.Terminate)
-            .field("LooksAlive", &self.LooksAlive)
-            .field("IsAlive", &self.IsAlive)
-            .field("Arbitrate", &self.Arbitrate)
-            .field("Release", &self.Release)
-            .field("BeginResourceControl", &self.BeginResourceControl)
-            .field("BeginResourceTypeControl", &self.BeginResourceTypeControl)
-            .field("Cancel", &self.Cancel)
+            .field("Open", &self.Open.map(|f| f as usize))
+            .field("Close", &self.Close.map(|f| f as usize))
+            .field("Online", &self.Online.map(|f| f as usize))
+            .field("Offline", &self.Offline.map(|f| f as usize))
+            .field("Terminate", &self.Terminate.map(|f| f as usize))
+            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
+            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
+            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
+            .field("Release", &self.Release.map(|f| f as usize))
+            .field("BeginResourceControl", &self.BeginResourceControl.map(|f| f as usize))
+            .field("BeginResourceTypeControl", &self.BeginResourceTypeControl.map(|f| f as usize))
+            .field("Cancel", &self.Cancel.map(|f| f as usize))
             .finish()
     }
 }
@@ -899,20 +924,20 @@ impl ::core::clone::Clone for CLRES_V4_FUNCTIONS {
 impl ::core::fmt::Debug for CLRES_V4_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CLRES_V4_FUNCTIONS")
-            .field("Open", &self.Open)
-            .field("Close", &self.Close)
-            .field("Online", &self.Online)
-            .field("Offline", &self.Offline)
-            .field("Terminate", &self.Terminate)
-            .field("LooksAlive", &self.LooksAlive)
-            .field("IsAlive", &self.IsAlive)
-            .field("Arbitrate", &self.Arbitrate)
-            .field("Release", &self.Release)
-            .field("BeginResourceControl", &self.BeginResourceControl)
-            .field("BeginResourceTypeControl", &self.BeginResourceTypeControl)
-            .field("Cancel", &self.Cancel)
-            .field("BeginResourceControlAsUser", &self.BeginResourceControlAsUser)
-            .field("BeginResourceTypeControlAsUser", &self.BeginResourceTypeControlAsUser)
+            .field("Open", &self.Open.map(|f| f as usize))
+            .field("Close", &self.Close.map(|f| f as usize))
+            .field("Online", &self.Online.map(|f| f as usize))
+            .field("Offline", &self.Offline.map(|f| f as usize))
+            .field("Terminate", &self.Terminate.map(|f| f as usize))
+            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
+            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
+            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
+            .field("Release", &self.Release.map(|f| f as usize))
+            .field("BeginResourceControl", &self.BeginResourceControl.map(|f| f as usize))
+            .field("BeginResourceTypeControl", &self.BeginResourceTypeControl.map(|f| f as usize))
+            .field("Cancel", &self.Cancel.map(|f| f as usize))
+            .field("BeginResourceControlAsUser", &self.BeginResourceControlAsUser.map(|f| f as usize))
+            .field("BeginResourceTypeControlAsUser", &self.BeginResourceTypeControlAsUser.map(|f| f as usize))
             .finish()
     }
 }

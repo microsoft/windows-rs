@@ -5169,7 +5169,7 @@ impl ::core::clone::Clone for USB_IDLE_CALLBACK_INFO {
 }
 impl ::core::fmt::Debug for USB_IDLE_CALLBACK_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USB_IDLE_CALLBACK_INFO").field("IdleCallback", &self.IdleCallback).field("IdleContext", &self.IdleContext).finish()
+        f.debug_struct("USB_IDLE_CALLBACK_INFO").field("IdleCallback", &self.IdleCallback.map(|f| f as usize)).field("IdleContext", &self.IdleContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_IDLE_CALLBACK_INFO {

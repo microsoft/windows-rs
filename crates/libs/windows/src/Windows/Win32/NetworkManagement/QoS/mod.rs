@@ -1591,7 +1591,7 @@ impl ::core::clone::Clone for LPM_INIT_INFO {
 }
 impl ::core::fmt::Debug for LPM_INIT_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LPM_INIT_INFO").field("PcmVersionNumber", &self.PcmVersionNumber).field("ResultTimeLimit", &self.ResultTimeLimit).field("ConfiguredLpmCount", &self.ConfiguredLpmCount).field("AllocMemory", &self.AllocMemory).field("FreeMemory", &self.FreeMemory).field("PcmAdmitResultCallback", &self.PcmAdmitResultCallback).field("GetRsvpObjectsCallback", &self.GetRsvpObjectsCallback).finish()
+        f.debug_struct("LPM_INIT_INFO").field("PcmVersionNumber", &self.PcmVersionNumber).field("ResultTimeLimit", &self.ResultTimeLimit).field("ConfiguredLpmCount", &self.ConfiguredLpmCount).field("AllocMemory", &self.AllocMemory.map(|f| f as usize)).field("FreeMemory", &self.FreeMemory.map(|f| f as usize)).field("PcmAdmitResultCallback", &self.PcmAdmitResultCallback.map(|f| f as usize)).field("GetRsvpObjectsCallback", &self.GetRsvpObjectsCallback.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for LPM_INIT_INFO {
@@ -4115,7 +4115,7 @@ impl ::core::clone::Clone for TCI_CLIENT_FUNC_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TCI_CLIENT_FUNC_LIST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TCI_CLIENT_FUNC_LIST").field("ClNotifyHandler", &self.ClNotifyHandler).field("ClAddFlowCompleteHandler", &self.ClAddFlowCompleteHandler).field("ClModifyFlowCompleteHandler", &self.ClModifyFlowCompleteHandler).field("ClDeleteFlowCompleteHandler", &self.ClDeleteFlowCompleteHandler).finish()
+        f.debug_struct("TCI_CLIENT_FUNC_LIST").field("ClNotifyHandler", &self.ClNotifyHandler.map(|f| f as usize)).field("ClAddFlowCompleteHandler", &self.ClAddFlowCompleteHandler.map(|f| f as usize)).field("ClModifyFlowCompleteHandler", &self.ClModifyFlowCompleteHandler.map(|f| f as usize)).field("ClDeleteFlowCompleteHandler", &self.ClDeleteFlowCompleteHandler.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -259,7 +259,7 @@ impl ::core::clone::Clone for CHANNEL_ENTRY_POINTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHANNEL_ENTRY_POINTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHANNEL_ENTRY_POINTS").field("cbSize", &self.cbSize).field("protocolVersion", &self.protocolVersion).field("pVirtualChannelInit", &self.pVirtualChannelInit).field("pVirtualChannelOpen", &self.pVirtualChannelOpen).field("pVirtualChannelClose", &self.pVirtualChannelClose).field("pVirtualChannelWrite", &self.pVirtualChannelWrite).finish()
+        f.debug_struct("CHANNEL_ENTRY_POINTS").field("cbSize", &self.cbSize).field("protocolVersion", &self.protocolVersion).field("pVirtualChannelInit", &self.pVirtualChannelInit.map(|f| f as usize)).field("pVirtualChannelOpen", &self.pVirtualChannelOpen.map(|f| f as usize)).field("pVirtualChannelClose", &self.pVirtualChannelClose.map(|f| f as usize)).field("pVirtualChannelWrite", &self.pVirtualChannelWrite.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

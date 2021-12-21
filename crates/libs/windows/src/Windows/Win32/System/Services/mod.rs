@@ -1847,7 +1847,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_1 {
 }
 impl ::core::fmt::Debug for SERVICE_NOTIFY_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_1").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).finish()
+        f.debug_struct("SERVICE_NOTIFY_1").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_1 {
@@ -1887,7 +1887,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVICE_NOTIFY_2A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
+        f.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1931,7 +1931,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVICE_NOTIFY_2W {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
+        f.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2418,7 +2418,7 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TABLE_ENTRYA").field("lpServiceName", &self.lpServiceName).field("lpServiceProc", &self.lpServiceProc).finish()
+        f.debug_struct("SERVICE_TABLE_ENTRYA").field("lpServiceName", &self.lpServiceName).field("lpServiceProc", &self.lpServiceProc.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2457,7 +2457,7 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TABLE_ENTRYW").field("lpServiceName", &self.lpServiceName).field("lpServiceProc", &self.lpServiceProc).finish()
+        f.debug_struct("SERVICE_TABLE_ENTRYW").field("lpServiceName", &self.lpServiceName).field("lpServiceProc", &self.lpServiceProc.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

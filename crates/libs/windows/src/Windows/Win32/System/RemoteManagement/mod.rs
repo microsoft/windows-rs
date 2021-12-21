@@ -4492,7 +4492,7 @@ impl ::core::clone::Clone for WSMAN_SHELL_ASYNC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSMAN_SHELL_ASYNC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_SHELL_ASYNC").field("operationContext", &self.operationContext).field("completionFunction", &self.completionFunction).finish()
+        f.debug_struct("WSMAN_SHELL_ASYNC").field("operationContext", &self.operationContext).field("completionFunction", &self.completionFunction.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

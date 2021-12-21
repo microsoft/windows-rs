@@ -5163,7 +5163,7 @@ impl ::core::clone::Clone for WSD_HANDLER_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_HANDLER_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSD_HANDLER_CONTEXT").field("Handler", &self.Handler).field("PVoid", &self.PVoid).field("Unknown", &self.Unknown).finish()
+        f.debug_struct("WSD_HANDLER_CONTEXT").field("Handler", &self.Handler.map(|f| f as usize)).field("PVoid", &self.PVoid).field("Unknown", &self.Unknown).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5523,7 +5523,7 @@ impl ::core::clone::Clone for WSD_OPERATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSD_OPERATION").field("RequestType", &self.RequestType).field("ResponseType", &self.ResponseType).field("RequestStubFunction", &self.RequestStubFunction).finish()
+        f.debug_struct("WSD_OPERATION").field("RequestType", &self.RequestType).field("ResponseType", &self.ResponseType).field("RequestStubFunction", &self.RequestStubFunction.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

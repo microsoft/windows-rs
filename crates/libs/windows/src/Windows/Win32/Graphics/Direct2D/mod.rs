@@ -2872,7 +2872,7 @@ impl ::core::clone::Clone for D2D1_PROPERTY_BINDING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D2D1_PROPERTY_BINDING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D2D1_PROPERTY_BINDING").field("propertyName", &self.propertyName).field("setFunction", &self.setFunction).field("getFunction", &self.getFunction).finish()
+        f.debug_struct("D2D1_PROPERTY_BINDING").field("propertyName", &self.propertyName).field("setFunction", &self.setFunction.map(|f| f as usize)).field("getFunction", &self.getFunction.map(|f| f as usize)).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

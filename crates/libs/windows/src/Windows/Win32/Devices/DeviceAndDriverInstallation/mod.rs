@@ -9596,7 +9596,7 @@ impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DETECTDEVICE_PARAMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_DETECTDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("DetectProgressNotify", &self.DetectProgressNotify).field("ProgressNotifyParam", &self.ProgressNotifyParam).finish()
+        f.debug_struct("SP_DETECTDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("DetectProgressNotify", &self.DetectProgressNotify.map(|f| f as usize)).field("ProgressNotifyParam", &self.ProgressNotifyParam).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9644,7 +9644,7 @@ impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DETECTDEVICE_PARAMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_DETECTDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("DetectProgressNotify", &self.DetectProgressNotify).field("ProgressNotifyParam", &self.ProgressNotifyParam).finish()
+        f.debug_struct("SP_DETECTDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("DetectProgressNotify", &self.DetectProgressNotify.map(|f| f as usize)).field("ProgressNotifyParam", &self.ProgressNotifyParam).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -10231,7 +10231,18 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_DEVINSTALL_PARAMS_A").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FlagsEx", &self.FlagsEx).field("hwndParent", &self.hwndParent).field("InstallMsgHandler", &self.InstallMsgHandler).field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext).field("FileQueue", &self.FileQueue).field("ClassInstallReserved", &self.ClassInstallReserved).field("Reserved", &self.Reserved).field("DriverPath", &self.DriverPath).finish()
+        f.debug_struct("SP_DEVINSTALL_PARAMS_A")
+            .field("cbSize", &self.cbSize)
+            .field("Flags", &self.Flags)
+            .field("FlagsEx", &self.FlagsEx)
+            .field("hwndParent", &self.hwndParent)
+            .field("InstallMsgHandler", &self.InstallMsgHandler.map(|f| f as usize))
+            .field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext)
+            .field("FileQueue", &self.FileQueue)
+            .field("ClassInstallReserved", &self.ClassInstallReserved)
+            .field("Reserved", &self.Reserved)
+            .field("DriverPath", &self.DriverPath)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10286,7 +10297,18 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_DEVINSTALL_PARAMS_A").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FlagsEx", &self.FlagsEx).field("hwndParent", &self.hwndParent).field("InstallMsgHandler", &self.InstallMsgHandler).field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext).field("FileQueue", &self.FileQueue).field("ClassInstallReserved", &self.ClassInstallReserved).field("Reserved", &self.Reserved).field("DriverPath", &self.DriverPath).finish()
+        f.debug_struct("SP_DEVINSTALL_PARAMS_A")
+            .field("cbSize", &self.cbSize)
+            .field("Flags", &self.Flags)
+            .field("FlagsEx", &self.FlagsEx)
+            .field("hwndParent", &self.hwndParent)
+            .field("InstallMsgHandler", &self.InstallMsgHandler.map(|f| f as usize))
+            .field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext)
+            .field("FileQueue", &self.FileQueue)
+            .field("ClassInstallReserved", &self.ClassInstallReserved)
+            .field("Reserved", &self.Reserved)
+            .field("DriverPath", &self.DriverPath)
+            .finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -10341,7 +10363,18 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_W {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_DEVINSTALL_PARAMS_W").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FlagsEx", &self.FlagsEx).field("hwndParent", &self.hwndParent).field("InstallMsgHandler", &self.InstallMsgHandler).field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext).field("FileQueue", &self.FileQueue).field("ClassInstallReserved", &self.ClassInstallReserved).field("Reserved", &self.Reserved).field("DriverPath", &self.DriverPath).finish()
+        f.debug_struct("SP_DEVINSTALL_PARAMS_W")
+            .field("cbSize", &self.cbSize)
+            .field("Flags", &self.Flags)
+            .field("FlagsEx", &self.FlagsEx)
+            .field("hwndParent", &self.hwndParent)
+            .field("InstallMsgHandler", &self.InstallMsgHandler.map(|f| f as usize))
+            .field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext)
+            .field("FileQueue", &self.FileQueue)
+            .field("ClassInstallReserved", &self.ClassInstallReserved)
+            .field("Reserved", &self.Reserved)
+            .field("DriverPath", &self.DriverPath)
+            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10396,7 +10429,18 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_W {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_DEVINSTALL_PARAMS_W").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FlagsEx", &self.FlagsEx).field("hwndParent", &self.hwndParent).field("InstallMsgHandler", &self.InstallMsgHandler).field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext).field("FileQueue", &self.FileQueue).field("ClassInstallReserved", &self.ClassInstallReserved).field("Reserved", &self.Reserved).field("DriverPath", &self.DriverPath).finish()
+        f.debug_struct("SP_DEVINSTALL_PARAMS_W")
+            .field("cbSize", &self.cbSize)
+            .field("Flags", &self.Flags)
+            .field("FlagsEx", &self.FlagsEx)
+            .field("hwndParent", &self.hwndParent)
+            .field("InstallMsgHandler", &self.InstallMsgHandler.map(|f| f as usize))
+            .field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext)
+            .field("FileQueue", &self.FileQueue)
+            .field("ClassInstallReserved", &self.ClassInstallReserved)
+            .field("Reserved", &self.Reserved)
+            .field("DriverPath", &self.DriverPath)
+            .finish()
     }
 }
 #[cfg(target_arch = "x86")]

@@ -53,7 +53,6 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
                     *self
                 }
             }
-            #debug
         }
     } else {
         let fields = fields.iter().map(|(field_name, value)| {
