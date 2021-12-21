@@ -303,11 +303,6 @@ impl ::core::clone::Clone for D2D_MATRIX_3X2_F {
         *self
     }
 }
-impl ::core::fmt::Debug for D2D_MATRIX_3X2_F {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D2D_MATRIX_3X2_F").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F {
     type Abi = Self;
 }
@@ -430,11 +425,6 @@ impl ::core::clone::Clone for D2D_MATRIX_4X3_F {
         *self
     }
 }
-impl ::core::fmt::Debug for D2D_MATRIX_4X3_F {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D2D_MATRIX_4X3_F").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F {
     type Abi = Self;
 }
@@ -525,11 +515,6 @@ impl ::core::marker::Copy for D2D_MATRIX_4X4_F {}
 impl ::core::clone::Clone for D2D_MATRIX_4X4_F {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for D2D_MATRIX_4X4_F {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D2D_MATRIX_4X4_F").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F {
@@ -626,11 +611,6 @@ impl ::core::marker::Copy for D2D_MATRIX_5X4_F {}
 impl ::core::clone::Clone for D2D_MATRIX_5X4_F {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for D2D_MATRIX_5X4_F {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D2D_MATRIX_5X4_F").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F {

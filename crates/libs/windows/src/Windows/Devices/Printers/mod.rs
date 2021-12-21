@@ -489,11 +489,6 @@ impl ::core::clone::Clone for IppAttributeErrorReason {
         *self
     }
 }
-impl ::core::fmt::Debug for IppAttributeErrorReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IppAttributeErrorReason {
     type Abi = Self;
 }
@@ -503,6 +498,11 @@ impl ::core::cmp::PartialEq for IppAttributeErrorReason {
     }
 }
 impl ::core::cmp::Eq for IppAttributeErrorReason {}
+impl ::core::fmt::Debug for IppAttributeErrorReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppAttributeErrorReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
 }
@@ -1084,11 +1084,6 @@ impl ::core::clone::Clone for IppAttributeValueKind {
         *self
     }
 }
-impl ::core::fmt::Debug for IppAttributeValueKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IppAttributeValueKind {
     type Abi = Self;
 }
@@ -1098,6 +1093,11 @@ impl ::core::cmp::PartialEq for IppAttributeValueKind {
     }
 }
 impl ::core::cmp::Eq for IppAttributeValueKind {}
+impl ::core::fmt::Debug for IppAttributeValueKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppAttributeValueKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
 }
@@ -1453,11 +1453,6 @@ impl ::core::clone::Clone for IppResolutionUnit {
         *self
     }
 }
-impl ::core::fmt::Debug for IppResolutionUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IppResolutionUnit {
     type Abi = Self;
 }
@@ -1467,6 +1462,11 @@ impl ::core::cmp::PartialEq for IppResolutionUnit {
     }
 }
 impl ::core::cmp::Eq for IppResolutionUnit {}
+impl ::core::fmt::Debug for IppResolutionUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IppResolutionUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
 }

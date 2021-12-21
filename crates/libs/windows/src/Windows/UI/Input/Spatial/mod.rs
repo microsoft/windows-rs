@@ -1339,11 +1339,6 @@ impl ::core::clone::Clone for SpatialGestureSettings {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialGestureSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialGestureSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialGestureSettings {
     type Abi = Self;
 }
@@ -1353,6 +1348,11 @@ impl ::core::cmp::PartialEq for SpatialGestureSettings {
     }
 }
 impl ::core::cmp::Eq for SpatialGestureSettings {}
+impl ::core::fmt::Debug for SpatialGestureSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialGestureSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialGestureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialGestureSettings;u4)");
 }
@@ -2280,11 +2280,6 @@ impl ::core::clone::Clone for SpatialInteractionPressKind {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialInteractionPressKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionPressKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialInteractionPressKind {
     type Abi = Self;
 }
@@ -2294,6 +2289,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionPressKind {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionPressKind {}
+impl ::core::fmt::Debug for SpatialInteractionPressKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionPressKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionPressKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
 }
@@ -2559,11 +2559,6 @@ impl ::core::clone::Clone for SpatialInteractionSourceHandedness {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialInteractionSourceHandedness {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceHandedness").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceHandedness {
     type Abi = Self;
 }
@@ -2573,6 +2568,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionSourceHandedness {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionSourceHandedness {}
+impl ::core::fmt::Debug for SpatialInteractionSourceHandedness {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourceHandedness").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceHandedness {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
 }
@@ -2594,11 +2594,6 @@ impl ::core::clone::Clone for SpatialInteractionSourceKind {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialInteractionSourceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceKind {
     type Abi = Self;
 }
@@ -2608,6 +2603,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionSourceKind {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionSourceKind {}
+impl ::core::fmt::Debug for SpatialInteractionSourceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
 }
@@ -2752,11 +2752,6 @@ impl ::core::clone::Clone for SpatialInteractionSourcePositionAccuracy {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialInteractionSourcePositionAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourcePositionAccuracy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialInteractionSourcePositionAccuracy {
     type Abi = Self;
 }
@@ -2766,6 +2761,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionSourcePositionAccuracy {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionSourcePositionAccuracy {}
+impl ::core::fmt::Debug for SpatialInteractionSourcePositionAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourcePositionAccuracy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourcePositionAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");
 }

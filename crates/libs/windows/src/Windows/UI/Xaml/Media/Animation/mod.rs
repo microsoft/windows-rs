@@ -813,11 +813,6 @@ impl ::core::clone::Clone for ClockState {
         *self
     }
 }
-impl ::core::fmt::Debug for ClockState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClockState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ClockState {
     type Abi = Self;
 }
@@ -827,6 +822,11 @@ impl ::core::cmp::PartialEq for ClockState {
     }
 }
 impl ::core::cmp::Eq for ClockState {}
+impl ::core::fmt::Debug for ClockState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClockState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClockState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.ClockState;i4)");
 }
@@ -1941,11 +1941,6 @@ impl ::core::clone::Clone for ConnectedAnimationComponent {
         *self
     }
 }
-impl ::core::fmt::Debug for ConnectedAnimationComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectedAnimationComponent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ConnectedAnimationComponent {
     type Abi = Self;
 }
@@ -1955,6 +1950,11 @@ impl ::core::cmp::PartialEq for ConnectedAnimationComponent {
     }
 }
 impl ::core::cmp::Eq for ConnectedAnimationComponent {}
+impl ::core::fmt::Debug for ConnectedAnimationComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectedAnimationComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectedAnimationComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.ConnectedAnimationComponent;i4)");
 }
@@ -5460,11 +5460,6 @@ impl ::core::clone::Clone for EasingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for EasingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EasingMode {
     type Abi = Self;
 }
@@ -5474,6 +5469,11 @@ impl ::core::cmp::PartialEq for EasingMode {
     }
 }
 impl ::core::cmp::Eq for EasingMode {}
+impl ::core::fmt::Debug for EasingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EasingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.EasingMode;i4)");
 }
@@ -6713,11 +6713,6 @@ impl ::core::clone::Clone for FillBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for FillBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FillBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FillBehavior {
     type Abi = Self;
 }
@@ -6727,6 +6722,11 @@ impl ::core::cmp::PartialEq for FillBehavior {
     }
 }
 impl ::core::cmp::Eq for FillBehavior {}
+impl ::core::fmt::Debug for FillBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FillBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FillBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.FillBehavior;i4)");
 }
@@ -13936,11 +13936,6 @@ impl ::core::clone::Clone for RepeatBehaviorType {
         *self
     }
 }
-impl ::core::fmt::Debug for RepeatBehaviorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RepeatBehaviorType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RepeatBehaviorType {
     type Abi = Self;
 }
@@ -13950,6 +13945,11 @@ impl ::core::cmp::PartialEq for RepeatBehaviorType {
     }
 }
 impl ::core::cmp::Eq for RepeatBehaviorType {}
+impl ::core::fmt::Debug for RepeatBehaviorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RepeatBehaviorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RepeatBehaviorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.RepeatBehaviorType;i4)");
 }
@@ -14420,11 +14420,6 @@ impl ::core::clone::Clone for SlideNavigationTransitionEffect {
         *self
     }
 }
-impl ::core::fmt::Debug for SlideNavigationTransitionEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SlideNavigationTransitionEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SlideNavigationTransitionEffect {
     type Abi = Self;
 }
@@ -14434,6 +14429,11 @@ impl ::core::cmp::PartialEq for SlideNavigationTransitionEffect {
     }
 }
 impl ::core::cmp::Eq for SlideNavigationTransitionEffect {}
+impl ::core::fmt::Debug for SlideNavigationTransitionEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SlideNavigationTransitionEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionEffect;i4)");
 }

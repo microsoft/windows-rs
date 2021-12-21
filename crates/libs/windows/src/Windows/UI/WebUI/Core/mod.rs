@@ -990,11 +990,6 @@ impl ::core::clone::Clone for WebUICommandBarClosedDisplayMode {
         *self
     }
 }
-impl ::core::fmt::Debug for WebUICommandBarClosedDisplayMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarClosedDisplayMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebUICommandBarClosedDisplayMode {
     type Abi = Self;
 }
@@ -1004,6 +999,11 @@ impl ::core::cmp::PartialEq for WebUICommandBarClosedDisplayMode {
     }
 }
 impl ::core::cmp::Eq for WebUICommandBarClosedDisplayMode {}
+impl ::core::fmt::Debug for WebUICommandBarClosedDisplayMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandBarClosedDisplayMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarClosedDisplayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.Core.WebUICommandBarClosedDisplayMode;i4)");
 }

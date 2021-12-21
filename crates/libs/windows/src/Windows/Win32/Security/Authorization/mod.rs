@@ -514,12 +514,6 @@ impl ::core::clone::Clone for ACTRL_OVERLAPPED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACTRL_OVERLAPPED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_OVERLAPPED").field("Anonymous", &self.Anonymous).field("Reserved2", &self.Reserved2).field("hEvent", &self.hEvent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_OVERLAPPED {
     type Abi = Self;
 }
@@ -882,12 +876,6 @@ impl ::core::clone::Clone for AUDIT_PARAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUDIT_PARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIT_PARAM").field("Type", &self.Type).field("Length", &self.Length).field("Flags", &self.Flags).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUDIT_PARAM {
     type Abi = Self;
 }
@@ -1200,12 +1188,6 @@ impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_AUDIT_EVENT_TYPE_OLD").field("Version", &self.Version).field("dwFlags", &self.dwFlags).field("RefCount", &self.RefCount).field("hAudit", &self.hAudit).field("LinkId", &self.LinkId).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     type Abi = Self;
 }
@@ -1495,12 +1477,6 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTES_INFORMATION").field("Version", &self.Version).field("Reserved", &self.Reserved).field("AttributeCount", &self.AttributeCount).field("Attribute", &self.Attribute).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     type Abi = Self;
 }
@@ -1678,12 +1654,6 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_V1").field("pName", &self.pName).field("ValueType", &self.ValueType).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("ValueCount", &self.ValueCount).field("Values", &self.Values).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     type Abi = Self;
 }
@@ -1772,22 +1742,6 @@ impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
 impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_SOURCE_SCHEMA_REGISTRATION")
-            .field("dwFlags", &self.dwFlags)
-            .field("szEventSourceName", &self.szEventSourceName)
-            .field("szEventMessageFile", &self.szEventMessageFile)
-            .field("szEventSourceXmlSchemaFile", &self.szEventSourceXmlSchemaFile)
-            .field("szEventAccessStringsFile", &self.szEventAccessStringsFile)
-            .field("szExecutableImagePath", &self.szExecutableImagePath)
-            .field("Anonymous", &self.Anonymous)
-            .field("dwObjectTypeNameCount", &self.dwObjectTypeNameCount)
-            .field("ObjectTypeNames", &self.ObjectTypeNames)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

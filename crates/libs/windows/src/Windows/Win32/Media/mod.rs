@@ -354,11 +354,6 @@ impl ::core::clone::Clone for MMTIME {
         *self
     }
 }
-impl ::core::fmt::Debug for MMTIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMTIME").field("wType", &self.wType).field("u", &self.u).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MMTIME {
     type Abi = Self;
 }
@@ -668,11 +663,6 @@ impl ::core::marker::Copy for TIMECODE_SAMPLE {}
 impl ::core::clone::Clone for TIMECODE_SAMPLE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for TIMECODE_SAMPLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TIMECODE_SAMPLE").field("qwTick", &self.qwTick).field("timecode", &self.timecode).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TIMECODE_SAMPLE {

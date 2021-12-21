@@ -447,11 +447,6 @@ impl ::core::clone::Clone for CLFS_MGMT_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLFS_MGMT_POLICY").field("Version", &self.Version).field("LengthInBytes", &self.LengthInBytes).field("PolicyFlags", &self.PolicyFlags).field("PolicyType", &self.PolicyType).field("PolicyParameters", &self.PolicyParameters).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY {
     type Abi = Self;
 }
@@ -1481,12 +1476,6 @@ impl ::core::marker::Copy for COPYFILE2_MESSAGE {}
 impl ::core::clone::Clone for COPYFILE2_MESSAGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COPYFILE2_MESSAGE").field("Type", &self.Type).field("dwPadding", &self.dwPadding).field("Info", &self.Info).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4388,11 +4377,6 @@ impl ::core::clone::Clone for FILE_ID_DESCRIPTOR {
         *self
     }
 }
-impl ::core::fmt::Debug for FILE_ID_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILE_ID_DESCRIPTOR").field("dwSize", &self.dwSize).field("Type", &self.Type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR {
     type Abi = Self;
 }
@@ -4871,22 +4855,6 @@ impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILE_REMOTE_PROTOCOL_INFO")
-            .field("StructureVersion", &self.StructureVersion)
-            .field("StructureSize", &self.StructureSize)
-            .field("Protocol", &self.Protocol)
-            .field("ProtocolMajorVersion", &self.ProtocolMajorVersion)
-            .field("ProtocolMinorVersion", &self.ProtocolMinorVersion)
-            .field("ProtocolRevision", &self.ProtocolRevision)
-            .field("Reserved", &self.Reserved)
-            .field("Flags", &self.Flags)
-            .field("GenericReserved", &self.GenericReserved)
-            .field("ProtocolSpecific", &self.ProtocolSpecific)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO {
     type Abi = Self;
 }
@@ -5064,12 +5032,6 @@ impl ::core::marker::Copy for FILE_RENAME_INFO {}
 impl ::core::clone::Clone for FILE_RENAME_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILE_RENAME_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILE_RENAME_INFO").field("Anonymous", &self.Anonymous).field("RootDirectory", &self.RootDirectory).field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7952,11 +7914,6 @@ impl ::core::clone::Clone for IORING_BUFFER_REF {
         *self
     }
 }
-impl ::core::fmt::Debug for IORING_BUFFER_REF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IORING_BUFFER_REF").field("Kind", &self.Kind).field("Buffer", &self.Buffer).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IORING_BUFFER_REF {
     type Abi = Self;
 }
@@ -8122,12 +8079,6 @@ impl ::core::marker::Copy for IORING_HANDLE_REF {}
 impl ::core::clone::Clone for IORING_HANDLE_REF {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IORING_HANDLE_REF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IORING_HANDLE_REF").field("Kind", &self.Kind).field("Handle", &self.Handle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9837,12 +9788,6 @@ impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_OBJECTINFORMATIONA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NTMS_I1_OBJECTINFORMATIONA").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("Created", &self.Created).field("Modified", &self.Modified).field("ObjectGuid", &self.ObjectGuid).field("Enabled", &self.Enabled).field("dwOperationalState", &self.dwOperationalState).field("szName", &self.szName).field("szDescription", &self.szDescription).field("Info", &self.Info).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA {
     type Abi = Self;
 }
@@ -9927,12 +9872,6 @@ impl ::core::marker::Copy for NTMS_I1_OBJECTINFORMATIONW {}
 impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_OBJECTINFORMATIONW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NTMS_I1_OBJECTINFORMATIONW").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("Created", &self.Created).field("Modified", &self.Modified).field("ObjectGuid", &self.ObjectGuid).field("Enabled", &self.Enabled).field("dwOperationalState", &self.dwOperationalState).field("szName", &self.szName).field("szDescription", &self.szDescription).field("Info", &self.Info).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10788,12 +10727,6 @@ impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_OBJECTINFORMATIONA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NTMS_OBJECTINFORMATIONA").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("Created", &self.Created).field("Modified", &self.Modified).field("ObjectGuid", &self.ObjectGuid).field("Enabled", &self.Enabled).field("dwOperationalState", &self.dwOperationalState).field("szName", &self.szName).field("szDescription", &self.szDescription).field("Info", &self.Info).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA {
     type Abi = Self;
 }
@@ -10879,12 +10812,6 @@ impl ::core::marker::Copy for NTMS_OBJECTINFORMATIONW {}
 impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_OBJECTINFORMATIONW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NTMS_OBJECTINFORMATIONW").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("Created", &self.Created).field("Modified", &self.Modified).field("ObjectGuid", &self.ObjectGuid).field("Enabled", &self.Enabled).field("dwOperationalState", &self.dwOperationalState).field("szName", &self.szName).field("szDescription", &self.szDescription).field("Info", &self.Info).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

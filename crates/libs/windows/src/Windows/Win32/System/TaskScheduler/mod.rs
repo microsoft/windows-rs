@@ -9227,29 +9227,6 @@ impl ::core::clone::Clone for TASK_TRIGGER {
         *self
     }
 }
-impl ::core::fmt::Debug for TASK_TRIGGER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TASK_TRIGGER")
-            .field("cbTriggerSize", &self.cbTriggerSize)
-            .field("Reserved1", &self.Reserved1)
-            .field("wBeginYear", &self.wBeginYear)
-            .field("wBeginMonth", &self.wBeginMonth)
-            .field("wBeginDay", &self.wBeginDay)
-            .field("wEndYear", &self.wEndYear)
-            .field("wEndMonth", &self.wEndMonth)
-            .field("wEndDay", &self.wEndDay)
-            .field("wStartHour", &self.wStartHour)
-            .field("wStartMinute", &self.wStartMinute)
-            .field("MinutesDuration", &self.MinutesDuration)
-            .field("MinutesInterval", &self.MinutesInterval)
-            .field("rgFlags", &self.rgFlags)
-            .field("TriggerType", &self.TriggerType)
-            .field("Type", &self.Type)
-            .field("Reserved2", &self.Reserved2)
-            .field("wRandomMinutesInterval", &self.wRandomMinutesInterval)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TASK_TRIGGER {
     type Abi = Self;
 }

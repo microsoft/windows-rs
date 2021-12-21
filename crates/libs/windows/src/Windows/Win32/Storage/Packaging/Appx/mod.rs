@@ -7458,12 +7458,6 @@ impl ::core::clone::Clone for PACKAGE_ID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PACKAGE_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PACKAGE_ID").field("reserved", &self.reserved).field("processorArchitecture", &self.processorArchitecture).field("version", &self.version).field("name", &self.name).field("publisher", &self.publisher).field("resourceId", &self.resourceId).field("publisherId", &self.publisherId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PACKAGE_ID {
     type Abi = Self;
 }
@@ -7498,12 +7492,6 @@ impl ::core::marker::Copy for PACKAGE_INFO {}
 impl ::core::clone::Clone for PACKAGE_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PACKAGE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PACKAGE_INFO").field("reserved", &self.reserved).field("flags", &self.flags).field("path", &self.path).field("packageFullName", &self.packageFullName).field("packageFamilyName", &self.packageFamilyName).field("packageId", &self.packageId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7555,11 +7543,6 @@ impl ::core::marker::Copy for PACKAGE_VERSION {}
 impl ::core::clone::Clone for PACKAGE_VERSION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PACKAGE_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PACKAGE_VERSION").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PACKAGE_VERSION {

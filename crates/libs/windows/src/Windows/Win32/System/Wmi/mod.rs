@@ -9571,11 +9571,6 @@ impl ::core::clone::Clone for MI_ConstDatetimeField {
         *self
     }
 }
-impl ::core::fmt::Debug for MI_ConstDatetimeField {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_ConstDatetimeField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MI_ConstDatetimeField {
     type Abi = Self;
 }
@@ -10958,11 +10953,6 @@ impl ::core::clone::Clone for MI_Datetime {
         *self
     }
 }
-impl ::core::fmt::Debug for MI_Datetime {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_Datetime").field("isTimestamp", &self.isTimestamp).field("u", &self.u).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MI_Datetime {
     type Abi = Self;
 }
@@ -11077,11 +11067,6 @@ impl ::core::marker::Copy for MI_DatetimeField {}
 impl ::core::clone::Clone for MI_DatetimeField {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MI_DatetimeField {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_DatetimeField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_DatetimeField {
@@ -14357,11 +14342,6 @@ impl ::core::clone::Clone for MI_UserCredentials {
         *self
     }
 }
-impl ::core::fmt::Debug for MI_UserCredentials {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_UserCredentials").field("authenticationType", &self.authenticationType).field("credentials", &self.credentials).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MI_UserCredentials {
     type Abi = Self;
 }
@@ -14886,25 +14866,6 @@ impl ::core::marker::Copy for SWbemRpnQueryToken {}
 impl ::core::clone::Clone for SWbemRpnQueryToken {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SWbemRpnQueryToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SWbemRpnQueryToken")
-            .field("m_uVersion", &self.m_uVersion)
-            .field("m_uTokenType", &self.m_uTokenType)
-            .field("m_uSubexpressionShape", &self.m_uSubexpressionShape)
-            .field("m_uOperator", &self.m_uOperator)
-            .field("m_pRightIdent", &self.m_pRightIdent)
-            .field("m_pLeftIdent", &self.m_pLeftIdent)
-            .field("m_uConstApparentType", &self.m_uConstApparentType)
-            .field("m_Const", &self.m_Const)
-            .field("m_uConst2ApparentType", &self.m_uConst2ApparentType)
-            .field("m_Const2", &self.m_Const2)
-            .field("m_pszRightFunc", &self.m_pszRightFunc)
-            .field("m_pszLeftFunc", &self.m_pszLeftFunc)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

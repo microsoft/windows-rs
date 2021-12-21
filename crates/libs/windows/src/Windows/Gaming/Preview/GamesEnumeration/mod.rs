@@ -101,11 +101,6 @@ impl ::core::clone::Clone for GameListCategory {
         *self
     }
 }
-impl ::core::fmt::Debug for GameListCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameListCategory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameListCategory {
     type Abi = Self;
 }
@@ -115,6 +110,11 @@ impl ::core::cmp::PartialEq for GameListCategory {
     }
 }
 impl ::core::cmp::Eq for GameListCategory {}
+impl ::core::fmt::Debug for GameListCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameListCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameListCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
 }
@@ -418,11 +418,6 @@ impl ::core::clone::Clone for GameListEntryLaunchableState {
         *self
     }
 }
-impl ::core::fmt::Debug for GameListEntryLaunchableState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameListEntryLaunchableState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameListEntryLaunchableState {
     type Abi = Self;
 }
@@ -432,6 +427,11 @@ impl ::core::cmp::PartialEq for GameListEntryLaunchableState {
     }
 }
 impl ::core::cmp::Eq for GameListEntryLaunchableState {}
+impl ::core::fmt::Debug for GameListEntryLaunchableState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameListEntryLaunchableState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameListEntryLaunchableState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
 }

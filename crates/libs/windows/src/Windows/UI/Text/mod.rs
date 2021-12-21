@@ -14,11 +14,6 @@ impl ::core::clone::Clone for CaretType {
         *self
     }
 }
-impl ::core::fmt::Debug for CaretType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CaretType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CaretType {
     type Abi = Self;
 }
@@ -28,6 +23,11 @@ impl ::core::cmp::PartialEq for CaretType {
     }
 }
 impl ::core::cmp::Eq for CaretType {}
+impl ::core::fmt::Debug for CaretType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaretType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CaretType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.CaretType;i4)");
 }
@@ -195,11 +195,6 @@ impl ::core::clone::Clone for FindOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for FindOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FindOptions {
     type Abi = Self;
 }
@@ -209,6 +204,11 @@ impl ::core::cmp::PartialEq for FindOptions {
     }
 }
 impl ::core::cmp::Eq for FindOptions {}
+impl ::core::fmt::Debug for FindOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FindOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FindOptions;u4)");
 }
@@ -236,11 +236,6 @@ impl ::core::clone::Clone for FontStretch {
         *self
     }
 }
-impl ::core::fmt::Debug for FontStretch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FontStretch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FontStretch {
     type Abi = Self;
 }
@@ -250,6 +245,11 @@ impl ::core::cmp::PartialEq for FontStretch {
     }
 }
 impl ::core::cmp::Eq for FontStretch {}
+impl ::core::fmt::Debug for FontStretch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontStretch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FontStretch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStretch;i4)");
 }
@@ -270,11 +270,6 @@ impl ::core::clone::Clone for FontStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for FontStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FontStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FontStyle {
     type Abi = Self;
 }
@@ -284,6 +279,11 @@ impl ::core::cmp::PartialEq for FontStyle {
     }
 }
 impl ::core::cmp::Eq for FontStyle {}
+impl ::core::fmt::Debug for FontStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FontStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStyle;i4)");
 }
@@ -496,11 +496,6 @@ impl ::core::clone::Clone for FormatEffect {
         *self
     }
 }
-impl ::core::fmt::Debug for FormatEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FormatEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FormatEffect {
     type Abi = Self;
 }
@@ -510,6 +505,11 @@ impl ::core::cmp::PartialEq for FormatEffect {
     }
 }
 impl ::core::cmp::Eq for FormatEffect {}
+impl ::core::fmt::Debug for FormatEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FormatEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FormatEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FormatEffect;i4)");
 }
@@ -530,11 +530,6 @@ impl ::core::clone::Clone for HorizontalCharacterAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for HorizontalCharacterAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HorizontalCharacterAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HorizontalCharacterAlignment {
     type Abi = Self;
 }
@@ -544,6 +539,11 @@ impl ::core::cmp::PartialEq for HorizontalCharacterAlignment {
     }
 }
 impl ::core::cmp::Eq for HorizontalCharacterAlignment {}
+impl ::core::fmt::Debug for HorizontalCharacterAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HorizontalCharacterAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HorizontalCharacterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.HorizontalCharacterAlignment;i4)");
 }
@@ -2924,11 +2924,6 @@ impl ::core::clone::Clone for LetterCase {
         *self
     }
 }
-impl ::core::fmt::Debug for LetterCase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LetterCase").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LetterCase {
     type Abi = Self;
 }
@@ -2938,6 +2933,11 @@ impl ::core::cmp::PartialEq for LetterCase {
     }
 }
 impl ::core::cmp::Eq for LetterCase {}
+impl ::core::fmt::Debug for LetterCase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LetterCase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LetterCase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LetterCase;i4)");
 }
@@ -2963,11 +2963,6 @@ impl ::core::clone::Clone for LineSpacingRule {
         *self
     }
 }
-impl ::core::fmt::Debug for LineSpacingRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineSpacingRule").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineSpacingRule {
     type Abi = Self;
 }
@@ -2977,6 +2972,11 @@ impl ::core::cmp::PartialEq for LineSpacingRule {
     }
 }
 impl ::core::cmp::Eq for LineSpacingRule {}
+impl ::core::fmt::Debug for LineSpacingRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineSpacingRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineSpacingRule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LineSpacingRule;i4)");
 }
@@ -3003,11 +3003,6 @@ impl ::core::clone::Clone for LinkType {
         *self
     }
 }
-impl ::core::fmt::Debug for LinkType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LinkType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LinkType {
     type Abi = Self;
 }
@@ -3017,6 +3012,11 @@ impl ::core::cmp::PartialEq for LinkType {
     }
 }
 impl ::core::cmp::Eq for LinkType {}
+impl ::core::fmt::Debug for LinkType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LinkType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LinkType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LinkType;i4)");
 }
@@ -3038,11 +3038,6 @@ impl ::core::clone::Clone for MarkerAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for MarkerAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MarkerAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MarkerAlignment {
     type Abi = Self;
 }
@@ -3052,6 +3047,11 @@ impl ::core::cmp::PartialEq for MarkerAlignment {
     }
 }
 impl ::core::cmp::Eq for MarkerAlignment {}
+impl ::core::fmt::Debug for MarkerAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MarkerAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerAlignment;i4)");
 }
@@ -3076,11 +3076,6 @@ impl ::core::clone::Clone for MarkerStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for MarkerStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MarkerStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MarkerStyle {
     type Abi = Self;
 }
@@ -3090,6 +3085,11 @@ impl ::core::cmp::PartialEq for MarkerStyle {
     }
 }
 impl ::core::cmp::Eq for MarkerStyle {}
+impl ::core::fmt::Debug for MarkerStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MarkerStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerStyle;i4)");
 }
@@ -3132,11 +3132,6 @@ impl ::core::clone::Clone for MarkerType {
         *self
     }
 }
-impl ::core::fmt::Debug for MarkerType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MarkerType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MarkerType {
     type Abi = Self;
 }
@@ -3146,6 +3141,11 @@ impl ::core::cmp::PartialEq for MarkerType {
     }
 }
 impl ::core::cmp::Eq for MarkerType {}
+impl ::core::fmt::Debug for MarkerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarkerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MarkerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerType;i4)");
 }
@@ -3168,11 +3168,6 @@ impl ::core::clone::Clone for ParagraphAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for ParagraphAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ParagraphAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ParagraphAlignment {
     type Abi = Self;
 }
@@ -3182,6 +3177,11 @@ impl ::core::cmp::PartialEq for ParagraphAlignment {
     }
 }
 impl ::core::cmp::Eq for ParagraphAlignment {}
+impl ::core::fmt::Debug for ParagraphAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ParagraphAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ParagraphAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphAlignment;i4)");
 }
@@ -3211,11 +3211,6 @@ impl ::core::clone::Clone for ParagraphStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for ParagraphStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ParagraphStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ParagraphStyle {
     type Abi = Self;
 }
@@ -3225,6 +3220,11 @@ impl ::core::cmp::PartialEq for ParagraphStyle {
     }
 }
 impl ::core::cmp::Eq for ParagraphStyle {}
+impl ::core::fmt::Debug for ParagraphStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ParagraphStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ParagraphStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphStyle;i4)");
 }
@@ -3250,11 +3250,6 @@ impl ::core::clone::Clone for PointOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for PointOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PointOptions {
     type Abi = Self;
 }
@@ -3264,6 +3259,11 @@ impl ::core::cmp::PartialEq for PointOptions {
     }
 }
 impl ::core::cmp::Eq for PointOptions {}
+impl ::core::fmt::Debug for PointOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.PointOptions;u4)");
 }
@@ -3286,11 +3286,6 @@ impl ::core::clone::Clone for RangeGravity {
         *self
     }
 }
-impl ::core::fmt::Debug for RangeGravity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RangeGravity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RangeGravity {
     type Abi = Self;
 }
@@ -3300,6 +3295,11 @@ impl ::core::cmp::PartialEq for RangeGravity {
     }
 }
 impl ::core::cmp::Eq for RangeGravity {}
+impl ::core::fmt::Debug for RangeGravity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RangeGravity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RangeGravity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RangeGravity;i4)");
 }
@@ -3319,11 +3319,6 @@ impl ::core::clone::Clone for RichEditMathMode {
         *self
     }
 }
-impl ::core::fmt::Debug for RichEditMathMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RichEditMathMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RichEditMathMode {
     type Abi = Self;
 }
@@ -3333,6 +3328,11 @@ impl ::core::cmp::PartialEq for RichEditMathMode {
     }
 }
 impl ::core::cmp::Eq for RichEditMathMode {}
+impl ::core::fmt::Debug for RichEditMathMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichEditMathMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichEditMathMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RichEditMathMode;i4)");
 }
@@ -4125,11 +4125,6 @@ impl ::core::clone::Clone for SelectionOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for SelectionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SelectionOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SelectionOptions {
     type Abi = Self;
 }
@@ -4139,6 +4134,11 @@ impl ::core::cmp::PartialEq for SelectionOptions {
     }
 }
 impl ::core::cmp::Eq for SelectionOptions {}
+impl ::core::fmt::Debug for SelectionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionOptions;u4)");
 }
@@ -4161,11 +4161,6 @@ impl ::core::clone::Clone for SelectionType {
         *self
     }
 }
-impl ::core::fmt::Debug for SelectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SelectionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SelectionType {
     type Abi = Self;
 }
@@ -4175,6 +4170,11 @@ impl ::core::cmp::PartialEq for SelectionType {
     }
 }
 impl ::core::cmp::Eq for SelectionType {}
+impl ::core::fmt::Debug for SelectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SelectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionType;i4)");
 }
@@ -4197,11 +4197,6 @@ impl ::core::clone::Clone for TabAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for TabAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TabAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TabAlignment {
     type Abi = Self;
 }
@@ -4211,6 +4206,11 @@ impl ::core::cmp::PartialEq for TabAlignment {
     }
 }
 impl ::core::cmp::Eq for TabAlignment {}
+impl ::core::fmt::Debug for TabAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TabAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TabAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabAlignment;i4)");
 }
@@ -4234,11 +4234,6 @@ impl ::core::clone::Clone for TabLeader {
         *self
     }
 }
-impl ::core::fmt::Debug for TabLeader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TabLeader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TabLeader {
     type Abi = Self;
 }
@@ -4248,6 +4243,11 @@ impl ::core::cmp::PartialEq for TabLeader {
     }
 }
 impl ::core::cmp::Eq for TabLeader {}
+impl ::core::fmt::Debug for TabLeader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TabLeader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TabLeader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabLeader;i4)");
 }
@@ -4336,11 +4336,6 @@ impl ::core::clone::Clone for TextDecorations {
         *self
     }
 }
-impl ::core::fmt::Debug for TextDecorations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextDecorations").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TextDecorations {
     type Abi = Self;
 }
@@ -4350,6 +4345,11 @@ impl ::core::cmp::PartialEq for TextDecorations {
     }
 }
 impl ::core::cmp::Eq for TextDecorations {}
+impl ::core::fmt::Debug for TextDecorations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextDecorations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextDecorations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextDecorations;u4)");
 }
@@ -4376,11 +4376,6 @@ impl ::core::clone::Clone for TextGetOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for TextGetOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextGetOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TextGetOptions {
     type Abi = Self;
 }
@@ -4390,6 +4385,11 @@ impl ::core::cmp::PartialEq for TextGetOptions {
     }
 }
 impl ::core::cmp::Eq for TextGetOptions {}
+impl ::core::fmt::Debug for TextGetOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextGetOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextGetOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextGetOptions;u4)");
 }
@@ -4440,11 +4440,6 @@ impl ::core::clone::Clone for TextRangeUnit {
         *self
     }
 }
-impl ::core::fmt::Debug for TextRangeUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextRangeUnit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TextRangeUnit {
     type Abi = Self;
 }
@@ -4454,6 +4449,11 @@ impl ::core::cmp::PartialEq for TextRangeUnit {
     }
 }
 impl ::core::cmp::Eq for TextRangeUnit {}
+impl ::core::fmt::Debug for TextRangeUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextRangeUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextRangeUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextRangeUnit;i4)");
 }
@@ -4535,11 +4535,6 @@ impl ::core::clone::Clone for TextScript {
         *self
     }
 }
-impl ::core::fmt::Debug for TextScript {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextScript").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TextScript {
     type Abi = Self;
 }
@@ -4549,6 +4544,11 @@ impl ::core::cmp::PartialEq for TextScript {
     }
 }
 impl ::core::cmp::Eq for TextScript {}
+impl ::core::fmt::Debug for TextScript {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextScript").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextScript {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextScript;i4)");
 }
@@ -4573,11 +4573,6 @@ impl ::core::clone::Clone for TextSetOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for TextSetOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextSetOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TextSetOptions {
     type Abi = Self;
 }
@@ -4587,6 +4582,11 @@ impl ::core::cmp::PartialEq for TextSetOptions {
     }
 }
 impl ::core::cmp::Eq for TextSetOptions {}
+impl ::core::fmt::Debug for TextSetOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextSetOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextSetOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextSetOptions;u4)");
 }
@@ -4624,11 +4624,6 @@ impl ::core::clone::Clone for UnderlineType {
         *self
     }
 }
-impl ::core::fmt::Debug for UnderlineType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnderlineType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnderlineType {
     type Abi = Self;
 }
@@ -4638,6 +4633,11 @@ impl ::core::cmp::PartialEq for UnderlineType {
     }
 }
 impl ::core::cmp::Eq for UnderlineType {}
+impl ::core::fmt::Debug for UnderlineType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnderlineType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnderlineType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.UnderlineType;i4)");
 }
@@ -4658,11 +4658,6 @@ impl ::core::clone::Clone for VerticalCharacterAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for VerticalCharacterAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VerticalCharacterAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VerticalCharacterAlignment {
     type Abi = Self;
 }
@@ -4672,6 +4667,11 @@ impl ::core::cmp::PartialEq for VerticalCharacterAlignment {
     }
 }
 impl ::core::cmp::Eq for VerticalCharacterAlignment {}
+impl ::core::fmt::Debug for VerticalCharacterAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VerticalCharacterAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VerticalCharacterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.VerticalCharacterAlignment;i4)");
 }

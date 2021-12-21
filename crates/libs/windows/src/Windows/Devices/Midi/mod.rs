@@ -1578,11 +1578,6 @@ impl ::core::clone::Clone for MidiMessageType {
         *self
     }
 }
-impl ::core::fmt::Debug for MidiMessageType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiMessageType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MidiMessageType {
     type Abi = Self;
 }
@@ -1592,6 +1587,11 @@ impl ::core::cmp::PartialEq for MidiMessageType {
     }
 }
 impl ::core::cmp::Eq for MidiMessageType {}
+impl ::core::fmt::Debug for MidiMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiMessageType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MidiMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
 }

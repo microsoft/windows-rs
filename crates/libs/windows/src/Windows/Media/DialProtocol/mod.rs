@@ -122,11 +122,6 @@ impl ::core::clone::Clone for DialAppLaunchResult {
         *self
     }
 }
-impl ::core::fmt::Debug for DialAppLaunchResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialAppLaunchResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DialAppLaunchResult {
     type Abi = Self;
 }
@@ -136,6 +131,11 @@ impl ::core::cmp::PartialEq for DialAppLaunchResult {
     }
 }
 impl ::core::cmp::Eq for DialAppLaunchResult {}
+impl ::core::fmt::Debug for DialAppLaunchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppLaunchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialAppLaunchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
 }
@@ -157,11 +157,6 @@ impl ::core::clone::Clone for DialAppState {
         *self
     }
 }
-impl ::core::fmt::Debug for DialAppState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialAppState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DialAppState {
     type Abi = Self;
 }
@@ -171,6 +166,11 @@ impl ::core::cmp::PartialEq for DialAppState {
     }
 }
 impl ::core::cmp::Eq for DialAppState {}
+impl ::core::fmt::Debug for DialAppState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialAppState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
 }
@@ -281,11 +281,6 @@ impl ::core::clone::Clone for DialAppStopResult {
         *self
     }
 }
-impl ::core::fmt::Debug for DialAppStopResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialAppStopResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DialAppStopResult {
     type Abi = Self;
 }
@@ -295,6 +290,11 @@ impl ::core::cmp::PartialEq for DialAppStopResult {
     }
 }
 impl ::core::cmp::Eq for DialAppStopResult {}
+impl ::core::fmt::Debug for DialAppStopResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppStopResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialAppStopResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
 }
@@ -452,11 +452,6 @@ impl ::core::clone::Clone for DialDeviceDisplayStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DialDeviceDisplayStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialDeviceDisplayStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DialDeviceDisplayStatus {
     type Abi = Self;
 }
@@ -466,6 +461,11 @@ impl ::core::cmp::PartialEq for DialDeviceDisplayStatus {
     }
 }
 impl ::core::cmp::Eq for DialDeviceDisplayStatus {}
+impl ::core::fmt::Debug for DialDeviceDisplayStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialDeviceDisplayStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialDeviceDisplayStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
 }

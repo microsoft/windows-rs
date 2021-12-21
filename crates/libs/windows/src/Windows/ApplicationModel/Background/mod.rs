@@ -155,11 +155,6 @@ impl ::core::clone::Clone for AlarmAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AlarmAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlarmAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AlarmAccessStatus {
     type Abi = Self;
 }
@@ -169,6 +164,11 @@ impl ::core::cmp::PartialEq for AlarmAccessStatus {
     }
 }
 impl ::core::cmp::Eq for AlarmAccessStatus {}
+impl ::core::fmt::Debug for AlarmAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlarmAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AlarmAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
 }
@@ -692,11 +692,6 @@ impl ::core::clone::Clone for ApplicationTriggerResult {
         *self
     }
 }
-impl ::core::fmt::Debug for ApplicationTriggerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationTriggerResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationTriggerResult {
     type Abi = Self;
 }
@@ -706,6 +701,11 @@ impl ::core::cmp::PartialEq for ApplicationTriggerResult {
     }
 }
 impl ::core::cmp::Eq for ApplicationTriggerResult {}
+impl ::core::fmt::Debug for ApplicationTriggerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationTriggerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
 }
@@ -827,11 +827,6 @@ impl ::core::clone::Clone for BackgroundAccessRequestKind {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundAccessRequestKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundAccessRequestKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundAccessRequestKind {
     type Abi = Self;
 }
@@ -841,6 +836,11 @@ impl ::core::cmp::PartialEq for BackgroundAccessRequestKind {
     }
 }
 impl ::core::cmp::Eq for BackgroundAccessRequestKind {}
+impl ::core::fmt::Debug for BackgroundAccessRequestKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundAccessRequestKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundAccessRequestKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
 }
@@ -866,11 +866,6 @@ impl ::core::clone::Clone for BackgroundAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundAccessStatus {
     type Abi = Self;
 }
@@ -880,6 +875,11 @@ impl ::core::cmp::PartialEq for BackgroundAccessStatus {
     }
 }
 impl ::core::cmp::Eq for BackgroundAccessStatus {}
+impl ::core::fmt::Debug for BackgroundAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
 }
@@ -1240,11 +1240,6 @@ impl ::core::clone::Clone for BackgroundTaskCancellationReason {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundTaskCancellationReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskCancellationReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTaskCancellationReason {
     type Abi = Self;
 }
@@ -1254,6 +1249,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskCancellationReason {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskCancellationReason {}
+impl ::core::fmt::Debug for BackgroundTaskCancellationReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskCancellationReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskCancellationReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
 }
@@ -2048,11 +2048,6 @@ impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundTaskThrottleCounter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskThrottleCounter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTaskThrottleCounter {
     type Abi = Self;
 }
@@ -2062,6 +2057,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskThrottleCounter {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskThrottleCounter {}
+impl ::core::fmt::Debug for BackgroundTaskThrottleCounter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskThrottleCounter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskThrottleCounter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
 }
@@ -2101,11 +2101,6 @@ impl ::core::clone::Clone for BackgroundWorkCostValue {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundWorkCostValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundWorkCostValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundWorkCostValue {
     type Abi = Self;
 }
@@ -2115,6 +2110,11 @@ impl ::core::cmp::PartialEq for BackgroundWorkCostValue {
     }
 }
 impl ::core::cmp::Eq for BackgroundWorkCostValue {}
+impl ::core::fmt::Debug for BackgroundWorkCostValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundWorkCostValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundWorkCostValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
 }
@@ -3432,11 +3432,6 @@ impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
         *self
     }
 }
-impl ::core::fmt::Debug for CustomSystemEventTriggerRecurrence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSystemEventTriggerRecurrence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CustomSystemEventTriggerRecurrence {
     type Abi = Self;
 }
@@ -3446,6 +3441,11 @@ impl ::core::cmp::PartialEq for CustomSystemEventTriggerRecurrence {
     }
 }
 impl ::core::cmp::Eq for CustomSystemEventTriggerRecurrence {}
+impl ::core::fmt::Debug for CustomSystemEventTriggerRecurrence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomSystemEventTriggerRecurrence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CustomSystemEventTriggerRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
 }
@@ -3870,11 +3870,6 @@ impl ::core::clone::Clone for DeviceTriggerResult {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceTriggerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceTriggerResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceTriggerResult {
     type Abi = Self;
 }
@@ -3884,6 +3879,11 @@ impl ::core::cmp::PartialEq for DeviceTriggerResult {
     }
 }
 impl ::core::cmp::Eq for DeviceTriggerResult {}
+impl ::core::fmt::Debug for DeviceTriggerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceTriggerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
 }
@@ -7742,11 +7742,6 @@ impl ::core::clone::Clone for LocationTriggerType {
         *self
     }
 }
-impl ::core::fmt::Debug for LocationTriggerType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocationTriggerType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LocationTriggerType {
     type Abi = Self;
 }
@@ -7756,6 +7751,11 @@ impl ::core::cmp::PartialEq for LocationTriggerType {
     }
 }
 impl ::core::cmp::Eq for LocationTriggerType {}
+impl ::core::fmt::Debug for LocationTriggerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocationTriggerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LocationTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
 }
@@ -8016,11 +8016,6 @@ impl ::core::clone::Clone for MediaProcessingTriggerResult {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaProcessingTriggerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaProcessingTriggerResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaProcessingTriggerResult {
     type Abi = Self;
 }
@@ -8030,6 +8025,11 @@ impl ::core::cmp::PartialEq for MediaProcessingTriggerResult {
     }
 }
 impl ::core::cmp::Eq for MediaProcessingTriggerResult {}
+impl ::core::fmt::Debug for MediaProcessingTriggerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaProcessingTriggerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaProcessingTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
 }
@@ -10384,11 +10384,6 @@ impl ::core::clone::Clone for SystemConditionType {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemConditionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemConditionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemConditionType {
     type Abi = Self;
 }
@@ -10398,6 +10393,11 @@ impl ::core::cmp::PartialEq for SystemConditionType {
     }
 }
 impl ::core::cmp::Eq for SystemConditionType {}
+impl ::core::fmt::Debug for SystemConditionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemConditionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemConditionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
 }
@@ -10552,11 +10552,6 @@ impl ::core::clone::Clone for SystemTriggerType {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemTriggerType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemTriggerType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemTriggerType {
     type Abi = Self;
 }
@@ -10566,6 +10561,11 @@ impl ::core::cmp::PartialEq for SystemTriggerType {
     }
 }
 impl ::core::cmp::Eq for SystemTriggerType {}
+impl ::core::fmt::Debug for SystemTriggerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemTriggerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemTriggerType;i4)");
 }

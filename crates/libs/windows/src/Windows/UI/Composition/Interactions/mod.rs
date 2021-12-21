@@ -1649,11 +1649,6 @@ impl ::core::clone::Clone for InteractionBindingAxisModes {
         *self
     }
 }
-impl ::core::fmt::Debug for InteractionBindingAxisModes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionBindingAxisModes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionBindingAxisModes {
     type Abi = Self;
 }
@@ -1663,6 +1658,11 @@ impl ::core::cmp::PartialEq for InteractionBindingAxisModes {
     }
 }
 impl ::core::cmp::Eq for InteractionBindingAxisModes {}
+impl ::core::fmt::Debug for InteractionBindingAxisModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionBindingAxisModes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
 }
@@ -1683,11 +1683,6 @@ impl ::core::clone::Clone for InteractionChainingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for InteractionChainingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionChainingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionChainingMode {
     type Abi = Self;
 }
@@ -1697,6 +1692,11 @@ impl ::core::cmp::PartialEq for InteractionChainingMode {
     }
 }
 impl ::core::cmp::Eq for InteractionChainingMode {}
+impl ::core::fmt::Debug for InteractionChainingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionChainingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionChainingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
 }
@@ -1996,11 +1996,6 @@ impl ::core::clone::Clone for InteractionSourceMode {
         *self
     }
 }
-impl ::core::fmt::Debug for InteractionSourceMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionSourceMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionSourceMode {
     type Abi = Self;
 }
@@ -2010,6 +2005,11 @@ impl ::core::cmp::PartialEq for InteractionSourceMode {
     }
 }
 impl ::core::cmp::Eq for InteractionSourceMode {}
+impl ::core::fmt::Debug for InteractionSourceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionSourceMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionSourceMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
 }
@@ -2029,11 +2029,6 @@ impl ::core::clone::Clone for InteractionSourceRedirectionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionSourceRedirectionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionSourceRedirectionMode {
     type Abi = Self;
 }
@@ -2043,6 +2038,11 @@ impl ::core::cmp::PartialEq for InteractionSourceRedirectionMode {
     }
 }
 impl ::core::cmp::Eq for InteractionSourceRedirectionMode {}
+impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionSourceRedirectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
 }
@@ -2641,11 +2641,6 @@ impl ::core::clone::Clone for InteractionTrackerClampingOption {
         *self
     }
 }
-impl ::core::fmt::Debug for InteractionTrackerClampingOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerClampingOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionTrackerClampingOption {
     type Abi = Self;
 }
@@ -2655,6 +2650,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerClampingOption {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerClampingOption {}
+impl ::core::fmt::Debug for InteractionTrackerClampingOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerClampingOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
 }
@@ -4224,11 +4224,6 @@ impl ::core::clone::Clone for InteractionTrackerPositionUpdateOption {
         *self
     }
 }
-impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerPositionUpdateOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionTrackerPositionUpdateOption {
     type Abi = Self;
 }
@@ -4238,6 +4233,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerPositionUpdateOption {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerPositionUpdateOption {}
+impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerPositionUpdateOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
 }
@@ -5482,11 +5482,6 @@ impl ::core::clone::Clone for VisualInteractionSourceRedirectionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for VisualInteractionSourceRedirectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualInteractionSourceRedirectionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VisualInteractionSourceRedirectionMode {
     type Abi = Self;
 }
@@ -5496,6 +5491,11 @@ impl ::core::cmp::PartialEq for VisualInteractionSourceRedirectionMode {
     }
 }
 impl ::core::cmp::Eq for VisualInteractionSourceRedirectionMode {}
+impl ::core::fmt::Debug for VisualInteractionSourceRedirectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualInteractionSourceRedirectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualInteractionSourceRedirectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.VisualInteractionSourceRedirectionMode;i4)");
 }

@@ -940,11 +940,6 @@ impl ::core::clone::Clone for SettingsLaunchKind {
         *self
     }
 }
-impl ::core::fmt::Debug for SettingsLaunchKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsLaunchKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SettingsLaunchKind {
     type Abi = Self;
 }
@@ -954,6 +949,11 @@ impl ::core::cmp::PartialEq for SettingsLaunchKind {
     }
 }
 impl ::core::cmp::Eq for SettingsLaunchKind {}
+impl ::core::fmt::Debug for SettingsLaunchKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsLaunchKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SettingsLaunchKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
 }
@@ -974,11 +974,6 @@ impl ::core::clone::Clone for WorkflowPrintTicketValidationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WorkflowPrintTicketValidationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkflowPrintTicketValidationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WorkflowPrintTicketValidationStatus {
     type Abi = Self;
 }
@@ -988,6 +983,11 @@ impl ::core::cmp::PartialEq for WorkflowPrintTicketValidationStatus {
     }
 }
 impl ::core::cmp::Eq for WorkflowPrintTicketValidationStatus {}
+impl ::core::fmt::Debug for WorkflowPrintTicketValidationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkflowPrintTicketValidationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
 }

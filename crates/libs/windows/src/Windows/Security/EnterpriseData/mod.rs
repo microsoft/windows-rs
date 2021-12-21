@@ -255,11 +255,6 @@ impl ::core::clone::Clone for DataProtectionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DataProtectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataProtectionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DataProtectionStatus {
     type Abi = Self;
 }
@@ -269,6 +264,11 @@ impl ::core::cmp::PartialEq for DataProtectionStatus {
     }
 }
 impl ::core::cmp::Eq for DataProtectionStatus {}
+impl ::core::fmt::Debug for DataProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataProtectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.DataProtectionStatus;i4)");
 }
@@ -290,11 +290,6 @@ impl ::core::clone::Clone for EnforcementLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for EnforcementLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnforcementLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EnforcementLevel {
     type Abi = Self;
 }
@@ -304,6 +299,11 @@ impl ::core::cmp::PartialEq for EnforcementLevel {
     }
 }
 impl ::core::cmp::Eq for EnforcementLevel {}
+impl ::core::fmt::Debug for EnforcementLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnforcementLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnforcementLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.EnforcementLevel;i4)");
 }
@@ -556,11 +556,6 @@ impl ::core::clone::Clone for FileProtectionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for FileProtectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileProtectionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FileProtectionStatus {
     type Abi = Self;
 }
@@ -570,6 +565,11 @@ impl ::core::cmp::PartialEq for FileProtectionStatus {
     }
 }
 impl ::core::cmp::Eq for FileProtectionStatus {}
+impl ::core::fmt::Debug for FileProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileProtectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.FileProtectionStatus;i4)");
 }
@@ -1881,11 +1881,6 @@ impl ::core::clone::Clone for ProtectedImportExportStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for ProtectedImportExportStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectedImportExportStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProtectedImportExportStatus {
     type Abi = Self;
 }
@@ -1895,6 +1890,11 @@ impl ::core::cmp::PartialEq for ProtectedImportExportStatus {
     }
 }
 impl ::core::cmp::Eq for ProtectedImportExportStatus {}
+impl ::core::fmt::Debug for ProtectedImportExportStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectedImportExportStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectedImportExportStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectedImportExportStatus;i4)");
 }
@@ -1916,11 +1916,6 @@ impl ::core::clone::Clone for ProtectionPolicyAuditAction {
         *self
     }
 }
-impl ::core::fmt::Debug for ProtectionPolicyAuditAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectionPolicyAuditAction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProtectionPolicyAuditAction {
     type Abi = Self;
 }
@@ -1930,6 +1925,11 @@ impl ::core::cmp::PartialEq for ProtectionPolicyAuditAction {
     }
 }
 impl ::core::cmp::Eq for ProtectionPolicyAuditAction {}
+impl ::core::fmt::Debug for ProtectionPolicyAuditAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyAuditAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyAuditAction;i4)");
 }
@@ -2094,11 +2094,6 @@ impl ::core::clone::Clone for ProtectionPolicyEvaluationResult {
         *self
     }
 }
-impl ::core::fmt::Debug for ProtectionPolicyEvaluationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectionPolicyEvaluationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProtectionPolicyEvaluationResult {
     type Abi = Self;
 }
@@ -2108,6 +2103,11 @@ impl ::core::cmp::PartialEq for ProtectionPolicyEvaluationResult {
     }
 }
 impl ::core::cmp::Eq for ProtectionPolicyEvaluationResult {}
+impl ::core::fmt::Debug for ProtectionPolicyEvaluationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyEvaluationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyEvaluationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;i4)");
 }
@@ -2529,11 +2529,6 @@ impl ::core::clone::Clone for ProtectionPolicyRequestAccessBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for ProtectionPolicyRequestAccessBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectionPolicyRequestAccessBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProtectionPolicyRequestAccessBehavior {
     type Abi = Self;
 }
@@ -2543,6 +2538,11 @@ impl ::core::cmp::PartialEq for ProtectionPolicyRequestAccessBehavior {
     }
 }
 impl ::core::cmp::Eq for ProtectionPolicyRequestAccessBehavior {}
+impl ::core::fmt::Debug for ProtectionPolicyRequestAccessBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionPolicyRequestAccessBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyRequestAccessBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior;i4)");
 }

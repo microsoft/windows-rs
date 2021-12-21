@@ -748,11 +748,6 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingReason {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreTextFormatUpdatingReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextFormatUpdatingReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingReason {
     type Abi = Self;
 }
@@ -762,6 +757,11 @@ impl ::core::cmp::PartialEq for CoreTextFormatUpdatingReason {
     }
 }
 impl ::core::cmp::Eq for CoreTextFormatUpdatingReason {}
+impl ::core::fmt::Debug for CoreTextFormatUpdatingReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
 }
@@ -781,11 +781,6 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingResult {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreTextFormatUpdatingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextFormatUpdatingResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingResult {
     type Abi = Self;
 }
@@ -795,6 +790,11 @@ impl ::core::cmp::PartialEq for CoreTextFormatUpdatingResult {
     }
 }
 impl ::core::cmp::Eq for CoreTextFormatUpdatingResult {}
+impl ::core::fmt::Debug for CoreTextFormatUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
 }
@@ -814,11 +814,6 @@ impl ::core::clone::Clone for CoreTextInputPaneDisplayPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextInputPaneDisplayPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextInputPaneDisplayPolicy {
     type Abi = Self;
 }
@@ -828,6 +823,11 @@ impl ::core::cmp::PartialEq for CoreTextInputPaneDisplayPolicy {
     }
 }
 impl ::core::cmp::Eq for CoreTextInputPaneDisplayPolicy {}
+impl ::core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextInputPaneDisplayPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextInputPaneDisplayPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
 }
@@ -912,11 +912,6 @@ impl ::core::clone::Clone for CoreTextInputScope {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreTextInputScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextInputScope").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextInputScope {
     type Abi = Self;
 }
@@ -926,6 +921,11 @@ impl ::core::cmp::PartialEq for CoreTextInputScope {
     }
 }
 impl ::core::cmp::Eq for CoreTextInputScope {}
+impl ::core::fmt::Debug for CoreTextInputScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextInputScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextInputScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
 }
@@ -1575,11 +1575,6 @@ impl ::core::clone::Clone for CoreTextSelectionUpdatingResult {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreTextSelectionUpdatingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextSelectionUpdatingResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextSelectionUpdatingResult {
     type Abi = Self;
 }
@@ -1589,6 +1584,11 @@ impl ::core::cmp::PartialEq for CoreTextSelectionUpdatingResult {
     }
 }
 impl ::core::cmp::Eq for CoreTextSelectionUpdatingResult {}
+impl ::core::fmt::Debug for CoreTextSelectionUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextSelectionUpdatingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
 }
@@ -2072,11 +2072,6 @@ impl ::core::clone::Clone for CoreTextTextUpdatingResult {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreTextTextUpdatingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextTextUpdatingResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextTextUpdatingResult {
     type Abi = Self;
 }
@@ -2086,6 +2081,11 @@ impl ::core::cmp::PartialEq for CoreTextTextUpdatingResult {
     }
 }
 impl ::core::cmp::Eq for CoreTextTextUpdatingResult {}
+impl ::core::fmt::Debug for CoreTextTextUpdatingResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreTextTextUpdatingResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreTextTextUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
 }

@@ -15,11 +15,6 @@ impl ::core::clone::Clone for GazeDeviceConfigurationStatePreview {
         *self
     }
 }
-impl ::core::fmt::Debug for GazeDeviceConfigurationStatePreview {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GazeDeviceConfigurationStatePreview").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GazeDeviceConfigurationStatePreview {
     type Abi = Self;
 }
@@ -29,6 +24,11 @@ impl ::core::cmp::PartialEq for GazeDeviceConfigurationStatePreview {
     }
 }
 impl ::core::cmp::Eq for GazeDeviceConfigurationStatePreview {}
+impl ::core::fmt::Debug for GazeDeviceConfigurationStatePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeDeviceConfigurationStatePreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeDeviceConfigurationStatePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");
 }

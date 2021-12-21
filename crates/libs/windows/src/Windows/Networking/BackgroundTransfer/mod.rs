@@ -398,11 +398,6 @@ impl ::core::clone::Clone for BackgroundTransferBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundTransferBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferBehavior {
     type Abi = Self;
 }
@@ -412,6 +407,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferBehavior {
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferBehavior {}
+impl ::core::fmt::Debug for BackgroundTransferBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior;i4)");
 }
@@ -740,11 +740,6 @@ impl ::core::clone::Clone for BackgroundTransferCostPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundTransferCostPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferCostPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferCostPolicy {
     type Abi = Self;
 }
@@ -754,6 +749,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferCostPolicy {
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferCostPolicy {}
+impl ::core::fmt::Debug for BackgroundTransferCostPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferCostPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCostPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy;i4)");
 }
@@ -937,11 +937,6 @@ impl ::core::clone::Clone for BackgroundTransferPriority {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundTransferPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferPriority").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferPriority {
     type Abi = Self;
 }
@@ -951,6 +946,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferPriority {
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferPriority {}
+impl ::core::fmt::Debug for BackgroundTransferPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferPriority;i4)");
 }
@@ -1077,11 +1077,6 @@ impl ::core::clone::Clone for BackgroundTransferStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundTransferStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferStatus {
     type Abi = Self;
 }
@@ -1091,6 +1086,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferStatus {
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferStatus {}
+impl ::core::fmt::Debug for BackgroundTransferStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
 }

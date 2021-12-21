@@ -468,11 +468,6 @@ impl ::core::clone::Clone for INPUT {
         *self
     }
 }
-impl ::core::fmt::Debug for INPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INPUT").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for INPUT {
     type Abi = Self;
 }

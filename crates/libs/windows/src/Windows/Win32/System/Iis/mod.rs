@@ -5311,11 +5311,6 @@ impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD {
         *self
     }
 }
-impl ::core::fmt::Debug for METADATA_GETALL_INTERNAL_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("METADATA_GETALL_INTERNAL_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("Anonymous", &self.Anonymous).field("dwMDDataTag", &self.dwMDDataTag).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for METADATA_GETALL_INTERNAL_RECORD {
     type Abi = Self;
 }

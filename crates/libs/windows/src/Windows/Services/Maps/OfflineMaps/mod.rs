@@ -350,11 +350,6 @@ impl ::core::clone::Clone for OfflineMapPackageQueryStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for OfflineMapPackageQueryStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OfflineMapPackageQueryStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OfflineMapPackageQueryStatus {
     type Abi = Self;
 }
@@ -364,6 +359,11 @@ impl ::core::cmp::PartialEq for OfflineMapPackageQueryStatus {
     }
 }
 impl ::core::cmp::Eq for OfflineMapPackageQueryStatus {}
+impl ::core::fmt::Debug for OfflineMapPackageQueryStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageQueryStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OfflineMapPackageQueryStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
 }
@@ -466,11 +466,6 @@ impl ::core::clone::Clone for OfflineMapPackageStartDownloadStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for OfflineMapPackageStartDownloadStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OfflineMapPackageStartDownloadStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OfflineMapPackageStartDownloadStatus {
     type Abi = Self;
 }
@@ -480,6 +475,11 @@ impl ::core::cmp::PartialEq for OfflineMapPackageStartDownloadStatus {
     }
 }
 impl ::core::cmp::Eq for OfflineMapPackageStartDownloadStatus {}
+impl ::core::fmt::Debug for OfflineMapPackageStartDownloadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageStartDownloadStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OfflineMapPackageStartDownloadStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus;i4)");
 }
@@ -501,11 +501,6 @@ impl ::core::clone::Clone for OfflineMapPackageStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for OfflineMapPackageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OfflineMapPackageStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OfflineMapPackageStatus {
     type Abi = Self;
 }
@@ -515,6 +510,11 @@ impl ::core::cmp::PartialEq for OfflineMapPackageStatus {
     }
 }
 impl ::core::cmp::Eq for OfflineMapPackageStatus {}
+impl ::core::fmt::Debug for OfflineMapPackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OfflineMapPackageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus;i4)");
 }

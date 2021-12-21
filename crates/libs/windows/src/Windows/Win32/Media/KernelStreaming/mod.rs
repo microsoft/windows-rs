@@ -380,11 +380,6 @@ impl ::core::clone::Clone for DS3DVECTOR {
         *self
     }
 }
-impl ::core::fmt::Debug for DS3DVECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS3DVECTOR").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("Anonymous3", &self.Anonymous3).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DS3DVECTOR {
     type Abi = Self;
 }
@@ -1498,11 +1493,6 @@ impl ::core::clone::Clone for KSALLOCATOR_FRAMING {
         *self
     }
 }
-impl ::core::fmt::Debug for KSALLOCATOR_FRAMING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSALLOCATOR_FRAMING").field("Anonymous1", &self.Anonymous1).field("PoolType", &self.PoolType).field("Frames", &self.Frames).field("FrameSize", &self.FrameSize).field("Anonymous2", &self.Anonymous2).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSALLOCATOR_FRAMING {
     type Abi = Self;
 }
@@ -1582,11 +1572,6 @@ impl ::core::marker::Copy for KSALLOCATOR_FRAMING_EX {}
 impl ::core::clone::Clone for KSALLOCATOR_FRAMING_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSALLOCATOR_FRAMING_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSALLOCATOR_FRAMING_EX").field("CountItems", &self.CountItems).field("PinFlags", &self.PinFlags).field("OutputCompression", &self.OutputCompression).field("PinWeight", &self.PinWeight).field("FramingItem", &self.FramingItem).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSALLOCATOR_FRAMING_EX {
@@ -1884,11 +1869,6 @@ impl ::core::clone::Clone for KSAUDIOMODULE_NOTIFICATION {
         *self
     }
 }
-impl ::core::fmt::Debug for KSAUDIOMODULE_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSAUDIOMODULE_NOTIFICATION").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSAUDIOMODULE_NOTIFICATION {
     type Abi = Self;
 }
@@ -1973,11 +1953,6 @@ impl ::core::marker::Copy for KSAUDIOMODULE_PROPERTY {}
 impl ::core::clone::Clone for KSAUDIOMODULE_PROPERTY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSAUDIOMODULE_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSAUDIOMODULE_PROPERTY").field("Property", &self.Property).field("ClassId", &self.ClassId).field("InstanceId", &self.InstanceId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSAUDIOMODULE_PROPERTY {
@@ -2200,12 +2175,6 @@ impl ::core::clone::Clone for KSAUDIO_MIXCAP_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSAUDIO_MIXCAP_TABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSAUDIO_MIXCAP_TABLE").field("InputChannels", &self.InputChannels).field("OutputChannels", &self.OutputChannels).field("Capabilities", &self.Capabilities).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KSAUDIO_MIXCAP_TABLE {
     type Abi = Self;
 }
@@ -2277,12 +2246,6 @@ impl ::core::marker::Copy for KSAUDIO_MIX_CAPS {}
 impl ::core::clone::Clone for KSAUDIO_MIX_CAPS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSAUDIO_MIX_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSAUDIO_MIX_CAPS").field("Mute", &self.Mute).field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3561,11 +3524,6 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_VALUE {
         *self
     }
 }
-impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSCAMERA_EXTENDEDPROP_VALUE").field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_VALUE {
     type Abi = Self;
 }
@@ -3640,11 +3598,6 @@ impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {}
 impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING").field("Mode", &self.Mode).field("Min", &self.Min).field("Max", &self.Max).field("Step", &self.Step).field("VideoProc", &self.VideoProc).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
@@ -4414,11 +4367,6 @@ impl ::core::clone::Clone for KSCAMERA_PROFILE_PININFO {
         *self
     }
 }
-impl ::core::fmt::Debug for KSCAMERA_PROFILE_PININFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSCAMERA_PROFILE_PININFO").field("PinCategory", &self.PinCategory).field("Anonymous", &self.Anonymous).field("MediaInfoCount", &self.MediaInfoCount).field("MediaInfos", &self.MediaInfos).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSCAMERA_PROFILE_PININFO {
     type Abi = Self;
 }
@@ -4839,11 +4787,6 @@ impl ::core::clone::Clone for KSDATARANGE_AUDIO {
         *self
     }
 }
-impl ::core::fmt::Debug for KSDATARANGE_AUDIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSDATARANGE_AUDIO").field("DataRange", &self.DataRange).field("MaximumChannels", &self.MaximumChannels).field("MinimumBitsPerSample", &self.MinimumBitsPerSample).field("MaximumBitsPerSample", &self.MaximumBitsPerSample).field("MinimumSampleFrequency", &self.MinimumSampleFrequency).field("MaximumSampleFrequency", &self.MaximumSampleFrequency).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSDATARANGE_AUDIO {
     type Abi = Self;
 }
@@ -4875,11 +4818,6 @@ impl ::core::marker::Copy for KSDATARANGE_MUSIC {}
 impl ::core::clone::Clone for KSDATARANGE_MUSIC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSDATARANGE_MUSIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSDATARANGE_MUSIC").field("DataRange", &self.DataRange).field("Technology", &self.Technology).field("Channels", &self.Channels).field("Notes", &self.Notes).field("ChannelMask", &self.ChannelMask).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSDATARANGE_MUSIC {
@@ -4928,11 +4866,6 @@ impl ::core::marker::Copy for KSDEVICE_PROFILE_INFO {}
 impl ::core::clone::Clone for KSDEVICE_PROFILE_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSDEVICE_PROFILE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSDEVICE_PROFILE_INFO").field("Type", &self.Type).field("Size", &self.Size).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSDEVICE_PROFILE_INFO {
@@ -5069,11 +5002,6 @@ impl ::core::marker::Copy for KSDS3D_BUFFER_ALL {}
 impl ::core::clone::Clone for KSDS3D_BUFFER_ALL {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSDS3D_BUFFER_ALL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSDS3D_BUFFER_ALL").field("Position", &self.Position).field("Velocity", &self.Velocity).field("InsideConeAngle", &self.InsideConeAngle).field("OutsideConeAngle", &self.OutsideConeAngle).field("ConeOrientation", &self.ConeOrientation).field("ConeOutsideVolume", &self.ConeOutsideVolume).field("MinDistance", &self.MinDistance).field("MaxDistance", &self.MaxDistance).field("Mode", &self.Mode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSDS3D_BUFFER_ALL {
@@ -5347,11 +5275,6 @@ impl ::core::clone::Clone for KSDS3D_LISTENER_ALL {
         *self
     }
 }
-impl ::core::fmt::Debug for KSDS3D_LISTENER_ALL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSDS3D_LISTENER_ALL").field("Position", &self.Position).field("Velocity", &self.Velocity).field("OrientFront", &self.OrientFront).field("OrientTop", &self.OrientTop).field("DistanceFactor", &self.DistanceFactor).field("RolloffFactor", &self.RolloffFactor).field("DopplerFactor", &self.DopplerFactor).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSDS3D_LISTENER_ALL {
     type Abi = Self;
 }
@@ -5376,11 +5299,6 @@ impl ::core::marker::Copy for KSDS3D_LISTENER_ORIENTATION {}
 impl ::core::clone::Clone for KSDS3D_LISTENER_ORIENTATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSDS3D_LISTENER_ORIENTATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSDS3D_LISTENER_ORIENTATION").field("Front", &self.Front).field("Top", &self.Top).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSDS3D_LISTENER_ORIENTATION {
@@ -5467,12 +5385,6 @@ impl ::core::marker::Copy for KSEVENTDATA {}
 impl ::core::clone::Clone for KSEVENTDATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSEVENTDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSEVENTDATA").field("NotificationType", &self.NotificationType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5793,12 +5705,6 @@ impl ::core::clone::Clone for KSEVENT_TIME_INTERVAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSEVENT_TIME_INTERVAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSEVENT_TIME_INTERVAL").field("EventData", &self.EventData).field("TimeBase", &self.TimeBase).field("Interval", &self.Interval).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KSEVENT_TIME_INTERVAL {
     type Abi = Self;
 }
@@ -5829,12 +5735,6 @@ impl ::core::marker::Copy for KSEVENT_TIME_MARK {}
 impl ::core::clone::Clone for KSEVENT_TIME_MARK {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSEVENT_TIME_MARK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSEVENT_TIME_MARK").field("EventData", &self.EventData).field("MarkTime", &self.MarkTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5875,12 +5775,6 @@ impl ::core::marker::Copy for KSEVENT_TUNER_INITIATE_SCAN_S {}
 impl ::core::clone::Clone for KSEVENT_TUNER_INITIATE_SCAN_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSEVENT_TUNER_INITIATE_SCAN_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSEVENT_TUNER_INITIATE_SCAN_S").field("EventData", &self.EventData).field("StartFrequency", &self.StartFrequency).field("EndFrequency", &self.EndFrequency).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5956,11 +5850,6 @@ impl ::core::clone::Clone for KSE_NODE {
         *self
     }
 }
-impl ::core::fmt::Debug for KSE_NODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSE_NODE").field("Event", &self.Event).field("NodeId", &self.NodeId).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSE_NODE {
     type Abi = Self;
 }
@@ -5986,11 +5875,6 @@ impl ::core::marker::Copy for KSE_PIN {}
 impl ::core::clone::Clone for KSE_PIN {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSE_PIN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSE_PIN").field("Event", &self.Event).field("PinId", &self.PinId).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSE_PIN {
@@ -6103,11 +5987,6 @@ impl ::core::marker::Copy for KSIDENTIFIER {}
 impl ::core::clone::Clone for KSIDENTIFIER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSIDENTIFIER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSIDENTIFIER").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSIDENTIFIER {
@@ -6505,11 +6384,6 @@ impl ::core::clone::Clone for KSMULTIPLE_DATA_PROP {
         *self
     }
 }
-impl ::core::fmt::Debug for KSMULTIPLE_DATA_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSMULTIPLE_DATA_PROP").field("Property", &self.Property).field("MultipleItem", &self.MultipleItem).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSMULTIPLE_DATA_PROP {
     type Abi = Self;
 }
@@ -6604,11 +6478,6 @@ impl ::core::clone::Clone for KSM_NODE {
         *self
     }
 }
-impl ::core::fmt::Debug for KSM_NODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSM_NODE").field("Method", &self.Method).field("NodeId", &self.NodeId).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSM_NODE {
     type Abi = Self;
 }
@@ -6661,11 +6530,6 @@ impl ::core::clone::Clone for KSNODEPROPERTY {
         *self
     }
 }
-impl ::core::fmt::Debug for KSNODEPROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSNODEPROPERTY").field("Property", &self.Property).field("NodeId", &self.NodeId).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSNODEPROPERTY {
     type Abi = Self;
 }
@@ -6693,12 +6557,6 @@ impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSNODEPROPERTY_AUDIO_3D_LISTENER").field("NodeProperty", &self.NodeProperty).field("ListenerId", &self.ListenerId).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -6733,12 +6591,6 @@ impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSNODEPROPERTY_AUDIO_3D_LISTENER").field("NodeProperty", &self.NodeProperty).field("ListenerId", &self.ListenerId).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -6772,11 +6624,6 @@ impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_CHANNEL {
         *self
     }
 }
-impl ::core::fmt::Debug for KSNODEPROPERTY_AUDIO_CHANNEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSNODEPROPERTY_AUDIO_CHANNEL").field("NodeProperty", &self.NodeProperty).field("Channel", &self.Channel).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSNODEPROPERTY_AUDIO_CHANNEL {
     type Abi = Self;
 }
@@ -6803,11 +6650,6 @@ impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {}
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSNODEPROPERTY_AUDIO_DEV_SPECIFIC").field("NodeProperty", &self.NodeProperty).field("DevSpecificId", &self.DevSpecificId).field("DeviceInfo", &self.DeviceInfo).field("Length", &self.Length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
@@ -6838,12 +6680,6 @@ impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for KSNODEPROPERTY_AUDIO_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSNODEPROPERTY_AUDIO_PROPERTY").field("NodeProperty", &self.NodeProperty).field("AppContext", &self.AppContext).field("Length", &self.Length).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -6879,12 +6715,6 @@ impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for KSNODEPROPERTY_AUDIO_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSNODEPROPERTY_AUDIO_PROPERTY").field("NodeProperty", &self.NodeProperty).field("AppContext", &self.AppContext).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -7096,12 +6926,6 @@ impl ::core::marker::Copy for KSPIN_CONNECT {}
 impl ::core::clone::Clone for KSPIN_CONNECT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPIN_CONNECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPIN_CONNECT").field("Interface", &self.Interface).field("Medium", &self.Medium).field("PinId", &self.PinId).field("PinToHandle", &self.PinToHandle).field("Priority", &self.Priority).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8038,11 +7862,6 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S").field("Property", &self.Property).field("lOcularFocalLength", &self.lOcularFocalLength).field("lObjectiveFocalLengthMin", &self.lObjectiveFocalLengthMin).field("lObjectiveFocalLengthMax", &self.lObjectiveFocalLengthMax).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     type Abi = Self;
 }
@@ -8110,11 +7929,6 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S").field("NodeProperty", &self.NodeProperty).field("lOcularFocalLength", &self.lOcularFocalLength).field("lObjectiveFocalLengthMin", &self.lObjectiveFocalLengthMin).field("lObjectiveFocalLengthMax", &self.lObjectiveFocalLengthMax).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
     type Abi = Self;
 }
@@ -8141,11 +7955,6 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_NODE_S {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_NODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CAMERACONTROL_NODE_S").field("NodeProperty", &self.NodeProperty).field("Value", &self.Value).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_NODE_S {
@@ -8175,11 +7984,6 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_NODE_S2 {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_NODE_S2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_NODE_S2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CAMERACONTROL_NODE_S2").field("NodeProperty", &self.NodeProperty).field("Value1", &self.Value1).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).field("Value2", &self.Value2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_NODE_S2 {
@@ -8238,12 +8042,6 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S").field("FocusRect", &self.FocusRect).field("AutoFocusLock", &self.AutoFocusLock).field("AutoExposureLock", &self.AutoExposureLock).field("AutoWhitebalanceLock", &self.AutoWhitebalanceLock).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8311,11 +8109,6 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CAMERACONTROL_S").field("Property", &self.Property).field("Value", &self.Value).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_S {
     type Abi = Self;
 }
@@ -8343,11 +8136,6 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_S2 {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_S2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CAMERACONTROL_S2").field("Property", &self.Property).field("Value1", &self.Value1).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).field("Value2", &self.Value2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_S2 {
@@ -8380,12 +8168,6 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_S_EX {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_S_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_S_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CAMERACONTROL_S_EX").field("Property", &self.Property).field("Value", &self.Value).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).field("FocusRect", &self.FocusRect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8524,11 +8306,6 @@ impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_ACTIVE_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_CROSSBAR_ACTIVE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CROSSBAR_ACTIVE_S").field("Property", &self.Property).field("IndexInputPin", &self.IndexInputPin).field("Active", &self.Active).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CROSSBAR_ACTIVE_S {
     type Abi = Self;
 }
@@ -8554,11 +8331,6 @@ impl ::core::marker::Copy for KSPROPERTY_CROSSBAR_CAPS_S {}
 impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_CAPS_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_CROSSBAR_CAPS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CROSSBAR_CAPS_S").field("Property", &self.Property).field("NumberOfInputs", &self.NumberOfInputs).field("NumberOfOutputs", &self.NumberOfOutputs).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CROSSBAR_CAPS_S {
@@ -8591,11 +8363,6 @@ impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_PININFO_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_CROSSBAR_PININFO_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CROSSBAR_PININFO_S").field("Property", &self.Property).field("Direction", &self.Direction).field("Index", &self.Index).field("PinType", &self.PinType).field("RelatedPinIndex", &self.RelatedPinIndex).field("Medium", &self.Medium).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CROSSBAR_PININFO_S {
     type Abi = Self;
 }
@@ -8622,11 +8389,6 @@ impl ::core::marker::Copy for KSPROPERTY_CROSSBAR_ROUTE_S {}
 impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_ROUTE_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_CROSSBAR_ROUTE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_CROSSBAR_ROUTE_S").field("Property", &self.Property).field("IndexInputPin", &self.IndexInputPin).field("IndexOutputPin", &self.IndexOutputPin).field("CanRoute", &self.CanRoute).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CROSSBAR_ROUTE_S {
@@ -8660,11 +8422,6 @@ impl ::core::marker::Copy for KSPROPERTY_DESCRIPTION {}
 impl ::core::clone::Clone for KSPROPERTY_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_DESCRIPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_DESCRIPTION").field("AccessFlags", &self.AccessFlags).field("DescriptionSize", &self.DescriptionSize).field("PropTypeSet", &self.PropTypeSet).field("MembersListCount", &self.MembersListCount).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_DESCRIPTION {
@@ -8739,11 +8496,6 @@ impl ::core::clone::Clone for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_DROPPEDFRAMES_CURRENT_S").field("Property", &self.Property).field("PictureNumber", &self.PictureNumber).field("DropCount", &self.DropCount).field("AverageFrameSize", &self.AverageFrameSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     type Abi = Self;
 }
@@ -8788,11 +8540,6 @@ impl ::core::marker::Copy for KSPROPERTY_EXTDEVICE_S {}
 impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_EXTDEVICE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_EXTDEVICE_S").field("Property", &self.Property).field("u", &self.u).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_EXTDEVICE_S {
@@ -8883,12 +8630,6 @@ impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_NODE_S {}
 impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT_NODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_EXTXPORT_NODE_S").field("NodeProperty", &self.NodeProperty).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9042,12 +8783,6 @@ impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_S {}
 impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_EXTXPORT_S").field("Property", &self.Property).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9612,11 +9347,6 @@ impl ::core::clone::Clone for KSPROPERTY_SELECTOR_NODE_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_SELECTOR_NODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_SELECTOR_NODE_S").field("NodeProperty", &self.NodeProperty).field("Value", &self.Value).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_SELECTOR_NODE_S {
     type Abi = Self;
 }
@@ -9645,11 +9375,6 @@ impl ::core::clone::Clone for KSPROPERTY_SELECTOR_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_SELECTOR_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_SELECTOR_S").field("Property", &self.Property).field("Value", &self.Value).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_SELECTOR_S {
     type Abi = Self;
 }
@@ -9675,11 +9400,6 @@ impl ::core::marker::Copy for KSPROPERTY_SERIAL {}
 impl ::core::clone::Clone for KSPROPERTY_SERIAL {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_SERIAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_SERIAL").field("PropTypeSet", &self.PropTypeSet).field("Id", &self.Id).field("PropertyLength", &self.PropertyLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_SERIAL {
@@ -9822,11 +9542,6 @@ impl ::core::clone::Clone for KSPROPERTY_STEPPING_LONG {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_STEPPING_LONG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_STEPPING_LONG").field("SteppingDelta", &self.SteppingDelta).field("Reserved", &self.Reserved).field("Bounds", &self.Bounds).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_STEPPING_LONG {
     type Abi = Self;
 }
@@ -9851,11 +9566,6 @@ impl ::core::marker::Copy for KSPROPERTY_STEPPING_LONGLONG {}
 impl ::core::clone::Clone for KSPROPERTY_STEPPING_LONGLONG {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_STEPPING_LONGLONG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_STEPPING_LONGLONG").field("SteppingDelta", &self.SteppingDelta).field("Bounds", &self.Bounds).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_STEPPING_LONGLONG {
@@ -9940,11 +9650,6 @@ impl ::core::clone::Clone for KSPROPERTY_TIMECODE_NODE_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_TIMECODE_NODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TIMECODE_NODE_S").field("NodeProperty", &self.NodeProperty).field("TimecodeSamp", &self.TimecodeSamp).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TIMECODE_NODE_S {
     type Abi = Self;
 }
@@ -9969,11 +9674,6 @@ impl ::core::marker::Copy for KSPROPERTY_TIMECODE_S {}
 impl ::core::clone::Clone for KSPROPERTY_TIMECODE_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_TIMECODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TIMECODE_S").field("Property", &self.Property).field("TimecodeSamp", &self.TimecodeSamp).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TIMECODE_S {
@@ -10047,11 +9747,6 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_CAPS_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_CAPS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_CAPS_S").field("Property", &self.Property).field("ModesSupported", &self.ModesSupported).field("VideoMedium", &self.VideoMedium).field("TVAudioMedium", &self.TVAudioMedium).field("RadioAudioMedium", &self.RadioAudioMedium).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_CAPS_S {
     type Abi = Self;
 }
@@ -10084,11 +9779,6 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_FREQUENCY_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_FREQUENCY_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_FREQUENCY_S").field("Property", &self.Property).field("Frequency", &self.Frequency).field("LastFrequency", &self.LastFrequency).field("TuningFlags", &self.TuningFlags).field("VideoSubChannel", &self.VideoSubChannel).field("AudioSubChannel", &self.AudioSubChannel).field("Channel", &self.Channel).field("Country", &self.Country).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_FREQUENCY_S {
     type Abi = Self;
 }
@@ -10115,11 +9805,6 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_IF_MEDIUM_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_IF_MEDIUM_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_IF_MEDIUM_S").field("Property", &self.Property).field("IFMedium", &self.IFMedium).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_IF_MEDIUM_S {
     type Abi = Self;
 }
@@ -10144,11 +9829,6 @@ impl ::core::marker::Copy for KSPROPERTY_TUNER_INPUT_S {}
 impl ::core::clone::Clone for KSPROPERTY_TUNER_INPUT_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_INPUT_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_INPUT_S").field("Property", &self.Property).field("InputIndex", &self.InputIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_INPUT_S {
@@ -10196,11 +9876,6 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_MODE_CAPS_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_MODE_CAPS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_MODE_CAPS_S").field("Property", &self.Property).field("Mode", &self.Mode).field("StandardsSupported", &self.StandardsSupported).field("MinFrequency", &self.MinFrequency).field("MaxFrequency", &self.MaxFrequency).field("TuningGranularity", &self.TuningGranularity).field("NumberOfInputs", &self.NumberOfInputs).field("SettlingTime", &self.SettlingTime).field("Strategy", &self.Strategy).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_MODE_CAPS_S {
     type Abi = Self;
 }
@@ -10225,11 +9900,6 @@ impl ::core::marker::Copy for KSPROPERTY_TUNER_MODE_S {}
 impl ::core::clone::Clone for KSPROPERTY_TUNER_MODE_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_MODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_MODE_S").field("Property", &self.Property).field("Mode", &self.Mode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_MODE_S {
@@ -10258,11 +9928,6 @@ impl ::core::marker::Copy for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {}
 impl ::core::clone::Clone for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S").field("Property", &self.Property).field("NetworkType", &self.NetworkType).field("BufferSize", &self.BufferSize).field("NetworkTunerCapabilities", &self.NetworkTunerCapabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
@@ -10298,12 +9963,6 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_SCAN_CAPS_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_SCAN_CAPS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_SCAN_CAPS_S").field("Property", &self.Property).field("fSupportsHardwareAssistedScanning", &self.fSupportsHardwareAssistedScanning).field("SupportedBroadcastStandards", &self.SupportedBroadcastStandards).field("GUIDBucket", &self.GUIDBucket).field("lengthofBucket", &self.lengthofBucket).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_SCAN_CAPS_S {
     type Abi = Self;
 }
@@ -10332,11 +9991,6 @@ impl ::core::marker::Copy for KSPROPERTY_TUNER_SCAN_STATUS_S {}
 impl ::core::clone::Clone for KSPROPERTY_TUNER_SCAN_STATUS_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_SCAN_STATUS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_SCAN_STATUS_S").field("Property", &self.Property).field("LockStatus", &self.LockStatus).field("CurrentFrequency", &self.CurrentFrequency).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_SCAN_STATUS_S {
@@ -10369,12 +10023,6 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_STANDARD_MODE_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_STANDARD_MODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_STANDARD_MODE_S").field("Property", &self.Property).field("AutoDetect", &self.AutoDetect).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_STANDARD_MODE_S {
     type Abi = Self;
 }
@@ -10402,11 +10050,6 @@ impl ::core::marker::Copy for KSPROPERTY_TUNER_STANDARD_S {}
 impl ::core::clone::Clone for KSPROPERTY_TUNER_STANDARD_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_STANDARD_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_STANDARD_S").field("Property", &self.Property).field("Standard", &self.Standard).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_STANDARD_S {
@@ -10438,11 +10081,6 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_STATUS_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_STATUS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TUNER_STATUS_S").field("Property", &self.Property).field("CurrentFrequency", &self.CurrentFrequency).field("PLLOffset", &self.PLLOffset).field("SignalStrength", &self.SignalStrength).field("Busy", &self.Busy).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_STATUS_S {
     type Abi = Self;
 }
@@ -10471,11 +10109,6 @@ impl ::core::clone::Clone for KSPROPERTY_TVAUDIO_CAPS_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_TVAUDIO_CAPS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TVAUDIO_CAPS_S").field("Property", &self.Property).field("Capabilities", &self.Capabilities).field("InputMedium", &self.InputMedium).field("OutputMedium", &self.OutputMedium).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TVAUDIO_CAPS_S {
     type Abi = Self;
 }
@@ -10500,11 +10133,6 @@ impl ::core::marker::Copy for KSPROPERTY_TVAUDIO_S {}
 impl ::core::clone::Clone for KSPROPERTY_TVAUDIO_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_TVAUDIO_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_TVAUDIO_S").field("Property", &self.Property).field("Mode", &self.Mode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TVAUDIO_S {
@@ -10581,11 +10209,6 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S").field("Property", &self.Property).field("Substreams", &self.Substreams).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     type Abi = Self;
 }
@@ -10610,11 +10233,6 @@ impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {}
 impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S").field("Property", &self.Property).field("Substreams", &self.Substreams).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
@@ -10643,11 +10261,6 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_SCANLINES_S").field("Property", &self.Property).field("Scanlines", &self.Scanlines).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
     type Abi = Self;
 }
@@ -10672,11 +10285,6 @@ impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
 impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S").field("Property", &self.Property).field("Statistics", &self.Statistics).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
@@ -10705,11 +10313,6 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S").field("Property", &self.Property).field("Statistics", &self.Statistics).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     type Abi = Self;
 }
@@ -10734,11 +10337,6 @@ impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN
 impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S").field("Property", &self.Property).field("Statistics", &self.Statistics).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
@@ -10767,11 +10365,6 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S").field("Property", &self.Property).field("Statistics", &self.Statistics).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     type Abi = Self;
 }
@@ -10798,11 +10391,6 @@ impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S").field("Property", &self.Property).field("Statistics", &self.Statistics).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
     type Abi = Self;
 }
@@ -10827,11 +10415,6 @@ impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {}
 impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S").field("Property", &self.Property).field("Statistics", &self.Statistics).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
@@ -11017,11 +10600,6 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S").field("Property", &self.Property).field("StreamIndex", &self.StreamIndex).field("DefaultKeyFrameRate", &self.DefaultKeyFrameRate).field("DefaultPFrameRate", &self.DefaultPFrameRate).field("DefaultQuality", &self.DefaultQuality).field("NumberOfQualitySettings", &self.NumberOfQualitySettings).field("Capabilities", &self.Capabilities).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     type Abi = Self;
 }
@@ -11047,11 +10625,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEOCOMPRESSION_S {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOCOMPRESSION_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOCOMPRESSION_S").field("Property", &self.Property).field("StreamIndex", &self.StreamIndex).field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOCOMPRESSION_S {
@@ -11080,11 +10653,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEOCOMPRESSION_S1 {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEOCOMPRESSION_S1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOCOMPRESSION_S1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOCOMPRESSION_S1").field("Property", &self.Property).field("StreamIndex", &self.StreamIndex).field("Value", &self.Value).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOCOMPRESSION_S1 {
@@ -11121,12 +10689,6 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S").field("Property", &self.Property).field("StreamIndex", &self.StreamIndex).field("RangeIndex", &self.RangeIndex).field("Dimensions", &self.Dimensions).field("CurrentActualFrameRate", &self.CurrentActualFrameRate).field("CurrentMaxAvailableFrameRate", &self.CurrentMaxAvailableFrameRate).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     type Abi = Self;
 }
@@ -11155,11 +10717,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEOCONTROL_CAPS_S {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_CAPS_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOCONTROL_CAPS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOCONTROL_CAPS_S").field("Property", &self.Property).field("StreamIndex", &self.StreamIndex).field("VideoControlCaps", &self.VideoControlCaps).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOCONTROL_CAPS_S {
@@ -11194,12 +10751,6 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S").field("Property", &self.Property).field("StreamIndex", &self.StreamIndex).field("RangeIndex", &self.RangeIndex).field("Dimensions", &self.Dimensions).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     type Abi = Self;
 }
@@ -11228,11 +10779,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEOCONTROL_MODE_S {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEOCONTROL_MODE_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOCONTROL_MODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOCONTROL_MODE_S").field("Property", &self.Property).field("StreamIndex", &self.StreamIndex).field("Mode", &self.Mode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOCONTROL_MODE_S {
@@ -11264,11 +10810,6 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_CAPS_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VIDEODECODER_CAPS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEODECODER_CAPS_S").field("Property", &self.Property).field("StandardsSupported", &self.StandardsSupported).field("Capabilities", &self.Capabilities).field("SettlingTime", &self.SettlingTime).field("HSyncPerVSync", &self.HSyncPerVSync).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEODECODER_CAPS_S {
     type Abi = Self;
 }
@@ -11293,11 +10834,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEODECODER_S {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEODECODER_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEODECODER_S").field("Property", &self.Property).field("Value", &self.Value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEODECODER_S {
@@ -11328,11 +10864,6 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_STATUS2_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VIDEODECODER_STATUS2_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEODECODER_STATUS2_S").field("Property", &self.Property).field("NumberOfLines", &self.NumberOfLines).field("SignalLocked", &self.SignalLocked).field("ChromaLock", &self.ChromaLock).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEODECODER_STATUS2_S {
     type Abi = Self;
 }
@@ -11358,11 +10889,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEODECODER_STATUS_S {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEODECODER_STATUS_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEODECODER_STATUS_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEODECODER_STATUS_S").field("Property", &self.Property).field("NumberOfLines", &self.NumberOfLines).field("SignalLocked", &self.SignalLocked).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEODECODER_STATUS_S {
@@ -11391,11 +10917,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEOENCODER_S {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEOENCODER_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOENCODER_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOENCODER_S").field("Property", &self.Property).field("Value", &self.Value).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOENCODER_S {
@@ -11430,11 +10951,6 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOPROCAMP_NODE_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOPROCAMP_NODE_S").field("NodeProperty", &self.NodeProperty).field("Value", &self.Value).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOPROCAMP_NODE_S {
     type Abi = Self;
 }
@@ -11462,11 +10978,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOPROCAMP_NODE_S2").field("NodeProperty", &self.NodeProperty).field("Value1", &self.Value1).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).field("Value2", &self.Value2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
@@ -11497,11 +11008,6 @@ impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_S {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOPROCAMP_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOPROCAMP_S").field("Property", &self.Property).field("Value", &self.Value).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOPROCAMP_S {
     type Abi = Self;
 }
@@ -11529,11 +11035,6 @@ impl ::core::marker::Copy for KSPROPERTY_VIDEOPROCAMP_S2 {}
 impl ::core::clone::Clone for KSPROPERTY_VIDEOPROCAMP_S2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDEOPROCAMP_S2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_VIDEOPROCAMP_S2").field("Property", &self.Property).field("Value1", &self.Value1).field("Flags", &self.Flags).field("Capabilities", &self.Capabilities).field("Value2", &self.Value2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDEOPROCAMP_S2 {
@@ -11677,11 +11178,6 @@ impl ::core::clone::Clone for KSP_NODE {
         *self
     }
 }
-impl ::core::fmt::Debug for KSP_NODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSP_NODE").field("Property", &self.Property).field("NodeId", &self.NodeId).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSP_NODE {
     type Abi = Self;
 }
@@ -11707,11 +11203,6 @@ impl ::core::marker::Copy for KSP_PIN {}
 impl ::core::clone::Clone for KSP_PIN {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSP_PIN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSP_PIN").field("Property", &self.Property).field("PinId", &self.PinId).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSP_PIN {
@@ -11766,11 +11257,6 @@ impl ::core::marker::Copy for KSP_TIMEFORMAT {}
 impl ::core::clone::Clone for KSP_TIMEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSP_TIMEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSP_TIMEFORMAT").field("Property", &self.Property).field("SourceFormat", &self.SourceFormat).field("TargetFormat", &self.TargetFormat).field("Time", &self.Time).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSP_TIMEFORMAT {
@@ -11875,12 +11361,6 @@ impl ::core::clone::Clone for KSQUERYBUFFER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSQUERYBUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSQUERYBUFFER").field("Event", &self.Event).field("EventData", &self.EventData).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KSQUERYBUFFER {
     type Abi = Self;
 }
@@ -11913,11 +11393,6 @@ impl ::core::clone::Clone for KSRATE {
         *self
     }
 }
-impl ::core::fmt::Debug for KSRATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRATE").field("PresentationStart", &self.PresentationStart).field("Duration", &self.Duration).field("Interface", &self.Interface).field("Rate", &self.Rate).field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSRATE {
     type Abi = Self;
 }
@@ -11942,11 +11417,6 @@ impl ::core::marker::Copy for KSRATE_CAPABILITY {}
 impl ::core::clone::Clone for KSRATE_CAPABILITY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSRATE_CAPABILITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRATE_CAPABILITY").field("Property", &self.Property).field("Rate", &self.Rate).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSRATE_CAPABILITY {
@@ -11984,12 +11454,6 @@ impl ::core::marker::Copy for KSRELATIVEEVENT {}
 impl ::core::clone::Clone for KSRELATIVEEVENT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSRELATIVEEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRELATIVEEVENT").field("Size", &self.Size).field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).field("Reserved", &self.Reserved).field("Event", &self.Event).field("EventData", &self.EventData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12177,11 +11641,6 @@ impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY {
         *self
     }
 }
-impl ::core::fmt::Debug for KSRTAUDIO_BUFFER_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_BUFFER_PROPERTY").field("Property", &self.Property).field("BaseAddress", &self.BaseAddress).field("RequestedBufferSize", &self.RequestedBufferSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSRTAUDIO_BUFFER_PROPERTY {
     type Abi = Self;
 }
@@ -12207,11 +11666,6 @@ impl ::core::marker::Copy for KSRTAUDIO_BUFFER_PROPERTY32 {}
 impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY32 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSRTAUDIO_BUFFER_PROPERTY32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_BUFFER_PROPERTY32").field("Property", &self.Property).field("BaseAddress", &self.BaseAddress).field("RequestedBufferSize", &self.RequestedBufferSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSRTAUDIO_BUFFER_PROPERTY32 {
@@ -12242,11 +11696,6 @@ impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
         *self
     }
 }
-impl ::core::fmt::Debug for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION").field("Property", &self.Property).field("BaseAddress", &self.BaseAddress).field("RequestedBufferSize", &self.RequestedBufferSize).field("NotificationCount", &self.NotificationCount).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
     type Abi = Self;
 }
@@ -12273,11 +11722,6 @@ impl ::core::marker::Copy for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {}
 impl ::core::clone::Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32").field("Property", &self.Property).field("BaseAddress", &self.BaseAddress).field("RequestedBufferSize", &self.RequestedBufferSize).field("NotificationCount", &self.NotificationCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
@@ -12447,11 +11891,6 @@ impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER_PROPERTY {
         *self
     }
 }
-impl ::core::fmt::Debug for KSRTAUDIO_HWREGISTER_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_HWREGISTER_PROPERTY").field("Property", &self.Property).field("BaseAddress", &self.BaseAddress).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSRTAUDIO_HWREGISTER_PROPERTY {
     type Abi = Self;
 }
@@ -12476,11 +11915,6 @@ impl ::core::marker::Copy for KSRTAUDIO_HWREGISTER_PROPERTY32 {}
 impl ::core::clone::Clone for KSRTAUDIO_HWREGISTER_PROPERTY32 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSRTAUDIO_HWREGISTER_PROPERTY32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_HWREGISTER_PROPERTY32").field("Property", &self.Property).field("BaseAddress", &self.BaseAddress).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSRTAUDIO_HWREGISTER_PROPERTY32 {
@@ -12513,12 +11947,6 @@ impl ::core::clone::Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY").field("Property", &self.Property).field("NotificationEvent", &self.NotificationEvent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     type Abi = Self;
 }
@@ -12546,11 +11974,6 @@ impl ::core::marker::Copy for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {}
 impl ::core::clone::Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32").field("Property", &self.Property).field("NotificationEvent", &self.NotificationEvent).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
@@ -12611,11 +12034,6 @@ impl ::core::clone::Clone for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
         *self
     }
 }
-impl ::core::fmt::Debug for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSRTAUDIO_PACKETVREGISTER_PROPERTY").field("Property", &self.Property).field("BaseAddress", &self.BaseAddress).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     type Abi = Self;
 }
@@ -12674,11 +12092,6 @@ impl ::core::clone::Clone for KSSOUNDDETECTORPROPERTY {
         *self
     }
 }
-impl ::core::fmt::Debug for KSSOUNDDETECTORPROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSSOUNDDETECTORPROPERTY").field("Property", &self.Property).field("EventId", &self.EventId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSSOUNDDETECTORPROPERTY {
     type Abi = Self;
 }
@@ -12716,11 +12129,6 @@ impl ::core::clone::Clone for KSSTREAMALLOCATOR_STATUS {
         *self
     }
 }
-impl ::core::fmt::Debug for KSSTREAMALLOCATOR_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSSTREAMALLOCATOR_STATUS").field("Framing", &self.Framing).field("AllocatedFrames", &self.AllocatedFrames).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSSTREAMALLOCATOR_STATUS {
     type Abi = Self;
 }
@@ -12746,11 +12154,6 @@ impl ::core::marker::Copy for KSSTREAMALLOCATOR_STATUS_EX {}
 impl ::core::clone::Clone for KSSTREAMALLOCATOR_STATUS_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSSTREAMALLOCATOR_STATUS_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSSTREAMALLOCATOR_STATUS_EX").field("Framing", &self.Framing).field("AllocatedFrames", &self.AllocatedFrames).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSSTREAMALLOCATOR_STATUS_EX {
@@ -12953,11 +12356,6 @@ impl ::core::clone::Clone for KSSTREAM_UVC_METADATA {
         *self
     }
 }
-impl ::core::fmt::Debug for KSSTREAM_UVC_METADATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSSTREAM_UVC_METADATA").field("StartOfFrameTimestamp", &self.StartOfFrameTimestamp).field("EndOfFrameTimestamp", &self.EndOfFrameTimestamp).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSSTREAM_UVC_METADATA {
     type Abi = Self;
 }
@@ -12985,11 +12383,6 @@ impl ::core::marker::Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {}
 impl ::core::clone::Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSSTREAM_UVC_METADATATYPE_TIMESTAMP").field("PresentationTimeStamp", &self.PresentationTimeStamp).field("SourceClockReference", &self.SourceClockReference).field("Anonymous", &self.Anonymous).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
@@ -13372,11 +12765,6 @@ impl ::core::clone::Clone for KSVPSIZE_PROP {
         *self
     }
 }
-impl ::core::fmt::Debug for KSVPSIZE_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSVPSIZE_PROP").field("Property", &self.Property).field("Size", &self.Size).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSVPSIZE_PROP {
     type Abi = Self;
 }
@@ -13440,12 +12828,6 @@ impl ::core::marker::Copy for KSWAVETABLE_WAVE_DESC {}
 impl ::core::clone::Clone for KSWAVETABLE_WAVE_DESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KSWAVETABLE_WAVE_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSWAVETABLE_WAVE_DESC").field("Identifier", &self.Identifier).field("Size", &self.Size).field("Looped", &self.Looped).field("LoopPoint", &self.LoopPoint).field("InROM", &self.InROM).field("Format", &self.Format).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14229,11 +13611,6 @@ impl ::core::clone::Clone for KS_DATAFORMAT_H264VIDEOINFO {
         *self
     }
 }
-impl ::core::fmt::Debug for KS_DATAFORMAT_H264VIDEOINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATAFORMAT_H264VIDEOINFO").field("DataFormat", &self.DataFormat).field("H264VideoInfoHeader", &self.H264VideoInfoHeader).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KS_DATAFORMAT_H264VIDEOINFO {
     type Abi = Self;
 }
@@ -14258,11 +13635,6 @@ impl ::core::marker::Copy for KS_DATAFORMAT_IMAGEINFO {}
 impl ::core::clone::Clone for KS_DATAFORMAT_IMAGEINFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KS_DATAFORMAT_IMAGEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATAFORMAT_IMAGEINFO").field("DataFormat", &self.DataFormat).field("ImageInfoHeader", &self.ImageInfoHeader).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KS_DATAFORMAT_IMAGEINFO {
@@ -14295,12 +13667,6 @@ impl ::core::clone::Clone for KS_DATAFORMAT_MPEGVIDEOINFO2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATAFORMAT_MPEGVIDEOINFO2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATAFORMAT_MPEGVIDEOINFO2").field("DataFormat", &self.DataFormat).field("MpegVideoInfoHeader2", &self.MpegVideoInfoHeader2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_DATAFORMAT_MPEGVIDEOINFO2 {
     type Abi = Self;
 }
@@ -14330,11 +13696,6 @@ impl ::core::clone::Clone for KS_DATAFORMAT_VBIINFOHEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for KS_DATAFORMAT_VBIINFOHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATAFORMAT_VBIINFOHEADER").field("DataFormat", &self.DataFormat).field("VBIInfoHeader", &self.VBIInfoHeader).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KS_DATAFORMAT_VBIINFOHEADER {
     type Abi = Self;
 }
@@ -14362,12 +13723,6 @@ impl ::core::marker::Copy for KS_DATAFORMAT_VIDEOINFOHEADER {}
 impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFOHEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATAFORMAT_VIDEOINFOHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATAFORMAT_VIDEOINFOHEADER").field("DataFormat", &self.DataFormat).field("VideoInfoHeader", &self.VideoInfoHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14404,12 +13759,6 @@ impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATAFORMAT_VIDEOINFOHEADER2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATAFORMAT_VIDEOINFOHEADER2").field("DataFormat", &self.DataFormat).field("VideoInfoHeader2", &self.VideoInfoHeader2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     type Abi = Self;
 }
@@ -14443,12 +13792,6 @@ impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATAFORMAT_VIDEOINFO_PALETTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATAFORMAT_VIDEOINFO_PALETTE").field("DataFormat", &self.DataFormat).field("VideoInfo", &self.VideoInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     type Abi = Self;
 }
@@ -14479,12 +13822,6 @@ impl ::core::marker::Copy for KS_DATARANGE_ANALOGVIDEO {}
 impl ::core::clone::Clone for KS_DATARANGE_ANALOGVIDEO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_ANALOGVIDEO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_ANALOGVIDEO").field("DataRange", &self.DataRange).field("AnalogVideoInfo", &self.AnalogVideoInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14526,12 +13863,6 @@ impl ::core::clone::Clone for KS_DATARANGE_H264_VIDEO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_H264_VIDEO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_H264_VIDEO").field("DataRange", &self.DataRange).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("StreamDescriptionFlags", &self.StreamDescriptionFlags).field("MemoryAllocationFlags", &self.MemoryAllocationFlags).field("ConfigCaps", &self.ConfigCaps).field("VideoInfoHeader", &self.VideoInfoHeader).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_DATARANGE_H264_VIDEO {
     type Abi = Self;
 }
@@ -14563,12 +13894,6 @@ impl ::core::marker::Copy for KS_DATARANGE_IMAGE {}
 impl ::core::clone::Clone for KS_DATARANGE_IMAGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_IMAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_IMAGE").field("DataRange", &self.DataRange).field("ConfigCaps", &self.ConfigCaps).field("ImageInfoHeader", &self.ImageInfoHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14610,12 +13935,6 @@ impl ::core::clone::Clone for KS_DATARANGE_MPEG1_VIDEO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_MPEG1_VIDEO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_MPEG1_VIDEO").field("DataRange", &self.DataRange).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("StreamDescriptionFlags", &self.StreamDescriptionFlags).field("MemoryAllocationFlags", &self.MemoryAllocationFlags).field("ConfigCaps", &self.ConfigCaps).field("VideoInfoHeader", &self.VideoInfoHeader).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_DATARANGE_MPEG1_VIDEO {
     type Abi = Self;
 }
@@ -14651,12 +13970,6 @@ impl ::core::marker::Copy for KS_DATARANGE_MPEG2_VIDEO {}
 impl ::core::clone::Clone for KS_DATARANGE_MPEG2_VIDEO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_MPEG2_VIDEO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_MPEG2_VIDEO").field("DataRange", &self.DataRange).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("StreamDescriptionFlags", &self.StreamDescriptionFlags).field("MemoryAllocationFlags", &self.MemoryAllocationFlags).field("ConfigCaps", &self.ConfigCaps).field("VideoInfoHeader", &self.VideoInfoHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14698,12 +14011,6 @@ impl ::core::clone::Clone for KS_DATARANGE_VIDEO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_VIDEO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_VIDEO").field("DataRange", &self.DataRange).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("StreamDescriptionFlags", &self.StreamDescriptionFlags).field("MemoryAllocationFlags", &self.MemoryAllocationFlags).field("ConfigCaps", &self.ConfigCaps).field("VideoInfoHeader", &self.VideoInfoHeader).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_DATARANGE_VIDEO {
     type Abi = Self;
 }
@@ -14739,12 +14046,6 @@ impl ::core::marker::Copy for KS_DATARANGE_VIDEO2 {}
 impl ::core::clone::Clone for KS_DATARANGE_VIDEO2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_VIDEO2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_VIDEO2").field("DataRange", &self.DataRange).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("StreamDescriptionFlags", &self.StreamDescriptionFlags).field("MemoryAllocationFlags", &self.MemoryAllocationFlags).field("ConfigCaps", &self.ConfigCaps).field("VideoInfoHeader", &self.VideoInfoHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14786,12 +14087,6 @@ impl ::core::clone::Clone for KS_DATARANGE_VIDEO_PALETTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_VIDEO_PALETTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_VIDEO_PALETTE").field("DataRange", &self.DataRange).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("StreamDescriptionFlags", &self.StreamDescriptionFlags).field("MemoryAllocationFlags", &self.MemoryAllocationFlags).field("ConfigCaps", &self.ConfigCaps).field("VideoInfo", &self.VideoInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_DATARANGE_VIDEO_PALETTE {
     type Abi = Self;
 }
@@ -14827,12 +14122,6 @@ impl ::core::marker::Copy for KS_DATARANGE_VIDEO_VBI {}
 impl ::core::clone::Clone for KS_DATARANGE_VIDEO_VBI {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_DATARANGE_VIDEO_VBI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_DATARANGE_VIDEO_VBI").field("DataRange", &self.DataRange).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("StreamDescriptionFlags", &self.StreamDescriptionFlags).field("MemoryAllocationFlags", &self.MemoryAllocationFlags).field("ConfigCaps", &self.ConfigCaps).field("VBIInfoHeader", &self.VBIInfoHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15164,12 +14453,6 @@ impl ::core::clone::Clone for KS_FRAME_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_FRAME_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_FRAME_INFO").field("ExtendedHeaderSize", &self.ExtendedHeaderSize).field("dwFrameFlags", &self.dwFrameFlags).field("PictureNumber", &self.PictureNumber).field("DropCount", &self.DropCount).field("hDirectDraw", &self.hDirectDraw).field("hSurfaceHandle", &self.hSurfaceHandle).field("DirectDrawRect", &self.DirectDrawRect).field("Anonymous1", &self.Anonymous1).field("Reserved2", &self.Reserved2).field("Anonymous2", &self.Anonymous2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_FRAME_INFO {
     type Abi = Self;
 }
@@ -15310,11 +14593,6 @@ impl ::core::marker::Copy for KS_FRAMING_ITEM {}
 impl ::core::clone::Clone for KS_FRAMING_ITEM {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KS_FRAMING_ITEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_FRAMING_ITEM").field("MemoryType", &self.MemoryType).field("BusType", &self.BusType).field("MemoryFlags", &self.MemoryFlags).field("BusFlags", &self.BusFlags).field("Flags", &self.Flags).field("Frames", &self.Frames).field("Anonymous", &self.Anonymous).field("MemoryTypeWeight", &self.MemoryTypeWeight).field("PhysicalRange", &self.PhysicalRange).field("FramingRange", &self.FramingRange).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KS_FRAMING_ITEM {
@@ -15707,12 +14985,6 @@ impl ::core::marker::Copy for KS_MPEGVIDEOINFO2 {}
 impl ::core::clone::Clone for KS_MPEGVIDEOINFO2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_MPEGVIDEOINFO2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_MPEGVIDEOINFO2").field("hdr", &self.hdr).field("dwStartTimeCode", &self.dwStartTimeCode).field("cbSequenceHeader", &self.cbSequenceHeader).field("dwProfile", &self.dwProfile).field("dwLevel", &self.dwLevel).field("dwFlags", &self.dwFlags).field("bSequenceHeader", &self.bSequenceHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16120,12 +15392,6 @@ impl ::core::clone::Clone for KS_VIDEOINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_VIDEOINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_VIDEOINFO").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for KS_VIDEOINFO {
     type Abi = Self;
 }
@@ -16243,25 +15509,6 @@ impl ::core::marker::Copy for KS_VIDEOINFOHEADER2 {}
 impl ::core::clone::Clone for KS_VIDEOINFOHEADER2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_VIDEOINFOHEADER2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_VIDEOINFOHEADER2")
-            .field("rcSource", &self.rcSource)
-            .field("rcTarget", &self.rcTarget)
-            .field("dwBitRate", &self.dwBitRate)
-            .field("dwBitErrorRate", &self.dwBitErrorRate)
-            .field("AvgTimePerFrame", &self.AvgTimePerFrame)
-            .field("dwInterlaceFlags", &self.dwInterlaceFlags)
-            .field("dwCopyProtectFlags", &self.dwCopyProtectFlags)
-            .field("dwPictAspectRatioX", &self.dwPictAspectRatioX)
-            .field("dwPictAspectRatioY", &self.dwPictAspectRatioY)
-            .field("Anonymous", &self.Anonymous)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("bmiHeader", &self.bmiHeader)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16630,12 +15877,6 @@ impl ::core::marker::Copy for LOOPEDSTREAMING_POSITION_EVENT_DATA {}
 impl ::core::clone::Clone for LOOPEDSTREAMING_POSITION_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LOOPEDSTREAMING_POSITION_EVENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOOPEDSTREAMING_POSITION_EVENT_DATA").field("KsEventData", &self.KsEventData).field("Position", &self.Position).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17495,11 +16736,6 @@ impl ::core::clone::Clone for VBICAP_PROPERTIES_PROTECTION_S {
         *self
     }
 }
-impl ::core::fmt::Debug for VBICAP_PROPERTIES_PROTECTION_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VBICAP_PROPERTIES_PROTECTION_S").field("Property", &self.Property).field("StreamIndex", &self.StreamIndex).field("Status", &self.Status).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VBICAP_PROPERTIES_PROTECTION_S {
     type Abi = Self;
 }
@@ -17933,11 +17169,6 @@ impl ::core::marker::Copy for VRAM_SURFACE_INFO_PROPERTY_S {}
 impl ::core::clone::Clone for VRAM_SURFACE_INFO_PROPERTY_S {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for VRAM_SURFACE_INFO_PROPERTY_S {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VRAM_SURFACE_INFO_PROPERTY_S").field("Property", &self.Property).field("pVramSurfaceInfo", &self.pVramSurfaceInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VRAM_SURFACE_INFO_PROPERTY_S {

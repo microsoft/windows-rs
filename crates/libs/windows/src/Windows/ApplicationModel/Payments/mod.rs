@@ -1026,11 +1026,6 @@ impl ::core::clone::Clone for PaymentCanMakePaymentResultStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PaymentCanMakePaymentResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentCanMakePaymentResultStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PaymentCanMakePaymentResultStatus {
     type Abi = Self;
 }
@@ -1040,6 +1035,11 @@ impl ::core::cmp::PartialEq for PaymentCanMakePaymentResultStatus {
     }
 }
 impl ::core::cmp::Eq for PaymentCanMakePaymentResultStatus {}
+impl ::core::fmt::Debug for PaymentCanMakePaymentResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentCanMakePaymentResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentCanMakePaymentResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
 }
@@ -1946,11 +1946,6 @@ impl ::core::clone::Clone for PaymentOptionPresence {
         *self
     }
 }
-impl ::core::fmt::Debug for PaymentOptionPresence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentOptionPresence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PaymentOptionPresence {
     type Abi = Self;
 }
@@ -1960,6 +1955,11 @@ impl ::core::cmp::PartialEq for PaymentOptionPresence {
     }
 }
 impl ::core::cmp::Eq for PaymentOptionPresence {}
+impl ::core::fmt::Debug for PaymentOptionPresence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentOptionPresence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentOptionPresence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
 }
@@ -2280,11 +2280,6 @@ impl ::core::clone::Clone for PaymentRequestChangeKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PaymentRequestChangeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentRequestChangeKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PaymentRequestChangeKind {
     type Abi = Self;
 }
@@ -2294,6 +2289,11 @@ impl ::core::cmp::PartialEq for PaymentRequestChangeKind {
     }
 }
 impl ::core::cmp::Eq for PaymentRequestChangeKind {}
+impl ::core::fmt::Debug for PaymentRequestChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestChangeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentRequestChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
 }
@@ -2622,11 +2622,6 @@ impl ::core::clone::Clone for PaymentRequestCompletionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PaymentRequestCompletionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentRequestCompletionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PaymentRequestCompletionStatus {
     type Abi = Self;
 }
@@ -2636,6 +2631,11 @@ impl ::core::cmp::PartialEq for PaymentRequestCompletionStatus {
     }
 }
 impl ::core::cmp::Eq for PaymentRequestCompletionStatus {}
+impl ::core::fmt::Debug for PaymentRequestCompletionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestCompletionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentRequestCompletionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
 }
@@ -2656,11 +2656,6 @@ impl ::core::clone::Clone for PaymentRequestStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PaymentRequestStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentRequestStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PaymentRequestStatus {
     type Abi = Self;
 }
@@ -2670,6 +2665,11 @@ impl ::core::cmp::PartialEq for PaymentRequestStatus {
     }
 }
 impl ::core::cmp::Eq for PaymentRequestStatus {}
+impl ::core::fmt::Debug for PaymentRequestStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentRequestStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
 }
@@ -3060,11 +3060,6 @@ impl ::core::clone::Clone for PaymentShippingType {
         *self
     }
 }
-impl ::core::fmt::Debug for PaymentShippingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentShippingType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PaymentShippingType {
     type Abi = Self;
 }
@@ -3074,6 +3069,11 @@ impl ::core::cmp::PartialEq for PaymentShippingType {
     }
 }
 impl ::core::cmp::Eq for PaymentShippingType {}
+impl ::core::fmt::Debug for PaymentShippingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentShippingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentShippingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
 }

@@ -15,12 +15,6 @@ impl ::core::clone::Clone for CONVERT_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONVERT_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONVERT_A").field("szOldDll", &self.szOldDll).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONVERT_A {
     type Abi = Self;
 }
@@ -122,12 +116,6 @@ impl ::core::marker::Copy for CONVERT_W {}
 impl ::core::clone::Clone for CONVERT_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONVERT_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONVERT_W").field("szOldDll", &self.szOldDll).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -239,12 +227,6 @@ impl ::core::clone::Clone for JET_BKINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_BKINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_BKINFO").field("lgposMark", &self.lgposMark).field("Anonymous", &self.Anonymous).field("genLow", &self.genLow).field("genHigh", &self.genHigh).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_BKINFO {
     type Abi = Self;
 }
@@ -314,12 +296,6 @@ impl ::core::marker::Copy for JET_BKLOGTIME {}
 impl ::core::clone::Clone for JET_BKLOGTIME {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_BKLOGTIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_BKLOGTIME").field("bSeconds", &self.bSeconds).field("bMinutes", &self.bMinutes).field("bHours", &self.bHours).field("bDay", &self.bDay).field("bMonth", &self.bMonth).field("bYear", &self.bYear).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -798,13 +774,6 @@ impl ::core::clone::Clone for JET_COMMIT_ID {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_COMMIT_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_COMMIT_ID").field("signLog", &self.signLog).field("reserved", &self.reserved).field("commitId", &self.commitId).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_COMMIT_ID {
     type Abi = Self;
 }
@@ -842,13 +811,6 @@ impl ::core::marker::Copy for JET_COMMIT_ID {}
 impl ::core::clone::Clone for JET_COMMIT_ID {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_COMMIT_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_COMMIT_ID").field("signLog", &self.signLog).field("reserved", &self.reserved).field("commitId", &self.commitId).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -994,34 +956,6 @@ impl ::core::clone::Clone for JET_DBINFOMISC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_DBINFOMISC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_DBINFOMISC")
-            .field("ulVersion", &self.ulVersion)
-            .field("ulUpdate", &self.ulUpdate)
-            .field("signDb", &self.signDb)
-            .field("dbstate", &self.dbstate)
-            .field("lgposConsistent", &self.lgposConsistent)
-            .field("logtimeConsistent", &self.logtimeConsistent)
-            .field("logtimeAttach", &self.logtimeAttach)
-            .field("lgposAttach", &self.lgposAttach)
-            .field("logtimeDetach", &self.logtimeDetach)
-            .field("lgposDetach", &self.lgposDetach)
-            .field("signLog", &self.signLog)
-            .field("bkinfoFullPrev", &self.bkinfoFullPrev)
-            .field("bkinfoIncPrev", &self.bkinfoIncPrev)
-            .field("bkinfoFullCur", &self.bkinfoFullCur)
-            .field("fShadowingDisabled", &self.fShadowingDisabled)
-            .field("fUpgradeDb", &self.fUpgradeDb)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("dwBuildNumber", &self.dwBuildNumber)
-            .field("lSPNumber", &self.lSPNumber)
-            .field("cbPageSize", &self.cbPageSize)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_DBINFOMISC {
     type Abi = Self;
 }
@@ -1086,49 +1020,6 @@ impl ::core::marker::Copy for JET_DBINFOMISC2 {}
 impl ::core::clone::Clone for JET_DBINFOMISC2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_DBINFOMISC2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_DBINFOMISC2")
-            .field("ulVersion", &self.ulVersion)
-            .field("ulUpdate", &self.ulUpdate)
-            .field("signDb", &self.signDb)
-            .field("dbstate", &self.dbstate)
-            .field("lgposConsistent", &self.lgposConsistent)
-            .field("logtimeConsistent", &self.logtimeConsistent)
-            .field("logtimeAttach", &self.logtimeAttach)
-            .field("lgposAttach", &self.lgposAttach)
-            .field("logtimeDetach", &self.logtimeDetach)
-            .field("lgposDetach", &self.lgposDetach)
-            .field("signLog", &self.signLog)
-            .field("bkinfoFullPrev", &self.bkinfoFullPrev)
-            .field("bkinfoIncPrev", &self.bkinfoIncPrev)
-            .field("bkinfoFullCur", &self.bkinfoFullCur)
-            .field("fShadowingDisabled", &self.fShadowingDisabled)
-            .field("fUpgradeDb", &self.fUpgradeDb)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("dwBuildNumber", &self.dwBuildNumber)
-            .field("lSPNumber", &self.lSPNumber)
-            .field("cbPageSize", &self.cbPageSize)
-            .field("genMinRequired", &self.genMinRequired)
-            .field("genMaxRequired", &self.genMaxRequired)
-            .field("logtimeGenMaxCreate", &self.logtimeGenMaxCreate)
-            .field("ulRepairCount", &self.ulRepairCount)
-            .field("logtimeRepair", &self.logtimeRepair)
-            .field("ulRepairCountOld", &self.ulRepairCountOld)
-            .field("ulECCFixSuccess", &self.ulECCFixSuccess)
-            .field("logtimeECCFixSuccess", &self.logtimeECCFixSuccess)
-            .field("ulECCFixSuccessOld", &self.ulECCFixSuccessOld)
-            .field("ulECCFixFail", &self.ulECCFixFail)
-            .field("logtimeECCFixFail", &self.logtimeECCFixFail)
-            .field("ulECCFixFailOld", &self.ulECCFixFailOld)
-            .field("ulBadChecksum", &self.ulBadChecksum)
-            .field("logtimeBadChecksum", &self.logtimeBadChecksum)
-            .field("ulBadChecksumOld", &self.ulBadChecksumOld)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1197,50 +1088,6 @@ impl ::core::marker::Copy for JET_DBINFOMISC3 {}
 impl ::core::clone::Clone for JET_DBINFOMISC3 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_DBINFOMISC3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_DBINFOMISC3")
-            .field("ulVersion", &self.ulVersion)
-            .field("ulUpdate", &self.ulUpdate)
-            .field("signDb", &self.signDb)
-            .field("dbstate", &self.dbstate)
-            .field("lgposConsistent", &self.lgposConsistent)
-            .field("logtimeConsistent", &self.logtimeConsistent)
-            .field("logtimeAttach", &self.logtimeAttach)
-            .field("lgposAttach", &self.lgposAttach)
-            .field("logtimeDetach", &self.logtimeDetach)
-            .field("lgposDetach", &self.lgposDetach)
-            .field("signLog", &self.signLog)
-            .field("bkinfoFullPrev", &self.bkinfoFullPrev)
-            .field("bkinfoIncPrev", &self.bkinfoIncPrev)
-            .field("bkinfoFullCur", &self.bkinfoFullCur)
-            .field("fShadowingDisabled", &self.fShadowingDisabled)
-            .field("fUpgradeDb", &self.fUpgradeDb)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("dwBuildNumber", &self.dwBuildNumber)
-            .field("lSPNumber", &self.lSPNumber)
-            .field("cbPageSize", &self.cbPageSize)
-            .field("genMinRequired", &self.genMinRequired)
-            .field("genMaxRequired", &self.genMaxRequired)
-            .field("logtimeGenMaxCreate", &self.logtimeGenMaxCreate)
-            .field("ulRepairCount", &self.ulRepairCount)
-            .field("logtimeRepair", &self.logtimeRepair)
-            .field("ulRepairCountOld", &self.ulRepairCountOld)
-            .field("ulECCFixSuccess", &self.ulECCFixSuccess)
-            .field("logtimeECCFixSuccess", &self.logtimeECCFixSuccess)
-            .field("ulECCFixSuccessOld", &self.ulECCFixSuccessOld)
-            .field("ulECCFixFail", &self.ulECCFixFail)
-            .field("logtimeECCFixFail", &self.logtimeECCFixFail)
-            .field("ulECCFixFailOld", &self.ulECCFixFailOld)
-            .field("ulBadChecksum", &self.ulBadChecksum)
-            .field("logtimeBadChecksum", &self.logtimeBadChecksum)
-            .field("ulBadChecksumOld", &self.ulBadChecksumOld)
-            .field("genCommitted", &self.genCommitted)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1314,52 +1161,6 @@ impl ::core::clone::Clone for JET_DBINFOMISC4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_DBINFOMISC4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_DBINFOMISC4")
-            .field("ulVersion", &self.ulVersion)
-            .field("ulUpdate", &self.ulUpdate)
-            .field("signDb", &self.signDb)
-            .field("dbstate", &self.dbstate)
-            .field("lgposConsistent", &self.lgposConsistent)
-            .field("logtimeConsistent", &self.logtimeConsistent)
-            .field("logtimeAttach", &self.logtimeAttach)
-            .field("lgposAttach", &self.lgposAttach)
-            .field("logtimeDetach", &self.logtimeDetach)
-            .field("lgposDetach", &self.lgposDetach)
-            .field("signLog", &self.signLog)
-            .field("bkinfoFullPrev", &self.bkinfoFullPrev)
-            .field("bkinfoIncPrev", &self.bkinfoIncPrev)
-            .field("bkinfoFullCur", &self.bkinfoFullCur)
-            .field("fShadowingDisabled", &self.fShadowingDisabled)
-            .field("fUpgradeDb", &self.fUpgradeDb)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("dwBuildNumber", &self.dwBuildNumber)
-            .field("lSPNumber", &self.lSPNumber)
-            .field("cbPageSize", &self.cbPageSize)
-            .field("genMinRequired", &self.genMinRequired)
-            .field("genMaxRequired", &self.genMaxRequired)
-            .field("logtimeGenMaxCreate", &self.logtimeGenMaxCreate)
-            .field("ulRepairCount", &self.ulRepairCount)
-            .field("logtimeRepair", &self.logtimeRepair)
-            .field("ulRepairCountOld", &self.ulRepairCountOld)
-            .field("ulECCFixSuccess", &self.ulECCFixSuccess)
-            .field("logtimeECCFixSuccess", &self.logtimeECCFixSuccess)
-            .field("ulECCFixSuccessOld", &self.ulECCFixSuccessOld)
-            .field("ulECCFixFail", &self.ulECCFixFail)
-            .field("logtimeECCFixFail", &self.logtimeECCFixFail)
-            .field("ulECCFixFailOld", &self.ulECCFixFailOld)
-            .field("ulBadChecksum", &self.ulBadChecksum)
-            .field("logtimeBadChecksum", &self.logtimeBadChecksum)
-            .field("ulBadChecksumOld", &self.ulBadChecksumOld)
-            .field("genCommitted", &self.genCommitted)
-            .field("bkinfoCopyPrev", &self.bkinfoCopyPrev)
-            .field("bkinfoDiffPrev", &self.bkinfoDiffPrev)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_DBINFOMISC4 {
     type Abi = Self;
 }
@@ -1392,11 +1193,6 @@ impl ::core::marker::Copy for JET_DBINFOUPGRADE {}
 impl ::core::clone::Clone for JET_DBINFOUPGRADE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for JET_DBINFOUPGRADE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_DBINFOUPGRADE").field("cbStruct", &self.cbStruct).field("cbFilesizeLow", &self.cbFilesizeLow).field("cbFilesizeHigh", &self.cbFilesizeHigh).field("cbFreeSpaceRequiredLow", &self.cbFreeSpaceRequiredLow).field("cbFreeSpaceRequiredHigh", &self.cbFreeSpaceRequiredHigh).field("csecToUpgrade", &self.csecToUpgrade).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_DBINFOUPGRADE {
@@ -1520,11 +1316,6 @@ impl ::core::marker::Copy for JET_ENUMCOLUMN {}
 impl ::core::clone::Clone for JET_ENUMCOLUMN {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for JET_ENUMCOLUMN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_ENUMCOLUMN").field("columnid", &self.columnid).field("err", &self.err).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN {
@@ -1822,26 +1613,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_INDEXCREATE2_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_INDEXCREATE2_A")
-            .field("cbStruct", &self.cbStruct)
-            .field("szIndexName", &self.szIndexName)
-            .field("szKey", &self.szKey)
-            .field("cbKey", &self.cbKey)
-            .field("grbit", &self.grbit)
-            .field("ulDensity", &self.ulDensity)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("rgconditionalcolumn", &self.rgconditionalcolumn)
-            .field("cConditionalColumn", &self.cConditionalColumn)
-            .field("err", &self.err)
-            .field("cbKeyMost", &self.cbKeyMost)
-            .field("pSpacehints", &self.pSpacehints)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A {
     type Abi = Self;
 }
@@ -1949,26 +1720,6 @@ impl ::core::marker::Copy for JET_INDEXCREATE2_W {}
 impl ::core::clone::Clone for JET_INDEXCREATE2_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_INDEXCREATE2_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_INDEXCREATE2_W")
-            .field("cbStruct", &self.cbStruct)
-            .field("szIndexName", &self.szIndexName)
-            .field("szKey", &self.szKey)
-            .field("cbKey", &self.cbKey)
-            .field("grbit", &self.grbit)
-            .field("ulDensity", &self.ulDensity)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("rgconditionalcolumn", &self.rgconditionalcolumn)
-            .field("cConditionalColumn", &self.cConditionalColumn)
-            .field("err", &self.err)
-            .field("cbKeyMost", &self.cbKeyMost)
-            .field("pSpacehints", &self.pSpacehints)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2082,26 +1833,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_INDEXCREATE3_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_INDEXCREATE3_A")
-            .field("cbStruct", &self.cbStruct)
-            .field("szIndexName", &self.szIndexName)
-            .field("szKey", &self.szKey)
-            .field("cbKey", &self.cbKey)
-            .field("grbit", &self.grbit)
-            .field("ulDensity", &self.ulDensity)
-            .field("pidxunicode", &self.pidxunicode)
-            .field("Anonymous", &self.Anonymous)
-            .field("rgconditionalcolumn", &self.rgconditionalcolumn)
-            .field("cConditionalColumn", &self.cConditionalColumn)
-            .field("err", &self.err)
-            .field("cbKeyMost", &self.cbKeyMost)
-            .field("pSpacehints", &self.pSpacehints)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_A {
     type Abi = Self;
 }
@@ -2179,26 +1910,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_INDEXCREATE3_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_INDEXCREATE3_W")
-            .field("cbStruct", &self.cbStruct)
-            .field("szIndexName", &self.szIndexName)
-            .field("szKey", &self.szKey)
-            .field("cbKey", &self.cbKey)
-            .field("grbit", &self.grbit)
-            .field("ulDensity", &self.ulDensity)
-            .field("pidxunicode", &self.pidxunicode)
-            .field("Anonymous", &self.Anonymous)
-            .field("rgconditionalcolumn", &self.rgconditionalcolumn)
-            .field("cConditionalColumn", &self.cConditionalColumn)
-            .field("err", &self.err)
-            .field("cbKeyMost", &self.cbKeyMost)
-            .field("pSpacehints", &self.pSpacehints)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_W {
     type Abi = Self;
 }
@@ -2272,25 +1983,6 @@ impl ::core::marker::Copy for JET_INDEXCREATE_A {}
 impl ::core::clone::Clone for JET_INDEXCREATE_A {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_INDEXCREATE_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_INDEXCREATE_A")
-            .field("cbStruct", &self.cbStruct)
-            .field("szIndexName", &self.szIndexName)
-            .field("szKey", &self.szKey)
-            .field("cbKey", &self.cbKey)
-            .field("grbit", &self.grbit)
-            .field("ulDensity", &self.ulDensity)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("rgconditionalcolumn", &self.rgconditionalcolumn)
-            .field("cConditionalColumn", &self.cConditionalColumn)
-            .field("err", &self.err)
-            .field("cbKeyMost", &self.cbKeyMost)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2400,25 +2092,6 @@ impl ::core::marker::Copy for JET_INDEXCREATE_W {}
 impl ::core::clone::Clone for JET_INDEXCREATE_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_INDEXCREATE_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_INDEXCREATE_W")
-            .field("cbStruct", &self.cbStruct)
-            .field("szIndexName", &self.szIndexName)
-            .field("szKey", &self.szKey)
-            .field("cbKey", &self.cbKey)
-            .field("grbit", &self.grbit)
-            .field("ulDensity", &self.ulDensity)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("rgconditionalcolumn", &self.rgconditionalcolumn)
-            .field("cConditionalColumn", &self.cConditionalColumn)
-            .field("err", &self.err)
-            .field("cbKeyMost", &self.cbKeyMost)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2984,12 +2657,6 @@ impl ::core::clone::Clone for JET_LOGTIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_LOGTIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_LOGTIME").field("bSeconds", &self.bSeconds).field("bMinutes", &self.bMinutes).field("bHours", &self.bHours).field("bDay", &self.bDay).field("bMonth", &self.bMonth).field("bYear", &self.bYear).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_LOGTIME {
     type Abi = Self;
 }
@@ -3479,13 +3146,6 @@ impl ::core::clone::Clone for JET_RBSINFOMISC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_RBSINFOMISC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_RBSINFOMISC").field("lRBSGeneration", &self.lRBSGeneration).field("logtimeCreate", &self.logtimeCreate).field("logtimeCreatePrevRBS", &self.logtimeCreatePrevRBS).field("ulMajor", &self.ulMajor).field("ulMinor", &self.ulMinor).field("cbLogicalFileSize", &self.cbLogicalFileSize).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_RBSINFOMISC {
     type Abi = Self;
 }
@@ -3526,13 +3186,6 @@ impl ::core::marker::Copy for JET_RBSINFOMISC {}
 impl ::core::clone::Clone for JET_RBSINFOMISC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_RBSINFOMISC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_RBSINFOMISC").field("lRBSGeneration", &self.lRBSGeneration).field("logtimeCreate", &self.logtimeCreate).field("logtimeCreatePrevRBS", &self.logtimeCreatePrevRBS).field("ulMajor", &self.ulMajor).field("ulMinor", &self.ulMinor).field("cbLogicalFileSize", &self.cbLogicalFileSize).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -3582,13 +3235,6 @@ impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_RBSREVERTINFOMISC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_RBSREVERTINFOMISC").field("lGenMinRevertStart", &self.lGenMinRevertStart).field("lGenMaxRevertStart", &self.lGenMaxRevertStart).field("lGenMinRevertEnd", &self.lGenMinRevertEnd).field("lGenMaxRevertEnd", &self.lGenMaxRevertEnd).field("logtimeRevertFrom", &self.logtimeRevertFrom).field("cSecRevert", &self.cSecRevert).field("cPagesReverted", &self.cPagesReverted).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_RBSREVERTINFOMISC {
     type Abi = Self;
 }
@@ -3630,13 +3276,6 @@ impl ::core::marker::Copy for JET_RBSREVERTINFOMISC {}
 impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_RBSREVERTINFOMISC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_RBSREVERTINFOMISC").field("lGenMinRevertStart", &self.lGenMinRevertStart).field("lGenMaxRevertStart", &self.lGenMaxRevertStart).field("lGenMinRevertEnd", &self.lGenMinRevertEnd).field("lGenMaxRevertEnd", &self.lGenMaxRevertEnd).field("logtimeRevertFrom", &self.logtimeRevertFrom).field("cSecRevert", &self.cSecRevert).field("cPagesReverted", &self.cPagesReverted).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -4056,12 +3695,6 @@ impl ::core::clone::Clone for JET_RSTINFO_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::core::fmt::Debug for JET_RSTINFO_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_RSTINFO_A").field("cbStruct", &self.cbStruct).field("rgrstmap", &self.rgrstmap).field("crstmap", &self.crstmap).field("lgposStop", &self.lgposStop).field("logtimeStop", &self.logtimeStop).field("pfnStatus", &self.pfnStatus).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for JET_RSTINFO_A {
     type Abi = Self;
 }
@@ -4096,12 +3729,6 @@ impl ::core::marker::Copy for JET_RSTINFO_W {}
 impl ::core::clone::Clone for JET_RSTINFO_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::core::fmt::Debug for JET_RSTINFO_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_RSTINFO_W").field("cbStruct", &self.cbStruct).field("rgrstmap", &self.rgrstmap).field("crstmap", &self.crstmap).field("lgposStop", &self.lgposStop).field("logtimeStop", &self.logtimeStop).field("pfnStatus", &self.pfnStatus).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -4364,12 +3991,6 @@ impl ::core::marker::Copy for JET_SIGNATURE {}
 impl ::core::clone::Clone for JET_SIGNATURE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JET_SIGNATURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_SIGNATURE").field("ulRandom", &self.ulRandom).field("logtimeCreate", &self.logtimeCreate).field("szComputerName", &self.szComputerName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

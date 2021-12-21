@@ -887,11 +887,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentActivator {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentActivator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentActivator {
     type Abi = Self;
 }
@@ -901,6 +896,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentActivator {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentActivator {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentActivator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentActivator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
 }
@@ -921,11 +921,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentAllowedClipboardFormats 
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentAllowedClipboardFormats").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     type Abi = Self;
 }
@@ -935,6 +930,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentAllowedClipboardFormat
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentAllowedClipboardFormats {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentAllowedClipboardFormats").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
 }
@@ -957,11 +957,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentAvailablePrinters {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentAvailablePrinters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAvailablePrinters {
     type Abi = Self;
 }
@@ -971,6 +966,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentAvailablePrinters {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentAvailablePrinters {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentAvailablePrinters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
 }
@@ -991,11 +991,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentClipboardCopyPasteDirect
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentClipboardCopyPasteDirections").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     type Abi = Self;
 }
@@ -1005,6 +1000,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentClipboardCopyPasteDire
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentClipboardCopyPasteDirections").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
 }
@@ -1159,11 +1159,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentCreateStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateStatus {
     type Abi = Self;
 }
@@ -1173,6 +1168,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentCreateStatus {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentCreateStatus {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentCreateStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
 }
@@ -1332,11 +1332,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentHostError {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentHostError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentHostError {
     type Abi = Self;
 }
@@ -1346,6 +1341,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentHostError {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentHostError {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentHostError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentHostError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
 }
@@ -1466,11 +1466,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentLaunchFileStatus {
     type Abi = Self;
 }
@@ -1480,6 +1475,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentLaunchFileStatus {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentLaunchFileStatus {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
 }
@@ -1935,11 +1935,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationStatus 
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     type Abi = Self;
 }
@@ -1949,6 +1944,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentOwnerRegistrationStatu
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentOwnerRegistrationStatus {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
 }
@@ -2058,11 +2058,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentPostMessageStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentPostMessageStatus {
     type Abi = Self;
 }
@@ -2072,6 +2067,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentPostMessageStatus {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentPostMessageStatus {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentPostMessageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
 }
@@ -2200,11 +2200,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcessState {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentProcessState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProcessState {
     type Abi = Self;
 }
@@ -2214,6 +2209,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentProcessState {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentProcessState {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentProcessState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
 }
@@ -2234,11 +2234,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentProgressState {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentProgressState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProgressState {
     type Abi = Self;
 }
@@ -2248,6 +2243,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentProgressState {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentProgressState {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentProgressState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
 }
@@ -2461,11 +2461,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentShareFileStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFileStatus {
     type Abi = Self;
 }
@@ -2475,6 +2470,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentShareFileStatus {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentShareFileStatus {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentShareFileStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
 }
@@ -2679,11 +2679,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentShareFolderStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFolderStatus {
     type Abi = Self;
 }
@@ -2693,6 +2688,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentShareFolderStatus {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentShareFolderStatus {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentShareFolderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
 }
@@ -2812,11 +2812,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentStartProcessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentStartProcessStatus {
     type Abi = Self;
 }
@@ -2826,6 +2821,11 @@ impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentStartProcessStatus {
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentStartProcessStatus {}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentStartProcessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
 }

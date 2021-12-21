@@ -153,11 +153,6 @@ impl ::core::clone::Clone for DnssdRegistrationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DnssdRegistrationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DnssdRegistrationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DnssdRegistrationStatus {
     type Abi = Self;
 }
@@ -167,6 +162,11 @@ impl ::core::cmp::PartialEq for DnssdRegistrationStatus {
     }
 }
 impl ::core::cmp::Eq for DnssdRegistrationStatus {}
+impl ::core::fmt::Debug for DnssdRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdRegistrationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DnssdRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus;i4)");
 }
@@ -761,11 +761,6 @@ impl ::core::clone::Clone for DnssdServiceWatcherStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DnssdServiceWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DnssdServiceWatcherStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DnssdServiceWatcherStatus {
     type Abi = Self;
 }
@@ -775,6 +770,11 @@ impl ::core::cmp::PartialEq for DnssdServiceWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for DnssdServiceWatcherStatus {}
+impl ::core::fmt::Debug for DnssdServiceWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DnssdServiceWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DnssdServiceWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus;i4)");
 }

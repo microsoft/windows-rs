@@ -12869,12 +12869,6 @@ impl ::core::clone::Clone for POINTER_TYPE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for POINTER_TYPE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINTER_TYPE_INFO").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for POINTER_TYPE_INFO {
     type Abi = Self;
 }
@@ -12964,12 +12958,6 @@ impl ::core::marker::Copy for PROPSHEETHEADERA_V1 {}
 impl ::core::clone::Clone for PROPSHEETHEADERA_V1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETHEADERA_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETHEADERA_V1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hwndParent", &self.hwndParent).field("hInstance", &self.hInstance).field("Anonymous1", &self.Anonymous1).field("pszCaption", &self.pszCaption).field("nPages", &self.nPages).field("Anonymous2", &self.Anonymous2).field("Anonymous3", &self.Anonymous3).field("pfnCallback", &self.pfnCallback).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13113,26 +13101,6 @@ impl ::core::marker::Copy for PROPSHEETHEADERA_V2 {}
 impl ::core::clone::Clone for PROPSHEETHEADERA_V2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETHEADERA_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETHEADERA_V2")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndParent", &self.hwndParent)
-            .field("hInstance", &self.hInstance)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("pszCaption", &self.pszCaption)
-            .field("nPages", &self.nPages)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("Anonymous3", &self.Anonymous3)
-            .field("pfnCallback", &self.pfnCallback)
-            .field("Anonymous4", &self.Anonymous4)
-            .field("hplWatermark", &self.hplWatermark)
-            .field("Anonymous5", &self.Anonymous5)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13342,12 +13310,6 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETHEADERW_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETHEADERW_V1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hwndParent", &self.hwndParent).field("hInstance", &self.hInstance).field("Anonymous1", &self.Anonymous1).field("pszCaption", &self.pszCaption).field("nPages", &self.nPages).field("Anonymous2", &self.Anonymous2).field("Anonymous3", &self.Anonymous3).field("pfnCallback", &self.pfnCallback).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for PROPSHEETHEADERW_V1 {
     type Abi = Self;
 }
@@ -13488,26 +13450,6 @@ impl ::core::marker::Copy for PROPSHEETHEADERW_V2 {}
 impl ::core::clone::Clone for PROPSHEETHEADERW_V2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETHEADERW_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETHEADERW_V2")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndParent", &self.hwndParent)
-            .field("hInstance", &self.hInstance)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("pszCaption", &self.pszCaption)
-            .field("nPages", &self.nPages)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("Anonymous3", &self.Anonymous3)
-            .field("pfnCallback", &self.pfnCallback)
-            .field("Anonymous4", &self.Anonymous4)
-            .field("hplWatermark", &self.hplWatermark)
-            .field("Anonymous5", &self.Anonymous5)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13721,27 +13663,6 @@ impl ::core::clone::Clone for PROPSHEETPAGEA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETPAGEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETPAGEA")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hInstance", &self.hInstance)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pszTitle", &self.pszTitle)
-            .field("pfnDlgProc", &self.pfnDlgProc)
-            .field("lParam", &self.lParam)
-            .field("pfnCallback", &self.pfnCallback)
-            .field("pcRefParent", &self.pcRefParent)
-            .field("pszHeaderTitle", &self.pszHeaderTitle)
-            .field("pszHeaderSubTitle", &self.pszHeaderSubTitle)
-            .field("hActCtx", &self.hActCtx)
-            .field("Anonymous3", &self.Anonymous3)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for PROPSHEETPAGEA {
     type Abi = Self;
 }
@@ -13882,12 +13803,6 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETPAGEA_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETPAGEA_V1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hInstance", &self.hInstance).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("pszTitle", &self.pszTitle).field("pfnDlgProc", &self.pfnDlgProc).field("lParam", &self.lParam).field("pfnCallback", &self.pfnCallback).field("pcRefParent", &self.pcRefParent).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for PROPSHEETPAGEA_V1 {
     type Abi = Self;
 }
@@ -13994,25 +13909,6 @@ impl ::core::marker::Copy for PROPSHEETPAGEA_V2 {}
 impl ::core::clone::Clone for PROPSHEETPAGEA_V2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETPAGEA_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETPAGEA_V2")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hInstance", &self.hInstance)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pszTitle", &self.pszTitle)
-            .field("pfnDlgProc", &self.pfnDlgProc)
-            .field("lParam", &self.lParam)
-            .field("pfnCallback", &self.pfnCallback)
-            .field("pcRefParent", &self.pcRefParent)
-            .field("pszHeaderTitle", &self.pszHeaderTitle)
-            .field("pszHeaderSubTitle", &self.pszHeaderSubTitle)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14126,26 +14022,6 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETPAGEA_V3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETPAGEA_V3")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hInstance", &self.hInstance)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pszTitle", &self.pszTitle)
-            .field("pfnDlgProc", &self.pfnDlgProc)
-            .field("lParam", &self.lParam)
-            .field("pfnCallback", &self.pfnCallback)
-            .field("pcRefParent", &self.pcRefParent)
-            .field("pszHeaderTitle", &self.pszHeaderTitle)
-            .field("pszHeaderSubTitle", &self.pszHeaderSubTitle)
-            .field("hActCtx", &self.hActCtx)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for PROPSHEETPAGEA_V3 {
     type Abi = Self;
 }
@@ -14254,27 +14130,6 @@ impl ::core::marker::Copy for PROPSHEETPAGEW {}
 impl ::core::clone::Clone for PROPSHEETPAGEW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETPAGEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETPAGEW")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hInstance", &self.hInstance)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pszTitle", &self.pszTitle)
-            .field("pfnDlgProc", &self.pfnDlgProc)
-            .field("lParam", &self.lParam)
-            .field("pfnCallback", &self.pfnCallback)
-            .field("pcRefParent", &self.pcRefParent)
-            .field("pszHeaderTitle", &self.pszHeaderTitle)
-            .field("pszHeaderSubTitle", &self.pszHeaderSubTitle)
-            .field("hActCtx", &self.hActCtx)
-            .field("Anonymous3", &self.Anonymous3)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14418,12 +14273,6 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETPAGEW_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETPAGEW_V1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hInstance", &self.hInstance).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("pszTitle", &self.pszTitle).field("pfnDlgProc", &self.pfnDlgProc).field("lParam", &self.lParam).field("pfnCallback", &self.pfnCallback).field("pcRefParent", &self.pcRefParent).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for PROPSHEETPAGEW_V1 {
     type Abi = Self;
 }
@@ -14530,25 +14379,6 @@ impl ::core::marker::Copy for PROPSHEETPAGEW_V2 {}
 impl ::core::clone::Clone for PROPSHEETPAGEW_V2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETPAGEW_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETPAGEW_V2")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hInstance", &self.hInstance)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pszTitle", &self.pszTitle)
-            .field("pfnDlgProc", &self.pfnDlgProc)
-            .field("lParam", &self.lParam)
-            .field("pfnCallback", &self.pfnCallback)
-            .field("pcRefParent", &self.pcRefParent)
-            .field("pszHeaderTitle", &self.pszHeaderTitle)
-            .field("pszHeaderSubTitle", &self.pszHeaderSubTitle)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14659,26 +14489,6 @@ impl ::core::marker::Copy for PROPSHEETPAGEW_V3 {}
 impl ::core::clone::Clone for PROPSHEETPAGEW_V3 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETPAGEW_V3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETPAGEW_V3")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hInstance", &self.hInstance)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pszTitle", &self.pszTitle)
-            .field("pfnDlgProc", &self.pfnDlgProc)
-            .field("lParam", &self.lParam)
-            .field("pfnCallback", &self.pfnCallback)
-            .field("pcRefParent", &self.pcRefParent)
-            .field("pszHeaderTitle", &self.pszHeaderTitle)
-            .field("pszHeaderSubTitle", &self.pszHeaderSubTitle)
-            .field("hActCtx", &self.hActCtx)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15913,37 +15723,6 @@ impl ::core::marker::Copy for TASKDIALOGCONFIG {}
 impl ::core::clone::Clone for TASKDIALOGCONFIG {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for TASKDIALOGCONFIG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TASKDIALOGCONFIG")
-            .field("cbSize", &self.cbSize)
-            .field("hwndParent", &self.hwndParent)
-            .field("hInstance", &self.hInstance)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwCommonButtons", &self.dwCommonButtons)
-            .field("pszWindowTitle", &self.pszWindowTitle)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("pszMainInstruction", &self.pszMainInstruction)
-            .field("pszContent", &self.pszContent)
-            .field("cButtons", &self.cButtons)
-            .field("pButtons", &self.pButtons)
-            .field("nDefaultButton", &self.nDefaultButton)
-            .field("cRadioButtons", &self.cRadioButtons)
-            .field("pRadioButtons", &self.pRadioButtons)
-            .field("nDefaultRadioButton", &self.nDefaultRadioButton)
-            .field("pszVerificationText", &self.pszVerificationText)
-            .field("pszExpandedInformation", &self.pszExpandedInformation)
-            .field("pszExpandedControlText", &self.pszExpandedControlText)
-            .field("pszCollapsedControlText", &self.pszCollapsedControlText)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pszFooter", &self.pszFooter)
-            .field("pfCallback", &self.pfCallback)
-            .field("lpCallbackData", &self.lpCallbackData)
-            .field("cxWidth", &self.cxWidth)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -18880,12 +18659,6 @@ impl ::core::clone::Clone for TVINSERTSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TVINSERTSTRUCTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TVINSERTSTRUCTA").field("hParent", &self.hParent).field("hInsertAfter", &self.hInsertAfter).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TVINSERTSTRUCTA {
     type Abi = Self;
 }
@@ -18950,12 +18723,6 @@ impl ::core::marker::Copy for TVINSERTSTRUCTW {}
 impl ::core::clone::Clone for TVINSERTSTRUCTW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TVINSERTSTRUCTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TVINSERTSTRUCTW").field("hParent", &self.hParent).field("hInsertAfter", &self.hInsertAfter).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

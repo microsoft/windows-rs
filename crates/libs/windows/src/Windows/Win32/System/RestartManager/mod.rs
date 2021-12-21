@@ -67,12 +67,6 @@ impl ::core::clone::Clone for RM_FILTER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RM_FILTER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RM_FILTER_INFO").field("FilterAction", &self.FilterAction).field("FilterTrigger", &self.FilterTrigger).field("cbNextOffset", &self.cbNextOffset).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RM_FILTER_INFO {
     type Abi = Self;
 }

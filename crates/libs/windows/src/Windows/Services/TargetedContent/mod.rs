@@ -444,11 +444,6 @@ impl ::core::clone::Clone for TargetedContentAppInstallationState {
         *self
     }
 }
-impl ::core::fmt::Debug for TargetedContentAppInstallationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentAppInstallationState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TargetedContentAppInstallationState {
     type Abi = Self;
 }
@@ -458,6 +453,11 @@ impl ::core::cmp::PartialEq for TargetedContentAppInstallationState {
     }
 }
 impl ::core::cmp::Eq for TargetedContentAppInstallationState {}
+impl ::core::fmt::Debug for TargetedContentAppInstallationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAppInstallationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentAppInstallationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
 }
@@ -478,11 +478,6 @@ impl ::core::clone::Clone for TargetedContentAvailability {
         *self
     }
 }
-impl ::core::fmt::Debug for TargetedContentAvailability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentAvailability").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TargetedContentAvailability {
     type Abi = Self;
 }
@@ -492,6 +487,11 @@ impl ::core::cmp::PartialEq for TargetedContentAvailability {
     }
 }
 impl ::core::cmp::Eq for TargetedContentAvailability {}
+impl ::core::fmt::Debug for TargetedContentAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
 }
@@ -1198,11 +1198,6 @@ impl ::core::clone::Clone for TargetedContentInteraction {
         *self
     }
 }
-impl ::core::fmt::Debug for TargetedContentInteraction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentInteraction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TargetedContentInteraction {
     type Abi = Self;
 }
@@ -1212,6 +1207,11 @@ impl ::core::cmp::PartialEq for TargetedContentInteraction {
     }
 }
 impl ::core::cmp::Eq for TargetedContentInteraction {}
+impl ::core::fmt::Debug for TargetedContentInteraction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentInteraction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentInteraction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
 }
@@ -1543,11 +1543,6 @@ impl ::core::clone::Clone for TargetedContentObjectKind {
         *self
     }
 }
-impl ::core::fmt::Debug for TargetedContentObjectKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentObjectKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TargetedContentObjectKind {
     type Abi = Self;
 }
@@ -1557,6 +1552,11 @@ impl ::core::cmp::PartialEq for TargetedContentObjectKind {
     }
 }
 impl ::core::cmp::Eq for TargetedContentObjectKind {}
+impl ::core::fmt::Debug for TargetedContentObjectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentObjectKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentObjectKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
 }
@@ -2152,11 +2152,6 @@ impl ::core::clone::Clone for TargetedContentValueKind {
         *self
     }
 }
-impl ::core::fmt::Debug for TargetedContentValueKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentValueKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TargetedContentValueKind {
     type Abi = Self;
 }
@@ -2166,6 +2161,11 @@ impl ::core::cmp::PartialEq for TargetedContentValueKind {
     }
 }
 impl ::core::cmp::Eq for TargetedContentValueKind {}
+impl ::core::fmt::Debug for TargetedContentValueKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentValueKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetedContentValueKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentValueKind;i4)");
 }

@@ -1321,11 +1321,6 @@ impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayEffectCompletionBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LampArrayEffectCompletionBehavior {
     type Abi = Self;
 }
@@ -1335,6 +1330,11 @@ impl ::core::cmp::PartialEq for LampArrayEffectCompletionBehavior {
     }
 }
 impl ::core::cmp::Eq for LampArrayEffectCompletionBehavior {}
+impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayEffectCompletionBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
 }
@@ -1631,11 +1631,6 @@ impl ::core::clone::Clone for LampArrayEffectStartMode {
         *self
     }
 }
-impl ::core::fmt::Debug for LampArrayEffectStartMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayEffectStartMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LampArrayEffectStartMode {
     type Abi = Self;
 }
@@ -1645,6 +1640,11 @@ impl ::core::cmp::PartialEq for LampArrayEffectStartMode {
     }
 }
 impl ::core::cmp::Eq for LampArrayEffectStartMode {}
+impl ::core::fmt::Debug for LampArrayEffectStartMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayEffectStartMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampArrayEffectStartMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
 }
@@ -1664,11 +1664,6 @@ impl ::core::clone::Clone for LampArrayRepetitionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for LampArrayRepetitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayRepetitionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LampArrayRepetitionMode {
     type Abi = Self;
 }
@@ -1678,6 +1673,11 @@ impl ::core::cmp::PartialEq for LampArrayRepetitionMode {
     }
 }
 impl ::core::cmp::Eq for LampArrayRepetitionMode {}
+impl ::core::fmt::Debug for LampArrayRepetitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayRepetitionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampArrayRepetitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
 }

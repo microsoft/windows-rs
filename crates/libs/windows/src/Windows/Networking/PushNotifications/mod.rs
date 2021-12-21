@@ -785,11 +785,6 @@ impl ::core::clone::Clone for PushNotificationType {
         *self
     }
 }
-impl ::core::fmt::Debug for PushNotificationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PushNotificationType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PushNotificationType {
     type Abi = Self;
 }
@@ -799,6 +794,11 @@ impl ::core::cmp::PartialEq for PushNotificationType {
     }
 }
 impl ::core::cmp::Eq for PushNotificationType {}
+impl ::core::fmt::Debug for PushNotificationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PushNotificationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PushNotificationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");
 }

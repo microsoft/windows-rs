@@ -700,11 +700,6 @@ impl ::core::clone::Clone for ApplicationViewBoundsMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ApplicationViewBoundsMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewBoundsMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewBoundsMode {
     type Abi = Self;
 }
@@ -714,6 +709,11 @@ impl ::core::cmp::PartialEq for ApplicationViewBoundsMode {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewBoundsMode {}
+impl ::core::fmt::Debug for ApplicationViewBoundsMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewBoundsMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewBoundsMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewBoundsMode;i4)");
 }
@@ -822,11 +822,6 @@ impl ::core::clone::Clone for ApplicationViewMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ApplicationViewMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewMode {
     type Abi = Self;
 }
@@ -836,6 +831,11 @@ impl ::core::cmp::PartialEq for ApplicationViewMode {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewMode {}
+impl ::core::fmt::Debug for ApplicationViewMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewMode;i4)");
 }
@@ -855,11 +855,6 @@ impl ::core::clone::Clone for ApplicationViewOrientation {
         *self
     }
 }
-impl ::core::fmt::Debug for ApplicationViewOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewOrientation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewOrientation {
     type Abi = Self;
 }
@@ -869,6 +864,11 @@ impl ::core::cmp::PartialEq for ApplicationViewOrientation {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewOrientation {}
+impl ::core::fmt::Debug for ApplicationViewOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewOrientation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
 }
@@ -985,12 +985,6 @@ impl ::core::clone::Clone for ApplicationViewState {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for ApplicationViewState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for ApplicationViewState {
     type Abi = Self;
 }
@@ -1002,6 +996,12 @@ impl ::core::cmp::PartialEq for ApplicationViewState {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for ApplicationViewState {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for ApplicationViewState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewState").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ApplicationViewState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewState;i4)");
@@ -1126,11 +1126,6 @@ impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for ApplicationViewSwitchingOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewSwitchingOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewSwitchingOptions {
     type Abi = Self;
 }
@@ -1140,6 +1135,11 @@ impl ::core::cmp::PartialEq for ApplicationViewSwitchingOptions {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewSwitchingOptions {}
+impl ::core::fmt::Debug for ApplicationViewSwitchingOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewSwitchingOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewSwitchingOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewSwitchingOptions;u4)");
 }
@@ -1518,11 +1518,6 @@ impl ::core::clone::Clone for ApplicationViewWindowingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ApplicationViewWindowingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewWindowingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewWindowingMode {
     type Abi = Self;
 }
@@ -1532,6 +1527,11 @@ impl ::core::cmp::PartialEq for ApplicationViewWindowingMode {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewWindowingMode {}
+impl ::core::fmt::Debug for ApplicationViewWindowingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewWindowingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewWindowingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewWindowingMode;i4)");
 }
@@ -1551,11 +1551,6 @@ impl ::core::clone::Clone for FullScreenSystemOverlayMode {
         *self
     }
 }
-impl ::core::fmt::Debug for FullScreenSystemOverlayMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FullScreenSystemOverlayMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FullScreenSystemOverlayMode {
     type Abi = Self;
 }
@@ -1565,6 +1560,11 @@ impl ::core::cmp::PartialEq for FullScreenSystemOverlayMode {
     }
 }
 impl ::core::cmp::Eq for FullScreenSystemOverlayMode {}
+impl ::core::fmt::Debug for FullScreenSystemOverlayMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullScreenSystemOverlayMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FullScreenSystemOverlayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.FullScreenSystemOverlayMode;i4)");
 }
@@ -1584,11 +1584,6 @@ impl ::core::clone::Clone for HandPreference {
         *self
     }
 }
-impl ::core::fmt::Debug for HandPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandPreference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HandPreference {
     type Abi = Self;
 }
@@ -1598,6 +1593,11 @@ impl ::core::cmp::PartialEq for HandPreference {
     }
 }
 impl ::core::cmp::Eq for HandPreference {}
+impl ::core::fmt::Debug for HandPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandPreference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HandPreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
 }
@@ -3410,11 +3410,6 @@ impl ::core::clone::Clone for UIColorType {
         *self
     }
 }
-impl ::core::fmt::Debug for UIColorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIColorType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UIColorType {
     type Abi = Self;
 }
@@ -3424,6 +3419,11 @@ impl ::core::cmp::PartialEq for UIColorType {
     }
 }
 impl ::core::cmp::Eq for UIColorType {}
+impl ::core::fmt::Debug for UIColorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIColorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIColorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIColorType;i4)");
 }
@@ -3467,11 +3467,6 @@ impl ::core::clone::Clone for UIElementType {
         *self
     }
 }
-impl ::core::fmt::Debug for UIElementType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIElementType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UIElementType {
     type Abi = Self;
 }
@@ -3481,6 +3476,11 @@ impl ::core::cmp::PartialEq for UIElementType {
     }
 }
 impl ::core::cmp::Eq for UIElementType {}
+impl ::core::fmt::Debug for UIElementType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIElementType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIElementType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIElementType;i4)");
 }
@@ -4119,11 +4119,6 @@ impl ::core::clone::Clone for UserInteractionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for UserInteractionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserInteractionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UserInteractionMode {
     type Abi = Self;
 }
@@ -4133,6 +4128,11 @@ impl ::core::cmp::PartialEq for UserInteractionMode {
     }
 }
 impl ::core::cmp::Eq for UserInteractionMode {}
+impl ::core::fmt::Debug for UserInteractionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserInteractionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserInteractionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UserInteractionMode;i4)");
 }
@@ -4268,11 +4268,6 @@ impl ::core::clone::Clone for ViewSizePreference {
         *self
     }
 }
-impl ::core::fmt::Debug for ViewSizePreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ViewSizePreference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ViewSizePreference {
     type Abi = Self;
 }
@@ -4282,6 +4277,11 @@ impl ::core::cmp::PartialEq for ViewSizePreference {
     }
 }
 impl ::core::cmp::Eq for ViewSizePreference {}
+impl ::core::fmt::Debug for ViewSizePreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ViewSizePreference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ViewSizePreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ViewSizePreference;i4)");
 }

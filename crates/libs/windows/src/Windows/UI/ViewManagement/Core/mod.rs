@@ -781,11 +781,6 @@ impl ::core::clone::Clone for CoreInputViewKind {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreInputViewKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreInputViewKind {
     type Abi = Self;
 }
@@ -795,6 +790,11 @@ impl ::core::cmp::PartialEq for CoreInputViewKind {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewKind {}
+impl ::core::fmt::Debug for CoreInputViewKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
 }
@@ -905,11 +905,6 @@ impl ::core::clone::Clone for CoreInputViewOcclusionKind {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreInputViewOcclusionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewOcclusionKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreInputViewOcclusionKind {
     type Abi = Self;
 }
@@ -919,6 +914,11 @@ impl ::core::cmp::PartialEq for CoreInputViewOcclusionKind {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewOcclusionKind {}
+impl ::core::fmt::Debug for CoreInputViewOcclusionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewOcclusionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
 }
@@ -1232,11 +1232,6 @@ impl ::core::clone::Clone for CoreInputViewXYFocusTransferDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreInputViewXYFocusTransferDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewXYFocusTransferDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreInputViewXYFocusTransferDirection {
     type Abi = Self;
 }
@@ -1246,6 +1241,11 @@ impl ::core::cmp::PartialEq for CoreInputViewXYFocusTransferDirection {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewXYFocusTransferDirection {}
+impl ::core::fmt::Debug for CoreInputViewXYFocusTransferDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewXYFocusTransferDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewXYFocusTransferDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
 }

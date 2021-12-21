@@ -112,11 +112,6 @@ impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemUpdateAttentionRequiredReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateAttentionRequiredReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemUpdateAttentionRequiredReason {
     type Abi = Self;
 }
@@ -126,6 +121,11 @@ impl ::core::cmp::PartialEq for SystemUpdateAttentionRequiredReason {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateAttentionRequiredReason {}
+impl ::core::fmt::Debug for SystemUpdateAttentionRequiredReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateAttentionRequiredReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
 }
@@ -289,11 +289,6 @@ impl ::core::clone::Clone for SystemUpdateItemState {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemUpdateItemState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateItemState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemUpdateItemState {
     type Abi = Self;
 }
@@ -303,6 +298,11 @@ impl ::core::cmp::PartialEq for SystemUpdateItemState {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateItemState {}
+impl ::core::fmt::Debug for SystemUpdateItemState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateItemState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateItemState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
 }
@@ -608,11 +608,6 @@ impl ::core::clone::Clone for SystemUpdateManagerState {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemUpdateManagerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateManagerState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemUpdateManagerState {
     type Abi = Self;
 }
@@ -622,6 +617,11 @@ impl ::core::cmp::PartialEq for SystemUpdateManagerState {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateManagerState {}
+impl ::core::fmt::Debug for SystemUpdateManagerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateManagerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateManagerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
 }
@@ -641,11 +641,6 @@ impl ::core::clone::Clone for SystemUpdateStartInstallAction {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateStartInstallAction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemUpdateStartInstallAction {
     type Abi = Self;
 }
@@ -655,6 +650,11 @@ impl ::core::cmp::PartialEq for SystemUpdateStartInstallAction {
     }
 }
 impl ::core::cmp::Eq for SystemUpdateStartInstallAction {}
+impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemUpdateStartInstallAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateStartInstallAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");
 }

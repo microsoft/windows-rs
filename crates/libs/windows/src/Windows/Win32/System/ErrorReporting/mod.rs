@@ -1003,12 +1003,6 @@ impl ::core::clone::Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for WER_RUNTIME_EXCEPTION_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WER_RUNTIME_EXCEPTION_INFORMATION").field("dwSize", &self.dwSize).field("hProcess", &self.hProcess).field("hThread", &self.hThread).field("exceptionRecord", &self.exceptionRecord).field("context", &self.context).field("pwszReportId", &self.pwszReportId).field("bIsFatal", &self.bIsFatal).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for WER_RUNTIME_EXCEPTION_INFORMATION {
     type Abi = Self;
 }

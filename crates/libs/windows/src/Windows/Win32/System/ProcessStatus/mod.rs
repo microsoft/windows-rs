@@ -828,11 +828,6 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for PSAPI_WORKING_SET_EX_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PSAPI_WORKING_SET_EX_INFORMATION").field("VirtualAddress", &self.VirtualAddress).field("VirtualAttributes", &self.VirtualAttributes).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_INFORMATION {
     type Abi = Self;
 }
@@ -857,11 +852,6 @@ impl ::core::marker::Copy for PSAPI_WORKING_SET_INFORMATION {}
 impl ::core::clone::Clone for PSAPI_WORKING_SET_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PSAPI_WORKING_SET_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PSAPI_WORKING_SET_INFORMATION").field("NumberOfEntries", &self.NumberOfEntries).field("WorkingSetInfo", &self.WorkingSetInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_INFORMATION {

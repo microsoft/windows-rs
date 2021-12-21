@@ -2073,11 +2073,6 @@ impl ::core::clone::Clone for READER_SEL_REQUEST {
         *self
     }
 }
-impl ::core::fmt::Debug for READER_SEL_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("READER_SEL_REQUEST").field("dwShareMode", &self.dwShareMode).field("dwPreferredProtocols", &self.dwPreferredProtocols).field("MatchType", &self.MatchType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST {
     type Abi = Self;
 }
@@ -2567,11 +2562,6 @@ impl ::core::marker::Copy for SCARD_T0_REQUEST {}
 impl ::core::clone::Clone for SCARD_T0_REQUEST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SCARD_T0_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCARD_T0_REQUEST").field("ioRequest", &self.ioRequest).field("bSw1", &self.bSw1).field("bSw2", &self.bSw2).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST {

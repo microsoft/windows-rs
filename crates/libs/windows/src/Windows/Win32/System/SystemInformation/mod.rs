@@ -51,11 +51,6 @@ impl ::core::clone::Clone for CACHE_RELATIONSHIP {
         *self
     }
 }
-impl ::core::fmt::Debug for CACHE_RELATIONSHIP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CACHE_RELATIONSHIP").field("Level", &self.Level).field("Associativity", &self.Associativity).field("LineSize", &self.LineSize).field("CacheSize", &self.CacheSize).field("Type", &self.Type).field("Reserved", &self.Reserved).field("GroupCount", &self.GroupCount).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CACHE_RELATIONSHIP {
     type Abi = Self;
 }
@@ -1211,11 +1206,6 @@ impl ::core::clone::Clone for NUMA_NODE_RELATIONSHIP {
         *self
     }
 }
-impl ::core::fmt::Debug for NUMA_NODE_RELATIONSHIP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NUMA_NODE_RELATIONSHIP").field("NodeNumber", &self.NodeNumber).field("Reserved", &self.Reserved).field("GroupCount", &self.GroupCount).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NUMA_NODE_RELATIONSHIP {
     type Abi = Self;
 }
@@ -1866,11 +1856,6 @@ impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for SYSTEM_CPU_SET_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYSTEM_CPU_SET_INFORMATION").field("Size", &self.Size).field("Type", &self.Type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION {
     type Abi = Self;
 }
@@ -1928,11 +1913,6 @@ impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION_0_0 {}
 impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION_0_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SYSTEM_CPU_SET_INFORMATION_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYSTEM_CPU_SET_INFORMATION_0_0").field("Id", &self.Id).field("Group", &self.Group).field("LogicalProcessorIndex", &self.LogicalProcessorIndex).field("CoreIndex", &self.CoreIndex).field("LastLevelCacheIndex", &self.LastLevelCacheIndex).field("NumaNodeIndex", &self.NumaNodeIndex).field("EfficiencyClass", &self.EfficiencyClass).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("AllocationTag", &self.AllocationTag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0 {
@@ -2063,23 +2043,6 @@ impl ::core::clone::Clone for SYSTEM_INFO {
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::fmt::Debug for SYSTEM_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYSTEM_INFO")
-            .field("Anonymous", &self.Anonymous)
-            .field("dwPageSize", &self.dwPageSize)
-            .field("lpMinimumApplicationAddress", &self.lpMinimumApplicationAddress)
-            .field("lpMaximumApplicationAddress", &self.lpMaximumApplicationAddress)
-            .field("dwActiveProcessorMask", &self.dwActiveProcessorMask)
-            .field("dwNumberOfProcessors", &self.dwNumberOfProcessors)
-            .field("dwProcessorType", &self.dwProcessorType)
-            .field("dwAllocationGranularity", &self.dwAllocationGranularity)
-            .field("wProcessorLevel", &self.wProcessorLevel)
-            .field("wProcessorRevision", &self.wProcessorRevision)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::core::Abi for SYSTEM_INFO {
     type Abi = Self;
 }
@@ -2180,11 +2143,6 @@ impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
 impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYSTEM_LOGICAL_PROCESSOR_INFORMATION").field("ProcessorMask", &self.ProcessorMask).field("Relationship", &self.Relationship).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
@@ -2300,11 +2258,6 @@ impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
 impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX").field("Relationship", &self.Relationship).field("Size", &self.Size).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {

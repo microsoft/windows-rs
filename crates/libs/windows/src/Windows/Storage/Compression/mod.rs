@@ -16,11 +16,6 @@ impl ::core::clone::Clone for CompressAlgorithm {
         *self
     }
 }
-impl ::core::fmt::Debug for CompressAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompressAlgorithm").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompressAlgorithm {
     type Abi = Self;
 }
@@ -30,6 +25,11 @@ impl ::core::cmp::PartialEq for CompressAlgorithm {
     }
 }
 impl ::core::cmp::Eq for CompressAlgorithm {}
+impl ::core::fmt::Debug for CompressAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompressAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompressAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
 }

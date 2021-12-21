@@ -2313,12 +2313,6 @@ impl ::core::clone::Clone for GOPHER_ATTRIBUTE_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GOPHER_ATTRIBUTE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GOPHER_ATTRIBUTE_TYPE").field("CategoryId", &self.CategoryId).field("AttributeId", &self.AttributeId).field("AttributeType", &self.AttributeType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GOPHER_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -4665,12 +4659,6 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_CACHE_CONFIG_INFOA").field("dwStructSize", &self.dwStructSize).field("dwContainer", &self.dwContainer).field("dwQuota", &self.dwQuota).field("dwReserved4", &self.dwReserved4).field("fPerUser", &self.fPerUser).field("dwSyncMode", &self.dwSyncMode).field("dwNumCachePaths", &self.dwNumCachePaths).field("Anonymous", &self.Anonymous).field("dwNormalUsage", &self.dwNormalUsage).field("dwExemptUsage", &self.dwExemptUsage).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOA {
     type Abi = Self;
 }
@@ -4781,12 +4769,6 @@ impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW {}
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_CACHE_CONFIG_INFOW").field("dwStructSize", &self.dwStructSize).field("dwContainer", &self.dwContainer).field("dwQuota", &self.dwQuota).field("dwReserved4", &self.dwReserved4).field("fPerUser", &self.fPerUser).field("dwSyncMode", &self.dwSyncMode).field("dwNumCachePaths", &self.dwNumCachePaths).field("Anonymous", &self.Anonymous).field("dwNormalUsage", &self.dwNormalUsage).field("dwExemptUsage", &self.dwExemptUsage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5079,29 +5061,6 @@ impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INTERNET_CACHE_ENTRY_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_CACHE_ENTRY_INFOA")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("lpszSourceUrlName", &self.lpszSourceUrlName)
-            .field("lpszLocalFileName", &self.lpszLocalFileName)
-            .field("CacheEntryType", &self.CacheEntryType)
-            .field("dwUseCount", &self.dwUseCount)
-            .field("dwHitRate", &self.dwHitRate)
-            .field("dwSizeLow", &self.dwSizeLow)
-            .field("dwSizeHigh", &self.dwSizeHigh)
-            .field("LastModifiedTime", &self.LastModifiedTime)
-            .field("ExpireTime", &self.ExpireTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastSyncTime", &self.LastSyncTime)
-            .field("lpHeaderInfo", &self.lpHeaderInfo)
-            .field("dwHeaderInfoSize", &self.dwHeaderInfoSize)
-            .field("lpszFileExtension", &self.lpszFileExtension)
-            .field("Anonymous", &self.Anonymous)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_ENTRY_INFOA {
     type Abi = Self;
 }
@@ -5179,29 +5138,6 @@ impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOW {}
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INTERNET_CACHE_ENTRY_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_CACHE_ENTRY_INFOW")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("lpszSourceUrlName", &self.lpszSourceUrlName)
-            .field("lpszLocalFileName", &self.lpszLocalFileName)
-            .field("CacheEntryType", &self.CacheEntryType)
-            .field("dwUseCount", &self.dwUseCount)
-            .field("dwHitRate", &self.dwHitRate)
-            .field("dwSizeLow", &self.dwSizeLow)
-            .field("dwSizeHigh", &self.dwSizeHigh)
-            .field("LastModifiedTime", &self.LastModifiedTime)
-            .field("ExpireTime", &self.ExpireTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastSyncTime", &self.LastSyncTime)
-            .field("lpHeaderInfo", &self.lpHeaderInfo)
-            .field("dwHeaderInfoSize", &self.dwHeaderInfoSize)
-            .field("lpszFileExtension", &self.lpszFileExtension)
-            .field("Anonymous", &self.Anonymous)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5687,12 +5623,6 @@ impl ::core::marker::Copy for INTERNET_CREDENTIALS {}
 impl ::core::clone::Clone for INTERNET_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INTERNET_CREDENTIALS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_CREDENTIALS").field("lpcwszHostName", &self.lpcwszHostName).field("dwPort", &self.dwPort).field("dwScheme", &self.dwScheme).field("lpcwszUrl", &self.lpcwszUrl).field("lpcwszRealm", &self.lpcwszRealm).field("fAuthIdentity", &self.fAuthIdentity).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6484,12 +6414,6 @@ impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INTERNET_PER_CONN_OPTIONA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_PER_CONN_OPTIONA").field("dwOption", &self.dwOption).field("Value", &self.Value).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTIONA {
     type Abi = Self;
 }
@@ -6554,12 +6478,6 @@ impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONW {}
 impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INTERNET_PER_CONN_OPTIONW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_PER_CONN_OPTIONW").field("dwOption", &self.dwOption).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

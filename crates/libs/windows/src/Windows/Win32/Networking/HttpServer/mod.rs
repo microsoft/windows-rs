@@ -452,12 +452,6 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HTTP_DATA_CHUNK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HTTP_DATA_CHUNK").field("DataChunkType", &self.DataChunkType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK {
     type Abi = Self;
 }
@@ -3197,12 +3191,6 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     type Abi = Self;
 }
@@ -3399,12 +3387,6 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_PARAM_EX").field("ParamType", &self.ParamType).field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     type Abi = Self;
 }
@@ -3592,12 +3574,6 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SET_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SET_EX").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3790,12 +3766,6 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]

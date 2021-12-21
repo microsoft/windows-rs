@@ -2306,11 +2306,6 @@ impl ::core::clone::Clone for VpnAppIdType {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnAppIdType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnAppIdType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnAppIdType {
     type Abi = Self;
 }
@@ -2320,6 +2315,11 @@ impl ::core::cmp::PartialEq for VpnAppIdType {
     }
 }
 impl ::core::cmp::Eq for VpnAppIdType {}
+impl ::core::fmt::Debug for VpnAppIdType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnAppIdType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnAppIdType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAppIdType;i4)");
 }
@@ -2341,11 +2341,6 @@ impl ::core::clone::Clone for VpnAuthenticationMethod {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnAuthenticationMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnAuthenticationMethod").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnAuthenticationMethod {
     type Abi = Self;
 }
@@ -2355,6 +2350,11 @@ impl ::core::cmp::PartialEq for VpnAuthenticationMethod {
     }
 }
 impl ::core::cmp::Eq for VpnAuthenticationMethod {}
+impl ::core::fmt::Debug for VpnAuthenticationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnAuthenticationMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnAuthenticationMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAuthenticationMethod;i4)");
 }
@@ -2834,11 +2834,6 @@ impl ::core::clone::Clone for VpnChannelActivityEventType {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnChannelActivityEventType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnChannelActivityEventType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnChannelActivityEventType {
     type Abi = Self;
 }
@@ -2848,6 +2843,11 @@ impl ::core::cmp::PartialEq for VpnChannelActivityEventType {
     }
 }
 impl ::core::cmp::Eq for VpnChannelActivityEventType {}
+impl ::core::fmt::Debug for VpnChannelActivityEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelActivityEventType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnChannelActivityEventType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelActivityEventType;i4)");
 }
@@ -3056,11 +3056,6 @@ impl ::core::clone::Clone for VpnChannelRequestCredentialsOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnChannelRequestCredentialsOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnChannelRequestCredentialsOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnChannelRequestCredentialsOptions {
     type Abi = Self;
 }
@@ -3070,6 +3065,11 @@ impl ::core::cmp::PartialEq for VpnChannelRequestCredentialsOptions {
     }
 }
 impl ::core::cmp::Eq for VpnChannelRequestCredentialsOptions {}
+impl ::core::fmt::Debug for VpnChannelRequestCredentialsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelRequestCredentialsOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnChannelRequestCredentialsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions;u4)");
 }
@@ -3224,11 +3224,6 @@ impl ::core::clone::Clone for VpnCredentialType {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnCredentialType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCredentialType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnCredentialType {
     type Abi = Self;
 }
@@ -3238,6 +3233,11 @@ impl ::core::cmp::PartialEq for VpnCredentialType {
     }
 }
 impl ::core::cmp::Eq for VpnCredentialType {}
+impl ::core::fmt::Debug for VpnCredentialType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCredentialType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCredentialType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnCredentialType;i4)");
 }
@@ -4702,11 +4702,6 @@ impl ::core::clone::Clone for VpnDataPathType {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnDataPathType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnDataPathType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnDataPathType {
     type Abi = Self;
 }
@@ -4716,6 +4711,11 @@ impl ::core::cmp::PartialEq for VpnDataPathType {
     }
 }
 impl ::core::cmp::Eq for VpnDataPathType {}
+impl ::core::fmt::Debug for VpnDataPathType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnDataPathType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnDataPathType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDataPathType;i4)");
 }
@@ -4979,11 +4979,6 @@ impl ::core::clone::Clone for VpnDomainNameType {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnDomainNameType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnDomainNameType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnDomainNameType {
     type Abi = Self;
 }
@@ -4993,6 +4988,11 @@ impl ::core::cmp::PartialEq for VpnDomainNameType {
     }
 }
 impl ::core::cmp::Eq for VpnDomainNameType {}
+impl ::core::fmt::Debug for VpnDomainNameType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnDomainNameType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnDomainNameType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDomainNameType;i4)");
 }
@@ -5282,11 +5282,6 @@ impl ::core::clone::Clone for VpnIPProtocol {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnIPProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnIPProtocol").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnIPProtocol {
     type Abi = Self;
 }
@@ -5296,6 +5291,11 @@ impl ::core::cmp::PartialEq for VpnIPProtocol {
     }
 }
 impl ::core::cmp::Eq for VpnIPProtocol {}
+impl ::core::fmt::Debug for VpnIPProtocol {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnIPProtocol").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnIPProtocol {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnIPProtocol;i4)");
 }
@@ -5568,11 +5568,6 @@ impl ::core::clone::Clone for VpnManagementConnectionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnManagementConnectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnManagementConnectionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnManagementConnectionStatus {
     type Abi = Self;
 }
@@ -5582,6 +5577,11 @@ impl ::core::cmp::PartialEq for VpnManagementConnectionStatus {
     }
 }
 impl ::core::cmp::Eq for VpnManagementConnectionStatus {}
+impl ::core::fmt::Debug for VpnManagementConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnManagementConnectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnManagementConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementConnectionStatus;i4)");
 }
@@ -5618,11 +5618,6 @@ impl ::core::clone::Clone for VpnManagementErrorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnManagementErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnManagementErrorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnManagementErrorStatus {
     type Abi = Self;
 }
@@ -5632,6 +5627,11 @@ impl ::core::cmp::PartialEq for VpnManagementErrorStatus {
     }
 }
 impl ::core::cmp::Eq for VpnManagementErrorStatus {}
+impl ::core::fmt::Debug for VpnManagementErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnManagementErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnManagementErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementErrorStatus;i4)");
 }
@@ -6163,11 +6163,6 @@ impl ::core::clone::Clone for VpnNativeProtocolType {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnNativeProtocolType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnNativeProtocolType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnNativeProtocolType {
     type Abi = Self;
 }
@@ -6177,6 +6172,11 @@ impl ::core::cmp::PartialEq for VpnNativeProtocolType {
     }
 }
 impl ::core::cmp::Eq for VpnNativeProtocolType {}
+impl ::core::fmt::Debug for VpnNativeProtocolType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnNativeProtocolType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnNativeProtocolType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnNativeProtocolType;i4)");
 }
@@ -6513,11 +6513,6 @@ impl ::core::clone::Clone for VpnPacketBufferStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnPacketBufferStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnPacketBufferStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnPacketBufferStatus {
     type Abi = Self;
 }
@@ -6527,6 +6522,11 @@ impl ::core::cmp::PartialEq for VpnPacketBufferStatus {
     }
 }
 impl ::core::cmp::Eq for VpnPacketBufferStatus {}
+impl ::core::fmt::Debug for VpnPacketBufferStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnPacketBufferStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnPacketBufferStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnPacketBufferStatus;i4)");
 }
@@ -7142,11 +7142,6 @@ impl ::core::clone::Clone for VpnRoutingPolicyType {
         *self
     }
 }
-impl ::core::fmt::Debug for VpnRoutingPolicyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnRoutingPolicyType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VpnRoutingPolicyType {
     type Abi = Self;
 }
@@ -7156,6 +7151,11 @@ impl ::core::cmp::PartialEq for VpnRoutingPolicyType {
     }
 }
 impl ::core::cmp::Eq for VpnRoutingPolicyType {}
+impl ::core::fmt::Debug for VpnRoutingPolicyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnRoutingPolicyType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnRoutingPolicyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnRoutingPolicyType;i4)");
 }

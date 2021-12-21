@@ -1307,11 +1307,6 @@ impl ::core::clone::Clone for WebAccountClientViewType {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAccountClientViewType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountClientViewType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountClientViewType {
     type Abi = Self;
 }
@@ -1321,6 +1316,11 @@ impl ::core::cmp::PartialEq for WebAccountClientViewType {
     }
 }
 impl ::core::cmp::Eq for WebAccountClientViewType {}
+impl ::core::fmt::Debug for WebAccountClientViewType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountClientViewType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountClientViewType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountClientViewType;i4)");
 }
@@ -2167,11 +2167,6 @@ impl ::core::clone::Clone for WebAccountProviderOperationKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAccountProviderOperationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderOperationKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountProviderOperationKind {
     type Abi = Self;
 }
@@ -2181,6 +2176,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderOperationKind {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderOperationKind {}
+impl ::core::fmt::Debug for WebAccountProviderOperationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderOperationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderOperationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind;i4)");
 }
@@ -2891,11 +2891,6 @@ impl ::core::clone::Clone for WebAccountScope {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAccountScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountScope").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountScope {
     type Abi = Self;
 }
@@ -2905,6 +2900,11 @@ impl ::core::cmp::PartialEq for WebAccountScope {
     }
 }
 impl ::core::cmp::Eq for WebAccountScope {}
+impl ::core::fmt::Debug for WebAccountScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountScope;i4)");
 }
@@ -2924,11 +2924,6 @@ impl ::core::clone::Clone for WebAccountSelectionOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAccountSelectionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountSelectionOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountSelectionOptions {
     type Abi = Self;
 }
@@ -2938,6 +2933,11 @@ impl ::core::cmp::PartialEq for WebAccountSelectionOptions {
     }
 }
 impl ::core::cmp::Eq for WebAccountSelectionOptions {}
+impl ::core::fmt::Debug for WebAccountSelectionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountSelectionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountSelectionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions;u4)");
 }

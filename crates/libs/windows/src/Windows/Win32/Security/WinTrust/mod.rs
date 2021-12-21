@@ -347,46 +347,6 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::fmt::Debug for CRYPT_PROVIDER_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_PROVIDER_DATA")
-            .field("cbStruct", &self.cbStruct)
-            .field("pWintrustData", &self.pWintrustData)
-            .field("fOpenedFile", &self.fOpenedFile)
-            .field("hWndParent", &self.hWndParent)
-            .field("pgActionID", &self.pgActionID)
-            .field("hProv", &self.hProv)
-            .field("dwError", &self.dwError)
-            .field("dwRegSecuritySettings", &self.dwRegSecuritySettings)
-            .field("dwRegPolicySettings", &self.dwRegPolicySettings)
-            .field("psPfns", &self.psPfns)
-            .field("cdwTrustStepErrors", &self.cdwTrustStepErrors)
-            .field("padwTrustStepErrors", &self.padwTrustStepErrors)
-            .field("chStores", &self.chStores)
-            .field("pahStores", &self.pahStores)
-            .field("dwEncoding", &self.dwEncoding)
-            .field("hMsg", &self.hMsg)
-            .field("csSigners", &self.csSigners)
-            .field("pasSigners", &self.pasSigners)
-            .field("csProvPrivData", &self.csProvPrivData)
-            .field("pasProvPrivData", &self.pasProvPrivData)
-            .field("dwSubjectChoice", &self.dwSubjectChoice)
-            .field("Anonymous", &self.Anonymous)
-            .field("pszUsageOID", &self.pszUsageOID)
-            .field("fRecallWithState", &self.fRecallWithState)
-            .field("sftSystemTime", &self.sftSystemTime)
-            .field("pszCTLSignerUsageOID", &self.pszCTLSignerUsageOID)
-            .field("dwProvFlags", &self.dwProvFlags)
-            .field("dwFinalError", &self.dwFinalError)
-            .field("pRequestUsage", &self.pRequestUsage)
-            .field("dwTrustPubSettings", &self.dwTrustPubSettings)
-            .field("dwUIStateFlags", &self.dwUIStateFlags)
-            .field("pSigState", &self.pSigState)
-            .field("pSigSettings", &self.pSigSettings)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_DATA {
     type Abi = Self;
 }
@@ -1398,12 +1358,6 @@ impl ::core::clone::Clone for SPC_LINK {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for SPC_LINK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPC_LINK").field("dwLinkChoice", &self.dwLinkChoice).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for SPC_LINK {
     type Abi = Self;
 }
@@ -1919,26 +1873,6 @@ impl ::core::marker::Copy for WINTRUST_DATA {}
 impl ::core::clone::Clone for WINTRUST_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for WINTRUST_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINTRUST_DATA")
-            .field("cbStruct", &self.cbStruct)
-            .field("pPolicyCallbackData", &self.pPolicyCallbackData)
-            .field("pSIPClientData", &self.pSIPClientData)
-            .field("dwUIChoice", &self.dwUIChoice)
-            .field("fdwRevocationChecks", &self.fdwRevocationChecks)
-            .field("dwUnionChoice", &self.dwUnionChoice)
-            .field("Anonymous", &self.Anonymous)
-            .field("dwStateAction", &self.dwStateAction)
-            .field("hWVTStateData", &self.hWVTStateData)
-            .field("pwszURLReference", &self.pwszURLReference)
-            .field("dwProvFlags", &self.dwProvFlags)
-            .field("dwUIContext", &self.dwUIContext)
-            .field("pSignatureSettings", &self.pSignatureSettings)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2516,12 +2450,6 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTD_GENERIC_CHAIN_POLICY_CREATE_INFO").field("Anonymous", &self.Anonymous).field("hChainEngine", &self.hChainEngine).field("pChainPara", &self.pChainPara).field("dwFlags", &self.dwFlags).field("pvReserved", &self.pvReserved).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     type Abi = Self;
 }
@@ -2588,12 +2516,6 @@ impl ::core::marker::Copy for WTD_GENERIC_CHAIN_POLICY_DATA {}
 impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::fmt::Debug for WTD_GENERIC_CHAIN_POLICY_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTD_GENERIC_CHAIN_POLICY_DATA").field("Anonymous", &self.Anonymous).field("pSignerChainInfo", &self.pSignerChainInfo).field("pCounterSignerChainInfo", &self.pCounterSignerChainInfo).field("pfnPolicyCallback", &self.pfnPolicyCallback).field("pvPolicyArg", &self.pvPolicyArg).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -2665,12 +2587,6 @@ impl ::core::marker::Copy for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {}
 impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO").field("Anonymous", &self.Anonymous).field("pChainContext", &self.pChainContext).field("dwSignerType", &self.dwSignerType).field("pMsgSignerInfo", &self.pMsgSignerInfo).field("dwError", &self.dwError).field("cCounterSigner", &self.cCounterSigner).field("rgpCounterSigner", &self.rgpCounterSigner).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]

@@ -768,11 +768,6 @@ impl ::core::clone::Clone for AdaptiveMediaSourceCreationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AdaptiveMediaSourceCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceCreationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceCreationStatus {
     type Abi = Self;
 }
@@ -782,6 +777,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceCreationStatus {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceCreationStatus {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus;i4)");
 }
@@ -986,11 +986,6 @@ impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticType {
         *self
     }
 }
-impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDiagnosticType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceDiagnosticType {
     type Abi = Self;
 }
@@ -1000,6 +995,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDiagnosticType {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDiagnosticType {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDiagnosticType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType;i4)");
 }
@@ -1209,11 +1209,6 @@ impl ::core::clone::Clone for AdaptiveMediaSourceDownloadBitrateChangedReason {
         *self
     }
 }
-impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDownloadBitrateChangedReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceDownloadBitrateChangedReason {
     type Abi = Self;
 }
@@ -1223,6 +1218,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadBitrateChangedReason 
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadBitrateChangedReason {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadBitrateChangedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason;i4)");
 }
@@ -2187,11 +2187,6 @@ impl ::core::clone::Clone for AdaptiveMediaSourceResourceType {
         *self
     }
 }
-impl ::core::fmt::Debug for AdaptiveMediaSourceResourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceResourceType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceResourceType {
     type Abi = Self;
 }
@@ -2201,6 +2196,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceResourceType {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceResourceType {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceResourceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
 }

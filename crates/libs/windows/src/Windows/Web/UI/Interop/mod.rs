@@ -961,11 +961,6 @@ impl ::core::clone::Clone for WebViewControlAcceleratorKeyRoutingStage {
         *self
     }
 }
-impl ::core::fmt::Debug for WebViewControlAcceleratorKeyRoutingStage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlAcceleratorKeyRoutingStage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebViewControlAcceleratorKeyRoutingStage {
     type Abi = Self;
 }
@@ -975,6 +970,11 @@ impl ::core::cmp::PartialEq for WebViewControlAcceleratorKeyRoutingStage {
     }
 }
 impl ::core::cmp::Eq for WebViewControlAcceleratorKeyRoutingStage {}
+impl ::core::fmt::Debug for WebViewControlAcceleratorKeyRoutingStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlAcceleratorKeyRoutingStage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
 }
@@ -995,11 +995,6 @@ impl ::core::clone::Clone for WebViewControlMoveFocusReason {
         *self
     }
 }
-impl ::core::fmt::Debug for WebViewControlMoveFocusReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlMoveFocusReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebViewControlMoveFocusReason {
     type Abi = Self;
 }
@@ -1009,6 +1004,11 @@ impl ::core::cmp::PartialEq for WebViewControlMoveFocusReason {
     }
 }
 impl ::core::cmp::Eq for WebViewControlMoveFocusReason {}
+impl ::core::fmt::Debug for WebViewControlMoveFocusReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlMoveFocusReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
 }
@@ -1260,11 +1260,6 @@ impl ::core::clone::Clone for WebViewControlProcessCapabilityState {
         *self
     }
 }
-impl ::core::fmt::Debug for WebViewControlProcessCapabilityState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlProcessCapabilityState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebViewControlProcessCapabilityState {
     type Abi = Self;
 }
@@ -1274,6 +1269,11 @@ impl ::core::cmp::PartialEq for WebViewControlProcessCapabilityState {
     }
 }
 impl ::core::cmp::Eq for WebViewControlProcessCapabilityState {}
+impl ::core::fmt::Debug for WebViewControlProcessCapabilityState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlProcessCapabilityState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlProcessCapabilityState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
 }

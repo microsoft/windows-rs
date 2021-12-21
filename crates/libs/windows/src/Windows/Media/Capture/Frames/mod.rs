@@ -1486,11 +1486,6 @@ impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameReaderAcquisitionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameReaderAcquisitionMode {
     type Abi = Self;
 }
@@ -1500,6 +1495,11 @@ impl ::core::cmp::PartialEq for MediaFrameReaderAcquisitionMode {
     }
 }
 impl ::core::cmp::Eq for MediaFrameReaderAcquisitionMode {}
+impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReaderAcquisitionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameReaderAcquisitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
 }
@@ -1522,11 +1522,6 @@ impl ::core::clone::Clone for MediaFrameReaderStartStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameReaderStartStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameReaderStartStatus {
     type Abi = Self;
 }
@@ -1536,6 +1531,11 @@ impl ::core::cmp::PartialEq for MediaFrameReaderStartStatus {
     }
 }
 impl ::core::cmp::Eq for MediaFrameReaderStartStatus {}
+impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReaderStartStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
 }
@@ -2095,11 +2095,6 @@ impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceGetPropertyStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameSourceGetPropertyStatus {
     type Abi = Self;
 }
@@ -2109,6 +2104,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceGetPropertyStatus {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceGetPropertyStatus {}
+impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceGetPropertyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
 }
@@ -2417,11 +2417,6 @@ impl ::core::clone::Clone for MediaFrameSourceKind {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaFrameSourceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameSourceKind {
     type Abi = Self;
 }
@@ -2431,6 +2426,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceKind {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceKind {}
+impl ::core::fmt::Debug for MediaFrameSourceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
 }
@@ -2454,11 +2454,6 @@ impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceSetPropertyStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameSourceSetPropertyStatus {
     type Abi = Self;
 }
@@ -2468,6 +2463,11 @@ impl ::core::cmp::PartialEq for MediaFrameSourceSetPropertyStatus {
     }
 }
 impl ::core::cmp::Eq for MediaFrameSourceSetPropertyStatus {}
+impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceSetPropertyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceSetPropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
 }
@@ -2721,11 +2721,6 @@ impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MultiSourceMediaFrameReaderStartStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MultiSourceMediaFrameReaderStartStatus {
     type Abi = Self;
 }
@@ -2735,6 +2730,11 @@ impl ::core::cmp::PartialEq for MultiSourceMediaFrameReaderStartStatus {
     }
 }
 impl ::core::cmp::Eq for MultiSourceMediaFrameReaderStartStatus {}
+impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MultiSourceMediaFrameReaderStartStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
 }

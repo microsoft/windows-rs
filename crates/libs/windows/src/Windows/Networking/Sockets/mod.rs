@@ -265,11 +265,6 @@ impl ::core::clone::Clone for ControlChannelTriggerResetReason {
         *self
     }
 }
-impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerResetReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResetReason {
     type Abi = Self;
 }
@@ -279,6 +274,11 @@ impl ::core::cmp::PartialEq for ControlChannelTriggerResetReason {
     }
 }
 impl ::core::cmp::Eq for ControlChannelTriggerResetReason {}
+impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerResetReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
 }
@@ -298,11 +298,6 @@ impl ::core::clone::Clone for ControlChannelTriggerResourceType {
         *self
     }
 }
-impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerResourceType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResourceType {
     type Abi = Self;
 }
@@ -312,6 +307,11 @@ impl ::core::cmp::PartialEq for ControlChannelTriggerResourceType {
     }
 }
 impl ::core::cmp::Eq for ControlChannelTriggerResourceType {}
+impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerResourceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
 }
@@ -336,11 +336,6 @@ impl ::core::clone::Clone for ControlChannelTriggerStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for ControlChannelTriggerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ControlChannelTriggerStatus {
     type Abi = Self;
 }
@@ -350,6 +345,11 @@ impl ::core::cmp::PartialEq for ControlChannelTriggerStatus {
     }
 }
 impl ::core::cmp::Eq for ControlChannelTriggerStatus {}
+impl ::core::fmt::Debug for ControlChannelTriggerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
 }
@@ -3921,11 +3921,6 @@ impl ::core::clone::Clone for MessageWebSocketReceiveMode {
         *self
     }
 }
-impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageWebSocketReceiveMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MessageWebSocketReceiveMode {
     type Abi = Self;
 }
@@ -3935,6 +3930,11 @@ impl ::core::cmp::PartialEq for MessageWebSocketReceiveMode {
     }
 }
 impl ::core::cmp::Eq for MessageWebSocketReceiveMode {}
+impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageWebSocketReceiveMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketReceiveMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
 }
@@ -4589,11 +4589,6 @@ impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
         *self
     }
 }
-impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityConnectedStandbyAction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SocketActivityConnectedStandbyAction {
     type Abi = Self;
 }
@@ -4603,6 +4598,11 @@ impl ::core::cmp::PartialEq for SocketActivityConnectedStandbyAction {
     }
 }
 impl ::core::cmp::Eq for SocketActivityConnectedStandbyAction {}
+impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityConnectedStandbyAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityConnectedStandbyAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
 }
@@ -4861,11 +4861,6 @@ impl ::core::clone::Clone for SocketActivityKind {
         *self
     }
 }
-impl ::core::fmt::Debug for SocketActivityKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SocketActivityKind {
     type Abi = Self;
 }
@@ -4875,6 +4870,11 @@ impl ::core::cmp::PartialEq for SocketActivityKind {
     }
 }
 impl ::core::cmp::Eq for SocketActivityKind {}
+impl ::core::fmt::Debug for SocketActivityKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
 }
@@ -4986,11 +4986,6 @@ impl ::core::clone::Clone for SocketActivityTriggerReason {
         *self
     }
 }
-impl ::core::fmt::Debug for SocketActivityTriggerReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityTriggerReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SocketActivityTriggerReason {
     type Abi = Self;
 }
@@ -5000,6 +4995,11 @@ impl ::core::cmp::PartialEq for SocketActivityTriggerReason {
     }
 }
 impl ::core::cmp::Eq for SocketActivityTriggerReason {}
+impl ::core::fmt::Debug for SocketActivityTriggerReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityTriggerReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
 }
@@ -5067,11 +5067,6 @@ impl ::core::clone::Clone for SocketErrorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SocketErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketErrorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SocketErrorStatus {
     type Abi = Self;
 }
@@ -5081,6 +5076,11 @@ impl ::core::cmp::PartialEq for SocketErrorStatus {
     }
 }
 impl ::core::cmp::Eq for SocketErrorStatus {}
+impl ::core::fmt::Debug for SocketErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
 }
@@ -5100,11 +5100,6 @@ impl ::core::clone::Clone for SocketMessageType {
         *self
     }
 }
-impl ::core::fmt::Debug for SocketMessageType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketMessageType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SocketMessageType {
     type Abi = Self;
 }
@@ -5114,6 +5109,11 @@ impl ::core::cmp::PartialEq for SocketMessageType {
     }
 }
 impl ::core::cmp::Eq for SocketMessageType {}
+impl ::core::fmt::Debug for SocketMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketMessageType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
 }
@@ -5141,11 +5141,6 @@ impl ::core::clone::Clone for SocketProtectionLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for SocketProtectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketProtectionLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SocketProtectionLevel {
     type Abi = Self;
 }
@@ -5155,6 +5150,11 @@ impl ::core::cmp::PartialEq for SocketProtectionLevel {
     }
 }
 impl ::core::cmp::Eq for SocketProtectionLevel {}
+impl ::core::fmt::Debug for SocketProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketProtectionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
 }
@@ -5174,11 +5174,6 @@ impl ::core::clone::Clone for SocketQualityOfService {
         *self
     }
 }
-impl ::core::fmt::Debug for SocketQualityOfService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketQualityOfService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SocketQualityOfService {
     type Abi = Self;
 }
@@ -5188,6 +5183,11 @@ impl ::core::cmp::PartialEq for SocketQualityOfService {
     }
 }
 impl ::core::cmp::Eq for SocketQualityOfService {}
+impl ::core::fmt::Debug for SocketQualityOfService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketQualityOfService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketQualityOfService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
 }
@@ -5208,11 +5208,6 @@ impl ::core::clone::Clone for SocketSslErrorSeverity {
         *self
     }
 }
-impl ::core::fmt::Debug for SocketSslErrorSeverity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketSslErrorSeverity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SocketSslErrorSeverity {
     type Abi = Self;
 }
@@ -5222,6 +5217,11 @@ impl ::core::cmp::PartialEq for SocketSslErrorSeverity {
     }
 }
 impl ::core::cmp::Eq for SocketSslErrorSeverity {}
+impl ::core::fmt::Debug for SocketSslErrorSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketSslErrorSeverity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
 }

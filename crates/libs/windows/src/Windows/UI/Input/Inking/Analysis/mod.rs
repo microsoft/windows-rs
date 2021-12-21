@@ -462,11 +462,6 @@ impl ::core::clone::Clone for InkAnalysisDrawingKind {
         *self
     }
 }
-impl ::core::fmt::Debug for InkAnalysisDrawingKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkAnalysisDrawingKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InkAnalysisDrawingKind {
     type Abi = Self;
 }
@@ -476,6 +471,11 @@ impl ::core::cmp::PartialEq for InkAnalysisDrawingKind {
     }
 }
 impl ::core::cmp::Eq for InkAnalysisDrawingKind {}
+impl ::core::fmt::Debug for InkAnalysisDrawingKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkAnalysisDrawingKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkAnalysisDrawingKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind;i4)");
 }
@@ -1507,11 +1507,6 @@ impl ::core::clone::Clone for InkAnalysisNodeKind {
         *self
     }
 }
-impl ::core::fmt::Debug for InkAnalysisNodeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkAnalysisNodeKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InkAnalysisNodeKind {
     type Abi = Self;
 }
@@ -1521,6 +1516,11 @@ impl ::core::cmp::PartialEq for InkAnalysisNodeKind {
     }
 }
 impl ::core::cmp::Eq for InkAnalysisNodeKind {}
+impl ::core::fmt::Debug for InkAnalysisNodeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkAnalysisNodeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkAnalysisNodeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind;i4)");
 }
@@ -1956,11 +1956,6 @@ impl ::core::clone::Clone for InkAnalysisStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for InkAnalysisStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkAnalysisStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InkAnalysisStatus {
     type Abi = Self;
 }
@@ -1970,6 +1965,11 @@ impl ::core::cmp::PartialEq for InkAnalysisStatus {
     }
 }
 impl ::core::cmp::Eq for InkAnalysisStatus {}
+impl ::core::fmt::Debug for InkAnalysisStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkAnalysisStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkAnalysisStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStatus;i4)");
 }
@@ -1990,11 +1990,6 @@ impl ::core::clone::Clone for InkAnalysisStrokeKind {
         *self
     }
 }
-impl ::core::fmt::Debug for InkAnalysisStrokeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkAnalysisStrokeKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InkAnalysisStrokeKind {
     type Abi = Self;
 }
@@ -2004,6 +1999,11 @@ impl ::core::cmp::PartialEq for InkAnalysisStrokeKind {
     }
 }
 impl ::core::cmp::Eq for InkAnalysisStrokeKind {}
+impl ::core::fmt::Debug for InkAnalysisStrokeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkAnalysisStrokeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkAnalysisStrokeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStrokeKind;i4)");
 }

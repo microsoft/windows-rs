@@ -14,11 +14,6 @@ impl ::core::clone::Clone for AddFileResult {
         *self
     }
 }
-impl ::core::fmt::Debug for AddFileResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddFileResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AddFileResult {
     type Abi = Self;
 }
@@ -28,6 +23,11 @@ impl ::core::cmp::PartialEq for AddFileResult {
     }
 }
 impl ::core::cmp::Eq for AddFileResult {}
+impl ::core::fmt::Debug for AddFileResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddFileResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AddFileResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.AddFileResult;i4)");
 }
@@ -459,11 +459,6 @@ impl ::core::clone::Clone for FileSelectionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for FileSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSelectionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FileSelectionMode {
     type Abi = Self;
 }
@@ -473,6 +468,11 @@ impl ::core::cmp::PartialEq for FileSelectionMode {
     }
 }
 impl ::core::cmp::Eq for FileSelectionMode {}
+impl ::core::fmt::Debug for FileSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileSelectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
 }
@@ -946,11 +946,6 @@ impl ::core::clone::Clone for SetFileNameResult {
         *self
     }
 }
-impl ::core::fmt::Debug for SetFileNameResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetFileNameResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SetFileNameResult {
     type Abi = Self;
 }
@@ -960,6 +955,11 @@ impl ::core::cmp::PartialEq for SetFileNameResult {
     }
 }
 impl ::core::cmp::Eq for SetFileNameResult {}
+impl ::core::fmt::Debug for SetFileNameResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetFileNameResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetFileNameResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");
 }

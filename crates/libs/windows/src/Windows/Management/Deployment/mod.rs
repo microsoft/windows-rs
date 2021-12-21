@@ -17,11 +17,6 @@ impl ::core::clone::Clone for AddPackageByAppInstallerOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for AddPackageByAppInstallerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddPackageByAppInstallerOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AddPackageByAppInstallerOptions {
     type Abi = Self;
 }
@@ -31,6 +26,11 @@ impl ::core::cmp::PartialEq for AddPackageByAppInstallerOptions {
     }
 }
 impl ::core::cmp::Eq for AddPackageByAppInstallerOptions {}
+impl ::core::fmt::Debug for AddPackageByAppInstallerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddPackageByAppInstallerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AddPackageByAppInstallerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.AddPackageByAppInstallerOptions;u4)");
 }
@@ -1109,11 +1109,6 @@ impl ::core::clone::Clone for DeploymentOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for DeploymentOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeploymentOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeploymentOptions {
     type Abi = Self;
 }
@@ -1123,6 +1118,11 @@ impl ::core::cmp::PartialEq for DeploymentOptions {
     }
 }
 impl ::core::cmp::Eq for DeploymentOptions {}
+impl ::core::fmt::Debug for DeploymentOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeploymentOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentOptions;u4)");
 }
@@ -1179,11 +1179,6 @@ impl ::core::clone::Clone for DeploymentProgressState {
         *self
     }
 }
-impl ::core::fmt::Debug for DeploymentProgressState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeploymentProgressState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeploymentProgressState {
     type Abi = Self;
 }
@@ -1193,6 +1188,11 @@ impl ::core::cmp::PartialEq for DeploymentProgressState {
     }
 }
 impl ::core::cmp::Eq for DeploymentProgressState {}
+impl ::core::fmt::Debug for DeploymentProgressState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentProgressState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeploymentProgressState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentProgressState;i4)");
 }
@@ -2473,11 +2473,6 @@ impl ::core::clone::Clone for PackageInstallState {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageInstallState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageInstallState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageInstallState {
     type Abi = Self;
 }
@@ -2487,6 +2482,11 @@ impl ::core::cmp::PartialEq for PackageInstallState {
     }
 }
 impl ::core::cmp::Eq for PackageInstallState {}
+impl ::core::fmt::Debug for PackageInstallState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageInstallState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageInstallState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageInstallState;i4)");
 }
@@ -3264,11 +3264,6 @@ impl ::core::clone::Clone for PackageState {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageState {
     type Abi = Self;
 }
@@ -3278,6 +3273,11 @@ impl ::core::cmp::PartialEq for PackageState {
     }
 }
 impl ::core::cmp::Eq for PackageState {}
+impl ::core::fmt::Debug for PackageState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageState;i4)");
 }
@@ -3300,11 +3300,6 @@ impl ::core::clone::Clone for PackageStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageStatus {
     type Abi = Self;
 }
@@ -3314,6 +3309,11 @@ impl ::core::cmp::PartialEq for PackageStatus {
     }
 }
 impl ::core::cmp::Eq for PackageStatus {}
+impl ::core::fmt::Debug for PackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStatus;u4)");
 }
@@ -3333,11 +3333,6 @@ impl ::core::clone::Clone for PackageStubPreference {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageStubPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageStubPreference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageStubPreference {
     type Abi = Self;
 }
@@ -3347,6 +3342,11 @@ impl ::core::cmp::PartialEq for PackageStubPreference {
     }
 }
 impl ::core::cmp::Eq for PackageStubPreference {}
+impl ::core::fmt::Debug for PackageStubPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStubPreference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageStubPreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStubPreference;i4)");
 }
@@ -3372,11 +3372,6 @@ impl ::core::clone::Clone for PackageTypes {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageTypes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageTypes {
     type Abi = Self;
 }
@@ -3386,6 +3381,11 @@ impl ::core::cmp::PartialEq for PackageTypes {
     }
 }
 impl ::core::cmp::Eq for PackageTypes {}
+impl ::core::fmt::Debug for PackageTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageTypes;u4)");
 }
@@ -3998,11 +3998,6 @@ impl ::core::clone::Clone for RemovalOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for RemovalOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemovalOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RemovalOptions {
     type Abi = Self;
 }
@@ -4012,6 +4007,11 @@ impl ::core::cmp::PartialEq for RemovalOptions {
     }
 }
 impl ::core::cmp::Eq for RemovalOptions {}
+impl ::core::fmt::Debug for RemovalOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemovalOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemovalOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.RemovalOptions;u4)");
 }
@@ -4146,11 +4146,6 @@ impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for SharedPackageContainerCreationCollisionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SharedPackageContainerCreationCollisionOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SharedPackageContainerCreationCollisionOptions {
     type Abi = Self;
 }
@@ -4160,6 +4155,11 @@ impl ::core::cmp::PartialEq for SharedPackageContainerCreationCollisionOptions {
     }
 }
 impl ::core::cmp::Eq for SharedPackageContainerCreationCollisionOptions {}
+impl ::core::fmt::Debug for SharedPackageContainerCreationCollisionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainerCreationCollisionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SharedPackageContainerCreationCollisionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions;i4)");
 }
@@ -4417,11 +4417,6 @@ impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SharedPackageContainerOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SharedPackageContainerOperationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SharedPackageContainerOperationStatus {
     type Abi = Self;
 }
@@ -4431,6 +4426,11 @@ impl ::core::cmp::PartialEq for SharedPackageContainerOperationStatus {
     }
 }
 impl ::core::cmp::Eq for SharedPackageContainerOperationStatus {}
+impl ::core::fmt::Debug for SharedPackageContainerOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainerOperationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SharedPackageContainerOperationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerOperationStatus;i4)");
 }
@@ -4687,11 +4687,6 @@ impl ::core::clone::Clone for StubPackageOption {
         *self
     }
 }
-impl ::core::fmt::Debug for StubPackageOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StubPackageOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StubPackageOption {
     type Abi = Self;
 }
@@ -4701,6 +4696,11 @@ impl ::core::cmp::PartialEq for StubPackageOption {
     }
 }
 impl ::core::cmp::Eq for StubPackageOption {}
+impl ::core::fmt::Debug for StubPackageOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StubPackageOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StubPackageOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
 }

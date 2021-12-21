@@ -950,12 +950,6 @@ impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_EXTENDED_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINHTTP_EXTENDED_HEADER").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINHTTP_EXTENDED_HEADER {
     type Abi = Self;
 }

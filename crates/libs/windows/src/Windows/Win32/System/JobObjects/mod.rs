@@ -432,11 +432,6 @@ impl ::core::clone::Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOBOBJECT_CPU_RATE_CONTROL_INFORMATION").field("ControlFlags", &self.ControlFlags).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     type Abi = Self;
 }
@@ -993,29 +988,6 @@ impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2")
-            .field("LimitFlags", &self.LimitFlags)
-            .field("ViolationLimitFlags", &self.ViolationLimitFlags)
-            .field("IoReadBytes", &self.IoReadBytes)
-            .field("IoReadBytesLimit", &self.IoReadBytesLimit)
-            .field("IoWriteBytes", &self.IoWriteBytes)
-            .field("IoWriteBytesLimit", &self.IoWriteBytesLimit)
-            .field("PerJobUserTime", &self.PerJobUserTime)
-            .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
-            .field("JobMemory", &self.JobMemory)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("Anonymous3", &self.Anonymous3)
-            .field("JobLowMemoryLimit", &self.JobLowMemoryLimit)
-            .field("IoRateControlTolerance", &self.IoRateControlTolerance)
-            .field("IoRateControlToleranceLimit", &self.IoRateControlToleranceLimit)
-            .field("NetRateControlTolerance", &self.NetRateControlTolerance)
-            .field("NetRateControlToleranceLimit", &self.NetRateControlToleranceLimit)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     type Abi = Self;
 }
@@ -1196,24 +1168,6 @@ impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {}
 impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2")
-            .field("IoReadBytesLimit", &self.IoReadBytesLimit)
-            .field("IoWriteBytesLimit", &self.IoWriteBytesLimit)
-            .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("Anonymous3", &self.Anonymous3)
-            .field("LimitFlags", &self.LimitFlags)
-            .field("IoRateControlTolerance", &self.IoRateControlTolerance)
-            .field("JobLowMemoryLimit", &self.JobLowMemoryLimit)
-            .field("IoRateControlToleranceInterval", &self.IoRateControlToleranceInterval)
-            .field("NetRateControlTolerance", &self.NetRateControlTolerance)
-            .field("NetRateControlToleranceInterval", &self.NetRateControlToleranceInterval)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {

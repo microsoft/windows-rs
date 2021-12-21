@@ -1349,11 +1349,6 @@ impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for IKE_AUTHENTICATION_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKE_AUTHENTICATION_INFORMATION").field("AuthMethod", &self.AuthMethod).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_INFORMATION {
     type Abi = Self;
 }
@@ -3257,11 +3252,6 @@ impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER {
         *self
     }
 }
-impl ::core::fmt::Debug for NV_SEP_CACHE_PARAMETER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NV_SEP_CACHE_PARAMETER").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("WriteCacheType", &self.WriteCacheType).field("WriteCacheTypeEffective", &self.WriteCacheTypeEffective).field("ParameterReserve1", &self.ParameterReserve1).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NV_SEP_CACHE_PARAMETER {
     type Abi = Self;
 }
@@ -4988,12 +4978,6 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STORAGE_FIRMWARE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STORAGE_FIRMWARE_INFO").field("Version", &self.Version).field("Size", &self.Size).field("UpgradeSupport", &self.UpgradeSupport).field("SlotCount", &self.SlotCount).field("ActiveSlot", &self.ActiveSlot).field("PendingActivateSlot", &self.PendingActivateSlot).field("Reserved", &self.Reserved).field("Slot", &self.Slot).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_FIRMWARE_INFO {
     type Abi = Self;
 }
@@ -5092,12 +5076,6 @@ impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO {}
 impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STORAGE_FIRMWARE_SLOT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STORAGE_FIRMWARE_SLOT_INFO").field("SlotNumber", &self.SlotNumber).field("ReadOnly", &self.ReadOnly).field("Reserved", &self.Reserved).field("Revision", &self.Revision).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

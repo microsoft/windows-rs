@@ -666,11 +666,6 @@ impl ::core::clone::Clone for HolographicDepthReprojectionMethod {
         *self
     }
 }
-impl ::core::fmt::Debug for HolographicDepthReprojectionMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicDepthReprojectionMethod").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicDepthReprojectionMethod {
     type Abi = Self;
 }
@@ -680,6 +675,11 @@ impl ::core::cmp::PartialEq for HolographicDepthReprojectionMethod {
     }
 }
 impl ::core::cmp::Eq for HolographicDepthReprojectionMethod {}
+impl ::core::fmt::Debug for HolographicDepthReprojectionMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicDepthReprojectionMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicDepthReprojectionMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
 }
@@ -1135,11 +1135,6 @@ impl ::core::clone::Clone for HolographicFramePresentResult {
         *self
     }
 }
-impl ::core::fmt::Debug for HolographicFramePresentResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicFramePresentResult {
     type Abi = Self;
 }
@@ -1149,6 +1144,11 @@ impl ::core::cmp::PartialEq for HolographicFramePresentResult {
     }
 }
 impl ::core::cmp::Eq for HolographicFramePresentResult {}
+impl ::core::fmt::Debug for HolographicFramePresentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFramePresentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
 }
@@ -1168,11 +1168,6 @@ impl ::core::clone::Clone for HolographicFramePresentWaitBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for HolographicFramePresentWaitBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentWaitBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicFramePresentWaitBehavior {
     type Abi = Self;
 }
@@ -1182,6 +1177,11 @@ impl ::core::cmp::PartialEq for HolographicFramePresentWaitBehavior {
     }
 }
 impl ::core::cmp::Eq for HolographicFramePresentWaitBehavior {}
+impl ::core::fmt::Debug for HolographicFramePresentWaitBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFramePresentWaitBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentWaitBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
 }
@@ -2090,11 +2090,6 @@ impl ::core::clone::Clone for HolographicReprojectionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for HolographicReprojectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicReprojectionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicReprojectionMode {
     type Abi = Self;
 }
@@ -2104,6 +2099,11 @@ impl ::core::cmp::PartialEq for HolographicReprojectionMode {
     }
 }
 impl ::core::cmp::Eq for HolographicReprojectionMode {}
+impl ::core::fmt::Debug for HolographicReprojectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicReprojectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicReprojectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
 }
@@ -2528,11 +2528,6 @@ impl ::core::clone::Clone for HolographicSpaceUserPresence {
         *self
     }
 }
-impl ::core::fmt::Debug for HolographicSpaceUserPresence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicSpaceUserPresence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicSpaceUserPresence {
     type Abi = Self;
 }
@@ -2542,6 +2537,11 @@ impl ::core::cmp::PartialEq for HolographicSpaceUserPresence {
     }
 }
 impl ::core::cmp::Eq for HolographicSpaceUserPresence {}
+impl ::core::fmt::Debug for HolographicSpaceUserPresence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicSpaceUserPresence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceUserPresence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
 }
@@ -2786,11 +2786,6 @@ impl ::core::clone::Clone for HolographicViewConfigurationKind {
         *self
     }
 }
-impl ::core::fmt::Debug for HolographicViewConfigurationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicViewConfigurationKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicViewConfigurationKind {
     type Abi = Self;
 }
@@ -2800,6 +2795,11 @@ impl ::core::cmp::PartialEq for HolographicViewConfigurationKind {
     }
 }
 impl ::core::cmp::Eq for HolographicViewConfigurationKind {}
+impl ::core::fmt::Debug for HolographicViewConfigurationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicViewConfigurationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicViewConfigurationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
 }

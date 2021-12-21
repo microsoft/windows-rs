@@ -398,11 +398,6 @@ impl ::core::clone::Clone for DesignerAppViewState {
         *self
     }
 }
-impl ::core::fmt::Debug for DesignerAppViewState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DesignerAppViewState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DesignerAppViewState {
     type Abi = Self;
 }
@@ -412,6 +407,11 @@ impl ::core::cmp::PartialEq for DesignerAppViewState {
     }
 }
 impl ::core::cmp::Eq for DesignerAppViewState {}
+impl ::core::fmt::Debug for DesignerAppViewState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DesignerAppViewState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DesignerAppViewState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Hosting.DesignerAppViewState;i4)");
 }
@@ -1743,11 +1743,6 @@ impl ::core::clone::Clone for XamlSourceFocusNavigationReason {
         *self
     }
 }
-impl ::core::fmt::Debug for XamlSourceFocusNavigationReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XamlSourceFocusNavigationReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XamlSourceFocusNavigationReason {
     type Abi = Self;
 }
@@ -1757,6 +1752,11 @@ impl ::core::cmp::PartialEq for XamlSourceFocusNavigationReason {
     }
 }
 impl ::core::cmp::Eq for XamlSourceFocusNavigationReason {}
+impl ::core::fmt::Debug for XamlSourceFocusNavigationReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlSourceFocusNavigationReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlSourceFocusNavigationReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason;i4)");
 }

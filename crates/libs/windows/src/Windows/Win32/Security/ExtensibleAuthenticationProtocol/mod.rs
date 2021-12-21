@@ -836,12 +836,6 @@ impl ::core::clone::Clone for EAP_INTERACTIVE_UI_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for EAP_INTERACTIVE_UI_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EAP_INTERACTIVE_UI_DATA").field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("dwDataType", &self.dwDataType).field("cbUiData", &self.cbUiData).field("pbUiData", &self.pbUiData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EAP_INTERACTIVE_UI_DATA {
     type Abi = Self;
 }
@@ -1123,12 +1117,6 @@ impl ::core::marker::Copy for EAP_METHOD_PROPERTY {}
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for EAP_METHOD_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EAP_METHOD_PROPERTY").field("eapMethodPropertyType", &self.eapMethodPropertyType).field("eapMethodPropertyValueType", &self.eapMethodPropertyValueType).field("eapMethodPropertyValue", &self.eapMethodPropertyValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1630,12 +1618,6 @@ impl ::core::marker::Copy for EapCredential {}
 impl ::core::clone::Clone for EapCredential {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for EapCredential {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EapCredential").field("credType", &self.credType).field("credData", &self.credData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

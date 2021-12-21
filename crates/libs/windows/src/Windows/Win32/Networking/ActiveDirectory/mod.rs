@@ -191,12 +191,6 @@ impl ::core::clone::Clone for ADSVALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ADSVALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADSVALUE").field("dwType", &self.dwType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ADSVALUE {
     type Abi = Self;
 }
@@ -23171,12 +23165,6 @@ impl ::core::clone::Clone for OPENQUERYWINDOW {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::fmt::Debug for OPENQUERYWINDOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPENQUERYWINDOW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("clsidHandler", &self.clsidHandler).field("pHandlerParameters", &self.pHandlerParameters).field("clsidDefaultForm", &self.clsidDefaultForm).field("pPersistQuery", &self.pPersistQuery).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Abi for OPENQUERYWINDOW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -23473,12 +23461,6 @@ impl ::core::marker::Copy for ads_searchpref_info {}
 impl ::core::clone::Clone for ads_searchpref_info {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ads_searchpref_info {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ads_searchpref_info").field("dwSearchPref", &self.dwSearchPref).field("vValue", &self.vValue).field("dwStatus", &self.dwStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -568,11 +568,6 @@ impl ::core::clone::Clone for AccelerometerReadingType {
         *self
     }
 }
-impl ::core::fmt::Debug for AccelerometerReadingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerReadingType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AccelerometerReadingType {
     type Abi = Self;
 }
@@ -582,6 +577,11 @@ impl ::core::cmp::PartialEq for AccelerometerReadingType {
     }
 }
 impl ::core::cmp::Eq for AccelerometerReadingType {}
+impl ::core::fmt::Debug for AccelerometerReadingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccelerometerReadingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AccelerometerReadingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.AccelerometerReadingType;i4)");
 }
@@ -1126,11 +1126,6 @@ impl ::core::clone::Clone for ActivitySensorReadingConfidence {
         *self
     }
 }
-impl ::core::fmt::Debug for ActivitySensorReadingConfidence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReadingConfidence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ActivitySensorReadingConfidence {
     type Abi = Self;
 }
@@ -1140,6 +1135,11 @@ impl ::core::cmp::PartialEq for ActivitySensorReadingConfidence {
     }
 }
 impl ::core::cmp::Eq for ActivitySensorReadingConfidence {}
+impl ::core::fmt::Debug for ActivitySensorReadingConfidence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensorReadingConfidence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingConfidence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivitySensorReadingConfidence;i4)");
 }
@@ -1247,11 +1247,6 @@ impl ::core::clone::Clone for ActivityType {
         *self
     }
 }
-impl ::core::fmt::Debug for ActivityType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivityType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ActivityType {
     type Abi = Self;
 }
@@ -1261,6 +1256,11 @@ impl ::core::cmp::PartialEq for ActivityType {
     }
 }
 impl ::core::cmp::Eq for ActivityType {}
+impl ::core::fmt::Debug for ActivityType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivityType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivityType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivityType;i4)");
 }
@@ -7425,11 +7425,6 @@ impl ::core::clone::Clone for MagnetometerAccuracy {
         *self
     }
 }
-impl ::core::fmt::Debug for MagnetometerAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
     type Abi = Self;
 }
@@ -7439,6 +7434,11 @@ impl ::core::cmp::PartialEq for MagnetometerAccuracy {
     }
 }
 impl ::core::cmp::Eq for MagnetometerAccuracy {}
+impl ::core::fmt::Debug for MagnetometerAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagnetometerAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.MagnetometerAccuracy;i4)");
 }
@@ -8714,11 +8714,6 @@ impl ::core::clone::Clone for PedometerStepKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PedometerStepKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PedometerStepKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PedometerStepKind {
     type Abi = Self;
 }
@@ -8728,6 +8723,11 @@ impl ::core::cmp::PartialEq for PedometerStepKind {
     }
 }
 impl ::core::cmp::Eq for PedometerStepKind {}
+impl ::core::fmt::Debug for PedometerStepKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PedometerStepKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PedometerStepKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.PedometerStepKind;i4)");
 }
@@ -9410,11 +9410,6 @@ impl ::core::clone::Clone for SensorOptimizationGoal {
         *self
     }
 }
-impl ::core::fmt::Debug for SensorOptimizationGoal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorOptimizationGoal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SensorOptimizationGoal {
     type Abi = Self;
 }
@@ -9424,6 +9419,11 @@ impl ::core::cmp::PartialEq for SensorOptimizationGoal {
     }
 }
 impl ::core::cmp::Eq for SensorOptimizationGoal {}
+impl ::core::fmt::Debug for SensorOptimizationGoal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorOptimizationGoal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SensorOptimizationGoal {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorOptimizationGoal;i4)");
 }
@@ -9548,11 +9548,6 @@ impl ::core::clone::Clone for SensorReadingType {
         *self
     }
 }
-impl ::core::fmt::Debug for SensorReadingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorReadingType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SensorReadingType {
     type Abi = Self;
 }
@@ -9562,6 +9557,11 @@ impl ::core::cmp::PartialEq for SensorReadingType {
     }
 }
 impl ::core::cmp::Eq for SensorReadingType {}
+impl ::core::fmt::Debug for SensorReadingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorReadingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SensorReadingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorReadingType;i4)");
 }
@@ -9738,11 +9738,6 @@ impl ::core::clone::Clone for SensorType {
         *self
     }
 }
-impl ::core::fmt::Debug for SensorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SensorType {
     type Abi = Self;
 }
@@ -9752,6 +9747,11 @@ impl ::core::cmp::PartialEq for SensorType {
     }
 }
 impl ::core::cmp::Eq for SensorType {}
+impl ::core::fmt::Debug for SensorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SensorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorType;i4)");
 }
@@ -9775,11 +9775,6 @@ impl ::core::clone::Clone for SimpleOrientation {
         *self
     }
 }
-impl ::core::fmt::Debug for SimpleOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleOrientation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SimpleOrientation {
     type Abi = Self;
 }
@@ -9789,6 +9784,11 @@ impl ::core::cmp::PartialEq for SimpleOrientation {
     }
 }
 impl ::core::cmp::Eq for SimpleOrientation {}
+impl ::core::fmt::Debug for SimpleOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SimpleOrientation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SimpleOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SimpleOrientation;i4)");
 }

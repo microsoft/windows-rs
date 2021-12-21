@@ -678,11 +678,6 @@ impl ::core::clone::Clone for HttpDiagnosticRequestInitiator {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpDiagnosticRequestInitiator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticRequestInitiator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpDiagnosticRequestInitiator {
     type Abi = Self;
 }
@@ -692,6 +687,11 @@ impl ::core::cmp::PartialEq for HttpDiagnosticRequestInitiator {
     }
 }
 impl ::core::cmp::Eq for HttpDiagnosticRequestInitiator {}
+impl ::core::fmt::Debug for HttpDiagnosticRequestInitiator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpDiagnosticRequestInitiator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpDiagnosticRequestInitiator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
 }

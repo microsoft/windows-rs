@@ -539,11 +539,6 @@ impl ::core::clone::Clone for ClipboardHistoryItemsResultStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for ClipboardHistoryItemsResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClipboardHistoryItemsResultStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ClipboardHistoryItemsResultStatus {
     type Abi = Self;
 }
@@ -553,6 +548,11 @@ impl ::core::cmp::PartialEq for ClipboardHistoryItemsResultStatus {
     }
 }
 impl ::core::cmp::Eq for ClipboardHistoryItemsResultStatus {}
+impl ::core::fmt::Debug for ClipboardHistoryItemsResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClipboardHistoryItemsResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
 }
@@ -813,11 +813,6 @@ impl ::core::clone::Clone for DataPackageOperation {
         *self
     }
 }
-impl ::core::fmt::Debug for DataPackageOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataPackageOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DataPackageOperation {
     type Abi = Self;
 }
@@ -827,6 +822,11 @@ impl ::core::cmp::PartialEq for DataPackageOperation {
     }
 }
 impl ::core::cmp::Eq for DataPackageOperation {}
+impl ::core::fmt::Debug for DataPackageOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataPackageOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataPackageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
 }
@@ -3634,11 +3634,6 @@ impl ::core::clone::Clone for SetHistoryItemAsContentStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SetHistoryItemAsContentStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetHistoryItemAsContentStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SetHistoryItemAsContentStatus {
     type Abi = Self;
 }
@@ -3648,6 +3643,11 @@ impl ::core::cmp::PartialEq for SetHistoryItemAsContentStatus {
     }
 }
 impl ::core::cmp::Eq for SetHistoryItemAsContentStatus {}
+impl ::core::fmt::Debug for SetHistoryItemAsContentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetHistoryItemAsContentStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetHistoryItemAsContentStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
 }
@@ -4339,11 +4339,6 @@ impl ::core::clone::Clone for ShareUITheme {
         *self
     }
 }
-impl ::core::fmt::Debug for ShareUITheme {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareUITheme").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ShareUITheme {
     type Abi = Self;
 }
@@ -4353,6 +4348,11 @@ impl ::core::cmp::PartialEq for ShareUITheme {
     }
 }
 impl ::core::cmp::Eq for ShareUITheme {}
+impl ::core::fmt::Debug for ShareUITheme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareUITheme").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareUITheme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ShareUITheme;i4)");
 }

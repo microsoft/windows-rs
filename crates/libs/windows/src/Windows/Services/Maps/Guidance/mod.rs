@@ -13,11 +13,6 @@ impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
         *self
     }
 }
-impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceAudioMeasurementSystem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GuidanceAudioMeasurementSystem {
     type Abi = Self;
 }
@@ -27,6 +22,11 @@ impl ::core::cmp::PartialEq for GuidanceAudioMeasurementSystem {
     }
 }
 impl ::core::cmp::Eq for GuidanceAudioMeasurementSystem {}
+impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioMeasurementSystem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceAudioMeasurementSystem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
 }
@@ -50,11 +50,6 @@ impl ::core::clone::Clone for GuidanceAudioNotificationKind {
         *self
     }
 }
-impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceAudioNotificationKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GuidanceAudioNotificationKind {
     type Abi = Self;
 }
@@ -64,6 +59,11 @@ impl ::core::cmp::PartialEq for GuidanceAudioNotificationKind {
     }
 }
 impl ::core::cmp::Eq for GuidanceAudioNotificationKind {}
+impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotificationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotificationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
 }
@@ -186,11 +186,6 @@ impl ::core::clone::Clone for GuidanceAudioNotifications {
         *self
     }
 }
-impl ::core::fmt::Debug for GuidanceAudioNotifications {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GuidanceAudioNotifications {
     type Abi = Self;
 }
@@ -200,6 +195,11 @@ impl ::core::cmp::PartialEq for GuidanceAudioNotifications {
     }
 }
 impl ::core::cmp::Eq for GuidanceAudioNotifications {}
+impl ::core::fmt::Debug for GuidanceAudioNotifications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotifications {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
 }
@@ -317,11 +317,6 @@ impl ::core::clone::Clone for GuidanceLaneMarkers {
         *self
     }
 }
-impl ::core::fmt::Debug for GuidanceLaneMarkers {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GuidanceLaneMarkers {
     type Abi = Self;
 }
@@ -331,6 +326,11 @@ impl ::core::cmp::PartialEq for GuidanceLaneMarkers {
     }
 }
 impl ::core::cmp::Eq for GuidanceLaneMarkers {}
+impl ::core::fmt::Debug for GuidanceLaneMarkers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceLaneMarkers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
 }
@@ -566,11 +566,6 @@ impl ::core::clone::Clone for GuidanceManeuverKind {
         *self
     }
 }
-impl ::core::fmt::Debug for GuidanceManeuverKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceManeuverKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GuidanceManeuverKind {
     type Abi = Self;
 }
@@ -580,6 +575,11 @@ impl ::core::cmp::PartialEq for GuidanceManeuverKind {
     }
 }
 impl ::core::cmp::Eq for GuidanceManeuverKind {}
+impl ::core::fmt::Debug for GuidanceManeuverKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceManeuverKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceManeuverKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
 }
@@ -715,11 +715,6 @@ impl ::core::clone::Clone for GuidanceMode {
         *self
     }
 }
-impl ::core::fmt::Debug for GuidanceMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GuidanceMode {
     type Abi = Self;
 }
@@ -729,6 +724,11 @@ impl ::core::cmp::PartialEq for GuidanceMode {
     }
 }
 impl ::core::cmp::Eq for GuidanceMode {}
+impl ::core::fmt::Debug for GuidanceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GuidanceMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");
 }

@@ -525,12 +525,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationMessage
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationMessage").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationMessage {
     type Abi = Self;
 }
@@ -542,6 +536,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationMessa
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationMessage {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationMessage").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage;i4)");
@@ -678,12 +678,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationScenari
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationScenario {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationScenario").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationScenario {
     type Abi = Self;
 }
@@ -695,6 +689,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationScena
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationScenario {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationScenario").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationScenario {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationScenario;i4)");
@@ -728,12 +728,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStage").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationStage {
     type Abi = Self;
 }
@@ -745,6 +739,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationStage
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationStage {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStage").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStage;i4)");
@@ -994,12 +994,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStatus 
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationStatus {
     type Abi = Self;
 }
@@ -1011,6 +1005,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationStatu
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationStatus {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStatus").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStatus;i4)");
@@ -1043,12 +1043,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceCapabilities {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorDeviceCapabilities").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDeviceCapabilities {
     type Abi = Self;
 }
@@ -1060,6 +1054,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDeviceCapabilities 
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorDeviceCapabilities {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDeviceCapabilities").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDeviceCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceCapabilities;u4)");
@@ -1086,12 +1086,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceFindScope {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceFindScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorDeviceFindScope").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDeviceFindScope {
     type Abi = Self;
 }
@@ -1103,6 +1097,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDeviceFindScope {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorDeviceFindScope {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceFindScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDeviceFindScope").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDeviceFindScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope;i4)");
@@ -1129,12 +1129,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresence {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorDevicePresence").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresence {
     type Abi = Self;
 }
@@ -1146,6 +1140,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDevicePresence {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorDevicePresence {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDevicePresence").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevicePresence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresence;i4)");
@@ -1173,12 +1173,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitor
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorDevicePresenceMonitoringMode").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     type Abi = Self;
 }
@@ -1190,6 +1184,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDevicePresenceMonit
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDevicePresenceMonitoringMode").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode;i4)");
@@ -1217,12 +1217,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitor
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     type Abi = Self;
 }
@@ -1234,6 +1228,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDevicePresenceMonit
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus;i4)");
@@ -1261,12 +1261,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorFinishAuthenticationS
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorFinishAuthenticationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorFinishAuthenticationStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     type Abi = Self;
 }
@@ -1278,6 +1272,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorFinishAuthenticatio
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorFinishAuthenticationStatus {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorFinishAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorFinishAuthenticationStatus").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorFinishAuthenticationStatus;i4)");
@@ -1758,12 +1758,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorRegistrationStatus {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistrationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorRegistrationStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorRegistrationStatus {
     type Abi = Self;
 }
@@ -1775,6 +1769,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorRegistrationStatus 
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorRegistrationStatus {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorRegistrationStatus").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationStatus;i4)");

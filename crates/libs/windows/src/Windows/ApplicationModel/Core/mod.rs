@@ -129,11 +129,6 @@ impl ::core::clone::Clone for AppRestartFailureReason {
         *self
     }
 }
-impl ::core::fmt::Debug for AppRestartFailureReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRestartFailureReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppRestartFailureReason {
     type Abi = Self;
 }
@@ -143,6 +138,11 @@ impl ::core::cmp::PartialEq for AppRestartFailureReason {
     }
 }
 impl ::core::cmp::Eq for AppRestartFailureReason {}
+impl ::core::fmt::Debug for AppRestartFailureReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRestartFailureReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRestartFailureReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Core.AppRestartFailureReason;i4)");
 }

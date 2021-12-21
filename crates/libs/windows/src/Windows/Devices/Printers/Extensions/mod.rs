@@ -352,11 +352,6 @@ impl ::core::clone::Clone for Print3DWorkflowDetail {
         *self
     }
 }
-impl ::core::fmt::Debug for Print3DWorkflowDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowDetail").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Print3DWorkflowDetail {
     type Abi = Self;
 }
@@ -366,6 +361,11 @@ impl ::core::cmp::PartialEq for Print3DWorkflowDetail {
     }
 }
 impl ::core::cmp::Eq for Print3DWorkflowDetail {}
+impl ::core::fmt::Debug for Print3DWorkflowDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowDetail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
 }
@@ -565,11 +565,6 @@ impl ::core::clone::Clone for Print3DWorkflowStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for Print3DWorkflowStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Print3DWorkflowStatus {
     type Abi = Self;
 }
@@ -579,6 +574,11 @@ impl ::core::cmp::PartialEq for Print3DWorkflowStatus {
     }
 }
 impl ::core::cmp::Eq for Print3DWorkflowStatus {}
+impl ::core::fmt::Debug for Print3DWorkflowStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
 }

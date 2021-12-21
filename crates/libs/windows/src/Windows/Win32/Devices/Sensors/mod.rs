@@ -1022,11 +1022,6 @@ impl ::core::clone::Clone for MATRIX3X3 {
         *self
     }
 }
-impl ::core::fmt::Debug for MATRIX3X3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MATRIX3X3").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MATRIX3X3 {
     type Abi = Self;
 }
@@ -1483,12 +1478,6 @@ pub struct SENSOR_COLLECTION_LIST {
 impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
     fn clone(&self) -> Self {
         Self { AllocatedSizeInBytes: self.AllocatedSizeInBytes, Count: self.Count, List: self.List.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::fmt::Debug for SENSOR_COLLECTION_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SENSOR_COLLECTION_LIST").field("AllocatedSizeInBytes", &self.AllocatedSizeInBytes).field("Count", &self.Count).field("List", &self.List).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -2125,12 +2114,6 @@ pub struct SENSOR_VALUE_PAIR {
 impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
     fn clone(&self) -> Self {
         Self { Key: self.Key, Value: self.Value.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::fmt::Debug for SENSOR_VALUE_PAIR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SENSOR_VALUE_PAIR").field("Key", &self.Key).field("Value", &self.Value).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]

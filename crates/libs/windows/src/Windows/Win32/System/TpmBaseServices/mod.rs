@@ -95,11 +95,6 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
         *self
     }
 }
-impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TBS_CONTEXT_PARAMS2").field("version", &self.version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2 {
     type Abi = Self;
 }

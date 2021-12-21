@@ -6111,12 +6111,6 @@ impl ::core::clone::Clone for MMC_SNAPIN_PROPERTY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for MMC_SNAPIN_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_SNAPIN_PROPERTY").field("pszPropName", &self.pszPropName).field("varValue", &self.varValue).field("eAction", &self.eAction).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for MMC_SNAPIN_PROPERTY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -6214,12 +6208,6 @@ impl ::core::marker::Copy for MMC_TASK {}
 impl ::core::clone::Clone for MMC_TASK {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MMC_TASK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_TASK").field("sDisplayObject", &self.sDisplayObject).field("szText", &self.szText).field("szHelpString", &self.szHelpString).field("eActionType", &self.eActionType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6326,12 +6314,6 @@ impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT {}
 impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MMC_TASK_DISPLAY_OBJECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_TASK_DISPLAY_OBJECT").field("eDisplayType", &self.eDisplayType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7367,12 +7349,6 @@ impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO {
             dwMiscOptions: self.dwMiscOptions,
             Anonymous: self.Anonymous.clone(),
         }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESULT_VIEW_TYPE_INFO").field("pstrPersistableViewDescription", &self.pstrPersistableViewDescription).field("eViewType", &self.eViewType).field("dwMiscOptions", &self.dwMiscOptions).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

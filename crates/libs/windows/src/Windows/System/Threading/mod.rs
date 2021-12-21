@@ -496,11 +496,6 @@ impl ::core::clone::Clone for WorkItemOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for WorkItemOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkItemOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WorkItemOptions {
     type Abi = Self;
 }
@@ -510,6 +505,11 @@ impl ::core::cmp::PartialEq for WorkItemOptions {
     }
 }
 impl ::core::cmp::Eq for WorkItemOptions {}
+impl ::core::fmt::Debug for WorkItemOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WorkItemOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
 }
@@ -530,11 +530,6 @@ impl ::core::clone::Clone for WorkItemPriority {
         *self
     }
 }
-impl ::core::fmt::Debug for WorkItemPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkItemPriority").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WorkItemPriority {
     type Abi = Self;
 }
@@ -544,6 +539,11 @@ impl ::core::cmp::PartialEq for WorkItemPriority {
     }
 }
 impl ::core::cmp::Eq for WorkItemPriority {}
+impl ::core::fmt::Debug for WorkItemPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WorkItemPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
 }

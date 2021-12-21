@@ -520,11 +520,6 @@ impl ::core::clone::Clone for VibrationAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for VibrationAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VibrationAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VibrationAccessStatus {
     type Abi = Self;
 }
@@ -534,6 +529,11 @@ impl ::core::cmp::PartialEq for VibrationAccessStatus {
     }
 }
 impl ::core::cmp::Eq for VibrationAccessStatus {}
+impl ::core::fmt::Debug for VibrationAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VibrationAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VibrationAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");
 }

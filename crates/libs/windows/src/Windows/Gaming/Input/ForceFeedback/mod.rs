@@ -166,11 +166,6 @@ impl ::core::clone::Clone for ConditionForceEffectKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ConditionForceEffectKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConditionForceEffectKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ConditionForceEffectKind {
     type Abi = Self;
 }
@@ -180,6 +175,11 @@ impl ::core::cmp::PartialEq for ConditionForceEffectKind {
     }
 }
 impl ::core::cmp::Eq for ConditionForceEffectKind {}
+impl ::core::fmt::Debug for ConditionForceEffectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConditionForceEffectKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConditionForceEffectKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind;i4)");
 }
@@ -346,11 +346,6 @@ impl ::core::clone::Clone for ForceFeedbackEffectAxes {
         *self
     }
 }
-impl ::core::fmt::Debug for ForceFeedbackEffectAxes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ForceFeedbackEffectAxes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ForceFeedbackEffectAxes {
     type Abi = Self;
 }
@@ -360,6 +355,11 @@ impl ::core::cmp::PartialEq for ForceFeedbackEffectAxes {
     }
 }
 impl ::core::cmp::Eq for ForceFeedbackEffectAxes {}
+impl ::core::fmt::Debug for ForceFeedbackEffectAxes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackEffectAxes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectAxes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes;u4)");
 }
@@ -381,11 +381,6 @@ impl ::core::clone::Clone for ForceFeedbackEffectState {
         *self
     }
 }
-impl ::core::fmt::Debug for ForceFeedbackEffectState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ForceFeedbackEffectState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ForceFeedbackEffectState {
     type Abi = Self;
 }
@@ -395,6 +390,11 @@ impl ::core::cmp::PartialEq for ForceFeedbackEffectState {
     }
 }
 impl ::core::cmp::Eq for ForceFeedbackEffectState {}
+impl ::core::fmt::Debug for ForceFeedbackEffectState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackEffectState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState;i4)");
 }
@@ -415,11 +415,6 @@ impl ::core::clone::Clone for ForceFeedbackLoadEffectResult {
         *self
     }
 }
-impl ::core::fmt::Debug for ForceFeedbackLoadEffectResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ForceFeedbackLoadEffectResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ForceFeedbackLoadEffectResult {
     type Abi = Self;
 }
@@ -429,6 +424,11 @@ impl ::core::cmp::PartialEq for ForceFeedbackLoadEffectResult {
     }
 }
 impl ::core::cmp::Eq for ForceFeedbackLoadEffectResult {}
+impl ::core::fmt::Debug for ForceFeedbackLoadEffectResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForceFeedbackLoadEffectResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForceFeedbackLoadEffectResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult;i4)");
 }
@@ -1048,11 +1048,6 @@ impl ::core::clone::Clone for PeriodicForceEffectKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PeriodicForceEffectKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeriodicForceEffectKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PeriodicForceEffectKind {
     type Abi = Self;
 }
@@ -1062,6 +1057,11 @@ impl ::core::cmp::PartialEq for PeriodicForceEffectKind {
     }
 }
 impl ::core::cmp::Eq for PeriodicForceEffectKind {}
+impl ::core::fmt::Debug for PeriodicForceEffectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeriodicForceEffectKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeriodicForceEffectKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind;i4)");
 }

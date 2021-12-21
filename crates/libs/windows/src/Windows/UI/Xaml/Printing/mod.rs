@@ -640,11 +640,6 @@ impl ::core::clone::Clone for PreviewPageCountType {
         *self
     }
 }
-impl ::core::fmt::Debug for PreviewPageCountType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PreviewPageCountType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PreviewPageCountType {
     type Abi = Self;
 }
@@ -654,6 +649,11 @@ impl ::core::cmp::PartialEq for PreviewPageCountType {
     }
 }
 impl ::core::cmp::Eq for PreviewPageCountType {}
+impl ::core::fmt::Debug for PreviewPageCountType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PreviewPageCountType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PreviewPageCountType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Printing.PreviewPageCountType;i4)");
 }

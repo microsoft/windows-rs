@@ -1425,11 +1425,6 @@ impl ::core::clone::Clone for MediaTrimmingPreference {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaTrimmingPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaTrimmingPreference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaTrimmingPreference {
     type Abi = Self;
 }
@@ -1439,6 +1434,11 @@ impl ::core::cmp::PartialEq for MediaTrimmingPreference {
     }
 }
 impl ::core::cmp::Eq for MediaTrimmingPreference {}
+impl ::core::fmt::Debug for MediaTrimmingPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTrimmingPreference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaTrimmingPreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
 }
@@ -1458,11 +1458,6 @@ impl ::core::clone::Clone for VideoFramePrecision {
         *self
     }
 }
-impl ::core::fmt::Debug for VideoFramePrecision {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoFramePrecision").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VideoFramePrecision {
     type Abi = Self;
 }
@@ -1472,6 +1467,11 @@ impl ::core::cmp::PartialEq for VideoFramePrecision {
     }
 }
 impl ::core::cmp::Eq for VideoFramePrecision {}
+impl ::core::fmt::Debug for VideoFramePrecision {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoFramePrecision").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoFramePrecision {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");
 }

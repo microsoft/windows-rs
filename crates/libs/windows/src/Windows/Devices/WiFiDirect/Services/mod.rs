@@ -503,11 +503,6 @@ impl ::core::clone::Clone for WiFiDirectServiceAdvertisementStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiDirectServiceAdvertisementStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectServiceAdvertisementStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceAdvertisementStatus {
     type Abi = Self;
 }
@@ -517,6 +512,11 @@ impl ::core::cmp::PartialEq for WiFiDirectServiceAdvertisementStatus {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectServiceAdvertisementStatus {}
+impl ::core::fmt::Debug for WiFiDirectServiceAdvertisementStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceAdvertisementStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceAdvertisementStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertisementStatus;i4)");
 }
@@ -909,11 +909,6 @@ impl ::core::clone::Clone for WiFiDirectServiceConfigurationMethod {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiDirectServiceConfigurationMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectServiceConfigurationMethod").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceConfigurationMethod {
     type Abi = Self;
 }
@@ -923,6 +918,11 @@ impl ::core::cmp::PartialEq for WiFiDirectServiceConfigurationMethod {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectServiceConfigurationMethod {}
+impl ::core::fmt::Debug for WiFiDirectServiceConfigurationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceConfigurationMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceConfigurationMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod;i4)");
 }
@@ -945,11 +945,6 @@ impl ::core::clone::Clone for WiFiDirectServiceError {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiDirectServiceError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectServiceError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceError {
     type Abi = Self;
 }
@@ -959,6 +954,11 @@ impl ::core::cmp::PartialEq for WiFiDirectServiceError {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectServiceError {}
+impl ::core::fmt::Debug for WiFiDirectServiceError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceError;i4)");
 }
@@ -978,11 +978,6 @@ impl ::core::clone::Clone for WiFiDirectServiceIPProtocol {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiDirectServiceIPProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectServiceIPProtocol").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceIPProtocol {
     type Abi = Self;
 }
@@ -992,6 +987,11 @@ impl ::core::cmp::PartialEq for WiFiDirectServiceIPProtocol {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectServiceIPProtocol {}
+impl ::core::fmt::Debug for WiFiDirectServiceIPProtocol {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceIPProtocol").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceIPProtocol {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceIPProtocol;i4)");
 }
@@ -1494,11 +1494,6 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionErrorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiDirectServiceSessionErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectServiceSessionErrorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceSessionErrorStatus {
     type Abi = Self;
 }
@@ -1508,6 +1503,11 @@ impl ::core::cmp::PartialEq for WiFiDirectServiceSessionErrorStatus {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectServiceSessionErrorStatus {}
+impl ::core::fmt::Debug for WiFiDirectServiceSessionErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceSessionErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceSessionErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionErrorStatus;i4)");
 }
@@ -1741,11 +1741,6 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiDirectServiceSessionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectServiceSessionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceSessionStatus {
     type Abi = Self;
 }
@@ -1755,6 +1750,11 @@ impl ::core::cmp::PartialEq for WiFiDirectServiceSessionStatus {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectServiceSessionStatus {}
+impl ::core::fmt::Debug for WiFiDirectServiceSessionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceSessionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceSessionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionStatus;i4)");
 }
@@ -1775,11 +1775,6 @@ impl ::core::clone::Clone for WiFiDirectServiceStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiDirectServiceStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectServiceStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceStatus {
     type Abi = Self;
 }
@@ -1789,6 +1784,11 @@ impl ::core::cmp::PartialEq for WiFiDirectServiceStatus {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectServiceStatus {}
+impl ::core::fmt::Debug for WiFiDirectServiceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectServiceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceStatus;i4)");
 }

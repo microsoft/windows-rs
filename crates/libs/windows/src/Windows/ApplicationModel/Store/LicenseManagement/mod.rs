@@ -137,11 +137,6 @@ impl ::core::clone::Clone for LicenseRefreshOption {
         *self
     }
 }
-impl ::core::fmt::Debug for LicenseRefreshOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseRefreshOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LicenseRefreshOption {
     type Abi = Self;
 }
@@ -151,6 +146,11 @@ impl ::core::cmp::PartialEq for LicenseRefreshOption {
     }
 }
 impl ::core::cmp::Eq for LicenseRefreshOption {}
+impl ::core::fmt::Debug for LicenseRefreshOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseRefreshOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
 }

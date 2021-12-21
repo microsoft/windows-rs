@@ -2240,11 +2240,6 @@ impl ::core::clone::Clone for NDIS_802_11_TEST {
         *self
     }
 }
-impl ::core::fmt::Debug for NDIS_802_11_TEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_TEST").field("Length", &self.Length).field("Type", &self.Type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NDIS_802_11_TEST {
     type Abi = Self;
 }
@@ -3009,11 +3004,6 @@ impl ::core::marker::Copy for NDIS_GUID {}
 impl ::core::clone::Clone for NDIS_GUID {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_GUID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_GUID").field("Guid", &self.Guid).field("Anonymous", &self.Anonymous).field("Size", &self.Size).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_GUID {
@@ -6389,12 +6379,6 @@ impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
-impl ::core::fmt::Debug for NDIS_WMI_ENUM_ADAPTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_ENUM_ADAPTER").field("Header", &self.Header).field("IfIndex", &self.IfIndex).field("NetLuid", &self.NetLuid).field("DeviceNameLength", &self.DeviceNameLength).field("DeviceName", &self.DeviceName).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 unsafe impl ::windows::core::Abi for NDIS_WMI_ENUM_ADAPTER {
     type Abi = Self;
 }
@@ -6433,12 +6417,6 @@ impl ::core::marker::Copy for NDIS_WMI_EVENT_HEADER {}
 impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-impl ::core::fmt::Debug for NDIS_WMI_EVENT_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_EVENT_HEADER").field("Header", &self.Header).field("IfIndex", &self.IfIndex).field("NetLuid", &self.NetLuid).field("RequestId", &self.RequestId).field("PortNumber", &self.PortNumber).field("DeviceNameLength", &self.DeviceNameLength).field("DeviceNameOffset", &self.DeviceNameOffset).field("Padding", &self.Padding).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -6619,12 +6597,6 @@ impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-impl ::core::fmt::Debug for NDIS_WMI_METHOD_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_METHOD_HEADER").field("Header", &self.Header).field("PortNumber", &self.PortNumber).field("NetLuid", &self.NetLuid).field("RequestId", &self.RequestId).field("Timeout", &self.Timeout).field("Padding", &self.Padding).finish()
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::core::Abi for NDIS_WMI_METHOD_HEADER {
     type Abi = Self;
 }
@@ -6747,12 +6719,6 @@ impl ::core::marker::Copy for NDIS_WMI_SET_HEADER {}
 impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-impl ::core::fmt::Debug for NDIS_WMI_SET_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_SET_HEADER").field("Header", &self.Header).field("PortNumber", &self.PortNumber).field("NetLuid", &self.NetLuid).field("RequestId", &self.RequestId).field("Timeout", &self.Timeout).field("Padding", &self.Padding).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]

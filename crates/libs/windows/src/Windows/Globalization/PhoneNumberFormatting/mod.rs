@@ -119,11 +119,6 @@ impl ::core::clone::Clone for PhoneNumberFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneNumberFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNumberFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneNumberFormat {
     type Abi = Self;
 }
@@ -133,6 +128,11 @@ impl ::core::cmp::PartialEq for PhoneNumberFormat {
     }
 }
 impl ::core::cmp::Eq for PhoneNumberFormat {}
+impl ::core::fmt::Debug for PhoneNumberFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
 }
@@ -507,11 +507,6 @@ impl ::core::clone::Clone for PhoneNumberMatchResult {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneNumberMatchResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNumberMatchResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneNumberMatchResult {
     type Abi = Self;
 }
@@ -521,6 +516,11 @@ impl ::core::cmp::PartialEq for PhoneNumberMatchResult {
     }
 }
 impl ::core::cmp::Eq for PhoneNumberMatchResult {}
+impl ::core::fmt::Debug for PhoneNumberMatchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberMatchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
 }
@@ -543,11 +543,6 @@ impl ::core::clone::Clone for PhoneNumberParseResult {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneNumberParseResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNumberParseResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneNumberParseResult {
     type Abi = Self;
 }
@@ -557,6 +552,11 @@ impl ::core::cmp::PartialEq for PhoneNumberParseResult {
     }
 }
 impl ::core::cmp::Eq for PhoneNumberParseResult {}
+impl ::core::fmt::Debug for PhoneNumberParseResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberParseResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
 }
@@ -586,11 +586,6 @@ impl ::core::clone::Clone for PredictedPhoneNumberKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PredictedPhoneNumberKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PredictedPhoneNumberKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PredictedPhoneNumberKind {
     type Abi = Self;
 }
@@ -600,6 +595,11 @@ impl ::core::cmp::PartialEq for PredictedPhoneNumberKind {
     }
 }
 impl ::core::cmp::Eq for PredictedPhoneNumberKind {}
+impl ::core::fmt::Debug for PredictedPhoneNumberKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PredictedPhoneNumberKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PredictedPhoneNumberKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind;i4)");
 }

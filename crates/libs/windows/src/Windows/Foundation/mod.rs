@@ -545,11 +545,6 @@ impl ::core::clone::Clone for AsyncStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AsyncStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AsyncStatus {
     type Abi = Self;
 }
@@ -559,6 +554,11 @@ impl ::core::cmp::PartialEq for AsyncStatus {
     }
 }
 impl ::core::cmp::Eq for AsyncStatus {}
+impl ::core::fmt::Debug for AsyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AsyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
 }
@@ -4060,11 +4060,6 @@ impl ::core::clone::Clone for PropertyType {
         *self
     }
 }
-impl ::core::fmt::Debug for PropertyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PropertyType {
     type Abi = Self;
 }
@@ -4074,6 +4069,11 @@ impl ::core::cmp::PartialEq for PropertyType {
     }
 }
 impl ::core::cmp::Eq for PropertyType {}
+impl ::core::fmt::Debug for PropertyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
 }

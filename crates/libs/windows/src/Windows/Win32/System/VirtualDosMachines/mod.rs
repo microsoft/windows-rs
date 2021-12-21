@@ -676,12 +676,6 @@ impl ::core::clone::Clone for VDMLDT_ENTRY {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for VDMLDT_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDMLDT_ENTRY").field("LimitLow", &self.LimitLow).field("BaseLow", &self.BaseLow).field("HighWord", &self.HighWord).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY {
     type Abi = Self;
 }

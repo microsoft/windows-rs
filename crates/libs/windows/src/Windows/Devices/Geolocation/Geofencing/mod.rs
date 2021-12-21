@@ -332,11 +332,6 @@ impl ::core::clone::Clone for GeofenceMonitorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for GeofenceMonitorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceMonitorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GeofenceMonitorStatus {
     type Abi = Self;
 }
@@ -346,6 +341,11 @@ impl ::core::cmp::PartialEq for GeofenceMonitorStatus {
     }
 }
 impl ::core::cmp::Eq for GeofenceMonitorStatus {}
+impl ::core::fmt::Debug for GeofenceMonitorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceMonitorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceMonitorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
 }
@@ -365,11 +365,6 @@ impl ::core::clone::Clone for GeofenceRemovalReason {
         *self
     }
 }
-impl ::core::fmt::Debug for GeofenceRemovalReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceRemovalReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GeofenceRemovalReason {
     type Abi = Self;
 }
@@ -379,6 +374,11 @@ impl ::core::cmp::PartialEq for GeofenceRemovalReason {
     }
 }
 impl ::core::cmp::Eq for GeofenceRemovalReason {}
+impl ::core::fmt::Debug for GeofenceRemovalReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceRemovalReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceRemovalReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
 }
@@ -400,11 +400,6 @@ impl ::core::clone::Clone for GeofenceState {
         *self
     }
 }
-impl ::core::fmt::Debug for GeofenceState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GeofenceState {
     type Abi = Self;
 }
@@ -414,6 +409,11 @@ impl ::core::cmp::PartialEq for GeofenceState {
     }
 }
 impl ::core::cmp::Eq for GeofenceState {}
+impl ::core::fmt::Debug for GeofenceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceState;u4)");
 }
@@ -660,11 +660,6 @@ impl ::core::clone::Clone for MonitoredGeofenceStates {
         *self
     }
 }
-impl ::core::fmt::Debug for MonitoredGeofenceStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MonitoredGeofenceStates").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MonitoredGeofenceStates {
     type Abi = Self;
 }
@@ -674,6 +669,11 @@ impl ::core::cmp::PartialEq for MonitoredGeofenceStates {
     }
 }
 impl ::core::cmp::Eq for MonitoredGeofenceStates {}
+impl ::core::fmt::Debug for MonitoredGeofenceStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MonitoredGeofenceStates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MonitoredGeofenceStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
 }

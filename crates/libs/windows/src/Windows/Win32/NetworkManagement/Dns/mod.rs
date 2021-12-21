@@ -124,11 +124,6 @@ impl ::core::clone::Clone for DNS_AAAA_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for DNS_AAAA_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_AAAA_DATA").field("Ip6Address", &self.Ip6Address).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DNS_AAAA_DATA {
     type Abi = Self;
 }
@@ -156,12 +151,6 @@ impl ::core::marker::Copy for DNS_ADDR {}
 impl ::core::clone::Clone for DNS_ADDR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_ADDR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_ADDR").field("MaxSa", &self.MaxSa).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -237,12 +226,6 @@ impl ::core::marker::Copy for DNS_ADDR_ARRAY {}
 impl ::core::clone::Clone for DNS_ADDR_ARRAY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_ADDR_ARRAY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_ADDR_ARRAY").field("MaxCount", &self.MaxCount).field("AddrCount", &self.AddrCount).field("Tag", &self.Tag).field("Family", &self.Family).field("WordReserved", &self.WordReserved).field("Flags", &self.Flags).field("MatchFlag", &self.MatchFlag).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("AddrArray", &self.AddrArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -691,12 +674,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_ELEMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_PROXY_ELEMENT").field("Type", &self.Type).field("Info", &self.Info).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_ELEMENT {
     type Abi = Self;
 }
@@ -730,12 +707,6 @@ impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO {}
 impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_PROXY_INFO").field("Version", &self.Version).field("pwszFriendlyName", &self.pwszFriendlyName).field("Flags", &self.Flags).field("Switch", &self.Switch).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -893,12 +864,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_INFO_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_PROXY_INFO_EX").field("ProxyInfo", &self.ProxyInfo).field("dwInterfaceIndex", &self.dwInterfaceIndex).field("pwszConnectionName", &self.pwszConnectionName).field("fDirectConfiguration", &self.fDirectConfiguration).field("hConnection", &self.hConnection).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_EX {
     type Abi = Self;
 }
@@ -1006,12 +971,6 @@ impl ::core::marker::Copy for DNS_CUSTOM_SERVER {}
 impl ::core::clone::Clone for DNS_CUSTOM_SERVER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_CUSTOM_SERVER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_CUSTOM_SERVER").field("dwServerType", &self.dwServerType).field("ullFlags", &self.ullFlags).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2397,12 +2356,6 @@ impl ::core::clone::Clone for DNS_RECORDA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_RECORDA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_RECORDA").field("pNext", &self.pNext).field("pName", &self.pName).field("wType", &self.wType).field("wDataLength", &self.wDataLength).field("Flags", &self.Flags).field("dwTtl", &self.dwTtl).field("dwReserved", &self.dwReserved).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_RECORDA {
     type Abi = Self;
 }
@@ -2587,12 +2540,6 @@ impl ::core::marker::Copy for DNS_RECORDW {}
 impl ::core::clone::Clone for DNS_RECORDW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_RECORDW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_RECORDW").field("pNext", &self.pNext).field("pName", &self.pName).field("wType", &self.wType).field("wDataLength", &self.wDataLength).field("Flags", &self.Flags).field("dwTtl", &self.dwTtl).field("dwReserved", &self.dwReserved).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2984,12 +2931,6 @@ impl ::core::marker::Copy for DNS_SERVICE_BROWSE_REQUEST {}
 impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DNS_SERVICE_BROWSE_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_BROWSE_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("QueryName", &self.QueryName).field("Anonymous", &self.Anonymous).field("pQueryContext", &self.pQueryContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5379,12 +5320,6 @@ impl ::core::clone::Clone for _DnsRecordOptA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for _DnsRecordOptA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_DnsRecordOptA").field("pNext", &self.pNext).field("pName", &self.pName).field("wType", &self.wType).field("wDataLength", &self.wDataLength).field("Flags", &self.Flags).field("ExtHeader", &self.ExtHeader).field("wPayloadSize", &self.wPayloadSize).field("wReserved", &self.wReserved).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for _DnsRecordOptA {
     type Abi = Self;
 }
@@ -5488,12 +5423,6 @@ impl ::core::marker::Copy for _DnsRecordOptW {}
 impl ::core::clone::Clone for _DnsRecordOptW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for _DnsRecordOptW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_DnsRecordOptW").field("pNext", &self.pNext).field("pName", &self.pName).field("wType", &self.wType).field("wDataLength", &self.wDataLength).field("Flags", &self.Flags).field("ExtHeader", &self.ExtHeader).field("wPayloadSize", &self.wPayloadSize).field("wReserved", &self.wReserved).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

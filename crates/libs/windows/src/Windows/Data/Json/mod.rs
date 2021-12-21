@@ -756,11 +756,6 @@ impl ::core::clone::Clone for JsonErrorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for JsonErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsonErrorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JsonErrorStatus {
     type Abi = Self;
 }
@@ -770,6 +765,11 @@ impl ::core::cmp::PartialEq for JsonErrorStatus {
     }
 }
 impl ::core::cmp::Eq for JsonErrorStatus {}
+impl ::core::fmt::Debug for JsonErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsonErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JsonErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
 }
@@ -1478,11 +1478,6 @@ impl ::core::clone::Clone for JsonValueType {
         *self
     }
 }
-impl ::core::fmt::Debug for JsonValueType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsonValueType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JsonValueType {
     type Abi = Self;
 }
@@ -1492,6 +1487,11 @@ impl ::core::cmp::PartialEq for JsonValueType {
     }
 }
 impl ::core::cmp::Eq for JsonValueType {}
+impl ::core::fmt::Debug for JsonValueType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsonValueType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JsonValueType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonValueType;i4)");
 }

@@ -24,12 +24,6 @@ impl ::core::clone::Clone for ARRAYDESC {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ARRAYDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ARRAYDESC").field("tdescElem", &self.tdescElem).field("cDims", &self.cDims).field("rgbounds", &self.rgbounds).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for ARRAYDESC {
     type Abi = Self;
 }
@@ -980,12 +974,6 @@ impl ::core::marker::Copy for FONTDESC {}
 impl ::core::clone::Clone for FONTDESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for FONTDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FONTDESC").field("cbSizeofstruct", &self.cbSizeofstruct).field("lpstrName", &self.lpstrName).field("cySize", &self.cySize).field("sWeight", &self.sWeight).field("sCharset", &self.sCharset).field("fItalic", &self.fItalic).field("fUnderline", &self.fUnderline).field("fStrikethrough", &self.fStrikethrough).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -15435,12 +15423,6 @@ impl ::core::clone::Clone for PARAMDESCEX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for PARAMDESCEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PARAMDESCEX").field("cBytes", &self.cBytes).field("varDefaultValue", &self.varDefaultValue).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for PARAMDESCEX {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -15498,12 +15480,6 @@ impl ::core::marker::Copy for PICTDESC {}
 impl ::core::clone::Clone for PICTDESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PICTDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PICTDESC").field("cbSizeofstruct", &self.cbSizeofstruct).field("picType", &self.picType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -21658,12 +21634,6 @@ impl ::core::clone::Clone for _wireSAFEARRAY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for _wireSAFEARRAY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireSAFEARRAY").field("cDims", &self.cDims).field("fFeatures", &self.fFeatures).field("cbElements", &self.cbElements).field("cLocks", &self.cLocks).field("uArrayStructs", &self.uArrayStructs).field("rgsabound", &self.rgsabound).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for _wireSAFEARRAY {
     type Abi = Self;
 }
@@ -21694,12 +21664,6 @@ impl ::core::marker::Copy for _wireSAFEARRAY_UNION {}
 impl ::core::clone::Clone for _wireSAFEARRAY_UNION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for _wireSAFEARRAY_UNION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireSAFEARRAY_UNION").field("sfType", &self.sfType).field("u", &self.u).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -21996,12 +21960,6 @@ impl ::core::clone::Clone for _wireVARIANT {
             wReserved3: self.wReserved3,
             Anonymous: self.Anonymous.clone(),
         }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for _wireVARIANT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireVARIANT").field("clSize", &self.clSize).field("rpcReserved", &self.rpcReserved).field("vt", &self.vt).field("wReserved1", &self.wReserved1).field("wReserved2", &self.wReserved2).field("wReserved3", &self.wReserved3).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

@@ -169,11 +169,6 @@ impl ::core::clone::Clone for DisplayBitsPerChannel {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayBitsPerChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayBitsPerChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayBitsPerChannel {
     type Abi = Self;
 }
@@ -183,6 +178,11 @@ impl ::core::cmp::PartialEq for DisplayBitsPerChannel {
     }
 }
 impl ::core::cmp::Eq for DisplayBitsPerChannel {}
+impl ::core::fmt::Debug for DisplayBitsPerChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBitsPerChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayBitsPerChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
 }
@@ -337,11 +337,6 @@ impl ::core::clone::Clone for DisplayDeviceCapability {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayDeviceCapability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayDeviceCapability").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayDeviceCapability {
     type Abi = Self;
 }
@@ -351,6 +346,11 @@ impl ::core::cmp::PartialEq for DisplayDeviceCapability {
     }
 }
 impl ::core::cmp::Eq for DisplayDeviceCapability {}
+impl ::core::fmt::Debug for DisplayDeviceCapability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayDeviceCapability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayDeviceCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
 }
@@ -989,11 +989,6 @@ impl ::core::clone::Clone for DisplayManagerOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayManagerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayManagerOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayManagerOptions {
     type Abi = Self;
 }
@@ -1003,6 +998,11 @@ impl ::core::cmp::PartialEq for DisplayManagerOptions {
     }
 }
 impl ::core::cmp::Eq for DisplayManagerOptions {}
+impl ::core::fmt::Debug for DisplayManagerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayManagerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
 }
@@ -1120,11 +1120,6 @@ impl ::core::clone::Clone for DisplayManagerResult {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayManagerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayManagerResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayManagerResult {
     type Abi = Self;
 }
@@ -1134,6 +1129,11 @@ impl ::core::cmp::PartialEq for DisplayManagerResult {
     }
 }
 impl ::core::cmp::Eq for DisplayManagerResult {}
+impl ::core::fmt::Debug for DisplayManagerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayManagerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
 }
@@ -1409,11 +1409,6 @@ impl ::core::clone::Clone for DisplayModeQueryOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayModeQueryOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayModeQueryOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayModeQueryOptions {
     type Abi = Self;
 }
@@ -1423,6 +1418,11 @@ impl ::core::cmp::PartialEq for DisplayModeQueryOptions {
     }
 }
 impl ::core::cmp::Eq for DisplayModeQueryOptions {}
+impl ::core::fmt::Debug for DisplayModeQueryOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayModeQueryOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayModeQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
 }
@@ -1708,11 +1708,6 @@ impl ::core::clone::Clone for DisplayPathScaling {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayPathScaling {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayPathScaling").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayPathScaling {
     type Abi = Self;
 }
@@ -1722,6 +1717,11 @@ impl ::core::cmp::PartialEq for DisplayPathScaling {
     }
 }
 impl ::core::cmp::Eq for DisplayPathScaling {}
+impl ::core::fmt::Debug for DisplayPathScaling {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPathScaling").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayPathScaling {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
 }
@@ -1745,11 +1745,6 @@ impl ::core::clone::Clone for DisplayPathStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayPathStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayPathStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayPathStatus {
     type Abi = Self;
 }
@@ -1759,6 +1754,11 @@ impl ::core::cmp::PartialEq for DisplayPathStatus {
     }
 }
 impl ::core::cmp::Eq for DisplayPathStatus {}
+impl ::core::fmt::Debug for DisplayPathStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPathStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayPathStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
 }
@@ -1782,11 +1782,6 @@ impl ::core::clone::Clone for DisplayPresentStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayPresentStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayPresentStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayPresentStatus {
     type Abi = Self;
 }
@@ -1796,6 +1791,11 @@ impl ::core::cmp::PartialEq for DisplayPresentStatus {
     }
 }
 impl ::core::cmp::Eq for DisplayPresentStatus {}
+impl ::core::fmt::Debug for DisplayPresentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPresentStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayPresentStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
 }
@@ -2023,11 +2023,6 @@ impl ::core::clone::Clone for DisplayRotation {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayRotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayRotation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayRotation {
     type Abi = Self;
 }
@@ -2037,6 +2032,11 @@ impl ::core::cmp::PartialEq for DisplayRotation {
     }
 }
 impl ::core::cmp::Eq for DisplayRotation {}
+impl ::core::fmt::Debug for DisplayRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
 }
@@ -2128,11 +2128,6 @@ impl ::core::clone::Clone for DisplayScanoutOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayScanoutOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayScanoutOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayScanoutOptions {
     type Abi = Self;
 }
@@ -2142,6 +2137,11 @@ impl ::core::cmp::PartialEq for DisplayScanoutOptions {
     }
 }
 impl ::core::cmp::Eq for DisplayScanoutOptions {}
+impl ::core::fmt::Debug for DisplayScanoutOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayScanoutOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayScanoutOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
 }
@@ -2286,11 +2286,6 @@ impl ::core::clone::Clone for DisplaySourceStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplaySourceStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplaySourceStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplaySourceStatus {
     type Abi = Self;
 }
@@ -2300,6 +2295,11 @@ impl ::core::cmp::PartialEq for DisplaySourceStatus {
     }
 }
 impl ::core::cmp::Eq for DisplaySourceStatus {}
+impl ::core::fmt::Debug for DisplaySourceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplaySourceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplaySourceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
 }
@@ -2506,11 +2506,6 @@ impl ::core::clone::Clone for DisplayStateApplyOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayStateApplyOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayStateApplyOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayStateApplyOptions {
     type Abi = Self;
 }
@@ -2520,6 +2515,11 @@ impl ::core::cmp::PartialEq for DisplayStateApplyOptions {
     }
 }
 impl ::core::cmp::Eq for DisplayStateApplyOptions {}
+impl ::core::fmt::Debug for DisplayStateApplyOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayStateApplyOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayStateApplyOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
 }
@@ -2540,11 +2540,6 @@ impl ::core::clone::Clone for DisplayStateFunctionalizeOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayStateFunctionalizeOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayStateFunctionalizeOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayStateFunctionalizeOptions {
     type Abi = Self;
 }
@@ -2554,6 +2549,11 @@ impl ::core::cmp::PartialEq for DisplayStateFunctionalizeOptions {
     }
 }
 impl ::core::cmp::Eq for DisplayStateFunctionalizeOptions {}
+impl ::core::fmt::Debug for DisplayStateFunctionalizeOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayStateFunctionalizeOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayStateFunctionalizeOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
 }
@@ -2668,11 +2668,6 @@ impl ::core::clone::Clone for DisplayStateOperationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayStateOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayStateOperationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayStateOperationStatus {
     type Abi = Self;
 }
@@ -2682,6 +2677,11 @@ impl ::core::cmp::PartialEq for DisplayStateOperationStatus {
     }
 }
 impl ::core::cmp::Eq for DisplayStateOperationStatus {}
+impl ::core::fmt::Debug for DisplayStateOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayStateOperationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayStateOperationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
 }
@@ -2961,11 +2961,6 @@ impl ::core::clone::Clone for DisplayTargetPersistence {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayTargetPersistence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayTargetPersistence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayTargetPersistence {
     type Abi = Self;
 }
@@ -2975,6 +2970,11 @@ impl ::core::cmp::PartialEq for DisplayTargetPersistence {
     }
 }
 impl ::core::cmp::Eq for DisplayTargetPersistence {}
+impl ::core::fmt::Debug for DisplayTargetPersistence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTargetPersistence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayTargetPersistence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
 }
@@ -3274,11 +3274,6 @@ impl ::core::clone::Clone for DisplayTaskSignalKind {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayTaskSignalKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayTaskSignalKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayTaskSignalKind {
     type Abi = Self;
 }
@@ -3288,6 +3283,11 @@ impl ::core::cmp::PartialEq for DisplayTaskSignalKind {
     }
 }
 impl ::core::cmp::Eq for DisplayTaskSignalKind {}
+impl ::core::fmt::Debug for DisplayTaskSignalKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTaskSignalKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayTaskSignalKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
 }
@@ -3566,11 +3566,6 @@ impl ::core::clone::Clone for DisplayWireFormatColorSpace {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayWireFormatColorSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayWireFormatColorSpace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayWireFormatColorSpace {
     type Abi = Self;
 }
@@ -3580,6 +3575,11 @@ impl ::core::cmp::PartialEq for DisplayWireFormatColorSpace {
     }
 }
 impl ::core::cmp::Eq for DisplayWireFormatColorSpace {}
+impl ::core::fmt::Debug for DisplayWireFormatColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatColorSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayWireFormatColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
 }
@@ -3599,11 +3599,6 @@ impl ::core::clone::Clone for DisplayWireFormatEotf {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayWireFormatEotf {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayWireFormatEotf").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayWireFormatEotf {
     type Abi = Self;
 }
@@ -3613,6 +3608,11 @@ impl ::core::cmp::PartialEq for DisplayWireFormatEotf {
     }
 }
 impl ::core::cmp::Eq for DisplayWireFormatEotf {}
+impl ::core::fmt::Debug for DisplayWireFormatEotf {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatEotf").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayWireFormatEotf {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
 }
@@ -3634,11 +3634,6 @@ impl ::core::clone::Clone for DisplayWireFormatHdrMetadata {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayWireFormatHdrMetadata {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayWireFormatHdrMetadata").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayWireFormatHdrMetadata {
     type Abi = Self;
 }
@@ -3648,6 +3643,11 @@ impl ::core::cmp::PartialEq for DisplayWireFormatHdrMetadata {
     }
 }
 impl ::core::cmp::Eq for DisplayWireFormatHdrMetadata {}
+impl ::core::fmt::Debug for DisplayWireFormatHdrMetadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatHdrMetadata").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayWireFormatHdrMetadata {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
 }
@@ -3670,11 +3670,6 @@ impl ::core::clone::Clone for DisplayWireFormatPixelEncoding {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayWireFormatPixelEncoding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayWireFormatPixelEncoding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayWireFormatPixelEncoding {
     type Abi = Self;
 }
@@ -3684,6 +3679,11 @@ impl ::core::cmp::PartialEq for DisplayWireFormatPixelEncoding {
     }
 }
 impl ::core::cmp::Eq for DisplayWireFormatPixelEncoding {}
+impl ::core::fmt::Debug for DisplayWireFormatPixelEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatPixelEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayWireFormatPixelEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
 }

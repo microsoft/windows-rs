@@ -54,11 +54,6 @@ impl ::core::clone::Clone for ActivationKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ActivationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ActivationKind {
     type Abi = Self;
 }
@@ -68,6 +63,11 @@ impl ::core::cmp::PartialEq for ActivationKind {
     }
 }
 impl ::core::cmp::Eq for ActivationKind {}
+impl ::core::fmt::Debug for ActivationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
 }
@@ -90,11 +90,6 @@ impl ::core::clone::Clone for ApplicationExecutionState {
         *self
     }
 }
-impl ::core::fmt::Debug for ApplicationExecutionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationExecutionState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationExecutionState {
     type Abi = Self;
 }
@@ -104,6 +99,11 @@ impl ::core::cmp::PartialEq for ApplicationExecutionState {
     }
 }
 impl ::core::cmp::Eq for ApplicationExecutionState {}
+impl ::core::fmt::Debug for ApplicationExecutionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationExecutionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationExecutionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ApplicationExecutionState;i4)");
 }

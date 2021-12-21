@@ -245,11 +245,6 @@ impl ::core::clone::Clone for AppCapabilityAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AppCapabilityAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppCapabilityAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppCapabilityAccessStatus {
     type Abi = Self;
 }
@@ -259,6 +254,11 @@ impl ::core::cmp::PartialEq for AppCapabilityAccessStatus {
     }
 }
 impl ::core::cmp::Eq for AppCapabilityAccessStatus {}
+impl ::core::fmt::Debug for AppCapabilityAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppCapabilityAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
 }

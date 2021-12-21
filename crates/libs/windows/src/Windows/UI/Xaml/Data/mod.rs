@@ -572,11 +572,6 @@ impl ::core::clone::Clone for BindingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for BindingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BindingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BindingMode {
     type Abi = Self;
 }
@@ -586,6 +581,11 @@ impl ::core::cmp::PartialEq for BindingMode {
     }
 }
 impl ::core::cmp::Eq for BindingMode {}
+impl ::core::fmt::Debug for BindingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BindingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.BindingMode;i4)");
 }
@@ -3311,11 +3311,6 @@ impl ::core::clone::Clone for RelativeSourceMode {
         *self
     }
 }
-impl ::core::fmt::Debug for RelativeSourceMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RelativeSourceMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RelativeSourceMode {
     type Abi = Self;
 }
@@ -3325,6 +3320,11 @@ impl ::core::cmp::PartialEq for RelativeSourceMode {
     }
 }
 impl ::core::cmp::Eq for RelativeSourceMode {}
+impl ::core::fmt::Debug for RelativeSourceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RelativeSourceMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RelativeSourceMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.RelativeSourceMode;i4)");
 }
@@ -3346,11 +3346,6 @@ impl ::core::clone::Clone for UpdateSourceTrigger {
         *self
     }
 }
-impl ::core::fmt::Debug for UpdateSourceTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UpdateSourceTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UpdateSourceTrigger {
     type Abi = Self;
 }
@@ -3360,6 +3355,11 @@ impl ::core::cmp::PartialEq for UpdateSourceTrigger {
     }
 }
 impl ::core::cmp::Eq for UpdateSourceTrigger {}
+impl ::core::fmt::Debug for UpdateSourceTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateSourceTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UpdateSourceTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.UpdateSourceTrigger;i4)");
 }

@@ -390,11 +390,6 @@ impl ::core::clone::Clone for WalletActionKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WalletActionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletActionKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WalletActionKind {
     type Abi = Self;
 }
@@ -404,6 +399,11 @@ impl ::core::cmp::PartialEq for WalletActionKind {
     }
 }
 impl ::core::cmp::Eq for WalletActionKind {}
+impl ::core::fmt::Debug for WalletActionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletActionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletActionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
 }
@@ -551,11 +551,6 @@ impl ::core::clone::Clone for WalletBarcodeSymbology {
         *self
     }
 }
-impl ::core::fmt::Debug for WalletBarcodeSymbology {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WalletBarcodeSymbology {
     type Abi = Self;
 }
@@ -565,6 +560,11 @@ impl ::core::cmp::PartialEq for WalletBarcodeSymbology {
     }
 }
 impl ::core::cmp::Eq for WalletBarcodeSymbology {}
+impl ::core::fmt::Debug for WalletBarcodeSymbology {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
 }
@@ -597,11 +597,6 @@ impl ::core::clone::Clone for WalletDetailViewPosition {
         *self
     }
 }
-impl ::core::fmt::Debug for WalletDetailViewPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WalletDetailViewPosition {
     type Abi = Self;
 }
@@ -611,6 +606,11 @@ impl ::core::cmp::PartialEq for WalletDetailViewPosition {
     }
 }
 impl ::core::cmp::Eq for WalletDetailViewPosition {}
+impl ::core::fmt::Debug for WalletDetailViewPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletDetailViewPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
 }
@@ -1249,11 +1249,6 @@ impl ::core::clone::Clone for WalletItemKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WalletItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletItemKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WalletItemKind {
     type Abi = Self;
 }
@@ -1263,6 +1258,11 @@ impl ::core::cmp::PartialEq for WalletItemKind {
     }
 }
 impl ::core::cmp::Eq for WalletItemKind {}
+impl ::core::fmt::Debug for WalletItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
 }
@@ -1574,11 +1574,6 @@ impl ::core::clone::Clone for WalletSummaryViewPosition {
         *self
     }
 }
-impl ::core::fmt::Debug for WalletSummaryViewPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WalletSummaryViewPosition {
     type Abi = Self;
 }
@@ -1588,6 +1583,11 @@ impl ::core::cmp::PartialEq for WalletSummaryViewPosition {
     }
 }
 impl ::core::cmp::Eq for WalletSummaryViewPosition {}
+impl ::core::fmt::Debug for WalletSummaryViewPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
 }

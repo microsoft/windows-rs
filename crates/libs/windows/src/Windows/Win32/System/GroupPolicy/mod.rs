@@ -8838,12 +8838,6 @@ impl ::core::clone::Clone for INSTALLDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INSTALLDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INSTALLDATA").field("Type", &self.Type).field("Spec", &self.Spec).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INSTALLDATA {
     type Abi = Self;
 }

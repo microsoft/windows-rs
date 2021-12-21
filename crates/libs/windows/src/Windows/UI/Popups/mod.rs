@@ -403,11 +403,6 @@ impl ::core::clone::Clone for MessageDialogOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for MessageDialogOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageDialogOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MessageDialogOptions {
     type Abi = Self;
 }
@@ -417,6 +412,11 @@ impl ::core::cmp::PartialEq for MessageDialogOptions {
     }
 }
 impl ::core::cmp::Eq for MessageDialogOptions {}
+impl ::core::fmt::Debug for MessageDialogOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageDialogOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessageDialogOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
 }
@@ -439,11 +439,6 @@ impl ::core::clone::Clone for Placement {
         *self
     }
 }
-impl ::core::fmt::Debug for Placement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Placement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Placement {
     type Abi = Self;
 }
@@ -453,6 +448,11 @@ impl ::core::cmp::PartialEq for Placement {
     }
 }
 impl ::core::cmp::Eq for Placement {}
+impl ::core::fmt::Debug for Placement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Placement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Placement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
 }

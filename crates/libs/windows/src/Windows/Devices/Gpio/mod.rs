@@ -228,11 +228,6 @@ impl ::core::clone::Clone for GpioChangePolarity {
         *self
     }
 }
-impl ::core::fmt::Debug for GpioChangePolarity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GpioChangePolarity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GpioChangePolarity {
     type Abi = Self;
 }
@@ -242,6 +237,11 @@ impl ::core::cmp::PartialEq for GpioChangePolarity {
     }
 }
 impl ::core::cmp::Eq for GpioChangePolarity {}
+impl ::core::fmt::Debug for GpioChangePolarity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioChangePolarity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioChangePolarity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
 }
@@ -677,11 +677,6 @@ impl ::core::clone::Clone for GpioOpenStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for GpioOpenStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GpioOpenStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GpioOpenStatus {
     type Abi = Self;
 }
@@ -691,6 +686,11 @@ impl ::core::cmp::PartialEq for GpioOpenStatus {
     }
 }
 impl ::core::cmp::Eq for GpioOpenStatus {}
+impl ::core::fmt::Debug for GpioOpenStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioOpenStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioOpenStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
 }
@@ -901,11 +901,6 @@ impl ::core::clone::Clone for GpioPinDriveMode {
         *self
     }
 }
-impl ::core::fmt::Debug for GpioPinDriveMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GpioPinDriveMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GpioPinDriveMode {
     type Abi = Self;
 }
@@ -915,6 +910,11 @@ impl ::core::cmp::PartialEq for GpioPinDriveMode {
     }
 }
 impl ::core::cmp::Eq for GpioPinDriveMode {}
+impl ::core::fmt::Debug for GpioPinDriveMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinDriveMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioPinDriveMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
 }
@@ -934,11 +934,6 @@ impl ::core::clone::Clone for GpioPinEdge {
         *self
     }
 }
-impl ::core::fmt::Debug for GpioPinEdge {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GpioPinEdge").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GpioPinEdge {
     type Abi = Self;
 }
@@ -948,6 +943,11 @@ impl ::core::cmp::PartialEq for GpioPinEdge {
     }
 }
 impl ::core::cmp::Eq for GpioPinEdge {}
+impl ::core::fmt::Debug for GpioPinEdge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinEdge").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioPinEdge {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
 }
@@ -967,11 +967,6 @@ impl ::core::clone::Clone for GpioPinValue {
         *self
     }
 }
-impl ::core::fmt::Debug for GpioPinValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GpioPinValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GpioPinValue {
     type Abi = Self;
 }
@@ -981,6 +976,11 @@ impl ::core::cmp::PartialEq for GpioPinValue {
     }
 }
 impl ::core::cmp::Eq for GpioPinValue {}
+impl ::core::fmt::Debug for GpioPinValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioPinValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
 }
@@ -1081,11 +1081,6 @@ impl ::core::clone::Clone for GpioSharingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for GpioSharingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GpioSharingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GpioSharingMode {
     type Abi = Self;
 }
@@ -1095,6 +1090,11 @@ impl ::core::cmp::PartialEq for GpioSharingMode {
     }
 }
 impl ::core::cmp::Eq for GpioSharingMode {}
+impl ::core::fmt::Debug for GpioSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioSharingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
 }

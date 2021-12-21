@@ -13,11 +13,6 @@ impl ::core::clone::Clone for CellularClass {
         *self
     }
 }
-impl ::core::fmt::Debug for CellularClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CellularClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CellularClass {
     type Abi = Self;
 }
@@ -27,6 +22,11 @@ impl ::core::cmp::PartialEq for CellularClass {
     }
 }
 impl ::core::cmp::Eq for CellularClass {}
+impl ::core::fmt::Debug for CellularClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CellularClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.CellularClass;i4)");
 }
@@ -3632,11 +3632,6 @@ impl ::core::clone::Clone for SmsBroadcastType {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsBroadcastType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsBroadcastType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsBroadcastType {
     type Abi = Self;
 }
@@ -3646,6 +3641,11 @@ impl ::core::cmp::PartialEq for SmsBroadcastType {
     }
 }
 impl ::core::cmp::Eq for SmsBroadcastType {}
+impl ::core::fmt::Debug for SmsBroadcastType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsBroadcastType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsBroadcastType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsBroadcastType;i4)");
 }
@@ -3668,11 +3668,6 @@ impl ::core::clone::Clone for SmsDataFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsDataFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsDataFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsDataFormat {
     type Abi = Self;
 }
@@ -3682,6 +3677,11 @@ impl ::core::cmp::PartialEq for SmsDataFormat {
     }
 }
 impl ::core::cmp::Eq for SmsDataFormat {}
+impl ::core::fmt::Debug for SmsDataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsDataFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsDataFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDataFormat;i4)");
 }
@@ -4271,11 +4271,6 @@ impl ::core::clone::Clone for SmsDeviceStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsDeviceStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsDeviceStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsDeviceStatus {
     type Abi = Self;
 }
@@ -4285,6 +4280,11 @@ impl ::core::cmp::PartialEq for SmsDeviceStatus {
     }
 }
 impl ::core::cmp::Eq for SmsDeviceStatus {}
+impl ::core::fmt::Debug for SmsDeviceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsDeviceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsDeviceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDeviceStatus;i4)");
 }
@@ -4446,11 +4446,6 @@ impl ::core::clone::Clone for SmsEncoding {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsEncoding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsEncoding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsEncoding {
     type Abi = Self;
 }
@@ -4460,6 +4455,11 @@ impl ::core::cmp::PartialEq for SmsEncoding {
     }
 }
 impl ::core::cmp::Eq for SmsEncoding {}
+impl ::core::fmt::Debug for SmsEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsEncoding;i4)");
 }
@@ -4481,11 +4481,6 @@ impl ::core::clone::Clone for SmsFilterActionType {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsFilterActionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsFilterActionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsFilterActionType {
     type Abi = Self;
 }
@@ -4495,6 +4490,11 @@ impl ::core::cmp::PartialEq for SmsFilterActionType {
     }
 }
 impl ::core::cmp::Eq for SmsFilterActionType {}
+impl ::core::fmt::Debug for SmsFilterActionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsFilterActionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsFilterActionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsFilterActionType;i4)");
 }
@@ -4824,11 +4824,6 @@ impl ::core::clone::Clone for SmsGeographicalScope {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsGeographicalScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsGeographicalScope").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsGeographicalScope {
     type Abi = Self;
 }
@@ -4838,6 +4833,11 @@ impl ::core::cmp::PartialEq for SmsGeographicalScope {
     }
 }
 impl ::core::cmp::Eq for SmsGeographicalScope {}
+impl ::core::fmt::Debug for SmsGeographicalScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsGeographicalScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsGeographicalScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsGeographicalScope;i4)");
 }
@@ -4860,11 +4860,6 @@ impl ::core::clone::Clone for SmsMessageClass {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsMessageClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsMessageClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsMessageClass {
     type Abi = Self;
 }
@@ -4874,6 +4869,11 @@ impl ::core::cmp::PartialEq for SmsMessageClass {
     }
 }
 impl ::core::cmp::Eq for SmsMessageClass {}
+impl ::core::fmt::Debug for SmsMessageClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsMessageClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageClass;i4)");
 }
@@ -4901,12 +4901,6 @@ impl ::core::clone::Clone for SmsMessageFilter {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SmsMessageFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsMessageFilter").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SmsMessageFilter {
     type Abi = Self;
 }
@@ -4918,6 +4912,12 @@ impl ::core::cmp::PartialEq for SmsMessageFilter {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsMessageFilter {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsMessageFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageFilter").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsMessageFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageFilter;i4)");
@@ -5401,11 +5401,6 @@ impl ::core::clone::Clone for SmsMessageType {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsMessageType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsMessageType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsMessageType {
     type Abi = Self;
 }
@@ -5415,6 +5410,11 @@ impl ::core::cmp::PartialEq for SmsMessageType {
     }
 }
 impl ::core::cmp::Eq for SmsMessageType {}
+impl ::core::fmt::Debug for SmsMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageType;i4)");
 }
@@ -5444,11 +5444,6 @@ impl ::core::clone::Clone for SmsModemErrorCode {
         *self
     }
 }
-impl ::core::fmt::Debug for SmsModemErrorCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsModemErrorCode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SmsModemErrorCode {
     type Abi = Self;
 }
@@ -5458,6 +5453,11 @@ impl ::core::cmp::PartialEq for SmsModemErrorCode {
     }
 }
 impl ::core::cmp::Eq for SmsModemErrorCode {}
+impl ::core::fmt::Debug for SmsModemErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsModemErrorCode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsModemErrorCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsModemErrorCode;i4)");
 }

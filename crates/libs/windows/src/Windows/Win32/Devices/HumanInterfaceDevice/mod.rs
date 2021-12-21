@@ -267,12 +267,6 @@ impl ::core::clone::Clone for DIACTIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIACTIONA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DIACTIONA").field("uAppData", &self.uAppData).field("dwSemantic", &self.dwSemantic).field("dwFlags", &self.dwFlags).field("Anonymous", &self.Anonymous).field("guidInstance", &self.guidInstance).field("dwObjID", &self.dwObjID).field("dwHow", &self.dwHow).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DIACTIONA {
     type Abi = Self;
 }
@@ -473,12 +467,6 @@ impl ::core::marker::Copy for DIACTIONW {}
 impl ::core::clone::Clone for DIACTIONW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIACTIONW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DIACTIONW").field("uAppData", &self.uAppData).field("dwSemantic", &self.dwSemantic).field("dwFlags", &self.dwFlags).field("Anonymous", &self.Anonymous).field("guidInstance", &self.guidInstance).field("dwObjID", &self.dwObjID).field("dwHow", &self.dwHow).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6121,28 +6109,6 @@ impl ::core::clone::Clone for HIDP_BUTTON_CAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIDP_BUTTON_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIDP_BUTTON_CAPS")
-            .field("UsagePage", &self.UsagePage)
-            .field("ReportID", &self.ReportID)
-            .field("IsAlias", &self.IsAlias)
-            .field("BitField", &self.BitField)
-            .field("LinkCollection", &self.LinkCollection)
-            .field("LinkUsage", &self.LinkUsage)
-            .field("LinkUsagePage", &self.LinkUsagePage)
-            .field("IsRange", &self.IsRange)
-            .field("IsStringRange", &self.IsStringRange)
-            .field("IsDesignatorRange", &self.IsDesignatorRange)
-            .field("IsAbsolute", &self.IsAbsolute)
-            .field("ReportCount", &self.ReportCount)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved", &self.Reserved)
-            .field("Anonymous", &self.Anonymous)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS {
     type Abi = Self;
 }
@@ -6362,12 +6328,6 @@ impl ::core::clone::Clone for HIDP_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIDP_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIDP_DATA").field("DataIndex", &self.DataIndex).field("Reserved", &self.Reserved).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HIDP_DATA {
     type Abi = Self;
 }
@@ -6466,11 +6426,6 @@ impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE {}
 impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for HIDP_KEYBOARD_MODIFIER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIDP_KEYBOARD_MODIFIER_STATE").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE {
@@ -6654,36 +6609,6 @@ impl ::core::marker::Copy for HIDP_VALUE_CAPS {}
 impl ::core::clone::Clone for HIDP_VALUE_CAPS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIDP_VALUE_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIDP_VALUE_CAPS")
-            .field("UsagePage", &self.UsagePage)
-            .field("ReportID", &self.ReportID)
-            .field("IsAlias", &self.IsAlias)
-            .field("BitField", &self.BitField)
-            .field("LinkCollection", &self.LinkCollection)
-            .field("LinkUsage", &self.LinkUsage)
-            .field("LinkUsagePage", &self.LinkUsagePage)
-            .field("IsRange", &self.IsRange)
-            .field("IsStringRange", &self.IsStringRange)
-            .field("IsDesignatorRange", &self.IsDesignatorRange)
-            .field("IsAbsolute", &self.IsAbsolute)
-            .field("HasNull", &self.HasNull)
-            .field("Reserved", &self.Reserved)
-            .field("BitSize", &self.BitSize)
-            .field("ReportCount", &self.ReportCount)
-            .field("Reserved2", &self.Reserved2)
-            .field("UnitsExp", &self.UnitsExp)
-            .field("Units", &self.Units)
-            .field("LogicalMin", &self.LogicalMin)
-            .field("LogicalMax", &self.LogicalMax)
-            .field("PhysicalMin", &self.PhysicalMin)
-            .field("PhysicalMax", &self.PhysicalMax)
-            .field("Anonymous", &self.Anonymous)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12788,11 +12713,6 @@ impl ::core::marker::Copy for MOUSE_INPUT_DATA {}
 impl ::core::clone::Clone for MOUSE_INPUT_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MOUSE_INPUT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MOUSE_INPUT_DATA").field("UnitId", &self.UnitId).field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).field("RawButtons", &self.RawButtons).field("LastX", &self.LastX).field("LastY", &self.LastY).field("ExtraInformation", &self.ExtraInformation).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA {

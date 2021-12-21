@@ -616,11 +616,6 @@ impl ::core::clone::Clone for DTCTL {
         *self
     }
 }
-impl ::core::fmt::Debug for DTCTL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DTCTL").field("ulCtlType", &self.ulCtlType).field("ulCtlFlags", &self.ulCtlFlags).field("lpbNotif", &self.lpbNotif).field("cbNotif", &self.cbNotif).field("lpszFilter", &self.lpszFilter).field("ulItemID", &self.ulItemID).field("ctl", &self.ctl).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DTCTL {
     type Abi = Self;
 }
@@ -684,11 +679,6 @@ impl ::core::marker::Copy for DTPAGE {}
 impl ::core::clone::Clone for DTPAGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DTPAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DTPAGE").field("cctl", &self.cctl).field("lpszResourceName", &self.lpszResourceName).field("Anonymous", &self.Anonymous).field("lpctl", &self.lpctl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DTPAGE {
@@ -4968,12 +4958,6 @@ impl ::core::clone::Clone for MAPINAMEID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MAPINAMEID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MAPINAMEID").field("lpguid", &self.lpguid).field("ulKind", &self.ulKind).field("Kind", &self.Kind).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MAPINAMEID {
     type Abi = Self;
 }
@@ -5177,12 +5161,6 @@ impl ::core::marker::Copy for NOTIFICATION {}
 impl ::core::clone::Clone for NOTIFICATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NOTIFICATION").field("ulEventType", &self.ulEventType).field("ulAlignPad", &self.ulAlignPad).field("info", &self.info).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6130,12 +6108,6 @@ impl ::core::clone::Clone for SPropValue {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for SPropValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPropValue").field("ulPropTag", &self.ulPropTag).field("dwAlignPad", &self.dwAlignPad).field("Value", &self.Value).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SPropValue {
     type Abi = Self;
 }
@@ -6237,12 +6209,6 @@ impl ::core::marker::Copy for SRestriction {}
 impl ::core::clone::Clone for SRestriction {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for SRestriction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SRestriction").field("rt", &self.rt).field("res", &self.res).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6868,12 +6834,6 @@ impl ::core::marker::Copy for TABLE_NOTIFICATION {}
 impl ::core::clone::Clone for TABLE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for TABLE_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TABLE_NOTIFICATION").field("ulTableEvent", &self.ulTableEvent).field("hResult", &self.hResult).field("propIndex", &self.propIndex).field("propPrior", &self.propPrior).field("row", &self.row).field("ulPad", &self.ulPad).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

@@ -2535,11 +2535,6 @@ impl ::core::clone::Clone for LearningModelDeviceKind {
         *self
     }
 }
-impl ::core::fmt::Debug for LearningModelDeviceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LearningModelDeviceKind {
     type Abi = Self;
 }
@@ -2549,6 +2544,11 @@ impl ::core::cmp::PartialEq for LearningModelDeviceKind {
     }
 }
 impl ::core::cmp::Eq for LearningModelDeviceKind {}
+impl ::core::fmt::Debug for LearningModelDeviceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
 }
@@ -2676,11 +2676,6 @@ impl ::core::clone::Clone for LearningModelFeatureKind {
         *self
     }
 }
-impl ::core::fmt::Debug for LearningModelFeatureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LearningModelFeatureKind {
     type Abi = Self;
 }
@@ -2690,6 +2685,11 @@ impl ::core::cmp::PartialEq for LearningModelFeatureKind {
     }
 }
 impl ::core::cmp::Eq for LearningModelFeatureKind {}
+impl ::core::fmt::Debug for LearningModelFeatureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
 }
@@ -2710,11 +2710,6 @@ impl ::core::clone::Clone for LearningModelPixelRange {
         *self
     }
 }
-impl ::core::fmt::Debug for LearningModelPixelRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LearningModelPixelRange {
     type Abi = Self;
 }
@@ -2724,6 +2719,11 @@ impl ::core::cmp::PartialEq for LearningModelPixelRange {
     }
 }
 impl ::core::cmp::Eq for LearningModelPixelRange {}
+impl ::core::fmt::Debug for LearningModelPixelRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModelPixelRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
 }
@@ -5678,11 +5678,6 @@ impl ::core::clone::Clone for TensorKind {
         *self
     }
 }
-impl ::core::fmt::Debug for TensorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TensorKind {
     type Abi = Self;
 }
@@ -5692,6 +5687,11 @@ impl ::core::cmp::PartialEq for TensorKind {
     }
 }
 impl ::core::cmp::Eq for TensorKind {}
+impl ::core::fmt::Debug for TensorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
 }

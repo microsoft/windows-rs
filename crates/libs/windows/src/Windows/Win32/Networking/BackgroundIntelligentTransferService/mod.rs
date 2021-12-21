@@ -98,12 +98,6 @@ impl ::core::clone::Clone for BG_AUTH_CREDENTIALS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BG_AUTH_CREDENTIALS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BG_AUTH_CREDENTIALS").field("Target", &self.Target).field("Scheme", &self.Scheme).field("Credentials", &self.Credentials).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BG_AUTH_CREDENTIALS {
     type Abi = Self;
 }

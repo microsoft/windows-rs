@@ -274,11 +274,6 @@ impl ::core::clone::Clone for CrossSlidingState {
         *self
     }
 }
-impl ::core::fmt::Debug for CrossSlidingState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CrossSlidingState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CrossSlidingState {
     type Abi = Self;
 }
@@ -288,6 +283,11 @@ impl ::core::cmp::PartialEq for CrossSlidingState {
     }
 }
 impl ::core::cmp::Eq for CrossSlidingState {}
+impl ::core::fmt::Debug for CrossSlidingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CrossSlidingState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CrossSlidingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
 }
@@ -413,11 +413,6 @@ impl ::core::clone::Clone for DraggingState {
         *self
     }
 }
-impl ::core::fmt::Debug for DraggingState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DraggingState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DraggingState {
     type Abi = Self;
 }
@@ -427,6 +422,11 @@ impl ::core::cmp::PartialEq for DraggingState {
     }
 }
 impl ::core::cmp::Eq for DraggingState {}
+impl ::core::fmt::Debug for DraggingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DraggingState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DraggingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
 }
@@ -654,11 +654,6 @@ impl ::core::clone::Clone for EdgeGestureKind {
         *self
     }
 }
-impl ::core::fmt::Debug for EdgeGestureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EdgeGestureKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EdgeGestureKind {
     type Abi = Self;
 }
@@ -668,6 +663,11 @@ impl ::core::cmp::PartialEq for EdgeGestureKind {
     }
 }
 impl ::core::cmp::Eq for EdgeGestureKind {}
+impl ::core::fmt::Debug for EdgeGestureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeGestureKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EdgeGestureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
 }
@@ -689,11 +689,6 @@ impl ::core::clone::Clone for GazeInputAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for GazeInputAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GazeInputAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GazeInputAccessStatus {
     type Abi = Self;
 }
@@ -703,6 +698,11 @@ impl ::core::cmp::PartialEq for GazeInputAccessStatus {
     }
 }
 impl ::core::cmp::Eq for GazeInputAccessStatus {}
+impl ::core::fmt::Debug for GazeInputAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GazeInputAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GazeInputAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
 }
@@ -1317,11 +1317,6 @@ impl ::core::clone::Clone for GestureSettings {
         *self
     }
 }
-impl ::core::fmt::Debug for GestureSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GestureSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GestureSettings {
     type Abi = Self;
 }
@@ -1331,6 +1326,11 @@ impl ::core::cmp::PartialEq for GestureSettings {
     }
 }
 impl ::core::cmp::Eq for GestureSettings {}
+impl ::core::fmt::Debug for GestureSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GestureSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GestureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
 }
@@ -1464,11 +1464,6 @@ impl ::core::clone::Clone for HoldingState {
         *self
     }
 }
-impl ::core::fmt::Debug for HoldingState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HoldingState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HoldingState {
     type Abi = Self;
 }
@@ -1478,6 +1473,11 @@ impl ::core::cmp::PartialEq for HoldingState {
     }
 }
 impl ::core::cmp::Eq for HoldingState {}
+impl ::core::fmt::Debug for HoldingState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HoldingState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HoldingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
 }
@@ -3381,11 +3381,6 @@ impl ::core::clone::Clone for InputActivationState {
         *self
     }
 }
-impl ::core::fmt::Debug for InputActivationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InputActivationState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InputActivationState {
     type Abi = Self;
 }
@@ -3395,6 +3390,11 @@ impl ::core::cmp::PartialEq for InputActivationState {
     }
 }
 impl ::core::cmp::Eq for InputActivationState {}
+impl ::core::fmt::Debug for InputActivationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputActivationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputActivationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
 }
@@ -4707,11 +4707,6 @@ impl ::core::clone::Clone for PointerUpdateKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PointerUpdateKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointerUpdateKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PointerUpdateKind {
     type Abi = Self;
 }
@@ -4721,6 +4716,11 @@ impl ::core::cmp::PartialEq for PointerUpdateKind {
     }
 }
 impl ::core::cmp::Eq for PointerUpdateKind {}
+impl ::core::fmt::Debug for PointerUpdateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerUpdateKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerUpdateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
 }
@@ -6014,11 +6014,6 @@ impl ::core::clone::Clone for RadialControllerMenuKnownIcon {
         *self
     }
 }
-impl ::core::fmt::Debug for RadialControllerMenuKnownIcon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RadialControllerMenuKnownIcon").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RadialControllerMenuKnownIcon {
     type Abi = Self;
 }
@@ -6028,6 +6023,11 @@ impl ::core::cmp::PartialEq for RadialControllerMenuKnownIcon {
     }
 }
 impl ::core::cmp::Eq for RadialControllerMenuKnownIcon {}
+impl ::core::fmt::Debug for RadialControllerMenuKnownIcon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerMenuKnownIcon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerMenuKnownIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
 }
@@ -6533,11 +6533,6 @@ impl ::core::clone::Clone for RadialControllerSystemMenuItemKind {
         *self
     }
 }
-impl ::core::fmt::Debug for RadialControllerSystemMenuItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RadialControllerSystemMenuItemKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RadialControllerSystemMenuItemKind {
     type Abi = Self;
 }
@@ -6547,6 +6542,11 @@ impl ::core::cmp::PartialEq for RadialControllerSystemMenuItemKind {
     }
 }
 impl ::core::cmp::Eq for RadialControllerSystemMenuItemKind {}
+impl ::core::fmt::Debug for RadialControllerSystemMenuItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RadialControllerSystemMenuItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RadialControllerSystemMenuItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
 }

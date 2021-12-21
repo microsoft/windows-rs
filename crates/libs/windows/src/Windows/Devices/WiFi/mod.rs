@@ -182,11 +182,6 @@ impl ::core::clone::Clone for WiFiAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiAccessStatus {
     type Abi = Self;
 }
@@ -196,6 +191,11 @@ impl ::core::cmp::PartialEq for WiFiAccessStatus {
     }
 }
 impl ::core::cmp::Eq for WiFiAccessStatus {}
+impl ::core::fmt::Debug for WiFiAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiAccessStatus;i4)");
 }
@@ -580,11 +580,6 @@ impl ::core::clone::Clone for WiFiConnectionMethod {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiConnectionMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiConnectionMethod").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiConnectionMethod {
     type Abi = Self;
 }
@@ -594,6 +589,11 @@ impl ::core::cmp::PartialEq for WiFiConnectionMethod {
     }
 }
 impl ::core::cmp::Eq for WiFiConnectionMethod {}
+impl ::core::fmt::Debug for WiFiConnectionMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiConnectionMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiConnectionMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionMethod;i4)");
 }
@@ -699,11 +699,6 @@ impl ::core::clone::Clone for WiFiConnectionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiConnectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiConnectionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiConnectionStatus {
     type Abi = Self;
 }
@@ -713,6 +708,11 @@ impl ::core::cmp::PartialEq for WiFiConnectionStatus {
     }
 }
 impl ::core::cmp::Eq for WiFiConnectionStatus {}
+impl ::core::fmt::Debug for WiFiConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiConnectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionStatus;i4)");
 }
@@ -733,11 +733,6 @@ impl ::core::clone::Clone for WiFiNetworkKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiNetworkKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiNetworkKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiNetworkKind {
     type Abi = Self;
 }
@@ -747,6 +742,11 @@ impl ::core::cmp::PartialEq for WiFiNetworkKind {
     }
 }
 impl ::core::cmp::Eq for WiFiNetworkKind {}
+impl ::core::fmt::Debug for WiFiNetworkKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiNetworkKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiNetworkKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiNetworkKind;i4)");
 }
@@ -866,11 +866,6 @@ impl ::core::clone::Clone for WiFiPhyKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiPhyKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiPhyKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiPhyKind {
     type Abi = Self;
 }
@@ -880,6 +875,11 @@ impl ::core::cmp::PartialEq for WiFiPhyKind {
     }
 }
 impl ::core::cmp::Eq for WiFiPhyKind {}
+impl ::core::fmt::Debug for WiFiPhyKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiPhyKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiPhyKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiPhyKind;i4)");
 }
@@ -899,11 +899,6 @@ impl ::core::clone::Clone for WiFiReconnectionKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiReconnectionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiReconnectionKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiReconnectionKind {
     type Abi = Self;
 }
@@ -913,6 +908,11 @@ impl ::core::cmp::PartialEq for WiFiReconnectionKind {
     }
 }
 impl ::core::cmp::Eq for WiFiReconnectionKind {}
+impl ::core::fmt::Debug for WiFiReconnectionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiReconnectionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiReconnectionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiReconnectionKind;i4)");
 }
@@ -1023,11 +1023,6 @@ impl ::core::clone::Clone for WiFiWpsConfigurationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiWpsConfigurationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiWpsConfigurationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiWpsConfigurationStatus {
     type Abi = Self;
 }
@@ -1037,6 +1032,11 @@ impl ::core::cmp::PartialEq for WiFiWpsConfigurationStatus {
     }
 }
 impl ::core::cmp::Eq for WiFiWpsConfigurationStatus {}
+impl ::core::fmt::Debug for WiFiWpsConfigurationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiWpsConfigurationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiWpsConfigurationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsConfigurationStatus;i4)");
 }
@@ -1060,11 +1060,6 @@ impl ::core::clone::Clone for WiFiWpsKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WiFiWpsKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiWpsKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WiFiWpsKind {
     type Abi = Self;
 }
@@ -1074,6 +1069,11 @@ impl ::core::cmp::PartialEq for WiFiWpsKind {
     }
 }
 impl ::core::cmp::Eq for WiFiWpsKind {}
+impl ::core::fmt::Debug for WiFiWpsKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiWpsKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiWpsKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsKind;i4)");
 }

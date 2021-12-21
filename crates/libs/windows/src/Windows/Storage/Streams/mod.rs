@@ -161,11 +161,6 @@ impl ::core::clone::Clone for ByteOrder {
         *self
     }
 }
-impl ::core::fmt::Debug for ByteOrder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ByteOrder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ByteOrder {
     type Abi = Self;
 }
@@ -175,6 +170,11 @@ impl ::core::cmp::PartialEq for ByteOrder {
     }
 }
 impl ::core::cmp::Eq for ByteOrder {}
+impl ::core::fmt::Debug for ByteOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ByteOrder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ByteOrder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
 }
@@ -1471,11 +1471,6 @@ impl ::core::clone::Clone for FileOpenDisposition {
         *self
     }
 }
-impl ::core::fmt::Debug for FileOpenDisposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOpenDisposition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FileOpenDisposition {
     type Abi = Self;
 }
@@ -1485,6 +1480,11 @@ impl ::core::cmp::PartialEq for FileOpenDisposition {
     }
 }
 impl ::core::cmp::Eq for FileOpenDisposition {}
+impl ::core::fmt::Debug for FileOpenDisposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOpenDisposition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileOpenDisposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
 }
@@ -4277,11 +4277,6 @@ impl ::core::clone::Clone for InputStreamOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for InputStreamOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InputStreamOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InputStreamOptions {
     type Abi = Self;
 }
@@ -4291,6 +4286,11 @@ impl ::core::cmp::PartialEq for InputStreamOptions {
     }
 }
 impl ::core::cmp::Eq for InputStreamOptions {}
+impl ::core::fmt::Debug for InputStreamOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputStreamOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputStreamOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
 }
@@ -5023,11 +5023,6 @@ impl ::core::clone::Clone for UnicodeEncoding {
         *self
     }
 }
-impl ::core::fmt::Debug for UnicodeEncoding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnicodeEncoding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnicodeEncoding {
     type Abi = Self;
 }
@@ -5037,6 +5032,11 @@ impl ::core::cmp::PartialEq for UnicodeEncoding {
     }
 }
 impl ::core::cmp::Eq for UnicodeEncoding {}
+impl ::core::fmt::Debug for UnicodeEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnicodeEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.UnicodeEncoding;i4)");
 }

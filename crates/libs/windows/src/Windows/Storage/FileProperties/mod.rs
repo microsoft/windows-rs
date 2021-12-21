@@ -1271,11 +1271,6 @@ impl ::core::clone::Clone for PhotoOrientation {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoOrientation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoOrientation {
     type Abi = Self;
 }
@@ -1285,6 +1280,11 @@ impl ::core::cmp::PartialEq for PhotoOrientation {
     }
 }
 impl ::core::cmp::Eq for PhotoOrientation {}
+impl ::core::fmt::Debug for PhotoOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoOrientation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PhotoOrientation;i4)");
 }
@@ -1308,11 +1308,6 @@ impl ::core::clone::Clone for PropertyPrefetchOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for PropertyPrefetchOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyPrefetchOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PropertyPrefetchOptions {
     type Abi = Self;
 }
@@ -1322,6 +1317,11 @@ impl ::core::cmp::PartialEq for PropertyPrefetchOptions {
     }
 }
 impl ::core::cmp::Eq for PropertyPrefetchOptions {}
+impl ::core::fmt::Debug for PropertyPrefetchOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyPrefetchOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyPrefetchOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PropertyPrefetchOptions;u4)");
 }
@@ -1894,11 +1894,6 @@ impl ::core::clone::Clone for ThumbnailMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ThumbnailMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThumbnailMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ThumbnailMode {
     type Abi = Self;
 }
@@ -1908,6 +1903,11 @@ impl ::core::cmp::PartialEq for ThumbnailMode {
     }
 }
 impl ::core::cmp::Eq for ThumbnailMode {}
+impl ::core::fmt::Debug for ThumbnailMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThumbnailMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailMode;i4)");
 }
@@ -1929,11 +1929,6 @@ impl ::core::clone::Clone for ThumbnailOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for ThumbnailOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThumbnailOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ThumbnailOptions {
     type Abi = Self;
 }
@@ -1943,6 +1938,11 @@ impl ::core::cmp::PartialEq for ThumbnailOptions {
     }
 }
 impl ::core::cmp::Eq for ThumbnailOptions {}
+impl ::core::fmt::Debug for ThumbnailOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThumbnailOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailOptions;u4)");
 }
@@ -1962,11 +1962,6 @@ impl ::core::clone::Clone for ThumbnailType {
         *self
     }
 }
-impl ::core::fmt::Debug for ThumbnailType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThumbnailType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ThumbnailType {
     type Abi = Self;
 }
@@ -1976,6 +1971,11 @@ impl ::core::cmp::PartialEq for ThumbnailType {
     }
 }
 impl ::core::cmp::Eq for ThumbnailType {}
+impl ::core::fmt::Debug for ThumbnailType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThumbnailType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailType;i4)");
 }
@@ -1997,11 +1997,6 @@ impl ::core::clone::Clone for VideoOrientation {
         *self
     }
 }
-impl ::core::fmt::Debug for VideoOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoOrientation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VideoOrientation {
     type Abi = Self;
 }
@@ -2011,6 +2006,11 @@ impl ::core::cmp::PartialEq for VideoOrientation {
     }
 }
 impl ::core::cmp::Eq for VideoOrientation {}
+impl ::core::fmt::Debug for VideoOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoOrientation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.VideoOrientation;i4)");
 }

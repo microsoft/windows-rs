@@ -386,12 +386,6 @@ impl ::core::clone::Clone for APO_NOTIFICATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::fmt::Debug for APO_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APO_NOTIFICATION").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -450,11 +444,6 @@ pub struct APO_NOTIFICATION_DESCRIPTOR {
 impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         Self { r#type: self.r#type, Anonymous: self.Anonymous.clone() }
-    }
-}
-impl ::core::fmt::Debug for APO_NOTIFICATION_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APO_NOTIFICATION_DESCRIPTOR").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION_DESCRIPTOR {

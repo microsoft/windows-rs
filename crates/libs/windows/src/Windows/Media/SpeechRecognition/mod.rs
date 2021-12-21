@@ -812,11 +812,6 @@ impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechContinuousRecognitionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechContinuousRecognitionMode {
     type Abi = Self;
 }
@@ -826,6 +821,11 @@ impl ::core::cmp::PartialEq for SpeechContinuousRecognitionMode {
     }
 }
 impl ::core::cmp::Eq for SpeechContinuousRecognitionMode {}
+impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechContinuousRecognitionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
 }
@@ -1099,11 +1099,6 @@ impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionAudioProblem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionAudioProblem {
     type Abi = Self;
 }
@@ -1113,6 +1108,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionAudioProblem {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionAudioProblem {}
+impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionAudioProblem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionAudioProblem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
 }
@@ -1215,11 +1215,6 @@ impl ::core::clone::Clone for SpeechRecognitionConfidence {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechRecognitionConfidence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConfidence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionConfidence {
     type Abi = Self;
 }
@@ -1229,6 +1224,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionConfidence {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionConfidence {}
+impl ::core::fmt::Debug for SpeechRecognitionConfidence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConfidence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConfidence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
 }
@@ -1249,11 +1249,6 @@ impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConstraintProbability").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintProbability {
     type Abi = Self;
 }
@@ -1263,6 +1258,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionConstraintProbability {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionConstraintProbability {}
+impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConstraintProbability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintProbability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
 }
@@ -1284,11 +1284,6 @@ impl ::core::clone::Clone for SpeechRecognitionConstraintType {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConstraintType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintType {
     type Abi = Self;
 }
@@ -1298,6 +1293,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionConstraintType {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionConstraintType {}
+impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConstraintType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
 }
@@ -2070,11 +2070,6 @@ impl ::core::clone::Clone for SpeechRecognitionResultStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionResultStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionResultStatus {
     type Abi = Self;
 }
@@ -2084,6 +2079,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionResultStatus {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionResultStatus {}
+impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
 }
@@ -2104,11 +2104,6 @@ impl ::core::clone::Clone for SpeechRecognitionScenario {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechRecognitionScenario {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionScenario").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionScenario {
     type Abi = Self;
 }
@@ -2118,6 +2113,11 @@ impl ::core::cmp::PartialEq for SpeechRecognitionScenario {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognitionScenario {}
+impl ::core::fmt::Debug for SpeechRecognitionScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionScenario").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionScenario {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
 }
@@ -2841,11 +2841,6 @@ impl ::core::clone::Clone for SpeechRecognizerState {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechRecognizerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognizerState {
     type Abi = Self;
 }
@@ -2855,6 +2850,11 @@ impl ::core::cmp::PartialEq for SpeechRecognizerState {
     }
 }
 impl ::core::cmp::Eq for SpeechRecognizerState {}
+impl ::core::fmt::Debug for SpeechRecognizerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
 }

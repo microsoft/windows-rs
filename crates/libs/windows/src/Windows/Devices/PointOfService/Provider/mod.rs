@@ -2312,11 +2312,6 @@ impl ::core::clone::Clone for BarcodeScannerTriggerState {
         *self
     }
 }
-impl ::core::fmt::Debug for BarcodeScannerTriggerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerTriggerState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BarcodeScannerTriggerState {
     type Abi = Self;
 }
@@ -2326,6 +2321,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerTriggerState {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerTriggerState {}
+impl ::core::fmt::Debug for BarcodeScannerTriggerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerTriggerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerTriggerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.Provider.BarcodeScannerTriggerState;i4)");
 }

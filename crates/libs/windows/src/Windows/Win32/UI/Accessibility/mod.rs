@@ -25919,12 +25919,6 @@ impl ::core::clone::Clone for UiaChangeInfo {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for UiaChangeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UiaChangeInfo").field("uiaId", &self.uiaId).field("payload", &self.payload).field("extraInfo", &self.extraInfo).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for UiaChangeInfo {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -26582,12 +26576,6 @@ impl ::core::clone::Clone for UiaPropertyChangedEventArgs {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for UiaPropertyChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UiaPropertyChangedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("PropertyId", &self.PropertyId).field("OldValue", &self.OldValue).field("NewValue", &self.NewValue).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for UiaPropertyChangedEventArgs {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -26618,12 +26606,6 @@ pub struct UiaPropertyCondition {
 impl ::core::clone::Clone for UiaPropertyCondition {
     fn clone(&self) -> Self {
         Self { ConditionType: self.ConditionType, PropertyId: self.PropertyId, Value: self.Value.clone(), Flags: self.Flags }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for UiaPropertyCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UiaPropertyCondition").field("ConditionType", &self.ConditionType).field("PropertyId", &self.PropertyId).field("Value", &self.Value).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

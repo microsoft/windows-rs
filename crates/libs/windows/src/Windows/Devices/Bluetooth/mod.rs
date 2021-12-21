@@ -219,11 +219,6 @@ impl ::core::clone::Clone for BluetoothAddressType {
         *self
     }
 }
-impl ::core::fmt::Debug for BluetoothAddressType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothAddressType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BluetoothAddressType {
     type Abi = Self;
 }
@@ -233,6 +228,11 @@ impl ::core::cmp::PartialEq for BluetoothAddressType {
     }
 }
 impl ::core::cmp::Eq for BluetoothAddressType {}
+impl ::core::fmt::Debug for BluetoothAddressType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothAddressType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothAddressType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothAddressType;i4)");
 }
@@ -252,11 +252,6 @@ impl ::core::clone::Clone for BluetoothCacheMode {
         *self
     }
 }
-impl ::core::fmt::Debug for BluetoothCacheMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothCacheMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BluetoothCacheMode {
     type Abi = Self;
 }
@@ -266,6 +261,11 @@ impl ::core::cmp::PartialEq for BluetoothCacheMode {
     }
 }
 impl ::core::cmp::Eq for BluetoothCacheMode {}
+impl ::core::fmt::Debug for BluetoothCacheMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothCacheMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothCacheMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothCacheMode;i4)");
 }
@@ -409,11 +409,6 @@ impl ::core::clone::Clone for BluetoothConnectionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for BluetoothConnectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothConnectionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BluetoothConnectionStatus {
     type Abi = Self;
 }
@@ -423,6 +418,11 @@ impl ::core::cmp::PartialEq for BluetoothConnectionStatus {
     }
 }
 impl ::core::cmp::Eq for BluetoothConnectionStatus {}
+impl ::core::fmt::Debug for BluetoothConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothConnectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothConnectionStatus;i4)");
 }
@@ -931,11 +931,6 @@ impl ::core::clone::Clone for BluetoothError {
         *self
     }
 }
-impl ::core::fmt::Debug for BluetoothError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BluetoothError {
     type Abi = Self;
 }
@@ -945,6 +940,11 @@ impl ::core::cmp::PartialEq for BluetoothError {
     }
 }
 impl ::core::cmp::Eq for BluetoothError {}
+impl ::core::fmt::Debug for BluetoothError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothError;i4)");
 }
@@ -2415,11 +2415,6 @@ impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequestSta
         *self
     }
 }
-impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequestStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEPreferredConnectionParametersRequestStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BluetoothLEPreferredConnectionParametersRequestStatus {
     type Abi = Self;
 }
@@ -2429,6 +2424,11 @@ impl ::core::cmp::PartialEq for BluetoothLEPreferredConnectionParametersRequestS
     }
 }
 impl ::core::cmp::Eq for BluetoothLEPreferredConnectionParametersRequestStatus {}
+impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequestStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEPreferredConnectionParametersRequestStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParametersRequestStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequestStatus;i4)");
 }
@@ -2456,11 +2456,6 @@ impl ::core::clone::Clone for BluetoothMajorClass {
         *self
     }
 }
-impl ::core::fmt::Debug for BluetoothMajorClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothMajorClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BluetoothMajorClass {
     type Abi = Self;
 }
@@ -2470,6 +2465,11 @@ impl ::core::cmp::PartialEq for BluetoothMajorClass {
     }
 }
 impl ::core::cmp::Eq for BluetoothMajorClass {}
+impl ::core::fmt::Debug for BluetoothMajorClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothMajorClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothMajorClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMajorClass;i4)");
 }
@@ -2558,11 +2558,6 @@ impl ::core::clone::Clone for BluetoothMinorClass {
         *self
     }
 }
-impl ::core::fmt::Debug for BluetoothMinorClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothMinorClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BluetoothMinorClass {
     type Abi = Self;
 }
@@ -2572,6 +2567,11 @@ impl ::core::cmp::PartialEq for BluetoothMinorClass {
     }
 }
 impl ::core::cmp::Eq for BluetoothMinorClass {}
+impl ::core::fmt::Debug for BluetoothMinorClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothMinorClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothMinorClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMinorClass;i4)");
 }
@@ -2599,11 +2599,6 @@ impl ::core::clone::Clone for BluetoothServiceCapabilities {
         *self
     }
 }
-impl ::core::fmt::Debug for BluetoothServiceCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothServiceCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BluetoothServiceCapabilities {
     type Abi = Self;
 }
@@ -2613,6 +2608,11 @@ impl ::core::cmp::PartialEq for BluetoothServiceCapabilities {
     }
 }
 impl ::core::cmp::Eq for BluetoothServiceCapabilities {}
+impl ::core::fmt::Debug for BluetoothServiceCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothServiceCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothServiceCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothServiceCapabilities;u4)");
 }

@@ -152,11 +152,6 @@ impl ::core::clone::Clone for AnnotationType {
         *self
     }
 }
-impl ::core::fmt::Debug for AnnotationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnnotationType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnnotationType {
     type Abi = Self;
 }
@@ -166,6 +161,11 @@ impl ::core::cmp::PartialEq for AnnotationType {
     }
 }
 impl ::core::cmp::Eq for AnnotationType {}
+impl ::core::fmt::Debug for AnnotationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnnotationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnnotationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AnnotationType;i4)");
 }
@@ -186,11 +186,6 @@ impl ::core::clone::Clone for AutomationActiveEnd {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationActiveEnd {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationActiveEnd").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationActiveEnd {
     type Abi = Self;
 }
@@ -200,6 +195,11 @@ impl ::core::cmp::PartialEq for AutomationActiveEnd {
     }
 }
 impl ::core::cmp::Eq for AutomationActiveEnd {}
+impl ::core::fmt::Debug for AutomationActiveEnd {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationActiveEnd").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationActiveEnd {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationActiveEnd;i4)");
 }
@@ -225,11 +225,6 @@ impl ::core::clone::Clone for AutomationAnimationStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationAnimationStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationAnimationStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationAnimationStyle {
     type Abi = Self;
 }
@@ -239,6 +234,11 @@ impl ::core::cmp::PartialEq for AutomationAnimationStyle {
     }
 }
 impl ::core::cmp::Eq for AutomationAnimationStyle {}
+impl ::core::fmt::Debug for AutomationAnimationStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationAnimationStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationAnimationStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationAnimationStyle;i4)");
 }
@@ -427,11 +427,6 @@ impl ::core::clone::Clone for AutomationBulletStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationBulletStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationBulletStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationBulletStyle {
     type Abi = Self;
 }
@@ -441,6 +436,11 @@ impl ::core::cmp::PartialEq for AutomationBulletStyle {
     }
 }
 impl ::core::cmp::Eq for AutomationBulletStyle {}
+impl ::core::fmt::Debug for AutomationBulletStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationBulletStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationBulletStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationBulletStyle;i4)");
 }
@@ -460,11 +460,6 @@ impl ::core::clone::Clone for AutomationCaretBidiMode {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationCaretBidiMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationCaretBidiMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationCaretBidiMode {
     type Abi = Self;
 }
@@ -474,6 +469,11 @@ impl ::core::cmp::PartialEq for AutomationCaretBidiMode {
     }
 }
 impl ::core::cmp::Eq for AutomationCaretBidiMode {}
+impl ::core::fmt::Debug for AutomationCaretBidiMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationCaretBidiMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationCaretBidiMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretBidiMode;i4)");
 }
@@ -494,11 +494,6 @@ impl ::core::clone::Clone for AutomationCaretPosition {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationCaretPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationCaretPosition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationCaretPosition {
     type Abi = Self;
 }
@@ -508,6 +503,11 @@ impl ::core::cmp::PartialEq for AutomationCaretPosition {
     }
 }
 impl ::core::cmp::Eq for AutomationCaretPosition {}
+impl ::core::fmt::Debug for AutomationCaretPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationCaretPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationCaretPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretPosition;i4)");
 }
@@ -915,11 +915,6 @@ impl ::core::clone::Clone for AutomationFlowDirections {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationFlowDirections {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationFlowDirections").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationFlowDirections {
     type Abi = Self;
 }
@@ -929,6 +924,11 @@ impl ::core::cmp::PartialEq for AutomationFlowDirections {
     }
 }
 impl ::core::cmp::Eq for AutomationFlowDirections {}
+impl ::core::fmt::Debug for AutomationFlowDirections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationFlowDirections").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationFlowDirections {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationFlowDirections;i4)");
 }
@@ -951,11 +951,6 @@ impl ::core::clone::Clone for AutomationOutlineStyles {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationOutlineStyles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationOutlineStyles").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationOutlineStyles {
     type Abi = Self;
 }
@@ -965,6 +960,11 @@ impl ::core::cmp::PartialEq for AutomationOutlineStyles {
     }
 }
 impl ::core::cmp::Eq for AutomationOutlineStyles {}
+impl ::core::fmt::Debug for AutomationOutlineStyles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationOutlineStyles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationOutlineStyles {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationOutlineStyles;i4)");
 }
@@ -1704,11 +1704,6 @@ impl ::core::clone::Clone for AutomationStyleId {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationStyleId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationStyleId").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationStyleId {
     type Abi = Self;
 }
@@ -1718,6 +1713,11 @@ impl ::core::cmp::PartialEq for AutomationStyleId {
     }
 }
 impl ::core::cmp::Eq for AutomationStyleId {}
+impl ::core::fmt::Debug for AutomationStyleId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationStyleId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationStyleId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationStyleId;i4)");
 }
@@ -1754,11 +1754,6 @@ impl ::core::clone::Clone for AutomationTextDecorationLineStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationTextDecorationLineStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationTextDecorationLineStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationTextDecorationLineStyle {
     type Abi = Self;
 }
@@ -1768,6 +1763,11 @@ impl ::core::cmp::PartialEq for AutomationTextDecorationLineStyle {
     }
 }
 impl ::core::cmp::Eq for AutomationTextDecorationLineStyle {}
+impl ::core::fmt::Debug for AutomationTextDecorationLineStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationTextDecorationLineStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationTextDecorationLineStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextDecorationLineStyle;i4)");
 }
@@ -1789,11 +1789,6 @@ impl ::core::clone::Clone for AutomationTextEditChangeType {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationTextEditChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationTextEditChangeType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationTextEditChangeType {
     type Abi = Self;
 }
@@ -1803,6 +1798,11 @@ impl ::core::cmp::PartialEq for AutomationTextEditChangeType {
     }
 }
 impl ::core::cmp::Eq for AutomationTextEditChangeType {}
+impl ::core::fmt::Debug for AutomationTextEditChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationTextEditChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutomationTextEditChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextEditChangeType;i4)");
 }
@@ -1911,11 +1911,6 @@ impl ::core::clone::Clone for DockPosition {
         *self
     }
 }
-impl ::core::fmt::Debug for DockPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DockPosition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DockPosition {
     type Abi = Self;
 }
@@ -1925,6 +1920,11 @@ impl ::core::cmp::PartialEq for DockPosition {
     }
 }
 impl ::core::cmp::Eq for DockPosition {}
+impl ::core::fmt::Debug for DockPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DockPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DockPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.DockPosition;i4)");
 }
@@ -2229,11 +2229,6 @@ impl ::core::clone::Clone for ExpandCollapseState {
         *self
     }
 }
-impl ::core::fmt::Debug for ExpandCollapseState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExpandCollapseState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ExpandCollapseState {
     type Abi = Self;
 }
@@ -2243,6 +2238,11 @@ impl ::core::cmp::PartialEq for ExpandCollapseState {
     }
 }
 impl ::core::cmp::Eq for ExpandCollapseState {}
+impl ::core::fmt::Debug for ExpandCollapseState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExpandCollapseState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExpandCollapseState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ExpandCollapseState;i4)");
 }
@@ -3998,11 +3998,6 @@ impl ::core::clone::Clone for RowOrColumnMajor {
         *self
     }
 }
-impl ::core::fmt::Debug for RowOrColumnMajor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RowOrColumnMajor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RowOrColumnMajor {
     type Abi = Self;
 }
@@ -4012,6 +4007,11 @@ impl ::core::cmp::PartialEq for RowOrColumnMajor {
     }
 }
 impl ::core::cmp::Eq for RowOrColumnMajor {}
+impl ::core::fmt::Debug for RowOrColumnMajor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RowOrColumnMajor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RowOrColumnMajor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.RowOrColumnMajor;i4)");
 }
@@ -4034,11 +4034,6 @@ impl ::core::clone::Clone for ScrollAmount {
         *self
     }
 }
-impl ::core::fmt::Debug for ScrollAmount {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScrollAmount").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ScrollAmount {
     type Abi = Self;
 }
@@ -4048,6 +4043,11 @@ impl ::core::cmp::PartialEq for ScrollAmount {
     }
 }
 impl ::core::cmp::Eq for ScrollAmount {}
+impl ::core::fmt::Debug for ScrollAmount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollAmount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ScrollAmount;i4)");
 }
@@ -4598,11 +4598,6 @@ impl ::core::clone::Clone for SupportedTextSelection {
         *self
     }
 }
-impl ::core::fmt::Debug for SupportedTextSelection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SupportedTextSelection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SupportedTextSelection {
     type Abi = Self;
 }
@@ -4612,6 +4607,11 @@ impl ::core::cmp::PartialEq for SupportedTextSelection {
     }
 }
 impl ::core::cmp::Eq for SupportedTextSelection {}
+impl ::core::fmt::Debug for SupportedTextSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SupportedTextSelection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SupportedTextSelection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SupportedTextSelection;i4)");
 }
@@ -4635,11 +4635,6 @@ impl ::core::clone::Clone for SynchronizedInputType {
         *self
     }
 }
-impl ::core::fmt::Debug for SynchronizedInputType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SynchronizedInputType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SynchronizedInputType {
     type Abi = Self;
 }
@@ -4649,6 +4644,11 @@ impl ::core::cmp::PartialEq for SynchronizedInputType {
     }
 }
 impl ::core::cmp::Eq for SynchronizedInputType {}
+impl ::core::fmt::Debug for SynchronizedInputType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SynchronizedInputType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SynchronizedInputType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SynchronizedInputType;i4)");
 }
@@ -4945,11 +4945,6 @@ impl ::core::clone::Clone for ToggleState {
         *self
     }
 }
-impl ::core::fmt::Debug for ToggleState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToggleState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ToggleState {
     type Abi = Self;
 }
@@ -4959,6 +4954,11 @@ impl ::core::cmp::PartialEq for ToggleState {
     }
 }
 impl ::core::cmp::Eq for ToggleState {}
+impl ::core::fmt::Debug for ToggleState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToggleState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ToggleState;i4)");
 }
@@ -5278,11 +5278,6 @@ impl ::core::clone::Clone for WindowInteractionState {
         *self
     }
 }
-impl ::core::fmt::Debug for WindowInteractionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowInteractionState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WindowInteractionState {
     type Abi = Self;
 }
@@ -5292,6 +5287,11 @@ impl ::core::cmp::PartialEq for WindowInteractionState {
     }
 }
 impl ::core::cmp::Eq for WindowInteractionState {}
+impl ::core::fmt::Debug for WindowInteractionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowInteractionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowInteractionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowInteractionState;i4)");
 }
@@ -5432,11 +5432,6 @@ impl ::core::clone::Clone for WindowVisualState {
         *self
     }
 }
-impl ::core::fmt::Debug for WindowVisualState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowVisualState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WindowVisualState {
     type Abi = Self;
 }
@@ -5446,6 +5441,11 @@ impl ::core::cmp::PartialEq for WindowVisualState {
     }
 }
 impl ::core::cmp::Eq for WindowVisualState {}
+impl ::core::fmt::Debug for WindowVisualState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowVisualState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowVisualState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowVisualState;i4)");
 }
@@ -5468,11 +5468,6 @@ impl ::core::clone::Clone for ZoomUnit {
         *self
     }
 }
-impl ::core::fmt::Debug for ZoomUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ZoomUnit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ZoomUnit {
     type Abi = Self;
 }
@@ -5482,6 +5477,11 @@ impl ::core::cmp::PartialEq for ZoomUnit {
     }
 }
 impl ::core::cmp::Eq for ZoomUnit {}
+impl ::core::fmt::Debug for ZoomUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ZoomUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ZoomUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ZoomUnit;i4)");
 }

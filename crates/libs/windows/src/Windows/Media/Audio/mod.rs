@@ -298,11 +298,6 @@ impl ::core::clone::Clone for AudioDeviceNodeCreationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioDeviceNodeCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceNodeCreationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioDeviceNodeCreationStatus {
     type Abi = Self;
 }
@@ -312,6 +307,11 @@ impl ::core::cmp::PartialEq for AudioDeviceNodeCreationStatus {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceNodeCreationStatus {}
+impl ::core::fmt::Debug for AudioDeviceNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceNodeCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
 }
@@ -956,11 +956,6 @@ impl ::core::clone::Clone for AudioFileNodeCreationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioFileNodeCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioFileNodeCreationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioFileNodeCreationStatus {
     type Abi = Self;
 }
@@ -970,6 +965,11 @@ impl ::core::cmp::PartialEq for AudioFileNodeCreationStatus {
     }
 }
 impl ::core::cmp::Eq for AudioFileNodeCreationStatus {}
+impl ::core::fmt::Debug for AudioFileNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFileNodeCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioFileNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
 }
@@ -2461,11 +2461,6 @@ impl ::core::clone::Clone for AudioGraphCreationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioGraphCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraphCreationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioGraphCreationStatus {
     type Abi = Self;
 }
@@ -2475,6 +2470,11 @@ impl ::core::cmp::PartialEq for AudioGraphCreationStatus {
     }
 }
 impl ::core::cmp::Eq for AudioGraphCreationStatus {}
+impl ::core::fmt::Debug for AudioGraphCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioGraphCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
 }
@@ -2679,11 +2679,6 @@ impl ::core::clone::Clone for AudioGraphUnrecoverableError {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioGraphUnrecoverableError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraphUnrecoverableError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioGraphUnrecoverableError {
     type Abi = Self;
 }
@@ -2693,6 +2688,11 @@ impl ::core::cmp::PartialEq for AudioGraphUnrecoverableError {
     }
 }
 impl ::core::cmp::Eq for AudioGraphUnrecoverableError {}
+impl ::core::fmt::Debug for AudioGraphUnrecoverableError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioGraphUnrecoverableError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
 }
@@ -3103,11 +3103,6 @@ impl ::core::clone::Clone for AudioNodeEmitterDecayKind {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioNodeEmitterDecayKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterDecayKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterDecayKind {
     type Abi = Self;
 }
@@ -3117,6 +3112,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterDecayKind {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterDecayKind {}
+impl ::core::fmt::Debug for AudioNodeEmitterDecayKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterDecayKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
 }
@@ -3349,11 +3349,6 @@ impl ::core::clone::Clone for AudioNodeEmitterSettings {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioNodeEmitterSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterSettings {
     type Abi = Self;
 }
@@ -3363,6 +3358,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterSettings {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterSettings {}
+impl ::core::fmt::Debug for AudioNodeEmitterSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterSettings;u4)");
 }
@@ -3490,11 +3490,6 @@ impl ::core::clone::Clone for AudioNodeEmitterShapeKind {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioNodeEmitterShapeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterShapeKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterShapeKind {
     type Abi = Self;
 }
@@ -3504,6 +3499,11 @@ impl ::core::cmp::PartialEq for AudioNodeEmitterShapeKind {
     }
 }
 impl ::core::cmp::Eq for AudioNodeEmitterShapeKind {}
+impl ::core::fmt::Debug for AudioNodeEmitterShapeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioNodeEmitterShapeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShapeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
 }
@@ -3938,11 +3938,6 @@ impl ::core::clone::Clone for AudioPlaybackConnectionOpenResultStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioPlaybackConnectionOpenResultStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionOpenResultStatus {
     type Abi = Self;
 }
@@ -3952,6 +3947,11 @@ impl ::core::cmp::PartialEq for AudioPlaybackConnectionOpenResultStatus {
     }
 }
 impl ::core::cmp::Eq for AudioPlaybackConnectionOpenResultStatus {}
+impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioPlaybackConnectionOpenResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
 }
@@ -3971,11 +3971,6 @@ impl ::core::clone::Clone for AudioPlaybackConnectionState {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioPlaybackConnectionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioPlaybackConnectionState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionState {
     type Abi = Self;
 }
@@ -3985,6 +3980,11 @@ impl ::core::cmp::PartialEq for AudioPlaybackConnectionState {
     }
 }
 impl ::core::cmp::Eq for AudioPlaybackConnectionState {}
+impl ::core::fmt::Debug for AudioPlaybackConnectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioPlaybackConnectionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
 }
@@ -8367,11 +8367,6 @@ impl ::core::clone::Clone for MediaSourceAudioInputNodeCreationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaSourceAudioInputNodeCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceAudioInputNodeCreationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaSourceAudioInputNodeCreationStatus {
     type Abi = Self;
 }
@@ -8381,6 +8376,11 @@ impl ::core::cmp::PartialEq for MediaSourceAudioInputNodeCreationStatus {
     }
 }
 impl ::core::cmp::Eq for MediaSourceAudioInputNodeCreationStatus {}
+impl ::core::fmt::Debug for MediaSourceAudioInputNodeCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaSourceAudioInputNodeCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
 }
@@ -8400,11 +8400,6 @@ impl ::core::clone::Clone for MixedRealitySpatialAudioFormatPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for MixedRealitySpatialAudioFormatPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MixedRealitySpatialAudioFormatPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MixedRealitySpatialAudioFormatPolicy {
     type Abi = Self;
 }
@@ -8414,6 +8409,11 @@ impl ::core::cmp::PartialEq for MixedRealitySpatialAudioFormatPolicy {
     }
 }
 impl ::core::cmp::Eq for MixedRealitySpatialAudioFormatPolicy {}
+impl ::core::fmt::Debug for MixedRealitySpatialAudioFormatPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MixedRealitySpatialAudioFormatPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
 }
@@ -8434,11 +8434,6 @@ impl ::core::clone::Clone for QuantumSizeSelectionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for QuantumSizeSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QuantumSizeSelectionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for QuantumSizeSelectionMode {
     type Abi = Self;
 }
@@ -8448,6 +8443,11 @@ impl ::core::cmp::PartialEq for QuantumSizeSelectionMode {
     }
 }
 impl ::core::cmp::Eq for QuantumSizeSelectionMode {}
+impl ::core::fmt::Debug for QuantumSizeSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuantumSizeSelectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QuantumSizeSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
 }
@@ -8980,11 +8980,6 @@ impl ::core::clone::Clone for SetDefaultSpatialAudioFormatStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetDefaultSpatialAudioFormatStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SetDefaultSpatialAudioFormatStatus {
     type Abi = Self;
 }
@@ -8994,6 +8989,11 @@ impl ::core::cmp::PartialEq for SetDefaultSpatialAudioFormatStatus {
     }
 }
 impl ::core::cmp::Eq for SetDefaultSpatialAudioFormatStatus {}
+impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetDefaultSpatialAudioFormatStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
 }
@@ -9344,11 +9344,6 @@ impl ::core::clone::Clone for SpatialAudioModel {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialAudioModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAudioModel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialAudioModel {
     type Abi = Self;
 }
@@ -9358,6 +9353,11 @@ impl ::core::cmp::PartialEq for SpatialAudioModel {
     }
 }
 impl ::core::cmp::Eq for SpatialAudioModel {}
+impl ::core::fmt::Debug for SpatialAudioModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAudioModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SpatialAudioModel;i4)");
 }

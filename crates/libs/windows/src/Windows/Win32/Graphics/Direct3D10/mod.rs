@@ -732,11 +732,6 @@ impl ::core::clone::Clone for D3D10_BUFFER_RTV {
         *self
     }
 }
-impl ::core::fmt::Debug for D3D10_BUFFER_RTV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D10_BUFFER_RTV").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_RTV {
     type Abi = Self;
 }
@@ -813,11 +808,6 @@ impl ::core::marker::Copy for D3D10_BUFFER_SRV {}
 impl ::core::clone::Clone for D3D10_BUFFER_SRV {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for D3D10_BUFFER_SRV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D10_BUFFER_SRV").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_SRV {
@@ -1293,12 +1283,6 @@ impl ::core::marker::Copy for D3D10_DEPTH_STENCIL_VIEW_DESC {}
 impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::fmt::Debug for D3D10_DEPTH_STENCIL_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D10_DEPTH_STENCIL_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3546,12 +3530,6 @@ impl ::core::clone::Clone for D3D10_RENDER_TARGET_VIEW_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::fmt::Debug for D3D10_RENDER_TARGET_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D10_RENDER_TARGET_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D10_RENDER_TARGET_VIEW_DESC {
     type Abi = Self;
 }
@@ -4481,12 +4459,6 @@ impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::fmt::Debug for D3D10_SHADER_RESOURCE_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_RESOURCE_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC {
     type Abi = Self;
 }
@@ -4558,12 +4530,6 @@ impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC1 {}
 impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::fmt::Debug for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D10_SHADER_RESOURCE_VIEW_DESC1").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]

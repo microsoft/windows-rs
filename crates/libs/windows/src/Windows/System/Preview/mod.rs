@@ -21,12 +21,6 @@ impl ::core::clone::Clone for HingeState {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for HingeState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HingeState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for HingeState {
     type Abi = Self;
 }
@@ -38,6 +32,12 @@ impl ::core::cmp::PartialEq for HingeState {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for HingeState {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for HingeState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HingeState").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HingeState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Preview.HingeState;i4)");

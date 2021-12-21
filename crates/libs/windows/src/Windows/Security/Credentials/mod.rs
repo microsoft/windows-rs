@@ -661,11 +661,6 @@ impl ::core::clone::Clone for KeyCredentialAttestationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for KeyCredentialAttestationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialAttestationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialAttestationStatus {
     type Abi = Self;
 }
@@ -675,6 +670,11 @@ impl ::core::cmp::PartialEq for KeyCredentialAttestationStatus {
     }
 }
 impl ::core::cmp::Eq for KeyCredentialAttestationStatus {}
+impl ::core::fmt::Debug for KeyCredentialAttestationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialAttestationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
 }
@@ -694,11 +694,6 @@ impl ::core::clone::Clone for KeyCredentialCreationOption {
         *self
     }
 }
-impl ::core::fmt::Debug for KeyCredentialCreationOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialCreationOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialCreationOption {
     type Abi = Self;
 }
@@ -708,6 +703,11 @@ impl ::core::cmp::PartialEq for KeyCredentialCreationOption {
     }
 }
 impl ::core::cmp::Eq for KeyCredentialCreationOption {}
+impl ::core::fmt::Debug for KeyCredentialCreationOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialCreationOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyCredentialCreationOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
 }
@@ -963,11 +963,6 @@ impl ::core::clone::Clone for KeyCredentialStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for KeyCredentialStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialStatus {
     type Abi = Self;
 }
@@ -977,6 +972,11 @@ impl ::core::cmp::PartialEq for KeyCredentialStatus {
     }
 }
 impl ::core::cmp::Eq for KeyCredentialStatus {}
+impl ::core::fmt::Debug for KeyCredentialStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyCredentialStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
 }
@@ -1743,11 +1743,6 @@ impl ::core::clone::Clone for WebAccountPictureSize {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAccountPictureSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountPictureSize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountPictureSize {
     type Abi = Self;
 }
@@ -1757,6 +1752,11 @@ impl ::core::cmp::PartialEq for WebAccountPictureSize {
     }
 }
 impl ::core::cmp::Eq for WebAccountPictureSize {}
+impl ::core::fmt::Debug for WebAccountPictureSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountPictureSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountPictureSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
 }
@@ -1921,11 +1921,6 @@ impl ::core::clone::Clone for WebAccountState {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAccountState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountState {
     type Abi = Self;
 }
@@ -1935,6 +1930,11 @@ impl ::core::cmp::PartialEq for WebAccountState {
     }
 }
 impl ::core::cmp::Eq for WebAccountState {}
+impl ::core::fmt::Debug for WebAccountState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");
 }

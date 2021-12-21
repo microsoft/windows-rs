@@ -7356,12 +7356,6 @@ impl ::core::clone::Clone for WMDM_PROP_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for WMDM_PROP_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMDM_PROP_DESC").field("pwszPropName", &self.pwszPropName).field("ValidValuesForm", &self.ValidValuesForm).field("ValidValues", &self.ValidValues).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for WMDM_PROP_DESC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -7461,12 +7455,6 @@ pub struct WMDM_PROP_VALUES_RANGE {
 impl ::core::clone::Clone for WMDM_PROP_VALUES_RANGE {
     fn clone(&self) -> Self {
         Self { rangeMin: self.rangeMin.clone(), rangeMax: self.rangeMax.clone(), rangeStep: self.rangeStep.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for WMDM_PROP_VALUES_RANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMDM_PROP_VALUES_RANGE").field("rangeMin", &self.rangeMin).field("rangeMax", &self.rangeMax).field("rangeStep", &self.rangeStep).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]

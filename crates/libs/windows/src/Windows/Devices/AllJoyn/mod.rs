@@ -810,12 +810,6 @@ impl ::core::clone::Clone for AllJoynAuthenticationMechanism {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for AllJoynAuthenticationMechanism {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AllJoynAuthenticationMechanism").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynAuthenticationMechanism {
     type Abi = Self;
 }
@@ -827,6 +821,12 @@ impl ::core::cmp::PartialEq for AllJoynAuthenticationMechanism {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AllJoynAuthenticationMechanism {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AllJoynAuthenticationMechanism {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AllJoynAuthenticationMechanism").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AllJoynAuthenticationMechanism {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynAuthenticationMechanism;i4)");
@@ -1164,12 +1164,6 @@ impl ::core::clone::Clone for AllJoynBusAttachmentState {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for AllJoynBusAttachmentState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AllJoynBusAttachmentState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynBusAttachmentState {
     type Abi = Self;
 }
@@ -1181,6 +1175,12 @@ impl ::core::cmp::PartialEq for AllJoynBusAttachmentState {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AllJoynBusAttachmentState {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AllJoynBusAttachmentState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AllJoynBusAttachmentState").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AllJoynBusAttachmentState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynBusAttachmentState;i4)");
@@ -2960,12 +2960,6 @@ impl ::core::clone::Clone for AllJoynSessionLostReason {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for AllJoynSessionLostReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AllJoynSessionLostReason").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynSessionLostReason {
     type Abi = Self;
 }
@@ -2977,6 +2971,12 @@ impl ::core::cmp::PartialEq for AllJoynSessionLostReason {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AllJoynSessionLostReason {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AllJoynSessionLostReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AllJoynSessionLostReason").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AllJoynSessionLostReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynSessionLostReason;i4)");
@@ -3395,12 +3395,6 @@ impl ::core::clone::Clone for AllJoynTrafficType {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for AllJoynTrafficType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AllJoynTrafficType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynTrafficType {
     type Abi = Self;
 }
@@ -3412,6 +3406,12 @@ impl ::core::cmp::PartialEq for AllJoynTrafficType {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AllJoynTrafficType {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AllJoynTrafficType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AllJoynTrafficType").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AllJoynTrafficType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynTrafficType;i4)");

@@ -5392,12 +5392,6 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LSA_FOREST_TRUST_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LSA_FOREST_TRUST_RECORD").field("Flags", &self.Flags).field("ForestTrustType", &self.ForestTrustType).field("Time", &self.Time).field("ForestTrustData", &self.ForestTrustData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_RECORD {
     type Abi = Self;
 }
@@ -11340,12 +11334,6 @@ impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SECPKG_EXTENDED_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SECPKG_EXTENDED_INFORMATION").field("Class", &self.Class).field("Info", &self.Info).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SECPKG_EXTENDED_INFORMATION {
     type Abi = Self;
 }
@@ -12693,11 +12681,6 @@ impl ::core::clone::Clone for SECURITY_LOGON_TYPE {
         *self
     }
 }
-impl ::core::fmt::Debug for SECURITY_LOGON_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SECURITY_LOGON_TYPE").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SECURITY_LOGON_TYPE {
     type Abi = Self;
 }
@@ -12707,6 +12690,11 @@ impl ::core::cmp::PartialEq for SECURITY_LOGON_TYPE {
     }
 }
 impl ::core::cmp::Eq for SECURITY_LOGON_TYPE {}
+impl ::core::fmt::Debug for SECURITY_LOGON_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECURITY_LOGON_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECURITY_NATIVE_DREP: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]

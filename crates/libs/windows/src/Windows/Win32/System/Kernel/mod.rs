@@ -323,12 +323,6 @@ impl ::core::clone::Clone for NT_TIB {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-impl ::core::fmt::Debug for NT_TIB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NT_TIB").field("ExceptionList", &self.ExceptionList).field("StackBase", &self.StackBase).field("StackLimit", &self.StackLimit).field("SubSystemTib", &self.SubSystemTib).field("Anonymous", &self.Anonymous).field("ArbitraryUserPointer", &self.ArbitraryUserPointer).field("Self", &self.Self_).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 unsafe impl ::windows::core::Abi for NT_TIB {
     type Abi = Self;
 }
@@ -549,11 +543,6 @@ impl ::core::clone::Clone for QUAD {
         *self
     }
 }
-impl ::core::fmt::Debug for QUAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUAD").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for QUAD {
     type Abi = Self;
 }
@@ -604,11 +593,6 @@ impl ::core::marker::Copy for RTL_BALANCED_NODE {}
 impl ::core::clone::Clone for RTL_BALANCED_NODE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RTL_BALANCED_NODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTL_BALANCED_NODE").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RTL_BALANCED_NODE {

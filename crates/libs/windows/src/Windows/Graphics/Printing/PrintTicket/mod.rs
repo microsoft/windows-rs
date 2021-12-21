@@ -617,11 +617,6 @@ impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTicketFeatureSelectionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintTicketFeatureSelectionType {
     type Abi = Self;
 }
@@ -631,6 +626,11 @@ impl ::core::cmp::PartialEq for PrintTicketFeatureSelectionType {
     }
 }
 impl ::core::cmp::Eq for PrintTicketFeatureSelectionType {}
+impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketFeatureSelectionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTicketFeatureSelectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
 }
@@ -791,11 +791,6 @@ impl ::core::clone::Clone for PrintTicketParameterDataType {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintTicketParameterDataType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTicketParameterDataType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintTicketParameterDataType {
     type Abi = Self;
 }
@@ -805,6 +800,11 @@ impl ::core::cmp::PartialEq for PrintTicketParameterDataType {
     }
 }
 impl ::core::cmp::Eq for PrintTicketParameterDataType {}
+impl ::core::fmt::Debug for PrintTicketParameterDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketParameterDataType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTicketParameterDataType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
 }
@@ -1163,11 +1163,6 @@ impl ::core::clone::Clone for PrintTicketValueType {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintTicketValueType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTicketValueType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintTicketValueType {
     type Abi = Self;
 }
@@ -1177,6 +1172,11 @@ impl ::core::cmp::PartialEq for PrintTicketValueType {
     }
 }
 impl ::core::cmp::Eq for PrintTicketValueType {}
+impl ::core::fmt::Debug for PrintTicketValueType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketValueType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTicketValueType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
 }

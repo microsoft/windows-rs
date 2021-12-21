@@ -297,11 +297,6 @@ impl ::core::clone::Clone for MediaVideoProcessingAlgorithm {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaVideoProcessingAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaVideoProcessingAlgorithm").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaVideoProcessingAlgorithm {
     type Abi = Self;
 }
@@ -311,6 +306,11 @@ impl ::core::cmp::PartialEq for MediaVideoProcessingAlgorithm {
     }
 }
 impl ::core::cmp::Eq for MediaVideoProcessingAlgorithm {}
+impl ::core::fmt::Debug for MediaVideoProcessingAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaVideoProcessingAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
 }
@@ -430,11 +430,6 @@ impl ::core::clone::Clone for TranscodeFailureReason {
         *self
     }
 }
-impl ::core::fmt::Debug for TranscodeFailureReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TranscodeFailureReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TranscodeFailureReason {
     type Abi = Self;
 }
@@ -444,6 +439,11 @@ impl ::core::cmp::PartialEq for TranscodeFailureReason {
     }
 }
 impl ::core::cmp::Eq for TranscodeFailureReason {}
+impl ::core::fmt::Debug for TranscodeFailureReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TranscodeFailureReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TranscodeFailureReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
 }

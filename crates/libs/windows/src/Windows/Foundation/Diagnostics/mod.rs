@@ -58,11 +58,6 @@ impl ::core::clone::Clone for CausalityRelation {
         *self
     }
 }
-impl ::core::fmt::Debug for CausalityRelation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CausalityRelation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CausalityRelation {
     type Abi = Self;
 }
@@ -72,6 +67,11 @@ impl ::core::cmp::PartialEq for CausalityRelation {
     }
 }
 impl ::core::cmp::Eq for CausalityRelation {}
+impl ::core::fmt::Debug for CausalityRelation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalityRelation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CausalityRelation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
 }
@@ -92,11 +92,6 @@ impl ::core::clone::Clone for CausalitySource {
         *self
     }
 }
-impl ::core::fmt::Debug for CausalitySource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CausalitySource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CausalitySource {
     type Abi = Self;
 }
@@ -106,6 +101,11 @@ impl ::core::cmp::PartialEq for CausalitySource {
     }
 }
 impl ::core::cmp::Eq for CausalitySource {}
+impl ::core::fmt::Debug for CausalitySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalitySource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CausalitySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
 }
@@ -126,11 +126,6 @@ impl ::core::clone::Clone for CausalitySynchronousWork {
         *self
     }
 }
-impl ::core::fmt::Debug for CausalitySynchronousWork {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CausalitySynchronousWork").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CausalitySynchronousWork {
     type Abi = Self;
 }
@@ -140,6 +135,11 @@ impl ::core::cmp::PartialEq for CausalitySynchronousWork {
     }
 }
 impl ::core::cmp::Eq for CausalitySynchronousWork {}
+impl ::core::fmt::Debug for CausalitySynchronousWork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalitySynchronousWork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CausalitySynchronousWork {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
 }
@@ -160,11 +160,6 @@ impl ::core::clone::Clone for CausalityTraceLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for CausalityTraceLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CausalityTraceLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CausalityTraceLevel {
     type Abi = Self;
 }
@@ -174,6 +169,11 @@ impl ::core::cmp::PartialEq for CausalityTraceLevel {
     }
 }
 impl ::core::cmp::Eq for CausalityTraceLevel {}
+impl ::core::fmt::Debug for CausalityTraceLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalityTraceLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CausalityTraceLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
 }
@@ -305,11 +305,6 @@ impl ::core::clone::Clone for ErrorOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for ErrorOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ErrorOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ErrorOptions {
     type Abi = Self;
 }
@@ -319,6 +314,11 @@ impl ::core::cmp::PartialEq for ErrorOptions {
     }
 }
 impl ::core::cmp::Eq for ErrorOptions {}
+impl ::core::fmt::Debug for ErrorOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ErrorOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ErrorOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
 }
@@ -2491,11 +2491,6 @@ impl ::core::clone::Clone for LoggingFieldFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for LoggingFieldFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingFieldFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LoggingFieldFormat {
     type Abi = Self;
 }
@@ -2505,6 +2500,11 @@ impl ::core::cmp::PartialEq for LoggingFieldFormat {
     }
 }
 impl ::core::cmp::Eq for LoggingFieldFormat {}
+impl ::core::fmt::Debug for LoggingFieldFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingFieldFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingFieldFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingFieldFormat;i4)");
 }
@@ -3182,11 +3182,6 @@ impl ::core::clone::Clone for LoggingLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for LoggingLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LoggingLevel {
     type Abi = Self;
 }
@@ -3196,6 +3191,11 @@ impl ::core::cmp::PartialEq for LoggingLevel {
     }
 }
 impl ::core::cmp::Eq for LoggingLevel {}
+impl ::core::fmt::Debug for LoggingLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingLevel;i4)");
 }
@@ -3220,11 +3220,6 @@ impl ::core::clone::Clone for LoggingOpcode {
         *self
     }
 }
-impl ::core::fmt::Debug for LoggingOpcode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingOpcode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LoggingOpcode {
     type Abi = Self;
 }
@@ -3234,6 +3229,11 @@ impl ::core::cmp::PartialEq for LoggingOpcode {
     }
 }
 impl ::core::cmp::Eq for LoggingOpcode {}
+impl ::core::fmt::Debug for LoggingOpcode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingOpcode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoggingOpcode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingOpcode;i4)");
 }

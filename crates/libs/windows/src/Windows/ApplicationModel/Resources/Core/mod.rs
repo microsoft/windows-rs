@@ -593,11 +593,6 @@ impl ::core::clone::Clone for ResourceCandidateKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ResourceCandidateKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceCandidateKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ResourceCandidateKind {
     type Abi = Self;
 }
@@ -607,6 +602,11 @@ impl ::core::cmp::PartialEq for ResourceCandidateKind {
     }
 }
 impl ::core::cmp::Eq for ResourceCandidateKind {}
+impl ::core::fmt::Debug for ResourceCandidateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResourceCandidateKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ResourceCandidateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
 }
@@ -2727,11 +2727,6 @@ impl ::core::clone::Clone for ResourceQualifierPersistence {
         *self
     }
 }
-impl ::core::fmt::Debug for ResourceQualifierPersistence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceQualifierPersistence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ResourceQualifierPersistence {
     type Abi = Self;
 }
@@ -2741,6 +2736,11 @@ impl ::core::cmp::PartialEq for ResourceQualifierPersistence {
     }
 }
 impl ::core::cmp::Eq for ResourceQualifierPersistence {}
+impl ::core::fmt::Debug for ResourceQualifierPersistence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResourceQualifierPersistence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ResourceQualifierPersistence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
 }

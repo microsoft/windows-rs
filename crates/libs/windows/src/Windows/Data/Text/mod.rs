@@ -15,11 +15,6 @@ impl ::core::clone::Clone for AlternateNormalizationFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for AlternateNormalizationFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlternateNormalizationFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AlternateNormalizationFormat {
     type Abi = Self;
 }
@@ -29,6 +24,11 @@ impl ::core::cmp::PartialEq for AlternateNormalizationFormat {
     }
 }
 impl ::core::cmp::Eq for AlternateNormalizationFormat {}
+impl ::core::fmt::Debug for AlternateNormalizationFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlternateNormalizationFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AlternateNormalizationFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
 }
@@ -1318,11 +1318,6 @@ impl ::core::clone::Clone for TextPredictionOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for TextPredictionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextPredictionOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TextPredictionOptions {
     type Abi = Self;
 }
@@ -1332,6 +1327,11 @@ impl ::core::cmp::PartialEq for TextPredictionOptions {
     }
 }
 impl ::core::cmp::Eq for TextPredictionOptions {}
+impl ::core::fmt::Debug for TextPredictionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPredictionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextPredictionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.TextPredictionOptions;u4)");
 }
@@ -1663,11 +1663,6 @@ impl ::core::clone::Clone for UnicodeGeneralCategory {
         *self
     }
 }
-impl ::core::fmt::Debug for UnicodeGeneralCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnicodeGeneralCategory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnicodeGeneralCategory {
     type Abi = Self;
 }
@@ -1677,6 +1672,11 @@ impl ::core::cmp::PartialEq for UnicodeGeneralCategory {
     }
 }
 impl ::core::cmp::Eq for UnicodeGeneralCategory {}
+impl ::core::fmt::Debug for UnicodeGeneralCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeGeneralCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnicodeGeneralCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
 }
@@ -1698,11 +1698,6 @@ impl ::core::clone::Clone for UnicodeNumericType {
         *self
     }
 }
-impl ::core::fmt::Debug for UnicodeNumericType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnicodeNumericType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnicodeNumericType {
     type Abi = Self;
 }
@@ -1712,6 +1707,11 @@ impl ::core::cmp::PartialEq for UnicodeNumericType {
     }
 }
 impl ::core::cmp::Eq for UnicodeNumericType {}
+impl ::core::fmt::Debug for UnicodeNumericType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeNumericType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnicodeNumericType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
 }

@@ -146,11 +146,6 @@ impl ::core::clone::Clone for DL_EUI48_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for DL_EUI48_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DL_EUI48_0").field("Oui", &self.Oui).field("Ei48", &self.Ei48).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DL_EUI48_0 {
     type Abi = Self;
 }
@@ -204,11 +199,6 @@ impl ::core::clone::Clone for DL_EUI64_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for DL_EUI64_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DL_EUI64_0").field("Oui", &self.Oui).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DL_EUI64_0 {
     type Abi = Self;
 }
@@ -260,11 +250,6 @@ impl ::core::marker::Copy for DL_EUI64_0_0_0 {}
 impl ::core::clone::Clone for DL_EUI64_0_0_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DL_EUI64_0_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DL_EUI64_0_0_0").field("Type", &self.Type).field("Tse", &self.Tse).field("Ei48", &self.Ei48).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DL_EUI64_0_0_0 {
@@ -355,12 +340,6 @@ impl ::core::clone::Clone for DL_TEREDO_ADDRESS {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for DL_TEREDO_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DL_TEREDO_ADDRESS").field("Reserved", &self.Reserved).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for DL_TEREDO_ADDRESS {
     type Abi = Self;
 }
@@ -428,12 +407,6 @@ impl ::core::clone::Clone for DL_TEREDO_ADDRESS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for DL_TEREDO_ADDRESS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DL_TEREDO_ADDRESS_0_0").field("Flags", &self.Flags).field("MappedPort", &self.MappedPort).field("MappedAddress", &self.MappedAddress).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for DL_TEREDO_ADDRESS_0_0 {
     type Abi = Self;
 }
@@ -464,12 +437,6 @@ impl ::core::marker::Copy for DL_TEREDO_ADDRESS_PRV {}
 impl ::core::clone::Clone for DL_TEREDO_ADDRESS_PRV {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for DL_TEREDO_ADDRESS_PRV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DL_TEREDO_ADDRESS_PRV").field("Reserved", &self.Reserved).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -544,12 +511,6 @@ impl ::core::clone::Clone for DL_TEREDO_ADDRESS_PRV_0_0 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for DL_TEREDO_ADDRESS_PRV_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DL_TEREDO_ADDRESS_PRV_0_0").field("Flags", &self.Flags).field("MappedPort", &self.MappedPort).field("MappedAddress", &self.MappedAddress).field("LocalAddress", &self.LocalAddress).field("InterfaceIndex", &self.InterfaceIndex).field("LocalPort", &self.LocalPort).field("DlDestination", &self.DlDestination).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for DL_TEREDO_ADDRESS_PRV_0_0 {
     type Abi = Self;
 }
@@ -584,12 +545,6 @@ impl ::core::clone::Clone for DL_TUNNEL_ADDRESS {
     }
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for DL_TUNNEL_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DL_TUNNEL_ADDRESS").field("CompartmentId", &self.CompartmentId).field("ScopeId", &self.ScopeId).field("IpAddress", &self.IpAddress).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for DL_TUNNEL_ADDRESS {
     type Abi = Self;
 }
@@ -618,11 +573,6 @@ impl ::core::marker::Copy for ETHERNET_HEADER {}
 impl ::core::clone::Clone for ETHERNET_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ETHERNET_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ETHERNET_HEADER").field("Destination", &self.Destination).field("Source", &self.Source).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ETHERNET_HEADER {
@@ -701,11 +651,6 @@ impl ::core::marker::Copy for FWPM_ACTION0 {}
 impl ::core::clone::Clone for FWPM_ACTION0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for FWPM_ACTION0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_ACTION0").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FWPM_ACTION0 {
@@ -1000,12 +945,6 @@ impl ::core::clone::Clone for FWPM_CLASSIFY_OPTION0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_CLASSIFY_OPTION0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_CLASSIFY_OPTION0").field("type", &self.r#type).field("value", &self.value).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_CLASSIFY_OPTION0 {
     type Abi = Self;
 }
@@ -1223,27 +1162,6 @@ impl ::core::marker::Copy for FWPM_CONNECTION0 {}
 impl ::core::clone::Clone for FWPM_CONNECTION0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FWPM_CONNECTION0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_CONNECTION0")
-            .field("connectionId", &self.connectionId)
-            .field("ipVersion", &self.ipVersion)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("providerKey", &self.providerKey)
-            .field("ipsecTrafficModeType", &self.ipsecTrafficModeType)
-            .field("keyModuleType", &self.keyModuleType)
-            .field("mmCrypto", &self.mmCrypto)
-            .field("mmPeer", &self.mmPeer)
-            .field("emPeer", &self.emPeer)
-            .field("bytesTransferredIn", &self.bytesTransferredIn)
-            .field("bytesTransferredOut", &self.bytesTransferredOut)
-            .field("bytesTransferredTotal", &self.bytesTransferredTotal)
-            .field("startSysTime", &self.startSysTime)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1542,28 +1460,6 @@ impl ::core::clone::Clone for FWPM_FILTER0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_FILTER0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_FILTER0")
-            .field("filterKey", &self.filterKey)
-            .field("displayData", &self.displayData)
-            .field("flags", &self.flags)
-            .field("providerKey", &self.providerKey)
-            .field("providerData", &self.providerData)
-            .field("layerKey", &self.layerKey)
-            .field("subLayerKey", &self.subLayerKey)
-            .field("weight", &self.weight)
-            .field("numFilterConditions", &self.numFilterConditions)
-            .field("filterCondition", &self.filterCondition)
-            .field("action", &self.action)
-            .field("Anonymous", &self.Anonymous)
-            .field("reserved", &self.reserved)
-            .field("filterId", &self.filterId)
-            .field("effectiveWeight", &self.effectiveWeight)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_FILTER0 {
     type Abi = Self;
 }
@@ -1662,12 +1558,6 @@ impl ::core::marker::Copy for FWPM_FILTER_CONDITION0 {}
 impl ::core::clone::Clone for FWPM_FILTER_CONDITION0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_FILTER_CONDITION0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_FILTER_CONDITION0").field("fieldKey", &self.fieldKey).field("matchType", &self.matchType).field("conditionValue", &self.conditionValue).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2037,12 +1927,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT0").field("header", &self.header).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT0 {
     type Abi = Self;
 }
@@ -2114,12 +1998,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT1").field("header", &self.header).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT1 {
     type Abi = Self;
 }
@@ -2188,12 +2066,6 @@ impl ::core::marker::Copy for FWPM_NET_EVENT2 {}
 impl ::core::clone::Clone for FWPM_NET_EVENT2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT2").field("header", &self.header).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2272,12 +2144,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT3").field("header", &self.header).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT3 {
     type Abi = Self;
 }
@@ -2353,12 +2219,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT4_ {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT4_ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT4_").field("header", &self.header).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT4_ {
     type Abi = Self;
 }
@@ -2431,12 +2291,6 @@ impl ::core::marker::Copy for FWPM_NET_EVENT5_ {}
 impl ::core::clone::Clone for FWPM_NET_EVENT5_ {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT5_ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT5_").field("header", &self.header).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2941,12 +2795,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT_HEADER0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_HEADER0").field("timeStamp", &self.timeStamp).field("flags", &self.flags).field("ipVersion", &self.ipVersion).field("ipProtocol", &self.ipProtocol).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("localPort", &self.localPort).field("remotePort", &self.remotePort).field("scopeId", &self.scopeId).field("appId", &self.appId).field("userId", &self.userId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER0 {
     type Abi = Self;
 }
@@ -3053,12 +2901,6 @@ impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1 {}
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT_HEADER1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_HEADER1").field("timeStamp", &self.timeStamp).field("flags", &self.flags).field("ipVersion", &self.ipVersion).field("ipProtocol", &self.ipProtocol).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("localPort", &self.localPort).field("remotePort", &self.remotePort).field("scopeId", &self.scopeId).field("appId", &self.appId).field("userId", &self.userId).field("Anonymous3", &self.Anonymous3).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -3193,12 +3035,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT_HEADER1_2_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_HEADER1_2_0").field("reserved1", &self.reserved1).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1_2_0 {
     type Abi = Self;
 }
@@ -3321,26 +3157,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT_HEADER2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_HEADER2")
-            .field("timeStamp", &self.timeStamp)
-            .field("flags", &self.flags)
-            .field("ipVersion", &self.ipVersion)
-            .field("ipProtocol", &self.ipProtocol)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("localPort", &self.localPort)
-            .field("remotePort", &self.remotePort)
-            .field("scopeId", &self.scopeId)
-            .field("appId", &self.appId)
-            .field("userId", &self.userId)
-            .field("addressFamily", &self.addressFamily)
-            .field("packageSid", &self.packageSid)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER2 {
     type Abi = Self;
 }
@@ -3451,29 +3267,6 @@ impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3 {}
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT_HEADER3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_HEADER3")
-            .field("timeStamp", &self.timeStamp)
-            .field("flags", &self.flags)
-            .field("ipVersion", &self.ipVersion)
-            .field("ipProtocol", &self.ipProtocol)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("localPort", &self.localPort)
-            .field("remotePort", &self.remotePort)
-            .field("scopeId", &self.scopeId)
-            .field("appId", &self.appId)
-            .field("userId", &self.userId)
-            .field("addressFamily", &self.addressFamily)
-            .field("packageSid", &self.packageSid)
-            .field("enterpriseId", &self.enterpriseId)
-            .field("policyFlags", &self.policyFlags)
-            .field("effectiveName", &self.effectiveName)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -3880,12 +3673,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_IKEEXT_QM_FAILURE0").field("failureErrorCode", &self.failureErrorCode).field("failurePoint", &self.failurePoint).field("keyingModuleType", &self.keyingModuleType).field("qmState", &self.qmState).field("saRole", &self.saRole).field("saTrafficType", &self.saTrafficType).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("qmFilterId", &self.qmFilterId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     type Abi = Self;
 }
@@ -3992,24 +3779,6 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_")
-            .field("failureErrorCode", &self.failureErrorCode)
-            .field("failurePoint", &self.failurePoint)
-            .field("keyingModuleType", &self.keyingModuleType)
-            .field("qmState", &self.qmState)
-            .field("saRole", &self.saRole)
-            .field("saTrafficType", &self.saTrafficType)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("qmFilterId", &self.qmFilterId)
-            .field("mmSaLuid", &self.mmSaLuid)
-            .field("mmProviderContextKey", &self.mmProviderContextKey)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
     type Abi = Self;
 }
@@ -4104,11 +3873,6 @@ impl ::core::marker::Copy for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {}
 impl ::core::clone::Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_IPSEC_DOSP_DROP0").field("ipVersion", &self.ipVersion).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("failureStatus", &self.failureStatus).field("direction", &self.direction).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
@@ -4416,12 +4180,6 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_PROVIDER_CONTEXT0").field("providerContextKey", &self.providerContextKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("type", &self.r#type).field("Anonymous", &self.Anonymous).field("providerContextId", &self.providerContextId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT0 {
     type Abi = Self;
 }
@@ -4498,12 +4256,6 @@ impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT1 {}
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_PROVIDER_CONTEXT1").field("providerContextKey", &self.providerContextKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("type", &self.r#type).field("Anonymous", &self.Anonymous).field("providerContextId", &self.providerContextId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -4589,12 +4341,6 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_PROVIDER_CONTEXT2").field("providerContextKey", &self.providerContextKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("type", &self.r#type).field("Anonymous", &self.Anonymous).field("providerContextId", &self.providerContextId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT2 {
     type Abi = Self;
 }
@@ -4675,12 +4421,6 @@ impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3_ {}
 impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3_ {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT3_ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_PROVIDER_CONTEXT3_").field("providerContextKey", &self.providerContextKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("type", &self.r#type).field("Anonymous", &self.Anonymous).field("providerContextId", &self.providerContextId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -5410,12 +5150,6 @@ impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_VSWITCH_EVENT0").field("eventType", &self.eventType).field("vSwitchId", &self.vSwitchId).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT0 {
     type Abi = Self;
 }
@@ -5996,12 +5730,6 @@ impl ::core::clone::Clone for FWP_CONDITION_VALUE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWP_CONDITION_VALUE0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWP_CONDITION_VALUE0").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWP_CONDITION_VALUE0 {
     type Abi = Self;
 }
@@ -6227,12 +5955,6 @@ impl ::core::clone::Clone for FWP_RANGE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWP_RANGE0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWP_RANGE0").field("valueLow", &self.valueLow).field("valueHigh", &self.valueHigh).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for FWP_RANGE0 {
     type Abi = Self;
 }
@@ -6368,12 +6090,6 @@ impl ::core::marker::Copy for FWP_VALUE0 {}
 impl ::core::clone::Clone for FWP_VALUE0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for FWP_VALUE0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWP_VALUE0").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -8515,11 +8231,6 @@ impl ::core::clone::Clone for ICMPV4_ADDRESS_MASK_MESSAGE {
         *self
     }
 }
-impl ::core::fmt::Debug for ICMPV4_ADDRESS_MASK_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICMPV4_ADDRESS_MASK_MESSAGE").field("Header", &self.Header).field("AddressMask", &self.AddressMask).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ICMPV4_ADDRESS_MASK_MESSAGE {
     type Abi = Self;
 }
@@ -8552,12 +8263,6 @@ impl ::core::clone::Clone for ICMPV4_ROUTER_ADVERT_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for ICMPV4_ROUTER_ADVERT_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICMPV4_ROUTER_ADVERT_ENTRY").field("RouterAdvertAddr", &self.RouterAdvertAddr).field("PreferenceLevel", &self.PreferenceLevel).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for ICMPV4_ROUTER_ADVERT_ENTRY {
     type Abi = Self;
 }
@@ -8586,11 +8291,6 @@ impl ::core::clone::Clone for ICMPV4_ROUTER_ADVERT_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for ICMPV4_ROUTER_ADVERT_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICMPV4_ROUTER_ADVERT_HEADER").field("RaHeader", &self.RaHeader).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ICMPV4_ROUTER_ADVERT_HEADER {
     type Abi = Self;
 }
@@ -8614,11 +8314,6 @@ impl ::core::marker::Copy for ICMPV4_ROUTER_SOLICIT {}
 impl ::core::clone::Clone for ICMPV4_ROUTER_SOLICIT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ICMPV4_ROUTER_SOLICIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICMPV4_ROUTER_SOLICIT").field("RsHeader", &self.RsHeader).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ICMPV4_ROUTER_SOLICIT {
@@ -8647,11 +8342,6 @@ impl ::core::marker::Copy for ICMPV4_TIMESTAMP_MESSAGE {}
 impl ::core::clone::Clone for ICMPV4_TIMESTAMP_MESSAGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ICMPV4_TIMESTAMP_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICMPV4_TIMESTAMP_MESSAGE").field("Header", &self.Header).field("OriginateTimestamp", &self.OriginateTimestamp).field("ReceiveTimestamp", &self.ReceiveTimestamp).field("TransmitTimestamp", &self.TransmitTimestamp).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ICMPV4_TIMESTAMP_MESSAGE {
@@ -8714,11 +8404,6 @@ impl ::core::clone::Clone for ICMP_MESSAGE {
         *self
     }
 }
-impl ::core::fmt::Debug for ICMP_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICMP_MESSAGE").field("Header", &self.Header).field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ICMP_MESSAGE {
     type Abi = Self;
 }
@@ -8778,12 +8463,6 @@ impl ::core::marker::Copy for IGMPV3_QUERY_HEADER {}
 impl ::core::clone::Clone for IGMPV3_QUERY_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for IGMPV3_QUERY_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IGMPV3_QUERY_HEADER").field("Type", &self.Type).field("Anonymous1", &self.Anonymous1).field("Checksum", &self.Checksum).field("MulticastAddress", &self.MulticastAddress).field("_bitfield", &self._bitfield).field("Anonymous2", &self.Anonymous2).field("SourceCount", &self.SourceCount).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -8998,12 +8677,6 @@ impl ::core::clone::Clone for IGMPV3_REPORT_RECORD_HEADER {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for IGMPV3_REPORT_RECORD_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IGMPV3_REPORT_RECORD_HEADER").field("Type", &self.Type).field("AuxillaryDataLength", &self.AuxillaryDataLength).field("SourceCount", &self.SourceCount).field("MulticastAddress", &self.MulticastAddress).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for IGMPV3_REPORT_RECORD_HEADER {
     type Abi = Self;
 }
@@ -9036,12 +8709,6 @@ impl ::core::marker::Copy for IGMP_HEADER {}
 impl ::core::clone::Clone for IGMP_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for IGMP_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IGMP_HEADER").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("Checksum", &self.Checksum).field("MulticastAddress", &self.MulticastAddress).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -9207,12 +8874,6 @@ impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_AUTHENTICATION_METHOD0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_AUTHENTICATION_METHOD0").field("authenticationMethodType", &self.authenticationMethodType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD0 {
     type Abi = Self;
 }
@@ -9280,12 +8941,6 @@ impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD1 {}
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_AUTHENTICATION_METHOD1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_AUTHENTICATION_METHOD1").field("authenticationMethodType", &self.authenticationMethodType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9357,12 +9012,6 @@ impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD2 {}
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_AUTHENTICATION_METHOD2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_AUTHENTICATION_METHOD2").field("authenticationMethodType", &self.authenticationMethodType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9465,11 +9114,6 @@ impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION0").field("inboundConfigType", &self.inboundConfigType).field("Anonymous1", &self.Anonymous1).field("outboundConfigType", &self.outboundConfigType).field("Anonymous2", &self.Anonymous2).field("flags", &self.flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
@@ -9616,11 +9260,6 @@ impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION1").field("inboundConfigType", &self.inboundConfigType).field("Anonymous1", &self.Anonymous1).field("outboundConfigType", &self.outboundConfigType).field("Anonymous2", &self.Anonymous2).field("flags", &self.flags).field("localCertLocationUrl", &self.localCertLocationUrl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
@@ -9770,12 +9409,6 @@ impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2").field("inboundConfigType", &self.inboundConfigType).field("Anonymous1", &self.Anonymous1).field("outboundConfigType", &self.outboundConfigType).field("Anonymous2", &self.Anonymous2).field("flags", &self.flags).field("localCertLocationUrl", &self.localCertLocationUrl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10550,12 +10183,6 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_CREDENTIAL0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CREDENTIAL0").field("authenticationMethodType", &self.authenticationMethodType).field("impersonationType", &self.impersonationType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL0 {
     type Abi = Self;
 }
@@ -10624,12 +10251,6 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_CREDENTIAL1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CREDENTIAL1").field("authenticationMethodType", &self.authenticationMethodType).field("impersonationType", &self.impersonationType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL1 {
     type Abi = Self;
 }
@@ -10695,12 +10316,6 @@ impl ::core::marker::Copy for IKEEXT_CREDENTIAL2 {}
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_CREDENTIAL2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CREDENTIAL2").field("authenticationMethodType", &self.authenticationMethodType).field("impersonationType", &self.impersonationType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10888,12 +10503,6 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_CREDENTIAL_PAIR0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CREDENTIAL_PAIR0").field("localCredentials", &self.localCredentials).field("peerCredentials", &self.peerCredentials).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR0 {
     type Abi = Self;
 }
@@ -10927,12 +10536,6 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_CREDENTIAL_PAIR1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CREDENTIAL_PAIR1").field("localCredentials", &self.localCredentials).field("peerCredentials", &self.peerCredentials).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR1 {
     type Abi = Self;
 }
@@ -10963,12 +10566,6 @@ impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR2 {}
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_CREDENTIAL_PAIR2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_CREDENTIAL_PAIR2").field("localCredentials", &self.localCredentials).field("peerCredentials", &self.peerCredentials).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12050,12 +11647,6 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_SA_DETAILS0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_SA_DETAILS0").field("saId", &self.saId).field("keyModuleType", &self.keyModuleType).field("ipVersion", &self.ipVersion).field("Anonymous", &self.Anonymous).field("ikeTraffic", &self.ikeTraffic).field("ikeProposal", &self.ikeProposal).field("cookiePair", &self.cookiePair).field("ikeCredentials", &self.ikeCredentials).field("ikePolicyKey", &self.ikePolicyKey).field("virtualIfTunnelId", &self.virtualIfTunnelId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS0 {
     type Abi = Self;
 }
@@ -12127,24 +11718,6 @@ impl ::core::marker::Copy for IKEEXT_SA_DETAILS1 {}
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_SA_DETAILS1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_SA_DETAILS1")
-            .field("saId", &self.saId)
-            .field("keyModuleType", &self.keyModuleType)
-            .field("ipVersion", &self.ipVersion)
-            .field("Anonymous", &self.Anonymous)
-            .field("ikeTraffic", &self.ikeTraffic)
-            .field("ikeProposal", &self.ikeProposal)
-            .field("cookiePair", &self.cookiePair)
-            .field("ikeCredentials", &self.ikeCredentials)
-            .field("ikePolicyKey", &self.ikePolicyKey)
-            .field("virtualIfTunnelId", &self.virtualIfTunnelId)
-            .field("correlationKey", &self.correlationKey)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12222,24 +11795,6 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IKEEXT_SA_DETAILS2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_SA_DETAILS2")
-            .field("saId", &self.saId)
-            .field("keyModuleType", &self.keyModuleType)
-            .field("ipVersion", &self.ipVersion)
-            .field("Anonymous", &self.Anonymous)
-            .field("ikeTraffic", &self.ikeTraffic)
-            .field("ikeProposal", &self.ikeProposal)
-            .field("cookiePair", &self.cookiePair)
-            .field("ikeCredentials", &self.ikeCredentials)
-            .field("ikePolicyKey", &self.ikePolicyKey)
-            .field("virtualIfTunnelId", &self.virtualIfTunnelId)
-            .field("correlationKey", &self.correlationKey)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS2 {
     type Abi = Self;
 }
@@ -12303,12 +11858,6 @@ impl ::core::marker::Copy for IKEEXT_SA_ENUM_TEMPLATE0 {}
 impl ::core::clone::Clone for IKEEXT_SA_ENUM_TEMPLATE0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for IKEEXT_SA_ENUM_TEMPLATE0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_SA_ENUM_TEMPLATE0").field("localSubNet", &self.localSubNet).field("remoteSubNet", &self.remoteSubNet).field("localMainModeCertHash", &self.localMainModeCertHash).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -12414,11 +11963,6 @@ impl ::core::marker::Copy for IKEEXT_TRAFFIC0 {}
 impl ::core::clone::Clone for IKEEXT_TRAFFIC0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IKEEXT_TRAFFIC0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IKEEXT_TRAFFIC0").field("ipVersion", &self.ipVersion).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("authIpFilterId", &self.authIpFilterId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_TRAFFIC0 {
@@ -13207,11 +12751,6 @@ impl ::core::clone::Clone for IPSEC_GETSPI0 {
         *self
     }
 }
-impl ::core::fmt::Debug for IPSEC_GETSPI0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_GETSPI0").field("inboundIpsecTraffic", &self.inboundIpsecTraffic).field("ipVersion", &self.ipVersion).field("Anonymous", &self.Anonymous).field("rngCryptoModuleID", &self.rngCryptoModuleID).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPSEC_GETSPI0 {
     type Abi = Self;
 }
@@ -13263,11 +12802,6 @@ impl ::core::marker::Copy for IPSEC_GETSPI1 {}
 impl ::core::clone::Clone for IPSEC_GETSPI1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IPSEC_GETSPI1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_GETSPI1").field("inboundIpsecTraffic", &self.inboundIpsecTraffic).field("ipVersion", &self.ipVersion).field("Anonymous", &self.Anonymous).field("rngCryptoModuleID", &self.rngCryptoModuleID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_GETSPI1 {
@@ -13644,11 +13178,6 @@ impl ::core::clone::Clone for IPSEC_SA0 {
         *self
     }
 }
-impl ::core::fmt::Debug for IPSEC_SA0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_SA0").field("spi", &self.spi).field("saTransformType", &self.saTransformType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPSEC_SA0 {
     type Abi = Self;
 }
@@ -13782,27 +13311,6 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IPSEC_SA_BUNDLE0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_SA_BUNDLE0")
-            .field("flags", &self.flags)
-            .field("lifetime", &self.lifetime)
-            .field("idleTimeoutSeconds", &self.idleTimeoutSeconds)
-            .field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds)
-            .field("ipsecId", &self.ipsecId)
-            .field("napContext", &self.napContext)
-            .field("qmSaId", &self.qmSaId)
-            .field("numSAs", &self.numSAs)
-            .field("saList", &self.saList)
-            .field("keyModuleState", &self.keyModuleState)
-            .field("ipVersion", &self.ipVersion)
-            .field("Anonymous", &self.Anonymous)
-            .field("mmSaId", &self.mmSaId)
-            .field("pfsGroup", &self.pfsGroup)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE0 {
     type Abi = Self;
 }
@@ -13879,29 +13387,6 @@ impl ::core::marker::Copy for IPSEC_SA_BUNDLE1 {}
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IPSEC_SA_BUNDLE1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_SA_BUNDLE1")
-            .field("flags", &self.flags)
-            .field("lifetime", &self.lifetime)
-            .field("idleTimeoutSeconds", &self.idleTimeoutSeconds)
-            .field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds)
-            .field("ipsecId", &self.ipsecId)
-            .field("napContext", &self.napContext)
-            .field("qmSaId", &self.qmSaId)
-            .field("numSAs", &self.numSAs)
-            .field("saList", &self.saList)
-            .field("keyModuleState", &self.keyModuleState)
-            .field("ipVersion", &self.ipVersion)
-            .field("Anonymous", &self.Anonymous)
-            .field("mmSaId", &self.mmSaId)
-            .field("pfsGroup", &self.pfsGroup)
-            .field("saLookupContext", &self.saLookupContext)
-            .field("qmFilterId", &self.qmFilterId)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14162,12 +13647,6 @@ impl ::core::clone::Clone for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_SA_CONTEXT_ENUM_TEMPLATE0").field("localSubNet", &self.localSubNet).field("remoteSubNet", &self.remoteSubNet).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
@@ -14253,12 +13732,6 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for IPSEC_SA_DETAILS0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_SA_DETAILS0").field("ipVersion", &self.ipVersion).field("saDirection", &self.saDirection).field("traffic", &self.traffic).field("saBundle", &self.saBundle).field("Anonymous", &self.Anonymous).field("transportFilter", &self.transportFilter).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for IPSEC_SA_DETAILS0 {
     type Abi = Self;
 }
@@ -14326,12 +13799,6 @@ impl ::core::marker::Copy for IPSEC_SA_DETAILS1 {}
 impl ::core::clone::Clone for IPSEC_SA_DETAILS1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for IPSEC_SA_DETAILS1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_SA_DETAILS1").field("ipVersion", &self.ipVersion).field("saDirection", &self.saDirection).field("traffic", &self.traffic).field("saBundle", &self.saBundle).field("Anonymous", &self.Anonymous).field("transportFilter", &self.transportFilter).field("virtualIfTunnelInfo", &self.virtualIfTunnelInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -14487,11 +13954,6 @@ impl ::core::marker::Copy for IPSEC_SA_TRANSFORM0 {}
 impl ::core::clone::Clone for IPSEC_SA_TRANSFORM0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IPSEC_SA_TRANSFORM0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_SA_TRANSFORM0").field("ipsecTransformType", &self.ipsecTransformType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_SA_TRANSFORM0 {
@@ -14680,11 +14142,6 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC0 {
         *self
     }
 }
-impl ::core::fmt::Debug for IPSEC_TRAFFIC0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TRAFFIC0").field("ipVersion", &self.ipVersion).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("trafficType", &self.trafficType).field("Anonymous3", &self.Anonymous3).field("remotePort", &self.remotePort).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0 {
     type Abi = Self;
 }
@@ -14797,11 +14254,6 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC1 {
         *self
     }
 }
-impl ::core::fmt::Debug for IPSEC_TRAFFIC1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TRAFFIC1").field("ipVersion", &self.ipVersion).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("trafficType", &self.trafficType).field("Anonymous3", &self.Anonymous3).field("remotePort", &self.remotePort).field("localPort", &self.localPort).field("ipProtocol", &self.ipProtocol).field("localIfLuid", &self.localIfLuid).field("realIfProfileId", &self.realIfProfileId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1 {
     type Abi = Self;
 }
@@ -14908,11 +14360,6 @@ impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0_ {}
 impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0_ {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IPSEC_TRAFFIC_SELECTOR0_ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TRAFFIC_SELECTOR0_").field("protocolId", &self.protocolId).field("portStart", &self.portStart).field("portEnd", &self.portEnd).field("ipVersion", &self.ipVersion).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0_ {
@@ -15249,11 +14696,6 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINT0 {
         *self
     }
 }
-impl ::core::fmt::Debug for IPSEC_TUNNEL_ENDPOINT0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TUNNEL_ENDPOINT0").field("ipVersion", &self.ipVersion).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINT0 {
     type Abi = Self;
 }
@@ -15305,11 +14747,6 @@ impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS0 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IPSEC_TUNNEL_ENDPOINTS0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TUNNEL_ENDPOINTS0").field("ipVersion", &self.ipVersion).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS0 {
@@ -15390,11 +14827,6 @@ impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS1 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IPSEC_TUNNEL_ENDPOINTS1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TUNNEL_ENDPOINTS1").field("ipVersion", &self.ipVersion).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("localIfLuid", &self.localIfLuid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS1 {
@@ -15481,12 +14913,6 @@ impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IPSEC_TUNNEL_ENDPOINTS2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TUNNEL_ENDPOINTS2").field("ipVersion", &self.ipVersion).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("localIfLuid", &self.localIfLuid).field("remoteFqdn", &self.remoteFqdn).field("numAddresses", &self.numAddresses).field("remoteAddresses", &self.remoteAddresses).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15593,12 +15019,6 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IPSEC_TUNNEL_POLICY0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TUNNEL_POLICY0").field("flags", &self.flags).field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("tunnelEndpoints", &self.tunnelEndpoints).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY0 {
     type Abi = Self;
 }
@@ -15633,12 +15053,6 @@ impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY1 {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IPSEC_TUNNEL_POLICY1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TUNNEL_POLICY1").field("flags", &self.flags).field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("tunnelEndpoints", &self.tunnelEndpoints).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15680,12 +15094,6 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IPSEC_TUNNEL_POLICY2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TUNNEL_POLICY2").field("flags", &self.flags).field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("tunnelEndpoints", &self.tunnelEndpoints).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).field("fwdPathSaLifetime", &self.fwdPathSaLifetime).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY2 {
     type Abi = Self;
 }
@@ -15724,23 +15132,6 @@ impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY3_ {}
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY3_ {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IPSEC_TUNNEL_POLICY3_ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TUNNEL_POLICY3_")
-            .field("flags", &self.flags)
-            .field("numIpsecProposals", &self.numIpsecProposals)
-            .field("ipsecProposals", &self.ipsecProposals)
-            .field("tunnelEndpoints", &self.tunnelEndpoints)
-            .field("saIdleTimeout", &self.saIdleTimeout)
-            .field("emPolicy", &self.emPolicy)
-            .field("fwdPathSaLifetime", &self.fwdPathSaLifetime)
-            .field("compartmentId", &self.compartmentId)
-            .field("numTrafficSelectorPolicy", &self.numTrafficSelectorPolicy)
-            .field("trafficSelectorPolicies", &self.trafficSelectorPolicies)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15874,12 +15265,6 @@ impl ::core::marker::Copy for IPV4_HEADER {}
 impl ::core::clone::Clone for IPV4_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for IPV4_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPV4_HEADER").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("TotalLength", &self.TotalLength).field("Identification", &self.Identification).field("Anonymous3", &self.Anonymous3).field("TimeToLive", &self.TimeToLive).field("Protocol", &self.Protocol).field("HeaderChecksum", &self.HeaderChecksum).field("SourceAddress", &self.SourceAddress).field("DestinationAddress", &self.DestinationAddress).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -16131,11 +15516,6 @@ impl ::core::clone::Clone for IPV4_OPTION_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for IPV4_OPTION_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPV4_OPTION_HEADER").field("Anonymous", &self.Anonymous).field("OptionLength", &self.OptionLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPV4_OPTION_HEADER {
     type Abi = Self;
 }
@@ -16240,11 +15620,6 @@ impl ::core::clone::Clone for IPV4_ROUTING_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for IPV4_ROUTING_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPV4_ROUTING_HEADER").field("OptionHeader", &self.OptionHeader).field("Pointer", &self.Pointer).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPV4_ROUTING_HEADER {
     type Abi = Self;
 }
@@ -16270,11 +15645,6 @@ impl ::core::marker::Copy for IPV4_TIMESTAMP_OPTION {}
 impl ::core::clone::Clone for IPV4_TIMESTAMP_OPTION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IPV4_TIMESTAMP_OPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPV4_TIMESTAMP_OPTION").field("OptionHeader", &self.OptionHeader).field("Pointer", &self.Pointer).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IPV4_TIMESTAMP_OPTION {
@@ -16400,11 +15770,6 @@ impl ::core::clone::Clone for IPV6_FRAGMENT_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for IPV6_FRAGMENT_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPV6_FRAGMENT_HEADER").field("NextHeader", &self.NextHeader).field("Reserved", &self.Reserved).field("Anonymous", &self.Anonymous).field("Id", &self.Id).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPV6_FRAGMENT_HEADER {
     type Abi = Self;
 }
@@ -16494,12 +15859,6 @@ impl ::core::marker::Copy for IPV6_HEADER {}
 impl ::core::clone::Clone for IPV6_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for IPV6_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPV6_HEADER").field("Anonymous", &self.Anonymous).field("PayloadLength", &self.PayloadLength).field("NextHeader", &self.NextHeader).field("HopLimit", &self.HopLimit).field("SourceAddress", &self.SourceAddress).field("DestinationAddress", &self.DestinationAddress).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -17683,12 +17042,6 @@ impl ::core::clone::Clone for MLDV2_QUERY_HEADER {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for MLDV2_QUERY_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MLDV2_QUERY_HEADER").field("IcmpHeader", &self.IcmpHeader).field("Anonymous1", &self.Anonymous1).field("Reserved", &self.Reserved).field("MulticastAddress", &self.MulticastAddress).field("_bitfield", &self._bitfield).field("Anonymous2", &self.Anonymous2).field("SourceCount", &self.SourceCount).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MLDV2_QUERY_HEADER {
     type Abi = Self;
 }
@@ -17898,12 +17251,6 @@ impl ::core::clone::Clone for MLDV2_REPORT_RECORD_HEADER {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for MLDV2_REPORT_RECORD_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MLDV2_REPORT_RECORD_HEADER").field("Type", &self.Type).field("AuxillaryDataLength", &self.AuxillaryDataLength).field("SourceCount", &self.SourceCount).field("MulticastAddress", &self.MulticastAddress).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for MLDV2_REPORT_RECORD_HEADER {
     type Abi = Self;
 }
@@ -17936,12 +17283,6 @@ impl ::core::marker::Copy for MLD_HEADER {}
 impl ::core::clone::Clone for MLD_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for MLD_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MLD_HEADER").field("IcmpHeader", &self.IcmpHeader).field("MaxRespTime", &self.MaxRespTime).field("Reserved", &self.Reserved).field("MulticastAddress", &self.MulticastAddress).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -18040,12 +17381,6 @@ impl ::core::marker::Copy for NPI_MODULEID {}
 impl ::core::clone::Clone for NPI_MODULEID {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NPI_MODULEID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NPI_MODULEID").field("Length", &self.Length).field("Type", &self.Type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18211,11 +17546,6 @@ impl ::core::clone::Clone for VLAN_TAG {
         *self
     }
 }
-impl ::core::fmt::Debug for VLAN_TAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VLAN_TAG").field("Anonymous", &self.Anonymous).field("Type", &self.Type).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VLAN_TAG {
     type Abi = Self;
 }
@@ -18308,12 +17638,6 @@ impl ::core::clone::Clone for nd_neighbor_advert {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for nd_neighbor_advert {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_neighbor_advert").field("nd_na_hdr", &self.nd_na_hdr).field("nd_na_target", &self.nd_na_target).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for nd_neighbor_advert {
     type Abi = Self;
 }
@@ -18344,12 +17668,6 @@ impl ::core::marker::Copy for nd_neighbor_solicit {}
 impl ::core::clone::Clone for nd_neighbor_solicit {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for nd_neighbor_solicit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_neighbor_solicit").field("nd_ns_hdr", &self.nd_ns_hdr).field("nd_ns_target", &self.nd_ns_target).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -18486,12 +17804,6 @@ impl ::core::marker::Copy for nd_opt_prefix_info {}
 impl ::core::clone::Clone for nd_opt_prefix_info {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for nd_opt_prefix_info {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_prefix_info").field("nd_opt_pi_type", &self.nd_opt_pi_type).field("nd_opt_pi_len", &self.nd_opt_pi_len).field("nd_opt_pi_prefix_len", &self.nd_opt_pi_prefix_len).field("Anonymous1", &self.Anonymous1).field("nd_opt_pi_valid_time", &self.nd_opt_pi_valid_time).field("nd_opt_pi_preferred_time", &self.nd_opt_pi_preferred_time).field("Anonymous2", &self.Anonymous2).field("nd_opt_pi_prefix", &self.nd_opt_pi_prefix).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -18741,12 +18053,6 @@ impl ::core::clone::Clone for nd_opt_route_info {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for nd_opt_route_info {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_route_info").field("nd_opt_ri_type", &self.nd_opt_ri_type).field("nd_opt_ri_len", &self.nd_opt_ri_len).field("nd_opt_ri_prefix_len", &self.nd_opt_ri_prefix_len).field("Anonymous", &self.Anonymous).field("nd_opt_ri_route_lifetime", &self.nd_opt_ri_route_lifetime).field("nd_opt_ri_prefix", &self.nd_opt_ri_prefix).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for nd_opt_route_info {
     type Abi = Self;
 }
@@ -18852,12 +18158,6 @@ impl ::core::clone::Clone for nd_redirect {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for nd_redirect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_redirect").field("nd_rd_hdr", &self.nd_rd_hdr).field("nd_rd_target", &self.nd_rd_target).field("nd_rd_dst", &self.nd_rd_dst).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for nd_redirect {
     type Abi = Self;
 }
@@ -18888,11 +18188,6 @@ impl ::core::clone::Clone for nd_router_advert {
         *self
     }
 }
-impl ::core::fmt::Debug for nd_router_advert {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_router_advert").field("nd_ra_hdr", &self.nd_ra_hdr).field("nd_ra_reachable", &self.nd_ra_reachable).field("nd_ra_retransmit", &self.nd_ra_retransmit).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for nd_router_advert {
     type Abi = Self;
 }
@@ -18916,11 +18211,6 @@ impl ::core::marker::Copy for nd_router_solicit {}
 impl ::core::clone::Clone for nd_router_solicit {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for nd_router_solicit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_router_solicit").field("nd_rs_hdr", &self.nd_rs_hdr).finish()
     }
 }
 unsafe impl ::windows::core::Abi for nd_router_solicit {

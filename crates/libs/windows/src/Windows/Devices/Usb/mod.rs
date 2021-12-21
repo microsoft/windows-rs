@@ -1313,11 +1313,6 @@ impl ::core::clone::Clone for UsbControlRecipient {
         *self
     }
 }
-impl ::core::fmt::Debug for UsbControlRecipient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbControlRecipient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UsbControlRecipient {
     type Abi = Self;
 }
@@ -1327,6 +1322,11 @@ impl ::core::cmp::PartialEq for UsbControlRecipient {
     }
 }
 impl ::core::cmp::Eq for UsbControlRecipient {}
+impl ::core::fmt::Debug for UsbControlRecipient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlRecipient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbControlRecipient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlRecipient;i4)");
 }
@@ -1479,11 +1479,6 @@ impl ::core::clone::Clone for UsbControlTransferType {
         *self
     }
 }
-impl ::core::fmt::Debug for UsbControlTransferType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbControlTransferType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UsbControlTransferType {
     type Abi = Self;
 }
@@ -1493,6 +1488,11 @@ impl ::core::cmp::PartialEq for UsbControlTransferType {
     }
 }
 impl ::core::cmp::Eq for UsbControlTransferType {}
+impl ::core::fmt::Debug for UsbControlTransferType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlTransferType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbControlTransferType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlTransferType;i4)");
 }
@@ -2348,11 +2348,6 @@ impl ::core::clone::Clone for UsbEndpointType {
         *self
     }
 }
-impl ::core::fmt::Debug for UsbEndpointType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbEndpointType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UsbEndpointType {
     type Abi = Self;
 }
@@ -2362,6 +2357,11 @@ impl ::core::cmp::PartialEq for UsbEndpointType {
     }
 }
 impl ::core::cmp::Eq for UsbEndpointType {}
+impl ::core::fmt::Debug for UsbEndpointType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbEndpointType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbEndpointType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbEndpointType;i4)");
 }
@@ -3305,11 +3305,6 @@ impl ::core::clone::Clone for UsbReadOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for UsbReadOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbReadOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UsbReadOptions {
     type Abi = Self;
 }
@@ -3319,6 +3314,11 @@ impl ::core::cmp::PartialEq for UsbReadOptions {
     }
 }
 impl ::core::cmp::Eq for UsbReadOptions {}
+impl ::core::fmt::Debug for UsbReadOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbReadOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbReadOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbReadOptions;u4)");
 }
@@ -3496,11 +3496,6 @@ impl ::core::clone::Clone for UsbTransferDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for UsbTransferDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbTransferDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UsbTransferDirection {
     type Abi = Self;
 }
@@ -3510,6 +3505,11 @@ impl ::core::cmp::PartialEq for UsbTransferDirection {
     }
 }
 impl ::core::cmp::Eq for UsbTransferDirection {}
+impl ::core::fmt::Debug for UsbTransferDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbTransferDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbTransferDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbTransferDirection;i4)");
 }
@@ -3530,11 +3530,6 @@ impl ::core::clone::Clone for UsbWriteOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for UsbWriteOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbWriteOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UsbWriteOptions {
     type Abi = Self;
 }
@@ -3544,6 +3539,11 @@ impl ::core::cmp::PartialEq for UsbWriteOptions {
     }
 }
 impl ::core::cmp::Eq for UsbWriteOptions {}
+impl ::core::fmt::Debug for UsbWriteOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbWriteOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UsbWriteOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbWriteOptions;u4)");
 }

@@ -12,11 +12,6 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILTER_AGGREGATE_BASIC_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("Type", &self.Type).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION {
     type Abi = Self;
 }
@@ -134,11 +129,6 @@ impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILTER_AGGREGATE_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION {
@@ -955,11 +945,6 @@ impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INSTANCE_AGGREGATE_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION {

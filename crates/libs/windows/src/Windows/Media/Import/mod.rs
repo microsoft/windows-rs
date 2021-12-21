@@ -473,11 +473,6 @@ impl ::core::clone::Clone for PhotoImportAccessMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportAccessMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportAccessMode {
     type Abi = Self;
 }
@@ -487,6 +482,11 @@ impl ::core::cmp::PartialEq for PhotoImportAccessMode {
     }
 }
 impl ::core::cmp::Eq for PhotoImportAccessMode {}
+impl ::core::fmt::Debug for PhotoImportAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
 }
@@ -508,11 +508,6 @@ impl ::core::clone::Clone for PhotoImportConnectionTransport {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportConnectionTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportConnectionTransport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportConnectionTransport {
     type Abi = Self;
 }
@@ -522,6 +517,11 @@ impl ::core::cmp::PartialEq for PhotoImportConnectionTransport {
     }
 }
 impl ::core::cmp::Eq for PhotoImportConnectionTransport {}
+impl ::core::fmt::Debug for PhotoImportConnectionTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportConnectionTransport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportConnectionTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
 }
@@ -542,11 +542,6 @@ impl ::core::clone::Clone for PhotoImportContentType {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportContentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportContentType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportContentType {
     type Abi = Self;
 }
@@ -556,6 +551,11 @@ impl ::core::cmp::PartialEq for PhotoImportContentType {
     }
 }
 impl ::core::cmp::Eq for PhotoImportContentType {}
+impl ::core::fmt::Debug for PhotoImportContentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportContentType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportContentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
 }
@@ -577,11 +577,6 @@ impl ::core::clone::Clone for PhotoImportContentTypeFilter {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportContentTypeFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportContentTypeFilter {
     type Abi = Self;
 }
@@ -591,6 +586,11 @@ impl ::core::cmp::PartialEq for PhotoImportContentTypeFilter {
     }
 }
 impl ::core::cmp::Eq for PhotoImportContentTypeFilter {}
+impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportContentTypeFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportContentTypeFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
 }
@@ -1312,11 +1312,6 @@ impl ::core::clone::Clone for PhotoImportImportMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportImportMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportImportMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportImportMode {
     type Abi = Self;
 }
@@ -1326,6 +1321,11 @@ impl ::core::cmp::PartialEq for PhotoImportImportMode {
     }
 }
 impl ::core::cmp::Eq for PhotoImportImportMode {}
+impl ::core::fmt::Debug for PhotoImportImportMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportImportMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportImportMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
 }
@@ -1615,11 +1615,6 @@ impl ::core::clone::Clone for PhotoImportItemSelectionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportItemSelectionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportItemSelectionMode {
     type Abi = Self;
 }
@@ -1629,6 +1624,11 @@ impl ::core::cmp::PartialEq for PhotoImportItemSelectionMode {
     }
 }
 impl ::core::cmp::Eq for PhotoImportItemSelectionMode {}
+impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportItemSelectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportItemSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
 }
@@ -1801,11 +1801,6 @@ impl ::core::clone::Clone for PhotoImportPowerSource {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportPowerSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportPowerSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportPowerSource {
     type Abi = Self;
 }
@@ -1815,6 +1810,11 @@ impl ::core::cmp::PartialEq for PhotoImportPowerSource {
     }
 }
 impl ::core::cmp::Eq for PhotoImportPowerSource {}
+impl ::core::fmt::Debug for PhotoImportPowerSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportPowerSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportPowerSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
 }
@@ -2503,11 +2503,6 @@ impl ::core::clone::Clone for PhotoImportSourceType {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportSourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportSourceType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportSourceType {
     type Abi = Self;
 }
@@ -2517,6 +2512,11 @@ impl ::core::cmp::PartialEq for PhotoImportSourceType {
     }
 }
 impl ::core::cmp::Eq for PhotoImportSourceType {}
+impl ::core::fmt::Debug for PhotoImportSourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSourceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportSourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
 }
@@ -2538,11 +2538,6 @@ impl ::core::clone::Clone for PhotoImportStage {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportStage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportStage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportStage {
     type Abi = Self;
 }
@@ -2552,6 +2547,11 @@ impl ::core::cmp::PartialEq for PhotoImportStage {
     }
 }
 impl ::core::cmp::Eq for PhotoImportStage {}
+impl ::core::fmt::Debug for PhotoImportStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportStage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
 }
@@ -2706,11 +2706,6 @@ impl ::core::clone::Clone for PhotoImportStorageMediumType {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportStorageMediumType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportStorageMediumType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportStorageMediumType {
     type Abi = Self;
 }
@@ -2720,6 +2715,11 @@ impl ::core::cmp::PartialEq for PhotoImportStorageMediumType {
     }
 }
 impl ::core::cmp::Eq for PhotoImportStorageMediumType {}
+impl ::core::fmt::Debug for PhotoImportStorageMediumType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportStorageMediumType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMediumType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
 }
@@ -2741,11 +2741,6 @@ impl ::core::clone::Clone for PhotoImportSubfolderCreationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportSubfolderCreationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportSubfolderCreationMode {
     type Abi = Self;
 }
@@ -2755,6 +2750,11 @@ impl ::core::cmp::PartialEq for PhotoImportSubfolderCreationMode {
     }
 }
 impl ::core::cmp::Eq for PhotoImportSubfolderCreationMode {}
+impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSubfolderCreationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderCreationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
 }
@@ -2775,11 +2775,6 @@ impl ::core::clone::Clone for PhotoImportSubfolderDateFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for PhotoImportSubfolderDateFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportSubfolderDateFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhotoImportSubfolderDateFormat {
     type Abi = Self;
 }
@@ -2789,6 +2784,11 @@ impl ::core::cmp::PartialEq for PhotoImportSubfolderDateFormat {
     }
 }
 impl ::core::cmp::Eq for PhotoImportSubfolderDateFormat {}
+impl ::core::fmt::Debug for PhotoImportSubfolderDateFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSubfolderDateFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderDateFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
 }

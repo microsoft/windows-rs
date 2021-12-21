@@ -260,11 +260,6 @@ impl ::core::clone::Clone for ProviderAdcChannelMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ProviderAdcChannelMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderAdcChannelMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderAdcChannelMode {
     type Abi = Self;
 }
@@ -274,6 +269,11 @@ impl ::core::cmp::PartialEq for ProviderAdcChannelMode {
     }
 }
 impl ::core::cmp::Eq for ProviderAdcChannelMode {}
+impl ::core::fmt::Debug for ProviderAdcChannelMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderAdcChannelMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderAdcChannelMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
 }

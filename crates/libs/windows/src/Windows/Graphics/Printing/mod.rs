@@ -1016,11 +1016,6 @@ impl ::core::clone::Clone for PrintBinding {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintBinding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintBinding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintBinding {
     type Abi = Self;
 }
@@ -1030,6 +1025,11 @@ impl ::core::cmp::PartialEq for PrintBinding {
     }
 }
 impl ::core::cmp::Eq for PrintBinding {}
+impl ::core::fmt::Debug for PrintBinding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintBinding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintBinding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
 }
@@ -1052,11 +1052,6 @@ impl ::core::clone::Clone for PrintBordering {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintBordering {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintBordering").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintBordering {
     type Abi = Self;
 }
@@ -1066,6 +1061,11 @@ impl ::core::cmp::PartialEq for PrintBordering {
     }
 }
 impl ::core::cmp::Eq for PrintBordering {}
+impl ::core::fmt::Debug for PrintBordering {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintBordering").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintBordering {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
 }
@@ -1088,11 +1088,6 @@ impl ::core::clone::Clone for PrintCollation {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintCollation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintCollation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintCollation {
     type Abi = Self;
 }
@@ -1102,6 +1097,11 @@ impl ::core::cmp::PartialEq for PrintCollation {
     }
 }
 impl ::core::cmp::Eq for PrintCollation {}
+impl ::core::fmt::Debug for PrintCollation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintCollation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintCollation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
 }
@@ -1125,11 +1125,6 @@ impl ::core::clone::Clone for PrintColorMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintColorMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintColorMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintColorMode {
     type Abi = Self;
 }
@@ -1139,6 +1134,11 @@ impl ::core::cmp::PartialEq for PrintColorMode {
     }
 }
 impl ::core::cmp::Eq for PrintColorMode {}
+impl ::core::fmt::Debug for PrintColorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintColorMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintColorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
 }
@@ -1162,11 +1162,6 @@ impl ::core::clone::Clone for PrintDuplex {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintDuplex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintDuplex").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintDuplex {
     type Abi = Self;
 }
@@ -1176,6 +1171,11 @@ impl ::core::cmp::PartialEq for PrintDuplex {
     }
 }
 impl ::core::cmp::Eq for PrintDuplex {}
+impl ::core::fmt::Debug for PrintDuplex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintDuplex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintDuplex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
 }
@@ -1201,11 +1201,6 @@ impl ::core::clone::Clone for PrintHolePunch {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintHolePunch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintHolePunch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintHolePunch {
     type Abi = Self;
 }
@@ -1215,6 +1210,11 @@ impl ::core::cmp::PartialEq for PrintHolePunch {
     }
 }
 impl ::core::cmp::Eq for PrintHolePunch {}
+impl ::core::fmt::Debug for PrintHolePunch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintHolePunch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintHolePunch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
 }
@@ -1525,11 +1525,6 @@ impl ::core::clone::Clone for PrintMediaSize {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintMediaSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintMediaSize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintMediaSize {
     type Abi = Self;
 }
@@ -1539,6 +1534,11 @@ impl ::core::cmp::PartialEq for PrintMediaSize {
     }
 }
 impl ::core::cmp::Eq for PrintMediaSize {}
+impl ::core::fmt::Debug for PrintMediaSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintMediaSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintMediaSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
 }
@@ -1588,11 +1588,6 @@ impl ::core::clone::Clone for PrintMediaType {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintMediaType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintMediaType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintMediaType {
     type Abi = Self;
 }
@@ -1602,6 +1597,11 @@ impl ::core::cmp::PartialEq for PrintMediaType {
     }
 }
 impl ::core::cmp::Eq for PrintMediaType {}
+impl ::core::fmt::Debug for PrintMediaType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintMediaType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintMediaType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
 }
@@ -1626,11 +1626,6 @@ impl ::core::clone::Clone for PrintOrientation {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintOrientation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintOrientation {
     type Abi = Self;
 }
@@ -1640,6 +1635,11 @@ impl ::core::cmp::PartialEq for PrintOrientation {
     }
 }
 impl ::core::cmp::Eq for PrintOrientation {}
+impl ::core::fmt::Debug for PrintOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintOrientation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
 }
@@ -2083,11 +2083,6 @@ impl ::core::clone::Clone for PrintQuality {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintQuality {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintQuality").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintQuality {
     type Abi = Self;
 }
@@ -2097,6 +2092,11 @@ impl ::core::cmp::PartialEq for PrintQuality {
     }
 }
 impl ::core::cmp::Eq for PrintQuality {}
+impl ::core::fmt::Debug for PrintQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintQuality").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintQuality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
 }
@@ -2127,11 +2127,6 @@ impl ::core::clone::Clone for PrintStaple {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintStaple {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintStaple").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintStaple {
     type Abi = Self;
 }
@@ -2141,6 +2136,11 @@ impl ::core::cmp::PartialEq for PrintStaple {
     }
 }
 impl ::core::cmp::Eq for PrintStaple {}
+impl ::core::fmt::Debug for PrintStaple {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintStaple").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintStaple {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
 }
@@ -2440,11 +2440,6 @@ impl ::core::clone::Clone for PrintTaskCompletion {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintTaskCompletion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTaskCompletion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintTaskCompletion {
     type Abi = Self;
 }
@@ -2454,6 +2449,11 @@ impl ::core::cmp::PartialEq for PrintTaskCompletion {
     }
 }
 impl ::core::cmp::Eq for PrintTaskCompletion {}
+impl ::core::fmt::Debug for PrintTaskCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskCompletion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintTaskCompletion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
 }

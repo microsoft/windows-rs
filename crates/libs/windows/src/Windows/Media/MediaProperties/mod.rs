@@ -283,11 +283,6 @@ impl ::core::clone::Clone for AudioEncodingQuality {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioEncodingQuality {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEncodingQuality").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioEncodingQuality {
     type Abi = Self;
 }
@@ -297,6 +292,11 @@ impl ::core::cmp::PartialEq for AudioEncodingQuality {
     }
 }
 impl ::core::cmp::Eq for AudioEncodingQuality {}
+impl ::core::fmt::Debug for AudioEncodingQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEncodingQuality").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioEncodingQuality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
 }
@@ -2330,11 +2330,6 @@ impl ::core::clone::Clone for MediaMirroringOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaMirroringOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaMirroringOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaMirroringOptions {
     type Abi = Self;
 }
@@ -2344,6 +2339,11 @@ impl ::core::cmp::PartialEq for MediaMirroringOptions {
     }
 }
 impl ::core::cmp::Eq for MediaMirroringOptions {}
+impl ::core::fmt::Debug for MediaMirroringOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaMirroringOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaMirroringOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaMirroringOptions;u4)");
 }
@@ -2364,11 +2364,6 @@ impl ::core::clone::Clone for MediaPixelFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaPixelFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPixelFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaPixelFormat {
     type Abi = Self;
 }
@@ -2378,6 +2373,11 @@ impl ::core::cmp::PartialEq for MediaPixelFormat {
     }
 }
 impl ::core::cmp::Eq for MediaPixelFormat {}
+impl ::core::fmt::Debug for MediaPixelFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPixelFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPixelFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
 }
@@ -2731,11 +2731,6 @@ impl ::core::clone::Clone for MediaRotation {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaRotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaRotation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaRotation {
     type Abi = Self;
 }
@@ -2745,6 +2740,11 @@ impl ::core::cmp::PartialEq for MediaRotation {
     }
 }
 impl ::core::cmp::Eq for MediaRotation {}
+impl ::core::fmt::Debug for MediaRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
 }
@@ -2764,11 +2764,6 @@ impl ::core::clone::Clone for MediaThumbnailFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaThumbnailFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaThumbnailFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaThumbnailFormat {
     type Abi = Self;
 }
@@ -2778,6 +2773,11 @@ impl ::core::cmp::PartialEq for MediaThumbnailFormat {
     }
 }
 impl ::core::cmp::Eq for MediaThumbnailFormat {}
+impl ::core::fmt::Debug for MediaThumbnailFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaThumbnailFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaThumbnailFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
 }
@@ -2845,11 +2845,6 @@ impl ::core::clone::Clone for SphericalVideoFrameFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for SphericalVideoFrameFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SphericalVideoFrameFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SphericalVideoFrameFormat {
     type Abi = Self;
 }
@@ -2859,6 +2854,11 @@ impl ::core::cmp::PartialEq for SphericalVideoFrameFormat {
     }
 }
 impl ::core::cmp::Eq for SphericalVideoFrameFormat {}
+impl ::core::fmt::Debug for SphericalVideoFrameFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SphericalVideoFrameFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SphericalVideoFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
 }
@@ -2879,11 +2879,6 @@ impl ::core::clone::Clone for StereoscopicVideoPackingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StereoscopicVideoPackingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StereoscopicVideoPackingMode {
     type Abi = Self;
 }
@@ -2893,6 +2888,11 @@ impl ::core::cmp::PartialEq for StereoscopicVideoPackingMode {
     }
 }
 impl ::core::cmp::Eq for StereoscopicVideoPackingMode {}
+impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StereoscopicVideoPackingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StereoscopicVideoPackingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
 }
@@ -3375,11 +3375,6 @@ impl ::core::clone::Clone for VideoEncodingQuality {
         *self
     }
 }
-impl ::core::fmt::Debug for VideoEncodingQuality {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoEncodingQuality").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VideoEncodingQuality {
     type Abi = Self;
 }
@@ -3389,6 +3384,11 @@ impl ::core::cmp::PartialEq for VideoEncodingQuality {
     }
 }
 impl ::core::cmp::Eq for VideoEncodingQuality {}
+impl ::core::fmt::Debug for VideoEncodingQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoEncodingQuality").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoEncodingQuality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.VideoEncodingQuality;i4)");
 }

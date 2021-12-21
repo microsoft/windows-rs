@@ -115,11 +115,6 @@ impl ::core::clone::Clone for AppServiceClosedStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AppServiceClosedStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppServiceClosedStatus {
     type Abi = Self;
 }
@@ -129,6 +124,11 @@ impl ::core::cmp::PartialEq for AppServiceClosedStatus {
     }
 }
 impl ::core::cmp::Eq for AppServiceClosedStatus {}
+impl ::core::fmt::Debug for AppServiceClosedStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
 }
@@ -381,11 +381,6 @@ impl ::core::clone::Clone for AppServiceConnectionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AppServiceConnectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppServiceConnectionStatus {
     type Abi = Self;
 }
@@ -395,6 +390,11 @@ impl ::core::cmp::PartialEq for AppServiceConnectionStatus {
     }
 }
 impl ::core::cmp::Eq for AppServiceConnectionStatus {}
+impl ::core::fmt::Debug for AppServiceConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
 }
@@ -771,11 +771,6 @@ impl ::core::clone::Clone for AppServiceResponseStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for AppServiceResponseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppServiceResponseStatus {
     type Abi = Self;
 }
@@ -785,6 +780,11 @@ impl ::core::cmp::PartialEq for AppServiceResponseStatus {
     }
 }
 impl ::core::cmp::Eq for AppServiceResponseStatus {}
+impl ::core::fmt::Debug for AppServiceResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
 }
@@ -1314,11 +1314,6 @@ impl ::core::clone::Clone for StatelessAppServiceResponseStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StatelessAppServiceResponseStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StatelessAppServiceResponseStatus {
     type Abi = Self;
 }
@@ -1328,6 +1323,11 @@ impl ::core::cmp::PartialEq for StatelessAppServiceResponseStatus {
     }
 }
 impl ::core::cmp::Eq for StatelessAppServiceResponseStatus {}
+impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StatelessAppServiceResponseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
 }

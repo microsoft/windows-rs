@@ -27424,12 +27424,6 @@ impl ::core::clone::Clone for Matrix4x3F {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::fmt::Debug for Matrix4x3F {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Matrix4x3F").field("__AnonymousBase_d2d1_1helper_L45_C31", &self.__AnonymousBase_d2d1_1helper_L45_C31).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for Matrix4x3F {
     type Abi = Self;
 }
@@ -27462,12 +27456,6 @@ impl ::core::clone::Clone for Matrix4x4F {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::fmt::Debug for Matrix4x4F {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Matrix4x4F").field("__AnonymousBase_d2d1_1helper_L97_C31", &self.__AnonymousBase_d2d1_1helper_L97_C31).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for Matrix4x4F {
     type Abi = Self;
 }
@@ -27497,12 +27485,6 @@ impl ::core::marker::Copy for Matrix5x4F {}
 impl ::core::clone::Clone for Matrix5x4F {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::fmt::Debug for Matrix5x4F {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Matrix5x4F").field("__AnonymousBase_d2d1_1helper_L472_C31", &self.__AnonymousBase_d2d1_1helper_L472_C31).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]

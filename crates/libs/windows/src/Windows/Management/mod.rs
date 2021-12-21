@@ -269,11 +269,6 @@ impl ::core::clone::Clone for MdmAlertDataType {
         *self
     }
 }
-impl ::core::fmt::Debug for MdmAlertDataType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MdmAlertDataType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MdmAlertDataType {
     type Abi = Self;
 }
@@ -283,6 +278,11 @@ impl ::core::cmp::PartialEq for MdmAlertDataType {
     }
 }
 impl ::core::cmp::Eq for MdmAlertDataType {}
+impl ::core::fmt::Debug for MdmAlertDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MdmAlertDataType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MdmAlertDataType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
 }
@@ -305,11 +305,6 @@ impl ::core::clone::Clone for MdmAlertMark {
         *self
     }
 }
-impl ::core::fmt::Debug for MdmAlertMark {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MdmAlertMark").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MdmAlertMark {
     type Abi = Self;
 }
@@ -319,6 +314,11 @@ impl ::core::cmp::PartialEq for MdmAlertMark {
     }
 }
 impl ::core::cmp::Eq for MdmAlertMark {}
+impl ::core::fmt::Debug for MdmAlertMark {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MdmAlertMark").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MdmAlertMark {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
 }
@@ -517,11 +517,6 @@ impl ::core::clone::Clone for MdmSessionState {
         *self
     }
 }
-impl ::core::fmt::Debug for MdmSessionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MdmSessionState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MdmSessionState {
     type Abi = Self;
 }
@@ -531,6 +526,11 @@ impl ::core::cmp::PartialEq for MdmSessionState {
     }
 }
 impl ::core::cmp::Eq for MdmSessionState {}
+impl ::core::fmt::Debug for MdmSessionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MdmSessionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MdmSessionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");
 }

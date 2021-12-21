@@ -329,11 +329,6 @@ impl ::core::clone::Clone for Capi1KdfTargetAlgorithm {
         *self
     }
 }
-impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Capi1KdfTargetAlgorithm").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Capi1KdfTargetAlgorithm {
     type Abi = Self;
 }
@@ -343,6 +338,11 @@ impl ::core::cmp::PartialEq for Capi1KdfTargetAlgorithm {
     }
 }
 impl ::core::cmp::Eq for Capi1KdfTargetAlgorithm {}
+impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Capi1KdfTargetAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
 }
@@ -682,11 +682,6 @@ impl ::core::clone::Clone for CryptographicPadding {
         *self
     }
 }
-impl ::core::fmt::Debug for CryptographicPadding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicPadding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CryptographicPadding {
     type Abi = Self;
 }
@@ -696,6 +691,11 @@ impl ::core::cmp::PartialEq for CryptographicPadding {
     }
 }
 impl ::core::cmp::Eq for CryptographicPadding {}
+impl ::core::fmt::Debug for CryptographicPadding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPadding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CryptographicPadding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
 }
@@ -718,11 +718,6 @@ impl ::core::clone::Clone for CryptographicPrivateKeyBlobType {
         *self
     }
 }
-impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicPrivateKeyBlobType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CryptographicPrivateKeyBlobType {
     type Abi = Self;
 }
@@ -732,6 +727,11 @@ impl ::core::cmp::PartialEq for CryptographicPrivateKeyBlobType {
     }
 }
 impl ::core::cmp::Eq for CryptographicPrivateKeyBlobType {}
+impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPrivateKeyBlobType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
 }
@@ -754,11 +754,6 @@ impl ::core::clone::Clone for CryptographicPublicKeyBlobType {
         *self
     }
 }
-impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicPublicKeyBlobType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CryptographicPublicKeyBlobType {
     type Abi = Self;
 }
@@ -768,6 +763,11 @@ impl ::core::cmp::PartialEq for CryptographicPublicKeyBlobType {
     }
 }
 impl ::core::cmp::Eq for CryptographicPublicKeyBlobType {}
+impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CryptographicPublicKeyBlobType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CryptographicPublicKeyBlobType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
 }

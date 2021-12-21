@@ -2190,54 +2190,6 @@ impl ::core::clone::Clone for MPR_INTERFACE_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for MPR_INTERFACE_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MPR_INTERFACE_3")
-            .field("wszInterfaceName", &self.wszInterfaceName)
-            .field("hInterface", &self.hInterface)
-            .field("fEnabled", &self.fEnabled)
-            .field("dwIfType", &self.dwIfType)
-            .field("dwConnectionState", &self.dwConnectionState)
-            .field("fUnReachabilityReasons", &self.fUnReachabilityReasons)
-            .field("dwLastError", &self.dwLastError)
-            .field("dwfOptions", &self.dwfOptions)
-            .field("szLocalPhoneNumber", &self.szLocalPhoneNumber)
-            .field("szAlternates", &self.szAlternates)
-            .field("ipaddr", &self.ipaddr)
-            .field("ipaddrDns", &self.ipaddrDns)
-            .field("ipaddrDnsAlt", &self.ipaddrDnsAlt)
-            .field("ipaddrWins", &self.ipaddrWins)
-            .field("ipaddrWinsAlt", &self.ipaddrWinsAlt)
-            .field("dwfNetProtocols", &self.dwfNetProtocols)
-            .field("szDeviceType", &self.szDeviceType)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("szX25PadType", &self.szX25PadType)
-            .field("szX25Address", &self.szX25Address)
-            .field("szX25Facilities", &self.szX25Facilities)
-            .field("szX25UserData", &self.szX25UserData)
-            .field("dwChannels", &self.dwChannels)
-            .field("dwSubEntries", &self.dwSubEntries)
-            .field("dwDialMode", &self.dwDialMode)
-            .field("dwDialExtraPercent", &self.dwDialExtraPercent)
-            .field("dwDialExtraSampleSeconds", &self.dwDialExtraSampleSeconds)
-            .field("dwHangUpExtraPercent", &self.dwHangUpExtraPercent)
-            .field("dwHangUpExtraSampleSeconds", &self.dwHangUpExtraSampleSeconds)
-            .field("dwIdleDisconnectSeconds", &self.dwIdleDisconnectSeconds)
-            .field("dwType", &self.dwType)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("dwCustomAuthKey", &self.dwCustomAuthKey)
-            .field("dwCustomAuthDataSize", &self.dwCustomAuthDataSize)
-            .field("lpbCustomAuthData", &self.lpbCustomAuthData)
-            .field("guidId", &self.guidId)
-            .field("dwVpnStrategy", &self.dwVpnStrategy)
-            .field("AddressCount", &self.AddressCount)
-            .field("ipv6addrDns", &self.ipv6addrDns)
-            .field("ipv6addrDnsAlt", &self.ipv6addrDnsAlt)
-            .field("ipv6addr", &self.ipv6addr)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MPR_INTERFACE_3 {
     type Abi = Self;
 }
@@ -5364,11 +5316,6 @@ impl ::core::clone::Clone for PROJECTION_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for PROJECTION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROJECTION_INFO").field("projectionInfoType", &self.projectionInfoType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROJECTION_INFO {
     type Abi = Self;
 }
@@ -5419,11 +5366,6 @@ impl ::core::marker::Copy for PROJECTION_INFO2 {}
 impl ::core::clone::Clone for PROJECTION_INFO2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROJECTION_INFO2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROJECTION_INFO2").field("projectionInfoType", &self.projectionInfoType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROJECTION_INFO2 {
@@ -5909,12 +5851,6 @@ impl ::core::clone::Clone for RASCONNSTATUSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for RASCONNSTATUSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASCONNSTATUSA").field("dwSize", &self.dwSize).field("rasconnstate", &self.rasconnstate).field("dwError", &self.dwError).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szPhoneNumber", &self.szPhoneNumber).field("localEndPoint", &self.localEndPoint).field("remoteEndPoint", &self.remoteEndPoint).field("rasconnsubstate", &self.rasconnsubstate).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for RASCONNSTATUSA {
     type Abi = Self;
 }
@@ -5952,12 +5888,6 @@ impl ::core::marker::Copy for RASCONNSTATUSW {}
 impl ::core::clone::Clone for RASCONNSTATUSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for RASCONNSTATUSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASCONNSTATUSW").field("dwSize", &self.dwSize).field("rasconnstate", &self.rasconnstate).field("dwError", &self.dwError).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szPhoneNumber", &self.szPhoneNumber).field("localEndPoint", &self.localEndPoint).field("remoteEndPoint", &self.remoteEndPoint).field("rasconnsubstate", &self.rasconnsubstate).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -6703,74 +6633,6 @@ impl ::core::clone::Clone for RASENTRYA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for RASENTRYA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASENTRYA")
-            .field("dwSize", &self.dwSize)
-            .field("dwfOptions", &self.dwfOptions)
-            .field("dwCountryID", &self.dwCountryID)
-            .field("dwCountryCode", &self.dwCountryCode)
-            .field("szAreaCode", &self.szAreaCode)
-            .field("szLocalPhoneNumber", &self.szLocalPhoneNumber)
-            .field("dwAlternateOffset", &self.dwAlternateOffset)
-            .field("ipaddr", &self.ipaddr)
-            .field("ipaddrDns", &self.ipaddrDns)
-            .field("ipaddrDnsAlt", &self.ipaddrDnsAlt)
-            .field("ipaddrWins", &self.ipaddrWins)
-            .field("ipaddrWinsAlt", &self.ipaddrWinsAlt)
-            .field("dwFrameSize", &self.dwFrameSize)
-            .field("dwfNetProtocols", &self.dwfNetProtocols)
-            .field("dwFramingProtocol", &self.dwFramingProtocol)
-            .field("szScript", &self.szScript)
-            .field("szAutodialDll", &self.szAutodialDll)
-            .field("szAutodialFunc", &self.szAutodialFunc)
-            .field("szDeviceType", &self.szDeviceType)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("szX25PadType", &self.szX25PadType)
-            .field("szX25Address", &self.szX25Address)
-            .field("szX25Facilities", &self.szX25Facilities)
-            .field("szX25UserData", &self.szX25UserData)
-            .field("dwChannels", &self.dwChannels)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwSubEntries", &self.dwSubEntries)
-            .field("dwDialMode", &self.dwDialMode)
-            .field("dwDialExtraPercent", &self.dwDialExtraPercent)
-            .field("dwDialExtraSampleSeconds", &self.dwDialExtraSampleSeconds)
-            .field("dwHangUpExtraPercent", &self.dwHangUpExtraPercent)
-            .field("dwHangUpExtraSampleSeconds", &self.dwHangUpExtraSampleSeconds)
-            .field("dwIdleDisconnectSeconds", &self.dwIdleDisconnectSeconds)
-            .field("dwType", &self.dwType)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("dwCustomAuthKey", &self.dwCustomAuthKey)
-            .field("guidId", &self.guidId)
-            .field("szCustomDialDll", &self.szCustomDialDll)
-            .field("dwVpnStrategy", &self.dwVpnStrategy)
-            .field("dwfOptions2", &self.dwfOptions2)
-            .field("dwfOptions3", &self.dwfOptions3)
-            .field("szDnsSuffix", &self.szDnsSuffix)
-            .field("dwTcpWindowSize", &self.dwTcpWindowSize)
-            .field("szPrerequisitePbk", &self.szPrerequisitePbk)
-            .field("szPrerequisiteEntry", &self.szPrerequisiteEntry)
-            .field("dwRedialCount", &self.dwRedialCount)
-            .field("dwRedialPause", &self.dwRedialPause)
-            .field("ipv6addrDns", &self.ipv6addrDns)
-            .field("ipv6addrDnsAlt", &self.ipv6addrDnsAlt)
-            .field("dwIPv4InterfaceMetric", &self.dwIPv4InterfaceMetric)
-            .field("dwIPv6InterfaceMetric", &self.dwIPv6InterfaceMetric)
-            .field("ipv6addr", &self.ipv6addr)
-            .field("dwIPv6PrefixLength", &self.dwIPv6PrefixLength)
-            .field("dwNetworkOutageTime", &self.dwNetworkOutageTime)
-            .field("szIDi", &self.szIDi)
-            .field("szIDr", &self.szIDr)
-            .field("fIsImsConfig", &self.fIsImsConfig)
-            .field("IdiType", &self.IdiType)
-            .field("IdrType", &self.IdrType)
-            .field("fDisableIKEv2Fragmentation", &self.fDisableIKEv2Fragmentation)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for RASENTRYA {
     type Abi = Self;
 }
@@ -7029,74 +6891,6 @@ impl ::core::clone::Clone for RASENTRYW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for RASENTRYW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASENTRYW")
-            .field("dwSize", &self.dwSize)
-            .field("dwfOptions", &self.dwfOptions)
-            .field("dwCountryID", &self.dwCountryID)
-            .field("dwCountryCode", &self.dwCountryCode)
-            .field("szAreaCode", &self.szAreaCode)
-            .field("szLocalPhoneNumber", &self.szLocalPhoneNumber)
-            .field("dwAlternateOffset", &self.dwAlternateOffset)
-            .field("ipaddr", &self.ipaddr)
-            .field("ipaddrDns", &self.ipaddrDns)
-            .field("ipaddrDnsAlt", &self.ipaddrDnsAlt)
-            .field("ipaddrWins", &self.ipaddrWins)
-            .field("ipaddrWinsAlt", &self.ipaddrWinsAlt)
-            .field("dwFrameSize", &self.dwFrameSize)
-            .field("dwfNetProtocols", &self.dwfNetProtocols)
-            .field("dwFramingProtocol", &self.dwFramingProtocol)
-            .field("szScript", &self.szScript)
-            .field("szAutodialDll", &self.szAutodialDll)
-            .field("szAutodialFunc", &self.szAutodialFunc)
-            .field("szDeviceType", &self.szDeviceType)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("szX25PadType", &self.szX25PadType)
-            .field("szX25Address", &self.szX25Address)
-            .field("szX25Facilities", &self.szX25Facilities)
-            .field("szX25UserData", &self.szX25UserData)
-            .field("dwChannels", &self.dwChannels)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwSubEntries", &self.dwSubEntries)
-            .field("dwDialMode", &self.dwDialMode)
-            .field("dwDialExtraPercent", &self.dwDialExtraPercent)
-            .field("dwDialExtraSampleSeconds", &self.dwDialExtraSampleSeconds)
-            .field("dwHangUpExtraPercent", &self.dwHangUpExtraPercent)
-            .field("dwHangUpExtraSampleSeconds", &self.dwHangUpExtraSampleSeconds)
-            .field("dwIdleDisconnectSeconds", &self.dwIdleDisconnectSeconds)
-            .field("dwType", &self.dwType)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("dwCustomAuthKey", &self.dwCustomAuthKey)
-            .field("guidId", &self.guidId)
-            .field("szCustomDialDll", &self.szCustomDialDll)
-            .field("dwVpnStrategy", &self.dwVpnStrategy)
-            .field("dwfOptions2", &self.dwfOptions2)
-            .field("dwfOptions3", &self.dwfOptions3)
-            .field("szDnsSuffix", &self.szDnsSuffix)
-            .field("dwTcpWindowSize", &self.dwTcpWindowSize)
-            .field("szPrerequisitePbk", &self.szPrerequisitePbk)
-            .field("szPrerequisiteEntry", &self.szPrerequisiteEntry)
-            .field("dwRedialCount", &self.dwRedialCount)
-            .field("dwRedialPause", &self.dwRedialPause)
-            .field("ipv6addrDns", &self.ipv6addrDns)
-            .field("ipv6addrDnsAlt", &self.ipv6addrDnsAlt)
-            .field("dwIPv4InterfaceMetric", &self.dwIPv4InterfaceMetric)
-            .field("dwIPv6InterfaceMetric", &self.dwIPv6InterfaceMetric)
-            .field("ipv6addr", &self.ipv6addr)
-            .field("dwIPv6PrefixLength", &self.dwIPv6PrefixLength)
-            .field("dwNetworkOutageTime", &self.dwNetworkOutageTime)
-            .field("szIDi", &self.szIDi)
-            .field("szIDr", &self.szIDr)
-            .field("fIsImsConfig", &self.fIsImsConfig)
-            .field("IdiType", &self.IdiType)
-            .field("IdrType", &self.IdrType)
-            .field("fDisableIKEv2Fragmentation", &self.fDisableIKEv2Fragmentation)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for RASENTRYW {
     type Abi = Self;
 }
@@ -7292,28 +7086,6 @@ impl ::core::marker::Copy for RASIKEV2_PROJECTION_INFO {}
 impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for RASIKEV2_PROJECTION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASIKEV2_PROJECTION_INFO")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("ipv4Address", &self.ipv4Address)
-            .field("ipv4ServerAddress", &self.ipv4ServerAddress)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("ipv6Address", &self.ipv6Address)
-            .field("ipv6ServerAddress", &self.ipv6ServerAddress)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwEncryptionMethod", &self.dwEncryptionMethod)
-            .field("numIPv4ServerAddresses", &self.numIPv4ServerAddresses)
-            .field("ipv4ServerAddresses", &self.ipv4ServerAddresses)
-            .field("numIPv6ServerAddresses", &self.numIPv6ServerAddresses)
-            .field("ipv6ServerAddresses", &self.ipv6ServerAddresses)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -8088,36 +7860,6 @@ impl ::core::clone::Clone for RASPPP_PROJECTION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for RASPPP_PROJECTION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASPPP_PROJECTION_INFO")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("ipv4Address", &self.ipv4Address)
-            .field("ipv4ServerAddress", &self.ipv4ServerAddress)
-            .field("dwIPv4Options", &self.dwIPv4Options)
-            .field("dwIPv4ServerOptions", &self.dwIPv4ServerOptions)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bServerInterfaceIdentifier", &self.bServerInterfaceIdentifier)
-            .field("fBundled", &self.fBundled)
-            .field("fMultilink", &self.fMultilink)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwServerAuthenticationProtocol", &self.dwServerAuthenticationProtocol)
-            .field("dwServerAuthenticationData", &self.dwServerAuthenticationData)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwServerEapTypeId", &self.dwServerEapTypeId)
-            .field("dwLcpOptions", &self.dwLcpOptions)
-            .field("dwLcpServerOptions", &self.dwLcpServerOptions)
-            .field("dwCcpError", &self.dwCcpError)
-            .field("dwCcpCompressionAlgorithm", &self.dwCcpCompressionAlgorithm)
-            .field("dwCcpServerCompressionAlgorithm", &self.dwCcpServerCompressionAlgorithm)
-            .field("dwCcpOptions", &self.dwCcpOptions)
-            .field("dwCcpServerOptions", &self.dwCcpServerOptions)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for RASPPP_PROJECTION_INFO {
     type Abi = Self;
 }
@@ -8281,12 +8023,6 @@ impl ::core::clone::Clone for RASTUNNELENDPOINT {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for RASTUNNELENDPOINT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASTUNNELENDPOINT").field("dwType", &self.dwType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for RASTUNNELENDPOINT {
     type Abi = Self;
 }
@@ -8360,12 +8096,6 @@ impl ::core::marker::Copy for RASUPDATECONN {}
 impl ::core::clone::Clone for RASUPDATECONN {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for RASUPDATECONN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASUPDATECONN").field("version", &self.version).field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwIfIndex", &self.dwIfIndex).field("localEndPoint", &self.localEndPoint).field("remoteEndPoint", &self.remoteEndPoint).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -8632,43 +8362,6 @@ impl ::core::clone::Clone for RAS_CONNECTION_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_CONNECTION_4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RAS_CONNECTION_4")
-            .field("dwConnectDuration", &self.dwConnectDuration)
-            .field("dwInterfaceType", &self.dwInterfaceType)
-            .field("dwConnectionFlags", &self.dwConnectionFlags)
-            .field("wszInterfaceName", &self.wszInterfaceName)
-            .field("wszUserName", &self.wszUserName)
-            .field("wszLogonDomain", &self.wszLogonDomain)
-            .field("wszRemoteComputer", &self.wszRemoteComputer)
-            .field("guid", &self.guid)
-            .field("rasQuarState", &self.rasQuarState)
-            .field("probationTime", &self.probationTime)
-            .field("connectionStartTime", &self.connectionStartTime)
-            .field("ullBytesXmited", &self.ullBytesXmited)
-            .field("ullBytesRcved", &self.ullBytesRcved)
-            .field("dwFramesXmited", &self.dwFramesXmited)
-            .field("dwFramesRcved", &self.dwFramesRcved)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .field("dwNumSwitchOvers", &self.dwNumSwitchOvers)
-            .field("wszRemoteEndpointAddress", &self.wszRemoteEndpointAddress)
-            .field("wszLocalEndpointAddress", &self.wszLocalEndpointAddress)
-            .field("ProjectionInfo", &self.ProjectionInfo)
-            .field("hConnection", &self.hConnection)
-            .field("hInterface", &self.hInterface)
-            .field("dwDeviceType", &self.dwDeviceType)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RAS_CONNECTION_4 {
     type Abi = Self;
 }
@@ -8726,42 +8419,6 @@ impl ::core::marker::Copy for RAS_CONNECTION_EX {}
 impl ::core::clone::Clone for RAS_CONNECTION_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_CONNECTION_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RAS_CONNECTION_EX")
-            .field("Header", &self.Header)
-            .field("dwConnectDuration", &self.dwConnectDuration)
-            .field("dwInterfaceType", &self.dwInterfaceType)
-            .field("dwConnectionFlags", &self.dwConnectionFlags)
-            .field("wszInterfaceName", &self.wszInterfaceName)
-            .field("wszUserName", &self.wszUserName)
-            .field("wszLogonDomain", &self.wszLogonDomain)
-            .field("wszRemoteComputer", &self.wszRemoteComputer)
-            .field("guid", &self.guid)
-            .field("rasQuarState", &self.rasQuarState)
-            .field("probationTime", &self.probationTime)
-            .field("dwBytesXmited", &self.dwBytesXmited)
-            .field("dwBytesRcved", &self.dwBytesRcved)
-            .field("dwFramesXmited", &self.dwFramesXmited)
-            .field("dwFramesRcved", &self.dwFramesRcved)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .field("dwNumSwitchOvers", &self.dwNumSwitchOvers)
-            .field("wszRemoteEndpointAddress", &self.wszRemoteEndpointAddress)
-            .field("wszLocalEndpointAddress", &self.wszLocalEndpointAddress)
-            .field("ProjectionInfo", &self.ProjectionInfo)
-            .field("hConnection", &self.hConnection)
-            .field("hInterface", &self.hInterface)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9072,12 +8729,6 @@ impl ::core::marker::Copy for RAS_PROJECTION_INFO {}
 impl ::core::clone::Clone for RAS_PROJECTION_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for RAS_PROJECTION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RAS_PROJECTION_INFO").field("version", &self.version).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -9775,11 +9426,6 @@ impl ::core::clone::Clone for RTM_ENTITY_ID {
         *self
     }
 }
-impl ::core::fmt::Debug for RTM_ENTITY_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTM_ENTITY_ID").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RTM_ENTITY_ID {
     type Abi = Self;
 }
@@ -9862,11 +9508,6 @@ impl ::core::marker::Copy for RTM_ENTITY_INFO {}
 impl ::core::clone::Clone for RTM_ENTITY_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RTM_ENTITY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTM_ENTITY_INFO").field("RtmInstanceId", &self.RtmInstanceId).field("AddressFamily", &self.AddressFamily).field("EntityId", &self.EntityId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RTM_ENTITY_INFO {
@@ -12641,12 +12282,6 @@ impl ::core::clone::Clone for VPN_TS_IP_ADDRESS {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for VPN_TS_IP_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VPN_TS_IP_ADDRESS").field("Type", &self.Type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for VPN_TS_IP_ADDRESS {
     type Abi = Self;
 }
@@ -12747,12 +12382,6 @@ impl ::core::marker::Copy for _MPR_VPN_SELECTOR {}
 impl ::core::clone::Clone for _MPR_VPN_SELECTOR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for _MPR_VPN_SELECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_MPR_VPN_SELECTOR").field("type", &self.r#type).field("protocolId", &self.protocolId).field("portStart", &self.portStart).field("portEnd", &self.portEnd).field("tsPayloadId", &self.tsPayloadId).field("addrStart", &self.addrStart).field("addrEnd", &self.addrEnd).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]

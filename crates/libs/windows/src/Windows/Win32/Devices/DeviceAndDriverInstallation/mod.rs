@@ -2975,11 +2975,6 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CM_NOTIFY_EVENT_DATA").field("FilterType", &self.FilterType).field("Reserved", &self.Reserved).field("u", &self.u).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA {
     type Abi = Self;
 }
@@ -3131,12 +3126,6 @@ impl ::core::marker::Copy for CM_NOTIFY_FILTER {}
 impl ::core::clone::Clone for CM_NOTIFY_FILTER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CM_NOTIFY_FILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CM_NOTIFY_FILTER").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FilterType", &self.FilterType).field("Reserved", &self.Reserved).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8692,13 +8681,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::fmt::Debug for SP_ALTPLATFORM_INFO_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_ALTPLATFORM_INFO_V2").field("cbSize", &self.cbSize).field("Platform", &self.Platform).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ProcessorArchitecture", &self.ProcessorArchitecture).field("Anonymous", &self.Anonymous).field("FirstValidatedMajorVersion", &self.FirstValidatedMajorVersion).field("FirstValidatedMinorVersion", &self.FirstValidatedMinorVersion).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
     type Abi = Self;
 }
@@ -8785,13 +8767,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::fmt::Debug for SP_ALTPLATFORM_INFO_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_ALTPLATFORM_INFO_V2").field("cbSize", &self.cbSize).field("Platform", &self.Platform).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ProcessorArchitecture", &self.ProcessorArchitecture).field("Anonymous", &self.Anonymous).field("FirstValidatedMajorVersion", &self.FirstValidatedMajorVersion).field("FirstValidatedMinorVersion", &self.FirstValidatedMinorVersion).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
     type Abi = Self;
 }
@@ -8877,24 +8852,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for SP_ALTPLATFORM_INFO_V3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_ALTPLATFORM_INFO_V3")
-            .field("cbSize", &self.cbSize)
-            .field("Platform", &self.Platform)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("ProcessorArchitecture", &self.ProcessorArchitecture)
-            .field("Anonymous", &self.Anonymous)
-            .field("FirstValidatedMajorVersion", &self.FirstValidatedMajorVersion)
-            .field("FirstValidatedMinorVersion", &self.FirstValidatedMinorVersion)
-            .field("ProductType", &self.ProductType)
-            .field("SuiteMask", &self.SuiteMask)
-            .field("BuildNumber", &self.BuildNumber)
-            .finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
     type Abi = Self;
 }
@@ -8967,24 +8924,6 @@ impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3 {}
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for SP_ALTPLATFORM_INFO_V3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SP_ALTPLATFORM_INFO_V3")
-            .field("cbSize", &self.cbSize)
-            .field("Platform", &self.Platform)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("ProcessorArchitecture", &self.ProcessorArchitecture)
-            .field("Anonymous", &self.Anonymous)
-            .field("FirstValidatedMajorVersion", &self.FirstValidatedMajorVersion)
-            .field("FirstValidatedMinorVersion", &self.FirstValidatedMinorVersion)
-            .field("ProductType", &self.ProductType)
-            .field("SuiteMask", &self.SuiteMask)
-            .field("BuildNumber", &self.BuildNumber)
-            .finish()
     }
 }
 #[cfg(target_arch = "x86")]

@@ -89,12 +89,6 @@ impl ::core::clone::Clone for CHAR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CHAR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHAR_INFO").field("Char", &self.Char).field("Attributes", &self.Attributes).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHAR_INFO {
     type Abi = Self;
 }
@@ -1316,12 +1310,6 @@ impl ::core::clone::Clone for INPUT_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INPUT_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INPUT_RECORD").field("EventType", &self.EventType).field("Event", &self.Event).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INPUT_RECORD {
     type Abi = Self;
 }
@@ -1394,12 +1382,6 @@ impl ::core::marker::Copy for KEY_EVENT_RECORD {}
 impl ::core::clone::Clone for KEY_EVENT_RECORD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KEY_EVENT_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KEY_EVENT_RECORD").field("bKeyDown", &self.bKeyDown).field("wRepeatCount", &self.wRepeatCount).field("wVirtualKeyCode", &self.wVirtualKeyCode).field("wVirtualScanCode", &self.wVirtualScanCode).field("uChar", &self.uChar).field("dwControlKeyState", &self.dwControlKeyState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

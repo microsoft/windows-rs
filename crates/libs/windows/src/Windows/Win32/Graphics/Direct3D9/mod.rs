@@ -306,12 +306,6 @@ impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION").field("Parameters", &self.Parameters).field("Protections", &self.Protections).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     type Abi = Self;
 }
@@ -509,11 +503,6 @@ impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {}
 impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
@@ -1138,12 +1127,6 @@ impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {}
 impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT").field("Output", &self.Output).field("ProtectionFlags", &self.ProtectionFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

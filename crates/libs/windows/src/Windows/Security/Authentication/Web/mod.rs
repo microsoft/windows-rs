@@ -87,11 +87,6 @@ impl ::core::clone::Clone for TokenBindingKeyType {
         *self
     }
 }
-impl ::core::fmt::Debug for TokenBindingKeyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TokenBindingKeyType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TokenBindingKeyType {
     type Abi = Self;
 }
@@ -101,6 +96,11 @@ impl ::core::cmp::PartialEq for TokenBindingKeyType {
     }
 }
 impl ::core::cmp::Eq for TokenBindingKeyType {}
+impl ::core::fmt::Debug for TokenBindingKeyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TokenBindingKeyType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
 }
@@ -195,11 +195,6 @@ impl ::core::clone::Clone for WebAuthenticationOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAuthenticationOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAuthenticationOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAuthenticationOptions {
     type Abi = Self;
 }
@@ -209,6 +204,11 @@ impl ::core::cmp::PartialEq for WebAuthenticationOptions {
     }
 }
 impl ::core::cmp::Eq for WebAuthenticationOptions {}
+impl ::core::fmt::Debug for WebAuthenticationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAuthenticationOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
 }
@@ -324,11 +324,6 @@ impl ::core::clone::Clone for WebAuthenticationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAuthenticationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAuthenticationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAuthenticationStatus {
     type Abi = Self;
 }
@@ -338,6 +333,11 @@ impl ::core::cmp::PartialEq for WebAuthenticationStatus {
     }
 }
 impl ::core::cmp::Eq for WebAuthenticationStatus {}
+impl ::core::fmt::Debug for WebAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAuthenticationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
 }

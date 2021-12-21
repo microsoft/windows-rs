@@ -3628,12 +3628,6 @@ impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIAS_CHANGED_VALUE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIAS_CHANGED_VALUE_INFO").field("bChanged", &self.bChanged).field("vt", &self.vt).field("Old", &self.Old).field("Current", &self.Current).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -5652,12 +5646,6 @@ pub struct WIA_PROPERTY_INFO {
 impl ::core::clone::Clone for WIA_PROPERTY_INFO {
     fn clone(&self) -> Self {
         Self { lAccessFlags: self.lAccessFlags, vt: self.vt, ValidVal: self.ValidVal.clone() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIA_PROPERTY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO").field("lAccessFlags", &self.lAccessFlags).field("vt", &self.vt).field("ValidVal", &self.ValidVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

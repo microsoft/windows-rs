@@ -2056,11 +2056,6 @@ impl ::core::clone::Clone for SyndicationErrorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SyndicationErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationErrorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SyndicationErrorStatus {
     type Abi = Self;
 }
@@ -2070,6 +2065,11 @@ impl ::core::cmp::PartialEq for SyndicationErrorStatus {
     }
 }
 impl ::core::cmp::Eq for SyndicationErrorStatus {}
+impl ::core::fmt::Debug for SyndicationErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
 }
@@ -2512,11 +2512,6 @@ impl ::core::clone::Clone for SyndicationFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for SyndicationFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SyndicationFormat {
     type Abi = Self;
 }
@@ -2526,6 +2521,11 @@ impl ::core::cmp::PartialEq for SyndicationFormat {
     }
 }
 impl ::core::cmp::Eq for SyndicationFormat {}
+impl ::core::fmt::Debug for SyndicationFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
 }
@@ -4249,11 +4249,6 @@ impl ::core::clone::Clone for SyndicationTextType {
         *self
     }
 }
-impl ::core::fmt::Debug for SyndicationTextType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationTextType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SyndicationTextType {
     type Abi = Self;
 }
@@ -4263,6 +4258,11 @@ impl ::core::cmp::PartialEq for SyndicationTextType {
     }
 }
 impl ::core::cmp::Eq for SyndicationTextType {}
+impl ::core::fmt::Debug for SyndicationTextType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationTextType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationTextType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationTextType;i4)");
 }

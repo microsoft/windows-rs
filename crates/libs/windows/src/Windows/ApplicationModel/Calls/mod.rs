@@ -259,11 +259,6 @@ impl ::core::clone::Clone for CellularDtmfMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CellularDtmfMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CellularDtmfMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CellularDtmfMode {
     type Abi = Self;
 }
@@ -273,6 +268,11 @@ impl ::core::cmp::PartialEq for CellularDtmfMode {
     }
 }
 impl ::core::cmp::Eq for CellularDtmfMode {}
+impl ::core::fmt::Debug for CellularDtmfMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularDtmfMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CellularDtmfMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
 }
@@ -302,11 +302,6 @@ impl ::core::clone::Clone for DtmfKey {
         *self
     }
 }
-impl ::core::fmt::Debug for DtmfKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtmfKey").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DtmfKey {
     type Abi = Self;
 }
@@ -316,6 +311,11 @@ impl ::core::cmp::PartialEq for DtmfKey {
     }
 }
 impl ::core::cmp::Eq for DtmfKey {}
+impl ::core::fmt::Debug for DtmfKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtmfKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DtmfKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
 }
@@ -335,11 +335,6 @@ impl ::core::clone::Clone for DtmfToneAudioPlayback {
         *self
     }
 }
-impl ::core::fmt::Debug for DtmfToneAudioPlayback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtmfToneAudioPlayback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DtmfToneAudioPlayback {
     type Abi = Self;
 }
@@ -349,6 +344,11 @@ impl ::core::cmp::PartialEq for DtmfToneAudioPlayback {
     }
 }
 impl ::core::cmp::Eq for DtmfToneAudioPlayback {}
+impl ::core::fmt::Debug for DtmfToneAudioPlayback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtmfToneAudioPlayback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DtmfToneAudioPlayback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
 }
@@ -1908,11 +1908,6 @@ impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneAudioRoutingEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneAudioRoutingEndpoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneAudioRoutingEndpoint {
     type Abi = Self;
 }
@@ -1922,6 +1917,11 @@ impl ::core::cmp::PartialEq for PhoneAudioRoutingEndpoint {
     }
 }
 impl ::core::cmp::Eq for PhoneAudioRoutingEndpoint {}
+impl ::core::fmt::Debug for PhoneAudioRoutingEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneAudioRoutingEndpoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneAudioRoutingEndpoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
 }
@@ -2274,11 +2274,6 @@ impl ::core::clone::Clone for PhoneCallAudioDevice {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallAudioDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallAudioDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallAudioDevice {
     type Abi = Self;
 }
@@ -2288,6 +2283,11 @@ impl ::core::cmp::PartialEq for PhoneCallAudioDevice {
     }
 }
 impl ::core::cmp::Eq for PhoneCallAudioDevice {}
+impl ::core::fmt::Debug for PhoneCallAudioDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallAudioDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallAudioDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
 }
@@ -2350,11 +2350,6 @@ impl ::core::clone::Clone for PhoneCallDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallDirection {
     type Abi = Self;
 }
@@ -2364,6 +2359,11 @@ impl ::core::cmp::PartialEq for PhoneCallDirection {
     }
 }
 impl ::core::cmp::Eq for PhoneCallDirection {}
+impl ::core::fmt::Debug for PhoneCallDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
 }
@@ -2835,11 +2835,6 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryMedia {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallHistoryEntryMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryMedia").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryMedia {
     type Abi = Self;
 }
@@ -2849,6 +2844,11 @@ impl ::core::cmp::PartialEq for PhoneCallHistoryEntryMedia {
     }
 }
 impl ::core::cmp::Eq for PhoneCallHistoryEntryMedia {}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryMedia {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
 }
@@ -2868,11 +2868,6 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryOtherAppReadAccess {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallHistoryEntryOtherAppReadAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryOtherAppReadAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryOtherAppReadAccess {
     type Abi = Self;
 }
@@ -2882,6 +2877,11 @@ impl ::core::cmp::PartialEq for PhoneCallHistoryEntryOtherAppReadAccess {
     }
 }
 impl ::core::cmp::Eq for PhoneCallHistoryEntryOtherAppReadAccess {}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
 }
@@ -2903,11 +2903,6 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryQueryDesiredMedia").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryQueryDesiredMedia {
     type Abi = Self;
 }
@@ -2917,6 +2912,11 @@ impl ::core::cmp::PartialEq for PhoneCallHistoryEntryQueryDesiredMedia {
     }
 }
 impl ::core::cmp::Eq for PhoneCallHistoryEntryQueryDesiredMedia {}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryDesiredMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryQueryDesiredMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryDesiredMedia {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia;u4)");
 }
@@ -3038,11 +3038,6 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallHistoryEntryRawAddressKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryRawAddressKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryRawAddressKind {
     type Abi = Self;
 }
@@ -3052,6 +3047,11 @@ impl ::core::cmp::PartialEq for PhoneCallHistoryEntryRawAddressKind {
     }
 }
 impl ::core::cmp::Eq for PhoneCallHistoryEntryRawAddressKind {}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryRawAddressKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryRawAddressKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
 }
@@ -3277,11 +3277,6 @@ impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallHistorySourceIdKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistorySourceIdKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallHistorySourceIdKind {
     type Abi = Self;
 }
@@ -3291,6 +3286,11 @@ impl ::core::cmp::PartialEq for PhoneCallHistorySourceIdKind {
     }
 }
 impl ::core::cmp::Eq for PhoneCallHistorySourceIdKind {}
+impl ::core::fmt::Debug for PhoneCallHistorySourceIdKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistorySourceIdKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallHistorySourceIdKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
 }
@@ -3490,11 +3490,6 @@ impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallHistoryStoreAccessType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryStoreAccessType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallHistoryStoreAccessType {
     type Abi = Self;
 }
@@ -3504,6 +3499,11 @@ impl ::core::cmp::PartialEq for PhoneCallHistoryStoreAccessType {
     }
 }
 impl ::core::cmp::Eq for PhoneCallHistoryStoreAccessType {}
+impl ::core::fmt::Debug for PhoneCallHistoryStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
 }
@@ -3706,11 +3706,6 @@ impl ::core::clone::Clone for PhoneCallMedia {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallMedia").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallMedia {
     type Abi = Self;
 }
@@ -3720,6 +3715,11 @@ impl ::core::cmp::PartialEq for PhoneCallMedia {
     }
 }
 impl ::core::cmp::Eq for PhoneCallMedia {}
+impl ::core::fmt::Debug for PhoneCallMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallMedia {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
 }
@@ -3742,11 +3742,6 @@ impl ::core::clone::Clone for PhoneCallOperationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallOperationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallOperationStatus {
     type Abi = Self;
 }
@@ -3756,6 +3751,11 @@ impl ::core::cmp::PartialEq for PhoneCallOperationStatus {
     }
 }
 impl ::core::cmp::Eq for PhoneCallOperationStatus {}
+impl ::core::fmt::Debug for PhoneCallOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallOperationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallOperationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
 }
@@ -3779,11 +3779,6 @@ impl ::core::clone::Clone for PhoneCallStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallStatus {
     type Abi = Self;
 }
@@ -3793,6 +3788,11 @@ impl ::core::cmp::PartialEq for PhoneCallStatus {
     }
 }
 impl ::core::cmp::Eq for PhoneCallStatus {}
+impl ::core::fmt::Debug for PhoneCallStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
 }
@@ -4822,11 +4822,6 @@ impl ::core::clone::Clone for PhoneLineNetworkOperatorDisplayTextLocation {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneLineNetworkOperatorDisplayTextLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineNetworkOperatorDisplayTextLocation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneLineNetworkOperatorDisplayTextLocation {
     type Abi = Self;
 }
@@ -4836,6 +4831,11 @@ impl ::core::cmp::PartialEq for PhoneLineNetworkOperatorDisplayTextLocation {
     }
 }
 impl ::core::cmp::Eq for PhoneLineNetworkOperatorDisplayTextLocation {}
+impl ::core::fmt::Debug for PhoneLineNetworkOperatorDisplayTextLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineNetworkOperatorDisplayTextLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
 }
@@ -4858,11 +4858,6 @@ impl ::core::clone::Clone for PhoneLineOperationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneLineOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineOperationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneLineOperationStatus {
     type Abi = Self;
 }
@@ -4872,6 +4867,11 @@ impl ::core::cmp::PartialEq for PhoneLineOperationStatus {
     }
 }
 impl ::core::cmp::Eq for PhoneLineOperationStatus {}
+impl ::core::fmt::Debug for PhoneLineOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineOperationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineOperationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
 }
@@ -4892,11 +4892,6 @@ impl ::core::clone::Clone for PhoneLineTransport {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneLineTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineTransport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneLineTransport {
     type Abi = Self;
 }
@@ -4906,6 +4901,11 @@ impl ::core::cmp::PartialEq for PhoneLineTransport {
     }
 }
 impl ::core::cmp::Eq for PhoneLineTransport {}
+impl ::core::fmt::Debug for PhoneLineTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineTransport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
 }
@@ -5391,11 +5391,6 @@ impl ::core::clone::Clone for PhoneLineWatcherStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneLineWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineWatcherStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneLineWatcherStatus {
     type Abi = Self;
 }
@@ -5405,6 +5400,11 @@ impl ::core::cmp::PartialEq for PhoneLineWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for PhoneLineWatcherStatus {}
+impl ::core::fmt::Debug for PhoneLineWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
 }
@@ -5430,11 +5430,6 @@ impl ::core::clone::Clone for PhoneNetworkState {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneNetworkState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNetworkState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneNetworkState {
     type Abi = Self;
 }
@@ -5444,6 +5439,11 @@ impl ::core::cmp::PartialEq for PhoneNetworkState {
     }
 }
 impl ::core::cmp::Eq for PhoneNetworkState {}
+impl ::core::fmt::Debug for PhoneNetworkState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNetworkState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneNetworkState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
 }
@@ -5469,11 +5469,6 @@ impl ::core::clone::Clone for PhoneSimState {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneSimState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneSimState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneSimState {
     type Abi = Self;
 }
@@ -5483,6 +5478,11 @@ impl ::core::cmp::PartialEq for PhoneSimState {
     }
 }
 impl ::core::cmp::Eq for PhoneSimState {}
+impl ::core::fmt::Debug for PhoneSimState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneSimState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneSimState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
 }
@@ -5609,11 +5609,6 @@ impl ::core::clone::Clone for PhoneVoicemailType {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneVoicemailType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneVoicemailType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneVoicemailType {
     type Abi = Self;
 }
@@ -5623,6 +5618,11 @@ impl ::core::cmp::PartialEq for PhoneVoicemailType {
     }
 }
 impl ::core::cmp::Eq for PhoneVoicemailType {}
+impl ::core::fmt::Debug for PhoneVoicemailType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneVoicemailType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneVoicemailType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
 }
@@ -5643,11 +5643,6 @@ impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for TransportDeviceAudioRoutingStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TransportDeviceAudioRoutingStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TransportDeviceAudioRoutingStatus {
     type Abi = Self;
 }
@@ -5657,6 +5652,11 @@ impl ::core::cmp::PartialEq for TransportDeviceAudioRoutingStatus {
     }
 }
 impl ::core::cmp::Eq for TransportDeviceAudioRoutingStatus {}
+impl ::core::fmt::Debug for TransportDeviceAudioRoutingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TransportDeviceAudioRoutingStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TransportDeviceAudioRoutingStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
 }
@@ -6129,11 +6129,6 @@ impl ::core::clone::Clone for VoipPhoneCallMedia {
         *self
     }
 }
-impl ::core::fmt::Debug for VoipPhoneCallMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoipPhoneCallMedia").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VoipPhoneCallMedia {
     type Abi = Self;
 }
@@ -6143,6 +6138,11 @@ impl ::core::cmp::PartialEq for VoipPhoneCallMedia {
     }
 }
 impl ::core::cmp::Eq for VoipPhoneCallMedia {}
+impl ::core::fmt::Debug for VoipPhoneCallMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoipPhoneCallMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoipPhoneCallMedia {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallMedia;u4)");
 }
@@ -6165,11 +6165,6 @@ impl ::core::clone::Clone for VoipPhoneCallRejectReason {
         *self
     }
 }
-impl ::core::fmt::Debug for VoipPhoneCallRejectReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoipPhoneCallRejectReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VoipPhoneCallRejectReason {
     type Abi = Self;
 }
@@ -6179,6 +6174,11 @@ impl ::core::cmp::PartialEq for VoipPhoneCallRejectReason {
     }
 }
 impl ::core::cmp::Eq for VoipPhoneCallRejectReason {}
+impl ::core::fmt::Debug for VoipPhoneCallRejectReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoipPhoneCallRejectReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoipPhoneCallRejectReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason;i4)");
 }
@@ -6198,11 +6198,6 @@ impl ::core::clone::Clone for VoipPhoneCallResourceReservationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for VoipPhoneCallResourceReservationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoipPhoneCallResourceReservationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VoipPhoneCallResourceReservationStatus {
     type Abi = Self;
 }
@@ -6212,6 +6207,11 @@ impl ::core::cmp::PartialEq for VoipPhoneCallResourceReservationStatus {
     }
 }
 impl ::core::cmp::Eq for VoipPhoneCallResourceReservationStatus {}
+impl ::core::fmt::Debug for VoipPhoneCallResourceReservationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoipPhoneCallResourceReservationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoipPhoneCallResourceReservationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus;i4)");
 }
@@ -6234,11 +6234,6 @@ impl ::core::clone::Clone for VoipPhoneCallState {
         *self
     }
 }
-impl ::core::fmt::Debug for VoipPhoneCallState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoipPhoneCallState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VoipPhoneCallState {
     type Abi = Self;
 }
@@ -6248,6 +6243,11 @@ impl ::core::cmp::PartialEq for VoipPhoneCallState {
     }
 }
 impl ::core::cmp::Eq for VoipPhoneCallState {}
+impl ::core::fmt::Debug for VoipPhoneCallState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoipPhoneCallState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoipPhoneCallState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallState;i4)");
 }

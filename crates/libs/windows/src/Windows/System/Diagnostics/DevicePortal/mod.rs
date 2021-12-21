@@ -258,11 +258,6 @@ impl ::core::clone::Clone for DevicePortalConnectionClosedReason {
         *self
     }
 }
-impl ::core::fmt::Debug for DevicePortalConnectionClosedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePortalConnectionClosedReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DevicePortalConnectionClosedReason {
     type Abi = Self;
 }
@@ -272,6 +267,11 @@ impl ::core::cmp::PartialEq for DevicePortalConnectionClosedReason {
     }
 }
 impl ::core::cmp::Eq for DevicePortalConnectionClosedReason {}
+impl ::core::fmt::Debug for DevicePortalConnectionClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePortalConnectionClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
 }

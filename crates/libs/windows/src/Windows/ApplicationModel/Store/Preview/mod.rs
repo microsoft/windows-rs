@@ -18,11 +18,6 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
         *self
     }
 }
-impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeliveryOptimizationDownloadMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadMode {
     type Abi = Self;
 }
@@ -32,6 +27,11 @@ impl ::core::cmp::PartialEq for DeliveryOptimizationDownloadMode {
     }
 }
 impl ::core::cmp::Eq for DeliveryOptimizationDownloadMode {}
+impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeliveryOptimizationDownloadMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode;i4)");
 }
@@ -51,11 +51,6 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
         *self
     }
 }
-impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeliveryOptimizationDownloadModeSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadModeSource {
     type Abi = Self;
 }
@@ -65,6 +60,11 @@ impl ::core::cmp::PartialEq for DeliveryOptimizationDownloadModeSource {
     }
 }
 impl ::core::cmp::Eq for DeliveryOptimizationDownloadModeSource {}
+impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeliveryOptimizationDownloadModeSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadModeSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource;i4)");
 }
@@ -798,11 +798,6 @@ impl ::core::clone::Clone for StoreLogOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreLogOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreLogOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreLogOptions {
     type Abi = Self;
 }
@@ -812,6 +807,11 @@ impl ::core::cmp::PartialEq for StoreLogOptions {
     }
 }
 impl ::core::cmp::Eq for StoreLogOptions {}
+impl ::core::fmt::Debug for StoreLogOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreLogOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreLogOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreLogOptions;u4)");
 }
@@ -975,11 +975,6 @@ impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePreviewProductPurchaseStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorePreviewProductPurchaseStatus {
     type Abi = Self;
 }
@@ -989,6 +984,11 @@ impl ::core::cmp::PartialEq for StorePreviewProductPurchaseStatus {
     }
 }
 impl ::core::cmp::Eq for StorePreviewProductPurchaseStatus {}
+impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePreviewProductPurchaseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePreviewProductPurchaseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus;i4)");
 }
@@ -1267,11 +1267,6 @@ impl ::core::clone::Clone for StoreSystemFeature {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreSystemFeature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreSystemFeature").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreSystemFeature {
     type Abi = Self;
 }
@@ -1281,6 +1276,11 @@ impl ::core::cmp::PartialEq for StoreSystemFeature {
     }
 }
 impl ::core::cmp::Eq for StoreSystemFeature {}
+impl ::core::fmt::Debug for StoreSystemFeature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreSystemFeature").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreSystemFeature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreSystemFeature;i4)");
 }

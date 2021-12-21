@@ -10555,11 +10555,6 @@ impl ::core::clone::Clone for XPS_COLOR {
         *self
     }
 }
-impl ::core::fmt::Debug for XPS_COLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XPS_COLOR").field("colorType", &self.colorType).field("value", &self.value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XPS_COLOR {
     type Abi = Self;
 }

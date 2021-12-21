@@ -202,11 +202,6 @@ impl ::core::clone::Clone for GraphicsTrustStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for GraphicsTrustStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GraphicsTrustStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GraphicsTrustStatus {
     type Abi = Self;
 }
@@ -216,6 +211,11 @@ impl ::core::cmp::PartialEq for GraphicsTrustStatus {
     }
 }
 impl ::core::cmp::Eq for GraphicsTrustStatus {}
+impl ::core::fmt::Debug for GraphicsTrustStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GraphicsTrustStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GraphicsTrustStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.GraphicsTrustStatus;i4)");
 }
@@ -236,11 +236,6 @@ impl ::core::clone::Clone for HdcpProtection {
         *self
     }
 }
-impl ::core::fmt::Debug for HdcpProtection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdcpProtection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HdcpProtection {
     type Abi = Self;
 }
@@ -250,6 +245,11 @@ impl ::core::cmp::PartialEq for HdcpProtection {
     }
 }
 impl ::core::cmp::Eq for HdcpProtection {}
+impl ::core::fmt::Debug for HdcpProtection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdcpProtection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdcpProtection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpProtection;i4)");
 }
@@ -424,11 +424,6 @@ impl ::core::clone::Clone for HdcpSetProtectionResult {
         *self
     }
 }
-impl ::core::fmt::Debug for HdcpSetProtectionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdcpSetProtectionResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HdcpSetProtectionResult {
     type Abi = Self;
 }
@@ -438,6 +433,11 @@ impl ::core::cmp::PartialEq for HdcpSetProtectionResult {
     }
 }
 impl ::core::cmp::Eq for HdcpSetProtectionResult {}
+impl ::core::fmt::Debug for HdcpSetProtectionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdcpSetProtectionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdcpSetProtectionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpSetProtectionResult;i4)");
 }
@@ -1197,11 +1197,6 @@ impl ::core::clone::Clone for ProtectionCapabilityResult {
         *self
     }
 }
-impl ::core::fmt::Debug for ProtectionCapabilityResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectionCapabilityResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProtectionCapabilityResult {
     type Abi = Self;
 }
@@ -1211,6 +1206,11 @@ impl ::core::cmp::PartialEq for ProtectionCapabilityResult {
     }
 }
 impl ::core::cmp::Eq for ProtectionCapabilityResult {}
+impl ::core::fmt::Debug for ProtectionCapabilityResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionCapabilityResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionCapabilityResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.ProtectionCapabilityResult;i4)");
 }
@@ -1308,11 +1308,6 @@ impl ::core::clone::Clone for RenewalStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for RenewalStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RenewalStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RenewalStatus {
     type Abi = Self;
 }
@@ -1322,6 +1317,11 @@ impl ::core::cmp::PartialEq for RenewalStatus {
     }
 }
 impl ::core::cmp::Eq for RenewalStatus {}
+impl ::core::fmt::Debug for RenewalStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RenewalStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RenewalStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RenewalStatus;i4)");
 }
@@ -1549,11 +1549,6 @@ impl ::core::clone::Clone for RevocationAndRenewalReasons {
         *self
     }
 }
-impl ::core::fmt::Debug for RevocationAndRenewalReasons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RevocationAndRenewalReasons").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RevocationAndRenewalReasons {
     type Abi = Self;
 }
@@ -1563,6 +1558,11 @@ impl ::core::cmp::PartialEq for RevocationAndRenewalReasons {
     }
 }
 impl ::core::cmp::Eq for RevocationAndRenewalReasons {}
+impl ::core::fmt::Debug for RevocationAndRenewalReasons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevocationAndRenewalReasons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RevocationAndRenewalReasons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RevocationAndRenewalReasons;u4)");
 }

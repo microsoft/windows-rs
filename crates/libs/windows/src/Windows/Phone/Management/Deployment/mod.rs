@@ -274,11 +274,6 @@ impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EnterpriseEnrollmentStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseEnrollmentStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EnterpriseEnrollmentStatus {
     type Abi = Self;
 }
@@ -288,6 +283,11 @@ impl ::core::cmp::PartialEq for EnterpriseEnrollmentStatus {
     }
 }
 impl ::core::cmp::Eq for EnterpriseEnrollmentStatus {}
+impl ::core::fmt::Debug for EnterpriseEnrollmentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnterpriseEnrollmentStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
 }
@@ -309,11 +309,6 @@ impl ::core::clone::Clone for EnterpriseStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EnterpriseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EnterpriseStatus {
     type Abi = Self;
 }
@@ -323,6 +318,11 @@ impl ::core::cmp::PartialEq for EnterpriseStatus {
     }
 }
 impl ::core::cmp::Eq for EnterpriseStatus {}
+impl ::core::fmt::Debug for EnterpriseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnterpriseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnterpriseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
 }

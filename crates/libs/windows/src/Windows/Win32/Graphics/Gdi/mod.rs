@@ -2209,40 +2209,6 @@ impl ::core::clone::Clone for DEVMODEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DEVMODEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVMODEA")
-            .field("dmDeviceName", &self.dmDeviceName)
-            .field("dmSpecVersion", &self.dmSpecVersion)
-            .field("dmDriverVersion", &self.dmDriverVersion)
-            .field("dmSize", &self.dmSize)
-            .field("dmDriverExtra", &self.dmDriverExtra)
-            .field("dmFields", &self.dmFields)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("dmColor", &self.dmColor)
-            .field("dmDuplex", &self.dmDuplex)
-            .field("dmYResolution", &self.dmYResolution)
-            .field("dmTTOption", &self.dmTTOption)
-            .field("dmCollate", &self.dmCollate)
-            .field("dmFormName", &self.dmFormName)
-            .field("dmLogPixels", &self.dmLogPixels)
-            .field("dmBitsPerPel", &self.dmBitsPerPel)
-            .field("dmPelsWidth", &self.dmPelsWidth)
-            .field("dmPelsHeight", &self.dmPelsHeight)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("dmDisplayFrequency", &self.dmDisplayFrequency)
-            .field("dmICMMethod", &self.dmICMMethod)
-            .field("dmICMIntent", &self.dmICMIntent)
-            .field("dmMediaType", &self.dmMediaType)
-            .field("dmDitherType", &self.dmDitherType)
-            .field("dmReserved1", &self.dmReserved1)
-            .field("dmReserved2", &self.dmReserved2)
-            .field("dmPanningWidth", &self.dmPanningWidth)
-            .field("dmPanningHeight", &self.dmPanningHeight)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEVMODEA {
     type Abi = Self;
 }
@@ -2449,40 +2415,6 @@ impl ::core::marker::Copy for DEVMODEW {}
 impl ::core::clone::Clone for DEVMODEW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DEVMODEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVMODEW")
-            .field("dmDeviceName", &self.dmDeviceName)
-            .field("dmSpecVersion", &self.dmSpecVersion)
-            .field("dmDriverVersion", &self.dmDriverVersion)
-            .field("dmSize", &self.dmSize)
-            .field("dmDriverExtra", &self.dmDriverExtra)
-            .field("dmFields", &self.dmFields)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("dmColor", &self.dmColor)
-            .field("dmDuplex", &self.dmDuplex)
-            .field("dmYResolution", &self.dmYResolution)
-            .field("dmTTOption", &self.dmTTOption)
-            .field("dmCollate", &self.dmCollate)
-            .field("dmFormName", &self.dmFormName)
-            .field("dmLogPixels", &self.dmLogPixels)
-            .field("dmBitsPerPel", &self.dmBitsPerPel)
-            .field("dmPelsWidth", &self.dmPelsWidth)
-            .field("dmPelsHeight", &self.dmPelsHeight)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("dmDisplayFrequency", &self.dmDisplayFrequency)
-            .field("dmICMMethod", &self.dmICMMethod)
-            .field("dmICMIntent", &self.dmICMIntent)
-            .field("dmMediaType", &self.dmMediaType)
-            .field("dmDitherType", &self.dmDitherType)
-            .field("dmReserved1", &self.dmReserved1)
-            .field("dmReserved2", &self.dmReserved2)
-            .field("dmPanningWidth", &self.dmPanningWidth)
-            .field("dmPanningHeight", &self.dmPanningHeight)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

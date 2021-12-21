@@ -2655,11 +2655,6 @@ impl ::core::clone::Clone for NodeType {
         *self
     }
 }
-impl ::core::fmt::Debug for NodeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NodeType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NodeType {
     type Abi = Self;
 }
@@ -2669,6 +2664,11 @@ impl ::core::cmp::PartialEq for NodeType {
     }
 }
 impl ::core::cmp::Eq for NodeType {}
+impl ::core::fmt::Debug for NodeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NodeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NodeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Xml.Dom.NodeType;i4)");
 }

@@ -1160,12 +1160,6 @@ impl ::core::clone::Clone for SettingsEdgeLocation {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SettingsEdgeLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsEdgeLocation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SettingsEdgeLocation {
     type Abi = Self;
 }
@@ -1177,6 +1171,12 @@ impl ::core::cmp::PartialEq for SettingsEdgeLocation {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SettingsEdgeLocation {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SettingsEdgeLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsEdgeLocation").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SettingsEdgeLocation;i4)");
@@ -1526,11 +1526,6 @@ impl ::core::clone::Clone for SupportedWebAccountActions {
         *self
     }
 }
-impl ::core::fmt::Debug for SupportedWebAccountActions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SupportedWebAccountActions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SupportedWebAccountActions {
     type Abi = Self;
 }
@@ -1540,6 +1535,11 @@ impl ::core::cmp::PartialEq for SupportedWebAccountActions {
     }
 }
 impl ::core::cmp::Eq for SupportedWebAccountActions {}
+impl ::core::fmt::Debug for SupportedWebAccountActions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SupportedWebAccountActions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SupportedWebAccountActions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
 }
@@ -1562,11 +1562,6 @@ impl ::core::clone::Clone for WebAccountAction {
         *self
     }
 }
-impl ::core::fmt::Debug for WebAccountAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountAction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountAction {
     type Abi = Self;
 }
@@ -1576,6 +1571,11 @@ impl ::core::cmp::PartialEq for WebAccountAction {
     }
 }
 impl ::core::cmp::Eq for WebAccountAction {}
+impl ::core::fmt::Debug for WebAccountAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.WebAccountAction;i4)");
 }

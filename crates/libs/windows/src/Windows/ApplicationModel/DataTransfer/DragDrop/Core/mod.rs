@@ -371,11 +371,6 @@ impl ::core::clone::Clone for CoreDragUIContentMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreDragUIContentMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreDragUIContentMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreDragUIContentMode {
     type Abi = Self;
 }
@@ -385,6 +380,11 @@ impl ::core::cmp::PartialEq for CoreDragUIContentMode {
     }
 }
 impl ::core::cmp::Eq for CoreDragUIContentMode {}
+impl ::core::fmt::Debug for CoreDragUIContentMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDragUIContentMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreDragUIContentMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode;u4)");
 }

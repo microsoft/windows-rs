@@ -631,12 +631,6 @@ impl ::core::clone::Clone for EVT_VARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for EVT_VARIANT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EVT_VARIANT").field("Anonymous", &self.Anonymous).field("Count", &self.Count).field("Type", &self.Type).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EVT_VARIANT {
     type Abi = Self;
 }

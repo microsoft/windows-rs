@@ -67,11 +67,6 @@ impl ::core::clone::Clone for AddResourcePackageOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for AddResourcePackageOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddResourcePackageOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AddResourcePackageOptions {
     type Abi = Self;
 }
@@ -81,6 +76,11 @@ impl ::core::cmp::PartialEq for AddResourcePackageOptions {
     }
 }
 impl ::core::cmp::Eq for AddResourcePackageOptions {}
+impl ::core::fmt::Debug for AddResourcePackageOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddResourcePackageOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AddResourcePackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
 }
@@ -199,11 +199,6 @@ impl ::core::clone::Clone for AppExecutionContext {
         *self
     }
 }
-impl ::core::fmt::Debug for AppExecutionContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppExecutionContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppExecutionContext {
     type Abi = Self;
 }
@@ -213,6 +208,11 @@ impl ::core::cmp::PartialEq for AppExecutionContext {
     }
 }
 impl ::core::cmp::Eq for AppExecutionContext {}
+impl ::core::fmt::Debug for AppExecutionContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExecutionContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExecutionContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppExecutionContext;i4)");
 }
@@ -596,11 +596,6 @@ impl ::core::clone::Clone for AppInstallerPolicySource {
         *self
     }
 }
-impl ::core::fmt::Debug for AppInstallerPolicySource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppInstallerPolicySource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppInstallerPolicySource {
     type Abi = Self;
 }
@@ -610,6 +605,11 @@ impl ::core::cmp::PartialEq for AppInstallerPolicySource {
     }
 }
 impl ::core::cmp::Eq for AppInstallerPolicySource {}
+impl ::core::fmt::Debug for AppInstallerPolicySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallerPolicySource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallerPolicySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppInstallerPolicySource;i4)");
 }
@@ -915,11 +915,6 @@ impl ::core::clone::Clone for FullTrustLaunchResult {
         *self
     }
 }
-impl ::core::fmt::Debug for FullTrustLaunchResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FullTrustLaunchResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FullTrustLaunchResult {
     type Abi = Self;
 }
@@ -929,6 +924,11 @@ impl ::core::cmp::PartialEq for FullTrustLaunchResult {
     }
 }
 impl ::core::cmp::Eq for FullTrustLaunchResult {}
+impl ::core::fmt::Debug for FullTrustLaunchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullTrustLaunchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FullTrustLaunchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.FullTrustLaunchResult;i4)");
 }
@@ -2884,11 +2884,6 @@ impl ::core::clone::Clone for LimitedAccessFeatureStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for LimitedAccessFeatureStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LimitedAccessFeatureStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LimitedAccessFeatureStatus {
     type Abi = Self;
 }
@@ -2898,6 +2893,11 @@ impl ::core::cmp::PartialEq for LimitedAccessFeatureStatus {
     }
 }
 impl ::core::cmp::Eq for LimitedAccessFeatureStatus {}
+impl ::core::fmt::Debug for LimitedAccessFeatureStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LimitedAccessFeatureStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.LimitedAccessFeatureStatus;i4)");
 }
@@ -4193,11 +4193,6 @@ impl ::core::clone::Clone for PackageContentGroupState {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageContentGroupState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageContentGroupState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageContentGroupState {
     type Abi = Self;
 }
@@ -4207,6 +4202,11 @@ impl ::core::cmp::PartialEq for PackageContentGroupState {
     }
 }
 impl ::core::cmp::Eq for PackageContentGroupState {}
+impl ::core::fmt::Debug for PackageContentGroupState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageContentGroupState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageContentGroupState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
 }
@@ -4532,11 +4532,6 @@ impl ::core::clone::Clone for PackageSignatureKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageSignatureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageSignatureKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageSignatureKind {
     type Abi = Self;
 }
@@ -4546,6 +4541,11 @@ impl ::core::cmp::PartialEq for PackageSignatureKind {
     }
 }
 impl ::core::cmp::Eq for PackageSignatureKind {}
+impl ::core::fmt::Debug for PackageSignatureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageSignatureKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageSignatureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageSignatureKind;i4)");
 }
@@ -5052,11 +5052,6 @@ impl ::core::clone::Clone for PackageUpdateAvailability {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageUpdateAvailability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageUpdateAvailability").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageUpdateAvailability {
     type Abi = Self;
 }
@@ -5066,6 +5061,11 @@ impl ::core::cmp::PartialEq for PackageUpdateAvailability {
     }
 }
 impl ::core::cmp::Eq for PackageUpdateAvailability {}
+impl ::core::fmt::Debug for PackageUpdateAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageUpdateAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageUpdateAvailability;i4)");
 }
@@ -5461,11 +5461,6 @@ impl ::core::clone::Clone for StartupTaskState {
         *self
     }
 }
-impl ::core::fmt::Debug for StartupTaskState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StartupTaskState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StartupTaskState {
     type Abi = Self;
 }
@@ -5475,6 +5470,11 @@ impl ::core::cmp::PartialEq for StartupTaskState {
     }
 }
 impl ::core::cmp::Eq for StartupTaskState {}
+impl ::core::fmt::Debug for StartupTaskState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StartupTaskState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StartupTaskState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
 }

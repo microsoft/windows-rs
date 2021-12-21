@@ -482,11 +482,6 @@ impl ::core::clone::Clone for PnpObjectType {
         *self
     }
 }
-impl ::core::fmt::Debug for PnpObjectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PnpObjectType {
     type Abi = Self;
 }
@@ -496,6 +491,11 @@ impl ::core::cmp::PartialEq for PnpObjectType {
     }
 }
 impl ::core::cmp::Eq for PnpObjectType {}
+impl ::core::fmt::Debug for PnpObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PnpObjectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PnpObjectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
 }

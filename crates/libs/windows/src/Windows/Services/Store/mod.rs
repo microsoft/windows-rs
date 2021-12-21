@@ -1438,11 +1438,6 @@ impl ::core::clone::Clone for StoreCanLicenseStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreCanLicenseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreCanLicenseStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreCanLicenseStatus {
     type Abi = Self;
 }
@@ -1452,6 +1447,11 @@ impl ::core::cmp::PartialEq for StoreCanLicenseStatus {
     }
 }
 impl ::core::cmp::Eq for StoreCanLicenseStatus {}
+impl ::core::fmt::Debug for StoreCanLicenseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreCanLicenseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreCanLicenseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
 }
@@ -1719,11 +1719,6 @@ impl ::core::clone::Clone for StoreConsumableStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreConsumableStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreConsumableStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreConsumableStatus {
     type Abi = Self;
 }
@@ -1733,6 +1728,11 @@ impl ::core::cmp::PartialEq for StoreConsumableStatus {
     }
 }
 impl ::core::cmp::Eq for StoreConsumableStatus {}
+impl ::core::fmt::Debug for StoreConsumableStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreConsumableStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreConsumableStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
 }
@@ -2187,11 +2187,6 @@ impl ::core::clone::Clone for StoreDurationUnit {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreDurationUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreDurationUnit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreDurationUnit {
     type Abi = Self;
 }
@@ -2201,6 +2196,11 @@ impl ::core::cmp::PartialEq for StoreDurationUnit {
     }
 }
 impl ::core::cmp::Eq for StoreDurationUnit {}
+impl ::core::fmt::Debug for StoreDurationUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreDurationUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreDurationUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
 }
@@ -2879,11 +2879,6 @@ impl ::core::clone::Clone for StorePackageUpdateState {
         *self
     }
 }
-impl ::core::fmt::Debug for StorePackageUpdateState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePackageUpdateState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorePackageUpdateState {
     type Abi = Self;
 }
@@ -2893,6 +2888,11 @@ impl ::core::cmp::PartialEq for StorePackageUpdateState {
     }
 }
 impl ::core::cmp::Eq for StorePackageUpdateState {}
+impl ::core::fmt::Debug for StorePackageUpdateState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePackageUpdateState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePackageUpdateState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
 }
@@ -3891,11 +3891,6 @@ impl ::core::clone::Clone for StorePurchaseStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for StorePurchaseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePurchaseStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorePurchaseStatus {
     type Abi = Self;
 }
@@ -3905,6 +3900,11 @@ impl ::core::cmp::PartialEq for StorePurchaseStatus {
     }
 }
 impl ::core::cmp::Eq for StorePurchaseStatus {}
+impl ::core::fmt::Debug for StorePurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePurchaseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePurchaseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
 }
@@ -4180,11 +4180,6 @@ impl ::core::clone::Clone for StoreQueueItemExtendedState {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreQueueItemExtendedState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItemExtendedState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreQueueItemExtendedState {
     type Abi = Self;
 }
@@ -4194,6 +4189,11 @@ impl ::core::cmp::PartialEq for StoreQueueItemExtendedState {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItemExtendedState {}
+impl ::core::fmt::Debug for StoreQueueItemExtendedState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemExtendedState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItemExtendedState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
 }
@@ -4214,11 +4214,6 @@ impl ::core::clone::Clone for StoreQueueItemKind {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreQueueItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItemKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreQueueItemKind {
     type Abi = Self;
 }
@@ -4228,6 +4223,11 @@ impl ::core::cmp::PartialEq for StoreQueueItemKind {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItemKind {}
+impl ::core::fmt::Debug for StoreQueueItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
 }
@@ -4250,11 +4250,6 @@ impl ::core::clone::Clone for StoreQueueItemState {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreQueueItemState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItemState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreQueueItemState {
     type Abi = Self;
 }
@@ -4264,6 +4259,11 @@ impl ::core::cmp::PartialEq for StoreQueueItemState {
     }
 }
 impl ::core::cmp::Eq for StoreQueueItemState {}
+impl ::core::fmt::Debug for StoreQueueItemState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreQueueItemState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
 }
@@ -4495,11 +4495,6 @@ impl ::core::clone::Clone for StoreRateAndReviewStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreRateAndReviewStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreRateAndReviewStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreRateAndReviewStatus {
     type Abi = Self;
 }
@@ -4509,6 +4504,11 @@ impl ::core::cmp::PartialEq for StoreRateAndReviewStatus {
     }
 }
 impl ::core::cmp::Eq for StoreRateAndReviewStatus {}
+impl ::core::fmt::Debug for StoreRateAndReviewStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreRateAndReviewStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
 }
@@ -5083,11 +5083,6 @@ impl ::core::clone::Clone for StoreUninstallStorePackageStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for StoreUninstallStorePackageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreUninstallStorePackageStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StoreUninstallStorePackageStatus {
     type Abi = Self;
 }
@@ -5097,6 +5092,11 @@ impl ::core::cmp::PartialEq for StoreUninstallStorePackageStatus {
     }
 }
 impl ::core::cmp::Eq for StoreUninstallStorePackageStatus {}
+impl ::core::fmt::Debug for StoreUninstallStorePackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreUninstallStorePackageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
 }

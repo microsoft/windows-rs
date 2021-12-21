@@ -2492,12 +2492,6 @@ impl ::core::clone::Clone for PROPSPEC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PROPSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSPEC").field("ulKind", &self.ulKind).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPSPEC {
     type Abi = Self;
 }
@@ -2567,12 +2561,6 @@ impl ::core::clone::Clone for PROPVARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PROPVARIANT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPVARIANT").field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPVARIANT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2635,12 +2623,6 @@ pub struct PROPVARIANT_0_0 {
 impl ::core::clone::Clone for PROPVARIANT_0_0 {
     fn clone(&self) -> Self {
         Self { vt: self.vt, wReserved1: self.wReserved1, wReserved2: self.wReserved2, wReserved3: self.wReserved3, Anonymous: self.Anonymous.clone() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PROPVARIANT_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPVARIANT_0_0").field("vt", &self.vt).field("wReserved1", &self.wReserved1).field("wReserved2", &self.wReserved2).field("wReserved3", &self.wReserved3).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

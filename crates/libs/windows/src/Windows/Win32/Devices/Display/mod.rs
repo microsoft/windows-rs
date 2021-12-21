@@ -542,12 +542,6 @@ impl ::core::clone::Clone for CHAR_IMAGE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
-impl ::core::fmt::Debug for CHAR_IMAGE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHAR_IMAGE_INFO").field("CharInfo", &self.CharInfo).field("FontImageInfo", &self.FontImageInfo).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 unsafe impl ::windows::core::Abi for CHAR_IMAGE_INFO {
     type Abi = Self;
 }
@@ -830,11 +824,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM {
         *self
     }
 }
-impl ::core::fmt::Debug for COLORSPACE_TRANSFORM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COLORSPACE_TRANSFORM").field("Type", &self.Type).field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM {
     type Abi = Self;
 }
@@ -887,11 +876,6 @@ impl ::core::marker::Copy for COLORSPACE_TRANSFORM_1DLUT_CAP {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_1DLUT_CAP {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_1DLUT_CAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COLORSPACE_TRANSFORM_1DLUT_CAP").field("NumberOfLUTEntries", &self.NumberOfLUTEntries).field("DataCap", &self.DataCap).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_1DLUT_CAP {
@@ -952,11 +936,6 @@ impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_DATA_CAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COLORSPACE_TRANSFORM_DATA_CAP").field("DataType", &self.DataType).field("Anonymous", &self.Anonymous).field("NumericRangeMin", &self.NumericRangeMin).field("NumericRangeMax", &self.NumericRangeMax).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP {
@@ -1078,11 +1057,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP {
         *self
     }
 }
-impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_MATRIX_CAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COLORSPACE_TRANSFORM_MATRIX_CAP").field("Anonymous", &self.Anonymous).field("DataCap", &self.DataCap).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP {
     type Abi = Self;
 }
@@ -1201,11 +1175,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_SET_INPUT {
         *self
     }
 }
-impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_SET_INPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COLORSPACE_TRANSFORM_SET_INPUT").field("OutputWireColorSpaceExpected", &self.OutputWireColorSpaceExpected).field("OutputWireFormatExpected", &self.OutputWireFormatExpected).field("ColorSpaceTransform", &self.ColorSpaceTransform).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_SET_INPUT {
     type Abi = Self;
 }
@@ -1240,11 +1209,6 @@ impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TARGET_CAPS {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_TARGET_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COLORSPACE_TRANSFORM_TARGET_CAPS").field("Version", &self.Version).field("LookupTable1DDegammaCap", &self.LookupTable1DDegammaCap).field("ColorMatrix3x3Cap", &self.ColorMatrix3x3Cap).field("LookupTable1DRegammaCap", &self.LookupTable1DRegammaCap).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS {
@@ -1655,12 +1619,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO").field("header", &self.header).field("Anonymous", &self.Anonymous).field("colorEncoding", &self.colorEncoding).field("bitsPerColorChannel", &self.bitsPerColorChannel).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     type Abi = Self;
 }
@@ -1762,12 +1720,6 @@ impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
 impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION").field("header", &self.header).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1877,12 +1829,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_MODE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_MODE_INFO").field("infoType", &self.infoType).field("id", &self.id).field("adapterId", &self.adapterId).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_MODE_INFO {
     type Abi = Self;
 }
@@ -1961,12 +1907,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PATH_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_PATH_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_PATH_INFO").field("sourceInfo", &self.sourceInfo).field("targetInfo", &self.targetInfo).field("flags", &self.flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_INFO {
     type Abi = Self;
 }
@@ -1999,12 +1939,6 @@ impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO {}
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_PATH_SOURCE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_PATH_SOURCE_INFO").field("adapterId", &self.adapterId).field("id", &self.id).field("Anonymous", &self.Anonymous).field("statusFlags", &self.statusFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2117,12 +2051,6 @@ impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO {}
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_PATH_TARGET_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_PATH_TARGET_INFO").field("adapterId", &self.adapterId).field("id", &self.id).field("Anonymous", &self.Anonymous).field("outputTechnology", &self.outputTechnology).field("rotation", &self.rotation).field("scaling", &self.scaling).field("refreshRate", &self.refreshRate).field("scanLineOrdering", &self.scanLineOrdering).field("targetAvailable", &self.targetAvailable).field("statusFlags", &self.statusFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2356,12 +2284,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE").field("header", &self.header).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     type Abi = Self;
 }
@@ -2469,12 +2391,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION").field("header", &self.header).field("Anonymous", &self.Anonymous).field("specializationType", &self.specializationType).field("specializationSubType", &self.specializationSubType).field("specializationApplicationName", &self.specializationApplicationName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     type Abi = Self;
 }
@@ -2576,12 +2492,6 @@ impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_SET_TARGET_PERSISTENCE").field("header", &self.header).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2769,12 +2679,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION").field("header", &self.header).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     type Abi = Self;
 }
@@ -2924,12 +2828,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_TARGET_DEVICE_NAME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_TARGET_DEVICE_NAME").field("header", &self.header).field("flags", &self.flags).field("outputTechnology", &self.outputTechnology).field("edidManufactureId", &self.edidManufactureId).field("edidProductCodeId", &self.edidProductCodeId).field("connectorInstance", &self.connectorInstance).field("monitorFriendlyDeviceName", &self.monitorFriendlyDeviceName).field("monitorDevicePath", &self.monitorDevicePath).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     type Abi = Self;
 }
@@ -2956,11 +2854,6 @@ impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {}
 impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
@@ -3044,11 +2937,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_MODE {
         *self
     }
 }
-impl ::core::fmt::Debug for DISPLAYCONFIG_TARGET_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_TARGET_MODE").field("targetVideoSignalInfo", &self.targetVideoSignalInfo).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_MODE {
     type Abi = Self;
 }
@@ -3078,12 +2966,6 @@ impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
 impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_TARGET_PREFERRED_MODE").field("header", &self.header).field("width", &self.width).field("height", &self.height).field("targetMode", &self.targetMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3175,11 +3057,6 @@ impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {}
 impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPLAYCONFIG_VIDEO_SIGNAL_INFO").field("pixelRate", &self.pixelRate).field("hSyncFreq", &self.hSyncFreq).field("vSyncFreq", &self.vSyncFreq).field("activeSize", &self.activeSize).field("totalSize", &self.totalSize).field("Anonymous", &self.Anonymous).field("scanLineOrdering", &self.scanLineOrdering).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
@@ -3642,12 +3519,6 @@ impl ::core::clone::Clone for DisplayMode {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for DisplayMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DisplayMode").field("DeviceName", &self.DeviceName).field("devMode", &self.devMode).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DisplayMode {
     type Abi = Self;
 }
@@ -3678,12 +3549,6 @@ impl ::core::marker::Copy for DisplayModes {}
 impl ::core::clone::Clone for DisplayModes {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for DisplayModes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DisplayModes").field("numDisplayModes", &self.numDisplayModes).field("displayMode", &self.displayMode).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6264,12 +6129,6 @@ impl ::core::clone::Clone for GLYPHDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GLYPHDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GLYPHDATA").field("gdf", &self.gdf).field("hg", &self.hg).field("fxD", &self.fxD).field("fxA", &self.fxA).field("fxAB", &self.fxAB).field("fxInkTop", &self.fxInkTop).field("fxInkBottom", &self.fxInkBottom).field("rclInk", &self.rclInk).field("ptqD", &self.ptqD).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GLYPHDATA {
     type Abi = Self;
 }
@@ -7866,12 +7725,6 @@ impl ::core::clone::Clone for LINEATTRS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for LINEATTRS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LINEATTRS").field("fl", &self.fl).field("iJoin", &self.iJoin).field("iEndCap", &self.iEndCap).field("elWidth", &self.elWidth).field("eMiterLimit", &self.eMiterLimit).field("cstyle", &self.cstyle).field("pstyle", &self.pstyle).field("elStyleState", &self.elStyleState).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for LINEATTRS {
     type Abi = Self;
 }
@@ -7908,12 +7761,6 @@ impl ::core::marker::Copy for LINEATTRS {}
 impl ::core::clone::Clone for LINEATTRS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for LINEATTRS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LINEATTRS").field("fl", &self.fl).field("iJoin", &self.iJoin).field("iEndCap", &self.iEndCap).field("elWidth", &self.elWidth).field("eMiterLimit", &self.eMiterLimit).field("cstyle", &self.cstyle).field("pstyle", &self.pstyle).field("elStyleState", &self.elStyleState).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -8168,11 +8015,6 @@ impl ::core::clone::Clone for MIPI_DSI_PACKET {
         *self
     }
 }
-impl ::core::fmt::Debug for MIPI_DSI_PACKET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIPI_DSI_PACKET").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("EccFiller", &self.EccFiller).field("Payload", &self.Payload).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET {
     type Abi = Self;
 }
@@ -8312,11 +8154,6 @@ impl ::core::clone::Clone for MIPI_DSI_RESET {
         *self
     }
 }
-impl ::core::fmt::Debug for MIPI_DSI_RESET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIPI_DSI_RESET").field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIPI_DSI_RESET {
     type Abi = Self;
 }
@@ -8404,11 +8241,6 @@ impl ::core::marker::Copy for MIPI_DSI_TRANSMISSION {}
 impl ::core::clone::Clone for MIPI_DSI_TRANSMISSION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIPI_DSI_TRANSMISSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIPI_DSI_TRANSMISSION").field("TotalBufferSize", &self.TotalBufferSize).field("PacketCount", &self.PacketCount).field("FailedPacket", &self.FailedPacket).field("Anonymous", &self.Anonymous).field("ReadWordCount", &self.ReadWordCount).field("FinalCommandExtraPayload", &self.FinalCommandExtraPayload).field("MipiErrors", &self.MipiErrors).field("HostErrors", &self.HostErrors).field("Packets", &self.Packets).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIPI_DSI_TRANSMISSION {
@@ -8596,11 +8428,6 @@ impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for PANEL_BRIGHTNESS_SENSOR_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PANEL_BRIGHTNESS_SENSOR_DATA").field("Anonymous", &self.Anonymous).field("AlsReading", &self.AlsReading).field("ChromaticityCoordinate", &self.ChromaticityCoordinate).field("ColorTemperature", &self.ColorTemperature).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PANEL_BRIGHTNESS_SENSOR_DATA {
     type Abi = Self;
 }
@@ -8715,11 +8542,6 @@ impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS {
         *self
     }
 }
-impl ::core::fmt::Debug for PANEL_GET_BRIGHTNESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PANEL_GET_BRIGHTNESS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PANEL_GET_BRIGHTNESS {
     type Abi = Self;
 }
@@ -8801,11 +8623,6 @@ impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_CAPS {}
 impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PANEL_QUERY_BRIGHTNESS_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PANEL_QUERY_BRIGHTNESS_CAPS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_CAPS {
@@ -8890,11 +8707,6 @@ impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES {
         *self
     }
 }
-impl ::core::fmt::Debug for PANEL_QUERY_BRIGHTNESS_RANGES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PANEL_QUERY_BRIGHTNESS_RANGES").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_RANGES {
     type Abi = Self;
 }
@@ -8977,11 +8789,6 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS {
         *self
     }
 }
-impl ::core::fmt::Debug for PANEL_SET_BRIGHTNESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PANEL_SET_BRIGHTNESS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS {
     type Abi = Self;
 }
@@ -9035,11 +8842,6 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for PANEL_SET_BRIGHTNESS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PANEL_SET_BRIGHTNESS_0_0").field("Millinits", &self.Millinits).field("TransitionTimeInMs", &self.TransitionTimeInMs).field("SensorData", &self.SensorData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_0_0 {
     type Abi = Self;
 }
@@ -9063,11 +8865,6 @@ impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_STATE {}
 impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PANEL_SET_BRIGHTNESS_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PANEL_SET_BRIGHTNESS_STATE").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_STATE {
@@ -10793,11 +10590,6 @@ impl ::core::marker::Copy for VIDEO_CLUT {}
 impl ::core::clone::Clone for VIDEO_CLUT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for VIDEO_CLUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VIDEO_CLUT").field("NumEntries", &self.NumEntries).field("FirstEntry", &self.FirstEntry).field("LookupTable", &self.LookupTable).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VIDEO_CLUT {

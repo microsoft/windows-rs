@@ -769,27 +769,6 @@ impl ::core::clone::Clone for BINDINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for BINDINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BINDINFO")
-            .field("cbSize", &self.cbSize)
-            .field("szExtraInfo", &self.szExtraInfo)
-            .field("stgmedData", &self.stgmedData)
-            .field("grfBindInfoF", &self.grfBindInfoF)
-            .field("dwBindVerb", &self.dwBindVerb)
-            .field("szCustomVerb", &self.szCustomVerb)
-            .field("cbstgmedData", &self.cbstgmedData)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwOptionsFlags", &self.dwOptionsFlags)
-            .field("dwCodePage", &self.dwCodePage)
-            .field("securityAttributes", &self.securityAttributes)
-            .field("iid", &self.iid)
-            .field("pUnk", &self.pUnk)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for BINDINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1576,12 +1555,6 @@ pub struct CUSTDATAITEM {
 impl ::core::clone::Clone for CUSTDATAITEM {
     fn clone(&self) -> Self {
         Self { guid: self.guid, varValue: self.varValue.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for CUSTDATAITEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CUSTDATAITEM").field("guid", &self.guid).field("varValue", &self.varValue).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -3251,12 +3224,6 @@ impl ::core::clone::Clone for ELEMDESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for ELEMDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ELEMDESC").field("tdesc", &self.tdesc).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for ELEMDESC {
     type Abi = Self;
 }
@@ -3482,12 +3449,6 @@ impl ::core::clone::Clone for FLAG_STGMEDIUM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for FLAG_STGMEDIUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FLAG_STGMEDIUM").field("ContextFlags", &self.ContextFlags).field("fPassOwnership", &self.fPassOwnership).field("Stgmed", &self.Stgmed).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for FLAG_STGMEDIUM {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3565,12 +3526,6 @@ impl ::core::clone::Clone for FUNCDESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for FUNCDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FUNCDESC").field("memid", &self.memid).field("lprgscode", &self.lprgscode).field("lprgelemdescParam", &self.lprgelemdescParam).field("funckind", &self.funckind).field("invkind", &self.invkind).field("callconv", &self.callconv).field("cParams", &self.cParams).field("cParamsOpt", &self.cParamsOpt).field("oVft", &self.oVft).field("cScodes", &self.cScodes).field("elemdescFunc", &self.elemdescFunc).field("wFuncFlags", &self.wFuncFlags).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for FUNCDESC {
     type Abi = Self;
 }
@@ -3613,12 +3568,6 @@ impl ::core::marker::Copy for GDI_OBJECT {}
 impl ::core::clone::Clone for GDI_OBJECT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::fmt::Debug for GDI_OBJECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GDI_OBJECT").field("ObjectType", &self.ObjectType).field("u", &self.u).finish()
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
@@ -13386,12 +13335,6 @@ impl ::core::clone::Clone for STGMEDIUM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for STGMEDIUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STGMEDIUM").field("tymed", &self.tymed).field("Anonymous", &self.Anonymous).field("pUnkForRelease", &self.pUnkForRelease).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for STGMEDIUM {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -13680,31 +13623,6 @@ impl ::core::clone::Clone for TYPEATTR {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for TYPEATTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TYPEATTR")
-            .field("guid", &self.guid)
-            .field("lcid", &self.lcid)
-            .field("dwReserved", &self.dwReserved)
-            .field("memidConstructor", &self.memidConstructor)
-            .field("memidDestructor", &self.memidDestructor)
-            .field("lpstrSchema", &self.lpstrSchema)
-            .field("cbSizeInstance", &self.cbSizeInstance)
-            .field("typekind", &self.typekind)
-            .field("cFuncs", &self.cFuncs)
-            .field("cVars", &self.cVars)
-            .field("cImplTypes", &self.cImplTypes)
-            .field("cbSizeVft", &self.cbSizeVft)
-            .field("cbAlignment", &self.cbAlignment)
-            .field("wTypeFlags", &self.wTypeFlags)
-            .field("wMajorVerNum", &self.wMajorVerNum)
-            .field("wMinorVerNum", &self.wMinorVerNum)
-            .field("tdescAlias", &self.tdescAlias)
-            .field("idldescType", &self.idldescType)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for TYPEATTR {
     type Abi = Self;
 }
@@ -13735,12 +13653,6 @@ impl ::core::marker::Copy for TYPEDESC {}
 impl ::core::clone::Clone for TYPEDESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::fmt::Debug for TYPEDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TYPEDESC").field("Anonymous", &self.Anonymous).field("vt", &self.vt).finish()
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -13937,12 +13849,6 @@ impl ::core::clone::Clone for VARDESC {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for VARDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VARDESC").field("memid", &self.memid).field("lpstrSchema", &self.lpstrSchema).field("Anonymous", &self.Anonymous).field("elemdescVar", &self.elemdescVar).field("wVarFlags", &self.wVarFlags).field("varkind", &self.varkind).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for VARDESC {
     type Abi = Self;
 }
@@ -14003,12 +13909,6 @@ pub struct VARIANT {
 impl ::core::clone::Clone for VARIANT {
     fn clone(&self) -> Self {
         Self { Anonymous: self.Anonymous.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for VARIANT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VARIANT").field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -14074,12 +13974,6 @@ pub struct VARIANT_0_0 {
 impl ::core::clone::Clone for VARIANT_0_0 {
     fn clone(&self) -> Self {
         Self { vt: self.vt, wReserved1: self.wReserved1, wReserved2: self.wReserved2, wReserved3: self.wReserved3, Anonymous: self.Anonymous.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for VARIANT_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VARIANT_0_0").field("vt", &self.vt).field("wReserved1", &self.wReserved1).field("wReserved2", &self.wReserved2).field("wReserved3", &self.wReserved3).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -14266,12 +14160,6 @@ impl ::core::marker::Copy for uCLSSPEC {}
 impl ::core::clone::Clone for uCLSSPEC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for uCLSSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("uCLSSPEC").field("tyspec", &self.tyspec).field("tagged_union", &self.tagged_union).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14481,12 +14369,6 @@ impl ::core::marker::Copy for userSTGMEDIUM_0 {}
 impl ::core::clone::Clone for userSTGMEDIUM_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::fmt::Debug for userSTGMEDIUM_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userSTGMEDIUM_0").field("tymed", &self.tymed).field("u", &self.u).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]

@@ -12,11 +12,6 @@ impl ::core::clone::Clone for TextPatternRangeEndpoint {
         *self
     }
 }
-impl ::core::fmt::Debug for TextPatternRangeEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextPatternRangeEndpoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TextPatternRangeEndpoint {
     type Abi = Self;
 }
@@ -26,6 +21,11 @@ impl ::core::cmp::PartialEq for TextPatternRangeEndpoint {
     }
 }
 impl ::core::cmp::Eq for TextPatternRangeEndpoint {}
+impl ::core::fmt::Debug for TextPatternRangeEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPatternRangeEndpoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextPatternRangeEndpoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Text.TextPatternRangeEndpoint;i4)");
 }
@@ -50,11 +50,6 @@ impl ::core::clone::Clone for TextUnit {
         *self
     }
 }
-impl ::core::fmt::Debug for TextUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextUnit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TextUnit {
     type Abi = Self;
 }
@@ -64,6 +59,11 @@ impl ::core::cmp::PartialEq for TextUnit {
     }
 }
 impl ::core::cmp::Eq for TextUnit {}
+impl ::core::fmt::Debug for TextUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Text.TextUnit;i4)");
 }

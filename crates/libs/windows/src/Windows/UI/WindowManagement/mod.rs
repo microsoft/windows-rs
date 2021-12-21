@@ -632,11 +632,6 @@ impl ::core::clone::Clone for AppWindowClosedReason {
         *self
     }
 }
-impl ::core::fmt::Debug for AppWindowClosedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppWindowClosedReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppWindowClosedReason {
     type Abi = Self;
 }
@@ -646,6 +641,11 @@ impl ::core::cmp::PartialEq for AppWindowClosedReason {
     }
 }
 impl ::core::cmp::Eq for AppWindowClosedReason {}
+impl ::core::fmt::Debug for AppWindowClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
 }
@@ -760,11 +760,6 @@ impl ::core::clone::Clone for AppWindowFrameStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for AppWindowFrameStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppWindowFrameStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppWindowFrameStyle {
     type Abi = Self;
 }
@@ -774,6 +769,11 @@ impl ::core::cmp::PartialEq for AppWindowFrameStyle {
     }
 }
 impl ::core::cmp::Eq for AppWindowFrameStyle {}
+impl ::core::fmt::Debug for AppWindowFrameStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowFrameStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowFrameStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
 }
@@ -974,11 +974,6 @@ impl ::core::clone::Clone for AppWindowPresentationKind {
         *self
     }
 }
-impl ::core::fmt::Debug for AppWindowPresentationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppWindowPresentationKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppWindowPresentationKind {
     type Abi = Self;
 }
@@ -988,6 +983,11 @@ impl ::core::cmp::PartialEq for AppWindowPresentationKind {
     }
 }
 impl ::core::cmp::Eq for AppWindowPresentationKind {}
+impl ::core::fmt::Debug for AppWindowPresentationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowPresentationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowPresentationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
 }
@@ -1490,11 +1490,6 @@ impl ::core::clone::Clone for AppWindowTitleBarVisibility {
         *self
     }
 }
-impl ::core::fmt::Debug for AppWindowTitleBarVisibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppWindowTitleBarVisibility").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppWindowTitleBarVisibility {
     type Abi = Self;
 }
@@ -1504,6 +1499,11 @@ impl ::core::cmp::PartialEq for AppWindowTitleBarVisibility {
     }
 }
 impl ::core::cmp::Eq for AppWindowTitleBarVisibility {}
+impl ::core::fmt::Debug for AppWindowTitleBarVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppWindowTitleBarVisibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
 }
@@ -2866,11 +2866,6 @@ impl ::core::clone::Clone for WindowingEnvironmentKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WindowingEnvironmentKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowingEnvironmentKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WindowingEnvironmentKind {
     type Abi = Self;
 }
@@ -2880,6 +2875,11 @@ impl ::core::cmp::PartialEq for WindowingEnvironmentKind {
     }
 }
 impl ::core::cmp::Eq for WindowingEnvironmentKind {}
+impl ::core::fmt::Debug for WindowingEnvironmentKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowingEnvironmentKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.WindowingEnvironmentKind;i4)");
 }

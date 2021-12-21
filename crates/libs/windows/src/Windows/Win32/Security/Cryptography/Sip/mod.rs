@@ -433,12 +433,6 @@ impl ::core::clone::Clone for SIP_CAP_SET_V3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SIP_CAP_SET_V3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIP_CAP_SET_V3").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("isMultiSign", &self.isMultiSign).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3 {
     type Abi = Self;
 }
@@ -608,31 +602,6 @@ impl ::core::marker::Copy for SIP_SUBJECTINFO {}
 impl ::core::clone::Clone for SIP_SUBJECTINFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::fmt::Debug for SIP_SUBJECTINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIP_SUBJECTINFO")
-            .field("cbSize", &self.cbSize)
-            .field("pgSubjectType", &self.pgSubjectType)
-            .field("hFile", &self.hFile)
-            .field("pwsFileName", &self.pwsFileName)
-            .field("pwsDisplayName", &self.pwsDisplayName)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwIntVersion", &self.dwIntVersion)
-            .field("hProv", &self.hProv)
-            .field("DigestAlgorithm", &self.DigestAlgorithm)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwEncodingType", &self.dwEncodingType)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("fdwCAPISettings", &self.fdwCAPISettings)
-            .field("fdwSecuritySettings", &self.fdwSecuritySettings)
-            .field("dwIndex", &self.dwIndex)
-            .field("dwUnionChoice", &self.dwUnionChoice)
-            .field("Anonymous", &self.Anonymous)
-            .field("pClientData", &self.pClientData)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

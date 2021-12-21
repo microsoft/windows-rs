@@ -660,11 +660,6 @@ impl ::core::clone::Clone for ChatConversationThreadingKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatConversationThreadingKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatConversationThreadingKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatConversationThreadingKind {
     type Abi = Self;
 }
@@ -674,6 +669,11 @@ impl ::core::cmp::PartialEq for ChatConversationThreadingKind {
     }
 }
 impl ::core::cmp::Eq for ChatConversationThreadingKind {}
+impl ::core::fmt::Debug for ChatConversationThreadingKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatConversationThreadingKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatConversationThreadingKind;i4)");
 }
@@ -693,11 +693,6 @@ impl ::core::clone::Clone for ChatItemKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatItemKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatItemKind {
     type Abi = Self;
 }
@@ -707,6 +702,11 @@ impl ::core::cmp::PartialEq for ChatItemKind {
     }
 }
 impl ::core::cmp::Eq for ChatItemKind {}
+impl ::core::fmt::Debug for ChatItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatItemKind;i4)");
 }
@@ -1643,11 +1643,6 @@ impl ::core::clone::Clone for ChatMessageChangeType {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatMessageChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageChangeType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatMessageChangeType {
     type Abi = Self;
 }
@@ -1657,6 +1652,11 @@ impl ::core::cmp::PartialEq for ChatMessageChangeType {
     }
 }
 impl ::core::cmp::Eq for ChatMessageChangeType {}
+impl ::core::fmt::Debug for ChatMessageChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageChangeType;i4)");
 }
@@ -1840,11 +1840,6 @@ impl ::core::clone::Clone for ChatMessageKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatMessageKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatMessageKind {
     type Abi = Self;
 }
@@ -1854,6 +1849,11 @@ impl ::core::cmp::PartialEq for ChatMessageKind {
     }
 }
 impl ::core::cmp::Eq for ChatMessageKind {}
+impl ::core::fmt::Debug for ChatMessageKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageKind;i4)");
 }
@@ -2062,11 +2062,6 @@ impl ::core::clone::Clone for ChatMessageOperatorKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatMessageOperatorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageOperatorKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatMessageOperatorKind {
     type Abi = Self;
 }
@@ -2076,6 +2071,11 @@ impl ::core::cmp::PartialEq for ChatMessageOperatorKind {
     }
 }
 impl ::core::cmp::Eq for ChatMessageOperatorKind {}
+impl ::core::fmt::Debug for ChatMessageOperatorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageOperatorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageOperatorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageOperatorKind;i4)");
 }
@@ -2198,11 +2198,6 @@ impl ::core::clone::Clone for ChatMessageStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatMessageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatMessageStatus {
     type Abi = Self;
 }
@@ -2212,6 +2207,11 @@ impl ::core::cmp::PartialEq for ChatMessageStatus {
     }
 }
 impl ::core::cmp::Eq for ChatMessageStatus {}
+impl ::core::fmt::Debug for ChatMessageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageStatus;i4)");
 }
@@ -2899,11 +2899,6 @@ impl ::core::clone::Clone for ChatMessageTransportKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatMessageTransportKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageTransportKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatMessageTransportKind {
     type Abi = Self;
 }
@@ -2913,6 +2908,11 @@ impl ::core::cmp::PartialEq for ChatMessageTransportKind {
     }
 }
 impl ::core::cmp::Eq for ChatMessageTransportKind {}
+impl ::core::fmt::Debug for ChatMessageTransportKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageTransportKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageTransportKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageTransportKind;i4)");
 }
@@ -3052,11 +3052,6 @@ impl ::core::clone::Clone for ChatMessageValidationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatMessageValidationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageValidationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatMessageValidationStatus {
     type Abi = Self;
 }
@@ -3066,6 +3061,11 @@ impl ::core::cmp::PartialEq for ChatMessageValidationStatus {
     }
 }
 impl ::core::cmp::Eq for ChatMessageValidationStatus {}
+impl ::core::fmt::Debug for ChatMessageValidationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageValidationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageValidationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageValidationStatus;i4)");
 }
@@ -3342,11 +3342,6 @@ impl ::core::clone::Clone for ChatRestoreHistorySpan {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatRestoreHistorySpan {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatRestoreHistorySpan").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatRestoreHistorySpan {
     type Abi = Self;
 }
@@ -3356,6 +3351,11 @@ impl ::core::cmp::PartialEq for ChatRestoreHistorySpan {
     }
 }
 impl ::core::cmp::Eq for ChatRestoreHistorySpan {}
+impl ::core::fmt::Debug for ChatRestoreHistorySpan {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatRestoreHistorySpan").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatRestoreHistorySpan {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatRestoreHistorySpan;i4)");
 }
@@ -3472,11 +3472,6 @@ impl ::core::clone::Clone for ChatStoreChangedEventKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatStoreChangedEventKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatStoreChangedEventKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatStoreChangedEventKind {
     type Abi = Self;
 }
@@ -3486,6 +3481,11 @@ impl ::core::cmp::PartialEq for ChatStoreChangedEventKind {
     }
 }
 impl ::core::cmp::Eq for ChatStoreChangedEventKind {}
+impl ::core::fmt::Debug for ChatStoreChangedEventKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatStoreChangedEventKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatStoreChangedEventKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatStoreChangedEventKind;i4)");
 }
@@ -3728,11 +3728,6 @@ impl ::core::clone::Clone for ChatTransportErrorCodeCategory {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatTransportErrorCodeCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatTransportErrorCodeCategory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatTransportErrorCodeCategory {
     type Abi = Self;
 }
@@ -3742,6 +3737,11 @@ impl ::core::cmp::PartialEq for ChatTransportErrorCodeCategory {
     }
 }
 impl ::core::cmp::Eq for ChatTransportErrorCodeCategory {}
+impl ::core::fmt::Debug for ChatTransportErrorCodeCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatTransportErrorCodeCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatTransportErrorCodeCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportErrorCodeCategory;i4)");
 }
@@ -3765,11 +3765,6 @@ impl ::core::clone::Clone for ChatTransportInterpretedErrorCode {
         *self
     }
 }
-impl ::core::fmt::Debug for ChatTransportInterpretedErrorCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatTransportInterpretedErrorCode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChatTransportInterpretedErrorCode {
     type Abi = Self;
 }
@@ -3779,6 +3774,11 @@ impl ::core::cmp::PartialEq for ChatTransportInterpretedErrorCode {
     }
 }
 impl ::core::cmp::Eq for ChatTransportInterpretedErrorCode {}
+impl ::core::fmt::Debug for ChatTransportInterpretedErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatTransportInterpretedErrorCode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatTransportInterpretedErrorCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportInterpretedErrorCode;i4)");
 }
@@ -5625,11 +5625,6 @@ impl ::core::clone::Clone for RcsServiceKind {
         *self
     }
 }
-impl ::core::fmt::Debug for RcsServiceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsServiceKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RcsServiceKind {
     type Abi = Self;
 }
@@ -5639,6 +5634,11 @@ impl ::core::cmp::PartialEq for RcsServiceKind {
     }
 }
 impl ::core::cmp::Eq for RcsServiceKind {}
+impl ::core::fmt::Debug for RcsServiceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsServiceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsServiceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.RcsServiceKind;i4)");
 }

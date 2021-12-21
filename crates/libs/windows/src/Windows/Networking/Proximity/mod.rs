@@ -680,11 +680,6 @@ impl ::core::clone::Clone for PeerDiscoveryTypes {
         *self
     }
 }
-impl ::core::fmt::Debug for PeerDiscoveryTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeerDiscoveryTypes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PeerDiscoveryTypes {
     type Abi = Self;
 }
@@ -694,6 +689,11 @@ impl ::core::cmp::PartialEq for PeerDiscoveryTypes {
     }
 }
 impl ::core::cmp::Eq for PeerDiscoveryTypes {}
+impl ::core::fmt::Debug for PeerDiscoveryTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerDiscoveryTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeerDiscoveryTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
 }
@@ -989,11 +989,6 @@ impl ::core::clone::Clone for PeerRole {
         *self
     }
 }
-impl ::core::fmt::Debug for PeerRole {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeerRole").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PeerRole {
     type Abi = Self;
 }
@@ -1003,6 +998,11 @@ impl ::core::cmp::PartialEq for PeerRole {
     }
 }
 impl ::core::cmp::Eq for PeerRole {}
+impl ::core::fmt::Debug for PeerRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerRole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeerRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
 }
@@ -1192,11 +1192,6 @@ impl ::core::clone::Clone for PeerWatcherStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PeerWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeerWatcherStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PeerWatcherStatus {
     type Abi = Self;
 }
@@ -1206,6 +1201,11 @@ impl ::core::cmp::PartialEq for PeerWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for PeerWatcherStatus {}
+impl ::core::fmt::Debug for PeerWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeerWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PeerWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
 }
@@ -1558,11 +1558,6 @@ impl ::core::clone::Clone for TriggeredConnectState {
         *self
     }
 }
-impl ::core::fmt::Debug for TriggeredConnectState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TriggeredConnectState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TriggeredConnectState {
     type Abi = Self;
 }
@@ -1572,6 +1567,11 @@ impl ::core::cmp::PartialEq for TriggeredConnectState {
     }
 }
 impl ::core::cmp::Eq for TriggeredConnectState {}
+impl ::core::fmt::Debug for TriggeredConnectState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriggeredConnectState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TriggeredConnectState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
 }

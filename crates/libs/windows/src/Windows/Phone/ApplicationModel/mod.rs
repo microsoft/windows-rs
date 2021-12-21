@@ -31,11 +31,6 @@ impl ::core::clone::Clone for ApplicationProfileModes {
         *self
     }
 }
-impl ::core::fmt::Debug for ApplicationProfileModes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationProfileModes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationProfileModes {
     type Abi = Self;
 }
@@ -45,6 +40,11 @@ impl ::core::cmp::PartialEq for ApplicationProfileModes {
     }
 }
 impl ::core::cmp::Eq for ApplicationProfileModes {}
+impl ::core::fmt::Debug for ApplicationProfileModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationProfileModes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationProfileModes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
 }

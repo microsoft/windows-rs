@@ -1221,11 +1221,6 @@ impl ::core::clone::Clone for FrameFlashMode {
         *self
     }
 }
-impl ::core::fmt::Debug for FrameFlashMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameFlashMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FrameFlashMode {
     type Abi = Self;
 }
@@ -1235,6 +1230,11 @@ impl ::core::cmp::PartialEq for FrameFlashMode {
     }
 }
 impl ::core::cmp::Eq for FrameFlashMode {}
+impl ::core::fmt::Debug for FrameFlashMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameFlashMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameFlashMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
 }

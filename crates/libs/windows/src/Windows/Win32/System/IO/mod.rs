@@ -170,12 +170,6 @@ impl ::core::clone::Clone for OVERLAPPED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OVERLAPPED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OVERLAPPED").field("Internal", &self.Internal).field("InternalHigh", &self.InternalHigh).field("Anonymous", &self.Anonymous).field("hEvent", &self.hEvent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OVERLAPPED {
     type Abi = Self;
 }

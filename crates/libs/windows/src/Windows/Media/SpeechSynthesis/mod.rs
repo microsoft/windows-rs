@@ -198,11 +198,6 @@ impl ::core::clone::Clone for SpeechAppendedSilence {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechAppendedSilence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechAppendedSilence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechAppendedSilence {
     type Abi = Self;
 }
@@ -212,6 +207,11 @@ impl ::core::cmp::PartialEq for SpeechAppendedSilence {
     }
 }
 impl ::core::cmp::Eq for SpeechAppendedSilence {}
+impl ::core::fmt::Debug for SpeechAppendedSilence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechAppendedSilence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechAppendedSilence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
 }
@@ -231,11 +231,6 @@ impl ::core::clone::Clone for SpeechPunctuationSilence {
         *self
     }
 }
-impl ::core::fmt::Debug for SpeechPunctuationSilence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechPunctuationSilence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechPunctuationSilence {
     type Abi = Self;
 }
@@ -245,6 +240,11 @@ impl ::core::cmp::PartialEq for SpeechPunctuationSilence {
     }
 }
 impl ::core::cmp::Eq for SpeechPunctuationSilence {}
+impl ::core::fmt::Debug for SpeechPunctuationSilence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechPunctuationSilence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpeechPunctuationSilence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
 }
@@ -1002,11 +1002,6 @@ impl ::core::clone::Clone for VoiceGender {
         *self
     }
 }
-impl ::core::fmt::Debug for VoiceGender {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceGender").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VoiceGender {
     type Abi = Self;
 }
@@ -1016,6 +1011,11 @@ impl ::core::cmp::PartialEq for VoiceGender {
     }
 }
 impl ::core::cmp::Eq for VoiceGender {}
+impl ::core::fmt::Debug for VoiceGender {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceGender").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VoiceGender {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
 }

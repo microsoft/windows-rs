@@ -135,11 +135,6 @@ impl ::core::clone::Clone for PhoneCallBlockedReason {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneCallBlockedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallBlockedReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallBlockedReason {
     type Abi = Self;
 }
@@ -149,6 +144,11 @@ impl ::core::cmp::PartialEq for PhoneCallBlockedReason {
     }
 }
 impl ::core::cmp::Eq for PhoneCallBlockedReason {}
+impl ::core::fmt::Debug for PhoneCallBlockedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallBlockedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
 }
@@ -356,11 +356,6 @@ impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneIncomingCallDismissedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneIncomingCallDismissedReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneIncomingCallDismissedReason {
     type Abi = Self;
 }
@@ -370,6 +365,11 @@ impl ::core::cmp::PartialEq for PhoneIncomingCallDismissedReason {
     }
 }
 impl ::core::cmp::Eq for PhoneIncomingCallDismissedReason {}
+impl ::core::fmt::Debug for PhoneIncomingCallDismissedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneIncomingCallDismissedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
 }
@@ -601,11 +601,6 @@ impl ::core::clone::Clone for PhoneLineChangeKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneLineChangeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineChangeKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneLineChangeKind {
     type Abi = Self;
 }
@@ -615,6 +610,11 @@ impl ::core::cmp::PartialEq for PhoneLineChangeKind {
     }
 }
 impl ::core::cmp::Eq for PhoneLineChangeKind {}
+impl ::core::fmt::Debug for PhoneLineChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineChangeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
 }
@@ -739,11 +739,6 @@ impl ::core::clone::Clone for PhoneLineProperties {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneLineProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneLineProperties {
     type Abi = Self;
 }
@@ -753,6 +748,11 @@ impl ::core::cmp::PartialEq for PhoneLineProperties {
     }
 }
 impl ::core::cmp::Eq for PhoneLineProperties {}
+impl ::core::fmt::Debug for PhoneLineProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneLineProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
 }
@@ -875,11 +875,6 @@ impl ::core::clone::Clone for PhoneTriggerType {
         *self
     }
 }
-impl ::core::fmt::Debug for PhoneTriggerType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneTriggerType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneTriggerType {
     type Abi = Self;
 }
@@ -889,6 +884,11 @@ impl ::core::cmp::PartialEq for PhoneTriggerType {
     }
 }
 impl ::core::cmp::Eq for PhoneTriggerType {}
+impl ::core::fmt::Debug for PhoneTriggerType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneTriggerType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");
 }

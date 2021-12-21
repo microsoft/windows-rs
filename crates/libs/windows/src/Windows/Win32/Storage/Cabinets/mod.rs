@@ -306,12 +306,6 @@ impl ::core::clone::Clone for FDIDECRYPT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDIDECRYPT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FDIDECRYPT").field("fdidt", &self.fdidt).field("pvUser", &self.pvUser).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDIDECRYPT {
     type Abi = Self;
 }

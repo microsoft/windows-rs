@@ -13,11 +13,6 @@ impl ::core::clone::Clone for CredentialPromptType {
         *self
     }
 }
-impl ::core::fmt::Debug for CredentialPromptType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CredentialPromptType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CredentialPromptType {
     type Abi = Self;
 }
@@ -27,6 +22,11 @@ impl ::core::cmp::PartialEq for CredentialPromptType {
     }
 }
 impl ::core::cmp::Eq for CredentialPromptType {}
+impl ::core::fmt::Debug for CredentialPromptType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialPromptType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CredentialPromptType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
 }
@@ -898,11 +898,6 @@ impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdSystemTicketStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OnlineIdSystemTicketStatus {
     type Abi = Self;
 }
@@ -912,6 +907,11 @@ impl ::core::cmp::PartialEq for OnlineIdSystemTicketStatus {
     }
 }
 impl ::core::cmp::Eq for OnlineIdSystemTicketStatus {}
+impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OnlineIdSystemTicketStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
 }

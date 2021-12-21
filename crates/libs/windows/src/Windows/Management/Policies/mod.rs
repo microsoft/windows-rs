@@ -275,11 +275,6 @@ impl ::core::clone::Clone for NamedPolicyKind {
         *self
     }
 }
-impl ::core::fmt::Debug for NamedPolicyKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NamedPolicyKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NamedPolicyKind {
     type Abi = Self;
 }
@@ -289,6 +284,11 @@ impl ::core::cmp::PartialEq for NamedPolicyKind {
     }
 }
 impl ::core::cmp::Eq for NamedPolicyKind {}
+impl ::core::fmt::Debug for NamedPolicyKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NamedPolicyKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NamedPolicyKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");
 }

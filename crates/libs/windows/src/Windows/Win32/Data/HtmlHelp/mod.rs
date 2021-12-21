@@ -63,12 +63,6 @@ impl ::core::clone::Clone for CProperty {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CProperty").field("dwPropID", &self.dwPropID).field("cbData", &self.cbData).field("dwType", &self.dwType).field("Anonymous", &self.Anonymous).field("fPersist", &self.fPersist).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CProperty {
     type Abi = Self;
 }
@@ -731,12 +725,6 @@ pub struct HH_GLOBAL_PROPERTY {
 impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {
         Self { id: self.id, var: self.var.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for HH_GLOBAL_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HH_GLOBAL_PROPERTY").field("id", &self.id).field("var", &self.var).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

@@ -192,13 +192,6 @@ impl ::core::clone::Clone for DBID {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DBID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBID").field("uGuid", &self.uGuid).field("eKind", &self.eKind).field("uName", &self.uName).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DBID {
     type Abi = Self;
 }
@@ -316,13 +309,6 @@ impl ::core::marker::Copy for DBID {}
 impl ::core::clone::Clone for DBID {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DBID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBID").field("uGuid", &self.uGuid).field("eKind", &self.eKind).field("uName", &self.uName).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -572,12 +558,6 @@ impl ::core::marker::Copy for FULLPROPSPEC {}
 impl ::core::clone::Clone for FULLPROPSPEC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for FULLPROPSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FULLPROPSPEC").field("guidPropSet", &self.guidPropSet).field("psProperty", &self.psProperty).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -920,12 +900,6 @@ impl ::core::marker::Copy for STAT_CHUNK {}
 impl ::core::clone::Clone for STAT_CHUNK {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for STAT_CHUNK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STAT_CHUNK").field("idChunk", &self.idChunk).field("breakType", &self.breakType).field("flags", &self.flags).field("locale", &self.locale).field("attribute", &self.attribute).field("idChunkSource", &self.idChunkSource).field("cwcStartSource", &self.cwcStartSource).field("cwcLenSource", &self.cwcLenSource).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]

@@ -1044,12 +1044,6 @@ impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for INET_FIREWALL_AC_CHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INET_FIREWALL_AC_CHANGE").field("changeType", &self.changeType).field("createType", &self.createType).field("appContainerSid", &self.appContainerSid).field("userSid", &self.userSid).field("displayName", &self.displayName).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE {
     type Abi = Self;
 }

@@ -339,11 +339,6 @@ impl ::core::clone::Clone for IndexedResourceType {
         *self
     }
 }
-impl ::core::fmt::Debug for IndexedResourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexedResourceType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IndexedResourceType {
     type Abi = Self;
 }
@@ -353,6 +348,11 @@ impl ::core::cmp::PartialEq for IndexedResourceType {
     }
 }
 impl ::core::cmp::Eq for IndexedResourceType {}
+impl ::core::fmt::Debug for IndexedResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexedResourceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IndexedResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
 }

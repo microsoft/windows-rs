@@ -735,11 +735,6 @@ impl ::core::clone::Clone for PdfPageRotation {
         *self
     }
 }
-impl ::core::fmt::Debug for PdfPageRotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfPageRotation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PdfPageRotation {
     type Abi = Self;
 }
@@ -749,6 +744,11 @@ impl ::core::cmp::PartialEq for PdfPageRotation {
     }
 }
 impl ::core::cmp::Eq for PdfPageRotation {}
+impl ::core::fmt::Debug for PdfPageRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdfPageRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PdfPageRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Pdf.PdfPageRotation;i4)");
 }

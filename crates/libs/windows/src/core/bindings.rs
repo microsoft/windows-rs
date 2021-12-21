@@ -706,11 +706,6 @@ impl ::core::clone::Clone for PropertyType {
         *self
     }
 }
-impl ::core::fmt::Debug for PropertyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PropertyType {
     type Abi = Self;
 }
@@ -720,6 +715,11 @@ impl ::core::cmp::PartialEq for PropertyType {
     }
 }
 impl ::core::cmp::Eq for PropertyType {}
+impl ::core::fmt::Debug for PropertyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
 }
@@ -1137,6 +1137,11 @@ impl ::core::cmp::PartialEq for BOOL {
     }
 }
 impl ::core::cmp::Eq for BOOL {}
+impl ::core::fmt::Debug for BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BOOL").field(&self.0).finish()
+    }
+}
 impl ::core::convert::From<BOOL> for bool {
     fn from(value: BOOL) -> Self {
         value.as_bool()
@@ -1381,6 +1386,11 @@ impl ::core::cmp::PartialEq for HANDLE {
     }
 }
 impl ::core::cmp::Eq for HANDLE {}
+impl ::core::fmt::Debug for HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDLE").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
@@ -1409,6 +1419,11 @@ impl ::core::cmp::PartialEq for PSTR {
     }
 }
 impl ::core::cmp::Eq for PSTR {}
+impl ::core::fmt::Debug for PSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSTR").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -1456,6 +1471,11 @@ impl ::core::cmp::PartialEq for PWSTR {
     }
 }
 impl ::core::cmp::Eq for PWSTR {}
+impl ::core::fmt::Debug for PWSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PWSTR").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PWSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]

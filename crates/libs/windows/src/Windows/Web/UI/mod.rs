@@ -1891,11 +1891,6 @@ impl ::core::clone::Clone for WebViewControlPermissionState {
         *self
     }
 }
-impl ::core::fmt::Debug for WebViewControlPermissionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebViewControlPermissionState {
     type Abi = Self;
 }
@@ -1905,6 +1900,11 @@ impl ::core::cmp::PartialEq for WebViewControlPermissionState {
     }
 }
 impl ::core::cmp::Eq for WebViewControlPermissionState {}
+impl ::core::fmt::Debug for WebViewControlPermissionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
 }
@@ -1929,11 +1929,6 @@ impl ::core::clone::Clone for WebViewControlPermissionType {
         *self
     }
 }
-impl ::core::fmt::Debug for WebViewControlPermissionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebViewControlPermissionType {
     type Abi = Self;
 }
@@ -1943,6 +1938,11 @@ impl ::core::cmp::PartialEq for WebViewControlPermissionType {
     }
 }
 impl ::core::cmp::Eq for WebViewControlPermissionType {}
+impl ::core::fmt::Debug for WebViewControlPermissionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
 }

@@ -105,11 +105,6 @@ impl ::core::clone::Clone for AttributeTargets {
         *self
     }
 }
-impl ::core::fmt::Debug for AttributeTargets {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AttributeTargets").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AttributeTargets {
     type Abi = Self;
 }
@@ -119,6 +114,11 @@ impl ::core::cmp::PartialEq for AttributeTargets {
     }
 }
 impl ::core::cmp::Eq for AttributeTargets {}
+impl ::core::fmt::Debug for AttributeTargets {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AttributeTargets").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AttributeTargets {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
 }
@@ -138,11 +138,6 @@ impl ::core::clone::Clone for CompositionType {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionType {
     type Abi = Self;
 }
@@ -152,6 +147,11 @@ impl ::core::cmp::PartialEq for CompositionType {
     }
 }
 impl ::core::cmp::Eq for CompositionType {}
+impl ::core::fmt::Debug for CompositionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
 }
@@ -171,11 +171,6 @@ impl ::core::clone::Clone for DeprecationType {
         *self
     }
 }
-impl ::core::fmt::Debug for DeprecationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeprecationType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeprecationType {
     type Abi = Self;
 }
@@ -185,6 +180,11 @@ impl ::core::cmp::PartialEq for DeprecationType {
     }
 }
 impl ::core::cmp::Eq for DeprecationType {}
+impl ::core::fmt::Debug for DeprecationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeprecationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeprecationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
 }
@@ -206,11 +206,6 @@ impl ::core::clone::Clone for FeatureStage {
         *self
     }
 }
-impl ::core::fmt::Debug for FeatureStage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FeatureStage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FeatureStage {
     type Abi = Self;
 }
@@ -220,6 +215,11 @@ impl ::core::cmp::PartialEq for FeatureStage {
     }
 }
 impl ::core::cmp::Eq for FeatureStage {}
+impl ::core::fmt::Debug for FeatureStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FeatureStage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FeatureStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
 }
@@ -240,11 +240,6 @@ impl ::core::clone::Clone for GCPressureAmount {
         *self
     }
 }
-impl ::core::fmt::Debug for GCPressureAmount {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GCPressureAmount").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GCPressureAmount {
     type Abi = Self;
 }
@@ -254,6 +249,11 @@ impl ::core::cmp::PartialEq for GCPressureAmount {
     }
 }
 impl ::core::cmp::Eq for GCPressureAmount {}
+impl ::core::fmt::Debug for GCPressureAmount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GCPressureAmount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GCPressureAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
@@ -302,11 +302,6 @@ impl ::core::clone::Clone for MarshalingType {
         *self
     }
 }
-impl ::core::fmt::Debug for MarshalingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MarshalingType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MarshalingType {
     type Abi = Self;
 }
@@ -316,6 +311,11 @@ impl ::core::cmp::PartialEq for MarshalingType {
     }
 }
 impl ::core::cmp::Eq for MarshalingType {}
+impl ::core::fmt::Debug for MarshalingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MarshalingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MarshalingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
 }
@@ -335,11 +335,6 @@ impl ::core::clone::Clone for Platform {
         *self
     }
 }
-impl ::core::fmt::Debug for Platform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Platform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Platform {
     type Abi = Self;
 }
@@ -349,6 +344,11 @@ impl ::core::cmp::PartialEq for Platform {
     }
 }
 impl ::core::cmp::Eq for Platform {}
+impl ::core::fmt::Debug for Platform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Platform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Platform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
 }
@@ -370,11 +370,6 @@ impl ::core::clone::Clone for ThreadingModel {
         *self
     }
 }
-impl ::core::fmt::Debug for ThreadingModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThreadingModel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ThreadingModel {
     type Abi = Self;
 }
@@ -384,6 +379,11 @@ impl ::core::cmp::PartialEq for ThreadingModel {
     }
 }
 impl ::core::cmp::Eq for ThreadingModel {}
+impl ::core::fmt::Debug for ThreadingModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThreadingModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThreadingModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
 }

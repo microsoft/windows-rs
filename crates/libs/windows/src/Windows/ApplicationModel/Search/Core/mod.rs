@@ -305,11 +305,6 @@ impl ::core::clone::Clone for SearchSuggestionKind {
         *self
     }
 }
-impl ::core::fmt::Debug for SearchSuggestionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SearchSuggestionKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SearchSuggestionKind {
     type Abi = Self;
 }
@@ -319,6 +314,11 @@ impl ::core::cmp::PartialEq for SearchSuggestionKind {
     }
 }
 impl ::core::cmp::Eq for SearchSuggestionKind {}
+impl ::core::fmt::Debug for SearchSuggestionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SearchSuggestionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SearchSuggestionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");
 }

@@ -3414,11 +3414,6 @@ impl ::core::clone::Clone for MapAnimationKind {
         *self
     }
 }
-impl ::core::fmt::Debug for MapAnimationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapAnimationKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapAnimationKind {
     type Abi = Self;
 }
@@ -3428,6 +3423,11 @@ impl ::core::cmp::PartialEq for MapAnimationKind {
     }
 }
 impl ::core::cmp::Eq for MapAnimationKind {}
+impl ::core::fmt::Debug for MapAnimationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapAnimationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapAnimationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapAnimationKind;i4)");
 }
@@ -3862,11 +3862,6 @@ impl ::core::clone::Clone for MapCameraChangeReason {
         *self
     }
 }
-impl ::core::fmt::Debug for MapCameraChangeReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapCameraChangeReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapCameraChangeReason {
     type Abi = Self;
 }
@@ -3876,6 +3871,11 @@ impl ::core::cmp::PartialEq for MapCameraChangeReason {
     }
 }
 impl ::core::cmp::Eq for MapCameraChangeReason {}
+impl ::core::fmt::Debug for MapCameraChangeReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapCameraChangeReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapCameraChangeReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapCameraChangeReason;i4)");
 }
@@ -3895,11 +3895,6 @@ impl ::core::clone::Clone for MapColorScheme {
         *self
     }
 }
-impl ::core::fmt::Debug for MapColorScheme {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapColorScheme").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapColorScheme {
     type Abi = Self;
 }
@@ -3909,6 +3904,11 @@ impl ::core::cmp::PartialEq for MapColorScheme {
     }
 }
 impl ::core::cmp::Eq for MapColorScheme {}
+impl ::core::fmt::Debug for MapColorScheme {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapColorScheme").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapColorScheme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapColorScheme;i4)");
 }
@@ -7416,11 +7416,6 @@ impl ::core::clone::Clone for MapElementCollisionBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for MapElementCollisionBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapElementCollisionBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapElementCollisionBehavior {
     type Abi = Self;
 }
@@ -7430,6 +7425,11 @@ impl ::core::cmp::PartialEq for MapElementCollisionBehavior {
     }
 }
 impl ::core::cmp::Eq for MapElementCollisionBehavior {}
+impl ::core::fmt::Debug for MapElementCollisionBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementCollisionBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementCollisionBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapElementCollisionBehavior;i4)");
 }
@@ -8647,11 +8647,6 @@ impl ::core::clone::Clone for MapInteractionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for MapInteractionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapInteractionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapInteractionMode {
     type Abi = Self;
 }
@@ -8661,6 +8656,11 @@ impl ::core::cmp::PartialEq for MapInteractionMode {
     }
 }
 impl ::core::cmp::Eq for MapInteractionMode {}
+impl ::core::fmt::Debug for MapInteractionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapInteractionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapInteractionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapInteractionMode;i4)");
 }
@@ -9013,11 +9013,6 @@ impl ::core::clone::Clone for MapLoadingStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MapLoadingStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapLoadingStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapLoadingStatus {
     type Abi = Self;
 }
@@ -9027,6 +9022,11 @@ impl ::core::cmp::PartialEq for MapLoadingStatus {
     }
 }
 impl ::core::cmp::Eq for MapLoadingStatus {}
+impl ::core::fmt::Debug for MapLoadingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLoadingStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapLoadingStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapLoadingStatus;i4)");
 }
@@ -9173,11 +9173,6 @@ impl ::core::clone::Clone for MapModel3DShadingOption {
         *self
     }
 }
-impl ::core::fmt::Debug for MapModel3DShadingOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapModel3DShadingOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapModel3DShadingOption {
     type Abi = Self;
 }
@@ -9187,6 +9182,11 @@ impl ::core::cmp::PartialEq for MapModel3DShadingOption {
     }
 }
 impl ::core::cmp::Eq for MapModel3DShadingOption {}
+impl ::core::fmt::Debug for MapModel3DShadingOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapModel3DShadingOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapModel3DShadingOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapModel3DShadingOption;i4)");
 }
@@ -9206,11 +9206,6 @@ impl ::core::clone::Clone for MapPanInteractionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for MapPanInteractionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapPanInteractionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapPanInteractionMode {
     type Abi = Self;
 }
@@ -9220,6 +9215,11 @@ impl ::core::cmp::PartialEq for MapPanInteractionMode {
     }
 }
 impl ::core::cmp::Eq for MapPanInteractionMode {}
+impl ::core::fmt::Debug for MapPanInteractionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapPanInteractionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapPanInteractionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapPanInteractionMode;i4)");
 }
@@ -9654,11 +9654,6 @@ impl ::core::clone::Clone for MapProjection {
         *self
     }
 }
-impl ::core::fmt::Debug for MapProjection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapProjection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapProjection {
     type Abi = Self;
 }
@@ -9668,6 +9663,11 @@ impl ::core::cmp::PartialEq for MapProjection {
     }
 }
 impl ::core::cmp::Eq for MapProjection {}
+impl ::core::fmt::Debug for MapProjection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapProjection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapProjection;i4)");
 }
@@ -10124,11 +10124,6 @@ impl ::core::clone::Clone for MapStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for MapStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapStyle {
     type Abi = Self;
 }
@@ -10138,6 +10133,11 @@ impl ::core::cmp::PartialEq for MapStyle {
     }
 }
 impl ::core::cmp::Eq for MapStyle {}
+impl ::core::fmt::Debug for MapStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapStyle;i4)");
 }
@@ -10909,11 +10909,6 @@ impl ::core::clone::Clone for MapTileAnimationState {
         *self
     }
 }
-impl ::core::fmt::Debug for MapTileAnimationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapTileAnimationState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapTileAnimationState {
     type Abi = Self;
 }
@@ -10923,6 +10918,11 @@ impl ::core::cmp::PartialEq for MapTileAnimationState {
     }
 }
 impl ::core::cmp::Eq for MapTileAnimationState {}
+impl ::core::fmt::Debug for MapTileAnimationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileAnimationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileAnimationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapTileAnimationState;i4)");
 }
@@ -11358,11 +11358,6 @@ impl ::core::clone::Clone for MapTileLayer {
         *self
     }
 }
-impl ::core::fmt::Debug for MapTileLayer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapTileLayer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapTileLayer {
     type Abi = Self;
 }
@@ -11372,6 +11367,11 @@ impl ::core::cmp::PartialEq for MapTileLayer {
     }
 }
 impl ::core::cmp::Eq for MapTileLayer {}
+impl ::core::fmt::Debug for MapTileLayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileLayer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapTileLayer;i4)");
 }
@@ -12158,11 +12158,6 @@ impl ::core::clone::Clone for MapVisibleRegionKind {
         *self
     }
 }
-impl ::core::fmt::Debug for MapVisibleRegionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapVisibleRegionKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapVisibleRegionKind {
     type Abi = Self;
 }
@@ -12172,6 +12167,11 @@ impl ::core::cmp::PartialEq for MapVisibleRegionKind {
     }
 }
 impl ::core::cmp::Eq for MapVisibleRegionKind {}
+impl ::core::fmt::Debug for MapVisibleRegionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapVisibleRegionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapVisibleRegionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapVisibleRegionKind;i4)");
 }
@@ -12191,11 +12191,6 @@ impl ::core::clone::Clone for MapWatermarkMode {
         *self
     }
 }
-impl ::core::fmt::Debug for MapWatermarkMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapWatermarkMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapWatermarkMode {
     type Abi = Self;
 }
@@ -12205,6 +12200,11 @@ impl ::core::cmp::PartialEq for MapWatermarkMode {
     }
 }
 impl ::core::cmp::Eq for MapWatermarkMode {}
+impl ::core::fmt::Debug for MapWatermarkMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapWatermarkMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapWatermarkMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapWatermarkMode;i4)");
 }

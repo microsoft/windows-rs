@@ -187,29 +187,6 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PSS_HANDLE_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PSS_HANDLE_ENTRY")
-            .field("Handle", &self.Handle)
-            .field("Flags", &self.Flags)
-            .field("ObjectType", &self.ObjectType)
-            .field("CaptureTime", &self.CaptureTime)
-            .field("Attributes", &self.Attributes)
-            .field("GrantedAccess", &self.GrantedAccess)
-            .field("HandleCount", &self.HandleCount)
-            .field("PointerCount", &self.PointerCount)
-            .field("PagedPoolCharge", &self.PagedPoolCharge)
-            .field("NonPagedPoolCharge", &self.NonPagedPoolCharge)
-            .field("CreationTime", &self.CreationTime)
-            .field("TypeNameLength", &self.TypeNameLength)
-            .field("TypeName", &self.TypeName)
-            .field("ObjectNameLength", &self.ObjectNameLength)
-            .field("ObjectName", &self.ObjectName)
-            .field("TypeSpecificInformation", &self.TypeSpecificInformation)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY {
     type Abi = Self;
 }

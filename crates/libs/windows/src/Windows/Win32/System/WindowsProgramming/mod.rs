@@ -659,11 +659,6 @@ impl ::core::clone::Clone for CameraUIControlCaptureMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CameraUIControlCaptureMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlCaptureMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CameraUIControlCaptureMode {
     type Abi = Self;
 }
@@ -673,6 +668,11 @@ impl ::core::cmp::PartialEq for CameraUIControlCaptureMode {
     }
 }
 impl ::core::cmp::Eq for CameraUIControlCaptureMode {}
+impl ::core::fmt::Debug for CameraUIControlCaptureMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlCaptureMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
 pub struct CameraUIControlLinearSelectionMode(pub i32);
@@ -686,11 +686,6 @@ impl ::core::clone::Clone for CameraUIControlLinearSelectionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlLinearSelectionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CameraUIControlLinearSelectionMode {
     type Abi = Self;
 }
@@ -700,6 +695,11 @@ impl ::core::cmp::PartialEq for CameraUIControlLinearSelectionMode {
     }
 }
 impl ::core::cmp::Eq for CameraUIControlLinearSelectionMode {}
+impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlLinearSelectionMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
 pub struct CameraUIControlMode(pub i32);
@@ -713,11 +713,6 @@ impl ::core::clone::Clone for CameraUIControlMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CameraUIControlMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CameraUIControlMode {
     type Abi = Self;
 }
@@ -727,6 +722,11 @@ impl ::core::cmp::PartialEq for CameraUIControlMode {
     }
 }
 impl ::core::cmp::Eq for CameraUIControlMode {}
+impl ::core::fmt::Debug for CameraUIControlMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
 pub struct CameraUIControlPhotoFormat(pub i32);
@@ -741,11 +741,6 @@ impl ::core::clone::Clone for CameraUIControlPhotoFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlPhotoFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CameraUIControlPhotoFormat {
     type Abi = Self;
 }
@@ -755,6 +750,11 @@ impl ::core::cmp::PartialEq for CameraUIControlPhotoFormat {
     }
 }
 impl ::core::cmp::Eq for CameraUIControlPhotoFormat {}
+impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlPhotoFormat").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
 pub struct CameraUIControlVideoFormat(pub i32);
@@ -768,11 +768,6 @@ impl ::core::clone::Clone for CameraUIControlVideoFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for CameraUIControlVideoFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlVideoFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CameraUIControlVideoFormat {
     type Abi = Self;
 }
@@ -782,6 +777,11 @@ impl ::core::cmp::PartialEq for CameraUIControlVideoFormat {
     }
 }
 impl ::core::cmp::Eq for CameraUIControlVideoFormat {}
+impl ::core::fmt::Debug for CameraUIControlVideoFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlVideoFormat").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
 pub struct CameraUIControlViewType(pub i32);
@@ -795,11 +795,6 @@ impl ::core::clone::Clone for CameraUIControlViewType {
         *self
     }
 }
-impl ::core::fmt::Debug for CameraUIControlViewType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlViewType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CameraUIControlViewType {
     type Abi = Self;
 }
@@ -809,6 +804,11 @@ impl ::core::cmp::PartialEq for CameraUIControlViewType {
     }
 }
 impl ::core::cmp::Eq for CameraUIControlViewType {}
+impl ::core::fmt::Debug for CameraUIControlViewType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlViewType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1531,13 +1531,6 @@ impl ::core::clone::Clone for DELAYLOAD_INFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DELAYLOAD_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DELAYLOAD_INFO").field("Size", &self.Size).field("DelayloadDescriptor", &self.DelayloadDescriptor).field("ThunkAddress", &self.ThunkAddress).field("TargetDllName", &self.TargetDllName).field("TargetApiDescriptor", &self.TargetApiDescriptor).field("TargetModuleBase", &self.TargetModuleBase).field("Unused", &self.Unused).field("LastError", &self.LastError).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
     type Abi = Self;
 }
@@ -1584,13 +1577,6 @@ impl ::core::clone::Clone for DELAYLOAD_INFO {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DELAYLOAD_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DELAYLOAD_INFO").field("Size", &self.Size).field("DelayloadDescriptor", &self.DelayloadDescriptor).field("ThunkAddress", &self.ThunkAddress).field("TargetDllName", &self.TargetDllName).field("TargetApiDescriptor", &self.TargetApiDescriptor).field("TargetModuleBase", &self.TargetModuleBase).field("Unused", &self.Unused).field("LastError", &self.LastError).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
     type Abi = Self;
 }
@@ -1624,12 +1610,6 @@ impl ::core::marker::Copy for DELAYLOAD_PROC_DESCRIPTOR {}
 impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DELAYLOAD_PROC_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DELAYLOAD_PROC_DESCRIPTOR").field("ImportDescribedByName", &self.ImportDescribedByName).field("Description", &self.Description).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3663,11 +3643,6 @@ impl ::core::clone::Clone for IMAGE_DELAYLOAD_DESCRIPTOR {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_DELAYLOAD_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_DELAYLOAD_DESCRIPTOR").field("Attributes", &self.Attributes).field("DllNameRVA", &self.DllNameRVA).field("ModuleHandleRVA", &self.ModuleHandleRVA).field("ImportAddressTableRVA", &self.ImportAddressTableRVA).field("ImportNameTableRVA", &self.ImportNameTableRVA).field("BoundImportAddressTableRVA", &self.BoundImportAddressTableRVA).field("UnloadInformationTableRVA", &self.UnloadInformationTableRVA).field("TimeDateStamp", &self.TimeDateStamp).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_DELAYLOAD_DESCRIPTOR {
     type Abi = Self;
 }
@@ -3749,11 +3724,6 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA32 {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_THUNK_DATA32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_THUNK_DATA32").field("u1", &self.u1).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_THUNK_DATA32 {
     type Abi = Self;
 }
@@ -3805,11 +3775,6 @@ impl ::core::marker::Copy for IMAGE_THUNK_DATA64 {}
 impl ::core::clone::Clone for IMAGE_THUNK_DATA64 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_THUNK_DATA64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_THUNK_DATA64").field("u1", &self.u1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_THUNK_DATA64 {
@@ -4192,12 +4157,6 @@ impl ::core::marker::Copy for IO_STATUS_BLOCK {}
 impl ::core::clone::Clone for IO_STATUS_BLOCK {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IO_STATUS_BLOCK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IO_STATUS_BLOCK").field("Anonymous", &self.Anonymous).field("Information", &self.Information).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4601,12 +4560,6 @@ impl ::core::marker::Copy for LDR_DATA_TABLE_ENTRY {}
 impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for LDR_DATA_TABLE_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LDR_DATA_TABLE_ENTRY").field("Reserved1", &self.Reserved1).field("InMemoryOrderLinks", &self.InMemoryOrderLinks).field("Reserved2", &self.Reserved2).field("DllBase", &self.DllBase).field("Reserved3", &self.Reserved3).field("FullDllName", &self.FullDllName).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).field("Anonymous", &self.Anonymous).field("TimeDateStamp", &self.TimeDateStamp).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -7210,11 +7163,6 @@ impl ::core::marker::Copy for TDI_TL_IO_CONTROL_ENDPOINT {}
 impl ::core::clone::Clone for TDI_TL_IO_CONTROL_ENDPOINT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for TDI_TL_IO_CONTROL_ENDPOINT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TDI_TL_IO_CONTROL_ENDPOINT").field("Type", &self.Type).field("Level", &self.Level).field("Anonymous", &self.Anonymous).field("InputBuffer", &self.InputBuffer).field("InputBufferLength", &self.InputBufferLength).field("OutputBuffer", &self.OutputBuffer).field("OutputBufferLength", &self.OutputBufferLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TDI_TL_IO_CONTROL_ENDPOINT {

@@ -5013,11 +5013,6 @@ impl ::core::clone::Clone for LogicalDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for LogicalDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LogicalDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LogicalDirection {
     type Abi = Self;
 }
@@ -5027,6 +5022,11 @@ impl ::core::cmp::PartialEq for LogicalDirection {
     }
 }
 impl ::core::cmp::Eq for LogicalDirection {}
+impl ::core::fmt::Debug for LogicalDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LogicalDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LogicalDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Documents.LogicalDirection;i4)");
 }
@@ -7677,11 +7677,6 @@ impl ::core::clone::Clone for UnderlineStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for UnderlineStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnderlineStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnderlineStyle {
     type Abi = Self;
 }
@@ -7691,6 +7686,11 @@ impl ::core::cmp::PartialEq for UnderlineStyle {
     }
 }
 impl ::core::cmp::Eq for UnderlineStyle {}
+impl ::core::fmt::Debug for UnderlineStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnderlineStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnderlineStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Documents.UnderlineStyle;i4)");
 }

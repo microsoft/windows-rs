@@ -143,11 +143,6 @@ impl ::core::clone::Clone for AdcChannelMode {
         *self
     }
 }
-impl ::core::fmt::Debug for AdcChannelMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdcChannelMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AdcChannelMode {
     type Abi = Self;
 }
@@ -157,6 +152,11 @@ impl ::core::cmp::PartialEq for AdcChannelMode {
     }
 }
 impl ::core::cmp::Eq for AdcChannelMode {}
+impl ::core::fmt::Debug for AdcChannelMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdcChannelMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdcChannelMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
 }

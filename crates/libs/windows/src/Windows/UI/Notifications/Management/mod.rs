@@ -204,11 +204,6 @@ impl ::core::clone::Clone for UserNotificationListenerAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for UserNotificationListenerAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotificationListenerAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UserNotificationListenerAccessStatus {
     type Abi = Self;
 }
@@ -218,6 +213,11 @@ impl ::core::cmp::PartialEq for UserNotificationListenerAccessStatus {
     }
 }
 impl ::core::cmp::Eq for UserNotificationListenerAccessStatus {}
+impl ::core::fmt::Debug for UserNotificationListenerAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserNotificationListenerAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserNotificationListenerAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
 }

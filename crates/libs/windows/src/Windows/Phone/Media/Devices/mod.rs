@@ -18,11 +18,6 @@ impl ::core::clone::Clone for AudioRoutingEndpoint {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioRoutingEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioRoutingEndpoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioRoutingEndpoint {
     type Abi = Self;
 }
@@ -32,6 +27,11 @@ impl ::core::cmp::PartialEq for AudioRoutingEndpoint {
     }
 }
 impl ::core::cmp::Eq for AudioRoutingEndpoint {}
+impl ::core::fmt::Debug for AudioRoutingEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioRoutingEndpoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
 }
@@ -174,11 +174,6 @@ impl ::core::clone::Clone for AvailableAudioRoutingEndpoints {
         *self
     }
 }
-impl ::core::fmt::Debug for AvailableAudioRoutingEndpoints {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AvailableAudioRoutingEndpoints").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AvailableAudioRoutingEndpoints {
     type Abi = Self;
 }
@@ -188,6 +183,11 @@ impl ::core::cmp::PartialEq for AvailableAudioRoutingEndpoints {
     }
 }
 impl ::core::cmp::Eq for AvailableAudioRoutingEndpoints {}
+impl ::core::fmt::Debug for AvailableAudioRoutingEndpoints {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AvailableAudioRoutingEndpoints").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AvailableAudioRoutingEndpoints {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
 }

@@ -393,11 +393,6 @@ impl ::core::clone::Clone for CertificateChainPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for CertificateChainPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateChainPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CertificateChainPolicy {
     type Abi = Self;
 }
@@ -407,6 +402,11 @@ impl ::core::cmp::PartialEq for CertificateChainPolicy {
     }
 }
 impl ::core::cmp::Eq for CertificateChainPolicy {}
+impl ::core::fmt::Debug for CertificateChainPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateChainPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CertificateChainPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
 }
@@ -1747,11 +1747,6 @@ impl ::core::clone::Clone for ChainValidationResult {
         *self
     }
 }
-impl ::core::fmt::Debug for ChainValidationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChainValidationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ChainValidationResult {
     type Abi = Self;
 }
@@ -1761,6 +1756,11 @@ impl ::core::cmp::PartialEq for ChainValidationResult {
     }
 }
 impl ::core::cmp::Eq for ChainValidationResult {}
+impl ::core::fmt::Debug for ChainValidationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChainValidationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChainValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
 }
@@ -2255,11 +2255,6 @@ impl ::core::clone::Clone for EnrollKeyUsages {
         *self
     }
 }
-impl ::core::fmt::Debug for EnrollKeyUsages {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EnrollKeyUsages {
     type Abi = Self;
 }
@@ -2269,6 +2264,11 @@ impl ::core::cmp::PartialEq for EnrollKeyUsages {
     }
 }
 impl ::core::cmp::Eq for EnrollKeyUsages {}
+impl ::core::fmt::Debug for EnrollKeyUsages {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnrollKeyUsages {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
 }
@@ -2288,11 +2288,6 @@ impl ::core::clone::Clone for ExportOption {
         *self
     }
 }
-impl ::core::fmt::Debug for ExportOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExportOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ExportOption {
     type Abi = Self;
 }
@@ -2302,6 +2297,11 @@ impl ::core::cmp::PartialEq for ExportOption {
     }
 }
 impl ::core::cmp::Eq for ExportOption {}
+impl ::core::fmt::Debug for ExportOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExportOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExportOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
 }
@@ -3316,11 +3316,6 @@ impl ::core::clone::Clone for InstallOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for InstallOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InstallOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InstallOptions {
     type Abi = Self;
 }
@@ -3330,6 +3325,11 @@ impl ::core::cmp::PartialEq for InstallOptions {
     }
 }
 impl ::core::cmp::Eq for InstallOptions {}
+impl ::core::fmt::Debug for InstallOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InstallOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InstallOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
 }
@@ -3478,11 +3478,6 @@ impl ::core::clone::Clone for KeyProtectionLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for KeyProtectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyProtectionLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeyProtectionLevel {
     type Abi = Self;
 }
@@ -3492,6 +3487,11 @@ impl ::core::cmp::PartialEq for KeyProtectionLevel {
     }
 }
 impl ::core::cmp::Eq for KeyProtectionLevel {}
+impl ::core::fmt::Debug for KeyProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyProtectionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
 }
@@ -3512,11 +3512,6 @@ impl ::core::clone::Clone for KeySize {
         *self
     }
 }
-impl ::core::fmt::Debug for KeySize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeySize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeySize {
     type Abi = Self;
 }
@@ -3526,6 +3521,11 @@ impl ::core::cmp::PartialEq for KeySize {
     }
 }
 impl ::core::cmp::Eq for KeySize {}
+impl ::core::fmt::Debug for KeySize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeySize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeySize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
 }
@@ -3764,11 +3764,6 @@ impl ::core::clone::Clone for SignatureValidationResult {
         *self
     }
 }
-impl ::core::fmt::Debug for SignatureValidationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SignatureValidationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SignatureValidationResult {
     type Abi = Self;
 }
@@ -3778,6 +3773,11 @@ impl ::core::cmp::PartialEq for SignatureValidationResult {
     }
 }
 impl ::core::cmp::Eq for SignatureValidationResult {}
+impl ::core::fmt::Debug for SignatureValidationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SignatureValidationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SignatureValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
 }

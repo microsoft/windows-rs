@@ -140,6 +140,11 @@ impl ::core::cmp::PartialEq for BOOL {
     }
 }
 impl ::core::cmp::Eq for BOOL {}
+impl ::core::fmt::Debug for BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BOOL").field(&self.0).finish()
+    }
+}
 impl ::core::convert::From<BOOL> for bool {
     fn from(value: BOOL) -> Self {
         value.as_bool()
@@ -1510,11 +1515,6 @@ impl ::core::marker::Copy for DECIMAL {}
 impl ::core::clone::Clone for DECIMAL {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DECIMAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DECIMAL").field("wReserved", &self.wReserved).field("Anonymous1", &self.Anonymous1).field("Hi32", &self.Hi32).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DECIMAL {
@@ -3822,6 +3822,11 @@ impl ::core::cmp::PartialEq for HANDLE {
     }
 }
 impl ::core::cmp::Eq for HANDLE {}
+impl ::core::fmt::Debug for HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDLE").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
@@ -4777,6 +4782,11 @@ impl ::core::cmp::PartialEq for NTSTATUS {
     }
 }
 impl ::core::cmp::Eq for NTSTATUS {}
+impl ::core::fmt::Debug for NTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NTSTATUS").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for NTSTATUS {
     type Abi = Self;
 }
@@ -5482,6 +5492,11 @@ impl ::core::cmp::PartialEq for PSTR {
     }
 }
 impl ::core::cmp::Eq for PSTR {}
+impl ::core::fmt::Debug for PSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSTR").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -5529,6 +5544,11 @@ impl ::core::cmp::PartialEq for PWSTR {
     }
 }
 impl ::core::cmp::Eq for PWSTR {}
+impl ::core::fmt::Debug for PWSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PWSTR").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for PWSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]

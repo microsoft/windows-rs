@@ -96,11 +96,6 @@ impl ::core::clone::Clone for PowerSavingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PowerSavingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PowerSavingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PowerSavingMode {
     type Abi = Self;
 }
@@ -110,6 +105,11 @@ impl ::core::cmp::PartialEq for PowerSavingMode {
     }
 }
 impl ::core::cmp::Eq for PowerSavingMode {}
+impl ::core::fmt::Debug for PowerSavingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PowerSavingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PowerSavingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.Power.PowerSavingMode;i4)");
 }

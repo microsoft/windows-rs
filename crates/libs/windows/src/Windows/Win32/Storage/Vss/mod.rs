@@ -3620,11 +3620,6 @@ impl ::core::clone::Clone for VSS_MGMT_OBJECT_PROP {
         *self
     }
 }
-impl ::core::fmt::Debug for VSS_MGMT_OBJECT_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VSS_MGMT_OBJECT_PROP").field("Type", &self.Type).field("Obj", &self.Obj).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_PROP {
     type Abi = Self;
 }
@@ -3686,11 +3681,6 @@ impl ::core::marker::Copy for VSS_OBJECT_PROP {}
 impl ::core::clone::Clone for VSS_OBJECT_PROP {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for VSS_OBJECT_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VSS_OBJECT_PROP").field("Type", &self.Type).field("Obj", &self.Obj).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VSS_OBJECT_PROP {

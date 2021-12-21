@@ -1794,33 +1794,6 @@ impl ::core::clone::Clone for MIDL_STUB_DESC {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_STUB_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDL_STUB_DESC")
-            .field("RpcInterfaceInformation", &self.RpcInterfaceInformation)
-            .field("pfnAllocate", &self.pfnAllocate)
-            .field("pfnFree", &self.pfnFree)
-            .field("IMPLICIT_HANDLE_INFO", &self.IMPLICIT_HANDLE_INFO)
-            .field("apfnNdrRundownRoutines", &self.apfnNdrRundownRoutines)
-            .field("aGenericBindingRoutinePairs", &self.aGenericBindingRoutinePairs)
-            .field("apfnExprEval", &self.apfnExprEval)
-            .field("aXmitQuintuple", &self.aXmitQuintuple)
-            .field("pFormatTypes", &self.pFormatTypes)
-            .field("fCheckBounds", &self.fCheckBounds)
-            .field("Version", &self.Version)
-            .field("pMallocFreeStruct", &self.pMallocFreeStruct)
-            .field("MIDLVersion", &self.MIDLVersion)
-            .field("CommFaultOffsets", &self.CommFaultOffsets)
-            .field("aUserMarshalQuadruple", &self.aUserMarshalQuadruple)
-            .field("NotifyRoutineTable", &self.NotifyRoutineTable)
-            .field("mFlags", &self.mFlags)
-            .field("CsRoutineTables", &self.CsRoutineTables)
-            .field("ProxyServerInfo", &self.ProxyServerInfo)
-            .field("pExprInfo", &self.pExprInfo)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MIDL_STUB_DESC {
     type Abi = Self;
 }
@@ -4790,12 +4763,6 @@ pub struct NDR_USER_MARSHAL_INFO {
 impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO {
     fn clone(&self) -> Self {
         Self { InformationLevel: self.InformationLevel, Anonymous: self.Anonymous.clone() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for NDR_USER_MARSHAL_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDR_USER_MARSHAL_INFO").field("InformationLevel", &self.InformationLevel).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7781,12 +7748,6 @@ impl ::core::clone::Clone for RPC_ASYNC_STATE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for RPC_ASYNC_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_ASYNC_STATE").field("Size", &self.Size).field("Signature", &self.Signature).field("Lock", &self.Lock).field("Flags", &self.Flags).field("StubInfo", &self.StubInfo).field("UserInfo", &self.UserInfo).field("RuntimeInfo", &self.RuntimeInfo).field("Event", &self.Event).field("NotificationType", &self.NotificationType).field("u", &self.u).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for RPC_ASYNC_STATE {
     type Abi = Self;
 }
@@ -7952,11 +7913,6 @@ impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_BINDING_HANDLE_TEMPLATE_V1_A").field("Version", &self.Version).field("Flags", &self.Flags).field("ProtocolSequence", &self.ProtocolSequence).field("NetworkAddress", &self.NetworkAddress).field("StringEndpoint", &self.StringEndpoint).field("u1", &self.u1).field("ObjectUuid", &self.ObjectUuid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     type Abi = Self;
 }
@@ -8011,11 +7967,6 @@ impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
 impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_BINDING_HANDLE_TEMPLATE_V1_W").field("Version", &self.Version).field("Flags", &self.Flags).field("ProtocolSequence", &self.ProtocolSequence).field("NetworkAddress", &self.NetworkAddress).field("StringEndpoint", &self.StringEndpoint).field("u1", &self.u1).field("ObjectUuid", &self.ObjectUuid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
@@ -9001,12 +8952,6 @@ impl ::core::clone::Clone for RPC_EE_INFO_PARAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_EE_INFO_PARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_EE_INFO_PARAM").field("ParameterType", &self.ParameterType).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM {
     type Abi = Self;
 }
@@ -9182,12 +9127,6 @@ impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO {}
 impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_EXTENDED_ERROR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_EXTENDED_ERROR_INFO").field("Version", &self.Version).field("ComputerName", &self.ComputerName).field("ProcessID", &self.ProcessID).field("u", &self.u).field("GeneratingComponent", &self.GeneratingComponent).field("Status", &self.Status).field("DetectionLocation", &self.DetectionLocation).field("Flags", &self.Flags).field("NumberOfParameters", &self.NumberOfParameters).field("Parameters", &self.Parameters).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10028,12 +9967,6 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS_V2_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_SECURITY_QOS_V2_A").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_A {
     type Abi = Self;
 }
@@ -10100,12 +10033,6 @@ impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_W {}
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS_V2_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_SECURITY_QOS_V2_W").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10179,12 +10106,6 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS_V3_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_SECURITY_QOS_V3_A").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_A {
     type Abi = Self;
 }
@@ -10252,12 +10173,6 @@ impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_W {}
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS_V3_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_SECURITY_QOS_V3_W").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10332,12 +10247,6 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS_V4_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_SECURITY_QOS_V4_A").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).field("EffectiveOnly", &self.EffectiveOnly).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_A {
     type Abi = Self;
 }
@@ -10406,12 +10315,6 @@ impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_W {}
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS_V4_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_SECURITY_QOS_V4_W").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).field("EffectiveOnly", &self.EffectiveOnly).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10487,12 +10390,6 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS_V5_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_SECURITY_QOS_V5_A").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).field("EffectiveOnly", &self.EffectiveOnly).field("ServerSecurityDescriptor", &self.ServerSecurityDescriptor).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_A {
     type Abi = Self;
 }
@@ -10562,12 +10459,6 @@ impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_W {}
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS_V5_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPC_SECURITY_QOS_V5_W").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).field("AdditionalSecurityInfoType", &self.AdditionalSecurityInfoType).field("u", &self.u).field("Sid", &self.Sid).field("EffectiveOnly", &self.EffectiveOnly).field("ServerSecurityDescriptor", &self.ServerSecurityDescriptor).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

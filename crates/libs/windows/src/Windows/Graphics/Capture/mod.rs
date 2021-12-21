@@ -340,11 +340,6 @@ impl ::core::clone::Clone for GraphicsCaptureAccessKind {
         *self
     }
 }
-impl ::core::fmt::Debug for GraphicsCaptureAccessKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GraphicsCaptureAccessKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GraphicsCaptureAccessKind {
     type Abi = Self;
 }
@@ -354,6 +349,11 @@ impl ::core::cmp::PartialEq for GraphicsCaptureAccessKind {
     }
 }
 impl ::core::cmp::Eq for GraphicsCaptureAccessKind {}
+impl ::core::fmt::Debug for GraphicsCaptureAccessKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GraphicsCaptureAccessKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GraphicsCaptureAccessKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureAccessKind;i4)");
 }

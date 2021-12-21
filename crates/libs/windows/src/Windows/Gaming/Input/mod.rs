@@ -292,11 +292,6 @@ impl ::core::clone::Clone for ArcadeStickButtons {
         *self
     }
 }
-impl ::core::fmt::Debug for ArcadeStickButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ArcadeStickButtons").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ArcadeStickButtons {
     type Abi = Self;
 }
@@ -306,6 +301,11 @@ impl ::core::cmp::PartialEq for ArcadeStickButtons {
     }
 }
 impl ::core::cmp::Eq for ArcadeStickButtons {}
+impl ::core::fmt::Debug for ArcadeStickButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ArcadeStickButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ArcadeStickButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
 }
@@ -629,11 +629,6 @@ impl ::core::clone::Clone for FlightStickButtons {
         *self
     }
 }
-impl ::core::fmt::Debug for FlightStickButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FlightStickButtons").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FlightStickButtons {
     type Abi = Self;
 }
@@ -643,6 +638,11 @@ impl ::core::cmp::PartialEq for FlightStickButtons {
     }
 }
 impl ::core::cmp::Eq for FlightStickButtons {}
+impl ::core::fmt::Debug for FlightStickButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlightStickButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlightStickButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
 }
@@ -771,11 +771,6 @@ impl ::core::clone::Clone for GameControllerButtonLabel {
         *self
     }
 }
-impl ::core::fmt::Debug for GameControllerButtonLabel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameControllerButtonLabel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameControllerButtonLabel {
     type Abi = Self;
 }
@@ -785,6 +780,11 @@ impl ::core::cmp::PartialEq for GameControllerButtonLabel {
     }
 }
 impl ::core::cmp::Eq for GameControllerButtonLabel {}
+impl ::core::fmt::Debug for GameControllerButtonLabel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerButtonLabel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameControllerButtonLabel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
 }
@@ -805,11 +805,6 @@ impl ::core::clone::Clone for GameControllerSwitchKind {
         *self
     }
 }
-impl ::core::fmt::Debug for GameControllerSwitchKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameControllerSwitchKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameControllerSwitchKind {
     type Abi = Self;
 }
@@ -819,6 +814,11 @@ impl ::core::cmp::PartialEq for GameControllerSwitchKind {
     }
 }
 impl ::core::cmp::Eq for GameControllerSwitchKind {}
+impl ::core::fmt::Debug for GameControllerSwitchKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerSwitchKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameControllerSwitchKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
 }
@@ -845,11 +845,6 @@ impl ::core::clone::Clone for GameControllerSwitchPosition {
         *self
     }
 }
-impl ::core::fmt::Debug for GameControllerSwitchPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameControllerSwitchPosition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameControllerSwitchPosition {
     type Abi = Self;
 }
@@ -859,6 +854,11 @@ impl ::core::cmp::PartialEq for GameControllerSwitchPosition {
     }
 }
 impl ::core::cmp::Eq for GameControllerSwitchPosition {}
+impl ::core::fmt::Debug for GameControllerSwitchPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameControllerSwitchPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameControllerSwitchPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
 }
@@ -1171,11 +1171,6 @@ impl ::core::clone::Clone for GamepadButtons {
         *self
     }
 }
-impl ::core::fmt::Debug for GamepadButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GamepadButtons").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GamepadButtons {
     type Abi = Self;
 }
@@ -1185,6 +1180,11 @@ impl ::core::cmp::PartialEq for GamepadButtons {
     }
 }
 impl ::core::cmp::Eq for GamepadButtons {}
+impl ::core::fmt::Debug for GamepadButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GamepadButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GamepadButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
 }
@@ -2096,11 +2096,6 @@ impl ::core::clone::Clone for OptionalUINavigationButtons {
         *self
     }
 }
-impl ::core::fmt::Debug for OptionalUINavigationButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OptionalUINavigationButtons").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OptionalUINavigationButtons {
     type Abi = Self;
 }
@@ -2110,6 +2105,11 @@ impl ::core::cmp::PartialEq for OptionalUINavigationButtons {
     }
 }
 impl ::core::cmp::Eq for OptionalUINavigationButtons {}
+impl ::core::fmt::Debug for OptionalUINavigationButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OptionalUINavigationButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OptionalUINavigationButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
 }
@@ -2462,11 +2462,6 @@ impl ::core::clone::Clone for RacingWheelButtons {
         *self
     }
 }
-impl ::core::fmt::Debug for RacingWheelButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RacingWheelButtons").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RacingWheelButtons {
     type Abi = Self;
 }
@@ -2476,6 +2471,11 @@ impl ::core::cmp::PartialEq for RacingWheelButtons {
     }
 }
 impl ::core::cmp::Eq for RacingWheelButtons {}
+impl ::core::fmt::Debug for RacingWheelButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RacingWheelButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RacingWheelButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
 }
@@ -2885,11 +2885,6 @@ impl ::core::clone::Clone for RequiredUINavigationButtons {
         *self
     }
 }
-impl ::core::fmt::Debug for RequiredUINavigationButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RequiredUINavigationButtons").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RequiredUINavigationButtons {
     type Abi = Self;
 }
@@ -2899,6 +2894,11 @@ impl ::core::cmp::PartialEq for RequiredUINavigationButtons {
     }
 }
 impl ::core::cmp::Eq for RequiredUINavigationButtons {}
+impl ::core::fmt::Debug for RequiredUINavigationButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RequiredUINavigationButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RequiredUINavigationButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
 }

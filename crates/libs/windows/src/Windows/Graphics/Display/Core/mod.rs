@@ -14,11 +14,6 @@ impl ::core::clone::Clone for HdmiDisplayColorSpace {
         *self
     }
 }
-impl ::core::fmt::Debug for HdmiDisplayColorSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdmiDisplayColorSpace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HdmiDisplayColorSpace {
     type Abi = Self;
 }
@@ -28,6 +23,11 @@ impl ::core::cmp::PartialEq for HdmiDisplayColorSpace {
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayColorSpace {}
+impl ::core::fmt::Debug for HdmiDisplayColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayColorSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
 }
@@ -109,11 +109,6 @@ impl ::core::clone::Clone for HdmiDisplayHdrOption {
         *self
     }
 }
-impl ::core::fmt::Debug for HdmiDisplayHdrOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdmiDisplayHdrOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HdmiDisplayHdrOption {
     type Abi = Self;
 }
@@ -123,6 +118,11 @@ impl ::core::cmp::PartialEq for HdmiDisplayHdrOption {
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayHdrOption {}
+impl ::core::fmt::Debug for HdmiDisplayHdrOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayHdrOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayHdrOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
 }
@@ -466,11 +466,6 @@ impl ::core::clone::Clone for HdmiDisplayPixelEncoding {
         *self
     }
 }
-impl ::core::fmt::Debug for HdmiDisplayPixelEncoding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdmiDisplayPixelEncoding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HdmiDisplayPixelEncoding {
     type Abi = Self;
 }
@@ -480,6 +475,11 @@ impl ::core::cmp::PartialEq for HdmiDisplayPixelEncoding {
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayPixelEncoding {}
+impl ::core::fmt::Debug for HdmiDisplayPixelEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdmiDisplayPixelEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
 }

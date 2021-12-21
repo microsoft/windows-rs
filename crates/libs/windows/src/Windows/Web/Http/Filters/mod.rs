@@ -459,11 +459,6 @@ impl ::core::clone::Clone for HttpCacheReadBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpCacheReadBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCacheReadBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpCacheReadBehavior {
     type Abi = Self;
 }
@@ -473,6 +468,11 @@ impl ::core::cmp::PartialEq for HttpCacheReadBehavior {
     }
 }
 impl ::core::cmp::Eq for HttpCacheReadBehavior {}
+impl ::core::fmt::Debug for HttpCacheReadBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCacheReadBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpCacheReadBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
 }
@@ -492,11 +492,6 @@ impl ::core::clone::Clone for HttpCacheWriteBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpCacheWriteBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCacheWriteBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpCacheWriteBehavior {
     type Abi = Self;
 }
@@ -506,6 +501,11 @@ impl ::core::cmp::PartialEq for HttpCacheWriteBehavior {
     }
 }
 impl ::core::cmp::Eq for HttpCacheWriteBehavior {}
+impl ::core::fmt::Debug for HttpCacheWriteBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCacheWriteBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpCacheWriteBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
 }
@@ -525,11 +525,6 @@ impl ::core::clone::Clone for HttpCookieUsageBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpCookieUsageBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCookieUsageBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpCookieUsageBehavior {
     type Abi = Self;
 }
@@ -539,6 +534,11 @@ impl ::core::cmp::PartialEq for HttpCookieUsageBehavior {
     }
 }
 impl ::core::cmp::Eq for HttpCookieUsageBehavior {}
+impl ::core::fmt::Debug for HttpCookieUsageBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCookieUsageBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpCookieUsageBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
 }

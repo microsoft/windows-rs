@@ -4655,11 +4655,6 @@ impl ::core::clone::Clone for PXE_ADDRESS {
         *self
     }
 }
-impl ::core::fmt::Debug for PXE_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PXE_ADDRESS").field("uFlags", &self.uFlags).field("Anonymous", &self.Anonymous).field("uAddrLen", &self.uAddrLen).field("uPort", &self.uPort).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PXE_ADDRESS {
     type Abi = Self;
 }
@@ -4926,28 +4921,6 @@ impl ::core::marker::Copy for PXE_DHCP_MESSAGE {}
 impl ::core::clone::Clone for PXE_DHCP_MESSAGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PXE_DHCP_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PXE_DHCP_MESSAGE")
-            .field("Operation", &self.Operation)
-            .field("HardwareAddressType", &self.HardwareAddressType)
-            .field("HardwareAddressLength", &self.HardwareAddressLength)
-            .field("HopCount", &self.HopCount)
-            .field("TransactionID", &self.TransactionID)
-            .field("SecondsSinceBoot", &self.SecondsSinceBoot)
-            .field("Reserved", &self.Reserved)
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("YourIpAddress", &self.YourIpAddress)
-            .field("BootstrapServerAddress", &self.BootstrapServerAddress)
-            .field("RelayAgentIpAddress", &self.RelayAgentIpAddress)
-            .field("HardwareAddress", &self.HardwareAddress)
-            .field("HostName", &self.HostName)
-            .field("BootFileName", &self.BootFileName)
-            .field("Anonymous", &self.Anonymous)
-            .field("Option", &self.Option)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PXE_DHCP_MESSAGE {

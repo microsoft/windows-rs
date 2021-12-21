@@ -558,11 +558,6 @@ impl ::core::clone::Clone for UserDataAccountContentKinds {
         *self
     }
 }
-impl ::core::fmt::Debug for UserDataAccountContentKinds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountContentKinds").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UserDataAccountContentKinds {
     type Abi = Self;
 }
@@ -572,6 +567,11 @@ impl ::core::cmp::PartialEq for UserDataAccountContentKinds {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountContentKinds {}
+impl ::core::fmt::Debug for UserDataAccountContentKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountContentKinds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountContentKinds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds;u4)");
 }
@@ -740,11 +740,6 @@ impl ::core::clone::Clone for UserDataAccountOtherAppReadAccess {
         *self
     }
 }
-impl ::core::fmt::Debug for UserDataAccountOtherAppReadAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountOtherAppReadAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UserDataAccountOtherAppReadAccess {
     type Abi = Self;
 }
@@ -754,6 +749,11 @@ impl ::core::cmp::PartialEq for UserDataAccountOtherAppReadAccess {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountOtherAppReadAccess {}
+impl ::core::fmt::Debug for UserDataAccountOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountOtherAppReadAccess;i4)");
 }
@@ -906,11 +906,6 @@ impl ::core::clone::Clone for UserDataAccountStoreAccessType {
         *self
     }
 }
-impl ::core::fmt::Debug for UserDataAccountStoreAccessType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountStoreAccessType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UserDataAccountStoreAccessType {
     type Abi = Self;
 }
@@ -920,6 +915,11 @@ impl ::core::cmp::PartialEq for UserDataAccountStoreAccessType {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountStoreAccessType {}
+impl ::core::fmt::Debug for UserDataAccountStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType;i4)");
 }

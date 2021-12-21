@@ -244,11 +244,6 @@ impl ::core::clone::Clone for EmailAttachmentDownloadState {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailAttachmentDownloadState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailAttachmentDownloadState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailAttachmentDownloadState {
     type Abi = Self;
 }
@@ -258,6 +253,11 @@ impl ::core::cmp::PartialEq for EmailAttachmentDownloadState {
     }
 }
 impl ::core::cmp::Eq for EmailAttachmentDownloadState {}
+impl ::core::fmt::Debug for EmailAttachmentDownloadState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailAttachmentDownloadState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailAttachmentDownloadState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
 }
@@ -278,11 +278,6 @@ impl ::core::clone::Clone for EmailBatchStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailBatchStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailBatchStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailBatchStatus {
     type Abi = Self;
 }
@@ -292,6 +287,11 @@ impl ::core::cmp::PartialEq for EmailBatchStatus {
     }
 }
 impl ::core::cmp::Eq for EmailBatchStatus {}
+impl ::core::fmt::Debug for EmailBatchStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailBatchStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailBatchStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
 }
@@ -320,11 +320,6 @@ impl ::core::clone::Clone for EmailCertificateValidationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailCertificateValidationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailCertificateValidationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailCertificateValidationStatus {
     type Abi = Self;
 }
@@ -334,6 +329,11 @@ impl ::core::cmp::PartialEq for EmailCertificateValidationStatus {
     }
 }
 impl ::core::cmp::Eq for EmailCertificateValidationStatus {}
+impl ::core::fmt::Debug for EmailCertificateValidationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailCertificateValidationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailCertificateValidationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
 }
@@ -723,11 +723,6 @@ impl ::core::clone::Clone for EmailFlagState {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailFlagState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailFlagState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailFlagState {
     type Abi = Self;
 }
@@ -737,6 +732,11 @@ impl ::core::cmp::PartialEq for EmailFlagState {
     }
 }
 impl ::core::cmp::Eq for EmailFlagState {}
+impl ::core::fmt::Debug for EmailFlagState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailFlagState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailFlagState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
 }
@@ -1029,11 +1029,6 @@ impl ::core::clone::Clone for EmailImportance {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailImportance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailImportance").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailImportance {
     type Abi = Self;
 }
@@ -1043,6 +1038,11 @@ impl ::core::cmp::PartialEq for EmailImportance {
     }
 }
 impl ::core::cmp::Eq for EmailImportance {}
+impl ::core::fmt::Debug for EmailImportance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailImportance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailImportance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
 }
@@ -2220,11 +2220,6 @@ impl ::core::clone::Clone for EmailMailboxActionKind {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxActionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxActionKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxActionKind {
     type Abi = Self;
 }
@@ -2234,6 +2229,11 @@ impl ::core::cmp::PartialEq for EmailMailboxActionKind {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxActionKind {}
+impl ::core::fmt::Debug for EmailMailboxActionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxActionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxActionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
 }
@@ -2254,11 +2254,6 @@ impl ::core::clone::Clone for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotia
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     type Abi = Self;
 }
@@ -2268,6 +2263,11 @@ impl ::core::cmp::PartialEq for EmailMailboxAllowedSmimeEncryptionAlgorithmNegot
     }
 }
 impl ::core::cmp::Eq for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {}
+impl ::core::fmt::Debug for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
 }
@@ -2386,11 +2386,6 @@ impl ::core::clone::Clone for EmailMailboxAutoReplyMessageResponseKind {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxAutoReplyMessageResponseKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxAutoReplyMessageResponseKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxAutoReplyMessageResponseKind {
     type Abi = Self;
 }
@@ -2400,6 +2395,11 @@ impl ::core::cmp::PartialEq for EmailMailboxAutoReplyMessageResponseKind {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxAutoReplyMessageResponseKind {}
+impl ::core::fmt::Debug for EmailMailboxAutoReplyMessageResponseKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxAutoReplyMessageResponseKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
 }
@@ -3136,11 +3136,6 @@ impl ::core::clone::Clone for EmailMailboxChangeType {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxChangeType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxChangeType {
     type Abi = Self;
 }
@@ -3150,6 +3145,11 @@ impl ::core::cmp::PartialEq for EmailMailboxChangeType {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxChangeType {}
+impl ::core::fmt::Debug for EmailMailboxChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
 }
@@ -3422,11 +3422,6 @@ impl ::core::clone::Clone for EmailMailboxCreateFolderStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxCreateFolderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxCreateFolderStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxCreateFolderStatus {
     type Abi = Self;
 }
@@ -3436,6 +3431,11 @@ impl ::core::cmp::PartialEq for EmailMailboxCreateFolderStatus {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxCreateFolderStatus {}
+impl ::core::fmt::Debug for EmailMailboxCreateFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxCreateFolderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
 }
@@ -3459,11 +3459,6 @@ impl ::core::clone::Clone for EmailMailboxDeleteFolderStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxDeleteFolderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxDeleteFolderStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxDeleteFolderStatus {
     type Abi = Self;
 }
@@ -3473,6 +3468,11 @@ impl ::core::cmp::PartialEq for EmailMailboxDeleteFolderStatus {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxDeleteFolderStatus {}
+impl ::core::fmt::Debug for EmailMailboxDeleteFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxDeleteFolderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxDeleteFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
 }
@@ -3496,11 +3496,6 @@ impl ::core::clone::Clone for EmailMailboxEmptyFolderStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxEmptyFolderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxEmptyFolderStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxEmptyFolderStatus {
     type Abi = Self;
 }
@@ -3510,6 +3505,11 @@ impl ::core::cmp::PartialEq for EmailMailboxEmptyFolderStatus {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxEmptyFolderStatus {}
+impl ::core::fmt::Debug for EmailMailboxEmptyFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxEmptyFolderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxEmptyFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
 }
@@ -3530,11 +3530,6 @@ impl ::core::clone::Clone for EmailMailboxOtherAppReadAccess {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxOtherAppReadAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxOtherAppReadAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxOtherAppReadAccess {
     type Abi = Self;
 }
@@ -3544,6 +3539,11 @@ impl ::core::cmp::PartialEq for EmailMailboxOtherAppReadAccess {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxOtherAppReadAccess {}
+impl ::core::fmt::Debug for EmailMailboxOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
 }
@@ -3563,11 +3563,6 @@ impl ::core::clone::Clone for EmailMailboxOtherAppWriteAccess {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxOtherAppWriteAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxOtherAppWriteAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxOtherAppWriteAccess {
     type Abi = Self;
 }
@@ -3577,6 +3572,11 @@ impl ::core::cmp::PartialEq for EmailMailboxOtherAppWriteAccess {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxOtherAppWriteAccess {}
+impl ::core::fmt::Debug for EmailMailboxOtherAppWriteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxOtherAppWriteAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
 }
@@ -3755,11 +3755,6 @@ impl ::core::clone::Clone for EmailMailboxSmimeEncryptionAlgorithm {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxSmimeEncryptionAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxSmimeEncryptionAlgorithm").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxSmimeEncryptionAlgorithm {
     type Abi = Self;
 }
@@ -3769,6 +3764,11 @@ impl ::core::cmp::PartialEq for EmailMailboxSmimeEncryptionAlgorithm {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxSmimeEncryptionAlgorithm {}
+impl ::core::fmt::Debug for EmailMailboxSmimeEncryptionAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSmimeEncryptionAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
 }
@@ -3789,11 +3789,6 @@ impl ::core::clone::Clone for EmailMailboxSmimeSigningAlgorithm {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxSmimeSigningAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxSmimeSigningAlgorithm").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxSmimeSigningAlgorithm {
     type Abi = Self;
 }
@@ -3803,6 +3798,11 @@ impl ::core::cmp::PartialEq for EmailMailboxSmimeSigningAlgorithm {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxSmimeSigningAlgorithm {}
+impl ::core::fmt::Debug for EmailMailboxSmimeSigningAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSmimeSigningAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
 }
@@ -3967,11 +3967,6 @@ impl ::core::clone::Clone for EmailMailboxSyncStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMailboxSyncStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxSyncStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMailboxSyncStatus {
     type Abi = Self;
 }
@@ -3981,6 +3976,11 @@ impl ::core::cmp::PartialEq for EmailMailboxSyncStatus {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxSyncStatus {}
+impl ::core::fmt::Debug for EmailMailboxSyncStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSyncStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
 }
@@ -4418,11 +4418,6 @@ impl ::core::clone::Clone for EmailMeetingResponseType {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMeetingResponseType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMeetingResponseType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMeetingResponseType {
     type Abi = Self;
 }
@@ -4432,6 +4427,11 @@ impl ::core::cmp::PartialEq for EmailMeetingResponseType {
     }
 }
 impl ::core::cmp::Eq for EmailMeetingResponseType {}
+impl ::core::fmt::Debug for EmailMeetingResponseType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMeetingResponseType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMeetingResponseType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
 }
@@ -5046,11 +5046,6 @@ impl ::core::clone::Clone for EmailMessageBodyKind {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMessageBodyKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMessageBodyKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMessageBodyKind {
     type Abi = Self;
 }
@@ -5060,6 +5055,11 @@ impl ::core::cmp::PartialEq for EmailMessageBodyKind {
     }
 }
 impl ::core::cmp::Eq for EmailMessageBodyKind {}
+impl ::core::fmt::Debug for EmailMessageBodyKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMessageBodyKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMessageBodyKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
 }
@@ -5081,11 +5081,6 @@ impl ::core::clone::Clone for EmailMessageDownloadState {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMessageDownloadState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMessageDownloadState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMessageDownloadState {
     type Abi = Self;
 }
@@ -5095,6 +5090,11 @@ impl ::core::cmp::PartialEq for EmailMessageDownloadState {
     }
 }
 impl ::core::cmp::Eq for EmailMessageDownloadState {}
+impl ::core::fmt::Debug for EmailMessageDownloadState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMessageDownloadState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMessageDownloadState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
 }
@@ -5198,11 +5198,6 @@ impl ::core::clone::Clone for EmailMessageResponseKind {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMessageResponseKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMessageResponseKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMessageResponseKind {
     type Abi = Self;
 }
@@ -5212,6 +5207,11 @@ impl ::core::cmp::PartialEq for EmailMessageResponseKind {
     }
 }
 impl ::core::cmp::Eq for EmailMessageResponseKind {}
+impl ::core::fmt::Debug for EmailMessageResponseKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMessageResponseKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMessageResponseKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
 }
@@ -5233,11 +5233,6 @@ impl ::core::clone::Clone for EmailMessageSmimeKind {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailMessageSmimeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMessageSmimeKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailMessageSmimeKind {
     type Abi = Self;
 }
@@ -5247,6 +5242,11 @@ impl ::core::cmp::PartialEq for EmailMessageSmimeKind {
     }
 }
 impl ::core::cmp::Eq for EmailMessageSmimeKind {}
+impl ::core::fmt::Debug for EmailMessageSmimeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMessageSmimeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMessageSmimeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
 }
@@ -5270,11 +5270,6 @@ impl ::core::clone::Clone for EmailQueryKind {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailQueryKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailQueryKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailQueryKind {
     type Abi = Self;
 }
@@ -5284,6 +5279,11 @@ impl ::core::cmp::PartialEq for EmailQueryKind {
     }
 }
 impl ::core::cmp::Eq for EmailQueryKind {}
+impl ::core::fmt::Debug for EmailQueryKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQueryKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailQueryKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
 }
@@ -5462,11 +5462,6 @@ impl ::core::clone::Clone for EmailQuerySearchFields {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailQuerySearchFields {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailQuerySearchFields").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailQuerySearchFields {
     type Abi = Self;
 }
@@ -5476,6 +5471,11 @@ impl ::core::cmp::PartialEq for EmailQuerySearchFields {
     }
 }
 impl ::core::cmp::Eq for EmailQuerySearchFields {}
+impl ::core::fmt::Debug for EmailQuerySearchFields {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQuerySearchFields").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailQuerySearchFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchFields;u4)");
 }
@@ -5495,11 +5495,6 @@ impl ::core::clone::Clone for EmailQuerySearchScope {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailQuerySearchScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailQuerySearchScope").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailQuerySearchScope {
     type Abi = Self;
 }
@@ -5509,6 +5504,11 @@ impl ::core::cmp::PartialEq for EmailQuerySearchScope {
     }
 }
 impl ::core::cmp::Eq for EmailQuerySearchScope {}
+impl ::core::fmt::Debug for EmailQuerySearchScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQuerySearchScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailQuerySearchScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
 }
@@ -5528,11 +5528,6 @@ impl ::core::clone::Clone for EmailQuerySortDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailQuerySortDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailQuerySortDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailQuerySortDirection {
     type Abi = Self;
 }
@@ -5542,6 +5537,11 @@ impl ::core::cmp::PartialEq for EmailQuerySortDirection {
     }
 }
 impl ::core::cmp::Eq for EmailQuerySortDirection {}
+impl ::core::fmt::Debug for EmailQuerySortDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQuerySortDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailQuerySortDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
 }
@@ -5560,11 +5560,6 @@ impl ::core::clone::Clone for EmailQuerySortProperty {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailQuerySortProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailQuerySortProperty").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailQuerySortProperty {
     type Abi = Self;
 }
@@ -5574,6 +5569,11 @@ impl ::core::cmp::PartialEq for EmailQuerySortProperty {
     }
 }
 impl ::core::cmp::Eq for EmailQuerySortProperty {}
+impl ::core::fmt::Debug for EmailQuerySortProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailQuerySortProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailQuerySortProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
 }
@@ -5944,11 +5944,6 @@ impl ::core::clone::Clone for EmailRecipientResolutionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailRecipientResolutionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailRecipientResolutionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailRecipientResolutionStatus {
     type Abi = Self;
 }
@@ -5958,6 +5953,11 @@ impl ::core::cmp::PartialEq for EmailRecipientResolutionStatus {
     }
 }
 impl ::core::cmp::Eq for EmailRecipientResolutionStatus {}
+impl ::core::fmt::Debug for EmailRecipientResolutionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailRecipientResolutionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailRecipientResolutionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
 }
@@ -5982,11 +5982,6 @@ impl ::core::clone::Clone for EmailSpecialFolderKind {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailSpecialFolderKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailSpecialFolderKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailSpecialFolderKind {
     type Abi = Self;
 }
@@ -5996,6 +5991,11 @@ impl ::core::cmp::PartialEq for EmailSpecialFolderKind {
     }
 }
 impl ::core::cmp::Eq for EmailSpecialFolderKind {}
+impl ::core::fmt::Debug for EmailSpecialFolderKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailSpecialFolderKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailSpecialFolderKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
 }
@@ -6183,11 +6183,6 @@ impl ::core::clone::Clone for EmailStoreAccessType {
         *self
     }
 }
-impl ::core::fmt::Debug for EmailStoreAccessType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailStoreAccessType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EmailStoreAccessType {
     type Abi = Self;
 }
@@ -6197,6 +6192,11 @@ impl ::core::cmp::PartialEq for EmailStoreAccessType {
     }
 }
 impl ::core::cmp::Eq for EmailStoreAccessType {}
+impl ::core::fmt::Debug for EmailStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailStoreAccessType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");
 }

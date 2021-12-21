@@ -12,11 +12,6 @@ impl ::core::clone::Clone for ForegroundText {
         *self
     }
 }
-impl ::core::fmt::Debug for ForegroundText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ForegroundText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ForegroundText {
     type Abi = Self;
 }
@@ -26,6 +21,11 @@ impl ::core::cmp::PartialEq for ForegroundText {
     }
 }
 impl ::core::cmp::Eq for ForegroundText {}
+impl ::core::fmt::Debug for ForegroundText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ForegroundText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ForegroundText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
 }
@@ -873,11 +873,6 @@ impl ::core::clone::Clone for JumpListItemKind {
         *self
     }
 }
-impl ::core::fmt::Debug for JumpListItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JumpListItemKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JumpListItemKind {
     type Abi = Self;
 }
@@ -887,6 +882,11 @@ impl ::core::cmp::PartialEq for JumpListItemKind {
     }
 }
 impl ::core::cmp::Eq for JumpListItemKind {}
+impl ::core::fmt::Debug for JumpListItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListItemKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JumpListItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
 }
@@ -907,11 +907,6 @@ impl ::core::clone::Clone for JumpListSystemGroupKind {
         *self
     }
 }
-impl ::core::fmt::Debug for JumpListSystemGroupKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JumpListSystemGroupKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JumpListSystemGroupKind {
     type Abi = Self;
 }
@@ -921,6 +916,11 @@ impl ::core::cmp::PartialEq for JumpListSystemGroupKind {
     }
 }
 impl ::core::cmp::Eq for JumpListSystemGroupKind {}
+impl ::core::fmt::Debug for JumpListSystemGroupKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JumpListSystemGroupKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JumpListSystemGroupKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
 }
@@ -1913,11 +1913,6 @@ impl ::core::clone::Clone for TileMixedRealityModelActivationBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for TileMixedRealityModelActivationBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileMixedRealityModelActivationBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TileMixedRealityModelActivationBehavior {
     type Abi = Self;
 }
@@ -1927,6 +1922,11 @@ impl ::core::cmp::PartialEq for TileMixedRealityModelActivationBehavior {
     }
 }
 impl ::core::cmp::Eq for TileMixedRealityModelActivationBehavior {}
+impl ::core::fmt::Debug for TileMixedRealityModelActivationBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileMixedRealityModelActivationBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileMixedRealityModelActivationBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
 }
@@ -1948,11 +1948,6 @@ impl ::core::clone::Clone for TileOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for TileOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TileOptions {
     type Abi = Self;
 }
@@ -1962,6 +1957,11 @@ impl ::core::cmp::PartialEq for TileOptions {
     }
 }
 impl ::core::cmp::Eq for TileOptions {}
+impl ::core::fmt::Debug for TileOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileOptions;u4)");
 }
@@ -1987,11 +1987,6 @@ impl ::core::clone::Clone for TileSize {
         *self
     }
 }
-impl ::core::fmt::Debug for TileSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileSize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TileSize {
     type Abi = Self;
 }
@@ -2001,6 +1996,11 @@ impl ::core::cmp::PartialEq for TileSize {
     }
 }
 impl ::core::cmp::Eq for TileSize {}
+impl ::core::fmt::Debug for TileSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileSize;i4)");
 }

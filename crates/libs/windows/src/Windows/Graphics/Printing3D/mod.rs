@@ -1230,11 +1230,6 @@ impl ::core::clone::Clone for Print3DTaskCompletion {
         *self
     }
 }
-impl ::core::fmt::Debug for Print3DTaskCompletion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Print3DTaskCompletion {
     type Abi = Self;
 }
@@ -1244,6 +1239,11 @@ impl ::core::cmp::PartialEq for Print3DTaskCompletion {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskCompletion {}
+impl ::core::fmt::Debug for Print3DTaskCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
 }
@@ -1268,11 +1268,6 @@ impl ::core::clone::Clone for Print3DTaskDetail {
         *self
     }
 }
-impl ::core::fmt::Debug for Print3DTaskDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Print3DTaskDetail {
     type Abi = Self;
 }
@@ -1282,6 +1277,11 @@ impl ::core::cmp::PartialEq for Print3DTaskDetail {
     }
 }
 impl ::core::cmp::Eq for Print3DTaskDetail {}
+impl ::core::fmt::Debug for Print3DTaskDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
 }
@@ -2151,11 +2151,6 @@ impl ::core::clone::Clone for Printing3DBufferFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for Printing3DBufferFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DBufferFormat {
     type Abi = Self;
 }
@@ -2165,6 +2160,11 @@ impl ::core::cmp::PartialEq for Printing3DBufferFormat {
     }
 }
 impl ::core::cmp::Eq for Printing3DBufferFormat {}
+impl ::core::fmt::Debug for Printing3DBufferFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DBufferFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
 }
@@ -3354,11 +3354,6 @@ impl ::core::clone::Clone for Printing3DMeshVerificationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DMeshVerificationMode {
     type Abi = Self;
 }
@@ -3368,6 +3363,11 @@ impl ::core::cmp::PartialEq for Printing3DMeshVerificationMode {
     }
 }
 impl ::core::cmp::Eq for Printing3DMeshVerificationMode {}
+impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
 }
@@ -3857,11 +3857,6 @@ impl ::core::clone::Clone for Printing3DModelUnit {
         *self
     }
 }
-impl ::core::fmt::Debug for Printing3DModelUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DModelUnit {
     type Abi = Self;
 }
@@ -3871,6 +3866,11 @@ impl ::core::cmp::PartialEq for Printing3DModelUnit {
     }
 }
 impl ::core::cmp::Eq for Printing3DModelUnit {}
+impl ::core::fmt::Debug for Printing3DModelUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DModelUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
 }
@@ -4091,11 +4091,6 @@ impl ::core::clone::Clone for Printing3DObjectType {
         *self
     }
 }
-impl ::core::fmt::Debug for Printing3DObjectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DObjectType {
     type Abi = Self;
 }
@@ -4105,6 +4100,11 @@ impl ::core::cmp::PartialEq for Printing3DObjectType {
     }
 }
 impl ::core::cmp::Eq for Printing3DObjectType {}
+impl ::core::fmt::Debug for Printing3DObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DObjectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
 }
@@ -4125,11 +4125,6 @@ impl ::core::clone::Clone for Printing3DPackageCompression {
         *self
     }
 }
-impl ::core::fmt::Debug for Printing3DPackageCompression {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DPackageCompression {
     type Abi = Self;
 }
@@ -4139,6 +4134,11 @@ impl ::core::cmp::PartialEq for Printing3DPackageCompression {
     }
 }
 impl ::core::cmp::Eq for Printing3DPackageCompression {}
+impl ::core::fmt::Debug for Printing3DPackageCompression {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DPackageCompression {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
 }
@@ -4394,11 +4394,6 @@ impl ::core::clone::Clone for Printing3DTextureEdgeBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DTextureEdgeBehavior {
     type Abi = Self;
 }
@@ -4408,6 +4403,11 @@ impl ::core::cmp::PartialEq for Printing3DTextureEdgeBehavior {
     }
 }
 impl ::core::cmp::Eq for Printing3DTextureEdgeBehavior {}
+impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
 }

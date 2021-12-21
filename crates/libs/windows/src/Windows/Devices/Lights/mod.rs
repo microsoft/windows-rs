@@ -691,11 +691,6 @@ impl ::core::clone::Clone for LampArrayKind {
         *self
     }
 }
-impl ::core::fmt::Debug for LampArrayKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LampArrayKind {
     type Abi = Self;
 }
@@ -705,6 +700,11 @@ impl ::core::cmp::PartialEq for LampArrayKind {
     }
 }
 impl ::core::cmp::Eq for LampArrayKind {}
+impl ::core::fmt::Debug for LampArrayKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampArrayKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
 }
@@ -967,11 +967,6 @@ impl ::core::clone::Clone for LampPurposes {
         *self
     }
 }
-impl ::core::fmt::Debug for LampPurposes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampPurposes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LampPurposes {
     type Abi = Self;
 }
@@ -981,6 +976,11 @@ impl ::core::cmp::PartialEq for LampPurposes {
     }
 }
 impl ::core::cmp::Eq for LampPurposes {}
+impl ::core::fmt::Debug for LampPurposes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampPurposes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LampPurposes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");
 }

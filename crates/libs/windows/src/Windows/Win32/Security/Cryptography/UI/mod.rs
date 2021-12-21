@@ -824,31 +824,6 @@ impl ::core::clone::Clone for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPTUI_VIEWCERTIFICATE_STRUCTA")
-            .field("dwSize", &self.dwSize)
-            .field("hwndParent", &self.hwndParent)
-            .field("dwFlags", &self.dwFlags)
-            .field("szTitle", &self.szTitle)
-            .field("pCertContext", &self.pCertContext)
-            .field("rgszPurposes", &self.rgszPurposes)
-            .field("cPurposes", &self.cPurposes)
-            .field("Anonymous", &self.Anonymous)
-            .field("fpCryptProviderDataTrustedUsage", &self.fpCryptProviderDataTrustedUsage)
-            .field("idxSigner", &self.idxSigner)
-            .field("idxCert", &self.idxCert)
-            .field("fCounterSigner", &self.fCounterSigner)
-            .field("idxCounterSigner", &self.idxCounterSigner)
-            .field("cStores", &self.cStores)
-            .field("rghStores", &self.rghStores)
-            .field("cPropSheetPages", &self.cPropSheetPages)
-            .field("rgPropSheetPages", &self.rgPropSheetPages)
-            .field("nStartPage", &self.nStartPage)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     type Abi = Self;
 }
@@ -928,31 +903,6 @@ impl ::core::marker::Copy for CRYPTUI_VIEWCERTIFICATE_STRUCTW {}
 impl ::core::clone::Clone for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPTUI_VIEWCERTIFICATE_STRUCTW")
-            .field("dwSize", &self.dwSize)
-            .field("hwndParent", &self.hwndParent)
-            .field("dwFlags", &self.dwFlags)
-            .field("szTitle", &self.szTitle)
-            .field("pCertContext", &self.pCertContext)
-            .field("rgszPurposes", &self.rgszPurposes)
-            .field("cPurposes", &self.cPurposes)
-            .field("Anonymous", &self.Anonymous)
-            .field("fpCryptProviderDataTrustedUsage", &self.fpCryptProviderDataTrustedUsage)
-            .field("idxSigner", &self.idxSigner)
-            .field("idxCert", &self.idxCert)
-            .field("fCounterSigner", &self.fCounterSigner)
-            .field("idxCounterSigner", &self.idxCounterSigner)
-            .field("cStores", &self.cStores)
-            .field("rghStores", &self.rghStores)
-            .field("cPropSheetPages", &self.cPropSheetPages)
-            .field("rgPropSheetPages", &self.rgPropSheetPages)
-            .field("nStartPage", &self.nStartPage)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1081,12 +1031,6 @@ impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {}
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO").field("dwSize", &self.dwSize).field("pwszSigningCertFileName", &self.pwszSigningCertFileName).field("dwPvkChoice", &self.dwPvkChoice).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1251,12 +1195,6 @@ impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {}
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPTUI_WIZ_DIGITAL_SIGN_INFO").field("dwSize", &self.dwSize).field("dwSubjectChoice", &self.dwSubjectChoice).field("Anonymous1", &self.Anonymous1).field("dwSigningCertChoice", &self.dwSigningCertChoice).field("Anonymous2", &self.Anonymous2).field("pwszTimestampURL", &self.pwszTimestampURL).field("dwAdditionalCertChoice", &self.dwAdditionalCertChoice).field("pSignExtInfo", &self.pSignExtInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1526,12 +1464,6 @@ impl ::core::clone::Clone for CRYPTUI_WIZ_EXPORT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPTUI_WIZ_EXPORT_INFO").field("dwSize", &self.dwSize).field("pwszExportFileName", &self.pwszExportFileName).field("dwSubjectChoice", &self.dwSubjectChoice).field("Anonymous", &self.Anonymous).field("cStores", &self.cStores).field("rghStores", &self.rghStores).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_EXPORT_INFO {
     type Abi = Self;
 }
@@ -1638,12 +1570,6 @@ impl ::core::marker::Copy for CRYPTUI_WIZ_IMPORT_SRC_INFO {}
 impl ::core::clone::Clone for CRYPTUI_WIZ_IMPORT_SRC_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CRYPTUI_WIZ_IMPORT_SRC_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPTUI_WIZ_IMPORT_SRC_INFO").field("dwSize", &self.dwSize).field("dwSubjectChoice", &self.dwSubjectChoice).field("Anonymous", &self.Anonymous).field("dwFlags", &self.dwFlags).field("pwszPassword", &self.pwszPassword).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

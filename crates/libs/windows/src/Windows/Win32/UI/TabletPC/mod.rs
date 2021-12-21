@@ -2000,12 +2000,6 @@ impl ::core::clone::Clone for IEC_GESTUREINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
-impl ::core::fmt::Debug for IEC_GESTUREINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IEC_GESTUREINFO").field("nmhdr", &self.nmhdr).field("Cursor", &self.Cursor).field("Strokes", &self.Strokes).field("Gestures", &self.Gestures).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::core::Abi for IEC_GESTUREINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }

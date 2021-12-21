@@ -403,11 +403,6 @@ impl ::core::clone::Clone for WINBIO_ACCOUNT_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for WINBIO_ACCOUNT_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ACCOUNT_POLICY").field("Identity", &self.Identity).field("AntiSpoofBehavior", &self.AntiSpoofBehavior).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WINBIO_ACCOUNT_POLICY {
     type Abi = Self;
 }
@@ -521,12 +516,6 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT").field("SessionHandle", &self.SessionHandle).field("Operation", &self.Operation).field("SequenceNumber", &self.SequenceNumber).field("TimeStamp", &self.TimeStamp).field("ApiStatus", &self.ApiStatus).field("UnitId", &self.UnitId).field("UserData", &self.UserData).field("Parameters", &self.Parameters).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -700,12 +689,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_2").field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_2 {
     type Abi = Self;
 }
@@ -812,12 +795,6 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_5 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_5 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_5").field("Identity", &self.Identity).field("IsNewTemplate", &self.IsNewTemplate).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -971,12 +948,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_9 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_9").field("Identity", &self.Identity).field("SubFactorCount", &self.SubFactorCount).field("SubFactorArray", &self.SubFactorArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_9 {
     type Abi = Self;
 }
@@ -1048,12 +1019,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_11 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_11 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_11").field("Event", &self.Event).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_11 {
     type Abi = Self;
 }
@@ -1091,12 +1056,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_12 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_12 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_12").field("PropertyType", &self.PropertyType).field("PropertyId", &self.PropertyId).field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("PropertyBufferSize", &self.PropertyBufferSize).field("PropertyBuffer", &self.PropertyBuffer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_12 {
     type Abi = Self;
 }
@@ -1127,12 +1086,6 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_13 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_13 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_13 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_13").field("Identity", &self.Identity).field("Policy", &self.Policy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1171,12 +1124,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_14 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_14 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_14").field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("RejectDetail", &self.RejectDetail).field("Ticket", &self.Ticket).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_14 {
     type Abi = Self;
 }
@@ -1208,12 +1155,6 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_15 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_15 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_15 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_15").field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("RejectDetail", &self.RejectDetail).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1329,12 +1270,6 @@ impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_18 {}
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_18 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_18 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ASYNC_RESULT_0_18").field("PropertyType", &self.PropertyType).field("PropertyId", &self.PropertyId).field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("PropertyBufferSize", &self.PropertyBufferSize).field("PropertyBuffer", &self.PropertyBuffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2117,11 +2052,6 @@ impl ::core::clone::Clone for WINBIO_EVENT {
         *self
     }
 }
-impl ::core::fmt::Debug for WINBIO_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_EVENT").field("Type", &self.Type).field("Parameters", &self.Parameters).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WINBIO_EVENT {
     type Abi = Self;
 }
@@ -2207,11 +2137,6 @@ impl ::core::clone::Clone for WINBIO_EVENT_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for WINBIO_EVENT_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_EVENT_0_1").field("UnitId", &self.UnitId).field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("RejectDetail", &self.RejectDetail).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_1 {
     type Abi = Self;
 }
@@ -2268,11 +2193,6 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENGINE_INFO").field("GenericEngineCapabilities", &self.GenericEngineCapabilities).field("Factor", &self.Factor).field("Specific", &self.Specific).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO {
@@ -2618,12 +2538,6 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_ENROLLMENT_STATUS").field("TemplateStatus", &self.TemplateStatus).field("RejectDetail", &self.RejectDetail).field("PercentComplete", &self.PercentComplete).field("Factor", &self.Factor).field("SubFactor", &self.SubFactor).field("Specific", &self.Specific).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     type Abi = Self;
 }
@@ -2950,12 +2864,6 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_SENSOR_INFO").field("GenericSensorCapabilities", &self.GenericSensorCapabilities).field("Factor", &self.Factor).field("Specific", &self.Specific).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO {
     type Abi = Self;
 }
@@ -3217,11 +3125,6 @@ impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO {}
 impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_EXTENDED_STORAGE_INFO").field("GenericStorageCapabilities", &self.GenericStorageCapabilities).field("Factor", &self.Factor).field("Specific", &self.Specific).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO {
@@ -3836,11 +3739,6 @@ impl ::core::clone::Clone for WINBIO_IDENTITY {
         *self
     }
 }
-impl ::core::fmt::Debug for WINBIO_IDENTITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_IDENTITY").field("Type", &self.Type).field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WINBIO_IDENTITY {
     type Abi = Self;
 }
@@ -4047,12 +3945,6 @@ impl ::core::marker::Copy for WINBIO_PRESENCE {}
 impl ::core::clone::Clone for WINBIO_PRESENCE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_PRESENCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_PRESENCE").field("Factor", &self.Factor).field("SubFactor", &self.SubFactor).field("Status", &self.Status).field("RejectDetail", &self.RejectDetail).field("Identity", &self.Identity).field("TrackingId", &self.TrackingId).field("Ticket", &self.Ticket).field("Properties", &self.Properties).field("Authorization", &self.Authorization).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4312,11 +4204,6 @@ impl ::core::marker::Copy for WINBIO_PROTECTION_POLICY {}
 impl ::core::clone::Clone for WINBIO_PROTECTION_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WINBIO_PROTECTION_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_PROTECTION_POLICY").field("Version", &self.Version).field("Identity", &self.Identity).field("DatabaseId", &self.DatabaseId).field("UserState", &self.UserState).field("PolicySize", &self.PolicySize).field("Policy", &self.Policy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_PROTECTION_POLICY {

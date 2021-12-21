@@ -287,11 +287,6 @@ impl ::core::clone::Clone for SceneLightingEffectReflectanceModel {
         *self
     }
 }
-impl ::core::fmt::Debug for SceneLightingEffectReflectanceModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneLightingEffectReflectanceModel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SceneLightingEffectReflectanceModel {
     type Abi = Self;
 }
@@ -301,6 +296,11 @@ impl ::core::cmp::PartialEq for SceneLightingEffectReflectanceModel {
     }
 }
 impl ::core::cmp::Eq for SceneLightingEffectReflectanceModel {}
+impl ::core::fmt::Debug for SceneLightingEffectReflectanceModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneLightingEffectReflectanceModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneLightingEffectReflectanceModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel;i4)");
 }

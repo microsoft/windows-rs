@@ -31,12 +31,6 @@ impl ::core::clone::Clone for AsnAny {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AsnAny {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AsnAny").field("asnType", &self.asnType).field("asnValue", &self.asnValue).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AsnAny {
     type Abi = Self;
 }
@@ -1745,12 +1739,6 @@ impl ::core::clone::Clone for SnmpVarBind {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SnmpVarBind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SnmpVarBind").field("name", &self.name).field("value", &self.value).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SnmpVarBind {
     type Abi = Self;
 }
@@ -1910,11 +1898,6 @@ impl ::core::marker::Copy for smiVALUE {}
 impl ::core::clone::Clone for smiVALUE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for smiVALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("smiVALUE").field("syntax", &self.syntax).field("value", &self.value).finish()
     }
 }
 unsafe impl ::windows::core::Abi for smiVALUE {

@@ -945,11 +945,6 @@ impl ::core::clone::Clone for NotifyCollectionChangedAction {
         *self
     }
 }
-impl ::core::fmt::Debug for NotifyCollectionChangedAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotifyCollectionChangedAction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NotifyCollectionChangedAction {
     type Abi = Self;
 }
@@ -959,6 +954,11 @@ impl ::core::cmp::PartialEq for NotifyCollectionChangedAction {
     }
 }
 impl ::core::cmp::Eq for NotifyCollectionChangedAction {}
+impl ::core::fmt::Debug for NotifyCollectionChangedAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotifyCollectionChangedAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Interop.NotifyCollectionChangedAction;i4)");
 }
@@ -1179,11 +1179,6 @@ impl ::core::clone::Clone for TypeKind {
         *self
     }
 }
-impl ::core::fmt::Debug for TypeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TypeKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TypeKind {
     type Abi = Self;
 }
@@ -1193,6 +1188,11 @@ impl ::core::cmp::PartialEq for TypeKind {
     }
 }
 impl ::core::cmp::Eq for TypeKind {}
+impl ::core::fmt::Debug for TypeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TypeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TypeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Interop.TypeKind;i4)");
 }

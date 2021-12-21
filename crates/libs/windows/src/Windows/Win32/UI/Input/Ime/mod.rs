@@ -3660,12 +3660,6 @@ impl ::core::clone::Clone for IMEDP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMEDP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEDP").field("wrdModifier", &self.wrdModifier).field("wrdModifiee", &self.wrdModifiee).field("relID", &self.relID).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMEDP {
     type Abi = Self;
 }
@@ -4022,11 +4016,6 @@ impl ::core::marker::Copy for IMEKMSKEY {}
 impl ::core::clone::Clone for IMEKMSKEY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMEKMSKEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEKMSKEY").field("dwStatus", &self.dwStatus).field("dwCompStatus", &self.dwCompStatus).field("dwVKEY", &self.dwVKEY).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMEKMSKEY {
@@ -4622,12 +4611,6 @@ impl ::core::clone::Clone for IMEWRD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMEWRD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEWRD").field("pwchReading", &self.pwchReading).field("pwchDisplay", &self.pwchDisplay).field("Anonymous", &self.Anonymous).field("rgulAttrs", &self.rgulAttrs).field("cbComment", &self.cbComment).field("uct", &self.uct).field("pvComment", &self.pvComment).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMEWRD {
     type Abi = Self;
 }
@@ -5015,30 +4998,6 @@ impl ::core::marker::Copy for INPUTCONTEXT {}
 impl ::core::clone::Clone for INPUTCONTEXT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for INPUTCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INPUTCONTEXT")
-            .field("hWnd", &self.hWnd)
-            .field("fOpen", &self.fOpen)
-            .field("ptStatusWndPos", &self.ptStatusWndPos)
-            .field("ptSoftKbdPos", &self.ptSoftKbdPos)
-            .field("fdwConversion", &self.fdwConversion)
-            .field("fdwSentence", &self.fdwSentence)
-            .field("lfFont", &self.lfFont)
-            .field("cfCompForm", &self.cfCompForm)
-            .field("cfCandForm", &self.cfCandForm)
-            .field("hCompStr", &self.hCompStr)
-            .field("hCandInfo", &self.hCandInfo)
-            .field("hGuideLine", &self.hGuideLine)
-            .field("hPrivate", &self.hPrivate)
-            .field("dwNumMsgBuf", &self.dwNumMsgBuf)
-            .field("hMsgBuf", &self.hMsgBuf)
-            .field("fdwInit", &self.fdwInit)
-            .field("dwReserve", &self.dwReserve)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -6763,26 +6722,6 @@ impl ::core::clone::Clone for MORRSLT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MORRSLT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MORRSLT")
-            .field("dwSize", &self.dwSize)
-            .field("pwchOutput", &self.pwchOutput)
-            .field("cchOutput", &self.cchOutput)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pchInputPos", &self.pchInputPos)
-            .field("pchOutputIdxWDD", &self.pchOutputIdxWDD)
-            .field("Anonymous3", &self.Anonymous3)
-            .field("paMonoRubyPos", &self.paMonoRubyPos)
-            .field("pWDD", &self.pWDD)
-            .field("cWDD", &self.cWDD)
-            .field("pPrivate", &self.pPrivate)
-            .field("BLKBuff", &self.BLKBuff)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MORRSLT {
     type Abi = Self;
 }
@@ -7348,11 +7287,6 @@ impl ::core::marker::Copy for WDD {}
 impl ::core::clone::Clone for WDD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WDD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WDD").field("wDispPos", &self.wDispPos).field("Anonymous1", &self.Anonymous1).field("cchDisp", &self.cchDisp).field("Anonymous2", &self.Anonymous2).field("WDD_nReserve1", &self.WDD_nReserve1).field("nPos", &self.nPos).field("_bitfield", &self._bitfield).field("pReserved", &self.pReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WDD {

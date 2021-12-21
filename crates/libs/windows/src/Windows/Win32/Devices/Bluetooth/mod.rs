@@ -158,11 +158,6 @@ impl ::core::clone::Clone for BLUETOOTH_ADDRESS {
         *self
     }
 }
-impl ::core::fmt::Debug for BLUETOOTH_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BLUETOOTH_ADDRESS").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS {
     type Abi = Self;
 }
@@ -215,11 +210,6 @@ impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATE_RESPONSE {}
 impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATE_RESPONSE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BLUETOOTH_AUTHENTICATE_RESPONSE").field("bthAddressRemote", &self.bthAddressRemote).field("authMethod", &self.authMethod).field("Anonymous", &self.Anonymous).field("negativeResponse", &self.negativeResponse).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE {
@@ -280,12 +270,6 @@ impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
 impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS").field("deviceInfo", &self.deviceInfo).field("authenticationMethod", &self.authenticationMethod).field("ioCapability", &self.ioCapability).field("authenticationRequirements", &self.authenticationRequirements).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -429,12 +413,6 @@ impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BLUETOOTH_DEVICE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BLUETOOTH_DEVICE_INFO").field("dwSize", &self.dwSize).field("Address", &self.Address).field("ulClassofDevice", &self.ulClassofDevice).field("fConnected", &self.fConnected).field("fRemembered", &self.fRemembered).field("fAuthenticated", &self.fAuthenticated).field("stLastSeen", &self.stLastSeen).field("stLastUsed", &self.stLastUsed).field("szName", &self.szName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_INFO {
     type Abi = Self;
 }
@@ -572,12 +550,6 @@ impl ::core::marker::Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
 impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BLUETOOTH_LOCAL_SERVICE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BLUETOOTH_LOCAL_SERVICE_INFO").field("Enabled", &self.Enabled).field("btAddr", &self.btAddr).field("szName", &self.szName).field("szDeviceString", &self.szDeviceString).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -742,11 +714,6 @@ impl ::core::marker::Copy for BLUETOOTH_RADIO_INFO {}
 impl ::core::clone::Clone for BLUETOOTH_RADIO_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for BLUETOOTH_RADIO_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BLUETOOTH_RADIO_INFO").field("dwSize", &self.dwSize).field("address", &self.address).field("szName", &self.szName).field("ulClassofDevice", &self.ulClassofDevice).field("lmpSubversion", &self.lmpSubversion).field("manufacturer", &self.manufacturer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BLUETOOTH_RADIO_INFO {
@@ -1160,11 +1127,6 @@ impl ::core::marker::Copy for BTH_INFO_RSP {}
 impl ::core::clone::Clone for BTH_INFO_RSP {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for BTH_INFO_RSP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BTH_INFO_RSP").field("result", &self.result).field("dataLen", &self.dataLen).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BTH_INFO_RSP {
@@ -1648,11 +1610,6 @@ impl ::core::marker::Copy for BTH_QUERY_SERVICE {}
 impl ::core::clone::Clone for BTH_QUERY_SERVICE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for BTH_QUERY_SERVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BTH_QUERY_SERVICE").field("type", &self.r#type).field("serviceHandle", &self.serviceHandle).field("uuids", &self.uuids).field("numRange", &self.numRange).field("pRange", &self.pRange).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BTH_QUERY_SERVICE {
@@ -2781,11 +2738,6 @@ impl ::core::clone::Clone for RFCOMM_COMMAND {
         *self
     }
 }
-impl ::core::fmt::Debug for RFCOMM_COMMAND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFCOMM_COMMAND").field("CmdType", &self.CmdType).field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RFCOMM_COMMAND {
     type Abi = Self;
 }
@@ -3174,12 +3126,6 @@ impl ::core::marker::Copy for SDP_ELEMENT_DATA {}
 impl ::core::clone::Clone for SDP_ELEMENT_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SDP_ELEMENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SDP_ELEMENT_DATA").field("type", &self.r#type).field("specificType", &self.specificType).field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3710,11 +3656,6 @@ impl ::core::marker::Copy for SdpQueryUuid {}
 impl ::core::clone::Clone for SdpQueryUuid {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SdpQueryUuid {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SdpQueryUuid").field("u", &self.u).field("uuidType", &self.uuidType).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SdpQueryUuid {

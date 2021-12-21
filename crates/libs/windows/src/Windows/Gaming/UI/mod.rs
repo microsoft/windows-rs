@@ -64,11 +64,6 @@ impl ::core::clone::Clone for GameChatMessageOrigin {
         *self
     }
 }
-impl ::core::fmt::Debug for GameChatMessageOrigin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameChatMessageOrigin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameChatMessageOrigin {
     type Abi = Self;
 }
@@ -78,6 +73,11 @@ impl ::core::cmp::PartialEq for GameChatMessageOrigin {
     }
 }
 impl ::core::cmp::Eq for GameChatMessageOrigin {}
+impl ::core::fmt::Debug for GameChatMessageOrigin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatMessageOrigin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
 }
@@ -420,11 +420,6 @@ impl ::core::clone::Clone for GameChatOverlayPosition {
         *self
     }
 }
-impl ::core::fmt::Debug for GameChatOverlayPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameChatOverlayPosition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameChatOverlayPosition {
     type Abi = Self;
 }
@@ -434,6 +429,11 @@ impl ::core::cmp::PartialEq for GameChatOverlayPosition {
     }
 }
 impl ::core::cmp::Eq for GameChatOverlayPosition {}
+impl ::core::fmt::Debug for GameChatOverlayPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameChatOverlayPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
 }

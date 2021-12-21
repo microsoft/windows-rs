@@ -16,11 +16,6 @@ impl ::core::clone::Clone for CommonFileQuery {
         *self
     }
 }
-impl ::core::fmt::Debug for CommonFileQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommonFileQuery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CommonFileQuery {
     type Abi = Self;
 }
@@ -30,6 +25,11 @@ impl ::core::cmp::PartialEq for CommonFileQuery {
     }
 }
 impl ::core::cmp::Eq for CommonFileQuery {}
+impl ::core::fmt::Debug for CommonFileQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommonFileQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommonFileQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
 }
@@ -60,11 +60,6 @@ impl ::core::clone::Clone for CommonFolderQuery {
         *self
     }
 }
-impl ::core::fmt::Debug for CommonFolderQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommonFolderQuery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CommonFolderQuery {
     type Abi = Self;
 }
@@ -74,6 +69,11 @@ impl ::core::cmp::PartialEq for CommonFolderQuery {
     }
 }
 impl ::core::cmp::Eq for CommonFolderQuery {}
+impl ::core::fmt::Debug for CommonFolderQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommonFolderQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommonFolderQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
 }
@@ -401,11 +401,6 @@ impl ::core::clone::Clone for DateStackOption {
         *self
     }
 }
-impl ::core::fmt::Debug for DateStackOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DateStackOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DateStackOption {
     type Abi = Self;
 }
@@ -415,6 +410,11 @@ impl ::core::cmp::PartialEq for DateStackOption {
     }
 }
 impl ::core::cmp::Eq for DateStackOption {}
+impl ::core::fmt::Debug for DateStackOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DateStackOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DateStackOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
 }
@@ -434,11 +434,6 @@ impl ::core::clone::Clone for FolderDepth {
         *self
     }
 }
-impl ::core::fmt::Debug for FolderDepth {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderDepth").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FolderDepth {
     type Abi = Self;
 }
@@ -448,6 +443,11 @@ impl ::core::cmp::PartialEq for FolderDepth {
     }
 }
 impl ::core::cmp::Eq for FolderDepth {}
+impl ::core::fmt::Debug for FolderDepth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderDepth").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FolderDepth {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
 }
@@ -1484,11 +1484,6 @@ impl ::core::clone::Clone for IndexedState {
         *self
     }
 }
-impl ::core::fmt::Debug for IndexedState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexedState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IndexedState {
     type Abi = Self;
 }
@@ -1498,6 +1493,11 @@ impl ::core::cmp::PartialEq for IndexedState {
     }
 }
 impl ::core::cmp::Eq for IndexedState {}
+impl ::core::fmt::Debug for IndexedState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexedState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IndexedState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
 }
@@ -1519,11 +1519,6 @@ impl ::core::clone::Clone for IndexerOption {
         *self
     }
 }
-impl ::core::fmt::Debug for IndexerOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexerOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IndexerOption {
     type Abi = Self;
 }
@@ -1533,6 +1528,11 @@ impl ::core::cmp::PartialEq for IndexerOption {
     }
 }
 impl ::core::cmp::Eq for IndexerOption {}
+impl ::core::fmt::Debug for IndexerOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexerOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IndexerOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
 }

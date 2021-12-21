@@ -387,11 +387,6 @@ impl ::core::clone::Clone for INPUT_TRANSFORM {
         *self
     }
 }
-impl ::core::fmt::Debug for INPUT_TRANSFORM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INPUT_TRANSFORM").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for INPUT_TRANSFORM {
     type Abi = Self;
 }

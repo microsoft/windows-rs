@@ -827,12 +827,6 @@ impl ::core::clone::Clone for PlayToConnectionError {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionError").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PlayToConnectionError {
     type Abi = Self;
 }
@@ -844,6 +838,12 @@ impl ::core::cmp::PartialEq for PlayToConnectionError {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionError {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionError").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
@@ -981,12 +981,6 @@ impl ::core::clone::Clone for PlayToConnectionState {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PlayToConnectionState {
     type Abi = Self;
 }
@@ -998,6 +992,12 @@ impl ::core::cmp::PartialEq for PlayToConnectionState {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionState {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionState").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");

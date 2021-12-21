@@ -401,11 +401,6 @@ impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
         *self
     }
 }
-impl ::core::fmt::Debug for UserDataAccountProviderOperationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountProviderOperationKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UserDataAccountProviderOperationKind {
     type Abi = Self;
 }
@@ -415,6 +410,11 @@ impl ::core::cmp::PartialEq for UserDataAccountProviderOperationKind {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountProviderOperationKind {}
+impl ::core::fmt::Debug for UserDataAccountProviderOperationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountProviderOperationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderOperationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
 }
@@ -434,11 +434,6 @@ impl ::core::clone::Clone for UserDataAccountProviderPartnerAccountKind {
         *self
     }
 }
-impl ::core::fmt::Debug for UserDataAccountProviderPartnerAccountKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountProviderPartnerAccountKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UserDataAccountProviderPartnerAccountKind {
     type Abi = Self;
 }
@@ -448,6 +443,11 @@ impl ::core::cmp::PartialEq for UserDataAccountProviderPartnerAccountKind {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountProviderPartnerAccountKind {}
+impl ::core::fmt::Debug for UserDataAccountProviderPartnerAccountKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountProviderPartnerAccountKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderPartnerAccountKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind;i4)");
 }

@@ -3098,12 +3098,6 @@ impl ::core::clone::Clone for GDI_NONREMOTE {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for GDI_NONREMOTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GDI_NONREMOTE").field("fContext", &self.fContext).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for GDI_NONREMOTE {
     type Abi = Self;
 }
@@ -3795,11 +3789,6 @@ impl ::core::clone::Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_ARM_RUNTIME_FUNCTION_ENTRY").field("BeginAddress", &self.BeginAddress).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     type Abi = Self;
 }
@@ -4009,11 +3998,6 @@ impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3 {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_3").field("TagIndex", &self.TagIndex).field("Misc", &self.Misc).field("FcnAry", &self.FcnAry).field("TvIndex", &self.TvIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_3 {
@@ -5214,11 +5198,6 @@ impl ::core::clone::Clone for IMAGE_IMPORT_DESCRIPTOR {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_IMPORT_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_IMPORT_DESCRIPTOR").field("Anonymous", &self.Anonymous).field("TimeDateStamp", &self.TimeDateStamp).field("ForwarderChain", &self.ForwarderChain).field("Name", &self.Name).field("FirstThunk", &self.FirstThunk).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_IMPORT_DESCRIPTOR {
     type Abi = Self;
 }
@@ -5299,11 +5278,6 @@ impl ::core::marker::Copy for IMAGE_LINENUMBER {}
 impl ::core::clone::Clone for IMAGE_LINENUMBER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_LINENUMBER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_LINENUMBER").field("Type", &self.Type).field("Linenumber", &self.Linenumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_LINENUMBER {
@@ -5475,12 +5449,6 @@ impl ::core::clone::Clone for IMAGE_POLICY_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMAGE_POLICY_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_POLICY_ENTRY").field("Type", &self.Type).field("PolicyId", &self.PolicyId).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGE_POLICY_ENTRY {
     type Abi = Self;
 }
@@ -5617,12 +5585,6 @@ impl ::core::clone::Clone for IMAGE_POLICY_METADATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMAGE_POLICY_METADATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_POLICY_METADATA").field("Version", &self.Version).field("Reserved0", &self.Reserved0).field("ApplicationId", &self.ApplicationId).field("Policies", &self.Policies).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGE_POLICY_METADATA {
     type Abi = Self;
 }
@@ -5683,11 +5645,6 @@ impl ::core::marker::Copy for IMAGE_RELOCATION {}
 impl ::core::clone::Clone for IMAGE_RELOCATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_RELOCATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_RELOCATION").field("Anonymous", &self.Anonymous).field("SymbolTableIndex", &self.SymbolTableIndex).field("Type", &self.Type).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_RELOCATION {
@@ -6332,11 +6289,6 @@ impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_RESOURCE_DIRECTORY_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_RESOURCE_DIRECTORY_ENTRY").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY {
     type Abi = Self;
 }
@@ -6654,11 +6606,6 @@ impl ::core::clone::Clone for IMAGE_SYMBOL {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_SYMBOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_SYMBOL").field("N", &self.N).field("Value", &self.Value).field("SectionNumber", &self.SectionNumber).field("Type", &self.Type).field("StorageClass", &self.StorageClass).field("NumberOfAuxSymbols", &self.NumberOfAuxSymbols).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_SYMBOL {
     type Abi = Self;
 }
@@ -6745,11 +6692,6 @@ impl ::core::marker::Copy for IMAGE_SYMBOL_EX {}
 impl ::core::clone::Clone for IMAGE_SYMBOL_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_SYMBOL_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_SYMBOL_EX").field("N", &self.N).field("Value", &self.Value).field("SectionNumber", &self.SectionNumber).field("Type", &self.Type).field("StorageClass", &self.StorageClass).field("NumberOfAuxSymbols", &self.NumberOfAuxSymbols).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_SYMBOL_EX {
@@ -6940,11 +6882,6 @@ impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY32 {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_TLS_DIRECTORY32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_TLS_DIRECTORY32").field("StartAddressOfRawData", &self.StartAddressOfRawData).field("EndAddressOfRawData", &self.EndAddressOfRawData).field("AddressOfIndex", &self.AddressOfIndex).field("AddressOfCallBacks", &self.AddressOfCallBacks).field("SizeOfZeroFill", &self.SizeOfZeroFill).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_TLS_DIRECTORY32 {
     type Abi = Self;
 }
@@ -7029,11 +6966,6 @@ impl ::core::marker::Copy for IMAGE_TLS_DIRECTORY64 {}
 impl ::core::clone::Clone for IMAGE_TLS_DIRECTORY64 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_TLS_DIRECTORY64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_TLS_DIRECTORY64").field("StartAddressOfRawData", &self.StartAddressOfRawData).field("EndAddressOfRawData", &self.EndAddressOfRawData).field("AddressOfIndex", &self.AddressOfIndex).field("AddressOfCallBacks", &self.AddressOfCallBacks).field("SizeOfZeroFill", &self.SizeOfZeroFill).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_TLS_DIRECTORY64 {
@@ -7266,11 +7198,6 @@ impl ::core::marker::Copy for IMPORT_OBJECT_HEADER {}
 impl ::core::clone::Clone for IMPORT_OBJECT_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMPORT_OBJECT_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMPORT_OBJECT_HEADER").field("Sig1", &self.Sig1).field("Sig2", &self.Sig2).field("Version", &self.Version).field("Machine", &self.Machine).field("TimeDateStamp", &self.TimeDateStamp).field("SizeOfData", &self.SizeOfData).field("Anonymous", &self.Anonymous).field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMPORT_OBJECT_HEADER {
@@ -7776,11 +7703,6 @@ impl ::core::marker::Copy for KERNEL_CET_CONTEXT {}
 impl ::core::clone::Clone for KERNEL_CET_CONTEXT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for KERNEL_CET_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KERNEL_CET_CONTEXT").field("Ssp", &self.Ssp).field("Rip", &self.Rip).field("SegCs", &self.SegCs).field("Anonymous", &self.Anonymous).field("Fill", &self.Fill).finish()
     }
 }
 unsafe impl ::windows::core::Abi for KERNEL_CET_CONTEXT {
@@ -8796,11 +8718,6 @@ impl ::core::clone::Clone for NT_TIB32 {
         *self
     }
 }
-impl ::core::fmt::Debug for NT_TIB32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NT_TIB32").field("ExceptionList", &self.ExceptionList).field("StackBase", &self.StackBase).field("StackLimit", &self.StackLimit).field("SubSystemTib", &self.SubSystemTib).field("Anonymous", &self.Anonymous).field("ArbitraryUserPointer", &self.ArbitraryUserPointer).field("Self", &self.Self_).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NT_TIB32 {
     type Abi = Self;
 }
@@ -8856,11 +8773,6 @@ impl ::core::marker::Copy for NT_TIB64 {}
 impl ::core::clone::Clone for NT_TIB64 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for NT_TIB64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NT_TIB64").field("ExceptionList", &self.ExceptionList).field("StackBase", &self.StackBase).field("StackLimit", &self.StackLimit).field("SubSystemTib", &self.SubSystemTib).field("Anonymous", &self.Anonymous).field("ArbitraryUserPointer", &self.ArbitraryUserPointer).field("Self", &self.Self_).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NT_TIB64 {
@@ -10435,11 +10347,6 @@ impl ::core::clone::Clone for PROCESSOR_IDLESTATE_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESSOR_IDLESTATE_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESSOR_IDLESTATE_POLICY").field("Revision", &self.Revision).field("Flags", &self.Flags).field("PolicyCount", &self.PolicyCount).field("Policy", &self.Policy).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESSOR_IDLESTATE_POLICY {
     type Abi = Self;
 }
@@ -10544,11 +10451,6 @@ impl ::core::marker::Copy for PROCESSOR_PERFSTATE_POLICY {}
 impl ::core::clone::Clone for PROCESSOR_PERFSTATE_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROCESSOR_PERFSTATE_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESSOR_PERFSTATE_POLICY").field("Revision", &self.Revision).field("MaxThrottle", &self.MaxThrottle).field("MinThrottle", &self.MinThrottle).field("BusyAdjThreshold", &self.BusyAdjThreshold).field("Anonymous", &self.Anonymous).field("TimeCheck", &self.TimeCheck).field("IncreaseTime", &self.IncreaseTime).field("DecreaseTime", &self.DecreaseTime).field("IncreasePercent", &self.IncreasePercent).field("DecreasePercent", &self.DecreasePercent).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESSOR_PERFSTATE_POLICY {
@@ -10722,11 +10624,6 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_ASLR_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESS_MITIGATION_ASLR_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_ASLR_POLICY").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_ASLR_POLICY {
     type Abi = Self;
 }
@@ -10806,11 +10703,6 @@ impl ::core::marker::Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
@@ -10894,11 +10786,6 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_CHILD_PROCESS_POLICY").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     type Abi = Self;
 }
@@ -10978,11 +10865,6 @@ impl ::core::marker::Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
@@ -11068,12 +10950,6 @@ impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PROCESS_MITIGATION_DEP_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_DEP_POLICY").field("Anonymous", &self.Anonymous).field("Permanent", &self.Permanent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11176,11 +11052,6 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_DYNAMIC_CODE_POLICY").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     type Abi = Self;
 }
@@ -11260,11 +11131,6 @@ impl ::core::marker::Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY 
 impl ::core::clone::Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
@@ -11348,11 +11214,6 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_FONT_DISABLE_POLICY").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     type Abi = Self;
 }
@@ -11432,11 +11293,6 @@ impl ::core::marker::Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_IMAGE_LOAD_POLICY").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
@@ -11520,11 +11376,6 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     type Abi = Self;
 }
@@ -11604,11 +11455,6 @@ impl ::core::marker::Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
@@ -11692,11 +11538,6 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     type Abi = Self;
 }
@@ -11776,11 +11617,6 @@ impl ::core::marker::Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
@@ -11864,11 +11700,6 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     type Abi = Self;
 }
@@ -11950,11 +11781,6 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     type Abi = Self;
 }
@@ -12034,11 +11860,6 @@ impl ::core::marker::Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
@@ -12303,24 +12124,6 @@ impl ::core::marker::Copy for QUOTA_LIMITS_EX {}
 impl ::core::clone::Clone for QUOTA_LIMITS_EX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for QUOTA_LIMITS_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUOTA_LIMITS_EX")
-            .field("PagedPoolLimit", &self.PagedPoolLimit)
-            .field("NonPagedPoolLimit", &self.NonPagedPoolLimit)
-            .field("MinimumWorkingSetSize", &self.MinimumWorkingSetSize)
-            .field("MaximumWorkingSetSize", &self.MaximumWorkingSetSize)
-            .field("PagefileLimit", &self.PagefileLimit)
-            .field("TimeLimit", &self.TimeLimit)
-            .field("WorkingSetLimit", &self.WorkingSetLimit)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .field("Flags", &self.Flags)
-            .field("CpuRateLimit", &self.CpuRateLimit)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for QUOTA_LIMITS_EX {
@@ -12927,11 +12730,6 @@ impl ::core::marker::Copy for RemotableHandle {}
 impl ::core::clone::Clone for RemotableHandle {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RemotableHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RemotableHandle").field("fContext", &self.fContext).field("u", &self.u).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RemotableHandle {
@@ -13985,12 +13783,6 @@ impl ::core::marker::Copy for SE_TOKEN_USER {}
 impl ::core::clone::Clone for SE_TOKEN_USER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for SE_TOKEN_USER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SE_TOKEN_USER").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -16589,12 +16381,6 @@ impl ::core::clone::Clone for userCLIPFORMAT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for userCLIPFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userCLIPFORMAT").field("fContext", &self.fContext).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for userCLIPFORMAT {
     type Abi = Self;
 }
@@ -16657,11 +16443,6 @@ impl ::core::clone::Clone for userHBITMAP {
         *self
     }
 }
-impl ::core::fmt::Debug for userHBITMAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userHBITMAP").field("fContext", &self.fContext).field("u", &self.u).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for userHBITMAP {
     type Abi = Self;
 }
@@ -16716,12 +16497,6 @@ impl ::core::marker::Copy for userHENHMETAFILE {}
 impl ::core::clone::Clone for userHENHMETAFILE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for userHENHMETAFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userHENHMETAFILE").field("fContext", &self.fContext).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16792,12 +16567,6 @@ impl ::core::clone::Clone for userHGLOBAL {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for userHGLOBAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userHGLOBAL").field("fContext", &self.fContext).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for userHGLOBAL {
     type Abi = Self;
 }
@@ -16862,12 +16631,6 @@ impl ::core::marker::Copy for userHMETAFILE {}
 impl ::core::clone::Clone for userHMETAFILE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for userHMETAFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userHMETAFILE").field("fContext", &self.fContext).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16938,12 +16701,6 @@ impl ::core::clone::Clone for userHMETAFILEPICT {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for userHMETAFILEPICT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userHMETAFILEPICT").field("fContext", &self.fContext).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for userHMETAFILEPICT {
     type Abi = Self;
 }
@@ -17008,12 +16765,6 @@ impl ::core::marker::Copy for userHPALETTE {}
 impl ::core::clone::Clone for userHPALETTE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for userHPALETTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("userHPALETTE").field("fContext", &self.fContext).field("u", &self.u).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]

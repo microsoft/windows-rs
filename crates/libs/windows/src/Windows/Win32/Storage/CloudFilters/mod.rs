@@ -166,12 +166,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS").field("ParamSize", &self.ParamSize).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS {
     type Abi = Self;
 }
@@ -245,12 +239,6 @@ impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0 {}
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_0").field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1221,12 +1209,6 @@ impl ::core::marker::Copy for CF_OPERATION_PARAMETERS {}
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS").field("ParamSize", &self.ParamSize).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]

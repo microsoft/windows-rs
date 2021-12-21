@@ -2687,11 +2687,6 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT {
         Self { r#type: self.r#type, Anonymous: self.Anonymous.clone() }
     }
 }
-impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -5378,11 +5373,6 @@ impl ::core::clone::Clone for VDS_NOTIFICATION {
         *self
     }
 }
-impl ::core::fmt::Debug for VDS_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDS_NOTIFICATION").field("objectType", &self.objectType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VDS_NOTIFICATION {
     type Abi = Self;
 }
@@ -5629,11 +5619,6 @@ impl ::core::marker::Copy for VDS_PATH_INFO {}
 impl ::core::clone::Clone for VDS_PATH_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for VDS_PATH_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDS_PATH_INFO").field("pathId", &self.pathId).field("type", &self.r#type).field("status", &self.status).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("Anonymous3", &self.Anonymous3).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VDS_PATH_INFO {

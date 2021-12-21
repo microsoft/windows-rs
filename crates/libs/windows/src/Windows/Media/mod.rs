@@ -228,11 +228,6 @@ impl ::core::clone::Clone for AudioBufferAccessMode {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioBufferAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioBufferAccessMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioBufferAccessMode {
     type Abi = Self;
 }
@@ -242,6 +237,11 @@ impl ::core::cmp::PartialEq for AudioBufferAccessMode {
     }
 }
 impl ::core::cmp::Eq for AudioBufferAccessMode {}
+impl ::core::fmt::Debug for AudioBufferAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioBufferAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioBufferAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AudioBufferAccessMode;i4)");
 }
@@ -491,11 +491,6 @@ impl ::core::clone::Clone for AudioProcessing {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioProcessing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioProcessing").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioProcessing {
     type Abi = Self;
 }
@@ -505,6 +500,11 @@ impl ::core::cmp::PartialEq for AudioProcessing {
     }
 }
 impl ::core::cmp::Eq for AudioProcessing {}
+impl ::core::fmt::Debug for AudioProcessing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioProcessing").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioProcessing {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AudioProcessing;i4)");
 }
@@ -2437,11 +2437,6 @@ impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaPlaybackAutoRepeatMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackAutoRepeatMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaPlaybackAutoRepeatMode {
     type Abi = Self;
 }
@@ -2451,6 +2446,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackAutoRepeatMode {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackAutoRepeatMode {}
+impl ::core::fmt::Debug for MediaPlaybackAutoRepeatMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackAutoRepeatMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackAutoRepeatMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackAutoRepeatMode;i4)");
 }
@@ -2473,11 +2473,6 @@ impl ::core::clone::Clone for MediaPlaybackStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaPlaybackStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaPlaybackStatus {
     type Abi = Self;
 }
@@ -2487,6 +2482,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackStatus {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackStatus {}
+impl ::core::fmt::Debug for MediaPlaybackStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackStatus;i4)");
 }
@@ -2508,11 +2508,6 @@ impl ::core::clone::Clone for MediaPlaybackType {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaPlaybackType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaPlaybackType {
     type Abi = Self;
 }
@@ -2522,6 +2517,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackType {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackType {}
+impl ::core::fmt::Debug for MediaPlaybackType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackType;i4)");
 }
@@ -2972,11 +2972,6 @@ impl ::core::clone::Clone for MediaTimelineControllerState {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaTimelineControllerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaTimelineControllerState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaTimelineControllerState {
     type Abi = Self;
 }
@@ -2986,6 +2981,11 @@ impl ::core::cmp::PartialEq for MediaTimelineControllerState {
     }
 }
 impl ::core::cmp::Eq for MediaTimelineControllerState {}
+impl ::core::fmt::Debug for MediaTimelineControllerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTimelineControllerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaTimelineControllerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaTimelineControllerState;i4)");
 }
@@ -3410,11 +3410,6 @@ impl ::core::clone::Clone for SoundLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for SoundLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SoundLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SoundLevel {
     type Abi = Self;
 }
@@ -3424,6 +3419,11 @@ impl ::core::cmp::PartialEq for SoundLevel {
     }
 }
 impl ::core::cmp::Eq for SoundLevel {}
+impl ::core::fmt::Debug for SoundLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SoundLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SoundLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SoundLevel;i4)");
 }
@@ -3842,11 +3842,6 @@ impl ::core::clone::Clone for SystemMediaTransportControlsButton {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemMediaTransportControlsButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMediaTransportControlsButton").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemMediaTransportControlsButton {
     type Abi = Self;
 }
@@ -3856,6 +3851,11 @@ impl ::core::cmp::PartialEq for SystemMediaTransportControlsButton {
     }
 }
 impl ::core::cmp::Eq for SystemMediaTransportControlsButton {}
+impl ::core::fmt::Debug for SystemMediaTransportControlsButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemMediaTransportControlsButton").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsButton;i4)");
 }
@@ -4112,11 +4112,6 @@ impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemMediaTransportControlsProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMediaTransportControlsProperty").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemMediaTransportControlsProperty {
     type Abi = Self;
 }
@@ -4126,6 +4121,11 @@ impl ::core::cmp::PartialEq for SystemMediaTransportControlsProperty {
     }
 }
 impl ::core::cmp::Eq for SystemMediaTransportControlsProperty {}
+impl ::core::fmt::Debug for SystemMediaTransportControlsProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemMediaTransportControlsProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsProperty;i4)");
 }

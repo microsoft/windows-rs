@@ -168,11 +168,6 @@ impl ::core::clone::Clone for CONTROL_SERVICE {
         *self
     }
 }
-impl ::core::fmt::Debug for CONTROL_SERVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONTROL_SERVICE").field("Length", &self.Length).field("Service", &self.Service).field("Overrides", &self.Overrides).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONTROL_SERVICE {
     type Abi = Self;
 }
@@ -349,12 +344,6 @@ impl ::core::clone::Clone for ERROR_SPEC {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for ERROR_SPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ERROR_SPEC").field("errs_header", &self.errs_header).field("errs_u", &self.errs_u).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for ERROR_SPEC {
     type Abi = Self;
 }
@@ -446,12 +435,6 @@ impl ::core::clone::Clone for Error_Spec_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for Error_Spec_IPv4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Error_Spec_IPv4").field("errs_errnode", &self.errs_errnode).field("errs_flags", &self.errs_flags).field("errs_code", &self.errs_code).field("errs_value", &self.errs_value).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for Error_Spec_IPv4 {
     type Abi = Self;
 }
@@ -482,12 +465,6 @@ impl ::core::marker::Copy for FILTER_SPEC {}
 impl ::core::clone::Clone for FILTER_SPEC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for FILTER_SPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILTER_SPEC").field("filt_header", &self.filt_header).field("filt_u", &self.filt_u).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -667,12 +644,6 @@ impl ::core::clone::Clone for Filter_Spec_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for Filter_Spec_IPv4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Filter_Spec_IPv4").field("filt_ipaddr", &self.filt_ipaddr).field("filt_unused", &self.filt_unused).field("filt_port", &self.filt_port).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for Filter_Spec_IPv4 {
     type Abi = Self;
 }
@@ -703,12 +674,6 @@ impl ::core::marker::Copy for Filter_Spec_IPv4GPI {}
 impl ::core::clone::Clone for Filter_Spec_IPv4GPI {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for Filter_Spec_IPv4GPI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Filter_Spec_IPv4GPI").field("filt_ipaddr", &self.filt_ipaddr).field("filt_gpi", &self.filt_gpi).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1230,11 +1195,6 @@ impl ::core::clone::Clone for IP_PATTERN {
         *self
     }
 }
-impl ::core::fmt::Debug for IP_PATTERN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IP_PATTERN").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("SrcAddr", &self.SrcAddr).field("DstAddr", &self.DstAddr).field("S_un", &self.S_un).field("ProtocolId", &self.ProtocolId).field("Reserved3", &self.Reserved3).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IP_PATTERN {
     type Abi = Self;
 }
@@ -1386,11 +1346,6 @@ impl ::core::clone::Clone for IS_FLOWSPEC {
         *self
     }
 }
-impl ::core::fmt::Debug for IS_FLOWSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IS_FLOWSPEC").field("flow_header", &self.flow_header).field("flow_body", &self.flow_body).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IS_FLOWSPEC {
     type Abi = Self;
 }
@@ -1417,11 +1372,6 @@ impl ::core::marker::Copy for IntServFlowSpec {}
 impl ::core::clone::Clone for IntServFlowSpec {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IntServFlowSpec {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IntServFlowSpec").field("spec_mh", &self.spec_mh).field("spec_u", &self.spec_u).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IntServFlowSpec {
@@ -1571,11 +1521,6 @@ impl ::core::marker::Copy for IntServTspecBody {}
 impl ::core::clone::Clone for IntServTspecBody {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IntServTspecBody {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IntServTspecBody").field("st_mh", &self.st_mh).field("tspec_u", &self.tspec_u).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IntServTspecBody {
@@ -2869,11 +2814,6 @@ impl ::core::clone::Clone for RSVP_ADSPEC {
         *self
     }
 }
-impl ::core::fmt::Debug for RSVP_ADSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RSVP_ADSPEC").field("ObjectHdr", &self.ObjectHdr).field("GeneralParams", &self.GeneralParams).field("NumberOfServices", &self.NumberOfServices).field("Services", &self.Services).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RSVP_ADSPEC {
     type Abi = Self;
 }
@@ -2966,11 +2906,6 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC {
         *self
     }
 }
-impl ::core::fmt::Debug for RSVP_FILTERSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RSVP_FILTERSPEC").field("Type", &self.Type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC {
     type Abi = Self;
 }
@@ -3027,11 +2962,6 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V4 {
         *self
     }
 }
-impl ::core::fmt::Debug for RSVP_FILTERSPEC_V4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RSVP_FILTERSPEC_V4").field("Address", &self.Address).field("Unused", &self.Unused).field("Port", &self.Port).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V4 {
     type Abi = Self;
 }
@@ -3056,11 +2986,6 @@ impl ::core::marker::Copy for RSVP_FILTERSPEC_V4_GPI {}
 impl ::core::clone::Clone for RSVP_FILTERSPEC_V4_GPI {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RSVP_FILTERSPEC_V4_GPI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RSVP_FILTERSPEC_V4_GPI").field("Address", &self.Address).field("GeneralPortId", &self.GeneralPortId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V4_GPI {
@@ -3187,12 +3112,6 @@ impl ::core::marker::Copy for RSVP_HOP {}
 impl ::core::clone::Clone for RSVP_HOP {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for RSVP_HOP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RSVP_HOP").field("hop_header", &self.hop_header).field("hop_u", &self.hop_u).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -3436,12 +3355,6 @@ impl ::core::clone::Clone for RSVP_SCOPE {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for RSVP_SCOPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RSVP_SCOPE").field("scopl_header", &self.scopl_header).field("scope_u", &self.scope_u).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for RSVP_SCOPE {
     type Abi = Self;
 }
@@ -3504,12 +3417,6 @@ impl ::core::marker::Copy for RSVP_SESSION {}
 impl ::core::clone::Clone for RSVP_SESSION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for RSVP_SESSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RSVP_SESSION").field("sess_header", &self.sess_header).field("sess_u", &self.sess_u).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -3647,12 +3554,6 @@ impl ::core::clone::Clone for Rsvp_Hop_IPv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for Rsvp_Hop_IPv4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Rsvp_Hop_IPv4").field("hop_ipaddr", &self.hop_ipaddr).field("hop_LIH", &self.hop_LIH).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for Rsvp_Hop_IPv4 {
     type Abi = Self;
 }
@@ -3680,11 +3581,6 @@ impl ::core::marker::Copy for SENDER_TSPEC {}
 impl ::core::clone::Clone for SENDER_TSPEC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SENDER_TSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SENDER_TSPEC").field("stspec_header", &self.stspec_header).field("stspec_body", &self.stspec_body).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SENDER_TSPEC {
@@ -4076,12 +3972,6 @@ impl ::core::clone::Clone for Scope_list_ipv4 {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for Scope_list_ipv4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Scope_list_ipv4").field("scopl_ipaddr", &self.scopl_ipaddr).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for Scope_list_ipv4 {
     type Abi = Self;
 }
@@ -4114,12 +4004,6 @@ impl ::core::marker::Copy for Session_IPv4 {}
 impl ::core::clone::Clone for Session_IPv4 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for Session_IPv4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Session_IPv4").field("sess_destaddr", &self.sess_destaddr).field("sess_protid", &self.sess_protid).field("sess_flags", &self.sess_flags).field("sess_destport", &self.sess_destport).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4862,12 +4746,6 @@ impl ::core::clone::Clone for flow_desc {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for flow_desc {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("flow_desc").field("u1", &self.u1).field("u2", &self.u2).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for flow_desc {
     type Abi = Self;
 }
@@ -4980,12 +4858,6 @@ impl ::core::marker::Copy for lpmiptable {}
 impl ::core::clone::Clone for lpmiptable {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for lpmiptable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("lpmiptable").field("ulIfIndex", &self.ulIfIndex).field("MediaType", &self.MediaType).field("IfIpAddr", &self.IfIpAddr).field("IfNetMask", &self.IfNetMask).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -5183,11 +5055,6 @@ impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
 impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD").field("KeyAlgID", &self.KeyAlgID).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {

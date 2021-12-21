@@ -174,11 +174,6 @@ impl ::core::clone::Clone for AnimationEffect {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationEffect {
     type Abi = Self;
 }
@@ -188,6 +183,11 @@ impl ::core::cmp::PartialEq for AnimationEffect {
     }
 }
 impl ::core::cmp::Eq for AnimationEffect {}
+impl ::core::fmt::Debug for AnimationEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
 }
@@ -225,11 +225,6 @@ impl ::core::clone::Clone for AnimationEffectTarget {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationEffectTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationEffectTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationEffectTarget {
     type Abi = Self;
 }
@@ -239,6 +234,11 @@ impl ::core::cmp::PartialEq for AnimationEffectTarget {
     }
 }
 impl ::core::cmp::Eq for AnimationEffectTarget {}
+impl ::core::fmt::Debug for AnimationEffectTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationEffectTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationEffectTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
 }
@@ -773,11 +773,6 @@ impl ::core::clone::Clone for PropertyAnimationType {
         *self
     }
 }
-impl ::core::fmt::Debug for PropertyAnimationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyAnimationType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PropertyAnimationType {
     type Abi = Self;
 }
@@ -787,6 +782,11 @@ impl ::core::cmp::PartialEq for PropertyAnimationType {
     }
 }
 impl ::core::cmp::Eq for PropertyAnimationType {}
+impl ::core::fmt::Debug for PropertyAnimationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyAnimationType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyAnimationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
 }

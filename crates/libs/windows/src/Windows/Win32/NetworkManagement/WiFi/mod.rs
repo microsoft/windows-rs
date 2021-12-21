@@ -1031,26 +1031,6 @@ impl ::core::clone::Clone for DOT11_BSS_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DOT11_BSS_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOT11_BSS_ENTRY")
-            .field("uPhyId", &self.uPhyId)
-            .field("PhySpecificInfo", &self.PhySpecificInfo)
-            .field("dot11BSSID", &self.dot11BSSID)
-            .field("dot11BSSType", &self.dot11BSSType)
-            .field("lRSSI", &self.lRSSI)
-            .field("uLinkQuality", &self.uLinkQuality)
-            .field("bInRegDomain", &self.bInRegDomain)
-            .field("usBeaconPeriod", &self.usBeaconPeriod)
-            .field("ullTimestamp", &self.ullTimestamp)
-            .field("ullHostTimestamp", &self.ullHostTimestamp)
-            .field("usCapabilityInformation", &self.usCapabilityInformation)
-            .field("uBufferLength", &self.uBufferLength)
-            .field("ucBuffer", &self.ucBuffer)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DOT11_BSS_ENTRY {
     type Abi = Self;
 }
@@ -4988,27 +4968,6 @@ impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-impl ::core::fmt::Debug for DOT11_PHY_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOT11_PHY_ATTRIBUTES")
-            .field("Header", &self.Header)
-            .field("PhyType", &self.PhyType)
-            .field("bHardwarePhyState", &self.bHardwarePhyState)
-            .field("bSoftwarePhyState", &self.bSoftwarePhyState)
-            .field("bCFPollable", &self.bCFPollable)
-            .field("uMPDUMaxLength", &self.uMPDUMaxLength)
-            .field("TempType", &self.TempType)
-            .field("DiversitySupport", &self.DiversitySupport)
-            .field("PhySpecificAttributes", &self.PhySpecificAttributes)
-            .field("uNumberSupportedPowerLevels", &self.uNumberSupportedPowerLevels)
-            .field("TxPowerLevels", &self.TxPowerLevels)
-            .field("uNumDataRateMappingEntries", &self.uNumDataRateMappingEntries)
-            .field("DataRateMappingEntries", &self.DataRateMappingEntries)
-            .field("SupportedDataRatesValue", &self.SupportedDataRatesValue)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::core::Abi for DOT11_PHY_ATTRIBUTES {
     type Abi = Self;
 }
@@ -5142,12 +5101,6 @@ impl ::core::marker::Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {}
 impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::fmt::Debug for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS").field("Header", &self.Header).field("ulPhyId", &self.ulPhyId).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -6572,11 +6525,6 @@ impl ::core::marker::Copy for DOT11_RECV_SENSITIVITY_LIST {}
 impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY_LIST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DOT11_RECV_SENSITIVITY_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOT11_RECV_SENSITIVITY_LIST").field("Anonymous", &self.Anonymous).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11RecvSensitivity", &self.dot11RecvSensitivity).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_RECV_SENSITIVITY_LIST {
@@ -8820,28 +8768,6 @@ impl ::core::marker::Copy for DOT11_WFD_DEVICE_ENTRY {}
 impl ::core::clone::Clone for DOT11_WFD_DEVICE_ENTRY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DOT11_WFD_DEVICE_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOT11_WFD_DEVICE_ENTRY")
-            .field("uPhyId", &self.uPhyId)
-            .field("PhySpecificInfo", &self.PhySpecificInfo)
-            .field("dot11BSSID", &self.dot11BSSID)
-            .field("dot11BSSType", &self.dot11BSSType)
-            .field("TransmitterAddress", &self.TransmitterAddress)
-            .field("lRSSI", &self.lRSSI)
-            .field("uLinkQuality", &self.uLinkQuality)
-            .field("usBeaconPeriod", &self.usBeaconPeriod)
-            .field("ullTimestamp", &self.ullTimestamp)
-            .field("ullBeaconHostTimestamp", &self.ullBeaconHostTimestamp)
-            .field("ullProbeResponseHostTimestamp", &self.ullProbeResponseHostTimestamp)
-            .field("usCapabilityInformation", &self.usCapabilityInformation)
-            .field("uBeaconIEsOffset", &self.uBeaconIEsOffset)
-            .field("uBeaconIEsLength", &self.uBeaconIEsLength)
-            .field("uProbeResponseIEsOffset", &self.uProbeResponseIEsOffset)
-            .field("uProbeResponseIEsLength", &self.uProbeResponseIEsLength)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_WFD_DEVICE_ENTRY {

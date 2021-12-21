@@ -199,11 +199,6 @@ impl ::core::clone::Clone for WebErrorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for WebErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebErrorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WebErrorStatus {
     type Abi = Self;
 }
@@ -213,6 +208,11 @@ impl ::core::cmp::PartialEq for WebErrorStatus {
     }
 }
 impl ::core::cmp::Eq for WebErrorStatus {}
+impl ::core::fmt::Debug for WebErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");
 }

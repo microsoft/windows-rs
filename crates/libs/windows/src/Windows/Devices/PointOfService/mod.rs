@@ -756,11 +756,6 @@ impl ::core::clone::Clone for BarcodeScannerStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for BarcodeScannerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BarcodeScannerStatus {
     type Abi = Self;
 }
@@ -770,6 +765,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerStatus {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerStatus {}
+impl ::core::fmt::Debug for BarcodeScannerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeScannerStatus;i4)");
 }
@@ -1723,11 +1723,6 @@ impl ::core::clone::Clone for BarcodeSymbologyDecodeLengthKind {
         *self
     }
 }
-impl ::core::fmt::Debug for BarcodeSymbologyDecodeLengthKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeSymbologyDecodeLengthKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BarcodeSymbologyDecodeLengthKind {
     type Abi = Self;
 }
@@ -1737,6 +1732,11 @@ impl ::core::cmp::PartialEq for BarcodeSymbologyDecodeLengthKind {
     }
 }
 impl ::core::cmp::Eq for BarcodeSymbologyDecodeLengthKind {}
+impl ::core::fmt::Debug for BarcodeSymbologyDecodeLengthKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeSymbologyDecodeLengthKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind;i4)");
 }
@@ -2660,11 +2660,6 @@ impl ::core::clone::Clone for CashDrawerStatusKind {
         *self
     }
 }
-impl ::core::fmt::Debug for CashDrawerStatusKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerStatusKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CashDrawerStatusKind {
     type Abi = Self;
 }
@@ -2674,6 +2669,11 @@ impl ::core::cmp::PartialEq for CashDrawerStatusKind {
     }
 }
 impl ::core::cmp::Eq for CashDrawerStatusKind {}
+impl ::core::fmt::Debug for CashDrawerStatusKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerStatusKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatusKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.CashDrawerStatusKind;i4)");
 }
@@ -10480,11 +10480,6 @@ impl ::core::clone::Clone for LineDisplayCursorType {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayCursorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCursorType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayCursorType {
     type Abi = Self;
 }
@@ -10494,6 +10489,11 @@ impl ::core::cmp::PartialEq for LineDisplayCursorType {
     }
 }
 impl ::core::cmp::Eq for LineDisplayCursorType {}
+impl ::core::fmt::Debug for LineDisplayCursorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayCursorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayCursorType;i4)");
 }
@@ -10614,11 +10614,6 @@ impl ::core::clone::Clone for LineDisplayDescriptorState {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayDescriptorState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayDescriptorState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayDescriptorState {
     type Abi = Self;
 }
@@ -10628,6 +10623,11 @@ impl ::core::cmp::PartialEq for LineDisplayDescriptorState {
     }
 }
 impl ::core::cmp::Eq for LineDisplayDescriptorState {}
+impl ::core::fmt::Debug for LineDisplayDescriptorState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayDescriptorState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayDescriptorState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayDescriptorState;i4)");
 }
@@ -10648,11 +10648,6 @@ impl ::core::clone::Clone for LineDisplayHorizontalAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayHorizontalAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayHorizontalAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayHorizontalAlignment {
     type Abi = Self;
 }
@@ -10662,6 +10657,11 @@ impl ::core::cmp::PartialEq for LineDisplayHorizontalAlignment {
     }
 }
 impl ::core::cmp::Eq for LineDisplayHorizontalAlignment {}
+impl ::core::fmt::Debug for LineDisplayHorizontalAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayHorizontalAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayHorizontalAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayHorizontalAlignment;i4)");
 }
@@ -10816,11 +10816,6 @@ impl ::core::clone::Clone for LineDisplayMarqueeFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayMarqueeFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayMarqueeFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayMarqueeFormat {
     type Abi = Self;
 }
@@ -10830,6 +10825,11 @@ impl ::core::cmp::PartialEq for LineDisplayMarqueeFormat {
     }
 }
 impl ::core::cmp::Eq for LineDisplayMarqueeFormat {}
+impl ::core::fmt::Debug for LineDisplayMarqueeFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayMarqueeFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayMarqueeFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayMarqueeFormat;i4)");
 }
@@ -10852,11 +10852,6 @@ impl ::core::clone::Clone for LineDisplayPowerStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayPowerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayPowerStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayPowerStatus {
     type Abi = Self;
 }
@@ -10866,6 +10861,11 @@ impl ::core::cmp::PartialEq for LineDisplayPowerStatus {
     }
 }
 impl ::core::cmp::Eq for LineDisplayPowerStatus {}
+impl ::core::fmt::Debug for LineDisplayPowerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayPowerStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayPowerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayPowerStatus;i4)");
 }
@@ -10887,11 +10887,6 @@ impl ::core::clone::Clone for LineDisplayScrollDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayScrollDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayScrollDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayScrollDirection {
     type Abi = Self;
 }
@@ -10901,6 +10896,11 @@ impl ::core::cmp::PartialEq for LineDisplayScrollDirection {
     }
 }
 impl ::core::cmp::Eq for LineDisplayScrollDirection {}
+impl ::core::fmt::Debug for LineDisplayScrollDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayScrollDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayScrollDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayScrollDirection;i4)");
 }
@@ -11190,11 +11190,6 @@ impl ::core::clone::Clone for LineDisplayTextAttribute {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayTextAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayTextAttribute").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayTextAttribute {
     type Abi = Self;
 }
@@ -11204,6 +11199,11 @@ impl ::core::cmp::PartialEq for LineDisplayTextAttribute {
     }
 }
 impl ::core::cmp::Eq for LineDisplayTextAttribute {}
+impl ::core::fmt::Debug for LineDisplayTextAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayTextAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttribute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttribute;i4)");
 }
@@ -11224,11 +11224,6 @@ impl ::core::clone::Clone for LineDisplayTextAttributeGranularity {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayTextAttributeGranularity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayTextAttributeGranularity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayTextAttributeGranularity {
     type Abi = Self;
 }
@@ -11238,6 +11233,11 @@ impl ::core::cmp::PartialEq for LineDisplayTextAttributeGranularity {
     }
 }
 impl ::core::cmp::Eq for LineDisplayTextAttributeGranularity {}
+impl ::core::fmt::Debug for LineDisplayTextAttributeGranularity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayTextAttributeGranularity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttributeGranularity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity;i4)");
 }
@@ -11258,11 +11258,6 @@ impl ::core::clone::Clone for LineDisplayVerticalAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for LineDisplayVerticalAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayVerticalAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayVerticalAlignment {
     type Abi = Self;
 }
@@ -11272,6 +11267,11 @@ impl ::core::cmp::PartialEq for LineDisplayVerticalAlignment {
     }
 }
 impl ::core::cmp::Eq for LineDisplayVerticalAlignment {}
+impl ::core::fmt::Debug for LineDisplayVerticalAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayVerticalAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayVerticalAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayVerticalAlignment;i4)");
 }
@@ -12006,11 +12006,6 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderAuthenticationLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationLevel {
     type Abi = Self;
 }
@@ -12020,6 +12015,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderAuthenticationLevel {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderAuthenticationLevel {}
+impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderAuthenticationLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel;i4)");
 }
@@ -12039,11 +12039,6 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationProtocol {
         *self
     }
 }
-impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderAuthenticationProtocol").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationProtocol {
     type Abi = Self;
 }
@@ -12053,6 +12048,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderAuthenticationProtocol {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderAuthenticationProtocol {}
+impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationProtocol {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderAuthenticationProtocol").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationProtocol {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol;i4)");
 }
@@ -12572,11 +12572,6 @@ impl ::core::clone::Clone for MagneticStripeReaderErrorReportingType {
         *self
     }
 }
-impl ::core::fmt::Debug for MagneticStripeReaderErrorReportingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderErrorReportingType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderErrorReportingType {
     type Abi = Self;
 }
@@ -12586,6 +12581,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderErrorReportingType {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderErrorReportingType {}
+impl ::core::fmt::Debug for MagneticStripeReaderErrorReportingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderErrorReportingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorReportingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType;i4)");
 }
@@ -12754,11 +12754,6 @@ impl ::core::clone::Clone for MagneticStripeReaderStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MagneticStripeReaderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderStatus {
     type Abi = Self;
 }
@@ -12768,6 +12763,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderStatus {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderStatus {}
+impl ::core::fmt::Debug for MagneticStripeReaderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderStatus;i4)");
 }
@@ -12980,11 +12980,6 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackErrorType {
         *self
     }
 }
-impl ::core::fmt::Debug for MagneticStripeReaderTrackErrorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderTrackErrorType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackErrorType {
     type Abi = Self;
 }
@@ -12994,6 +12989,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderTrackErrorType {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderTrackErrorType {}
+impl ::core::fmt::Debug for MagneticStripeReaderTrackErrorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderTrackErrorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackErrorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType;i4)");
 }
@@ -13016,11 +13016,6 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackIds {
         *self
     }
 }
-impl ::core::fmt::Debug for MagneticStripeReaderTrackIds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderTrackIds").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackIds {
     type Abi = Self;
 }
@@ -13030,6 +13025,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderTrackIds {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderTrackIds {}
+impl ::core::fmt::Debug for MagneticStripeReaderTrackIds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderTrackIds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackIds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackIds;i4)");
 }
@@ -13132,11 +13132,6 @@ impl ::core::clone::Clone for PosConnectionTypes {
         *self
     }
 }
-impl ::core::fmt::Debug for PosConnectionTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosConnectionTypes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosConnectionTypes {
     type Abi = Self;
 }
@@ -13146,6 +13141,11 @@ impl ::core::cmp::PartialEq for PosConnectionTypes {
     }
 }
 impl ::core::cmp::Eq for PosConnectionTypes {}
+impl ::core::fmt::Debug for PosConnectionTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosConnectionTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosConnectionTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
 }
@@ -13412,11 +13412,6 @@ impl ::core::clone::Clone for PosPrinterAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterAlignment {
     type Abi = Self;
 }
@@ -13426,6 +13421,11 @@ impl ::core::cmp::PartialEq for PosPrinterAlignment {
     }
 }
 impl ::core::cmp::Eq for PosPrinterAlignment {}
+impl ::core::fmt::Debug for PosPrinterAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterAlignment;i4)");
 }
@@ -13446,11 +13446,6 @@ impl ::core::clone::Clone for PosPrinterBarcodeTextPosition {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterBarcodeTextPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterBarcodeTextPosition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterBarcodeTextPosition {
     type Abi = Self;
 }
@@ -13460,6 +13455,11 @@ impl ::core::cmp::PartialEq for PosPrinterBarcodeTextPosition {
     }
 }
 impl ::core::cmp::Eq for PosPrinterBarcodeTextPosition {}
+impl ::core::fmt::Debug for PosPrinterBarcodeTextPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterBarcodeTextPosition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterBarcodeTextPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition;i4)");
 }
@@ -13635,11 +13635,6 @@ impl ::core::clone::Clone for PosPrinterCartridgeSensors {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterCartridgeSensors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterCartridgeSensors").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterCartridgeSensors {
     type Abi = Self;
 }
@@ -13649,6 +13644,11 @@ impl ::core::cmp::PartialEq for PosPrinterCartridgeSensors {
     }
 }
 impl ::core::cmp::Eq for PosPrinterCartridgeSensors {}
+impl ::core::fmt::Debug for PosPrinterCartridgeSensors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterCartridgeSensors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterCartridgeSensors {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
 }
@@ -13711,11 +13711,6 @@ impl ::core::clone::Clone for PosPrinterColorCapabilities {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterColorCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterColorCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterColorCapabilities {
     type Abi = Self;
 }
@@ -13725,6 +13720,11 @@ impl ::core::cmp::PartialEq for PosPrinterColorCapabilities {
     }
 }
 impl ::core::cmp::Eq for PosPrinterColorCapabilities {}
+impl ::core::fmt::Debug for PosPrinterColorCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterColorCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCapabilities;u4)");
 }
@@ -13753,11 +13753,6 @@ impl ::core::clone::Clone for PosPrinterColorCartridge {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterColorCartridge {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterColorCartridge").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterColorCartridge {
     type Abi = Self;
 }
@@ -13767,6 +13762,11 @@ impl ::core::cmp::PartialEq for PosPrinterColorCartridge {
     }
 }
 impl ::core::cmp::Eq for PosPrinterColorCartridge {}
+impl ::core::fmt::Debug for PosPrinterColorCartridge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterColorCartridge").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterColorCartridge {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCartridge;i4)");
 }
@@ -13884,11 +13884,6 @@ impl ::core::clone::Clone for PosPrinterLineDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterLineDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterLineDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterLineDirection {
     type Abi = Self;
 }
@@ -13898,6 +13893,11 @@ impl ::core::cmp::PartialEq for PosPrinterLineDirection {
     }
 }
 impl ::core::cmp::Eq for PosPrinterLineDirection {}
+impl ::core::fmt::Debug for PosPrinterLineDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterLineDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterLineDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineDirection;i4)");
 }
@@ -13919,11 +13919,6 @@ impl ::core::clone::Clone for PosPrinterLineStyle {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterLineStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterLineStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterLineStyle {
     type Abi = Self;
 }
@@ -13933,6 +13928,11 @@ impl ::core::cmp::PartialEq for PosPrinterLineStyle {
     }
 }
 impl ::core::cmp::Eq for PosPrinterLineStyle {}
+impl ::core::fmt::Debug for PosPrinterLineStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterLineStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterLineStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineStyle;i4)");
 }
@@ -13954,11 +13954,6 @@ impl ::core::clone::Clone for PosPrinterMapMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterMapMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterMapMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterMapMode {
     type Abi = Self;
 }
@@ -13968,6 +13963,11 @@ impl ::core::cmp::PartialEq for PosPrinterMapMode {
     }
 }
 impl ::core::cmp::Eq for PosPrinterMapMode {}
+impl ::core::fmt::Debug for PosPrinterMapMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterMapMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterMapMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMapMode;i4)");
 }
@@ -13990,11 +13990,6 @@ impl ::core::clone::Clone for PosPrinterMarkFeedCapabilities {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterMarkFeedCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterMarkFeedCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedCapabilities {
     type Abi = Self;
 }
@@ -14004,6 +13999,11 @@ impl ::core::cmp::PartialEq for PosPrinterMarkFeedCapabilities {
     }
 }
 impl ::core::cmp::Eq for PosPrinterMarkFeedCapabilities {}
+impl ::core::fmt::Debug for PosPrinterMarkFeedCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterMarkFeedCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities;u4)");
 }
@@ -14025,11 +14025,6 @@ impl ::core::clone::Clone for PosPrinterMarkFeedKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterMarkFeedKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterMarkFeedKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedKind {
     type Abi = Self;
 }
@@ -14039,6 +14034,11 @@ impl ::core::cmp::PartialEq for PosPrinterMarkFeedKind {
     }
 }
 impl ::core::cmp::Eq for PosPrinterMarkFeedKind {}
+impl ::core::fmt::Debug for PosPrinterMarkFeedKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterMarkFeedKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedKind;i4)");
 }
@@ -14308,11 +14308,6 @@ impl ::core::clone::Clone for PosPrinterPrintSide {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterPrintSide {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterPrintSide").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterPrintSide {
     type Abi = Self;
 }
@@ -14322,6 +14317,11 @@ impl ::core::cmp::PartialEq for PosPrinterPrintSide {
     }
 }
 impl ::core::cmp::Eq for PosPrinterPrintSide {}
+impl ::core::fmt::Debug for PosPrinterPrintSide {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterPrintSide").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterPrintSide {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterPrintSide;i4)");
 }
@@ -14415,11 +14415,6 @@ impl ::core::clone::Clone for PosPrinterRotation {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterRotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterRotation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterRotation {
     type Abi = Self;
 }
@@ -14429,6 +14424,11 @@ impl ::core::cmp::PartialEq for PosPrinterRotation {
     }
 }
 impl ::core::cmp::Eq for PosPrinterRotation {}
+impl ::core::fmt::Debug for PosPrinterRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterRotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRotation;i4)");
 }
@@ -14449,11 +14449,6 @@ impl ::core::clone::Clone for PosPrinterRuledLineCapabilities {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterRuledLineCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterRuledLineCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterRuledLineCapabilities {
     type Abi = Self;
 }
@@ -14463,6 +14458,11 @@ impl ::core::cmp::PartialEq for PosPrinterRuledLineCapabilities {
     }
 }
 impl ::core::cmp::Eq for PosPrinterRuledLineCapabilities {}
+impl ::core::fmt::Debug for PosPrinterRuledLineCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterRuledLineCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterRuledLineCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities;u4)");
 }
@@ -14574,11 +14574,6 @@ impl ::core::clone::Clone for PosPrinterStatusKind {
         *self
     }
 }
-impl ::core::fmt::Debug for PosPrinterStatusKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterStatusKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterStatusKind {
     type Abi = Self;
 }
@@ -14588,6 +14583,11 @@ impl ::core::cmp::PartialEq for PosPrinterStatusKind {
     }
 }
 impl ::core::cmp::Eq for PosPrinterStatusKind {}
+impl ::core::fmt::Debug for PosPrinterStatusKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterStatusKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatusKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterStatusKind;i4)");
 }
@@ -16079,11 +16079,6 @@ impl ::core::clone::Clone for UnifiedPosErrorReason {
         *self
     }
 }
-impl ::core::fmt::Debug for UnifiedPosErrorReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosErrorReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnifiedPosErrorReason {
     type Abi = Self;
 }
@@ -16093,6 +16088,11 @@ impl ::core::cmp::PartialEq for UnifiedPosErrorReason {
     }
 }
 impl ::core::cmp::Eq for UnifiedPosErrorReason {}
+impl ::core::fmt::Debug for UnifiedPosErrorReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosErrorReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorReason;i4)");
 }
@@ -16116,11 +16116,6 @@ impl ::core::clone::Clone for UnifiedPosErrorSeverity {
         *self
     }
 }
-impl ::core::fmt::Debug for UnifiedPosErrorSeverity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosErrorSeverity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnifiedPosErrorSeverity {
     type Abi = Self;
 }
@@ -16130,6 +16125,11 @@ impl ::core::cmp::PartialEq for UnifiedPosErrorSeverity {
     }
 }
 impl ::core::cmp::Eq for UnifiedPosErrorSeverity {}
+impl ::core::fmt::Debug for UnifiedPosErrorSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosErrorSeverity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorSeverity;i4)");
 }
@@ -16151,11 +16151,6 @@ impl ::core::clone::Clone for UnifiedPosHealthCheckLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for UnifiedPosHealthCheckLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosHealthCheckLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnifiedPosHealthCheckLevel {
     type Abi = Self;
 }
@@ -16165,6 +16160,11 @@ impl ::core::cmp::PartialEq for UnifiedPosHealthCheckLevel {
     }
 }
 impl ::core::cmp::Eq for UnifiedPosHealthCheckLevel {}
+impl ::core::fmt::Debug for UnifiedPosHealthCheckLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosHealthCheckLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnifiedPosHealthCheckLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel;i4)");
 }
@@ -16185,11 +16185,6 @@ impl ::core::clone::Clone for UnifiedPosPowerReportingType {
         *self
     }
 }
-impl ::core::fmt::Debug for UnifiedPosPowerReportingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosPowerReportingType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UnifiedPosPowerReportingType {
     type Abi = Self;
 }
@@ -16199,6 +16194,11 @@ impl ::core::cmp::PartialEq for UnifiedPosPowerReportingType {
     }
 }
 impl ::core::cmp::Eq for UnifiedPosPowerReportingType {}
+impl ::core::fmt::Debug for UnifiedPosPowerReportingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosPowerReportingType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnifiedPosPowerReportingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
 }

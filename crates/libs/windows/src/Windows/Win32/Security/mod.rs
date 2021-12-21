@@ -1196,12 +1196,6 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLAIM_SECURITY_ATTRIBUTES_INFORMATION").field("Version", &self.Version).field("Reserved", &self.Reserved).field("AttributeCount", &self.AttributeCount).field("Attribute", &self.Attribute).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     type Abi = Self;
 }
@@ -1351,11 +1345,6 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
         *self
     }
 }
-impl ::core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1").field("Name", &self.Name).field("ValueType", &self.ValueType).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("ValueCount", &self.ValueCount).field("Values", &self.Values).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     type Abi = Self;
 }
@@ -1416,12 +1405,6 @@ impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLAIM_SECURITY_ATTRIBUTE_V1").field("Name", &self.Name).field("ValueType", &self.ValueType).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("ValueCount", &self.ValueCount).field("Values", &self.Values).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2384,12 +2367,6 @@ impl ::core::marker::Copy for LLFILETIME {}
 impl ::core::clone::Clone for LLFILETIME {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LLFILETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LLFILETIME").field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

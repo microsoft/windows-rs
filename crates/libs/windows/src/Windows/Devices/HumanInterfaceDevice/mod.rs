@@ -371,11 +371,6 @@ impl ::core::clone::Clone for HidCollectionType {
         *self
     }
 }
-impl ::core::fmt::Debug for HidCollectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidCollectionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HidCollectionType {
     type Abi = Self;
 }
@@ -385,6 +380,11 @@ impl ::core::cmp::PartialEq for HidCollectionType {
     }
 }
 impl ::core::cmp::Eq for HidCollectionType {}
+impl ::core::fmt::Debug for HidCollectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HidCollectionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HidCollectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
 }
@@ -1514,11 +1514,6 @@ impl ::core::clone::Clone for HidReportType {
         *self
     }
 }
-impl ::core::fmt::Debug for HidReportType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidReportType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HidReportType {
     type Abi = Self;
 }
@@ -1528,6 +1523,11 @@ impl ::core::cmp::PartialEq for HidReportType {
     }
 }
 impl ::core::cmp::Eq for HidReportType {}
+impl ::core::fmt::Debug for HidReportType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HidReportType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HidReportType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
 }

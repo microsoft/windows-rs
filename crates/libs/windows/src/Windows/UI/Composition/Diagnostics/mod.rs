@@ -112,11 +112,6 @@ impl ::core::clone::Clone for CompositionDebugOverdrawContentKinds {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionDebugOverdrawContentKinds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionDebugOverdrawContentKinds").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionDebugOverdrawContentKinds {
     type Abi = Self;
 }
@@ -126,6 +121,11 @@ impl ::core::cmp::PartialEq for CompositionDebugOverdrawContentKinds {
     }
 }
 impl ::core::cmp::Eq for CompositionDebugOverdrawContentKinds {}
+impl ::core::fmt::Debug for CompositionDebugOverdrawContentKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionDebugOverdrawContentKinds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionDebugOverdrawContentKinds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
 }

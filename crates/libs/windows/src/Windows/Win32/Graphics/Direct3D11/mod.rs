@@ -321,12 +321,6 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT").field("Parameters", &self.Parameters).field("Protections", &self.Protections).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     type Abi = Self;
 }
@@ -1078,12 +1072,6 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT").field("Output", &self.Output).field("ProtectionFlags", &self.ProtectionFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     type Abi = Self;
 }
@@ -1530,11 +1518,6 @@ impl ::core::clone::Clone for D3D11_BUFFER_RTV {
         *self
     }
 }
-impl ::core::fmt::Debug for D3D11_BUFFER_RTV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_BUFFER_RTV").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D3D11_BUFFER_RTV {
     type Abi = Self;
 }
@@ -1611,11 +1594,6 @@ impl ::core::marker::Copy for D3D11_BUFFER_SRV {}
 impl ::core::clone::Clone for D3D11_BUFFER_SRV {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for D3D11_BUFFER_SRV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_BUFFER_SRV").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_BUFFER_SRV {
@@ -2451,12 +2429,6 @@ impl ::core::marker::Copy for D3D11_DEPTH_STENCIL_VIEW_DESC {}
 impl ::core::clone::Clone for D3D11_DEPTH_STENCIL_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::fmt::Debug for D3D11_DEPTH_STENCIL_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_DEPTH_STENCIL_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8034,12 +8006,6 @@ impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::fmt::Debug for D3D11_RENDER_TARGET_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_RENDER_TARGET_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D11_RENDER_TARGET_VIEW_DESC {
     type Abi = Self;
 }
@@ -8110,12 +8076,6 @@ impl ::core::marker::Copy for D3D11_RENDER_TARGET_VIEW_DESC1 {}
 impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::fmt::Debug for D3D11_RENDER_TARGET_VIEW_DESC1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_RENDER_TARGET_VIEW_DESC1").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8594,12 +8554,6 @@ impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::fmt::Debug for D3D11_SHADER_RESOURCE_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_SHADER_RESOURCE_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D11_SHADER_RESOURCE_VIEW_DESC {
     type Abi = Self;
 }
@@ -8676,12 +8630,6 @@ impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::fmt::Debug for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_SHADER_RESOURCE_VIEW_DESC1").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     type Abi = Self;
 }
@@ -8752,11 +8700,6 @@ impl ::core::marker::Copy for D3D11_SHADER_TRACE_DESC {}
 impl ::core::clone::Clone for D3D11_SHADER_TRACE_DESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for D3D11_SHADER_TRACE_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_SHADER_TRACE_DESC").field("Type", &self.Type).field("Flags", &self.Flags).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_SHADER_TRACE_DESC {
@@ -10857,11 +10800,6 @@ impl ::core::clone::Clone for D3D11_TRACE_REGISTER {
         *self
     }
 }
-impl ::core::fmt::Debug for D3D11_TRACE_REGISTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_TRACE_REGISTER").field("RegType", &self.RegType).field("Anonymous", &self.Anonymous).field("OperandIndex", &self.OperandIndex).field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D3D11_TRACE_REGISTER {
     type Abi = Self;
 }
@@ -11015,36 +10953,6 @@ impl ::core::clone::Clone for D3D11_TRACE_STATS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for D3D11_TRACE_STATS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_TRACE_STATS")
-            .field("TraceDesc", &self.TraceDesc)
-            .field("NumInvocationsInStamp", &self.NumInvocationsInStamp)
-            .field("TargetStampIndex", &self.TargetStampIndex)
-            .field("NumTraceSteps", &self.NumTraceSteps)
-            .field("InputMask", &self.InputMask)
-            .field("OutputMask", &self.OutputMask)
-            .field("NumTemps", &self.NumTemps)
-            .field("MaxIndexableTempIndex", &self.MaxIndexableTempIndex)
-            .field("IndexableTempSize", &self.IndexableTempSize)
-            .field("ImmediateConstantBufferSize", &self.ImmediateConstantBufferSize)
-            .field("PixelPosition", &self.PixelPosition)
-            .field("PixelCoverageMask", &self.PixelCoverageMask)
-            .field("PixelDiscardedMask", &self.PixelDiscardedMask)
-            .field("PixelCoverageMaskAfterShader", &self.PixelCoverageMaskAfterShader)
-            .field("PixelCoverageMaskAfterA2CSampleMask", &self.PixelCoverageMaskAfterA2CSampleMask)
-            .field("PixelCoverageMaskAfterA2CSampleMaskDepth", &self.PixelCoverageMaskAfterA2CSampleMaskDepth)
-            .field("PixelCoverageMaskAfterA2CSampleMaskDepthStencil", &self.PixelCoverageMaskAfterA2CSampleMaskDepthStencil)
-            .field("PSOutputsDepth", &self.PSOutputsDepth)
-            .field("PSOutputsMask", &self.PSOutputsMask)
-            .field("GSInputPrimitive", &self.GSInputPrimitive)
-            .field("GSInputsPrimitiveID", &self.GSInputsPrimitiveID)
-            .field("HSOutputPatchConstantMask", &self.HSOutputPatchConstantMask)
-            .field("DSInputPatchConstantMask", &self.DSInputPatchConstantMask)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D11_TRACE_STATS {
     type Abi = Self;
 }
@@ -11172,12 +11080,6 @@ impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::fmt::Debug for D3D11_UNORDERED_ACCESS_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_UNORDERED_ACCESS_VIEW_DESC").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D11_UNORDERED_ACCESS_VIEW_DESC {
     type Abi = Self;
 }
@@ -11246,12 +11148,6 @@ impl ::core::marker::Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {}
 impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::fmt::Debug for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_UNORDERED_ACCESS_VIEW_DESC1").field("Format", &self.Format).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11364,11 +11260,6 @@ impl ::core::marker::Copy for D3D11_VIDEO_COLOR {}
 impl ::core::clone::Clone for D3D11_VIDEO_COLOR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for D3D11_VIDEO_COLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_COLOR").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_COLOR {
@@ -11911,11 +11802,6 @@ impl ::core::clone::Clone for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
         *self
     }
 }
-impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC").field("DecodeProfile", &self.DecodeProfile).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     type Abi = Self;
 }
@@ -12322,11 +12208,6 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
         *self
     }
 }
-impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC").field("FourCC", &self.FourCC).field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
     type Abi = Self;
 }
@@ -12414,11 +12295,6 @@ impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC").field("ViewDimension", &self.ViewDimension).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {

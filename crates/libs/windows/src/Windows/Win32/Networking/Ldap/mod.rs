@@ -4694,12 +4694,6 @@ impl ::core::clone::Clone for ldapmodA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapmodA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ldapmodA").field("mod_op", &self.mod_op).field("mod_type", &self.mod_type).field("mod_vals", &self.mod_vals).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapmodA {
     type Abi = Self;
 }
@@ -4764,12 +4758,6 @@ impl ::core::marker::Copy for ldapmodW {}
 impl ::core::clone::Clone for ldapmodW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapmodW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ldapmodW").field("mod_op", &self.mod_op).field("mod_type", &self.mod_type).field("mod_vals", &self.mod_vals).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

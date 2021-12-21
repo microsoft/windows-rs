@@ -215,27 +215,6 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NS_CONTEXT_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NS_CONTEXT_ATTRIBUTES")
-            .field("Anonymous", &self.Anonymous)
-            .field("pwszContext", &self.pwszContext)
-            .field("guidHelper", &self.guidHelper)
-            .field("dwFlags", &self.dwFlags)
-            .field("ulPriority", &self.ulPriority)
-            .field("ulNumTopCmds", &self.ulNumTopCmds)
-            .field("pTopCmds", &self.pTopCmds)
-            .field("ulNumGroups", &self.ulNumGroups)
-            .field("pCmdGroups", &self.pCmdGroups)
-            .field("pfnCommitFn", &self.pfnCommitFn)
-            .field("pfnDumpFn", &self.pfnDumpFn)
-            .field("pfnConnectFn", &self.pfnConnectFn)
-            .field("pReserved", &self.pReserved)
-            .field("pfnOsVersionCheck", &self.pfnOsVersionCheck)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES {
     type Abi = Self;
 }
@@ -349,11 +328,6 @@ impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES {}
 impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for NS_HELPER_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NS_HELPER_ATTRIBUTES").field("Anonymous", &self.Anonymous).field("guidHelper", &self.guidHelper).field("pfnStart", &self.pfnStart).field("pfnStop", &self.pfnStop).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES {

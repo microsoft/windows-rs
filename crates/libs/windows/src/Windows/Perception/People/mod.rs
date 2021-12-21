@@ -154,11 +154,6 @@ impl ::core::clone::Clone for HandJointKind {
         *self
     }
 }
-impl ::core::fmt::Debug for HandJointKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandJointKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HandJointKind {
     type Abi = Self;
 }
@@ -168,6 +163,11 @@ impl ::core::cmp::PartialEq for HandJointKind {
     }
 }
 impl ::core::cmp::Eq for HandJointKind {}
+impl ::core::fmt::Debug for HandJointKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandJointKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HandJointKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
 }
@@ -857,11 +857,6 @@ impl ::core::clone::Clone for JointPoseAccuracy {
         *self
     }
 }
-impl ::core::fmt::Debug for JointPoseAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JointPoseAccuracy {
     type Abi = Self;
 }
@@ -871,6 +866,11 @@ impl ::core::cmp::PartialEq for JointPoseAccuracy {
     }
 }
 impl ::core::cmp::Eq for JointPoseAccuracy {}
+impl ::core::fmt::Debug for JointPoseAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JointPoseAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
 }

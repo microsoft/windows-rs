@@ -831,12 +831,6 @@ impl ::core::clone::Clone for SocialFeedItemStyle {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SocialFeedItemStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocialFeedItemStyle").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SocialFeedItemStyle {
     type Abi = Self;
 }
@@ -848,6 +842,12 @@ impl ::core::cmp::PartialEq for SocialFeedItemStyle {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedItemStyle {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedItemStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedItemStyle").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedItemStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle;i4)");
@@ -875,12 +875,6 @@ impl ::core::clone::Clone for SocialFeedKind {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SocialFeedKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocialFeedKind").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SocialFeedKind {
     type Abi = Self;
 }
@@ -892,6 +886,12 @@ impl ::core::cmp::PartialEq for SocialFeedKind {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedKind {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedKind").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedKind;i4)");
@@ -1086,12 +1086,6 @@ impl ::core::clone::Clone for SocialFeedUpdateMode {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SocialFeedUpdateMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocialFeedUpdateMode").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SocialFeedUpdateMode {
     type Abi = Self;
 }
@@ -1103,6 +1097,12 @@ impl ::core::cmp::PartialEq for SocialFeedUpdateMode {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialFeedUpdateMode {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedUpdateMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedUpdateMode").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialFeedUpdateMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode;i4)");
@@ -1130,12 +1130,6 @@ impl ::core::clone::Clone for SocialItemBadgeStyle {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SocialItemBadgeStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocialItemBadgeStyle").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SocialItemBadgeStyle {
     type Abi = Self;
 }
@@ -1147,6 +1141,12 @@ impl ::core::cmp::PartialEq for SocialItemBadgeStyle {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SocialItemBadgeStyle {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialItemBadgeStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialItemBadgeStyle").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SocialItemBadgeStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle;i4)");

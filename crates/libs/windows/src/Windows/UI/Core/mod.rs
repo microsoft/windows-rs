@@ -158,11 +158,6 @@ impl ::core::clone::Clone for AppViewBackButtonVisibility {
         *self
     }
 }
-impl ::core::fmt::Debug for AppViewBackButtonVisibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppViewBackButtonVisibility").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppViewBackButtonVisibility {
     type Abi = Self;
 }
@@ -172,6 +167,11 @@ impl ::core::cmp::PartialEq for AppViewBackButtonVisibility {
     }
 }
 impl ::core::cmp::Eq for AppViewBackButtonVisibility {}
+impl ::core::fmt::Debug for AppViewBackButtonVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppViewBackButtonVisibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppViewBackButtonVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AppViewBackButtonVisibility;i4)");
 }
@@ -629,11 +629,6 @@ impl ::core::clone::Clone for CoreAcceleratorKeyEventType {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreAcceleratorKeyEventType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreAcceleratorKeyEventType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreAcceleratorKeyEventType {
     type Abi = Self;
 }
@@ -643,6 +638,11 @@ impl ::core::cmp::PartialEq for CoreAcceleratorKeyEventType {
     }
 }
 impl ::core::cmp::Eq for CoreAcceleratorKeyEventType {}
+impl ::core::fmt::Debug for CoreAcceleratorKeyEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreAcceleratorKeyEventType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreAcceleratorKeyEventType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreAcceleratorKeyEventType;i4)");
 }
@@ -1346,11 +1346,6 @@ impl ::core::clone::Clone for CoreCursorType {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreCursorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreCursorType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreCursorType {
     type Abi = Self;
 }
@@ -1360,6 +1355,11 @@ impl ::core::cmp::PartialEq for CoreCursorType {
     }
 }
 impl ::core::cmp::Eq for CoreCursorType {}
+impl ::core::fmt::Debug for CoreCursorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreCursorType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreCursorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreCursorType;i4)");
 }
@@ -1574,11 +1574,6 @@ impl ::core::clone::Clone for CoreDispatcherPriority {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreDispatcherPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreDispatcherPriority").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreDispatcherPriority {
     type Abi = Self;
 }
@@ -1588,6 +1583,11 @@ impl ::core::cmp::PartialEq for CoreDispatcherPriority {
     }
 }
 impl ::core::cmp::Eq for CoreDispatcherPriority {}
+impl ::core::fmt::Debug for CoreDispatcherPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreDispatcherPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreDispatcherPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreDispatcherPriority;i4)");
 }
@@ -1611,11 +1611,6 @@ impl ::core::clone::Clone for CoreIndependentInputFilters {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreIndependentInputFilters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreIndependentInputFilters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreIndependentInputFilters {
     type Abi = Self;
 }
@@ -1625,6 +1620,11 @@ impl ::core::cmp::PartialEq for CoreIndependentInputFilters {
     }
 }
 impl ::core::cmp::Eq for CoreIndependentInputFilters {}
+impl ::core::fmt::Debug for CoreIndependentInputFilters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreIndependentInputFilters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreIndependentInputFilters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreIndependentInputFilters;u4)");
 }
@@ -2212,11 +2212,6 @@ impl ::core::clone::Clone for CoreInputDeviceTypes {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreInputDeviceTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputDeviceTypes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreInputDeviceTypes {
     type Abi = Self;
 }
@@ -2226,6 +2221,11 @@ impl ::core::cmp::PartialEq for CoreInputDeviceTypes {
     }
 }
 impl ::core::cmp::Eq for CoreInputDeviceTypes {}
+impl ::core::fmt::Debug for CoreInputDeviceTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputDeviceTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputDeviceTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreInputDeviceTypes;u4)");
 }
@@ -2288,11 +2288,6 @@ impl ::core::clone::Clone for CoreProcessEventsOption {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreProcessEventsOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreProcessEventsOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreProcessEventsOption {
     type Abi = Self;
 }
@@ -2302,6 +2297,11 @@ impl ::core::cmp::PartialEq for CoreProcessEventsOption {
     }
 }
 impl ::core::cmp::Eq for CoreProcessEventsOption {}
+impl ::core::fmt::Debug for CoreProcessEventsOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreProcessEventsOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreProcessEventsOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProcessEventsOption;i4)");
 }
@@ -2368,11 +2368,6 @@ impl ::core::clone::Clone for CoreProximityEvaluationScore {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreProximityEvaluationScore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreProximityEvaluationScore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreProximityEvaluationScore {
     type Abi = Self;
 }
@@ -2382,6 +2377,11 @@ impl ::core::cmp::PartialEq for CoreProximityEvaluationScore {
     }
 }
 impl ::core::cmp::Eq for CoreProximityEvaluationScore {}
+impl ::core::fmt::Debug for CoreProximityEvaluationScore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreProximityEvaluationScore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreProximityEvaluationScore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProximityEvaluationScore;i4)");
 }
@@ -2402,11 +2402,6 @@ impl ::core::clone::Clone for CoreVirtualKeyStates {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreVirtualKeyStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreVirtualKeyStates").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreVirtualKeyStates {
     type Abi = Self;
 }
@@ -2416,6 +2411,11 @@ impl ::core::cmp::PartialEq for CoreVirtualKeyStates {
     }
 }
 impl ::core::cmp::Eq for CoreVirtualKeyStates {}
+impl ::core::fmt::Debug for CoreVirtualKeyStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreVirtualKeyStates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreVirtualKeyStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreVirtualKeyStates;u4)");
 }
@@ -3076,11 +3076,6 @@ impl ::core::clone::Clone for CoreWindowActivationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreWindowActivationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreWindowActivationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreWindowActivationMode {
     type Abi = Self;
 }
@@ -3090,6 +3085,11 @@ impl ::core::cmp::PartialEq for CoreWindowActivationMode {
     }
 }
 impl ::core::cmp::Eq for CoreWindowActivationMode {}
+impl ::core::fmt::Debug for CoreWindowActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWindowActivationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreWindowActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationMode;i4)");
 }
@@ -3110,11 +3110,6 @@ impl ::core::clone::Clone for CoreWindowActivationState {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreWindowActivationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreWindowActivationState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreWindowActivationState {
     type Abi = Self;
 }
@@ -3124,6 +3119,11 @@ impl ::core::cmp::PartialEq for CoreWindowActivationState {
     }
 }
 impl ::core::cmp::Eq for CoreWindowActivationState {}
+impl ::core::fmt::Debug for CoreWindowActivationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWindowActivationState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreWindowActivationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationState;i4)");
 }
@@ -3457,11 +3457,6 @@ impl ::core::clone::Clone for CoreWindowFlowDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreWindowFlowDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreWindowFlowDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreWindowFlowDirection {
     type Abi = Self;
 }
@@ -3471,6 +3466,11 @@ impl ::core::cmp::PartialEq for CoreWindowFlowDirection {
     }
 }
 impl ::core::cmp::Eq for CoreWindowFlowDirection {}
+impl ::core::fmt::Debug for CoreWindowFlowDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWindowFlowDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreWindowFlowDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
 }

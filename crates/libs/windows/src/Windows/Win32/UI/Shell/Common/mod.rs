@@ -379,12 +379,6 @@ impl ::core::clone::Clone for SHELLDETAILS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SHELLDETAILS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SHELLDETAILS").field("fmt", &self.fmt).field("cxChar", &self.cxChar).field("str", &self.str).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SHELLDETAILS {
     type Abi = Self;
 }
@@ -446,12 +440,6 @@ impl ::core::marker::Copy for STRRET {}
 impl ::core::clone::Clone for STRRET {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STRRET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STRRET").field("uType", &self.uType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

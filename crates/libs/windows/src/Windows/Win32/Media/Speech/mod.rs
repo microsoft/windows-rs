@@ -16132,12 +16132,6 @@ impl ::core::clone::Clone for SPPHRASEPROPERTY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for SPPHRASEPROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPHRASEPROPERTY").field("pszName", &self.pszName).field("Anonymous", &self.Anonymous).field("pszValue", &self.pszValue).field("vValue", &self.vValue).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).field("pNextSibling", &self.pNextSibling).field("pFirstChild", &self.pFirstChild).field("SREngineConfidence", &self.SREngineConfidence).field("Confidence", &self.Confidence).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -16413,12 +16407,6 @@ pub struct SPPROPERTYINFO {
 impl ::core::clone::Clone for SPPROPERTYINFO {
     fn clone(&self) -> Self {
         Self { pszName: self.pszName, ulId: self.ulId, pszValue: self.pszValue, vValue: self.vValue.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for SPPROPERTYINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPROPERTYINFO").field("pszName", &self.pszName).field("ulId", &self.ulId).field("pszValue", &self.pszValue).field("vValue", &self.vValue).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

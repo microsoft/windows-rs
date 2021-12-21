@@ -10884,12 +10884,6 @@ impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WRDS_CONNECTION_SETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WRDS_CONNECTION_SETTINGS").field("WRdsConnectionSettingLevel", &self.WRdsConnectionSettingLevel).field("WRdsConnectionSetting", &self.WRdsConnectionSetting).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WRDS_CONNECTION_SETTINGS {
     type Abi = Self;
 }
@@ -10983,78 +10977,6 @@ impl ::core::marker::Copy for WRDS_CONNECTION_SETTINGS_1 {}
 impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS_1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WRDS_CONNECTION_SETTINGS_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WRDS_CONNECTION_SETTINGS_1")
-            .field("fInheritInitialProgram", &self.fInheritInitialProgram)
-            .field("fInheritColorDepth", &self.fInheritColorDepth)
-            .field("fHideTitleBar", &self.fHideTitleBar)
-            .field("fInheritAutoLogon", &self.fInheritAutoLogon)
-            .field("fMaximizeShell", &self.fMaximizeShell)
-            .field("fDisablePNP", &self.fDisablePNP)
-            .field("fPasswordIsScPin", &self.fPasswordIsScPin)
-            .field("fPromptForPassword", &self.fPromptForPassword)
-            .field("fDisableCpm", &self.fDisableCpm)
-            .field("fDisableCdm", &self.fDisableCdm)
-            .field("fDisableCcm", &self.fDisableCcm)
-            .field("fDisableLPT", &self.fDisableLPT)
-            .field("fDisableClip", &self.fDisableClip)
-            .field("fResetBroken", &self.fResetBroken)
-            .field("fDisableEncryption", &self.fDisableEncryption)
-            .field("fDisableAutoReconnect", &self.fDisableAutoReconnect)
-            .field("fDisableCtrlAltDel", &self.fDisableCtrlAltDel)
-            .field("fDoubleClickDetect", &self.fDoubleClickDetect)
-            .field("fEnableWindowsKey", &self.fEnableWindowsKey)
-            .field("fUsingSavedCreds", &self.fUsingSavedCreds)
-            .field("fMouse", &self.fMouse)
-            .field("fNoAudioPlayback", &self.fNoAudioPlayback)
-            .field("fRemoteConsoleAudio", &self.fRemoteConsoleAudio)
-            .field("EncryptionLevel", &self.EncryptionLevel)
-            .field("ColorDepth", &self.ColorDepth)
-            .field("ProtocolType", &self.ProtocolType)
-            .field("HRes", &self.HRes)
-            .field("VRes", &self.VRes)
-            .field("ClientProductId", &self.ClientProductId)
-            .field("OutBufCountHost", &self.OutBufCountHost)
-            .field("OutBufCountClient", &self.OutBufCountClient)
-            .field("OutBufLength", &self.OutBufLength)
-            .field("KeyboardLayout", &self.KeyboardLayout)
-            .field("MaxConnectionTime", &self.MaxConnectionTime)
-            .field("MaxDisconnectionTime", &self.MaxDisconnectionTime)
-            .field("MaxIdleTime", &self.MaxIdleTime)
-            .field("PerformanceFlags", &self.PerformanceFlags)
-            .field("KeyboardType", &self.KeyboardType)
-            .field("KeyboardSubType", &self.KeyboardSubType)
-            .field("KeyboardFunctionKey", &self.KeyboardFunctionKey)
-            .field("ActiveInputLocale", &self.ActiveInputLocale)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("ClientAddressFamily", &self.ClientAddressFamily)
-            .field("ClientBuildNumber", &self.ClientBuildNumber)
-            .field("ClientSessionId", &self.ClientSessionId)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("InitialProgram", &self.InitialProgram)
-            .field("UserName", &self.UserName)
-            .field("Domain", &self.Domain)
-            .field("Password", &self.Password)
-            .field("ProtocolName", &self.ProtocolName)
-            .field("DisplayDriverName", &self.DisplayDriverName)
-            .field("DisplayDeviceName", &self.DisplayDeviceName)
-            .field("imeFileName", &self.imeFileName)
-            .field("AudioDriverName", &self.AudioDriverName)
-            .field("ClientName", &self.ClientName)
-            .field("ClientAddress", &self.ClientAddress)
-            .field("ClientDirectory", &self.ClientDirectory)
-            .field("ClientDigProductId", &self.ClientDigProductId)
-            .field("ClientSockAddress", &self.ClientSockAddress)
-            .field("ClientTimeZone", &self.ClientTimeZone)
-            .field("WRdsListenerSettings", &self.WRdsListenerSettings)
-            .field("EventLogActivityId", &self.EventLogActivityId)
-            .field("ContextSize", &self.ContextSize)
-            .field("ContextData", &self.ContextData)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11174,11 +11096,6 @@ impl ::core::marker::Copy for WRDS_LISTENER_SETTINGS {}
 impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WRDS_LISTENER_SETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WRDS_LISTENER_SETTINGS").field("WRdsListenerSettingLevel", &self.WRdsListenerSettingLevel).field("WRdsListenerSetting", &self.WRdsListenerSetting).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTINGS {
@@ -11314,12 +11231,6 @@ impl ::core::marker::Copy for WRDS_SETTINGS {}
 impl ::core::clone::Clone for WRDS_SETTINGS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WRDS_SETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WRDS_SETTINGS").field("WRdsSettingType", &self.WRdsSettingType).field("WRdsSettingLevel", &self.WRdsSettingLevel).field("WRdsSetting", &self.WRdsSetting).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12214,12 +12125,6 @@ impl ::core::clone::Clone for WTSINFOEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WTSINFOEXA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTSINFOEXA").field("Level", &self.Level).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTSINFOEXA {
     type Abi = Self;
 }
@@ -12247,11 +12152,6 @@ impl ::core::marker::Copy for WTSINFOEXW {}
 impl ::core::clone::Clone for WTSINFOEXW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WTSINFOEXW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTSINFOEXW").field("Level", &self.Level).field("Data", &self.Data).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTSINFOEXW {
@@ -13671,11 +13571,6 @@ impl ::core::clone::Clone for WTS_CACHE_STATS {
         *self
     }
 }
-impl ::core::fmt::Debug for WTS_CACHE_STATS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTS_CACHE_STATS").field("Specific", &self.Specific).field("Data", &self.Data).field("ProtocolType", &self.ProtocolType).field("Length", &self.Length).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WTS_CACHE_STATS {
     type Abi = Self;
 }
@@ -13838,68 +13733,6 @@ impl ::core::marker::Copy for WTS_CLIENT_DATA {}
 impl ::core::clone::Clone for WTS_CLIENT_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WTS_CLIENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTS_CLIENT_DATA")
-            .field("fDisableCtrlAltDel", &self.fDisableCtrlAltDel)
-            .field("fDoubleClickDetect", &self.fDoubleClickDetect)
-            .field("fEnableWindowsKey", &self.fEnableWindowsKey)
-            .field("fHideTitleBar", &self.fHideTitleBar)
-            .field("fInheritAutoLogon", &self.fInheritAutoLogon)
-            .field("fPromptForPassword", &self.fPromptForPassword)
-            .field("fUsingSavedCreds", &self.fUsingSavedCreds)
-            .field("Domain", &self.Domain)
-            .field("UserName", &self.UserName)
-            .field("Password", &self.Password)
-            .field("fPasswordIsScPin", &self.fPasswordIsScPin)
-            .field("fInheritInitialProgram", &self.fInheritInitialProgram)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("InitialProgram", &self.InitialProgram)
-            .field("fMaximizeShell", &self.fMaximizeShell)
-            .field("EncryptionLevel", &self.EncryptionLevel)
-            .field("PerformanceFlags", &self.PerformanceFlags)
-            .field("ProtocolName", &self.ProtocolName)
-            .field("ProtocolType", &self.ProtocolType)
-            .field("fInheritColorDepth", &self.fInheritColorDepth)
-            .field("HRes", &self.HRes)
-            .field("VRes", &self.VRes)
-            .field("ColorDepth", &self.ColorDepth)
-            .field("DisplayDriverName", &self.DisplayDriverName)
-            .field("DisplayDeviceName", &self.DisplayDeviceName)
-            .field("fMouse", &self.fMouse)
-            .field("KeyboardLayout", &self.KeyboardLayout)
-            .field("KeyboardType", &self.KeyboardType)
-            .field("KeyboardSubType", &self.KeyboardSubType)
-            .field("KeyboardFunctionKey", &self.KeyboardFunctionKey)
-            .field("imeFileName", &self.imeFileName)
-            .field("ActiveInputLocale", &self.ActiveInputLocale)
-            .field("fNoAudioPlayback", &self.fNoAudioPlayback)
-            .field("fRemoteConsoleAudio", &self.fRemoteConsoleAudio)
-            .field("AudioDriverName", &self.AudioDriverName)
-            .field("ClientTimeZone", &self.ClientTimeZone)
-            .field("ClientName", &self.ClientName)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("ClientAddressFamily", &self.ClientAddressFamily)
-            .field("ClientAddress", &self.ClientAddress)
-            .field("ClientSockAddress", &self.ClientSockAddress)
-            .field("ClientDirectory", &self.ClientDirectory)
-            .field("ClientBuildNumber", &self.ClientBuildNumber)
-            .field("ClientProductId", &self.ClientProductId)
-            .field("OutBufCountHost", &self.OutBufCountHost)
-            .field("OutBufCountClient", &self.OutBufCountClient)
-            .field("OutBufLength", &self.OutBufLength)
-            .field("ClientSessionId", &self.ClientSessionId)
-            .field("ClientDigProductId", &self.ClientDigProductId)
-            .field("fDisableCpm", &self.fDisableCpm)
-            .field("fDisableCdm", &self.fDisableCdm)
-            .field("fDisableCcm", &self.fDisableCcm)
-            .field("fDisableLPT", &self.fDisableLPT)
-            .field("fDisableClip", &self.fDisableClip)
-            .field("fDisablePNP", &self.fDisablePNP)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14542,12 +14375,6 @@ impl ::core::clone::Clone for WTS_PROPERTY_VALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WTS_PROPERTY_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTS_PROPERTY_VALUE").field("Type", &self.Type).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WTS_PROPERTY_VALUE {
     type Abi = Self;
 }
@@ -14791,11 +14618,6 @@ impl ::core::marker::Copy for WTS_PROTOCOL_STATUS {}
 impl ::core::clone::Clone for WTS_PROTOCOL_STATUS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WTS_PROTOCOL_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTS_PROTOCOL_STATUS").field("Output", &self.Output).field("Input", &self.Input).field("Cache", &self.Cache).field("AsyncSignal", &self.AsyncSignal).field("AsyncSignalMask", &self.AsyncSignalMask).field("Counters", &self.Counters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_PROTOCOL_STATUS {
@@ -15248,11 +15070,6 @@ impl ::core::marker::Copy for WTS_SOCKADDR {}
 impl ::core::clone::Clone for WTS_SOCKADDR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WTS_SOCKADDR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WTS_SOCKADDR").field("sin_family", &self.sin_family).field("u", &self.u).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WTS_SOCKADDR {

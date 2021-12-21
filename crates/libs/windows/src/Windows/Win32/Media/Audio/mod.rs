@@ -1490,11 +1490,6 @@ impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS {
         *self
     }
 }
-impl ::core::fmt::Debug for AUDIOCLIENT_ACTIVATION_PARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIOCLIENT_ACTIVATION_PARAMS").field("ActivationType", &self.ActivationType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AUDIOCLIENT_ACTIVATION_PARAMS {
     type Abi = Self;
 }
@@ -2104,11 +2099,6 @@ impl ::core::clone::Clone for ConnectorType {
         *self
     }
 }
-impl ::core::fmt::Debug for ConnectorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectorType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ConnectorType {
     type Abi = Self;
 }
@@ -2118,6 +2108,11 @@ impl ::core::cmp::PartialEq for ConnectorType {
     }
 }
 impl ::core::cmp::Eq for ConnectorType {}
+impl ::core::fmt::Debug for ConnectorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectorType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
@@ -9372,12 +9367,6 @@ impl ::core::clone::Clone for MIXERCONTROLA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERCONTROLA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLA").field("cbStruct", &self.cbStruct).field("dwControlID", &self.dwControlID).field("dwControlType", &self.dwControlType).field("fdwControl", &self.fdwControl).field("cMultipleItems", &self.cMultipleItems).field("szShortName", &self.szShortName).field("szName", &self.szName).field("Bounds", &self.Bounds).field("Metrics", &self.Metrics).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIXERCONTROLA {
     type Abi = Self;
 }
@@ -9558,12 +9547,6 @@ impl ::core::marker::Copy for MIXERCONTROLDETAILS {}
 impl ::core::clone::Clone for MIXERCONTROLDETAILS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERCONTROLDETAILS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLDETAILS").field("cbStruct", &self.cbStruct).field("dwControlID", &self.dwControlID).field("cChannels", &self.cChannels).field("Anonymous", &self.Anonymous).field("cbDetails", &self.cbDetails).field("paDetails", &self.paDetails).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9796,11 +9779,6 @@ impl ::core::marker::Copy for MIXERCONTROLW {}
 impl ::core::clone::Clone for MIXERCONTROLW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIXERCONTROLW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLW").field("cbStruct", &self.cbStruct).field("dwControlID", &self.dwControlID).field("dwControlType", &self.dwControlType).field("fdwControl", &self.fdwControl).field("cMultipleItems", &self.cMultipleItems).field("szShortName", &self.szShortName).field("szName", &self.szName).field("Bounds", &self.Bounds).field("Metrics", &self.Metrics).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIXERCONTROLW {
@@ -10176,12 +10154,6 @@ impl ::core::clone::Clone for MIXERLINECONTROLSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERLINECONTROLSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERLINECONTROLSA").field("cbStruct", &self.cbStruct).field("dwLineID", &self.dwLineID).field("Anonymous", &self.Anonymous).field("cControls", &self.cControls).field("cbmxctrl", &self.cbmxctrl).field("pamxctrl", &self.pamxctrl).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIXERLINECONTROLSA {
     type Abi = Self;
 }
@@ -10246,11 +10218,6 @@ impl ::core::marker::Copy for MIXERLINECONTROLSW {}
 impl ::core::clone::Clone for MIXERLINECONTROLSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIXERLINECONTROLSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERLINECONTROLSW").field("cbStruct", &self.cbStruct).field("dwLineID", &self.dwLineID).field("Anonymous", &self.Anonymous).field("cControls", &self.cControls).field("cbmxctrl", &self.cbmxctrl).field("pamxctrl", &self.pamxctrl).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIXERLINECONTROLSW {
@@ -11480,11 +11447,6 @@ impl ::core::marker::Copy for WAVEFORMATEXTENSIBLE {}
 impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WAVEFORMATEXTENSIBLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEFORMATEXTENSIBLE").field("Format", &self.Format).field("Samples", &self.Samples).field("dwChannelMask", &self.dwChannelMask).field("SubFormat", &self.SubFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WAVEFORMATEXTENSIBLE {

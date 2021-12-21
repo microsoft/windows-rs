@@ -212,11 +212,6 @@ impl ::core::clone::Clone for AdvancedPhotoMode {
         *self
     }
 }
-impl ::core::fmt::Debug for AdvancedPhotoMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdvancedPhotoMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AdvancedPhotoMode {
     type Abi = Self;
 }
@@ -226,6 +221,11 @@ impl ::core::cmp::PartialEq for AdvancedPhotoMode {
     }
 }
 impl ::core::cmp::Eq for AdvancedPhotoMode {}
+impl ::core::fmt::Debug for AdvancedPhotoMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedPhotoMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdvancedPhotoMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AdvancedPhotoMode;i4)");
 }
@@ -719,11 +719,6 @@ impl ::core::clone::Clone for AudioDeviceRole {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioDeviceRole {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceRole").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioDeviceRole {
     type Abi = Self;
 }
@@ -733,6 +728,11 @@ impl ::core::cmp::PartialEq for AudioDeviceRole {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceRole {}
+impl ::core::fmt::Debug for AudioDeviceRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceRole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AudioDeviceRole;i4)");
 }
@@ -753,11 +753,6 @@ impl ::core::clone::Clone for AutoFocusRange {
         *self
     }
 }
-impl ::core::fmt::Debug for AutoFocusRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutoFocusRange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutoFocusRange {
     type Abi = Self;
 }
@@ -767,6 +762,11 @@ impl ::core::cmp::PartialEq for AutoFocusRange {
     }
 }
 impl ::core::cmp::Eq for AutoFocusRange {}
+impl ::core::fmt::Debug for AutoFocusRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoFocusRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutoFocusRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AutoFocusRange;i4)");
 }
@@ -1181,11 +1181,6 @@ impl ::core::clone::Clone for CameraOcclusionKind {
         *self
     }
 }
-impl ::core::fmt::Debug for CameraOcclusionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraOcclusionKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CameraOcclusionKind {
     type Abi = Self;
 }
@@ -1195,6 +1190,11 @@ impl ::core::cmp::PartialEq for CameraOcclusionKind {
     }
 }
 impl ::core::cmp::Eq for CameraOcclusionKind {}
+impl ::core::fmt::Debug for CameraOcclusionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CameraOcclusionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraOcclusionKind;i4)");
 }
@@ -1386,11 +1386,6 @@ impl ::core::clone::Clone for CameraStreamState {
         *self
     }
 }
-impl ::core::fmt::Debug for CameraStreamState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraStreamState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CameraStreamState {
     type Abi = Self;
 }
@@ -1400,6 +1395,11 @@ impl ::core::cmp::PartialEq for CameraStreamState {
     }
 }
 impl ::core::cmp::Eq for CameraStreamState {}
+impl ::core::fmt::Debug for CameraStreamState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraStreamState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CameraStreamState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraStreamState;i4)");
 }
@@ -1430,11 +1430,6 @@ impl ::core::clone::Clone for CaptureSceneMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CaptureSceneMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CaptureSceneMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CaptureSceneMode {
     type Abi = Self;
 }
@@ -1444,6 +1439,11 @@ impl ::core::cmp::PartialEq for CaptureSceneMode {
     }
 }
 impl ::core::cmp::Eq for CaptureSceneMode {}
+impl ::core::fmt::Debug for CaptureSceneMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaptureSceneMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CaptureSceneMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureSceneMode;i4)");
 }
@@ -1464,11 +1464,6 @@ impl ::core::clone::Clone for CaptureUse {
         *self
     }
 }
-impl ::core::fmt::Debug for CaptureUse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CaptureUse").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CaptureUse {
     type Abi = Self;
 }
@@ -1478,6 +1473,11 @@ impl ::core::cmp::PartialEq for CaptureUse {
     }
 }
 impl ::core::cmp::Eq for CaptureUse {}
+impl ::core::fmt::Debug for CaptureUse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaptureUse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CaptureUse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureUse;i4)");
 }
@@ -1503,11 +1503,6 @@ impl ::core::clone::Clone for ColorTemperaturePreset {
         *self
     }
 }
-impl ::core::fmt::Debug for ColorTemperaturePreset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ColorTemperaturePreset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ColorTemperaturePreset {
     type Abi = Self;
 }
@@ -1517,6 +1512,11 @@ impl ::core::cmp::PartialEq for ColorTemperaturePreset {
     }
 }
 impl ::core::cmp::Eq for ColorTemperaturePreset {}
+impl ::core::fmt::Debug for ColorTemperaturePreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorTemperaturePreset").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorTemperaturePreset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ColorTemperaturePreset;i4)");
 }
@@ -2293,11 +2293,6 @@ impl ::core::clone::Clone for DigitalWindowMode {
         *self
     }
 }
-impl ::core::fmt::Debug for DigitalWindowMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DigitalWindowMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DigitalWindowMode {
     type Abi = Self;
 }
@@ -2307,6 +2302,11 @@ impl ::core::cmp::PartialEq for DigitalWindowMode {
     }
 }
 impl ::core::cmp::Eq for DigitalWindowMode {}
+impl ::core::fmt::Debug for DigitalWindowMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DigitalWindowMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.DigitalWindowMode;i4)");
 }
@@ -3097,11 +3097,6 @@ impl ::core::clone::Clone for FocusMode {
         *self
     }
 }
-impl ::core::fmt::Debug for FocusMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FocusMode {
     type Abi = Self;
 }
@@ -3111,6 +3106,11 @@ impl ::core::cmp::PartialEq for FocusMode {
     }
 }
 impl ::core::cmp::Eq for FocusMode {}
+impl ::core::fmt::Debug for FocusMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FocusMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusMode;i4)");
 }
@@ -3134,11 +3134,6 @@ impl ::core::clone::Clone for FocusPreset {
         *self
     }
 }
-impl ::core::fmt::Debug for FocusPreset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusPreset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FocusPreset {
     type Abi = Self;
 }
@@ -3148,6 +3143,11 @@ impl ::core::cmp::PartialEq for FocusPreset {
     }
 }
 impl ::core::cmp::Eq for FocusPreset {}
+impl ::core::fmt::Debug for FocusPreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusPreset").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FocusPreset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusPreset;i4)");
 }
@@ -3433,11 +3433,6 @@ impl ::core::clone::Clone for HdrVideoMode {
         *self
     }
 }
-impl ::core::fmt::Debug for HdrVideoMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdrVideoMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HdrVideoMode {
     type Abi = Self;
 }
@@ -3447,6 +3442,11 @@ impl ::core::cmp::PartialEq for HdrVideoMode {
     }
 }
 impl ::core::cmp::Eq for HdrVideoMode {}
+impl ::core::fmt::Debug for HdrVideoMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdrVideoMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdrVideoMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.HdrVideoMode;i4)");
 }
@@ -5260,11 +5260,6 @@ impl ::core::clone::Clone for InfraredTorchMode {
         *self
     }
 }
-impl ::core::fmt::Debug for InfraredTorchMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InfraredTorchMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InfraredTorchMode {
     type Abi = Self;
 }
@@ -5274,6 +5269,11 @@ impl ::core::cmp::PartialEq for InfraredTorchMode {
     }
 }
 impl ::core::cmp::Eq for InfraredTorchMode {}
+impl ::core::fmt::Debug for InfraredTorchMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InfraredTorchMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InfraredTorchMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.InfraredTorchMode;i4)");
 }
@@ -5472,12 +5472,6 @@ impl ::core::clone::Clone for IsoSpeedPreset {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for IsoSpeedPreset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsoSpeedPreset").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for IsoSpeedPreset {
     type Abi = Self;
 }
@@ -5489,6 +5483,12 @@ impl ::core::cmp::PartialEq for IsoSpeedPreset {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IsoSpeedPreset {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IsoSpeedPreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsoSpeedPreset").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IsoSpeedPreset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.IsoSpeedPreset;i4)");
@@ -5993,11 +5993,6 @@ impl ::core::clone::Clone for ManualFocusDistance {
         *self
     }
 }
-impl ::core::fmt::Debug for ManualFocusDistance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ManualFocusDistance").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ManualFocusDistance {
     type Abi = Self;
 }
@@ -6007,6 +6002,11 @@ impl ::core::cmp::PartialEq for ManualFocusDistance {
     }
 }
 impl ::core::cmp::Eq for ManualFocusDistance {}
+impl ::core::fmt::Debug for ManualFocusDistance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManualFocusDistance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManualFocusDistance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ManualFocusDistance;i4)");
 }
@@ -6029,11 +6029,6 @@ impl ::core::clone::Clone for MediaCaptureFocusState {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaCaptureFocusState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCaptureFocusState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaCaptureFocusState {
     type Abi = Self;
 }
@@ -6043,6 +6038,11 @@ impl ::core::cmp::PartialEq for MediaCaptureFocusState {
     }
 }
 impl ::core::cmp::Eq for MediaCaptureFocusState {}
+impl ::core::fmt::Debug for MediaCaptureFocusState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureFocusState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaCaptureFocusState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureFocusState;i4)");
 }
@@ -6067,11 +6067,6 @@ impl ::core::clone::Clone for MediaCaptureOptimization {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaCaptureOptimization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCaptureOptimization").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaCaptureOptimization {
     type Abi = Self;
 }
@@ -6081,6 +6076,11 @@ impl ::core::cmp::PartialEq for MediaCaptureOptimization {
     }
 }
 impl ::core::cmp::Eq for MediaCaptureOptimization {}
+impl ::core::fmt::Debug for MediaCaptureOptimization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureOptimization").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaCaptureOptimization {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureOptimization;i4)");
 }
@@ -6100,11 +6100,6 @@ impl ::core::clone::Clone for MediaCapturePauseBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaCapturePauseBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCapturePauseBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaCapturePauseBehavior {
     type Abi = Self;
 }
@@ -6114,6 +6109,11 @@ impl ::core::cmp::PartialEq for MediaCapturePauseBehavior {
     }
 }
 impl ::core::cmp::Eq for MediaCapturePauseBehavior {}
+impl ::core::fmt::Debug for MediaCapturePauseBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCapturePauseBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaCapturePauseBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCapturePauseBehavior;i4)");
 }
@@ -6628,11 +6628,6 @@ impl ::core::clone::Clone for OpticalImageStabilizationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for OpticalImageStabilizationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OpticalImageStabilizationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OpticalImageStabilizationMode {
     type Abi = Self;
 }
@@ -6642,6 +6637,11 @@ impl ::core::cmp::PartialEq for OpticalImageStabilizationMode {
     }
 }
 impl ::core::cmp::Eq for OpticalImageStabilizationMode {}
+impl ::core::fmt::Debug for OpticalImageStabilizationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OpticalImageStabilizationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OpticalImageStabilizationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.OpticalImageStabilizationMode;i4)");
 }
@@ -7190,11 +7190,6 @@ impl ::core::clone::Clone for RegionOfInterestType {
         *self
     }
 }
-impl ::core::fmt::Debug for RegionOfInterestType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RegionOfInterestType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RegionOfInterestType {
     type Abi = Self;
 }
@@ -7204,6 +7199,11 @@ impl ::core::cmp::PartialEq for RegionOfInterestType {
     }
 }
 impl ::core::cmp::Eq for RegionOfInterestType {}
+impl ::core::fmt::Debug for RegionOfInterestType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RegionOfInterestType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RegionOfInterestType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.RegionOfInterestType;i4)");
 }
@@ -7450,11 +7450,6 @@ impl ::core::clone::Clone for SendCommandStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SendCommandStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SendCommandStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SendCommandStatus {
     type Abi = Self;
 }
@@ -7464,6 +7459,11 @@ impl ::core::cmp::PartialEq for SendCommandStatus {
     }
 }
 impl ::core::cmp::Eq for SendCommandStatus {}
+impl ::core::fmt::Debug for SendCommandStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SendCommandStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SendCommandStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.SendCommandStatus;i4)");
 }
@@ -7497,11 +7497,6 @@ impl ::core::clone::Clone for TelephonyKey {
         *self
     }
 }
-impl ::core::fmt::Debug for TelephonyKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TelephonyKey").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TelephonyKey {
     type Abi = Self;
 }
@@ -7511,6 +7506,11 @@ impl ::core::cmp::PartialEq for TelephonyKey {
     }
 }
 impl ::core::cmp::Eq for TelephonyKey {}
+impl ::core::fmt::Debug for TelephonyKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TelephonyKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TelephonyKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.TelephonyKey;i4)");
 }
@@ -8229,11 +8229,6 @@ impl ::core::clone::Clone for VideoDeviceControllerGetDevicePropertyStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoDeviceControllerGetDevicePropertyStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VideoDeviceControllerGetDevicePropertyStatus {
     type Abi = Self;
 }
@@ -8243,6 +8238,11 @@ impl ::core::cmp::PartialEq for VideoDeviceControllerGetDevicePropertyStatus {
     }
 }
 impl ::core::cmp::Eq for VideoDeviceControllerGetDevicePropertyStatus {}
+impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceControllerGetDevicePropertyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus;i4)");
 }
@@ -8266,11 +8266,6 @@ impl ::core::clone::Clone for VideoDeviceControllerSetDevicePropertyStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for VideoDeviceControllerSetDevicePropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoDeviceControllerSetDevicePropertyStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VideoDeviceControllerSetDevicePropertyStatus {
     type Abi = Self;
 }
@@ -8280,6 +8275,11 @@ impl ::core::cmp::PartialEq for VideoDeviceControllerSetDevicePropertyStatus {
     }
 }
 impl ::core::cmp::Eq for VideoDeviceControllerSetDevicePropertyStatus {}
+impl ::core::fmt::Debug for VideoDeviceControllerSetDevicePropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceControllerSetDevicePropertyStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerSetDevicePropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus;i4)");
 }
@@ -8403,11 +8403,6 @@ impl ::core::clone::Clone for VideoTemporalDenoisingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for VideoTemporalDenoisingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoTemporalDenoisingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VideoTemporalDenoisingMode {
     type Abi = Self;
 }
@@ -8417,6 +8412,11 @@ impl ::core::cmp::PartialEq for VideoTemporalDenoisingMode {
     }
 }
 impl ::core::cmp::Eq for VideoTemporalDenoisingMode {}
+impl ::core::fmt::Debug for VideoTemporalDenoisingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTemporalDenoisingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoTemporalDenoisingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoTemporalDenoisingMode;i4)");
 }
@@ -8818,11 +8818,6 @@ impl ::core::clone::Clone for ZoomTransitionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ZoomTransitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ZoomTransitionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ZoomTransitionMode {
     type Abi = Self;
 }
@@ -8832,6 +8827,11 @@ impl ::core::cmp::PartialEq for ZoomTransitionMode {
     }
 }
 impl ::core::cmp::Eq for ZoomTransitionMode {}
+impl ::core::fmt::Debug for ZoomTransitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ZoomTransitionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ZoomTransitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ZoomTransitionMode;i4)");
 }

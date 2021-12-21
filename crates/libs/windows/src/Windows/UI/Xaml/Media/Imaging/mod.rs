@@ -12,11 +12,6 @@ impl ::core::clone::Clone for BitmapCreateOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for BitmapCreateOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BitmapCreateOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BitmapCreateOptions {
     type Abi = Self;
 }
@@ -26,6 +21,11 @@ impl ::core::cmp::PartialEq for BitmapCreateOptions {
     }
 }
 impl ::core::cmp::Eq for BitmapCreateOptions {}
+impl ::core::fmt::Debug for BitmapCreateOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapCreateOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapCreateOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Imaging.BitmapCreateOptions;u4)");
 }
@@ -583,11 +583,6 @@ impl ::core::clone::Clone for DecodePixelType {
         *self
     }
 }
-impl ::core::fmt::Debug for DecodePixelType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DecodePixelType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DecodePixelType {
     type Abi = Self;
 }
@@ -597,6 +592,11 @@ impl ::core::cmp::PartialEq for DecodePixelType {
     }
 }
 impl ::core::cmp::Eq for DecodePixelType {}
+impl ::core::fmt::Debug for DecodePixelType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DecodePixelType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DecodePixelType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Imaging.DecodePixelType;i4)");
 }
@@ -2149,11 +2149,6 @@ impl ::core::clone::Clone for SvgImageSourceLoadStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SvgImageSourceLoadStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SvgImageSourceLoadStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SvgImageSourceLoadStatus {
     type Abi = Self;
 }
@@ -2163,6 +2158,11 @@ impl ::core::cmp::PartialEq for SvgImageSourceLoadStatus {
     }
 }
 impl ::core::cmp::Eq for SvgImageSourceLoadStatus {}
+impl ::core::fmt::Debug for SvgImageSourceLoadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SvgImageSourceLoadStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SvgImageSourceLoadStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Imaging.SvgImageSourceLoadStatus;i4)");
 }

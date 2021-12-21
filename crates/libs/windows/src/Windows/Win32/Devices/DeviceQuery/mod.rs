@@ -270,12 +270,6 @@ impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION_DATA {
     }
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::fmt::Debug for DEV_QUERY_RESULT_ACTION_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEV_QUERY_RESULT_ACTION_DATA").field("Action", &self.Action).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION_DATA {
     type Abi = Self;
 }

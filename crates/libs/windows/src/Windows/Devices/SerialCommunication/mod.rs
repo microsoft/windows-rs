@@ -672,11 +672,6 @@ impl ::core::clone::Clone for SerialError {
         *self
     }
 }
-impl ::core::fmt::Debug for SerialError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SerialError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SerialError {
     type Abi = Self;
 }
@@ -686,6 +681,11 @@ impl ::core::cmp::PartialEq for SerialError {
     }
 }
 impl ::core::cmp::Eq for SerialError {}
+impl ::core::fmt::Debug for SerialError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SerialError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
 }
@@ -707,11 +707,6 @@ impl ::core::clone::Clone for SerialHandshake {
         *self
     }
 }
-impl ::core::fmt::Debug for SerialHandshake {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SerialHandshake").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SerialHandshake {
     type Abi = Self;
 }
@@ -721,6 +716,11 @@ impl ::core::cmp::PartialEq for SerialHandshake {
     }
 }
 impl ::core::cmp::Eq for SerialHandshake {}
+impl ::core::fmt::Debug for SerialHandshake {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialHandshake").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SerialHandshake {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
 }
@@ -743,11 +743,6 @@ impl ::core::clone::Clone for SerialParity {
         *self
     }
 }
-impl ::core::fmt::Debug for SerialParity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SerialParity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SerialParity {
     type Abi = Self;
 }
@@ -757,6 +752,11 @@ impl ::core::cmp::PartialEq for SerialParity {
     }
 }
 impl ::core::cmp::Eq for SerialParity {}
+impl ::core::fmt::Debug for SerialParity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialParity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SerialParity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
 }
@@ -779,11 +779,6 @@ impl ::core::clone::Clone for SerialPinChange {
         *self
     }
 }
-impl ::core::fmt::Debug for SerialPinChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SerialPinChange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SerialPinChange {
     type Abi = Self;
 }
@@ -793,6 +788,11 @@ impl ::core::cmp::PartialEq for SerialPinChange {
     }
 }
 impl ::core::cmp::Eq for SerialPinChange {}
+impl ::core::fmt::Debug for SerialPinChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialPinChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SerialPinChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
 }
@@ -813,11 +813,6 @@ impl ::core::clone::Clone for SerialStopBitCount {
         *self
     }
 }
-impl ::core::fmt::Debug for SerialStopBitCount {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SerialStopBitCount").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SerialStopBitCount {
     type Abi = Self;
 }
@@ -827,6 +822,11 @@ impl ::core::cmp::PartialEq for SerialStopBitCount {
     }
 }
 impl ::core::cmp::Eq for SerialStopBitCount {}
+impl ::core::fmt::Debug for SerialStopBitCount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialStopBitCount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SerialStopBitCount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");
 }

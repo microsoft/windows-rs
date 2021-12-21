@@ -340,25 +340,6 @@ impl ::core::clone::Clone for CHARFORMAT2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CHARFORMAT2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHARFORMAT2A")
-            .field("__AnonymousBase_richedit_L736_C23", &self.__AnonymousBase_richedit_L736_C23)
-            .field("wWeight", &self.wWeight)
-            .field("sSpacing", &self.sSpacing)
-            .field("crBackColor", &self.crBackColor)
-            .field("lcid", &self.lcid)
-            .field("Anonymous", &self.Anonymous)
-            .field("sStyle", &self.sStyle)
-            .field("wKerning", &self.wKerning)
-            .field("bUnderlineType", &self.bUnderlineType)
-            .field("bAnimation", &self.bAnimation)
-            .field("bRevAuthor", &self.bRevAuthor)
-            .field("bUnderlineColor", &self.bUnderlineColor)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHARFORMAT2A {
     type Abi = Self;
 }
@@ -429,24 +410,6 @@ impl ::core::marker::Copy for CHARFORMAT2W {}
 impl ::core::clone::Clone for CHARFORMAT2W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CHARFORMAT2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHARFORMAT2W")
-            .field("__AnonymousBase_richedit_L711_C23", &self.__AnonymousBase_richedit_L711_C23)
-            .field("wWeight", &self.wWeight)
-            .field("sSpacing", &self.sSpacing)
-            .field("crBackColor", &self.crBackColor)
-            .field("lcid", &self.lcid)
-            .field("Anonymous", &self.Anonymous)
-            .field("sStyle", &self.sStyle)
-            .field("wKerning", &self.wKerning)
-            .field("bUnderlineType", &self.bUnderlineType)
-            .field("bAnimation", &self.bAnimation)
-            .field("bRevAuthor", &self.bRevAuthor)
-            .field("bUnderlineColor", &self.bUnderlineColor)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for CHARFORMAT2W {
@@ -10084,11 +10047,6 @@ impl ::core::clone::Clone for PARAFORMAT {
         *self
     }
 }
-impl ::core::fmt::Debug for PARAFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PARAFORMAT").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("wNumbering", &self.wNumbering).field("Anonymous", &self.Anonymous).field("dxStartIndent", &self.dxStartIndent).field("dxRightIndent", &self.dxRightIndent).field("dxOffset", &self.dxOffset).field("wAlignment", &self.wAlignment).field("cTabCount", &self.cTabCount).field("rgxTabs", &self.rgxTabs).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PARAFORMAT {
     type Abi = Self;
 }
@@ -10152,27 +10110,6 @@ impl ::core::marker::Copy for PARAFORMAT2 {}
 impl ::core::clone::Clone for PARAFORMAT2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PARAFORMAT2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PARAFORMAT2")
-            .field("__AnonymousBase_richedit_L1149_C22", &self.__AnonymousBase_richedit_L1149_C22)
-            .field("dySpaceBefore", &self.dySpaceBefore)
-            .field("dySpaceAfter", &self.dySpaceAfter)
-            .field("dyLineSpacing", &self.dyLineSpacing)
-            .field("sStyle", &self.sStyle)
-            .field("bLineSpacingRule", &self.bLineSpacingRule)
-            .field("bOutlineLevel", &self.bOutlineLevel)
-            .field("wShadingWeight", &self.wShadingWeight)
-            .field("wShadingStyle", &self.wShadingStyle)
-            .field("wNumberingStart", &self.wNumberingStart)
-            .field("wNumberingStyle", &self.wNumberingStyle)
-            .field("wNumberingTab", &self.wNumberingTab)
-            .field("wBorderSpace", &self.wBorderSpace)
-            .field("wBorderWidth", &self.wBorderWidth)
-            .field("wBorders", &self.wBorders)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for PARAFORMAT2 {

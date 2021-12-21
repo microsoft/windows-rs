@@ -113,11 +113,6 @@ impl ::core::clone::Clone for DiagnosticActionState {
         *self
     }
 }
-impl ::core::fmt::Debug for DiagnosticActionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticActionState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DiagnosticActionState {
     type Abi = Self;
 }
@@ -127,6 +122,11 @@ impl ::core::cmp::PartialEq for DiagnosticActionState {
     }
 }
 impl ::core::cmp::Eq for DiagnosticActionState {}
+impl ::core::fmt::Debug for DiagnosticActionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiagnosticActionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DiagnosticActionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
 }

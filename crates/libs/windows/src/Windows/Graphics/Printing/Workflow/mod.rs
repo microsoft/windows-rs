@@ -1212,11 +1212,6 @@ impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowJobAbortReason {
     type Abi = Self;
 }
@@ -1226,6 +1221,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowJobAbortReason {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowJobAbortReason {}
+impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
 }
@@ -2088,11 +2088,6 @@ impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowPdlConversionType {
     type Abi = Self;
 }
@@ -2102,6 +2097,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPdlConversionType {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPdlConversionType {}
+impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
 }
@@ -2788,11 +2788,6 @@ impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowPrinterJobStatus {
     type Abi = Self;
 }
@@ -2802,6 +2797,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowPrinterJobStatus {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowPrinterJobStatus {}
+impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
 }
@@ -2824,11 +2824,6 @@ impl ::core::clone::Clone for PrintWorkflowSessionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowSessionStatus {
     type Abi = Self;
 }
@@ -2838,6 +2833,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowSessionStatus {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowSessionStatus {}
+impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
 }
@@ -3313,11 +3313,6 @@ impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowSubmittedStatus {
     type Abi = Self;
 }
@@ -3327,6 +3322,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowSubmittedStatus {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowSubmittedStatus {}
+impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
 }
@@ -3687,11 +3687,6 @@ impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowUICompletionStatus {
     type Abi = Self;
 }
@@ -3701,6 +3696,11 @@ impl ::core::cmp::PartialEq for PrintWorkflowUICompletionStatus {
     }
 }
 impl ::core::cmp::Eq for PrintWorkflowUICompletionStatus {}
+impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowUICompletionStatus;i4)");
 }

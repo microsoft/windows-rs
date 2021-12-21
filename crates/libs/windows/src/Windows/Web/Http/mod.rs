@@ -612,11 +612,6 @@ impl ::core::clone::Clone for HttpCompletionOption {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpCompletionOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCompletionOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpCompletionOption {
     type Abi = Self;
 }
@@ -626,6 +621,11 @@ impl ::core::cmp::PartialEq for HttpCompletionOption {
     }
 }
 impl ::core::cmp::Eq for HttpCompletionOption {}
+impl ::core::fmt::Debug for HttpCompletionOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCompletionOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpCompletionOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
 }
@@ -2791,11 +2791,6 @@ impl ::core::clone::Clone for HttpProgressStage {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpProgressStage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpProgressStage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpProgressStage {
     type Abi = Self;
 }
@@ -2805,6 +2800,11 @@ impl ::core::cmp::PartialEq for HttpProgressStage {
     }
 }
 impl ::core::cmp::Eq for HttpProgressStage {}
+impl ::core::fmt::Debug for HttpProgressStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpProgressStage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpProgressStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
 }
@@ -3486,11 +3486,6 @@ impl ::core::clone::Clone for HttpResponseMessageSource {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpResponseMessageSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpResponseMessageSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpResponseMessageSource {
     type Abi = Self;
 }
@@ -3500,6 +3495,11 @@ impl ::core::cmp::PartialEq for HttpResponseMessageSource {
     }
 }
 impl ::core::cmp::Eq for HttpResponseMessageSource {}
+impl ::core::fmt::Debug for HttpResponseMessageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpResponseMessageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpResponseMessageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
 }
@@ -3575,11 +3575,6 @@ impl ::core::clone::Clone for HttpStatusCode {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpStatusCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpStatusCode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpStatusCode {
     type Abi = Self;
 }
@@ -3589,6 +3584,11 @@ impl ::core::cmp::PartialEq for HttpStatusCode {
     }
 }
 impl ::core::cmp::Eq for HttpStatusCode {}
+impl ::core::fmt::Debug for HttpStatusCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpStatusCode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpStatusCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
 }
@@ -4243,11 +4243,6 @@ impl ::core::clone::Clone for HttpVersion {
         *self
     }
 }
-impl ::core::fmt::Debug for HttpVersion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpVersion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HttpVersion {
     type Abi = Self;
 }
@@ -4257,6 +4252,11 @@ impl ::core::cmp::PartialEq for HttpVersion {
     }
 }
 impl ::core::cmp::Eq for HttpVersion {}
+impl ::core::fmt::Debug for HttpVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpVersion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpVersion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpVersion;i4)");
 }

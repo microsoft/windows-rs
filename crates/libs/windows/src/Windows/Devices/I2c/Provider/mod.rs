@@ -375,11 +375,6 @@ impl ::core::clone::Clone for ProviderI2cBusSpeed {
         *self
     }
 }
-impl ::core::fmt::Debug for ProviderI2cBusSpeed {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cBusSpeed").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderI2cBusSpeed {
     type Abi = Self;
 }
@@ -389,6 +384,11 @@ impl ::core::cmp::PartialEq for ProviderI2cBusSpeed {
     }
 }
 impl ::core::cmp::Eq for ProviderI2cBusSpeed {}
+impl ::core::fmt::Debug for ProviderI2cBusSpeed {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cBusSpeed").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cBusSpeed;i4)");
 }
@@ -520,11 +520,6 @@ impl ::core::clone::Clone for ProviderI2cSharingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ProviderI2cSharingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cSharingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderI2cSharingMode {
     type Abi = Self;
 }
@@ -534,6 +529,11 @@ impl ::core::cmp::PartialEq for ProviderI2cSharingMode {
     }
 }
 impl ::core::cmp::Eq for ProviderI2cSharingMode {}
+impl ::core::fmt::Debug for ProviderI2cSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cSharingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderI2cSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cSharingMode;i4)");
 }
@@ -591,11 +591,6 @@ impl ::core::clone::Clone for ProviderI2cTransferStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for ProviderI2cTransferStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cTransferStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderI2cTransferStatus {
     type Abi = Self;
 }
@@ -605,6 +600,11 @@ impl ::core::cmp::PartialEq for ProviderI2cTransferStatus {
     }
 }
 impl ::core::cmp::Eq for ProviderI2cTransferStatus {}
+impl ::core::fmt::Debug for ProviderI2cTransferStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cTransferStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");
 }

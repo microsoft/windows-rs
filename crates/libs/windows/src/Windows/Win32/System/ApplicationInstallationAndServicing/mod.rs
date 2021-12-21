@@ -1118,12 +1118,6 @@ impl ::core::clone::Clone for DELTA_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DELTA_INPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DELTA_INPUT").field("Anonymous", &self.Anonymous).field("uSize", &self.uSize).field("Editable", &self.Editable).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DELTA_INPUT {
     type Abi = Self;
 }
@@ -11036,12 +11030,6 @@ impl ::core::clone::Clone for PATCH_OLD_FILE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PATCH_OLD_FILE_INFO").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("Anonymous", &self.Anonymous).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO {
     type Abi = Self;
 }
@@ -11656,12 +11644,6 @@ pub struct PM_ENUM_FILTER {
 impl ::core::clone::Clone for PM_ENUM_FILTER {
     fn clone(&self) -> Self {
         Self { FilterType: self.FilterType, FilterParameter: self.FilterParameter.clone() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PM_ENUM_FILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PM_ENUM_FILTER").field("FilterType", &self.FilterType).field("FilterParameter", &self.FilterParameter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

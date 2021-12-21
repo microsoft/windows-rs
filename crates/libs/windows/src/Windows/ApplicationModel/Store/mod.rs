@@ -342,11 +342,6 @@ impl ::core::clone::Clone for FulfillmentResult {
         *self
     }
 }
-impl ::core::fmt::Debug for FulfillmentResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FulfillmentResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FulfillmentResult {
     type Abi = Self;
 }
@@ -356,6 +351,11 @@ impl ::core::cmp::PartialEq for FulfillmentResult {
     }
 }
 impl ::core::cmp::Eq for FulfillmentResult {}
+impl ::core::fmt::Debug for FulfillmentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FulfillmentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FulfillmentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.FulfillmentResult;i4)");
 }
@@ -1636,11 +1636,6 @@ impl ::core::clone::Clone for ProductPurchaseStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for ProductPurchaseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProductPurchaseStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProductPurchaseStatus {
     type Abi = Self;
 }
@@ -1650,6 +1645,11 @@ impl ::core::cmp::PartialEq for ProductPurchaseStatus {
     }
 }
 impl ::core::cmp::Eq for ProductPurchaseStatus {}
+impl ::core::fmt::Debug for ProductPurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductPurchaseStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProductPurchaseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductPurchaseStatus;i4)");
 }
@@ -1670,11 +1670,6 @@ impl ::core::clone::Clone for ProductType {
         *self
     }
 }
-impl ::core::fmt::Debug for ProductType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProductType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProductType {
     type Abi = Self;
 }
@@ -1684,6 +1679,11 @@ impl ::core::cmp::PartialEq for ProductType {
     }
 }
 impl ::core::cmp::Eq for ProductType {}
+impl ::core::fmt::Debug for ProductType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProductType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProductType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
 }

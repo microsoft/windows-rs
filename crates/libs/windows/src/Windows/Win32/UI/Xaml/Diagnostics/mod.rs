@@ -1028,11 +1028,6 @@ impl ::core::clone::Clone for MetadataBit {
         *self
     }
 }
-impl ::core::fmt::Debug for MetadataBit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MetadataBit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MetadataBit {
     type Abi = Self;
 }
@@ -1042,6 +1037,11 @@ impl ::core::cmp::PartialEq for MetadataBit {
     }
 }
 impl ::core::cmp::Eq for MetadataBit {}
+impl ::core::fmt::Debug for MetadataBit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MetadataBit").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub struct ParentChildRelation {

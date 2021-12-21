@@ -1157,11 +1157,6 @@ impl ::core::clone::Clone for FocusInputDeviceKind {
         *self
     }
 }
-impl ::core::fmt::Debug for FocusInputDeviceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusInputDeviceKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FocusInputDeviceKind {
     type Abi = Self;
 }
@@ -1171,6 +1166,11 @@ impl ::core::cmp::PartialEq for FocusInputDeviceKind {
     }
 }
 impl ::core::cmp::Eq for FocusInputDeviceKind {}
+impl ::core::fmt::Debug for FocusInputDeviceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusInputDeviceKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FocusInputDeviceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.FocusInputDeviceKind;i4)");
 }
@@ -1709,11 +1709,6 @@ impl ::core::clone::Clone for FocusNavigationDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for FocusNavigationDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusNavigationDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FocusNavigationDirection {
     type Abi = Self;
 }
@@ -1723,6 +1718,11 @@ impl ::core::cmp::PartialEq for FocusNavigationDirection {
     }
 }
 impl ::core::cmp::Eq for FocusNavigationDirection {}
+impl ::core::fmt::Debug for FocusNavigationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusNavigationDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FocusNavigationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.FocusNavigationDirection;i4)");
 }
@@ -4260,11 +4260,6 @@ impl ::core::clone::Clone for InputScopeNameValue {
         *self
     }
 }
-impl ::core::fmt::Debug for InputScopeNameValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InputScopeNameValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InputScopeNameValue {
     type Abi = Self;
 }
@@ -4274,6 +4269,11 @@ impl ::core::cmp::PartialEq for InputScopeNameValue {
     }
 }
 impl ::core::cmp::Eq for InputScopeNameValue {}
+impl ::core::fmt::Debug for InputScopeNameValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputScopeNameValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputScopeNameValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.InputScopeNameValue;i4)");
 }
@@ -4514,11 +4514,6 @@ impl ::core::clone::Clone for KeyTipPlacementMode {
         *self
     }
 }
-impl ::core::fmt::Debug for KeyTipPlacementMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyTipPlacementMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeyTipPlacementMode {
     type Abi = Self;
 }
@@ -4528,6 +4523,11 @@ impl ::core::cmp::PartialEq for KeyTipPlacementMode {
     }
 }
 impl ::core::cmp::Eq for KeyTipPlacementMode {}
+impl ::core::fmt::Debug for KeyTipPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyTipPlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyTipPlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.KeyTipPlacementMode;i4)");
 }
@@ -4858,11 +4858,6 @@ impl ::core::clone::Clone for KeyboardAcceleratorPlacementMode {
         *self
     }
 }
-impl ::core::fmt::Debug for KeyboardAcceleratorPlacementMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyboardAcceleratorPlacementMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeyboardAcceleratorPlacementMode {
     type Abi = Self;
 }
@@ -4872,6 +4867,11 @@ impl ::core::cmp::PartialEq for KeyboardAcceleratorPlacementMode {
     }
 }
 impl ::core::cmp::Eq for KeyboardAcceleratorPlacementMode {}
+impl ::core::fmt::Debug for KeyboardAcceleratorPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyboardAcceleratorPlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyboardAcceleratorPlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.KeyboardAcceleratorPlacementMode;i4)");
 }
@@ -4892,11 +4892,6 @@ impl ::core::clone::Clone for KeyboardNavigationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for KeyboardNavigationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyboardNavigationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeyboardNavigationMode {
     type Abi = Self;
 }
@@ -4906,6 +4901,11 @@ impl ::core::cmp::PartialEq for KeyboardNavigationMode {
     }
 }
 impl ::core::cmp::Eq for KeyboardNavigationMode {}
+impl ::core::fmt::Debug for KeyboardNavigationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyboardNavigationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyboardNavigationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.KeyboardNavigationMode;i4)");
 }
@@ -5888,11 +5888,6 @@ impl ::core::clone::Clone for ManipulationModes {
         *self
     }
 }
-impl ::core::fmt::Debug for ManipulationModes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ManipulationModes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ManipulationModes {
     type Abi = Self;
 }
@@ -5902,6 +5897,11 @@ impl ::core::cmp::PartialEq for ManipulationModes {
     }
 }
 impl ::core::cmp::Eq for ManipulationModes {}
+impl ::core::fmt::Debug for ManipulationModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManipulationModes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManipulationModes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.ManipulationModes;u4)");
 }
@@ -7458,11 +7458,6 @@ impl ::core::clone::Clone for StandardUICommandKind {
         *self
     }
 }
-impl ::core::fmt::Debug for StandardUICommandKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StandardUICommandKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StandardUICommandKind {
     type Abi = Self;
 }
@@ -7472,6 +7467,11 @@ impl ::core::cmp::PartialEq for StandardUICommandKind {
     }
 }
 impl ::core::cmp::Eq for StandardUICommandKind {}
+impl ::core::fmt::Debug for StandardUICommandKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StandardUICommandKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StandardUICommandKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.StandardUICommandKind;i4)");
 }
@@ -7698,11 +7698,6 @@ impl ::core::clone::Clone for XYFocusKeyboardNavigationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for XYFocusKeyboardNavigationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XYFocusKeyboardNavigationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XYFocusKeyboardNavigationMode {
     type Abi = Self;
 }
@@ -7712,6 +7707,11 @@ impl ::core::cmp::PartialEq for XYFocusKeyboardNavigationMode {
     }
 }
 impl ::core::cmp::Eq for XYFocusKeyboardNavigationMode {}
+impl ::core::fmt::Debug for XYFocusKeyboardNavigationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XYFocusKeyboardNavigationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XYFocusKeyboardNavigationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.XYFocusKeyboardNavigationMode;i4)");
 }
@@ -7733,11 +7733,6 @@ impl ::core::clone::Clone for XYFocusNavigationStrategy {
         *self
     }
 }
-impl ::core::fmt::Debug for XYFocusNavigationStrategy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XYFocusNavigationStrategy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XYFocusNavigationStrategy {
     type Abi = Self;
 }
@@ -7747,6 +7742,11 @@ impl ::core::cmp::PartialEq for XYFocusNavigationStrategy {
     }
 }
 impl ::core::cmp::Eq for XYFocusNavigationStrategy {}
+impl ::core::fmt::Debug for XYFocusNavigationStrategy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XYFocusNavigationStrategy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XYFocusNavigationStrategy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.XYFocusNavigationStrategy;i4)");
 }
@@ -7769,11 +7769,6 @@ impl ::core::clone::Clone for XYFocusNavigationStrategyOverride {
         *self
     }
 }
-impl ::core::fmt::Debug for XYFocusNavigationStrategyOverride {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XYFocusNavigationStrategyOverride").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XYFocusNavigationStrategyOverride {
     type Abi = Self;
 }
@@ -7783,6 +7778,11 @@ impl ::core::cmp::PartialEq for XYFocusNavigationStrategyOverride {
     }
 }
 impl ::core::cmp::Eq for XYFocusNavigationStrategyOverride {}
+impl ::core::fmt::Debug for XYFocusNavigationStrategyOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XYFocusNavigationStrategyOverride").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XYFocusNavigationStrategyOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Input.XYFocusNavigationStrategyOverride;i4)");
 }

@@ -18,11 +18,6 @@ impl ::core::clone::Clone for AcrylicBackgroundSource {
         *self
     }
 }
-impl ::core::fmt::Debug for AcrylicBackgroundSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AcrylicBackgroundSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AcrylicBackgroundSource {
     type Abi = Self;
 }
@@ -32,6 +27,11 @@ impl ::core::cmp::PartialEq for AcrylicBackgroundSource {
     }
 }
 impl ::core::cmp::Eq for AcrylicBackgroundSource {}
+impl ::core::fmt::Debug for AcrylicBackgroundSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AcrylicBackgroundSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AcrylicBackgroundSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.AcrylicBackgroundSource;i4)");
 }
@@ -357,11 +357,6 @@ impl ::core::clone::Clone for AlignmentX {
         *self
     }
 }
-impl ::core::fmt::Debug for AlignmentX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlignmentX").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AlignmentX {
     type Abi = Self;
 }
@@ -371,6 +366,11 @@ impl ::core::cmp::PartialEq for AlignmentX {
     }
 }
 impl ::core::cmp::Eq for AlignmentX {}
+impl ::core::fmt::Debug for AlignmentX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlignmentX").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AlignmentX {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.AlignmentX;i4)");
 }
@@ -391,11 +391,6 @@ impl ::core::clone::Clone for AlignmentY {
         *self
     }
 }
-impl ::core::fmt::Debug for AlignmentY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlignmentY").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AlignmentY {
     type Abi = Self;
 }
@@ -405,6 +400,11 @@ impl ::core::cmp::PartialEq for AlignmentY {
     }
 }
 impl ::core::cmp::Eq for AlignmentY {}
+impl ::core::fmt::Debug for AlignmentY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlignmentY").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AlignmentY {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.AlignmentY;i4)");
 }
@@ -663,11 +663,6 @@ impl ::core::clone::Clone for AudioCategory {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioCategory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioCategory {
     type Abi = Self;
 }
@@ -677,6 +672,11 @@ impl ::core::cmp::PartialEq for AudioCategory {
     }
 }
 impl ::core::cmp::Eq for AudioCategory {}
+impl ::core::fmt::Debug for AudioCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.AudioCategory;i4)");
 }
@@ -697,11 +697,6 @@ impl ::core::clone::Clone for AudioDeviceType {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioDeviceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioDeviceType {
     type Abi = Self;
 }
@@ -711,6 +706,11 @@ impl ::core::cmp::PartialEq for AudioDeviceType {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceType {}
+impl ::core::fmt::Debug for AudioDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.AudioDeviceType;i4)");
 }
@@ -1494,11 +1494,6 @@ impl ::core::clone::Clone for BrushMappingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for BrushMappingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BrushMappingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BrushMappingMode {
     type Abi = Self;
 }
@@ -1508,6 +1503,11 @@ impl ::core::cmp::PartialEq for BrushMappingMode {
     }
 }
 impl ::core::cmp::Eq for BrushMappingMode {}
+impl ::core::fmt::Debug for BrushMappingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BrushMappingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BrushMappingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.BrushMappingMode;i4)");
 }
@@ -1619,11 +1619,6 @@ impl ::core::clone::Clone for ColorInterpolationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ColorInterpolationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ColorInterpolationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ColorInterpolationMode {
     type Abi = Self;
 }
@@ -1633,6 +1628,11 @@ impl ::core::cmp::PartialEq for ColorInterpolationMode {
     }
 }
 impl ::core::cmp::Eq for ColorInterpolationMode {}
+impl ::core::fmt::Debug for ColorInterpolationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorInterpolationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorInterpolationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.ColorInterpolationMode;i4)");
 }
@@ -2363,11 +2363,6 @@ impl ::core::clone::Clone for ElementCompositeMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ElementCompositeMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ElementCompositeMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ElementCompositeMode {
     type Abi = Self;
 }
@@ -2377,6 +2372,11 @@ impl ::core::cmp::PartialEq for ElementCompositeMode {
     }
 }
 impl ::core::cmp::Eq for ElementCompositeMode {}
+impl ::core::fmt::Debug for ElementCompositeMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementCompositeMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ElementCompositeMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.ElementCompositeMode;i4)");
 }
@@ -2584,11 +2584,6 @@ impl ::core::clone::Clone for FastPlayFallbackBehaviour {
         *self
     }
 }
-impl ::core::fmt::Debug for FastPlayFallbackBehaviour {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FastPlayFallbackBehaviour").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FastPlayFallbackBehaviour {
     type Abi = Self;
 }
@@ -2598,6 +2593,11 @@ impl ::core::cmp::PartialEq for FastPlayFallbackBehaviour {
     }
 }
 impl ::core::cmp::Eq for FastPlayFallbackBehaviour {}
+impl ::core::fmt::Debug for FastPlayFallbackBehaviour {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FastPlayFallbackBehaviour").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FastPlayFallbackBehaviour {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.FastPlayFallbackBehaviour;i4)");
 }
@@ -2617,11 +2617,6 @@ impl ::core::clone::Clone for FillRule {
         *self
     }
 }
-impl ::core::fmt::Debug for FillRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FillRule").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FillRule {
     type Abi = Self;
 }
@@ -2631,6 +2626,11 @@ impl ::core::cmp::PartialEq for FillRule {
     }
 }
 impl ::core::cmp::Eq for FillRule {}
+impl ::core::fmt::Debug for FillRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FillRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FillRule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.FillRule;i4)");
 }
@@ -3681,11 +3681,6 @@ impl ::core::clone::Clone for GradientSpreadMethod {
         *self
     }
 }
-impl ::core::fmt::Debug for GradientSpreadMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GradientSpreadMethod").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GradientSpreadMethod {
     type Abi = Self;
 }
@@ -3695,6 +3690,11 @@ impl ::core::cmp::PartialEq for GradientSpreadMethod {
     }
 }
 impl ::core::cmp::Eq for GradientSpreadMethod {}
+impl ::core::fmt::Debug for GradientSpreadMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GradientSpreadMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GradientSpreadMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.GradientSpreadMethod;i4)");
 }
@@ -7763,11 +7763,6 @@ impl ::core::clone::Clone for LoadedImageSourceLoadStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for LoadedImageSourceLoadStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoadedImageSourceLoadStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LoadedImageSourceLoadStatus {
     type Abi = Self;
 }
@@ -7777,6 +7772,11 @@ impl ::core::cmp::PartialEq for LoadedImageSourceLoadStatus {
     }
 }
 impl ::core::cmp::Eq for LoadedImageSourceLoadStatus {}
+impl ::core::fmt::Debug for LoadedImageSourceLoadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoadedImageSourceLoadStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoadedImageSourceLoadStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.LoadedImageSourceLoadStatus;i4)");
 }
@@ -8467,11 +8467,6 @@ impl ::core::clone::Clone for MediaCanPlayResponse {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaCanPlayResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCanPlayResponse").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaCanPlayResponse {
     type Abi = Self;
 }
@@ -8481,6 +8476,11 @@ impl ::core::cmp::PartialEq for MediaCanPlayResponse {
     }
 }
 impl ::core::cmp::Eq for MediaCanPlayResponse {}
+impl ::core::fmt::Debug for MediaCanPlayResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCanPlayResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaCanPlayResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.MediaCanPlayResponse;i4)");
 }
@@ -8504,11 +8504,6 @@ impl ::core::clone::Clone for MediaElementState {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaElementState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaElementState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaElementState {
     type Abi = Self;
 }
@@ -8518,6 +8513,11 @@ impl ::core::cmp::PartialEq for MediaElementState {
     }
 }
 impl ::core::cmp::Eq for MediaElementState {}
+impl ::core::fmt::Debug for MediaElementState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaElementState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaElementState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.MediaElementState;i4)");
 }
@@ -9698,11 +9698,6 @@ impl ::core::clone::Clone for PenLineCap {
         *self
     }
 }
-impl ::core::fmt::Debug for PenLineCap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenLineCap").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PenLineCap {
     type Abi = Self;
 }
@@ -9712,6 +9707,11 @@ impl ::core::cmp::PartialEq for PenLineCap {
     }
 }
 impl ::core::cmp::Eq for PenLineCap {}
+impl ::core::fmt::Debug for PenLineCap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenLineCap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenLineCap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.PenLineCap;i4)");
 }
@@ -9732,11 +9732,6 @@ impl ::core::clone::Clone for PenLineJoin {
         *self
     }
 }
-impl ::core::fmt::Debug for PenLineJoin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenLineJoin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PenLineJoin {
     type Abi = Self;
 }
@@ -9746,6 +9741,11 @@ impl ::core::cmp::PartialEq for PenLineJoin {
     }
 }
 impl ::core::cmp::Eq for PenLineJoin {}
+impl ::core::fmt::Debug for PenLineJoin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenLineJoin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenLineJoin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.PenLineJoin;i4)");
 }
@@ -12222,11 +12222,6 @@ impl ::core::clone::Clone for RevealBrushState {
         *self
     }
 }
-impl ::core::fmt::Debug for RevealBrushState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RevealBrushState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RevealBrushState {
     type Abi = Self;
 }
@@ -12236,6 +12231,11 @@ impl ::core::cmp::PartialEq for RevealBrushState {
     }
 }
 impl ::core::cmp::Eq for RevealBrushState {}
+impl ::core::fmt::Debug for RevealBrushState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevealBrushState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RevealBrushState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.RevealBrushState;i4)");
 }
@@ -13186,11 +13186,6 @@ impl ::core::clone::Clone for Stereo3DVideoPackingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for Stereo3DVideoPackingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Stereo3DVideoPackingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Stereo3DVideoPackingMode {
     type Abi = Self;
 }
@@ -13200,6 +13195,11 @@ impl ::core::cmp::PartialEq for Stereo3DVideoPackingMode {
     }
 }
 impl ::core::cmp::Eq for Stereo3DVideoPackingMode {}
+impl ::core::fmt::Debug for Stereo3DVideoPackingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Stereo3DVideoPackingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Stereo3DVideoPackingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Stereo3DVideoPackingMode;i4)");
 }
@@ -13219,11 +13219,6 @@ impl ::core::clone::Clone for Stereo3DVideoRenderMode {
         *self
     }
 }
-impl ::core::fmt::Debug for Stereo3DVideoRenderMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Stereo3DVideoRenderMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Stereo3DVideoRenderMode {
     type Abi = Self;
 }
@@ -13233,6 +13228,11 @@ impl ::core::cmp::PartialEq for Stereo3DVideoRenderMode {
     }
 }
 impl ::core::cmp::Eq for Stereo3DVideoRenderMode {}
+impl ::core::fmt::Debug for Stereo3DVideoRenderMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Stereo3DVideoRenderMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Stereo3DVideoRenderMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Stereo3DVideoRenderMode;i4)");
 }
@@ -13254,11 +13254,6 @@ impl ::core::clone::Clone for Stretch {
         *self
     }
 }
-impl ::core::fmt::Debug for Stretch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Stretch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Stretch {
     type Abi = Self;
 }
@@ -13268,6 +13263,11 @@ impl ::core::cmp::PartialEq for Stretch {
     }
 }
 impl ::core::cmp::Eq for Stretch {}
+impl ::core::fmt::Debug for Stretch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Stretch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Stretch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Stretch;i4)");
 }
@@ -13289,11 +13289,6 @@ impl ::core::clone::Clone for StyleSimulations {
         *self
     }
 }
-impl ::core::fmt::Debug for StyleSimulations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StyleSimulations").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StyleSimulations {
     type Abi = Self;
 }
@@ -13303,6 +13298,11 @@ impl ::core::cmp::PartialEq for StyleSimulations {
     }
 }
 impl ::core::cmp::Eq for StyleSimulations {}
+impl ::core::fmt::Debug for StyleSimulations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StyleSimulations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StyleSimulations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.StyleSimulations;i4)");
 }
@@ -13322,11 +13322,6 @@ impl ::core::clone::Clone for SweepDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for SweepDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SweepDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SweepDirection {
     type Abi = Self;
 }
@@ -13336,6 +13331,11 @@ impl ::core::cmp::PartialEq for SweepDirection {
     }
 }
 impl ::core::cmp::Eq for SweepDirection {}
+impl ::core::fmt::Debug for SweepDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SweepDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SweepDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.SweepDirection;i4)");
 }

@@ -341,12 +341,6 @@ impl ::core::clone::Clone for CortanaPermission {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for CortanaPermission {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CortanaPermission").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for CortanaPermission {
     type Abi = Self;
 }
@@ -358,6 +352,12 @@ impl ::core::cmp::PartialEq for CortanaPermission {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaPermission {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaPermission {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermission").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermission {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermission;i4)");
@@ -385,12 +385,6 @@ impl ::core::clone::Clone for CortanaPermissionsChangeResult {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for CortanaPermissionsChangeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CortanaPermissionsChangeResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for CortanaPermissionsChangeResult {
     type Abi = Self;
 }
@@ -402,6 +396,12 @@ impl ::core::cmp::PartialEq for CortanaPermissionsChangeResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaPermissionsChangeResult {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaPermissionsChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermissionsChangeResult").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermissionsChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermissionsChangeResult;i4)");

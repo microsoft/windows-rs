@@ -14,11 +14,6 @@ impl ::core::clone::Clone for CollectionChange {
         *self
     }
 }
-impl ::core::fmt::Debug for CollectionChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CollectionChange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CollectionChange {
     type Abi = Self;
 }
@@ -28,6 +23,11 @@ impl ::core::cmp::PartialEq for CollectionChange {
     }
 }
 impl ::core::cmp::Eq for CollectionChange {}
+impl ::core::fmt::Debug for CollectionChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CollectionChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CollectionChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
 }

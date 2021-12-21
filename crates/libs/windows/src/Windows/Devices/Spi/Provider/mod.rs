@@ -537,11 +537,6 @@ impl ::core::clone::Clone for ProviderSpiMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ProviderSpiMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderSpiMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderSpiMode {
     type Abi = Self;
 }
@@ -551,6 +546,11 @@ impl ::core::cmp::PartialEq for ProviderSpiMode {
     }
 }
 impl ::core::cmp::Eq for ProviderSpiMode {}
+impl ::core::fmt::Debug for ProviderSpiMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderSpiMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderSpiMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
 }
@@ -570,11 +570,6 @@ impl ::core::clone::Clone for ProviderSpiSharingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ProviderSpiSharingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderSpiSharingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderSpiSharingMode {
     type Abi = Self;
 }
@@ -584,6 +579,11 @@ impl ::core::cmp::PartialEq for ProviderSpiSharingMode {
     }
 }
 impl ::core::cmp::Eq for ProviderSpiSharingMode {}
+impl ::core::fmt::Debug for ProviderSpiSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderSpiSharingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderSpiSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiSharingMode;i4)");
 }

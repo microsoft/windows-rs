@@ -204,12 +204,6 @@ impl ::core::clone::Clone for CATEGORIZATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for CATEGORIZATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CATEGORIZATION").field("ulCatType", &self.ulCatType).field("Anonymous", &self.Anonymous).field("csColumns", &self.csColumns).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for CATEGORIZATION {
     type Abi = Self;
 }
@@ -505,12 +499,6 @@ impl ::core::marker::Copy for CONTENTRESTRICTION {}
 impl ::core::clone::Clone for CONTENTRESTRICTION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for CONTENTRESTRICTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONTENTRESTRICTION").field("prop", &self.prop).field("pwcsPhrase", &self.pwcsPhrase).field("lcid", &self.lcid).field("ulGenerateMethod", &self.ulGenerateMethod).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1105,13 +1093,6 @@ impl ::core::clone::Clone for DBCOLUMNACCESS {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::fmt::Debug for DBCOLUMNACCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBCOLUMNACCESS").field("pData", &self.pData).field("columnid", &self.columnid).field("cbDataLen", &self.cbDataLen).field("dwStatus", &self.dwStatus).field("cbMaxLen", &self.cbMaxLen).field("dwReserved", &self.dwReserved).field("wType", &self.wType).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::core::Abi for DBCOLUMNACCESS {
     type Abi = Self;
 }
@@ -1155,13 +1136,6 @@ impl ::core::marker::Copy for DBCOLUMNACCESS {}
 impl ::core::clone::Clone for DBCOLUMNACCESS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::fmt::Debug for DBCOLUMNACCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBCOLUMNACCESS").field("pData", &self.pData).field("columnid", &self.columnid).field("cbDataLen", &self.cbDataLen).field("dwStatus", &self.dwStatus).field("cbMaxLen", &self.cbMaxLen).field("dwReserved", &self.dwReserved).field("wType", &self.wType).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -1222,13 +1196,6 @@ impl ::core::clone::Clone for DBCOLUMNDESC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBCOLUMNDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBCOLUMNDESC").field("pwszTypeName", &self.pwszTypeName).field("pTypeInfo", &self.pTypeInfo).field("rgPropertySets", &self.rgPropertySets).field("pclsid", &self.pclsid).field("cPropertySets", &self.cPropertySets).field("ulColumnSize", &self.ulColumnSize).field("dbcid", &self.dbcid).field("wType", &self.wType).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for DBCOLUMNDESC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1264,13 +1231,6 @@ pub struct DBCOLUMNDESC {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBCOLUMNDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBCOLUMNDESC").field("pwszTypeName", &self.pwszTypeName).field("pTypeInfo", &self.pTypeInfo).field("rgPropertySets", &self.rgPropertySets).field("pclsid", &self.pclsid).field("cPropertySets", &self.cPropertySets).field("ulColumnSize", &self.ulColumnSize).field("dbcid", &self.dbcid).field("wType", &self.wType).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).finish()
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1400,13 +1360,6 @@ impl ::core::clone::Clone for DBCOLUMNINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for DBCOLUMNINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBCOLUMNINFO").field("pwszName", &self.pwszName).field("pTypeInfo", &self.pTypeInfo).field("iOrdinal", &self.iOrdinal).field("dwFlags", &self.dwFlags).field("ulColumnSize", &self.ulColumnSize).field("wType", &self.wType).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).field("columnid", &self.columnid).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for DBCOLUMNINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -1441,13 +1394,6 @@ pub struct DBCOLUMNINFO {
     pub bPrecision: u8,
     pub bScale: u8,
     pub columnid: super::super::Storage::IndexServer::DBID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for DBCOLUMNINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBCOLUMNINFO").field("pwszName", &self.pwszName).field("pTypeInfo", &self.pTypeInfo).field("iOrdinal", &self.iOrdinal).field("dwFlags", &self.dwFlags).field("ulColumnSize", &self.ulColumnSize).field("wType", &self.wType).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).field("columnid", &self.columnid).finish()
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -2827,13 +2773,6 @@ impl ::core::clone::Clone for DBPROP {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBPROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPROP").field("dwPropertyID", &self.dwPropertyID).field("dwOptions", &self.dwOptions).field("dwStatus", &self.dwStatus).field("colid", &self.colid).field("vValue", &self.vValue).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for DBPROP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2864,13 +2803,6 @@ pub struct DBPROP {
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
     pub vValue: super::Com::VARIANT,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBPROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPROP").field("dwPropertyID", &self.dwPropertyID).field("dwOptions", &self.dwOptions).field("dwStatus", &self.dwStatus).field("colid", &self.colid).field("vValue", &self.vValue).finish()
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3590,13 +3522,6 @@ impl ::core::clone::Clone for DBPROPINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBPROPINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPROPINFO").field("pwszDescription", &self.pwszDescription).field("dwPropertyID", &self.dwPropertyID).field("dwFlags", &self.dwFlags).field("vtType", &self.vtType).field("vValues", &self.vValues).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for DBPROPINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3627,13 +3552,6 @@ pub struct DBPROPINFO {
     pub dwFlags: u32,
     pub vtType: u16,
     pub vValues: super::Com::VARIANT,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBPROPINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPROPINFO").field("pwszDescription", &self.pwszDescription).field("dwPropertyID", &self.dwPropertyID).field("dwFlags", &self.dwFlags).field("vtType", &self.vtType).field("vValues", &self.vValues).finish()
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5360,12 +5278,6 @@ pub struct DCINFO {
 impl ::core::clone::Clone for DCINFO {
     fn clone(&self) -> Self {
         Self { eInfoType: self.eInfoType, vData: self.vData.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DCINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DCINFO").field("eInfoType", &self.eInfoType).field("vData", &self.vData).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19147,12 +19059,6 @@ impl ::core::clone::Clone for ITEMPROP {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for ITEMPROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ITEMPROP").field("variantValue", &self.variantValue).field("pwszName", &self.pwszName).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for ITEMPROP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -21493,12 +21399,6 @@ impl ::core::clone::Clone for KAGGETDIAG {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for KAGGETDIAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KAGGETDIAG").field("ulSize", &self.ulSize).field("vDiagInfo", &self.vDiagInfo).field("sDiagField", &self.sDiagField).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for KAGGETDIAG {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -22141,12 +22041,6 @@ impl ::core::clone::Clone for NATLANGUAGERESTRICTION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for NATLANGUAGERESTRICTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NATLANGUAGERESTRICTION").field("prop", &self.prop).field("pwcsPhrase", &self.pwcsPhrase).field("lcid", &self.lcid).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for NATLANGUAGERESTRICTION {
     type Abi = Self;
 }
@@ -22412,12 +22306,6 @@ impl ::core::marker::Copy for ODBC_VS_ARGS {}
 impl ::core::clone::Clone for ODBC_VS_ARGS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ODBC_VS_ARGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ODBC_VS_ARGS").field("pguidEvent", &self.pguidEvent).field("dwFlags", &self.dwFlags).field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).field("RetCode", &self.RetCode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22887,12 +22775,6 @@ impl ::core::clone::Clone for PROPERTYRESTRICTION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for PROPERTYRESTRICTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPERTYRESTRICTION").field("rel", &self.rel).field("prop", &self.prop).field("prval", &self.prval).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for PROPERTYRESTRICTION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -23179,12 +23061,6 @@ pub struct RESTRICTION {
 impl ::core::clone::Clone for RESTRICTION {
     fn clone(&self) -> Self {
         Self { rt: self.rt, weight: self.weight, res: self.res.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for RESTRICTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESTRICTION").field("rt", &self.rt).field("weight", &self.weight).field("res", &self.res).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -23531,12 +23407,6 @@ impl ::core::clone::Clone for SEARCH_COLUMN_PROPERTIES {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for SEARCH_COLUMN_PROPERTIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SEARCH_COLUMN_PROPERTIES").field("Value", &self.Value).field("lcid", &self.lcid).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for SEARCH_COLUMN_PROPERTIES {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -23854,13 +23724,6 @@ impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::fmt::Debug for SEC_OBJECT_ELEMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SEC_OBJECT_ELEMENT").field("guidObjectType", &self.guidObjectType).field("ObjectID", &self.ObjectID).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::core::Abi for SEC_OBJECT_ELEMENT {
     type Abi = Self;
 }
@@ -23901,13 +23764,6 @@ impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::fmt::Debug for SEC_OBJECT_ELEMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SEC_OBJECT_ELEMENT").field("guidObjectType", &self.guidObjectType).field("ObjectID", &self.ObjectID).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::core::Abi for SEC_OBJECT_ELEMENT {
     type Abi = Self;
 }
@@ -23944,12 +23800,6 @@ impl ::core::marker::Copy for SORTKEY {}
 impl ::core::clone::Clone for SORTKEY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for SORTKEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SORTKEY").field("propColumn", &self.propColumn).field("dwOrder", &self.dwOrder).field("locale", &self.locale).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -28884,11 +28734,6 @@ impl ::core::clone::Clone for SQL_INTERVAL_STRUCT {
         *self
     }
 }
-impl ::core::fmt::Debug for SQL_INTERVAL_STRUCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SQL_INTERVAL_STRUCT").field("interval_type", &self.interval_type).field("interval_sign", &self.interval_sign).field("intval", &self.intval).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SQL_INTERVAL_STRUCT {
     type Abi = Self;
 }
@@ -30277,12 +30122,6 @@ pub struct SSVARIANT {
 impl ::core::clone::Clone for SSVARIANT {
     fn clone(&self) -> Self {
         Self { vt: self.vt, dwReserved1: self.dwReserved1, dwReserved2: self.dwReserved2, Anonymous: self.Anonymous.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for SSVARIANT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SSVARIANT").field("vt", &self.vt).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

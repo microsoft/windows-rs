@@ -18,12 +18,6 @@ impl ::core::clone::Clone for AccountPictureKind {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for AccountPictureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccountPictureKind").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AccountPictureKind {
     type Abi = Self;
 }
@@ -35,6 +29,12 @@ impl ::core::cmp::PartialEq for AccountPictureKind {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AccountPictureKind {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AccountPictureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccountPictureKind").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AccountPictureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
@@ -1290,12 +1290,6 @@ impl ::core::clone::Clone for SetAccountPictureResult {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SetAccountPictureResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetAccountPictureResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SetAccountPictureResult {
     type Abi = Self;
 }
@@ -1307,6 +1301,12 @@ impl ::core::cmp::PartialEq for SetAccountPictureResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SetAccountPictureResult {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SetAccountPictureResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetAccountPictureResult").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SetAccountPictureResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
@@ -1329,11 +1329,6 @@ impl ::core::clone::Clone for SetImageFeedResult {
         *self
     }
 }
-impl ::core::fmt::Debug for SetImageFeedResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetImageFeedResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SetImageFeedResult {
     type Abi = Self;
 }
@@ -1343,6 +1338,11 @@ impl ::core::cmp::PartialEq for SetImageFeedResult {
     }
 }
 impl ::core::cmp::Eq for SetImageFeedResult {}
+impl ::core::fmt::Debug for SetImageFeedResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetImageFeedResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetImageFeedResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
 }

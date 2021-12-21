@@ -14,11 +14,6 @@ impl ::core::clone::Clone for ContentAccessRestrictionLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentAccessRestrictionLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ContentAccessRestrictionLevel {
     type Abi = Self;
 }
@@ -28,6 +23,11 @@ impl ::core::cmp::PartialEq for ContentAccessRestrictionLevel {
     }
 }
 impl ::core::cmp::Eq for ContentAccessRestrictionLevel {}
+impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentAccessRestrictionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentAccessRestrictionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
 }
@@ -266,11 +266,6 @@ impl ::core::clone::Clone for RatedContentCategory {
         *self
     }
 }
-impl ::core::fmt::Debug for RatedContentCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RatedContentCategory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RatedContentCategory {
     type Abi = Self;
 }
@@ -280,6 +275,11 @@ impl ::core::cmp::PartialEq for RatedContentCategory {
     }
 }
 impl ::core::cmp::Eq for RatedContentCategory {}
+impl ::core::fmt::Debug for RatedContentCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RatedContentCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RatedContentCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
 }

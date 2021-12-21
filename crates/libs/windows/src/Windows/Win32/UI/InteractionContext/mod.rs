@@ -480,12 +480,6 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::fmt::Debug for INTERACTION_CONTEXT_OUTPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERACTION_CONTEXT_OUTPUT").field("interactionId", &self.interactionId).field("interactionFlags", &self.interactionFlags).field("inputType", &self.inputType).field("x", &self.x).field("y", &self.y).field("arguments", &self.arguments).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT {
     type Abi = Self;
 }
@@ -556,12 +550,6 @@ impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT2 {}
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::fmt::Debug for INTERACTION_CONTEXT_OUTPUT2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERACTION_CONTEXT_OUTPUT2").field("interactionId", &self.interactionId).field("interactionFlags", &self.interactionFlags).field("inputType", &self.inputType).field("contactCount", &self.contactCount).field("currentContactCount", &self.currentContactCount).field("x", &self.x).field("y", &self.y).field("arguments", &self.arguments).finish()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

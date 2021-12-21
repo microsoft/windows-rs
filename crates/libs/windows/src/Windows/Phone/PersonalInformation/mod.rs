@@ -265,11 +265,6 @@ impl ::core::clone::Clone for ContactChangeType {
         *self
     }
 }
-impl ::core::fmt::Debug for ContactChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactChangeType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ContactChangeType {
     type Abi = Self;
 }
@@ -279,6 +274,11 @@ impl ::core::cmp::PartialEq for ContactChangeType {
     }
 }
 impl ::core::cmp::Eq for ContactChangeType {}
+impl ::core::fmt::Debug for ContactChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactChangeType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactChangeType;i4)");
 }
@@ -743,11 +743,6 @@ impl ::core::clone::Clone for ContactQueryResultOrdering {
         *self
     }
 }
-impl ::core::fmt::Debug for ContactQueryResultOrdering {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactQueryResultOrdering").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ContactQueryResultOrdering {
     type Abi = Self;
 }
@@ -757,6 +752,11 @@ impl ::core::cmp::PartialEq for ContactQueryResultOrdering {
     }
 }
 impl ::core::cmp::Eq for ContactQueryResultOrdering {}
+impl ::core::fmt::Debug for ContactQueryResultOrdering {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactQueryResultOrdering").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactQueryResultOrdering {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactQueryResultOrdering;i4)");
 }
@@ -966,11 +966,6 @@ impl ::core::clone::Clone for ContactStoreApplicationAccessMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ContactStoreApplicationAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactStoreApplicationAccessMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ContactStoreApplicationAccessMode {
     type Abi = Self;
 }
@@ -980,6 +975,11 @@ impl ::core::cmp::PartialEq for ContactStoreApplicationAccessMode {
     }
 }
 impl ::core::cmp::Eq for ContactStoreApplicationAccessMode {}
+impl ::core::fmt::Debug for ContactStoreApplicationAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStoreApplicationAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactStoreApplicationAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreApplicationAccessMode;i4)");
 }
@@ -999,11 +999,6 @@ impl ::core::clone::Clone for ContactStoreSystemAccessMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ContactStoreSystemAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactStoreSystemAccessMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ContactStoreSystemAccessMode {
     type Abi = Self;
 }
@@ -1013,6 +1008,11 @@ impl ::core::cmp::PartialEq for ContactStoreSystemAccessMode {
     }
 }
 impl ::core::cmp::Eq for ContactStoreSystemAccessMode {}
+impl ::core::fmt::Debug for ContactStoreSystemAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStoreSystemAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactStoreSystemAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreSystemAccessMode;i4)");
 }
@@ -2215,11 +2215,6 @@ impl ::core::clone::Clone for VCardFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for VCardFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VCardFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VCardFormat {
     type Abi = Self;
 }
@@ -2229,6 +2224,11 @@ impl ::core::cmp::PartialEq for VCardFormat {
     }
 }
 impl ::core::cmp::Eq for VCardFormat {}
+impl ::core::fmt::Debug for VCardFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VCardFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VCardFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.VCardFormat;i4)");
 }

@@ -707,11 +707,6 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
         *self
     }
 }
-impl ::core::fmt::Debug for XboxLiveEndpointPairCreationBehaviors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairCreationBehaviors").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationBehaviors {
     type Abi = Self;
 }
@@ -721,6 +716,11 @@ impl ::core::cmp::PartialEq for XboxLiveEndpointPairCreationBehaviors {
     }
 }
 impl ::core::cmp::Eq for XboxLiveEndpointPairCreationBehaviors {}
+impl ::core::fmt::Debug for XboxLiveEndpointPairCreationBehaviors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairCreationBehaviors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationBehaviors {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors;u4)");
 }
@@ -852,11 +852,6 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for XboxLiveEndpointPairCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairCreationStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationStatus {
     type Abi = Self;
 }
@@ -866,6 +861,11 @@ impl ::core::cmp::PartialEq for XboxLiveEndpointPairCreationStatus {
     }
 }
 impl ::core::cmp::Eq for XboxLiveEndpointPairCreationStatus {}
+impl ::core::fmt::Debug for XboxLiveEndpointPairCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairCreationStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
 }
@@ -890,11 +890,6 @@ impl ::core::clone::Clone for XboxLiveEndpointPairState {
         *self
     }
 }
-impl ::core::fmt::Debug for XboxLiveEndpointPairState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairState {
     type Abi = Self;
 }
@@ -904,6 +899,11 @@ impl ::core::cmp::PartialEq for XboxLiveEndpointPairState {
     }
 }
 impl ::core::cmp::Eq for XboxLiveEndpointPairState {}
+impl ::core::fmt::Debug for XboxLiveEndpointPairState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
 }
@@ -1295,11 +1295,6 @@ impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
         *self
     }
 }
-impl ::core::fmt::Debug for XboxLiveNetworkAccessKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveNetworkAccessKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XboxLiveNetworkAccessKind {
     type Abi = Self;
 }
@@ -1309,6 +1304,11 @@ impl ::core::cmp::PartialEq for XboxLiveNetworkAccessKind {
     }
 }
 impl ::core::cmp::Eq for XboxLiveNetworkAccessKind {}
+impl ::core::fmt::Debug for XboxLiveNetworkAccessKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveNetworkAccessKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveNetworkAccessKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
 }
@@ -1610,11 +1610,6 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurementStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveQualityOfServiceMeasurementStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMeasurementStatus {
     type Abi = Self;
 }
@@ -1624,6 +1619,11 @@ impl ::core::cmp::PartialEq for XboxLiveQualityOfServiceMeasurementStatus {
     }
 }
 impl ::core::cmp::Eq for XboxLiveQualityOfServiceMeasurementStatus {}
+impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurementStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServiceMeasurementStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
 }
@@ -1650,11 +1650,6 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
         *self
     }
 }
-impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetric {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveQualityOfServiceMetric").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMetric {
     type Abi = Self;
 }
@@ -1664,6 +1659,11 @@ impl ::core::cmp::PartialEq for XboxLiveQualityOfServiceMetric {
     }
 }
 impl ::core::cmp::Eq for XboxLiveQualityOfServiceMetric {}
+impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetric {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServiceMetric").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetric {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
 }
@@ -1887,11 +1887,6 @@ impl ::core::clone::Clone for XboxLiveSocketKind {
         *self
     }
 }
-impl ::core::fmt::Debug for XboxLiveSocketKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveSocketKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XboxLiveSocketKind {
     type Abi = Self;
 }
@@ -1901,6 +1896,11 @@ impl ::core::cmp::PartialEq for XboxLiveSocketKind {
     }
 }
 impl ::core::cmp::Eq for XboxLiveSocketKind {}
+impl ::core::fmt::Debug for XboxLiveSocketKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveSocketKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveSocketKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveSocketKind;i4)");
 }

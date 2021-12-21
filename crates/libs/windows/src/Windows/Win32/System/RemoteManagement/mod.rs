@@ -3338,12 +3338,6 @@ impl ::core::clone::Clone for WSMAN_AUTHENTICATION_CREDENTIALS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WSMAN_AUTHENTICATION_CREDENTIALS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_AUTHENTICATION_CREDENTIALS").field("authenticationMechanism", &self.authenticationMechanism).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_AUTHENTICATION_CREDENTIALS {
     type Abi = Self;
 }
@@ -3524,12 +3518,6 @@ impl ::core::clone::Clone for WSMAN_CONNECT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WSMAN_CONNECT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_CONNECT_DATA").field("data", &self.data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_CONNECT_DATA {
     type Abi = Self;
 }
@@ -3559,12 +3547,6 @@ impl ::core::marker::Copy for WSMAN_CREATE_SHELL_DATA {}
 impl ::core::clone::Clone for WSMAN_CREATE_SHELL_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WSMAN_CREATE_SHELL_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_CREATE_SHELL_DATA").field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3598,12 +3580,6 @@ impl ::core::marker::Copy for WSMAN_DATA {}
 impl ::core::clone::Clone for WSMAN_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WSMAN_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_DATA").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4327,12 +4303,6 @@ impl ::core::clone::Clone for WSMAN_PROXY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WSMAN_PROXY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_PROXY_INFO").field("accessType", &self.accessType).field("authenticationCredentials", &self.authenticationCredentials).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_PROXY_INFO {
     type Abi = Self;
 }
@@ -4365,12 +4335,6 @@ impl ::core::marker::Copy for WSMAN_RECEIVE_DATA_RESULT {}
 impl ::core::clone::Clone for WSMAN_RECEIVE_DATA_RESULT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WSMAN_RECEIVE_DATA_RESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_RECEIVE_DATA_RESULT").field("streamId", &self.streamId).field("streamData", &self.streamData).field("commandState", &self.commandState).field("exitCode", &self.exitCode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

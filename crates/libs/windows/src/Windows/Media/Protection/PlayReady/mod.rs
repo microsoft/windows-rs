@@ -3951,12 +3951,6 @@ impl ::core::clone::Clone for NDCertificateFeature {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for NDCertificateFeature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDCertificateFeature").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDCertificateFeature {
     type Abi = Self;
 }
@@ -3968,6 +3962,12 @@ impl ::core::cmp::PartialEq for NDCertificateFeature {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificateFeature {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDCertificateFeature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDCertificateFeature").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificateFeature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateFeature;i4)");
@@ -4004,12 +4004,6 @@ impl ::core::clone::Clone for NDCertificatePlatformID {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for NDCertificatePlatformID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDCertificatePlatformID").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDCertificatePlatformID {
     type Abi = Self;
 }
@@ -4021,6 +4015,12 @@ impl ::core::cmp::PartialEq for NDCertificatePlatformID {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificatePlatformID {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDCertificatePlatformID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDCertificatePlatformID").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificatePlatformID {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificatePlatformID;i4)");
@@ -4058,12 +4058,6 @@ impl ::core::clone::Clone for NDCertificateType {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for NDCertificateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDCertificateType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDCertificateType {
     type Abi = Self;
 }
@@ -4075,6 +4069,12 @@ impl ::core::cmp::PartialEq for NDCertificateType {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificateType {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDCertificateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDCertificateType").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateType;i4)");
@@ -4312,12 +4312,6 @@ impl ::core::clone::Clone for NDClosedCaptionFormat {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for NDClosedCaptionFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDClosedCaptionFormat").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDClosedCaptionFormat {
     type Abi = Self;
 }
@@ -4329,6 +4323,12 @@ impl ::core::cmp::PartialEq for NDClosedCaptionFormat {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDClosedCaptionFormat {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDClosedCaptionFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDClosedCaptionFormat").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDClosedCaptionFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDClosedCaptionFormat;i4)");
@@ -4356,12 +4356,6 @@ impl ::core::clone::Clone for NDContentIDType {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for NDContentIDType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDContentIDType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDContentIDType {
     type Abi = Self;
 }
@@ -4373,6 +4367,12 @@ impl ::core::cmp::PartialEq for NDContentIDType {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDContentIDType {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDContentIDType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDContentIDType").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDContentIDType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDContentIDType;i4)");
@@ -4863,12 +4863,6 @@ impl ::core::clone::Clone for NDMediaStreamType {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for NDMediaStreamType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDMediaStreamType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDMediaStreamType {
     type Abi = Self;
 }
@@ -4880,6 +4874,12 @@ impl ::core::cmp::PartialEq for NDMediaStreamType {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDMediaStreamType {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDMediaStreamType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDMediaStreamType").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDMediaStreamType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDMediaStreamType;i4)");
@@ -4907,12 +4907,6 @@ impl ::core::clone::Clone for NDProximityDetectionType {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for NDProximityDetectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDProximityDetectionType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDProximityDetectionType {
     type Abi = Self;
 }
@@ -4924,6 +4918,12 @@ impl ::core::cmp::PartialEq for NDProximityDetectionType {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDProximityDetectionType {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDProximityDetectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDProximityDetectionType").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDProximityDetectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDProximityDetectionType;i4)");
@@ -4950,12 +4950,6 @@ impl ::core::clone::Clone for NDStartAsyncOptions {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for NDStartAsyncOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDStartAsyncOptions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDStartAsyncOptions {
     type Abi = Self;
 }
@@ -4967,6 +4961,12 @@ impl ::core::cmp::PartialEq for NDStartAsyncOptions {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDStartAsyncOptions {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for NDStartAsyncOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDStartAsyncOptions").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDStartAsyncOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDStartAsyncOptions;i4)");
@@ -5656,11 +5656,6 @@ impl ::core::clone::Clone for PlayReadyDecryptorSetup {
         *self
     }
 }
-impl ::core::fmt::Debug for PlayReadyDecryptorSetup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayReadyDecryptorSetup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PlayReadyDecryptorSetup {
     type Abi = Self;
 }
@@ -5670,6 +5665,11 @@ impl ::core::cmp::PartialEq for PlayReadyDecryptorSetup {
     }
 }
 impl ::core::cmp::Eq for PlayReadyDecryptorSetup {}
+impl ::core::fmt::Debug for PlayReadyDecryptorSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyDecryptorSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyDecryptorSetup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyDecryptorSetup;i4)");
 }
@@ -6608,11 +6608,6 @@ impl ::core::clone::Clone for PlayReadyEncryptionAlgorithm {
         *self
     }
 }
-impl ::core::fmt::Debug for PlayReadyEncryptionAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayReadyEncryptionAlgorithm").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PlayReadyEncryptionAlgorithm {
     type Abi = Self;
 }
@@ -6622,6 +6617,11 @@ impl ::core::cmp::PartialEq for PlayReadyEncryptionAlgorithm {
     }
 }
 impl ::core::cmp::Eq for PlayReadyEncryptionAlgorithm {}
+impl ::core::fmt::Debug for PlayReadyEncryptionAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyEncryptionAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyEncryptionAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm;i4)");
 }
@@ -6642,11 +6642,6 @@ impl ::core::clone::Clone for PlayReadyHardwareDRMFeatures {
         *self
     }
 }
-impl ::core::fmt::Debug for PlayReadyHardwareDRMFeatures {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayReadyHardwareDRMFeatures").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PlayReadyHardwareDRMFeatures {
     type Abi = Self;
 }
@@ -6656,6 +6651,11 @@ impl ::core::cmp::PartialEq for PlayReadyHardwareDRMFeatures {
     }
 }
 impl ::core::cmp::Eq for PlayReadyHardwareDRMFeatures {}
+impl ::core::fmt::Debug for PlayReadyHardwareDRMFeatures {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyHardwareDRMFeatures").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyHardwareDRMFeatures {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures;i4)");
 }
@@ -6675,11 +6675,6 @@ impl ::core::clone::Clone for PlayReadyITADataFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for PlayReadyITADataFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayReadyITADataFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PlayReadyITADataFormat {
     type Abi = Self;
 }
@@ -6689,6 +6684,11 @@ impl ::core::cmp::PartialEq for PlayReadyITADataFormat {
     }
 }
 impl ::core::cmp::Eq for PlayReadyITADataFormat {}
+impl ::core::fmt::Debug for PlayReadyITADataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayReadyITADataFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlayReadyITADataFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyITADataFormat;i4)");
 }

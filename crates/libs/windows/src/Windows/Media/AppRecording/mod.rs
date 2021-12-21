@@ -247,11 +247,6 @@ impl ::core::clone::Clone for AppRecordingSaveScreenshotOption {
         *self
     }
 }
-impl ::core::fmt::Debug for AppRecordingSaveScreenshotOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingSaveScreenshotOption").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AppRecordingSaveScreenshotOption {
     type Abi = Self;
 }
@@ -261,6 +256,11 @@ impl ::core::cmp::PartialEq for AppRecordingSaveScreenshotOption {
     }
 }
 impl ::core::cmp::Eq for AppRecordingSaveScreenshotOption {}
+impl ::core::fmt::Debug for AppRecordingSaveScreenshotOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingSaveScreenshotOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
 }

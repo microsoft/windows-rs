@@ -14,11 +14,6 @@ impl ::core::clone::Clone for CachedFileOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for CachedFileOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CachedFileOptions {
     type Abi = Self;
 }
@@ -28,6 +23,11 @@ impl ::core::cmp::PartialEq for CachedFileOptions {
     }
 }
 impl ::core::cmp::Eq for CachedFileOptions {}
+impl ::core::fmt::Debug for CachedFileOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
 }
@@ -47,11 +47,6 @@ impl ::core::clone::Clone for CachedFileTarget {
         *self
     }
 }
-impl ::core::fmt::Debug for CachedFileTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CachedFileTarget {
     type Abi = Self;
 }
@@ -61,6 +56,11 @@ impl ::core::cmp::PartialEq for CachedFileTarget {
     }
 }
 impl ::core::cmp::Eq for CachedFileTarget {}
+impl ::core::fmt::Debug for CachedFileTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
 }
@@ -527,11 +527,6 @@ impl ::core::clone::Clone for FileUpdateStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for FileUpdateStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileUpdateStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FileUpdateStatus {
     type Abi = Self;
 }
@@ -541,6 +536,11 @@ impl ::core::cmp::PartialEq for FileUpdateStatus {
     }
 }
 impl ::core::cmp::Eq for FileUpdateStatus {}
+impl ::core::fmt::Debug for FileUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FileUpdateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
 }
@@ -1565,11 +1565,6 @@ impl ::core::clone::Clone for ReadActivationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ReadActivationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReadActivationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ReadActivationMode {
     type Abi = Self;
 }
@@ -1579,6 +1574,11 @@ impl ::core::cmp::PartialEq for ReadActivationMode {
     }
 }
 impl ::core::cmp::Eq for ReadActivationMode {}
+impl ::core::fmt::Debug for ReadActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReadActivationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
 }
@@ -2188,11 +2188,6 @@ impl ::core::clone::Clone for StorageProviderHardlinkPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderHardlinkPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorageProviderHardlinkPolicy {
     type Abi = Self;
 }
@@ -2202,6 +2197,11 @@ impl ::core::cmp::PartialEq for StorageProviderHardlinkPolicy {
     }
 }
 impl ::core::cmp::Eq for StorageProviderHardlinkPolicy {}
+impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHardlinkPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
 }
@@ -2223,11 +2223,6 @@ impl ::core::clone::Clone for StorageProviderHydrationPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderHydrationPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicy {
     type Abi = Self;
 }
@@ -2237,6 +2232,11 @@ impl ::core::cmp::PartialEq for StorageProviderHydrationPolicy {
     }
 }
 impl ::core::cmp::Eq for StorageProviderHydrationPolicy {}
+impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHydrationPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
 }
@@ -2259,11 +2259,6 @@ impl ::core::clone::Clone for StorageProviderHydrationPolicyModifier {
         *self
     }
 }
-impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderHydrationPolicyModifier").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicyModifier {
     type Abi = Self;
 }
@@ -2273,6 +2268,11 @@ impl ::core::cmp::PartialEq for StorageProviderHydrationPolicyModifier {
     }
 }
 impl ::core::cmp::Eq for StorageProviderHydrationPolicyModifier {}
+impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHydrationPolicyModifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
 }
@@ -2302,11 +2302,6 @@ impl ::core::clone::Clone for StorageProviderInSyncPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderInSyncPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorageProviderInSyncPolicy {
     type Abi = Self;
 }
@@ -2316,6 +2311,11 @@ impl ::core::cmp::PartialEq for StorageProviderInSyncPolicy {
     }
 }
 impl ::core::cmp::Eq for StorageProviderInSyncPolicy {}
+impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderInSyncPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
 }
@@ -2580,11 +2580,6 @@ impl ::core::clone::Clone for StorageProviderPopulationPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderPopulationPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorageProviderPopulationPolicy {
     type Abi = Self;
 }
@@ -2594,6 +2589,11 @@ impl ::core::cmp::PartialEq for StorageProviderPopulationPolicy {
     }
 }
 impl ::core::cmp::Eq for StorageProviderPopulationPolicy {}
+impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderPopulationPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
 }
@@ -2613,11 +2613,6 @@ impl ::core::clone::Clone for StorageProviderProtectionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for StorageProviderProtectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderProtectionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorageProviderProtectionMode {
     type Abi = Self;
 }
@@ -2627,6 +2622,11 @@ impl ::core::cmp::PartialEq for StorageProviderProtectionMode {
     }
 }
 impl ::core::cmp::Eq for StorageProviderProtectionMode {}
+impl ::core::fmt::Debug for StorageProviderProtectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderProtectionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
 }
@@ -2650,11 +2650,6 @@ impl ::core::clone::Clone for StorageProviderState {
         *self
     }
 }
-impl ::core::fmt::Debug for StorageProviderState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorageProviderState {
     type Abi = Self;
 }
@@ -2664,6 +2659,11 @@ impl ::core::cmp::PartialEq for StorageProviderState {
     }
 }
 impl ::core::cmp::Eq for StorageProviderState {}
+impl ::core::fmt::Debug for StorageProviderState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
 }
@@ -3166,11 +3166,6 @@ impl ::core::clone::Clone for StorageProviderUriSourceStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for StorageProviderUriSourceStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderUriSourceStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for StorageProviderUriSourceStatus {
     type Abi = Self;
 }
@@ -3180,6 +3175,11 @@ impl ::core::cmp::PartialEq for StorageProviderUriSourceStatus {
     }
 }
 impl ::core::cmp::Eq for StorageProviderUriSourceStatus {}
+impl ::core::fmt::Debug for StorageProviderUriSourceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderUriSourceStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
 }
@@ -3201,11 +3201,6 @@ impl ::core::clone::Clone for UIStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for UIStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UIStatus {
     type Abi = Self;
 }
@@ -3215,6 +3210,11 @@ impl ::core::cmp::PartialEq for UIStatus {
     }
 }
 impl ::core::cmp::Eq for UIStatus {}
+impl ::core::fmt::Debug for UIStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
 }
@@ -3235,11 +3235,6 @@ impl ::core::clone::Clone for WriteActivationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for WriteActivationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WriteActivationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WriteActivationMode {
     type Abi = Self;
 }
@@ -3249,6 +3244,11 @@ impl ::core::cmp::PartialEq for WriteActivationMode {
     }
 }
 impl ::core::cmp::Eq for WriteActivationMode {}
+impl ::core::fmt::Debug for WriteActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WriteActivationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WriteActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
 }

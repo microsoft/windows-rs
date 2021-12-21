@@ -680,11 +680,6 @@ impl ::core::clone::Clone for NavigationCacheMode {
         *self
     }
 }
-impl ::core::fmt::Debug for NavigationCacheMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NavigationCacheMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NavigationCacheMode {
     type Abi = Self;
 }
@@ -694,6 +689,11 @@ impl ::core::cmp::PartialEq for NavigationCacheMode {
     }
 }
 impl ::core::cmp::Eq for NavigationCacheMode {}
+impl ::core::fmt::Debug for NavigationCacheMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationCacheMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigationCacheMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Navigation.NavigationCacheMode;i4)");
 }
@@ -1023,11 +1023,6 @@ impl ::core::clone::Clone for NavigationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for NavigationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NavigationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NavigationMode {
     type Abi = Self;
 }
@@ -1037,6 +1032,11 @@ impl ::core::cmp::PartialEq for NavigationMode {
     }
 }
 impl ::core::cmp::Eq for NavigationMode {}
+impl ::core::fmt::Debug for NavigationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Navigation.NavigationMode;i4)");
 }

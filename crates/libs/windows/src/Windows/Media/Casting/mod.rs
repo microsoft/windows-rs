@@ -288,11 +288,6 @@ impl ::core::clone::Clone for CastingConnectionErrorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for CastingConnectionErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingConnectionErrorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CastingConnectionErrorStatus {
     type Abi = Self;
 }
@@ -302,6 +297,11 @@ impl ::core::cmp::PartialEq for CastingConnectionErrorStatus {
     }
 }
 impl ::core::cmp::Eq for CastingConnectionErrorStatus {}
+impl ::core::fmt::Debug for CastingConnectionErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingConnectionErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
 }
@@ -324,11 +324,6 @@ impl ::core::clone::Clone for CastingConnectionState {
         *self
     }
 }
-impl ::core::fmt::Debug for CastingConnectionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingConnectionState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CastingConnectionState {
     type Abi = Self;
 }
@@ -338,6 +333,11 @@ impl ::core::cmp::PartialEq for CastingConnectionState {
     }
 }
 impl ::core::cmp::Eq for CastingConnectionState {}
+impl ::core::fmt::Debug for CastingConnectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingConnectionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
 }
@@ -856,11 +856,6 @@ impl ::core::clone::Clone for CastingPlaybackTypes {
         *self
     }
 }
-impl ::core::fmt::Debug for CastingPlaybackTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingPlaybackTypes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CastingPlaybackTypes {
     type Abi = Self;
 }
@@ -870,6 +865,11 @@ impl ::core::cmp::PartialEq for CastingPlaybackTypes {
     }
 }
 impl ::core::cmp::Eq for CastingPlaybackTypes {}
+impl ::core::fmt::Debug for CastingPlaybackTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CastingPlaybackTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CastingPlaybackTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
 }

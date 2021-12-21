@@ -1211,12 +1211,6 @@ impl ::core::clone::Clone for DHCP_ATTRIB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ATTRIB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_ATTRIB").field("DhcpAttribId", &self.DhcpAttribId).field("DhcpAttribType", &self.DhcpAttribType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_ATTRIB {
     type Abi = Self;
 }
@@ -3596,12 +3590,6 @@ impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_OPTION_DATA_ELEMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_OPTION_DATA_ELEMENT").field("OptionType", &self.OptionType).field("Element", &self.Element).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT {
     type Abi = Self;
 }
@@ -3736,12 +3724,6 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_OPTION_SCOPE_INFO").field("ScopeType", &self.ScopeType).field("ScopeInfo", &self.ScopeInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO {
     type Abi = Self;
 }
@@ -3805,11 +3787,6 @@ impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO6 {}
 impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_INFO6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_OPTION_SCOPE_INFO6").field("ScopeType", &self.ScopeType).field("ScopeInfo", &self.ScopeInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6 {
@@ -4423,12 +4400,6 @@ impl ::core::clone::Clone for DHCP_PROPERTY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_PROPERTY").field("ID", &self.ID).field("Type", &self.Type).field("Value", &self.Value).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_PROPERTY {
     type Abi = Self;
 }
@@ -4724,12 +4695,6 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SEARCH_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_SEARCH_INFO").field("SearchType", &self.SearchType).field("SearchInfo", &self.SearchInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO {
     type Abi = Self;
 }
@@ -4810,12 +4775,6 @@ impl ::core::marker::Copy for DHCP_SEARCH_INFO_V6 {}
 impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SEARCH_INFO_V6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_SEARCH_INFO_V6").field("SearchType", &self.SearchType).field("SearchInfo", &self.SearchInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5345,12 +5304,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_SUBNET_ELEMENT_DATA").field("ElementType", &self.ElementType).field("Element", &self.Element).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA {
     type Abi = Self;
 }
@@ -5417,12 +5370,6 @@ impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V4 {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_DATA_V4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_SUBNET_ELEMENT_DATA_V4").field("ElementType", &self.ElementType).field("Element", &self.Element).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5495,12 +5442,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_DATA_V5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_SUBNET_ELEMENT_DATA_V5").field("ElementType", &self.ElementType).field("Element", &self.Element).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5 {
     type Abi = Self;
 }
@@ -5564,11 +5505,6 @@ impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V6 {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_DATA_V6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_SUBNET_ELEMENT_DATA_V6").field("ElementType", &self.ElementType).field("Element", &self.Element).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6 {

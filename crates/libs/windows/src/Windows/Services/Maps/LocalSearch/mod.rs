@@ -524,11 +524,6 @@ impl ::core::clone::Clone for LocalLocationFinderStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for LocalLocationFinderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocalLocationFinderStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LocalLocationFinderStatus {
     type Abi = Self;
 }
@@ -538,6 +533,11 @@ impl ::core::cmp::PartialEq for LocalLocationFinderStatus {
     }
 }
 impl ::core::cmp::Eq for LocalLocationFinderStatus {}
+impl ::core::fmt::Debug for LocalLocationFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocalLocationFinderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
 }

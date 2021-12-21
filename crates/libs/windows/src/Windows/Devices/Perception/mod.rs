@@ -4405,12 +4405,6 @@ impl ::core::clone::Clone for PerceptionFrameSourceAccessStatus {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PerceptionFrameSourceAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PerceptionFrameSourceAccessStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PerceptionFrameSourceAccessStatus {
     type Abi = Self;
 }
@@ -4422,6 +4416,12 @@ impl ::core::cmp::PartialEq for PerceptionFrameSourceAccessStatus {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFrameSourceAccessStatus {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionFrameSourceAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionFrameSourceAccessStatus").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourceAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Perception.PerceptionFrameSourceAccessStatus;i4)");
@@ -4672,12 +4672,6 @@ impl ::core::clone::Clone for PerceptionFrameSourcePropertyChangeStatus {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PerceptionFrameSourcePropertyChangeStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PerceptionFrameSourcePropertyChangeStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PerceptionFrameSourcePropertyChangeStatus {
     type Abi = Self;
 }
@@ -4689,6 +4683,12 @@ impl ::core::cmp::PartialEq for PerceptionFrameSourcePropertyChangeStatus {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFrameSourcePropertyChangeStatus {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionFrameSourcePropertyChangeStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionFrameSourcePropertyChangeStatus").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertyChangeStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeStatus;i4)");

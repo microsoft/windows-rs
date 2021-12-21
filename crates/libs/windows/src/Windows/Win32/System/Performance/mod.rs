@@ -7685,25 +7685,6 @@ impl ::core::clone::Clone for PDH_COUNTER_INFO_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PDH_COUNTER_INFO_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PDH_COUNTER_INFO_A")
-            .field("dwLength", &self.dwLength)
-            .field("dwType", &self.dwType)
-            .field("CVersion", &self.CVersion)
-            .field("CStatus", &self.CStatus)
-            .field("lScale", &self.lScale)
-            .field("lDefaultScale", &self.lDefaultScale)
-            .field("dwUserData", &self.dwUserData)
-            .field("dwQueryUserData", &self.dwQueryUserData)
-            .field("szFullPath", &self.szFullPath)
-            .field("Anonymous", &self.Anonymous)
-            .field("szExplainText", &self.szExplainText)
-            .field("DataBuffer", &self.DataBuffer)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PDH_COUNTER_INFO_A {
     type Abi = Self;
 }
@@ -7821,25 +7802,6 @@ impl ::core::marker::Copy for PDH_COUNTER_INFO_W {}
 impl ::core::clone::Clone for PDH_COUNTER_INFO_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PDH_COUNTER_INFO_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PDH_COUNTER_INFO_W")
-            .field("dwLength", &self.dwLength)
-            .field("dwType", &self.dwType)
-            .field("CVersion", &self.CVersion)
-            .field("CStatus", &self.CStatus)
-            .field("lScale", &self.lScale)
-            .field("lDefaultScale", &self.lDefaultScale)
-            .field("dwUserData", &self.dwUserData)
-            .field("dwQueryUserData", &self.dwQueryUserData)
-            .field("szFullPath", &self.szFullPath)
-            .field("Anonymous", &self.Anonymous)
-            .field("szExplainText", &self.szExplainText)
-            .field("DataBuffer", &self.DataBuffer)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8169,12 +8131,6 @@ impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PDH_FMT_COUNTERVALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PDH_FMT_COUNTERVALUE").field("CStatus", &self.CStatus).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PDH_FMT_COUNTERVALUE {
     type Abi = Self;
 }
@@ -8244,12 +8200,6 @@ impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE_ITEM_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PDH_FMT_COUNTERVALUE_ITEM_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PDH_FMT_COUNTERVALUE_ITEM_A").field("szName", &self.szName).field("FmtValue", &self.FmtValue).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PDH_FMT_COUNTERVALUE_ITEM_A {
     type Abi = Self;
 }
@@ -8280,12 +8230,6 @@ impl ::core::marker::Copy for PDH_FMT_COUNTERVALUE_ITEM_W {}
 impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE_ITEM_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PDH_FMT_COUNTERVALUE_ITEM_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PDH_FMT_COUNTERVALUE_ITEM_W").field("szName", &self.szName).field("FmtValue", &self.FmtValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8370,12 +8314,6 @@ impl ::core::marker::Copy for PDH_LOG_SERVICE_QUERY_INFO_A {}
 impl ::core::clone::Clone for PDH_LOG_SERVICE_QUERY_INFO_A {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PDH_LOG_SERVICE_QUERY_INFO_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PDH_LOG_SERVICE_QUERY_INFO_A").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwLogQuota", &self.dwLogQuota).field("szLogFileCaption", &self.szLogFileCaption).field("szDefaultDir", &self.szDefaultDir).field("szBaseFileName", &self.szBaseFileName).field("dwFileType", &self.dwFileType).field("dwReserved", &self.dwReserved).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8552,12 +8490,6 @@ impl ::core::marker::Copy for PDH_LOG_SERVICE_QUERY_INFO_W {}
 impl ::core::clone::Clone for PDH_LOG_SERVICE_QUERY_INFO_W {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PDH_LOG_SERVICE_QUERY_INFO_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PDH_LOG_SERVICE_QUERY_INFO_W").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwLogQuota", &self.dwLogQuota).field("szLogFileCaption", &self.szLogFileCaption).field("szDefaultDir", &self.szDefaultDir).field("szBaseFileName", &self.szBaseFileName).field("dwFileType", &self.dwFileType).field("dwReserved", &self.dwReserved).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9001,12 +8933,6 @@ impl ::core::marker::Copy for PDH_STATISTICS {}
 impl ::core::clone::Clone for PDH_STATISTICS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PDH_STATISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PDH_STATISTICS").field("dwFormat", &self.dwFormat).field("count", &self.count).field("min", &self.min).field("max", &self.max).field("mean", &self.mean).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

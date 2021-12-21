@@ -292,11 +292,6 @@ impl ::core::clone::Clone for DisplayMonitorConnectionKind {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayMonitorConnectionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitorConnectionKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayMonitorConnectionKind {
     type Abi = Self;
 }
@@ -306,6 +301,11 @@ impl ::core::cmp::PartialEq for DisplayMonitorConnectionKind {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitorConnectionKind {}
+impl ::core::fmt::Debug for DisplayMonitorConnectionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorConnectionKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
 }
@@ -325,11 +325,6 @@ impl ::core::clone::Clone for DisplayMonitorDescriptorKind {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayMonitorDescriptorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitorDescriptorKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayMonitorDescriptorKind {
     type Abi = Self;
 }
@@ -339,6 +334,11 @@ impl ::core::cmp::PartialEq for DisplayMonitorDescriptorKind {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitorDescriptorKind {}
+impl ::core::fmt::Debug for DisplayMonitorDescriptorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorDescriptorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
 }
@@ -364,11 +364,6 @@ impl ::core::clone::Clone for DisplayMonitorPhysicalConnectorKind {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitorPhysicalConnectorKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayMonitorPhysicalConnectorKind {
     type Abi = Self;
 }
@@ -378,6 +373,11 @@ impl ::core::cmp::PartialEq for DisplayMonitorPhysicalConnectorKind {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitorPhysicalConnectorKind {}
+impl ::core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorPhysicalConnectorKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
 }
@@ -398,11 +398,6 @@ impl ::core::clone::Clone for DisplayMonitorUsageKind {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayMonitorUsageKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitorUsageKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayMonitorUsageKind {
     type Abi = Self;
 }
@@ -412,6 +407,11 @@ impl ::core::cmp::PartialEq for DisplayMonitorUsageKind {
     }
 }
 impl ::core::cmp::Eq for DisplayMonitorUsageKind {}
+impl ::core::fmt::Debug for DisplayMonitorUsageKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayMonitorUsageKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");
 }

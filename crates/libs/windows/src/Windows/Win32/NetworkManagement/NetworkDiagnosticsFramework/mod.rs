@@ -136,12 +136,6 @@ impl ::core::clone::Clone for HELPER_ATTRIBUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HELPER_ATTRIBUTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HELPER_ATTRIBUTE").field("pwszName", &self.pwszName).field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HELPER_ATTRIBUTE {
     type Abi = Self;
 }
@@ -1169,12 +1163,6 @@ impl ::core::clone::Clone for RepairInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RepairInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RepairInfo").field("guid", &self.guid).field("pwszClassName", &self.pwszClassName).field("pwszDescription", &self.pwszDescription).field("sidType", &self.sidType).field("cost", &self.cost).field("flags", &self.flags).field("scope", &self.scope).field("risk", &self.risk).field("UiInfo", &self.UiInfo).field("rootCauseIndex", &self.rootCauseIndex).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RepairInfo {
     type Abi = Self;
 }
@@ -1205,12 +1193,6 @@ impl ::core::marker::Copy for RepairInfoEx {}
 impl ::core::clone::Clone for RepairInfoEx {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RepairInfoEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RepairInfoEx").field("repair", &self.repair).field("repairRank", &self.repairRank).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1341,12 +1323,6 @@ impl ::core::marker::Copy for UiInfo {}
 impl ::core::clone::Clone for UiInfo {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for UiInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UiInfo").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

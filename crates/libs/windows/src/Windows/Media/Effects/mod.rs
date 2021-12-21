@@ -340,11 +340,6 @@ impl ::core::clone::Clone for AudioEffectType {
         *self
     }
 }
-impl ::core::fmt::Debug for AudioEffectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEffectType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AudioEffectType {
     type Abi = Self;
 }
@@ -354,6 +349,11 @@ impl ::core::cmp::PartialEq for AudioEffectType {
     }
 }
 impl ::core::cmp::Eq for AudioEffectType {}
+impl ::core::fmt::Debug for AudioEffectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEffectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioEffectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
 }
@@ -1751,11 +1751,6 @@ impl ::core::clone::Clone for MediaEffectClosedReason {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaEffectClosedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaEffectClosedReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaEffectClosedReason {
     type Abi = Self;
 }
@@ -1765,6 +1760,11 @@ impl ::core::cmp::PartialEq for MediaEffectClosedReason {
     }
 }
 impl ::core::cmp::Eq for MediaEffectClosedReason {}
+impl ::core::fmt::Debug for MediaEffectClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaEffectClosedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
 }
@@ -1785,11 +1785,6 @@ impl ::core::clone::Clone for MediaMemoryTypes {
         *self
     }
 }
-impl ::core::fmt::Debug for MediaMemoryTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaMemoryTypes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MediaMemoryTypes {
     type Abi = Self;
 }
@@ -1799,6 +1794,11 @@ impl ::core::cmp::PartialEq for MediaMemoryTypes {
     }
 }
 impl ::core::cmp::Eq for MediaMemoryTypes {}
+impl ::core::fmt::Debug for MediaMemoryTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaMemoryTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaMemoryTypes;i4)");
 }

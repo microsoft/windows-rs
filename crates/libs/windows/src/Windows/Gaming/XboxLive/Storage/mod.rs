@@ -831,11 +831,6 @@ impl ::core::clone::Clone for GameSaveErrorStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for GameSaveErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveErrorStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameSaveErrorStatus {
     type Abi = Self;
 }
@@ -845,6 +840,11 @@ impl ::core::cmp::PartialEq for GameSaveErrorStatus {
     }
 }
 impl ::core::cmp::Eq for GameSaveErrorStatus {}
+impl ::core::fmt::Debug for GameSaveErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameSaveErrorStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameSaveErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");
 }

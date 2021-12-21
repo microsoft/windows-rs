@@ -227,11 +227,6 @@ impl ::core::clone::Clone for DeviceAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceAccessStatus {
     type Abi = Self;
 }
@@ -241,6 +236,11 @@ impl ::core::cmp::PartialEq for DeviceAccessStatus {
     }
 }
 impl ::core::cmp::Eq for DeviceAccessStatus {}
+impl ::core::fmt::Debug for DeviceAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceAccessStatus;i4)");
 }
@@ -265,11 +265,6 @@ impl ::core::clone::Clone for DeviceClass {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceClass {
     type Abi = Self;
 }
@@ -279,6 +274,11 @@ impl ::core::cmp::PartialEq for DeviceClass {
     }
 }
 impl ::core::cmp::Eq for DeviceClass {}
+impl ::core::fmt::Debug for DeviceClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceClass;i4)");
 }
@@ -1066,11 +1066,6 @@ impl ::core::clone::Clone for DeviceInformationKind {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceInformationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceInformationKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceInformationKind {
     type Abi = Self;
 }
@@ -1080,6 +1075,11 @@ impl ::core::cmp::PartialEq for DeviceInformationKind {
     }
 }
 impl ::core::cmp::Eq for DeviceInformationKind {}
+impl ::core::fmt::Debug for DeviceInformationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceInformationKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceInformationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceInformationKind;i4)");
 }
@@ -1366,11 +1366,6 @@ impl ::core::clone::Clone for DevicePairingKinds {
         *self
     }
 }
-impl ::core::fmt::Debug for DevicePairingKinds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePairingKinds").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DevicePairingKinds {
     type Abi = Self;
 }
@@ -1380,6 +1375,11 @@ impl ::core::cmp::PartialEq for DevicePairingKinds {
     }
 }
 impl ::core::cmp::Eq for DevicePairingKinds {}
+impl ::core::fmt::Debug for DevicePairingKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePairingKinds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePairingKinds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingKinds;u4)");
 }
@@ -1401,11 +1401,6 @@ impl ::core::clone::Clone for DevicePairingProtectionLevel {
         *self
     }
 }
-impl ::core::fmt::Debug for DevicePairingProtectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePairingProtectionLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DevicePairingProtectionLevel {
     type Abi = Self;
 }
@@ -1415,6 +1410,11 @@ impl ::core::cmp::PartialEq for DevicePairingProtectionLevel {
     }
 }
 impl ::core::cmp::Eq for DevicePairingProtectionLevel {}
+impl ::core::fmt::Debug for DevicePairingProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePairingProtectionLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePairingProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingProtectionLevel;i4)");
 }
@@ -1663,11 +1663,6 @@ impl ::core::clone::Clone for DevicePairingResultStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DevicePairingResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePairingResultStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DevicePairingResultStatus {
     type Abi = Self;
 }
@@ -1677,6 +1672,11 @@ impl ::core::cmp::PartialEq for DevicePairingResultStatus {
     }
 }
 impl ::core::cmp::Eq for DevicePairingResultStatus {}
+impl ::core::fmt::Debug for DevicePairingResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePairingResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePairingResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingResultStatus;i4)");
 }
@@ -2064,11 +2064,6 @@ impl ::core::clone::Clone for DevicePickerDisplayStatusOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for DevicePickerDisplayStatusOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePickerDisplayStatusOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DevicePickerDisplayStatusOptions {
     type Abi = Self;
 }
@@ -2078,6 +2073,11 @@ impl ::core::cmp::PartialEq for DevicePickerDisplayStatusOptions {
     }
 }
 impl ::core::cmp::Eq for DevicePickerDisplayStatusOptions {}
+impl ::core::fmt::Debug for DevicePickerDisplayStatusOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePickerDisplayStatusOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePickerDisplayStatusOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions;u4)");
 }
@@ -2718,11 +2718,6 @@ impl ::core::clone::Clone for DeviceUnpairingResultStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceUnpairingResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceUnpairingResultStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceUnpairingResultStatus {
     type Abi = Self;
 }
@@ -2732,6 +2727,11 @@ impl ::core::cmp::PartialEq for DeviceUnpairingResultStatus {
     }
 }
 impl ::core::cmp::Eq for DeviceUnpairingResultStatus {}
+impl ::core::fmt::Debug for DeviceUnpairingResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceUnpairingResultStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceUnpairingResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceUnpairingResultStatus;i4)");
 }
@@ -3024,11 +3024,6 @@ impl ::core::clone::Clone for DeviceWatcherEventKind {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceWatcherEventKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceWatcherEventKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceWatcherEventKind {
     type Abi = Self;
 }
@@ -3038,6 +3033,11 @@ impl ::core::cmp::PartialEq for DeviceWatcherEventKind {
     }
 }
 impl ::core::cmp::Eq for DeviceWatcherEventKind {}
+impl ::core::fmt::Debug for DeviceWatcherEventKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceWatcherEventKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceWatcherEventKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherEventKind;i4)");
 }
@@ -3061,11 +3061,6 @@ impl ::core::clone::Clone for DeviceWatcherStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceWatcherStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceWatcherStatus {
     type Abi = Self;
 }
@@ -3075,6 +3070,11 @@ impl ::core::cmp::PartialEq for DeviceWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for DeviceWatcherStatus {}
+impl ::core::fmt::Debug for DeviceWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherStatus;i4)");
 }
@@ -4071,11 +4071,6 @@ impl ::core::clone::Clone for Panel {
         *self
     }
 }
-impl ::core::fmt::Debug for Panel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Panel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Panel {
     type Abi = Self;
 }
@@ -4085,6 +4080,11 @@ impl ::core::cmp::PartialEq for Panel {
     }
 }
 impl ::core::cmp::Eq for Panel {}
+impl ::core::fmt::Debug for Panel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Panel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Panel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Panel;i4)");
 }

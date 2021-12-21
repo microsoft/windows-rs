@@ -360,11 +360,6 @@ impl ::core::clone::Clone for SecurityAppKind {
         *self
     }
 }
-impl ::core::fmt::Debug for SecurityAppKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SecurityAppKind {
     type Abi = Self;
 }
@@ -374,6 +369,11 @@ impl ::core::cmp::PartialEq for SecurityAppKind {
     }
 }
 impl ::core::cmp::Eq for SecurityAppKind {}
+impl ::core::fmt::Debug for SecurityAppKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SecurityAppKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
 }
@@ -493,11 +493,6 @@ impl ::core::clone::Clone for SecurityAppState {
         *self
     }
 }
-impl ::core::fmt::Debug for SecurityAppState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SecurityAppState {
     type Abi = Self;
 }
@@ -507,6 +502,11 @@ impl ::core::cmp::PartialEq for SecurityAppState {
     }
 }
 impl ::core::cmp::Eq for SecurityAppState {}
+impl ::core::fmt::Debug for SecurityAppState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SecurityAppState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
 }
@@ -528,11 +528,6 @@ impl ::core::clone::Clone for SecurityAppSubstatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SecurityAppSubstatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppSubstatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SecurityAppSubstatus {
     type Abi = Self;
 }
@@ -542,6 +537,11 @@ impl ::core::cmp::PartialEq for SecurityAppSubstatus {
     }
 }
 impl ::core::cmp::Eq for SecurityAppSubstatus {}
+impl ::core::fmt::Debug for SecurityAppSubstatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppSubstatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SecurityAppSubstatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
 }
@@ -562,11 +562,6 @@ impl ::core::clone::Clone for ShareWindowCommand {
         *self
     }
 }
-impl ::core::fmt::Debug for ShareWindowCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareWindowCommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ShareWindowCommand {
     type Abi = Self;
 }
@@ -576,6 +571,11 @@ impl ::core::cmp::PartialEq for ShareWindowCommand {
     }
 }
 impl ::core::cmp::Eq for ShareWindowCommand {}
+impl ::core::fmt::Debug for ShareWindowCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareWindowCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareWindowCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
 }

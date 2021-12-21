@@ -17,11 +17,6 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPLY_SNAPSHOT_VHDSET_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
 }
@@ -132,11 +127,6 @@ impl ::core::marker::Copy for ATTACH_VIRTUAL_DISK_PARAMETERS {}
 impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ATTACH_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS {
@@ -328,11 +318,6 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMPACT_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
@@ -447,12 +432,6 @@ impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_PARAMETERS {}
 impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -822,11 +801,6 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DELETE_SNAPSHOT_VHDSET_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
 }
@@ -1001,11 +975,6 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EXPAND_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
@@ -1130,12 +1099,6 @@ impl ::core::marker::Copy for FORK_VIRTUAL_DISK_PARAMETERS {}
 impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FORK_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1268,12 +1231,6 @@ impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO {}
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1642,11 +1599,6 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MERGE_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
@@ -1784,12 +1736,6 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIRROR_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
@@ -1902,12 +1848,6 @@ impl ::core::marker::Copy for MODIFY_VHDSET_PARAMETERS {}
 impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MODIFY_VHDSET_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MODIFY_VHDSET_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2097,12 +2037,6 @@ impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS {}
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2374,12 +2308,6 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RAW_SCSI_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
@@ -2487,11 +2415,6 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
         *self
     }
 }
-impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RAW_SCSI_VIRTUAL_DISK_RESPONSE").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     type Abi = Self;
 }
@@ -2587,11 +2510,6 @@ impl ::core::marker::Copy for RESIZE_VIRTUAL_DISK_PARAMETERS {}
 impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESIZE_VIRTUAL_DISK_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS {
@@ -2712,12 +2630,6 @@ impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO {}
 impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SET_VIRTUAL_DISK_INFO").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2886,12 +2798,6 @@ impl ::core::marker::Copy for STORAGE_DEPENDENCY_INFO {}
 impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STORAGE_DEPENDENCY_INFO").field("Version", &self.Version).field("NumberEntries", &self.NumberEntries).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3085,11 +2991,6 @@ impl ::core::marker::Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS {}
 impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TAKE_SNAPSHOT_VHDSET_PARAMETERS").field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS {

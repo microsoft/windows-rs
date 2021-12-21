@@ -3918,12 +3918,6 @@ impl ::core::clone::Clone for REASON_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for REASON_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REASON_CONTEXT").field("Version", &self.Version).field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REASON_CONTEXT {
     type Abi = Self;
 }
@@ -5568,11 +5562,6 @@ impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
         *self
     }
 }
-impl ::core::fmt::Debug for TP_CALLBACK_ENVIRON_V3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TP_CALLBACK_ENVIRON_V3").field("Version", &self.Version).field("Pool", &self.Pool).field("CleanupGroup", &self.CleanupGroup).field("CleanupGroupCancelCallback", &self.CleanupGroupCancelCallback).field("RaceDll", &self.RaceDll).field("ActivationContext", &self.ActivationContext).field("FinalizationCallback", &self.FinalizationCallback).field("u", &self.u).field("CallbackPriority", &self.CallbackPriority).field("Size", &self.Size).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3 {
     type Abi = Self;
 }
@@ -5898,11 +5887,6 @@ impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION {}
 impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for UMS_SYSTEM_THREAD_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UMS_SYSTEM_THREAD_INFORMATION").field("UmsVersion", &self.UmsVersion).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION {

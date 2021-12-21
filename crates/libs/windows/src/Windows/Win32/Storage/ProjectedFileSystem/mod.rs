@@ -134,11 +134,6 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS").field("CommandType", &self.CommandType).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     type Abi = Self;
 }
@@ -263,12 +258,6 @@ impl ::core::marker::Copy for PRJ_EXTENDED_INFO {}
 impl ::core::clone::Clone for PRJ_EXTENDED_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PRJ_EXTENDED_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PRJ_EXTENDED_INFO").field("InfoType", &self.InfoType).field("NextInfoOffset", &self.NextInfoOffset).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

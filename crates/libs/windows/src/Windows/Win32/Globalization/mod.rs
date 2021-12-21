@@ -9576,25 +9576,6 @@ impl ::core::clone::Clone for UCPTrie {
         *self
     }
 }
-impl ::core::fmt::Debug for UCPTrie {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UCPTrie")
-            .field("index", &self.index)
-            .field("data", &self.data)
-            .field("indexLength", &self.indexLength)
-            .field("dataLength", &self.dataLength)
-            .field("highStart", &self.highStart)
-            .field("shifted12HighStart", &self.shifted12HighStart)
-            .field("type", &self.r#type)
-            .field("valueWidth", &self.valueWidth)
-            .field("reserved32", &self.reserved32)
-            .field("reserved16", &self.reserved16)
-            .field("index3NullOffset", &self.index3NullOffset)
-            .field("dataNullOffset", &self.dataNullOffset)
-            .field("nullValue", &self.nullValue)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UCPTrie {
     type Abi = Self;
 }

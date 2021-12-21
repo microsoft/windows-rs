@@ -1924,11 +1924,6 @@ impl ::core::clone::Clone for PrintContent {
         *self
     }
 }
-impl ::core::fmt::Debug for PrintContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintContent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PrintContent {
     type Abi = Self;
 }
@@ -1938,6 +1933,11 @@ impl ::core::cmp::PartialEq for PrintContent {
     }
 }
 impl ::core::cmp::Eq for PrintContent {}
+impl ::core::fmt::Debug for PrintContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PrintContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
 }

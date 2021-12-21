@@ -15,11 +15,6 @@ impl ::core::clone::Clone for AccessCacheOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for AccessCacheOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessCacheOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AccessCacheOptions {
     type Abi = Self;
 }
@@ -29,6 +24,11 @@ impl ::core::cmp::PartialEq for AccessCacheOptions {
     }
 }
 impl ::core::cmp::Eq for AccessCacheOptions {}
+impl ::core::fmt::Debug for AccessCacheOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessCacheOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AccessCacheOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
 }
@@ -686,11 +686,6 @@ impl ::core::clone::Clone for RecentStorageItemVisibility {
         *self
     }
 }
-impl ::core::fmt::Debug for RecentStorageItemVisibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RecentStorageItemVisibility").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RecentStorageItemVisibility {
     type Abi = Self;
 }
@@ -700,6 +695,11 @@ impl ::core::cmp::PartialEq for RecentStorageItemVisibility {
     }
 }
 impl ::core::cmp::Eq for RecentStorageItemVisibility {}
+impl ::core::fmt::Debug for RecentStorageItemVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RecentStorageItemVisibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
 }

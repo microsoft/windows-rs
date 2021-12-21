@@ -822,11 +822,6 @@ impl ::core::clone::Clone for SpatialAnchorExportPurpose {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialAnchorExportPurpose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAnchorExportPurpose").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialAnchorExportPurpose {
     type Abi = Self;
 }
@@ -836,6 +831,11 @@ impl ::core::cmp::PartialEq for SpatialAnchorExportPurpose {
     }
 }
 impl ::core::cmp::Eq for SpatialAnchorExportPurpose {}
+impl ::core::fmt::Debug for SpatialAnchorExportPurpose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAnchorExportPurpose").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportPurpose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialAnchorExportPurpose;i4)");
 }
@@ -2325,11 +2325,6 @@ impl ::core::clone::Clone for SpatialEntityWatcherStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialEntityWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntityWatcherStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialEntityWatcherStatus {
     type Abi = Self;
 }
@@ -2339,6 +2334,11 @@ impl ::core::cmp::PartialEq for SpatialEntityWatcherStatus {
     }
 }
 impl ::core::cmp::Eq for SpatialEntityWatcherStatus {}
+impl ::core::fmt::Debug for SpatialEntityWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntityWatcherStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialEntityWatcherStatus;i4)");
 }
@@ -2361,11 +2361,6 @@ impl ::core::clone::Clone for SpatialLocatability {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialLocatability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLocatability").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialLocatability {
     type Abi = Self;
 }
@@ -2375,6 +2370,11 @@ impl ::core::cmp::PartialEq for SpatialLocatability {
     }
 }
 impl ::core::cmp::Eq for SpatialLocatability {}
+impl ::core::fmt::Debug for SpatialLocatability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLocatability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialLocatability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLocatability;i4)");
 }
@@ -2951,11 +2951,6 @@ impl ::core::clone::Clone for SpatialLookDirectionRange {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialLookDirectionRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLookDirectionRange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialLookDirectionRange {
     type Abi = Self;
 }
@@ -2965,6 +2960,11 @@ impl ::core::cmp::PartialEq for SpatialLookDirectionRange {
     }
 }
 impl ::core::cmp::Eq for SpatialLookDirectionRange {}
+impl ::core::fmt::Debug for SpatialLookDirectionRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLookDirectionRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialLookDirectionRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLookDirectionRange;i4)");
 }
@@ -2984,11 +2984,6 @@ impl ::core::clone::Clone for SpatialMovementRange {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialMovementRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialMovementRange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialMovementRange {
     type Abi = Self;
 }
@@ -2998,6 +2993,11 @@ impl ::core::cmp::PartialEq for SpatialMovementRange {
     }
 }
 impl ::core::cmp::Eq for SpatialMovementRange {}
+impl ::core::fmt::Debug for SpatialMovementRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialMovementRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialMovementRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialMovementRange;i4)");
 }
@@ -3019,11 +3019,6 @@ impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialPerceptionAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialPerceptionAccessStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialPerceptionAccessStatus {
     type Abi = Self;
 }
@@ -3033,6 +3028,11 @@ impl ::core::cmp::PartialEq for SpatialPerceptionAccessStatus {
     }
 }
 impl ::core::cmp::Eq for SpatialPerceptionAccessStatus {}
+impl ::core::fmt::Debug for SpatialPerceptionAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialPerceptionAccessStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialPerceptionAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialPerceptionAccessStatus;i4)");
 }

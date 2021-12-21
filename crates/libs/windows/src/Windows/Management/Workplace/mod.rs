@@ -122,11 +122,6 @@ impl ::core::clone::Clone for MessagingSyncPolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for MessagingSyncPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessagingSyncPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MessagingSyncPolicy {
     type Abi = Self;
 }
@@ -136,6 +131,11 @@ impl ::core::cmp::PartialEq for MessagingSyncPolicy {
     }
 }
 impl ::core::cmp::Eq for MessagingSyncPolicy {}
+impl ::core::fmt::Debug for MessagingSyncPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessagingSyncPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessagingSyncPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Workplace.MessagingSyncPolicy;i4)");
 }

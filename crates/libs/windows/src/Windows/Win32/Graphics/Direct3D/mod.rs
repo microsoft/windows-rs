@@ -14,11 +14,6 @@ impl ::core::clone::Clone for D3DMATRIX {
         *self
     }
 }
-impl ::core::fmt::Debug for D3DMATRIX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DMATRIX").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D3DMATRIX {
     type Abi = Self;
 }

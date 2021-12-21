@@ -452,11 +452,6 @@ impl ::core::clone::Clone for PwmPulsePolarity {
         *self
     }
 }
-impl ::core::fmt::Debug for PwmPulsePolarity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PwmPulsePolarity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PwmPulsePolarity {
     type Abi = Self;
 }
@@ -466,6 +461,11 @@ impl ::core::cmp::PartialEq for PwmPulsePolarity {
     }
 }
 impl ::core::cmp::Eq for PwmPulsePolarity {}
+impl ::core::fmt::Debug for PwmPulsePolarity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PwmPulsePolarity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PwmPulsePolarity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Pwm.PwmPulsePolarity;i4)");
 }

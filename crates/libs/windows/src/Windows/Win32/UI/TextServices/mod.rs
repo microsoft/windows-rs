@@ -13973,11 +13973,6 @@ impl ::core::clone::Clone for TF_DA_COLOR {
         *self
     }
 }
-impl ::core::fmt::Debug for TF_DA_COLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_DA_COLOR").field("type", &self.r#type).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TF_DA_COLOR {
     type Abi = Self;
 }
@@ -14067,12 +14062,6 @@ impl ::core::marker::Copy for TF_DISPLAYATTRIBUTE {}
 impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_DISPLAYATTRIBUTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_DISPLAYATTRIBUTE").field("crText", &self.crText).field("crBk", &self.crBk).field("lsStyle", &self.lsStyle).field("fBoldLine", &self.fBoldLine).field("crLine", &self.crLine).field("bAttr", &self.bAttr).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14430,12 +14419,6 @@ impl ::core::clone::Clone for TF_LMLATTELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_LMLATTELEMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_LMLATTELEMENT").field("dwFrameStart", &self.dwFrameStart).field("dwFrameLen", &self.dwFrameLen).field("dwFlags", &self.dwFlags).field("Anonymous", &self.Anonymous).field("bstrText", &self.bstrText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -14606,12 +14589,6 @@ pub struct TF_PROPERTYVAL {
 impl ::core::clone::Clone for TF_PROPERTYVAL {
     fn clone(&self) -> Self {
         Self { guidId: self.guidId, varValue: self.varValue.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for TF_PROPERTYVAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_PROPERTYVAL").field("guidId", &self.guidId).field("varValue", &self.varValue).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14984,12 +14961,6 @@ pub struct TS_ATTRVAL {
 impl ::core::clone::Clone for TS_ATTRVAL {
     fn clone(&self) -> Self {
         Self { idAttr: self.idAttr, dwOverlapId: self.dwOverlapId, varValue: self.varValue.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for TS_ATTRVAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_ATTRVAL").field("idAttr", &self.idAttr).field("dwOverlapId", &self.dwOverlapId).field("varValue", &self.varValue).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

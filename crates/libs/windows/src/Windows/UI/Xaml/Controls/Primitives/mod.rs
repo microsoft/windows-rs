@@ -14,11 +14,6 @@ impl ::core::clone::Clone for AnimationDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
 }
@@ -28,6 +23,11 @@ impl ::core::cmp::PartialEq for AnimationDirection {
     }
 }
 impl ::core::cmp::Eq for AnimationDirection {}
+impl ::core::fmt::Debug for AnimationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.AnimationDirection;i4)");
 }
@@ -3258,11 +3258,6 @@ impl ::core::clone::Clone for ComponentResourceLocation {
         *self
     }
 }
-impl ::core::fmt::Debug for ComponentResourceLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ComponentResourceLocation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ComponentResourceLocation {
     type Abi = Self;
 }
@@ -3272,6 +3267,11 @@ impl ::core::cmp::PartialEq for ComponentResourceLocation {
     }
 }
 impl ::core::cmp::Eq for ComponentResourceLocation {}
+impl ::core::fmt::Debug for ComponentResourceLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComponentResourceLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ComponentResourceLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation;i4)");
 }
@@ -3889,11 +3889,6 @@ impl ::core::clone::Clone for EdgeTransitionLocation {
         *self
     }
 }
-impl ::core::fmt::Debug for EdgeTransitionLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EdgeTransitionLocation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EdgeTransitionLocation {
     type Abi = Self;
 }
@@ -3903,6 +3898,11 @@ impl ::core::cmp::PartialEq for EdgeTransitionLocation {
     }
 }
 impl ::core::cmp::Eq for EdgeTransitionLocation {}
+impl ::core::fmt::Debug for EdgeTransitionLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeTransitionLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EdgeTransitionLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation;i4)");
 }
@@ -4487,11 +4487,6 @@ impl ::core::clone::Clone for FlyoutPlacementMode {
         *self
     }
 }
-impl ::core::fmt::Debug for FlyoutPlacementMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FlyoutPlacementMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FlyoutPlacementMode {
     type Abi = Self;
 }
@@ -4501,6 +4496,11 @@ impl ::core::cmp::PartialEq for FlyoutPlacementMode {
     }
 }
 impl ::core::cmp::Eq for FlyoutPlacementMode {}
+impl ::core::fmt::Debug for FlyoutPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutPlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlyoutPlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode;i4)");
 }
@@ -4522,11 +4522,6 @@ impl ::core::clone::Clone for FlyoutShowMode {
         *self
     }
 }
-impl ::core::fmt::Debug for FlyoutShowMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FlyoutShowMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FlyoutShowMode {
     type Abi = Self;
 }
@@ -4536,6 +4531,11 @@ impl ::core::cmp::PartialEq for FlyoutShowMode {
     }
 }
 impl ::core::cmp::Eq for FlyoutShowMode {}
+impl ::core::fmt::Debug for FlyoutShowMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlyoutShowMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlyoutShowMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode;i4)");
 }
@@ -4696,11 +4696,6 @@ impl ::core::clone::Clone for GeneratorDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for GeneratorDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeneratorDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GeneratorDirection {
     type Abi = Self;
 }
@@ -4710,6 +4705,11 @@ impl ::core::cmp::PartialEq for GeneratorDirection {
     }
 }
 impl ::core::cmp::Eq for GeneratorDirection {}
+impl ::core::fmt::Debug for GeneratorDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeneratorDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeneratorDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.GeneratorDirection;i4)");
 }
@@ -5647,11 +5647,6 @@ impl ::core::clone::Clone for GroupHeaderPlacement {
         *self
     }
 }
-impl ::core::fmt::Debug for GroupHeaderPlacement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GroupHeaderPlacement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GroupHeaderPlacement {
     type Abi = Self;
 }
@@ -5661,6 +5656,11 @@ impl ::core::cmp::PartialEq for GroupHeaderPlacement {
     }
 }
 impl ::core::cmp::Eq for GroupHeaderPlacement {}
+impl ::core::fmt::Debug for GroupHeaderPlacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GroupHeaderPlacement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GroupHeaderPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.GroupHeaderPlacement;i4)");
 }
@@ -11154,11 +11154,6 @@ impl ::core::clone::Clone for ListViewItemPresenterCheckMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ListViewItemPresenterCheckMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ListViewItemPresenterCheckMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ListViewItemPresenterCheckMode {
     type Abi = Self;
 }
@@ -11168,6 +11163,11 @@ impl ::core::cmp::PartialEq for ListViewItemPresenterCheckMode {
     }
 }
 impl ::core::cmp::Eq for ListViewItemPresenterCheckMode {}
+impl ::core::fmt::Debug for ListViewItemPresenterCheckMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemPresenterCheckMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewItemPresenterCheckMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenterCheckMode;i4)");
 }
@@ -11187,11 +11187,6 @@ impl ::core::clone::Clone for ListViewItemPresenterSelectionIndicatorMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ListViewItemPresenterSelectionIndicatorMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ListViewItemPresenterSelectionIndicatorMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ListViewItemPresenterSelectionIndicatorMode {
     type Abi = Self;
 }
@@ -11201,6 +11196,11 @@ impl ::core::cmp::PartialEq for ListViewItemPresenterSelectionIndicatorMode {
     }
 }
 impl ::core::cmp::Eq for ListViewItemPresenterSelectionIndicatorMode {}
+impl ::core::fmt::Debug for ListViewItemPresenterSelectionIndicatorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ListViewItemPresenterSelectionIndicatorMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ListViewItemPresenterSelectionIndicatorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenterSelectionIndicatorMode;i4)");
 }
@@ -14095,11 +14095,6 @@ impl ::core::clone::Clone for PlacementMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PlacementMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlacementMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PlacementMode {
     type Abi = Self;
 }
@@ -14109,6 +14104,11 @@ impl ::core::cmp::PartialEq for PlacementMode {
     }
 }
 impl ::core::cmp::Eq for PlacementMode {}
+impl ::core::fmt::Debug for PlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.PlacementMode;i4)");
 }
@@ -14614,11 +14614,6 @@ impl ::core::clone::Clone for PopupPlacementMode {
         *self
     }
 }
-impl ::core::fmt::Debug for PopupPlacementMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PopupPlacementMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PopupPlacementMode {
     type Abi = Self;
 }
@@ -14628,6 +14623,11 @@ impl ::core::cmp::PartialEq for PopupPlacementMode {
     }
 }
 impl ::core::cmp::Eq for PopupPlacementMode {}
+impl ::core::fmt::Debug for PopupPlacementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PopupPlacementMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PopupPlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.PopupPlacementMode;i4)");
 }
@@ -16229,11 +16229,6 @@ impl ::core::clone::Clone for ScrollEventType {
         *self
     }
 }
-impl ::core::fmt::Debug for ScrollEventType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScrollEventType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ScrollEventType {
     type Abi = Self;
 }
@@ -16243,6 +16238,11 @@ impl ::core::cmp::PartialEq for ScrollEventType {
     }
 }
 impl ::core::cmp::Eq for ScrollEventType {}
+impl ::core::fmt::Debug for ScrollEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollEventType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollEventType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ScrollEventType;i4)");
 }
@@ -16263,11 +16263,6 @@ impl ::core::clone::Clone for ScrollingIndicatorMode {
         *self
     }
 }
-impl ::core::fmt::Debug for ScrollingIndicatorMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScrollingIndicatorMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ScrollingIndicatorMode {
     type Abi = Self;
 }
@@ -16277,6 +16272,11 @@ impl ::core::cmp::PartialEq for ScrollingIndicatorMode {
     }
 }
 impl ::core::cmp::Eq for ScrollingIndicatorMode {}
+impl ::core::fmt::Debug for ScrollingIndicatorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollingIndicatorMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScrollingIndicatorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ScrollingIndicatorMode;i4)");
 }
@@ -17068,11 +17068,6 @@ impl ::core::clone::Clone for SliderSnapsTo {
         *self
     }
 }
-impl ::core::fmt::Debug for SliderSnapsTo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SliderSnapsTo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SliderSnapsTo {
     type Abi = Self;
 }
@@ -17082,6 +17077,11 @@ impl ::core::cmp::PartialEq for SliderSnapsTo {
     }
 }
 impl ::core::cmp::Eq for SliderSnapsTo {}
+impl ::core::fmt::Debug for SliderSnapsTo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SliderSnapsTo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SliderSnapsTo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.SliderSnapsTo;i4)");
 }
@@ -17102,11 +17102,6 @@ impl ::core::clone::Clone for SnapPointsAlignment {
         *self
     }
 }
-impl ::core::fmt::Debug for SnapPointsAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SnapPointsAlignment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SnapPointsAlignment {
     type Abi = Self;
 }
@@ -17116,6 +17111,11 @@ impl ::core::cmp::PartialEq for SnapPointsAlignment {
     }
 }
 impl ::core::cmp::Eq for SnapPointsAlignment {}
+impl ::core::fmt::Debug for SnapPointsAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SnapPointsAlignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SnapPointsAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.SnapPointsAlignment;i4)");
 }
@@ -17780,11 +17780,6 @@ impl ::core::clone::Clone for TickPlacement {
         *self
     }
 }
-impl ::core::fmt::Debug for TickPlacement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TickPlacement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TickPlacement {
     type Abi = Self;
 }
@@ -17794,6 +17789,11 @@ impl ::core::cmp::PartialEq for TickPlacement {
     }
 }
 impl ::core::cmp::Eq for TickPlacement {}
+impl ::core::fmt::Debug for TickPlacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TickPlacement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TickPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.TickPlacement;i4)");
 }

@@ -20,11 +20,6 @@ impl ::core::clone::Clone for Direct3DBindings {
         *self
     }
 }
-impl ::core::fmt::Debug for Direct3DBindings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Direct3DBindings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Direct3DBindings {
     type Abi = Self;
 }
@@ -34,6 +29,11 @@ impl ::core::cmp::PartialEq for Direct3DBindings {
     }
 }
 impl ::core::cmp::Eq for Direct3DBindings {}
+impl ::core::fmt::Debug for Direct3DBindings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direct3DBindings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Direct3DBindings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
 }
@@ -131,11 +131,6 @@ impl ::core::clone::Clone for Direct3DUsage {
         *self
     }
 }
-impl ::core::fmt::Debug for Direct3DUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Direct3DUsage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Direct3DUsage {
     type Abi = Self;
 }
@@ -145,6 +140,11 @@ impl ::core::cmp::PartialEq for Direct3DUsage {
     }
 }
 impl ::core::cmp::Eq for Direct3DUsage {}
+impl ::core::fmt::Debug for Direct3DUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direct3DUsage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Direct3DUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
 }

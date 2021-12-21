@@ -19,11 +19,6 @@ impl ::core::clone::Clone for BinaryStringEncoding {
         *self
     }
 }
-impl ::core::fmt::Debug for BinaryStringEncoding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BinaryStringEncoding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BinaryStringEncoding {
     type Abi = Self;
 }
@@ -33,6 +28,11 @@ impl ::core::cmp::PartialEq for BinaryStringEncoding {
     }
 }
 impl ::core::cmp::Eq for BinaryStringEncoding {}
+impl ::core::fmt::Debug for BinaryStringEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BinaryStringEncoding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BinaryStringEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");
 }

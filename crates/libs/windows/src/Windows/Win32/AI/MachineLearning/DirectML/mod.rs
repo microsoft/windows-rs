@@ -3786,11 +3786,6 @@ impl ::core::clone::Clone for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
         *self
     }
 }
-impl ::core::fmt::Debug for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DML_FILL_VALUE_CONSTANT_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("ValueDataType", &self.ValueDataType).field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -3817,11 +3812,6 @@ impl ::core::marker::Copy for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("ValueDataType", &self.ValueDataType).field("ValueStart", &self.ValueStart).field("ValueDelta", &self.ValueDelta).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {

@@ -977,11 +977,6 @@ impl ::core::clone::Clone for ManeuverWarningKind {
         *self
     }
 }
-impl ::core::fmt::Debug for ManeuverWarningKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ManeuverWarningKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ManeuverWarningKind {
     type Abi = Self;
 }
@@ -991,6 +986,11 @@ impl ::core::cmp::PartialEq for ManeuverWarningKind {
     }
 }
 impl ::core::cmp::Eq for ManeuverWarningKind {}
+impl ::core::fmt::Debug for ManeuverWarningKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManeuverWarningKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManeuverWarningKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
 }
@@ -1013,11 +1013,6 @@ impl ::core::clone::Clone for ManeuverWarningSeverity {
         *self
     }
 }
-impl ::core::fmt::Debug for ManeuverWarningSeverity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ManeuverWarningSeverity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ManeuverWarningSeverity {
     type Abi = Self;
 }
@@ -1027,6 +1022,11 @@ impl ::core::cmp::PartialEq for ManeuverWarningSeverity {
     }
 }
 impl ::core::cmp::Eq for ManeuverWarningSeverity {}
+impl ::core::fmt::Debug for ManeuverWarningSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManeuverWarningSeverity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManeuverWarningSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
 }
@@ -1353,11 +1353,6 @@ impl ::core::clone::Clone for MapLocationDesiredAccuracy {
         *self
     }
 }
-impl ::core::fmt::Debug for MapLocationDesiredAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapLocationDesiredAccuracy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapLocationDesiredAccuracy {
     type Abi = Self;
 }
@@ -1367,6 +1362,11 @@ impl ::core::cmp::PartialEq for MapLocationDesiredAccuracy {
     }
 }
 impl ::core::cmp::Eq for MapLocationDesiredAccuracy {}
+impl ::core::fmt::Debug for MapLocationDesiredAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLocationDesiredAccuracy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapLocationDesiredAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
 }
@@ -1530,11 +1530,6 @@ impl ::core::clone::Clone for MapLocationFinderStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MapLocationFinderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapLocationFinderStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapLocationFinderStatus {
     type Abi = Self;
 }
@@ -1544,6 +1539,11 @@ impl ::core::cmp::PartialEq for MapLocationFinderStatus {
     }
 }
 impl ::core::cmp::Eq for MapLocationFinderStatus {}
+impl ::core::fmt::Debug for MapLocationFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLocationFinderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapLocationFinderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
 }
@@ -1584,11 +1584,6 @@ impl ::core::clone::Clone for MapManeuverNotices {
         *self
     }
 }
-impl ::core::fmt::Debug for MapManeuverNotices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapManeuverNotices {
     type Abi = Self;
 }
@@ -1598,6 +1593,11 @@ impl ::core::cmp::PartialEq for MapManeuverNotices {
     }
 }
 impl ::core::cmp::Eq for MapManeuverNotices {}
+impl ::core::fmt::Debug for MapManeuverNotices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapManeuverNotices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
 }
@@ -2164,11 +2164,6 @@ impl ::core::clone::Clone for MapRouteFinderStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for MapRouteFinderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapRouteFinderStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapRouteFinderStatus {
     type Abi = Self;
 }
@@ -2178,6 +2173,11 @@ impl ::core::cmp::PartialEq for MapRouteFinderStatus {
     }
 }
 impl ::core::cmp::Eq for MapRouteFinderStatus {}
+impl ::core::fmt::Debug for MapRouteFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteFinderStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteFinderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
 }
@@ -2509,11 +2509,6 @@ impl ::core::clone::Clone for MapRouteManeuverKind {
         *self
     }
 }
-impl ::core::fmt::Debug for MapRouteManeuverKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapRouteManeuverKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapRouteManeuverKind {
     type Abi = Self;
 }
@@ -2523,6 +2518,11 @@ impl ::core::cmp::PartialEq for MapRouteManeuverKind {
     }
 }
 impl ::core::cmp::Eq for MapRouteManeuverKind {}
+impl ::core::fmt::Debug for MapRouteManeuverKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteManeuverKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteManeuverKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
 }
@@ -2544,11 +2544,6 @@ impl ::core::clone::Clone for MapRouteOptimization {
         *self
     }
 }
-impl ::core::fmt::Debug for MapRouteOptimization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapRouteOptimization").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapRouteOptimization {
     type Abi = Self;
 }
@@ -2558,6 +2553,11 @@ impl ::core::cmp::PartialEq for MapRouteOptimization {
     }
 }
 impl ::core::cmp::Eq for MapRouteOptimization {}
+impl ::core::fmt::Debug for MapRouteOptimization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteOptimization").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteOptimization {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
 }
@@ -2582,11 +2582,6 @@ impl ::core::clone::Clone for MapRouteRestrictions {
         *self
     }
 }
-impl ::core::fmt::Debug for MapRouteRestrictions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapRouteRestrictions {
     type Abi = Self;
 }
@@ -2596,6 +2591,11 @@ impl ::core::cmp::PartialEq for MapRouteRestrictions {
     }
 }
 impl ::core::cmp::Eq for MapRouteRestrictions {}
+impl ::core::fmt::Debug for MapRouteRestrictions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteRestrictions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
 }
@@ -2678,11 +2678,6 @@ impl ::core::clone::Clone for MapServiceDataUsagePreference {
         *self
     }
 }
-impl ::core::fmt::Debug for MapServiceDataUsagePreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapServiceDataUsagePreference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapServiceDataUsagePreference {
     type Abi = Self;
 }
@@ -2692,6 +2687,11 @@ impl ::core::cmp::PartialEq for MapServiceDataUsagePreference {
     }
 }
 impl ::core::cmp::Eq for MapServiceDataUsagePreference {}
+impl ::core::fmt::Debug for MapServiceDataUsagePreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapServiceDataUsagePreference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapServiceDataUsagePreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
 }
@@ -3007,11 +3007,6 @@ impl ::core::clone::Clone for TrafficCongestion {
         *self
     }
 }
-impl ::core::fmt::Debug for TrafficCongestion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TrafficCongestion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TrafficCongestion {
     type Abi = Self;
 }
@@ -3021,6 +3016,11 @@ impl ::core::cmp::PartialEq for TrafficCongestion {
     }
 }
 impl ::core::cmp::Eq for TrafficCongestion {}
+impl ::core::fmt::Debug for TrafficCongestion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TrafficCongestion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TrafficCongestion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.TrafficCongestion;i4)");
 }
@@ -3040,11 +3040,6 @@ impl ::core::clone::Clone for WaypointKind {
         *self
     }
 }
-impl ::core::fmt::Debug for WaypointKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WaypointKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WaypointKind {
     type Abi = Self;
 }
@@ -3054,6 +3049,11 @@ impl ::core::cmp::PartialEq for WaypointKind {
     }
 }
 impl ::core::cmp::Eq for WaypointKind {}
+impl ::core::fmt::Debug for WaypointKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WaypointKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WaypointKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.WaypointKind;i4)");
 }

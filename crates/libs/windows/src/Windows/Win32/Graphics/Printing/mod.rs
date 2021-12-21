@@ -711,12 +711,6 @@ impl ::core::clone::Clone for BIDI_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BIDI_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIDI_DATA").field("dwBidiType", &self.dwBidiType).field("u", &self.u).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BIDI_DATA {
     type Abi = Self;
 }
@@ -788,12 +782,6 @@ impl ::core::clone::Clone for BIDI_REQUEST_CONTAINER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BIDI_REQUEST_CONTAINER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIDI_REQUEST_CONTAINER").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("aData", &self.aData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BIDI_REQUEST_CONTAINER {
     type Abi = Self;
 }
@@ -825,12 +813,6 @@ impl ::core::marker::Copy for BIDI_REQUEST_DATA {}
 impl ::core::clone::Clone for BIDI_REQUEST_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BIDI_REQUEST_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIDI_REQUEST_DATA").field("dwReqNumber", &self.dwReqNumber).field("pSchema", &self.pSchema).field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -869,12 +851,6 @@ impl ::core::clone::Clone for BIDI_RESPONSE_CONTAINER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BIDI_RESPONSE_CONTAINER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIDI_RESPONSE_CONTAINER").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("aData", &self.aData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BIDI_RESPONSE_CONTAINER {
     type Abi = Self;
 }
@@ -907,12 +883,6 @@ impl ::core::marker::Copy for BIDI_RESPONSE_DATA {}
 impl ::core::clone::Clone for BIDI_RESPONSE_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BIDI_RESPONSE_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIDI_RESPONSE_DATA").field("dwResult", &self.dwResult).field("dwReqNumber", &self.dwReqNumber).field("pSchema", &self.pSchema).field("data", &self.data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1010,12 +980,6 @@ impl ::core::clone::Clone for BranchOfficeJobData {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BranchOfficeJobData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BranchOfficeJobData").field("eEventType", &self.eEventType).field("JobId", &self.JobId).field("JobInfo", &self.JobInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for BranchOfficeJobData {
     type Abi = Self;
 }
@@ -1082,12 +1046,6 @@ impl ::core::marker::Copy for BranchOfficeJobDataContainer {}
 impl ::core::clone::Clone for BranchOfficeJobDataContainer {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BranchOfficeJobDataContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BranchOfficeJobDataContainer").field("cJobDataEntries", &self.cJobDataEntries).field("JobData", &self.JobData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1669,12 +1627,6 @@ impl ::core::marker::Copy for CPSUICBPARAM {}
 impl ::core::clone::Clone for CPSUICBPARAM {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for CPSUICBPARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CPSUICBPARAM").field("cbSize", &self.cbSize).field("Reason", &self.Reason).field("hDlg", &self.hDlg).field("pOptItem", &self.pOptItem).field("cOptItem", &self.cOptItem).field("Flags", &self.Flags).field("pCurItem", &self.pCurItem).field("Anonymous", &self.Anonymous).field("UserData", &self.UserData).field("Result", &self.Result).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2594,12 +2546,6 @@ impl ::core::marker::Copy for DLGPAGE {}
 impl ::core::clone::Clone for DLGPAGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for DLGPAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DLGPAGE").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("DlgProc", &self.DlgProc).field("pTabName", &self.pTabName).field("IconID", &self.IconID).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4881,12 +4827,6 @@ impl ::core::marker::Copy for EXTPUSH {}
 impl ::core::clone::Clone for EXTPUSH {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for EXTPUSH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EXTPUSH").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("pTitle", &self.pTitle).field("Anonymous1", &self.Anonymous1).field("IconID", &self.IconID).field("Anonymous2", &self.Anonymous2).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -18635,11 +18575,6 @@ impl ::core::clone::Clone for MAPTABLE {
         *self
     }
 }
-impl ::core::fmt::Debug for MAPTABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MAPTABLE").field("dwSize", &self.dwSize).field("dwGlyphNum", &self.dwGlyphNum).field("Trans", &self.Trans).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MAPTABLE {
     type Abi = Self;
 }
@@ -20125,28 +20060,6 @@ impl ::core::marker::Copy for OPTITEM {}
 impl ::core::clone::Clone for OPTITEM {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for OPTITEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPTITEM")
-            .field("cbSize", &self.cbSize)
-            .field("Level", &self.Level)
-            .field("DlgPageIdx", &self.DlgPageIdx)
-            .field("Flags", &self.Flags)
-            .field("UserData", &self.UserData)
-            .field("pName", &self.pName)
-            .field("Anonymous1", &self.Anonymous1)
-            .field("Anonymous2", &self.Anonymous2)
-            .field("pOptType", &self.pOptType)
-            .field("HelpIndex", &self.HelpIndex)
-            .field("DMPubID", &self.DMPubID)
-            .field("UserItemID", &self.UserItemID)
-            .field("wReserved", &self.wReserved)
-            .field("pOIExt", &self.pOIExt)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -22205,11 +22118,6 @@ impl ::core::clone::Clone for PRINTER_NOTIFY_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for PRINTER_NOTIFY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PRINTER_NOTIFY_INFO").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("aData", &self.aData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO {
     type Abi = Self;
 }
@@ -22237,11 +22145,6 @@ impl ::core::marker::Copy for PRINTER_NOTIFY_INFO_DATA {}
 impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PRINTER_NOTIFY_INFO_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PRINTER_NOTIFY_INFO_DATA").field("Type", &self.Type).field("Field", &self.Field).field("Reserved", &self.Reserved).field("Id", &self.Id).field("NotifyData", &self.NotifyData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO_DATA {
@@ -23348,12 +23251,6 @@ impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for PROPSHEETUI_INFO_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPSHEETUI_INFO_HEADER").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("pTitle", &self.pTitle).field("hWndParent", &self.hWndParent).field("hInst", &self.hInst).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for PROPSHEETUI_INFO_HEADER {
     type Abi = Self;
 }
@@ -23863,12 +23760,6 @@ impl ::core::clone::Clone for PrintNamedProperty {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PrintNamedProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PrintNamedProperty").field("propertyName", &self.propertyName).field("propertyValue", &self.propertyValue).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PrintNamedProperty {
     type Abi = Self;
 }
@@ -23938,12 +23829,6 @@ impl ::core::marker::Copy for PrintPropertyValue {}
 impl ::core::clone::Clone for PrintPropertyValue {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PrintPropertyValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PrintPropertyValue").field("ePropertyType", &self.ePropertyType).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -25071,11 +24956,6 @@ impl ::core::marker::Copy for TRANSDATA {}
 impl ::core::clone::Clone for TRANSDATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for TRANSDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TRANSDATA").field("ubCodePageID", &self.ubCodePageID).field("ubType", &self.ubType).field("uCode", &self.uCode).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TRANSDATA {

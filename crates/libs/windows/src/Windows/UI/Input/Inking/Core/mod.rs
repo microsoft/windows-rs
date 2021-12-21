@@ -458,11 +458,6 @@ impl ::core::clone::Clone for CoreWetStrokeDisposition {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreWetStrokeDisposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreWetStrokeDisposition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreWetStrokeDisposition {
     type Abi = Self;
 }
@@ -472,6 +467,11 @@ impl ::core::cmp::PartialEq for CoreWetStrokeDisposition {
     }
 }
 impl ::core::cmp::Eq for CoreWetStrokeDisposition {}
+impl ::core::fmt::Debug for CoreWetStrokeDisposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWetStrokeDisposition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreWetStrokeDisposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition;i4)");
 }

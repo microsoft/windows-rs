@@ -1170,12 +1170,6 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEM_EXTENDED_PARAMETER").field("Anonymous1", &self.Anonymous1).field("Anonymous2", &self.Anonymous2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER {
     type Abi = Self;
 }
@@ -1611,12 +1605,6 @@ impl ::core::marker::Copy for PROCESS_HEAP_ENTRY {}
 impl ::core::clone::Clone for PROCESS_HEAP_ENTRY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_HEAP_ENTRY").field("lpData", &self.lpData).field("cbData", &self.cbData).field("cbOverhead", &self.cbOverhead).field("iRegionIndex", &self.iRegionIndex).field("wFlags", &self.wFlags).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2434,11 +2422,6 @@ impl ::core::marker::Copy for WIN32_MEMORY_REGION_INFORMATION {}
 impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WIN32_MEMORY_REGION_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIN32_MEMORY_REGION_INFORMATION").field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("Anonymous", &self.Anonymous).field("RegionSize", &self.RegionSize).field("CommitSize", &self.CommitSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_REGION_INFORMATION {

@@ -2073,11 +2073,6 @@ impl ::core::clone::Clone for RADIUS_ATTRIBUTE {
         *self
     }
 }
-impl ::core::fmt::Debug for RADIUS_ATTRIBUTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RADIUS_ATTRIBUTE").field("dwAttrType", &self.dwAttrType).field("fDataType", &self.fDataType).field("cbDataLength", &self.cbDataLength).field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RADIUS_ATTRIBUTE {
     type Abi = Self;
 }

@@ -14,11 +14,6 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundReason {
         *self
     }
 }
-impl ::core::fmt::Debug for ExtendedExecutionForegroundReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionForegroundReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundReason {
     type Abi = Self;
 }
@@ -28,6 +23,11 @@ impl ::core::cmp::PartialEq for ExtendedExecutionForegroundReason {
     }
 }
 impl ::core::cmp::Eq for ExtendedExecutionForegroundReason {}
+impl ::core::fmt::Debug for ExtendedExecutionForegroundReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionForegroundReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
 }
@@ -47,11 +47,6 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundResult {
         *self
     }
 }
-impl ::core::fmt::Debug for ExtendedExecutionForegroundResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionForegroundResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundResult {
     type Abi = Self;
 }
@@ -61,6 +56,11 @@ impl ::core::cmp::PartialEq for ExtendedExecutionForegroundResult {
     }
 }
 impl ::core::cmp::Eq for ExtendedExecutionForegroundResult {}
+impl ::core::fmt::Debug for ExtendedExecutionForegroundResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionForegroundResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
 }
@@ -161,11 +161,6 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedReason {
         *self
     }
 }
-impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionForegroundRevokedReason").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundRevokedReason {
     type Abi = Self;
 }
@@ -175,6 +170,11 @@ impl ::core::cmp::PartialEq for ExtendedExecutionForegroundRevokedReason {
     }
 }
 impl ::core::cmp::Eq for ExtendedExecutionForegroundRevokedReason {}
+impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionForegroundRevokedReason").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason;i4)");
 }

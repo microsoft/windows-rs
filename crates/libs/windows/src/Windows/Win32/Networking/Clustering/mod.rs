@@ -657,12 +657,6 @@ impl ::core::clone::Clone for CLRES_FUNCTION_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::fmt::Debug for CLRES_FUNCTION_TABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLRES_FUNCTION_TABLE").field("TableSize", &self.TableSize).field("Version", &self.Version).field("Anonymous", &self.Anonymous).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_FUNCTION_TABLE {
     type Abi = Self;
 }
@@ -1917,11 +1911,6 @@ impl ::core::clone::Clone for CLUSPROP_BINARY {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_BINARY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_BINARY").field("__AnonymousBase_clusapi_L5129_C41", &self.__AnonymousBase_clusapi_L5129_C41).field("rgb", &self.rgb).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_BINARY {
     type Abi = Self;
 }
@@ -2007,11 +1996,6 @@ impl ::core::clone::Clone for CLUSPROP_DWORD {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_DWORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_DWORD").field("__AnonymousBase_clusapi_L5149_C40", &self.__AnonymousBase_clusapi_L5149_C40).field("dw", &self.dw).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_DWORD {
     type Abi = Self;
 }
@@ -2042,12 +2026,6 @@ impl ::core::clone::Clone for CLUSPROP_FILETIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CLUSPROP_FILETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_FILETIME").field("__AnonymousBase_clusapi_L5225_C14", &self.__AnonymousBase_clusapi_L5225_C14).field("ft", &self.ft).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLUSPROP_FILETIME {
     type Abi = Self;
 }
@@ -2075,11 +2053,6 @@ impl ::core::marker::Copy for CLUSPROP_FTSET_INFO {}
 impl ::core::clone::Clone for CLUSPROP_FTSET_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSPROP_FTSET_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_FTSET_INFO").field("__AnonymousBase_clusapi_L5555_C14", &self.__AnonymousBase_clusapi_L5555_C14).field("__AnonymousBase_clusapi_L5556_C14", &self.__AnonymousBase_clusapi_L5556_C14).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSPROP_FTSET_INFO {
@@ -2116,11 +2089,6 @@ impl ::core::clone::Clone for CLUSPROP_LARGE_INTEGER {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_LARGE_INTEGER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_LARGE_INTEGER").field("__AnonymousBase_clusapi_L5199_C14", &self.__AnonymousBase_clusapi_L5199_C14).field("li", &self.li).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_LARGE_INTEGER {
     type Abi = Self;
 }
@@ -2145,11 +2113,6 @@ impl ::core::marker::Copy for CLUSPROP_LIST {}
 impl ::core::clone::Clone for CLUSPROP_LIST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSPROP_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_LIST").field("nPropertyCount", &self.nPropertyCount).field("PropertyName", &self.PropertyName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSPROP_LIST {
@@ -2178,11 +2141,6 @@ impl ::core::clone::Clone for CLUSPROP_LONG {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_LONG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_LONG").field("__AnonymousBase_clusapi_L5159_C39", &self.__AnonymousBase_clusapi_L5159_C39).field("l", &self.l).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_LONG {
     type Abi = Self;
 }
@@ -2207,11 +2165,6 @@ impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO {}
 impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSPROP_PARTITION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_PARTITION_INFO").field("__AnonymousBase_clusapi_L5507_C14", &self.__AnonymousBase_clusapi_L5507_C14).field("__AnonymousBase_clusapi_L5508_C14", &self.__AnonymousBase_clusapi_L5508_C14).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSPROP_PARTITION_INFO {
@@ -2240,11 +2193,6 @@ impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_PARTITION_INFO_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_PARTITION_INFO_EX").field("__AnonymousBase_clusapi_L5519_C14", &self.__AnonymousBase_clusapi_L5519_C14).field("__AnonymousBase_clusapi_L5520_C14", &self.__AnonymousBase_clusapi_L5520_C14).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_PARTITION_INFO_EX {
     type Abi = Self;
 }
@@ -2269,11 +2217,6 @@ impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO_EX2 {}
 impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSPROP_PARTITION_INFO_EX2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_PARTITION_INFO_EX2").field("__AnonymousBase_clusapi_L5533_C14", &self.__AnonymousBase_clusapi_L5533_C14).field("__AnonymousBase_clusapi_L5534_C14", &self.__AnonymousBase_clusapi_L5534_C14).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSPROP_PARTITION_INFO_EX2 {
@@ -2347,11 +2290,6 @@ impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_RESOURCE_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_RESOURCE_CLASS").field("__AnonymousBase_clusapi_L5250_C14", &self.__AnonymousBase_clusapi_L5250_C14).field("rc", &self.rc).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_RESOURCE_CLASS {
     type Abi = Self;
 }
@@ -2378,11 +2316,6 @@ impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_RESOURCE_CLASS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_RESOURCE_CLASS_INFO").field("__AnonymousBase_clusapi_L5261_C14", &self.__AnonymousBase_clusapi_L5261_C14).field("__AnonymousBase_clusapi_L5262_C14", &self.__AnonymousBase_clusapi_L5262_C14).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_RESOURCE_CLASS_INFO {
     type Abi = Self;
 }
@@ -2407,11 +2340,6 @@ impl ::core::marker::Copy for CLUSPROP_SCSI_ADDRESS {}
 impl ::core::clone::Clone for CLUSPROP_SCSI_ADDRESS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSPROP_SCSI_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_SCSI_ADDRESS").field("__AnonymousBase_clusapi_L5583_C14", &self.__AnonymousBase_clusapi_L5583_C14).field("__AnonymousBase_clusapi_L5584_C14", &self.__AnonymousBase_clusapi_L5584_C14).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSPROP_SCSI_ADDRESS {
@@ -2441,12 +2369,6 @@ impl ::core::marker::Copy for CLUSPROP_SECURITY_DESCRIPTOR {}
 impl ::core::clone::Clone for CLUSPROP_SECURITY_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::fmt::Debug for CLUSPROP_SECURITY_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_SECURITY_DESCRIPTOR").field("__AnonymousBase_clusapi_L5211_C54", &self.__AnonymousBase_clusapi_L5211_C54).field("Anonymous", &self.Anonymous).finish()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
@@ -2569,11 +2491,6 @@ impl ::core::clone::Clone for CLUSPROP_SZ {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_SZ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_SZ").field("__AnonymousBase_clusapi_L5169_C37", &self.__AnonymousBase_clusapi_L5169_C37).field("sz", &self.sz).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_SZ {
     type Abi = Self;
 }
@@ -2598,11 +2515,6 @@ impl ::core::marker::Copy for CLUSPROP_ULARGE_INTEGER {}
 impl ::core::clone::Clone for CLUSPROP_ULARGE_INTEGER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSPROP_ULARGE_INTEGER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_ULARGE_INTEGER").field("__AnonymousBase_clusapi_L5186_C14", &self.__AnonymousBase_clusapi_L5186_C14).field("li", &self.li).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSPROP_ULARGE_INTEGER {
@@ -2631,11 +2543,6 @@ impl ::core::clone::Clone for CLUSPROP_VALUE {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSPROP_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_VALUE").field("Syntax", &self.Syntax).field("cbLength", &self.cbLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSPROP_VALUE {
     type Abi = Self;
 }
@@ -2660,11 +2567,6 @@ impl ::core::marker::Copy for CLUSPROP_WORD {}
 impl ::core::clone::Clone for CLUSPROP_WORD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSPROP_WORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSPROP_WORD").field("__AnonymousBase_clusapi_L5139_C39", &self.__AnonymousBase_clusapi_L5139_C39).field("w", &self.w).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSPROP_WORD {
@@ -4384,11 +4286,6 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT").field("__AnonymousBase_clusapi_L5475_C14", &self.__AnonymousBase_clusapi_L5475_C14).field("__AnonymousBase_clusapi_L5476_C14", &self.__AnonymousBase_clusapi_L5476_C14).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     type Abi = Self;
 }
@@ -4413,11 +4310,6 @@ impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSTER_SHARED_VOLUME_RENAME_INPUT").field("__AnonymousBase_clusapi_L5464_C14", &self.__AnonymousBase_clusapi_L5464_C14).field("__AnonymousBase_clusapi_L5465_C14", &self.__AnonymousBase_clusapi_L5465_C14).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
@@ -4517,11 +4409,6 @@ impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME").field("InputType", &self.InputType).field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
@@ -5707,11 +5594,6 @@ impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CLUS_RESOURCE_CLASS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUS_RESOURCE_CLASS_INFO").field("Anonymous", &self.Anonymous).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLUS_RESOURCE_CLASS_INFO {
     type Abi = Self;
 }
@@ -5762,11 +5644,6 @@ impl ::core::marker::Copy for CLUS_RESOURCE_CLASS_INFO_0_0 {}
 impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUS_RESOURCE_CLASS_INFO_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUS_RESOURCE_CLASS_INFO_0_0").field("Anonymous", &self.Anonymous).field("SubClass", &self.SubClass).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_RESOURCE_CLASS_INFO_0_0 {
@@ -5834,11 +5711,6 @@ impl ::core::marker::Copy for CLUS_SCSI_ADDRESS {}
 impl ::core::clone::Clone for CLUS_SCSI_ADDRESS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for CLUS_SCSI_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLUS_SCSI_ADDRESS").field("Anonymous", &self.Anonymous).finish()
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_SCSI_ADDRESS {
@@ -18434,12 +18306,6 @@ impl ::core::marker::Copy for RESUTIL_PROPERTY_ITEM {}
 impl ::core::clone::Clone for RESUTIL_PROPERTY_ITEM {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RESUTIL_PROPERTY_ITEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESUTIL_PROPERTY_ITEM").field("Name", &self.Name).field("KeyName", &self.KeyName).field("Format", &self.Format).field("Anonymous", &self.Anonymous).field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("Flags", &self.Flags).field("Offset", &self.Offset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

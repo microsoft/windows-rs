@@ -184,11 +184,6 @@ impl ::core::clone::Clone for PlaylistFormat {
         *self
     }
 }
-impl ::core::fmt::Debug for PlaylistFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaylistFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PlaylistFormat {
     type Abi = Self;
 }
@@ -198,6 +193,11 @@ impl ::core::cmp::PartialEq for PlaylistFormat {
     }
 }
 impl ::core::cmp::Eq for PlaylistFormat {}
+impl ::core::fmt::Debug for PlaylistFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaylistFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaylistFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playlists.PlaylistFormat;i4)");
 }

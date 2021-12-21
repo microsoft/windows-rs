@@ -142,11 +142,6 @@ impl ::core::clone::Clone for DeviceAccessMode {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceAccessMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceAccessMode {
     type Abi = Self;
 }
@@ -156,6 +151,11 @@ impl ::core::cmp::PartialEq for DeviceAccessMode {
     }
 }
 impl ::core::cmp::Eq for DeviceAccessMode {}
+impl ::core::fmt::Debug for DeviceAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceAccessMode;i4)");
 }
@@ -175,11 +175,6 @@ impl ::core::clone::Clone for DeviceSharingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for DeviceSharingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceSharingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceSharingMode {
     type Abi = Self;
 }
@@ -189,6 +184,11 @@ impl ::core::cmp::PartialEq for DeviceSharingMode {
     }
 }
 impl ::core::cmp::Eq for DeviceSharingMode {}
+impl ::core::fmt::Debug for DeviceSharingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceSharingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceSharingMode;i4)");
 }
@@ -414,11 +414,6 @@ impl ::core::clone::Clone for IOControlAccessMode {
         *self
     }
 }
-impl ::core::fmt::Debug for IOControlAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOControlAccessMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IOControlAccessMode {
     type Abi = Self;
 }
@@ -428,6 +423,11 @@ impl ::core::cmp::PartialEq for IOControlAccessMode {
     }
 }
 impl ::core::cmp::Eq for IOControlAccessMode {}
+impl ::core::fmt::Debug for IOControlAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOControlAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IOControlAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlAccessMode;i4)");
 }
@@ -449,11 +449,6 @@ impl ::core::clone::Clone for IOControlBufferingMethod {
         *self
     }
 }
-impl ::core::fmt::Debug for IOControlBufferingMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOControlBufferingMethod").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IOControlBufferingMethod {
     type Abi = Self;
 }
@@ -463,6 +458,11 @@ impl ::core::cmp::PartialEq for IOControlBufferingMethod {
     }
 }
 impl ::core::cmp::Eq for IOControlBufferingMethod {}
+impl ::core::fmt::Debug for IOControlBufferingMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOControlBufferingMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IOControlBufferingMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlBufferingMethod;i4)");
 }

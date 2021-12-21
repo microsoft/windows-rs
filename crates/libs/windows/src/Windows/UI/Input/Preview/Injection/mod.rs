@@ -266,11 +266,6 @@ impl ::core::clone::Clone for InjectedInputButtonChangeKind {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputButtonChangeKind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputButtonChangeKind {
     type Abi = Self;
 }
@@ -280,6 +275,11 @@ impl ::core::cmp::PartialEq for InjectedInputButtonChangeKind {
     }
 }
 impl ::core::cmp::Eq for InjectedInputButtonChangeKind {}
+impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputButtonChangeKind").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputButtonChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
 }
@@ -486,11 +486,6 @@ impl ::core::clone::Clone for InjectedInputKeyOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputKeyOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputKeyOptions {
     type Abi = Self;
 }
@@ -500,6 +495,11 @@ impl ::core::cmp::PartialEq for InjectedInputKeyOptions {
     }
 }
 impl ::core::cmp::Eq for InjectedInputKeyOptions {}
+impl ::core::fmt::Debug for InjectedInputKeyOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputKeyOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
 }
@@ -792,11 +792,6 @@ impl ::core::clone::Clone for InjectedInputMouseOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputMouseOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputMouseOptions {
     type Abi = Self;
 }
@@ -806,6 +801,11 @@ impl ::core::cmp::PartialEq for InjectedInputMouseOptions {
     }
 }
 impl ::core::cmp::Eq for InjectedInputMouseOptions {}
+impl ::core::fmt::Debug for InjectedInputMouseOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
 }
@@ -827,11 +827,6 @@ impl ::core::clone::Clone for InjectedInputPenButtons {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputPenButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputPenButtons {
     type Abi = Self;
 }
@@ -841,6 +836,11 @@ impl ::core::cmp::PartialEq for InjectedInputPenButtons {
     }
 }
 impl ::core::cmp::Eq for InjectedInputPenButtons {}
+impl ::core::fmt::Debug for InjectedInputPenButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputPenButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
 }
@@ -1032,11 +1032,6 @@ impl ::core::clone::Clone for InjectedInputPenParameters {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputPenParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputPenParameters {
     type Abi = Self;
 }
@@ -1046,6 +1041,11 @@ impl ::core::cmp::PartialEq for InjectedInputPenParameters {
     }
 }
 impl ::core::cmp::Eq for InjectedInputPenParameters {}
+impl ::core::fmt::Debug for InjectedInputPenParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputPenParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
 }
@@ -1153,11 +1153,6 @@ impl ::core::clone::Clone for InjectedInputPointerOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputPointerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputPointerOptions {
     type Abi = Self;
 }
@@ -1167,6 +1162,11 @@ impl ::core::cmp::PartialEq for InjectedInputPointerOptions {
     }
 }
 impl ::core::cmp::Eq for InjectedInputPointerOptions {}
+impl ::core::fmt::Debug for InjectedInputPointerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputPointerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
 }
@@ -1226,11 +1226,6 @@ impl ::core::clone::Clone for InjectedInputShortcut {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputShortcut {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputShortcut").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputShortcut {
     type Abi = Self;
 }
@@ -1240,6 +1235,11 @@ impl ::core::cmp::PartialEq for InjectedInputShortcut {
     }
 }
 impl ::core::cmp::Eq for InjectedInputShortcut {}
+impl ::core::fmt::Debug for InjectedInputShortcut {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputShortcut").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputShortcut {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
 }
@@ -1404,11 +1404,6 @@ impl ::core::clone::Clone for InjectedInputTouchParameters {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputTouchParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputTouchParameters {
     type Abi = Self;
 }
@@ -1418,6 +1413,11 @@ impl ::core::cmp::PartialEq for InjectedInputTouchParameters {
     }
 }
 impl ::core::cmp::Eq for InjectedInputTouchParameters {}
+impl ::core::fmt::Debug for InjectedInputTouchParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
 }
@@ -1438,11 +1438,6 @@ impl ::core::clone::Clone for InjectedInputVisualizationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for InjectedInputVisualizationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputVisualizationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for InjectedInputVisualizationMode {
     type Abi = Self;
 }
@@ -1452,6 +1447,11 @@ impl ::core::cmp::PartialEq for InjectedInputVisualizationMode {
     }
 }
 impl ::core::cmp::Eq for InjectedInputVisualizationMode {}
+impl ::core::fmt::Debug for InjectedInputVisualizationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputVisualizationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
 }

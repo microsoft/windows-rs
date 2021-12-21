@@ -222,11 +222,6 @@ impl ::core::clone::Clone for GipFirmwareUpdateStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for GipFirmwareUpdateStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GipFirmwareUpdateStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GipFirmwareUpdateStatus {
     type Abi = Self;
 }
@@ -236,6 +231,11 @@ impl ::core::cmp::PartialEq for GipFirmwareUpdateStatus {
     }
 }
 impl ::core::cmp::Eq for GipFirmwareUpdateStatus {}
+impl ::core::fmt::Debug for GipFirmwareUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GipFirmwareUpdateStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GipFirmwareUpdateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
 }
@@ -410,11 +410,6 @@ impl ::core::clone::Clone for GipMessageClass {
         *self
     }
 }
-impl ::core::fmt::Debug for GipMessageClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GipMessageClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GipMessageClass {
     type Abi = Self;
 }
@@ -424,6 +419,11 @@ impl ::core::cmp::PartialEq for GipMessageClass {
     }
 }
 impl ::core::cmp::Eq for GipMessageClass {}
+impl ::core::fmt::Debug for GipMessageClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GipMessageClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GipMessageClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
 }
@@ -1403,11 +1403,6 @@ impl ::core::clone::Clone for XusbDeviceSubtype {
         *self
     }
 }
-impl ::core::fmt::Debug for XusbDeviceSubtype {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XusbDeviceSubtype").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XusbDeviceSubtype {
     type Abi = Self;
 }
@@ -1417,6 +1412,11 @@ impl ::core::cmp::PartialEq for XusbDeviceSubtype {
     }
 }
 impl ::core::cmp::Eq for XusbDeviceSubtype {}
+impl ::core::fmt::Debug for XusbDeviceSubtype {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XusbDeviceSubtype").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XusbDeviceSubtype {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceSubtype;i4)");
 }
@@ -1436,11 +1436,6 @@ impl ::core::clone::Clone for XusbDeviceType {
         *self
     }
 }
-impl ::core::fmt::Debug for XusbDeviceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XusbDeviceType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XusbDeviceType {
     type Abi = Self;
 }
@@ -1450,6 +1445,11 @@ impl ::core::cmp::PartialEq for XusbDeviceType {
     }
 }
 impl ::core::cmp::Eq for XusbDeviceType {}
+impl ::core::fmt::Debug for XusbDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XusbDeviceType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XusbDeviceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
 }

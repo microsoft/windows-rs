@@ -604,11 +604,6 @@ impl ::core::clone::Clone for SceneAlphaMode {
         *self
     }
 }
-impl ::core::fmt::Debug for SceneAlphaMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAlphaMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SceneAlphaMode {
     type Abi = Self;
 }
@@ -618,6 +613,11 @@ impl ::core::cmp::PartialEq for SceneAlphaMode {
     }
 }
 impl ::core::cmp::Eq for SceneAlphaMode {}
+impl ::core::fmt::Debug for SceneAlphaMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAlphaMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneAlphaMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
 }
@@ -642,11 +642,6 @@ impl ::core::clone::Clone for SceneAttributeSemantic {
         *self
     }
 }
-impl ::core::fmt::Debug for SceneAttributeSemantic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAttributeSemantic").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SceneAttributeSemantic {
     type Abi = Self;
 }
@@ -656,6 +651,11 @@ impl ::core::cmp::PartialEq for SceneAttributeSemantic {
     }
 }
 impl ::core::cmp::Eq for SceneAttributeSemantic {}
+impl ::core::fmt::Debug for SceneAttributeSemantic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAttributeSemantic").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneAttributeSemantic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
 }
@@ -1702,11 +1702,6 @@ impl ::core::clone::Clone for SceneComponentType {
         *self
     }
 }
-impl ::core::fmt::Debug for SceneComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneComponentType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SceneComponentType {
     type Abi = Self;
 }
@@ -1716,6 +1711,11 @@ impl ::core::cmp::PartialEq for SceneComponentType {
     }
 }
 impl ::core::cmp::Eq for SceneComponentType {}
+impl ::core::fmt::Debug for SceneComponentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneComponentType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneComponentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
 }
@@ -6803,11 +6803,6 @@ impl ::core::clone::Clone for SceneWrappingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for SceneWrappingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneWrappingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SceneWrappingMode {
     type Abi = Self;
 }
@@ -6817,6 +6812,11 @@ impl ::core::cmp::PartialEq for SceneWrappingMode {
     }
 }
 impl ::core::cmp::Eq for SceneWrappingMode {}
+impl ::core::fmt::Debug for SceneWrappingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneWrappingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneWrappingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneWrappingMode;i4)");
 }

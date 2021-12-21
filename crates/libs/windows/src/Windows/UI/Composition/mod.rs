@@ -647,11 +647,6 @@ impl ::core::clone::Clone for AnimationControllerProgressBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationControllerProgressBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationControllerProgressBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationControllerProgressBehavior {
     type Abi = Self;
 }
@@ -661,6 +656,11 @@ impl ::core::cmp::PartialEq for AnimationControllerProgressBehavior {
     }
 }
 impl ::core::cmp::Eq for AnimationControllerProgressBehavior {}
+impl ::core::fmt::Debug for AnimationControllerProgressBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationControllerProgressBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationControllerProgressBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationControllerProgressBehavior;i4)");
 }
@@ -680,11 +680,6 @@ impl ::core::clone::Clone for AnimationDelayBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationDelayBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationDelayBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationDelayBehavior {
     type Abi = Self;
 }
@@ -694,6 +689,11 @@ impl ::core::cmp::PartialEq for AnimationDelayBehavior {
     }
 }
 impl ::core::cmp::Eq for AnimationDelayBehavior {}
+impl ::core::fmt::Debug for AnimationDelayBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDelayBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationDelayBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDelayBehavior;i4)");
 }
@@ -715,11 +715,6 @@ impl ::core::clone::Clone for AnimationDirection {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationDirection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
 }
@@ -729,6 +724,11 @@ impl ::core::cmp::PartialEq for AnimationDirection {
     }
 }
 impl ::core::cmp::Eq for AnimationDirection {}
+impl ::core::fmt::Debug for AnimationDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDirection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDirection;i4)");
 }
@@ -748,11 +748,6 @@ impl ::core::clone::Clone for AnimationIterationBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationIterationBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationIterationBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationIterationBehavior {
     type Abi = Self;
 }
@@ -762,6 +757,11 @@ impl ::core::cmp::PartialEq for AnimationIterationBehavior {
     }
 }
 impl ::core::cmp::Eq for AnimationIterationBehavior {}
+impl ::core::fmt::Debug for AnimationIterationBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationIterationBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationIterationBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationIterationBehavior;i4)");
 }
@@ -783,11 +783,6 @@ impl ::core::clone::Clone for AnimationPropertyAccessMode {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationPropertyAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationPropertyAccessMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationPropertyAccessMode {
     type Abi = Self;
 }
@@ -797,6 +792,11 @@ impl ::core::cmp::PartialEq for AnimationPropertyAccessMode {
     }
 }
 impl ::core::cmp::Eq for AnimationPropertyAccessMode {}
+impl ::core::fmt::Debug for AnimationPropertyAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationPropertyAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationPropertyAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationPropertyAccessMode;i4)");
 }
@@ -1086,11 +1086,6 @@ impl ::core::clone::Clone for AnimationStopBehavior {
         *self
     }
 }
-impl ::core::fmt::Debug for AnimationStopBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationStopBehavior").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationStopBehavior {
     type Abi = Self;
 }
@@ -1100,6 +1095,11 @@ impl ::core::cmp::PartialEq for AnimationStopBehavior {
     }
 }
 impl ::core::cmp::Eq for AnimationStopBehavior {}
+impl ::core::fmt::Debug for AnimationStopBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationStopBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationStopBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationStopBehavior;i4)");
 }
@@ -5522,11 +5522,6 @@ impl ::core::clone::Clone for CompositionBackfaceVisibility {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionBackfaceVisibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBackfaceVisibility").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionBackfaceVisibility {
     type Abi = Self;
 }
@@ -5536,6 +5531,11 @@ impl ::core::cmp::PartialEq for CompositionBackfaceVisibility {
     }
 }
 impl ::core::cmp::Eq for CompositionBackfaceVisibility {}
+impl ::core::fmt::Debug for CompositionBackfaceVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBackfaceVisibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionBackfaceVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBackfaceVisibility;i4)");
 }
@@ -5798,11 +5798,6 @@ impl ::core::clone::Clone for CompositionBatchTypes {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionBatchTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBatchTypes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionBatchTypes {
     type Abi = Self;
 }
@@ -5812,6 +5807,11 @@ impl ::core::cmp::PartialEq for CompositionBatchTypes {
     }
 }
 impl ::core::cmp::Eq for CompositionBatchTypes {}
+impl ::core::fmt::Debug for CompositionBatchTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBatchTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionBatchTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBatchTypes;u4)");
 }
@@ -5839,11 +5839,6 @@ impl ::core::clone::Clone for CompositionBitmapInterpolationMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionBitmapInterpolationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBitmapInterpolationMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionBitmapInterpolationMode {
     type Abi = Self;
 }
@@ -5853,6 +5848,11 @@ impl ::core::cmp::PartialEq for CompositionBitmapInterpolationMode {
     }
 }
 impl ::core::cmp::Eq for CompositionBitmapInterpolationMode {}
+impl ::core::fmt::Debug for CompositionBitmapInterpolationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBitmapInterpolationMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionBitmapInterpolationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBitmapInterpolationMode;i4)");
 }
@@ -5873,11 +5873,6 @@ impl ::core::clone::Clone for CompositionBorderMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionBorderMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBorderMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionBorderMode {
     type Abi = Self;
 }
@@ -5887,6 +5882,11 @@ impl ::core::cmp::PartialEq for CompositionBorderMode {
     }
 }
 impl ::core::cmp::Eq for CompositionBorderMode {}
+impl ::core::fmt::Debug for CompositionBorderMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBorderMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionBorderMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBorderMode;i4)");
 }
@@ -7382,11 +7382,6 @@ impl ::core::clone::Clone for CompositionColorSpace {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionColorSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionColorSpace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionColorSpace {
     type Abi = Self;
 }
@@ -7396,6 +7391,11 @@ impl ::core::cmp::PartialEq for CompositionColorSpace {
     }
 }
 impl ::core::cmp::Eq for CompositionColorSpace {}
+impl ::core::fmt::Debug for CompositionColorSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionColorSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionColorSpace;i4)");
 }
@@ -7688,11 +7688,6 @@ impl ::core::clone::Clone for CompositionCompositeMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionCompositeMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionCompositeMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionCompositeMode {
     type Abi = Self;
 }
@@ -7702,6 +7697,11 @@ impl ::core::cmp::PartialEq for CompositionCompositeMode {
     }
 }
 impl ::core::cmp::Eq for CompositionCompositeMode {}
+impl ::core::fmt::Debug for CompositionCompositeMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionCompositeMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionCompositeMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionCompositeMode;i4)");
 }
@@ -8404,11 +8404,6 @@ impl ::core::clone::Clone for CompositionDropShadowSourcePolicy {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionDropShadowSourcePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionDropShadowSourcePolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionDropShadowSourcePolicy {
     type Abi = Self;
 }
@@ -8418,6 +8413,11 @@ impl ::core::cmp::PartialEq for CompositionDropShadowSourcePolicy {
     }
 }
 impl ::core::cmp::Eq for CompositionDropShadowSourcePolicy {}
+impl ::core::fmt::Debug for CompositionDropShadowSourcePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionDropShadowSourcePolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionDropShadowSourcePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionDropShadowSourcePolicy;i4)");
 }
@@ -8761,11 +8761,6 @@ impl ::core::clone::Clone for CompositionEasingFunctionMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionEasingFunctionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEasingFunctionMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionEasingFunctionMode {
     type Abi = Self;
 }
@@ -8775,6 +8770,11 @@ impl ::core::cmp::PartialEq for CompositionEasingFunctionMode {
     }
 }
 impl ::core::cmp::Eq for CompositionEasingFunctionMode {}
+impl ::core::fmt::Debug for CompositionEasingFunctionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEasingFunctionMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionEasingFunctionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEasingFunctionMode;i4)");
 }
@@ -9333,11 +9333,6 @@ impl ::core::clone::Clone for CompositionEffectFactoryLoadStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionEffectFactoryLoadStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEffectFactoryLoadStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionEffectFactoryLoadStatus {
     type Abi = Self;
 }
@@ -9347,6 +9342,11 @@ impl ::core::cmp::PartialEq for CompositionEffectFactoryLoadStatus {
     }
 }
 impl ::core::cmp::Eq for CompositionEffectFactoryLoadStatus {}
+impl ::core::fmt::Debug for CompositionEffectFactoryLoadStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEffectFactoryLoadStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionEffectFactoryLoadStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEffectFactoryLoadStatus;i4)");
 }
@@ -10481,11 +10481,6 @@ impl ::core::clone::Clone for CompositionGetValueStatus {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionGetValueStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGetValueStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionGetValueStatus {
     type Abi = Self;
 }
@@ -10495,6 +10490,11 @@ impl ::core::cmp::PartialEq for CompositionGetValueStatus {
     }
 }
 impl ::core::cmp::Eq for CompositionGetValueStatus {}
+impl ::core::fmt::Debug for CompositionGetValueStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionGetValueStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionGetValueStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGetValueStatus;i4)");
 }
@@ -10923,11 +10923,6 @@ impl ::core::clone::Clone for CompositionGradientExtendMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionGradientExtendMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGradientExtendMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionGradientExtendMode {
     type Abi = Self;
 }
@@ -10937,6 +10932,11 @@ impl ::core::cmp::PartialEq for CompositionGradientExtendMode {
     }
 }
 impl ::core::cmp::Eq for CompositionGradientExtendMode {}
+impl ::core::fmt::Debug for CompositionGradientExtendMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionGradientExtendMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionGradientExtendMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGradientExtendMode;i4)");
 }
@@ -12317,11 +12317,6 @@ impl ::core::clone::Clone for CompositionMappingMode {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionMappingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionMappingMode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionMappingMode {
     type Abi = Self;
 }
@@ -12331,6 +12326,11 @@ impl ::core::cmp::PartialEq for CompositionMappingMode {
     }
 }
 impl ::core::cmp::Eq for CompositionMappingMode {}
+impl ::core::fmt::Debug for CompositionMappingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionMappingMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionMappingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionMappingMode;i4)");
 }
@@ -18788,11 +18788,6 @@ impl ::core::clone::Clone for CompositionStretch {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionStretch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionStretch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionStretch {
     type Abi = Self;
 }
@@ -18802,6 +18797,11 @@ impl ::core::cmp::PartialEq for CompositionStretch {
     }
 }
 impl ::core::cmp::Eq for CompositionStretch {}
+impl ::core::fmt::Debug for CompositionStretch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionStretch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionStretch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStretch;i4)");
 }
@@ -18823,11 +18823,6 @@ impl ::core::clone::Clone for CompositionStrokeCap {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionStrokeCap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionStrokeCap").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionStrokeCap {
     type Abi = Self;
 }
@@ -18837,6 +18832,11 @@ impl ::core::cmp::PartialEq for CompositionStrokeCap {
     }
 }
 impl ::core::cmp::Eq for CompositionStrokeCap {}
+impl ::core::fmt::Debug for CompositionStrokeCap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionStrokeCap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionStrokeCap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeCap;i4)");
 }
@@ -19289,11 +19289,6 @@ impl ::core::clone::Clone for CompositionStrokeLineJoin {
         *self
     }
 }
-impl ::core::fmt::Debug for CompositionStrokeLineJoin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionStrokeLineJoin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionStrokeLineJoin {
     type Abi = Self;
 }
@@ -19303,6 +19298,11 @@ impl ::core::cmp::PartialEq for CompositionStrokeLineJoin {
     }
 }
 impl ::core::cmp::Eq for CompositionStrokeLineJoin {}
+impl ::core::fmt::Debug for CompositionStrokeLineJoin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionStrokeLineJoin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionStrokeLineJoin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeLineJoin;i4)");
 }

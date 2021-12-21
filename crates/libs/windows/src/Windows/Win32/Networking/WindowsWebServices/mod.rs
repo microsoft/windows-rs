@@ -2622,12 +2622,6 @@ impl ::core::clone::Clone for WS_DECIMAL_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WS_DECIMAL_DESCRIPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_DECIMAL_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_DECIMAL_DESCRIPTION {
     type Abi = Self;
 }
@@ -10686,12 +10680,6 @@ impl ::core::marker::Copy for WS_XML_DECIMAL_TEXT {}
 impl ::core::clone::Clone for WS_XML_DECIMAL_TEXT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WS_XML_DECIMAL_TEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_XML_DECIMAL_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
