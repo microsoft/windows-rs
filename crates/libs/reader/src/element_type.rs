@@ -196,8 +196,7 @@ impl ElementType {
 
     pub fn is_callback_array(&self) -> bool {
         match self {
-            Self::Array((kind, _)) => 
-                kind.kind.is_callback(),
+            Self::Array((kind, _)) => kind.kind.is_callback(),
             _ => false,
         }
     }
