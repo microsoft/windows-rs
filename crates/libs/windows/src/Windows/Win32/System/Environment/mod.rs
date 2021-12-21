@@ -101,11 +101,6 @@ impl ::core::clone::Clone for ENCLAVE_IDENTITY {
         *self
     }
 }
-impl ::core::fmt::Debug for ENCLAVE_IDENTITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENCLAVE_IDENTITY").field("OwnerId", &self.OwnerId).field("UniqueId", &self.UniqueId).field("AuthorId", &self.AuthorId).field("FamilyId", &self.FamilyId).field("ImageId", &self.ImageId).field("EnclaveSvn", &self.EnclaveSvn).field("SecureKernelSvn", &self.SecureKernelSvn).field("PlatformSvn", &self.PlatformSvn).field("Flags", &self.Flags).field("SigningLevel", &self.SigningLevel).field("EnclaveType", &self.EnclaveType).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ENCLAVE_IDENTITY {
     type Abi = Self;
 }
@@ -913,11 +908,6 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT {
         *self
     }
 }
-impl ::core::fmt::Debug for VBS_ENCLAVE_REPORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VBS_ENCLAVE_REPORT").field("ReportSize", &self.ReportSize).field("ReportVersion", &self.ReportVersion).field("EnclaveData", &self.EnclaveData).field("EnclaveIdentity", &self.EnclaveIdentity).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT {
     type Abi = Self;
 }
@@ -947,11 +937,6 @@ impl ::core::marker::Copy for VBS_ENCLAVE_REPORT_MODULE {}
 impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_MODULE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for VBS_ENCLAVE_REPORT_MODULE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VBS_ENCLAVE_REPORT_MODULE").field("Header", &self.Header).field("UniqueId", &self.UniqueId).field("AuthorId", &self.AuthorId).field("FamilyId", &self.FamilyId).field("ImageId", &self.ImageId).field("Svn", &self.Svn).field("ModuleName", &self.ModuleName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_MODULE {
@@ -984,11 +969,6 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_PKG_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for VBS_ENCLAVE_REPORT_PKG_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VBS_ENCLAVE_REPORT_PKG_HEADER").field("PackageSize", &self.PackageSize).field("Version", &self.Version).field("SignatureScheme", &self.SignatureScheme).field("SignedStatementSize", &self.SignedStatementSize).field("SignatureSize", &self.SignatureSize).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_PKG_HEADER {
     type Abi = Self;
 }
@@ -1017,11 +997,6 @@ impl ::core::marker::Copy for VBS_ENCLAVE_REPORT_VARDATA_HEADER {}
 impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VBS_ENCLAVE_REPORT_VARDATA_HEADER").field("DataType", &self.DataType).field("Size", &self.Size).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_VARDATA_HEADER {

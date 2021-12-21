@@ -688,12 +688,6 @@ impl ::core::clone::Clone for ATM_PVC_PARAMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
-impl ::core::fmt::Debug for ATM_PVC_PARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ATM_PVC_PARAMS").field("PvcConnectionId", &self.PvcConnectionId).field("PvcQos", &self.PvcQos).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 unsafe impl ::windows::core::Abi for ATM_PVC_PARAMS {
     type Abi = Self;
 }

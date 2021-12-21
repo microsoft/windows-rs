@@ -409,11 +409,6 @@ impl ::core::clone::Clone for MMTIME_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for MMTIME_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMTIME_0_0").field("songptrpos", &self.songptrpos).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MMTIME_0_0 {
     type Abi = Self;
 }

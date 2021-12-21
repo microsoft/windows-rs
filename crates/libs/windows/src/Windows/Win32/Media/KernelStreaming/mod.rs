@@ -9428,11 +9428,6 @@ impl ::core::clone::Clone for KSPROPERTY_SERIALHDR {
         *self
     }
 }
-impl ::core::fmt::Debug for KSPROPERTY_SERIALHDR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KSPROPERTY_SERIALHDR").field("PropertySet", &self.PropertySet).field("Count", &self.Count).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KSPROPERTY_SERIALHDR {
     type Abi = Self;
 }
@@ -16051,11 +16046,6 @@ impl ::core::marker::Copy for NABTS_BUFFER {}
 impl ::core::clone::Clone for NABTS_BUFFER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for NABTS_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NABTS_BUFFER").field("ScanlinesRequested", &self.ScanlinesRequested).field("PictureNumber", &self.PictureNumber).field("NabtsLines", &self.NabtsLines).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NABTS_BUFFER {

@@ -3568,11 +3568,6 @@ impl ::core::clone::Clone for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("ExceptionHandler", &self.ExceptionHandler).field("HandlerData", &self.HandlerData).field("PrologEndAddress", &self.PrologEndAddress).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     type Abi = Self;
 }
@@ -3900,11 +3895,6 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_0").field("crc", &self.crc).field("rgbReserved", &self.rgbReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_0 {
     type Abi = Self;
 }
@@ -3965,11 +3955,6 @@ impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_2 {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_2").field("Length", &self.Length).field("NumberOfRelocations", &self.NumberOfRelocations).field("NumberOfLinenumbers", &self.NumberOfLinenumbers).field("CheckSum", &self.CheckSum).field("Number", &self.Number).field("Selection", &self.Selection).field("bReserved", &self.bReserved).field("HighNumber", &self.HighNumber).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_2 {
@@ -4080,11 +4065,6 @@ impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_3_0_1 {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_3_0_1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_3_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_3_0_1").field("PointerToLinenumber", &self.PointerToLinenumber).field("PointerToNextFunction", &self.PointerToNextFunction).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_3_0_1 {
@@ -4230,11 +4210,6 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_EX_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_EX_1").field("crc", &self.crc).field("rgbReserved", &self.rgbReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_1 {
     type Abi = Self;
 }
@@ -4298,11 +4273,6 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_3 {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_EX_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_EX_3").field("Length", &self.Length).field("NumberOfRelocations", &self.NumberOfRelocations).field("NumberOfLinenumbers", &self.NumberOfLinenumbers).field("CheckSum", &self.CheckSum).field("Number", &self.Number).field("Selection", &self.Selection).field("bReserved", &self.bReserved).field("HighNumber", &self.HighNumber).field("rgbReserved", &self.rgbReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_3 {
     type Abi = Self;
 }
@@ -4328,11 +4298,6 @@ impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_EX_4 {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_EX_4 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_EX_4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_EX_4").field("WeakDefaultSymIndex", &self.WeakDefaultSymIndex).field("WeakSearchType", &self.WeakSearchType).field("rgbReserved", &self.rgbReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_EX_4 {
@@ -4361,11 +4326,6 @@ impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_TOKEN_DEF {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_TOKEN_DEF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_TOKEN_DEF").field("bAuxType", &self.bAuxType).field("bReserved", &self.bReserved).field("SymbolTableIndex", &self.SymbolTableIndex).field("rgbReserved", &self.rgbReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_TOKEN_DEF {
@@ -4619,31 +4579,6 @@ impl ::core::clone::Clone for IMAGE_DOS_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_DOS_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_DOS_HEADER")
-            .field("e_magic", &self.e_magic)
-            .field("e_cblp", &self.e_cblp)
-            .field("e_cp", &self.e_cp)
-            .field("e_crlc", &self.e_crlc)
-            .field("e_cparhdr", &self.e_cparhdr)
-            .field("e_minalloc", &self.e_minalloc)
-            .field("e_maxalloc", &self.e_maxalloc)
-            .field("e_ss", &self.e_ss)
-            .field("e_sp", &self.e_sp)
-            .field("e_csum", &self.e_csum)
-            .field("e_ip", &self.e_ip)
-            .field("e_cs", &self.e_cs)
-            .field("e_lfarlc", &self.e_lfarlc)
-            .field("e_ovno", &self.e_ovno)
-            .field("e_res", &self.e_res)
-            .field("e_oemid", &self.e_oemid)
-            .field("e_oeminfo", &self.e_oeminfo)
-            .field("e_res2", &self.e_res2)
-            .field("e_lfanew", &self.e_lfanew)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_DOS_HEADER {
     type Abi = Self;
 }
@@ -4670,11 +4605,6 @@ impl ::core::marker::Copy for IMAGE_DYNAMIC_RELOCATION32 {}
 impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION32 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_DYNAMIC_RELOCATION32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_DYNAMIC_RELOCATION32").field("Symbol", &self.Symbol).field("BaseRelocSize", &self.BaseRelocSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION32 {
@@ -4706,11 +4636,6 @@ impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION32_V2 {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_DYNAMIC_RELOCATION32_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_DYNAMIC_RELOCATION32_V2").field("HeaderSize", &self.HeaderSize).field("FixupInfoSize", &self.FixupInfoSize).field("Symbol", &self.Symbol).field("SymbolGroup", &self.SymbolGroup).field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION32_V2 {
     type Abi = Self;
 }
@@ -4735,11 +4660,6 @@ impl ::core::marker::Copy for IMAGE_DYNAMIC_RELOCATION64 {}
 impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION64 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_DYNAMIC_RELOCATION64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_DYNAMIC_RELOCATION64").field("Symbol", &self.Symbol).field("BaseRelocSize", &self.BaseRelocSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION64 {
@@ -4769,11 +4689,6 @@ impl ::core::marker::Copy for IMAGE_DYNAMIC_RELOCATION64_V2 {}
 impl ::core::clone::Clone for IMAGE_DYNAMIC_RELOCATION64_V2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_DYNAMIC_RELOCATION64_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_DYNAMIC_RELOCATION64_V2").field("HeaderSize", &self.HeaderSize).field("FixupInfoSize", &self.FixupInfoSize).field("Symbol", &self.Symbol).field("SymbolGroup", &self.SymbolGroup).field("Flags", &self.Flags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_DYNAMIC_RELOCATION64_V2 {
@@ -4861,11 +4776,6 @@ impl ::core::marker::Copy for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {}
 impl ::core::clone::Clone for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER").field("EpilogueCount", &self.EpilogueCount).field("EpilogueByteCount", &self.EpilogueByteCount).field("BranchDescriptorElementSize", &self.BranchDescriptorElementSize).field("BranchDescriptorCount", &self.BranchDescriptorCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
@@ -5164,11 +5074,6 @@ impl ::core::clone::Clone for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION").field("_bitfield", &self._bitfield).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     type Abi = Self;
 }
@@ -5247,11 +5152,6 @@ impl ::core::marker::Copy for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
 impl ::core::clone::Clone for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION").field("_bitfield", &self._bitfield).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
@@ -5371,43 +5271,6 @@ impl ::core::marker::Copy for IMAGE_OS2_HEADER {}
 impl ::core::clone::Clone for IMAGE_OS2_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMAGE_OS2_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_OS2_HEADER")
-            .field("ne_magic", &self.ne_magic)
-            .field("ne_ver", &self.ne_ver)
-            .field("ne_rev", &self.ne_rev)
-            .field("ne_enttab", &self.ne_enttab)
-            .field("ne_cbenttab", &self.ne_cbenttab)
-            .field("ne_crc", &self.ne_crc)
-            .field("ne_flags", &self.ne_flags)
-            .field("ne_autodata", &self.ne_autodata)
-            .field("ne_heap", &self.ne_heap)
-            .field("ne_stack", &self.ne_stack)
-            .field("ne_csip", &self.ne_csip)
-            .field("ne_sssp", &self.ne_sssp)
-            .field("ne_cseg", &self.ne_cseg)
-            .field("ne_cmod", &self.ne_cmod)
-            .field("ne_cbnrestab", &self.ne_cbnrestab)
-            .field("ne_segtab", &self.ne_segtab)
-            .field("ne_rsrctab", &self.ne_rsrctab)
-            .field("ne_restab", &self.ne_restab)
-            .field("ne_modtab", &self.ne_modtab)
-            .field("ne_imptab", &self.ne_imptab)
-            .field("ne_nrestab", &self.ne_nrestab)
-            .field("ne_cmovent", &self.ne_cmovent)
-            .field("ne_align", &self.ne_align)
-            .field("ne_cres", &self.ne_cres)
-            .field("ne_exetyp", &self.ne_exetyp)
-            .field("ne_flagsothers", &self.ne_flagsothers)
-            .field("ne_pretthunks", &self.ne_pretthunks)
-            .field("ne_psegrefbytes", &self.ne_psegrefbytes)
-            .field("ne_swaparea", &self.ne_swaparea)
-            .field("ne_expver", &self.ne_expver)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6571,11 +6434,6 @@ impl ::core::clone::Clone for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION").field("_bitfield", &self._bitfield).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     type Abi = Self;
 }
@@ -6659,11 +6517,6 @@ impl ::core::clone::Clone for IMAGE_SYMBOL_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for IMAGE_SYMBOL_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_SYMBOL_0_0").field("Short", &self.Short).field("Long", &self.Long).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMAGE_SYMBOL_0_0 {
     type Abi = Self;
 }
@@ -6745,11 +6598,6 @@ impl ::core::marker::Copy for IMAGE_SYMBOL_EX_0_0 {}
 impl ::core::clone::Clone for IMAGE_SYMBOL_EX_0_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_SYMBOL_EX_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_SYMBOL_EX_0_0").field("Short", &self.Short).field("Long", &self.Long).finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_SYMBOL_EX_0_0 {
@@ -7097,63 +6945,6 @@ impl ::core::marker::Copy for IMAGE_VXD_HEADER {}
 impl ::core::clone::Clone for IMAGE_VXD_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for IMAGE_VXD_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_VXD_HEADER")
-            .field("e32_magic", &self.e32_magic)
-            .field("e32_border", &self.e32_border)
-            .field("e32_worder", &self.e32_worder)
-            .field("e32_level", &self.e32_level)
-            .field("e32_cpu", &self.e32_cpu)
-            .field("e32_os", &self.e32_os)
-            .field("e32_ver", &self.e32_ver)
-            .field("e32_mflags", &self.e32_mflags)
-            .field("e32_mpages", &self.e32_mpages)
-            .field("e32_startobj", &self.e32_startobj)
-            .field("e32_eip", &self.e32_eip)
-            .field("e32_stackobj", &self.e32_stackobj)
-            .field("e32_esp", &self.e32_esp)
-            .field("e32_pagesize", &self.e32_pagesize)
-            .field("e32_lastpagesize", &self.e32_lastpagesize)
-            .field("e32_fixupsize", &self.e32_fixupsize)
-            .field("e32_fixupsum", &self.e32_fixupsum)
-            .field("e32_ldrsize", &self.e32_ldrsize)
-            .field("e32_ldrsum", &self.e32_ldrsum)
-            .field("e32_objtab", &self.e32_objtab)
-            .field("e32_objcnt", &self.e32_objcnt)
-            .field("e32_objmap", &self.e32_objmap)
-            .field("e32_itermap", &self.e32_itermap)
-            .field("e32_rsrctab", &self.e32_rsrctab)
-            .field("e32_rsrccnt", &self.e32_rsrccnt)
-            .field("e32_restab", &self.e32_restab)
-            .field("e32_enttab", &self.e32_enttab)
-            .field("e32_dirtab", &self.e32_dirtab)
-            .field("e32_dircnt", &self.e32_dircnt)
-            .field("e32_fpagetab", &self.e32_fpagetab)
-            .field("e32_frectab", &self.e32_frectab)
-            .field("e32_impmod", &self.e32_impmod)
-            .field("e32_impmodcnt", &self.e32_impmodcnt)
-            .field("e32_impproc", &self.e32_impproc)
-            .field("e32_pagesum", &self.e32_pagesum)
-            .field("e32_datapage", &self.e32_datapage)
-            .field("e32_preload", &self.e32_preload)
-            .field("e32_nrestab", &self.e32_nrestab)
-            .field("e32_cbnrestab", &self.e32_cbnrestab)
-            .field("e32_nressum", &self.e32_nressum)
-            .field("e32_autodata", &self.e32_autodata)
-            .field("e32_debuginfo", &self.e32_debuginfo)
-            .field("e32_debuglen", &self.e32_debuglen)
-            .field("e32_instpreload", &self.e32_instpreload)
-            .field("e32_instdemand", &self.e32_instdemand)
-            .field("e32_heapsize", &self.e32_heapsize)
-            .field("e32_res3", &self.e32_res3)
-            .field("e32_winresoff", &self.e32_winresoff)
-            .field("e32_winreslen", &self.e32_winreslen)
-            .field("e32_devid", &self.e32_devid)
-            .field("e32_ddkver", &self.e32_ddkver)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for IMAGE_VXD_HEADER {
@@ -8647,11 +8438,6 @@ impl ::core::marker::Copy for NON_PAGED_DEBUG_INFO {}
 impl ::core::clone::Clone for NON_PAGED_DEBUG_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for NON_PAGED_DEBUG_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NON_PAGED_DEBUG_INFO").field("Signature", &self.Signature).field("Flags", &self.Flags).field("Size", &self.Size).field("Machine", &self.Machine).field("Characteristics", &self.Characteristics).field("TimeDateStamp", &self.TimeDateStamp).field("CheckSum", &self.CheckSum).field("SizeOfImage", &self.SizeOfImage).field("ImageBase", &self.ImageBase).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NON_PAGED_DEBUG_INFO {

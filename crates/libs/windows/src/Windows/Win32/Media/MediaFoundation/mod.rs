@@ -48,11 +48,6 @@ impl ::core::clone::Clone for ASF_FLAT_PICTURE {
         *self
     }
 }
-impl ::core::fmt::Debug for ASF_FLAT_PICTURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ASF_FLAT_PICTURE").field("bPictureType", &self.bPictureType).field("dwDataLen", &self.dwDataLen).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ASF_FLAT_PICTURE {
     type Abi = Self;
 }
@@ -78,11 +73,6 @@ impl ::core::marker::Copy for ASF_FLAT_SYNCHRONISED_LYRICS {}
 impl ::core::clone::Clone for ASF_FLAT_SYNCHRONISED_LYRICS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ASF_FLAT_SYNCHRONISED_LYRICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ASF_FLAT_SYNCHRONISED_LYRICS").field("bTimeStampFormat", &self.bTimeStampFormat).field("bContentType", &self.bContentType).field("dwLyricsLen", &self.dwLyricsLen).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ASF_FLAT_SYNCHRONISED_LYRICS {
@@ -6867,12 +6857,6 @@ impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for D3DCONTENTPROTECTIONCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DCONTENTPROTECTIONCAPS").field("Caps", &self.Caps).field("KeyExchangeType", &self.KeyExchangeType).field("BufferAlignmentStart", &self.BufferAlignmentStart).field("BlockAlignmentSize", &self.BlockAlignmentSize).field("ProtectedMemorySize", &self.ProtectedMemorySize).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
@@ -10025,11 +10009,6 @@ impl ::core::clone::Clone for DXVA_BufferDescription {
         *self
     }
 }
-impl ::core::fmt::Debug for DXVA_BufferDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DXVA_BufferDescription").field("dwTypeIndex", &self.dwTypeIndex).field("dwBufferIndex", &self.dwBufferIndex).field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).field("dwFirstMBaddress", &self.dwFirstMBaddress).field("dwNumMBsInBuffer", &self.dwNumMBsInBuffer).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwStride", &self.dwStride).field("dwReservedBits", &self.dwReservedBits).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DXVA_BufferDescription {
     type Abi = Self;
 }
@@ -10199,29 +10178,6 @@ impl ::core::marker::Copy for DXVA_ConfigPictureDecode {}
 impl ::core::clone::Clone for DXVA_ConfigPictureDecode {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DXVA_ConfigPictureDecode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DXVA_ConfigPictureDecode")
-            .field("dwFunction", &self.dwFunction)
-            .field("dwReservedBits", &self.dwReservedBits)
-            .field("guidConfigBitstreamEncryption", &self.guidConfigBitstreamEncryption)
-            .field("guidConfigMBcontrolEncryption", &self.guidConfigMBcontrolEncryption)
-            .field("guidConfigResidDiffEncryption", &self.guidConfigResidDiffEncryption)
-            .field("bConfigBitstreamRaw", &self.bConfigBitstreamRaw)
-            .field("bConfigMBcontrolRasterOrder", &self.bConfigMBcontrolRasterOrder)
-            .field("bConfigResidDiffHost", &self.bConfigResidDiffHost)
-            .field("bConfigSpatialResid8", &self.bConfigSpatialResid8)
-            .field("bConfigResid8Subtraction", &self.bConfigResid8Subtraction)
-            .field("bConfigSpatialHost8or9Clipping", &self.bConfigSpatialHost8or9Clipping)
-            .field("bConfigSpatialResidInterleaved", &self.bConfigSpatialResidInterleaved)
-            .field("bConfigIntraResidUnsigned", &self.bConfigIntraResidUnsigned)
-            .field("bConfigResidDiffAccelerator", &self.bConfigResidDiffAccelerator)
-            .field("bConfigHostInverseScan", &self.bConfigHostInverseScan)
-            .field("bConfigSpecificIDCT", &self.bConfigSpecificIDCT)
-            .field("bConfig4GroupedCoefs", &self.bConfig4GroupedCoefs)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_ConfigPictureDecode {
@@ -10655,48 +10611,6 @@ impl ::core::marker::Copy for DXVA_PictureParameters {}
 impl ::core::clone::Clone for DXVA_PictureParameters {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DXVA_PictureParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DXVA_PictureParameters")
-            .field("wDecodedPictureIndex", &self.wDecodedPictureIndex)
-            .field("wDeblockedPictureIndex", &self.wDeblockedPictureIndex)
-            .field("wForwardRefPictureIndex", &self.wForwardRefPictureIndex)
-            .field("wBackwardRefPictureIndex", &self.wBackwardRefPictureIndex)
-            .field("wPicWidthInMBminus1", &self.wPicWidthInMBminus1)
-            .field("wPicHeightInMBminus1", &self.wPicHeightInMBminus1)
-            .field("bMacroblockWidthMinus1", &self.bMacroblockWidthMinus1)
-            .field("bMacroblockHeightMinus1", &self.bMacroblockHeightMinus1)
-            .field("bBlockWidthMinus1", &self.bBlockWidthMinus1)
-            .field("bBlockHeightMinus1", &self.bBlockHeightMinus1)
-            .field("bBPPminus1", &self.bBPPminus1)
-            .field("bPicStructure", &self.bPicStructure)
-            .field("bSecondField", &self.bSecondField)
-            .field("bPicIntra", &self.bPicIntra)
-            .field("bPicBackwardPrediction", &self.bPicBackwardPrediction)
-            .field("bBidirectionalAveragingMode", &self.bBidirectionalAveragingMode)
-            .field("bMVprecisionAndChromaRelation", &self.bMVprecisionAndChromaRelation)
-            .field("bChromaFormat", &self.bChromaFormat)
-            .field("bPicScanFixed", &self.bPicScanFixed)
-            .field("bPicScanMethod", &self.bPicScanMethod)
-            .field("bPicReadbackRequests", &self.bPicReadbackRequests)
-            .field("bRcontrol", &self.bRcontrol)
-            .field("bPicSpatialResid8", &self.bPicSpatialResid8)
-            .field("bPicOverflowBlocks", &self.bPicOverflowBlocks)
-            .field("bPicExtrapolation", &self.bPicExtrapolation)
-            .field("bPicDeblocked", &self.bPicDeblocked)
-            .field("bPicDeblockConfined", &self.bPicDeblockConfined)
-            .field("bPic4MVallowed", &self.bPic4MVallowed)
-            .field("bPicOBMC", &self.bPicOBMC)
-            .field("bPicBinPB", &self.bPicBinPB)
-            .field("bMV_RPS", &self.bMV_RPS)
-            .field("bReservedBits", &self.bReservedBits)
-            .field("wBitstreamFcodes", &self.wBitstreamFcodes)
-            .field("wBitstreamPCEelements", &self.wBitstreamPCEelements)
-            .field("bBitstreamConcealmentNeed", &self.bBitstreamConcealmentNeed)
-            .field("bBitstreamConcealmentMethod", &self.bBitstreamConcealmentMethod)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_PictureParameters {
@@ -58938,25 +58852,6 @@ impl ::core::clone::Clone for OPM_ACP_AND_CGMSA_SIGNALING {
         *self
     }
 }
-impl ::core::fmt::Debug for OPM_ACP_AND_CGMSA_SIGNALING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_ACP_AND_CGMSA_SIGNALING")
-            .field("rnRandomNumber", &self.rnRandomNumber)
-            .field("ulStatusFlags", &self.ulStatusFlags)
-            .field("ulAvailableTVProtectionStandards", &self.ulAvailableTVProtectionStandards)
-            .field("ulActiveTVProtectionStandard", &self.ulActiveTVProtectionStandard)
-            .field("ulReserved", &self.ulReserved)
-            .field("ulAspectRatioValidMask1", &self.ulAspectRatioValidMask1)
-            .field("ulAspectRatioData1", &self.ulAspectRatioData1)
-            .field("ulAspectRatioValidMask2", &self.ulAspectRatioValidMask2)
-            .field("ulAspectRatioData2", &self.ulAspectRatioData2)
-            .field("ulAspectRatioValidMask3", &self.ulAspectRatioValidMask3)
-            .field("ulAspectRatioData3", &self.ulAspectRatioData3)
-            .field("ulReserved2", &self.ulReserved2)
-            .field("ulReserved3", &self.ulReserved3)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OPM_ACP_AND_CGMSA_SIGNALING {
     type Abi = Self;
 }
@@ -59002,12 +58897,6 @@ impl ::core::marker::Copy for OPM_ACTUAL_OUTPUT_FORMAT {}
 impl ::core::clone::Clone for OPM_ACTUAL_OUTPUT_FORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::fmt::Debug for OPM_ACTUAL_OUTPUT_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_ACTUAL_OUTPUT_FORMAT").field("rnRandomNumber", &self.rnRandomNumber).field("ulStatusFlags", &self.ulStatusFlags).field("ulDisplayWidth", &self.ulDisplayWidth).field("ulDisplayHeight", &self.ulDisplayHeight).field("dsfSampleInterleaveFormat", &self.dsfSampleInterleaveFormat).field("d3dFormat", &self.d3dFormat).field("ulFrequencyNumerator", &self.ulFrequencyNumerator).field("ulFrequencyDenominator", &self.ulFrequencyDenominator).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -59083,11 +58972,6 @@ impl ::core::clone::Clone for OPM_CONFIGURE_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for OPM_CONFIGURE_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_CONFIGURE_PARAMETERS").field("omac", &self.omac).field("guidSetting", &self.guidSetting).field("ulSequenceNumber", &self.ulSequenceNumber).field("cbParametersSize", &self.cbParametersSize).field("abParameters", &self.abParameters).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OPM_CONFIGURE_PARAMETERS {
     type Abi = Self;
 }
@@ -59119,11 +59003,6 @@ impl ::core::clone::Clone for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_CONNECTED_HDCP_DEVICE_INFORMATION").field("rnRandomNumber", &self.rnRandomNumber).field("ulStatusFlags", &self.ulStatusFlags).field("ulHDCPFlags", &self.ulHDCPFlags).field("ksvB", &self.ksvB).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     type Abi = Self;
 }
@@ -59151,11 +59030,6 @@ impl ::core::marker::Copy for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {}
 impl ::core::clone::Clone for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS").field("rnRandomNumber", &self.rnRandomNumber).field("guidInformation", &self.guidInformation).field("ulSequenceNumber", &self.ulSequenceNumber).field("cbParametersSize", &self.cbParametersSize).field("abParameters", &self.abParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
@@ -59233,11 +59107,6 @@ impl ::core::clone::Clone for OPM_GET_CODEC_INFO_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for OPM_GET_CODEC_INFO_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_GET_CODEC_INFO_INFORMATION").field("rnRandomNumber", &self.rnRandomNumber).field("Merit", &self.Merit).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OPM_GET_CODEC_INFO_INFORMATION {
     type Abi = Self;
 }
@@ -59262,11 +59131,6 @@ impl ::core::marker::Copy for OPM_GET_CODEC_INFO_PARAMETERS {}
 impl ::core::clone::Clone for OPM_GET_CODEC_INFO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for OPM_GET_CODEC_INFO_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_GET_CODEC_INFO_PARAMETERS").field("cbVerifier", &self.cbVerifier).field("Verifier", &self.Verifier).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_GET_CODEC_INFO_PARAMETERS {
@@ -59301,11 +59165,6 @@ impl ::core::marker::Copy for OPM_GET_INFO_PARAMETERS {}
 impl ::core::clone::Clone for OPM_GET_INFO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for OPM_GET_INFO_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_GET_INFO_PARAMETERS").field("omac", &self.omac).field("rnRandomNumber", &self.rnRandomNumber).field("guidInformation", &self.guidInformation).field("ulSequenceNumber", &self.ulSequenceNumber).field("cbParametersSize", &self.cbParametersSize).field("abParameters", &self.abParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_GET_INFO_PARAMETERS {
@@ -59451,11 +59310,6 @@ impl ::core::clone::Clone for OPM_OUTPUT_ID_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for OPM_OUTPUT_ID_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_OUTPUT_ID_DATA").field("rnRandomNumber", &self.rnRandomNumber).field("ulStatusFlags", &self.ulStatusFlags).field("OutputId", &self.OutputId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OPM_OUTPUT_ID_DATA {
     type Abi = Self;
 }
@@ -59567,11 +59421,6 @@ impl ::core::clone::Clone for OPM_REQUESTED_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for OPM_REQUESTED_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_REQUESTED_INFORMATION").field("omac", &self.omac).field("cbRequestedInformationSize", &self.cbRequestedInformationSize).field("abRequestedInformation", &self.abRequestedInformation).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OPM_REQUESTED_INFORMATION {
     type Abi = Self;
 }
@@ -59607,22 +59456,6 @@ impl ::core::clone::Clone for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS")
-            .field("ulNewTVProtectionStandard", &self.ulNewTVProtectionStandard)
-            .field("ulAspectRatioChangeMask1", &self.ulAspectRatioChangeMask1)
-            .field("ulAspectRatioData1", &self.ulAspectRatioData1)
-            .field("ulAspectRatioChangeMask2", &self.ulAspectRatioChangeMask2)
-            .field("ulAspectRatioData2", &self.ulAspectRatioData2)
-            .field("ulAspectRatioChangeMask3", &self.ulAspectRatioChangeMask3)
-            .field("ulAspectRatioData3", &self.ulAspectRatioData3)
-            .field("ulReserved", &self.ulReserved)
-            .field("ulReserved2", &self.ulReserved2)
-            .field("ulReserved3", &self.ulReserved3)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     type Abi = Self;
 }
@@ -59647,11 +59480,6 @@ impl ::core::marker::Copy for OPM_SET_HDCP_SRM_PARAMETERS {}
 impl ::core::clone::Clone for OPM_SET_HDCP_SRM_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for OPM_SET_HDCP_SRM_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_SET_HDCP_SRM_PARAMETERS").field("ulSRMVersion", &self.ulSRMVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_SET_HDCP_SRM_PARAMETERS {
@@ -59684,11 +59512,6 @@ impl ::core::clone::Clone for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_SET_PROTECTION_LEVEL_PARAMETERS").field("ulProtectionType", &self.ulProtectionType).field("ulProtectionLevel", &self.ulProtectionLevel).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     type Abi = Self;
 }
@@ -59716,11 +59539,6 @@ impl ::core::marker::Copy for OPM_STANDARD_INFORMATION {}
 impl ::core::clone::Clone for OPM_STANDARD_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for OPM_STANDARD_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPM_STANDARD_INFORMATION").field("rnRandomNumber", &self.rnRandomNumber).field("ulStatusFlags", &self.ulStatusFlags).field("ulInformation", &self.ulInformation).field("ulReserved", &self.ulReserved).field("ulReserved2", &self.ulReserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for OPM_STANDARD_INFORMATION {

@@ -3189,11 +3189,6 @@ impl ::core::clone::Clone for IPV6_ADDRESS_EX {
         *self
     }
 }
-impl ::core::fmt::Debug for IPV6_ADDRESS_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPV6_ADDRESS_EX").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPV6_ADDRESS_EX {
     type Abi = Self;
 }

@@ -676,11 +676,6 @@ impl ::core::clone::Clone for DMUS_EVENTHEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for DMUS_EVENTHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_EVENTHEADER").field("cbEvent", &self.cbEvent).field("dwChannelGroup", &self.dwChannelGroup).field("rtDelta", &self.rtDelta).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DMUS_EVENTHEADER {
     type Abi = Self;
 }
@@ -3256,11 +3251,6 @@ impl ::core::clone::Clone for MDEVICECAPSEX {
         *self
     }
 }
-impl ::core::fmt::Debug for MDEVICECAPSEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MDEVICECAPSEX").field("cbSize", &self.cbSize).field("pCaps", &self.pCaps).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MDEVICECAPSEX {
     type Abi = Self;
 }
@@ -3323,12 +3313,6 @@ impl ::core::marker::Copy for MIDIOPENDESC {}
 impl ::core::clone::Clone for MIDIOPENDESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::fmt::Debug for MIDIOPENDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIOPENDESC").field("hMidi", &self.hMidi).field("dwCallback", &self.dwCallback).field("dwInstance", &self.dwInstance).field("dnDevNode", &self.dnDevNode).field("cIds", &self.cIds).field("rgIds", &self.rgIds).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]

@@ -3620,12 +3620,6 @@ impl ::core::clone::Clone for IMEDLG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMEDLG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEDLG").field("cbIMEDLG", &self.cbIMEDLG).field("hwnd", &self.hwnd).field("lpwstrWord", &self.lpwstrWord).field("nTabId", &self.nTabId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMEDLG {
     type Abi = Self;
 }
@@ -3868,12 +3862,6 @@ impl ::core::clone::Clone for IMEKMS {
     }
 }
 #[cfg(feature = "Win32_Globalization")]
-impl ::core::fmt::Debug for IMEKMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEKMS").field("cbSize", &self.cbSize).field("hIMC", &self.hIMC).field("cKeyList", &self.cKeyList).field("pKeyList", &self.pKeyList).finish()
-    }
-}
-#[cfg(feature = "Win32_Globalization")]
 unsafe impl ::windows::core::Abi for IMEKMS {
     type Abi = Self;
 }
@@ -3905,11 +3893,6 @@ impl ::core::clone::Clone for IMEKMSFUNCDESC {
         *self
     }
 }
-impl ::core::fmt::Debug for IMEKMSFUNCDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEKMSFUNCDESC").field("cbSize", &self.cbSize).field("idLang", &self.idLang).field("dwControl", &self.dwControl).field("pwszDescription", &self.pwszDescription).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IMEKMSFUNCDESC {
     type Abi = Self;
 }
@@ -3937,12 +3920,6 @@ impl ::core::marker::Copy for IMEKMSINIT {}
 impl ::core::clone::Clone for IMEKMSINIT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMEKMSINIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEKMSINIT").field("cbSize", &self.cbSize).field("hWnd", &self.hWnd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3977,12 +3954,6 @@ impl ::core::marker::Copy for IMEKMSINVK {}
 impl ::core::clone::Clone for IMEKMSINVK {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Globalization")]
-impl ::core::fmt::Debug for IMEKMSINVK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEKMSINVK").field("cbSize", &self.cbSize).field("hIMC", &self.hIMC).field("dwControl", &self.dwControl).finish()
     }
 }
 #[cfg(feature = "Win32_Globalization")]
@@ -4105,12 +4076,6 @@ impl ::core::clone::Clone for IMEKMSKMP {
     }
 }
 #[cfg(feature = "Win32_Globalization")]
-impl ::core::fmt::Debug for IMEKMSKMP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEKMSKMP").field("cbSize", &self.cbSize).field("hIMC", &self.hIMC).field("idLang", &self.idLang).field("wVKStart", &self.wVKStart).field("wVKEnd", &self.wVKEnd).field("cKeyList", &self.cKeyList).field("pKeyList", &self.pKeyList).finish()
-    }
-}
-#[cfg(feature = "Win32_Globalization")]
 unsafe impl ::windows::core::Abi for IMEKMSKMP {
     type Abi = Self;
 }
@@ -4142,12 +4107,6 @@ impl ::core::marker::Copy for IMEKMSNTFY {}
 impl ::core::clone::Clone for IMEKMSNTFY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-impl ::core::fmt::Debug for IMEKMSNTFY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEKMSNTFY").field("cbSize", &self.cbSize).field("hIMC", &self.hIMC).field("fSelect", &self.fSelect).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -4469,12 +4428,6 @@ impl ::core::clone::Clone for IMESHF {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMESHF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMESHF").field("cbShf", &self.cbShf).field("verDic", &self.verDic).field("szTitle", &self.szTitle).field("szDescription", &self.szDescription).field("szCopyright", &self.szCopyright).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMESHF {
     type Abi = Self;
 }
@@ -4674,12 +4627,6 @@ impl ::core::marker::Copy for IMEWRD_0_0 {}
 impl ::core::clone::Clone for IMEWRD_0_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMEWRD_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMEWRD_0_0").field("nPos1", &self.nPos1).field("nPos2", &self.nPos2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6883,11 +6830,6 @@ impl ::core::marker::Copy for POSTBL {}
 impl ::core::clone::Clone for POSTBL {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for POSTBL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POSTBL").field("nPos", &self.nPos).field("szName", &self.szName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for POSTBL {

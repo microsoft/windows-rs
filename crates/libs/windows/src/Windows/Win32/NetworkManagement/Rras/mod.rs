@@ -5435,12 +5435,6 @@ impl ::core::clone::Clone for RASADPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASADPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASADPARAMS").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASADPARAMS {
     type Abi = Self;
 }
@@ -5739,12 +5733,6 @@ impl ::core::clone::Clone for RASCONNA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASCONNA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASCONNA").field("dwSize", &self.dwSize).field("hrasconn", &self.hrasconn).field("szEntryName", &self.szEntryName).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szPhonebook", &self.szPhonebook).field("dwSubEntry", &self.dwSubEntry).field("guidEntry", &self.guidEntry).field("dwFlags", &self.dwFlags).field("luid", &self.luid).field("guidCorrelationId", &self.guidCorrelationId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASCONNA {
     type Abi = Self;
 }
@@ -5943,12 +5931,6 @@ impl ::core::clone::Clone for RASCONNW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASCONNW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASCONNW").field("dwSize", &self.dwSize).field("hrasconn", &self.hrasconn).field("szEntryName", &self.szEntryName).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szPhonebook", &self.szPhonebook).field("dwSubEntry", &self.dwSubEntry).field("guidEntry", &self.guidEntry).field("dwFlags", &self.dwFlags).field("luid", &self.luid).field("guidCorrelationId", &self.guidCorrelationId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASCONNW {
     type Abi = Self;
 }
@@ -6098,12 +6080,6 @@ impl ::core::clone::Clone for RASCUSTOMSCRIPTEXTENSIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASCUSTOMSCRIPTEXTENSIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASCUSTOMSCRIPTEXTENSIONS").field("dwSize", &self.dwSize).field("pfnRasSetCommSettings", &self.pfnRasSetCommSettings.map(|f| f as usize)).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASCUSTOMSCRIPTEXTENSIONS {
     type Abi = Self;
 }
@@ -6213,11 +6189,6 @@ impl ::core::clone::Clone for RASDEVSPECIFICINFO {
         *self
     }
 }
-impl ::core::fmt::Debug for RASDEVSPECIFICINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASDEVSPECIFICINFO").field("dwSize", &self.dwSize).field("pbDevSpecificInfo", &self.pbDevSpecificInfo).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RASDEVSPECIFICINFO {
     type Abi = Self;
 }
@@ -6252,12 +6223,6 @@ impl ::core::marker::Copy for RASDIALDLG {}
 impl ::core::clone::Clone for RASDIALDLG {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASDIALDLG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASDIALDLG").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("dwSubEntry", &self.dwSubEntry).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6297,12 +6262,6 @@ impl ::core::marker::Copy for RASDIALEXTENSIONS {}
 impl ::core::clone::Clone for RASDIALEXTENSIONS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASDIALEXTENSIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASDIALEXTENSIONS").field("dwSize", &self.dwSize).field("dwfOptions", &self.dwfOptions).field("hwndParent", &self.hwndParent).field("reserved", &self.reserved).field("reserved1", &self.reserved1).field("RasEapInfo", &self.RasEapInfo).field("fSkipPppAuth", &self.fSkipPppAuth).field("RasDevSpecificInfo", &self.RasDevSpecificInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6354,12 +6313,6 @@ impl ::core::clone::Clone for RASDIALPARAMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASDIALPARAMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASDIALPARAMSA").field("dwSize", &self.dwSize).field("szEntryName", &self.szEntryName).field("szPhoneNumber", &self.szPhoneNumber).field("szCallbackNumber", &self.szCallbackNumber).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).field("dwSubEntry", &self.dwSubEntry).field("dwCallbackId", &self.dwCallbackId).field("dwIfIndex", &self.dwIfIndex).field("szEncPassword", &self.szEncPassword).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASDIALPARAMSA {
     type Abi = Self;
 }
@@ -6402,12 +6355,6 @@ impl ::core::clone::Clone for RASDIALPARAMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASDIALPARAMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASDIALPARAMSW").field("dwSize", &self.dwSize).field("szEntryName", &self.szEntryName).field("szPhoneNumber", &self.szPhoneNumber).field("szCallbackNumber", &self.szCallbackNumber).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).field("dwSubEntry", &self.dwSubEntry).field("dwCallbackId", &self.dwCallbackId).field("dwIfIndex", &self.dwIfIndex).field("szEncPassword", &self.szEncPassword).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASDIALPARAMSW {
     type Abi = Self;
 }
@@ -6441,11 +6388,6 @@ impl ::core::marker::Copy for RASEAPINFO {}
 impl ::core::clone::Clone for RASEAPINFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RASEAPINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASEAPINFO").field("dwSizeofEapInfo", &self.dwSizeofEapInfo).field("pbEapInfo", &self.pbEapInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RASEAPINFO {
@@ -6673,12 +6615,6 @@ impl ::core::clone::Clone for RASENTRYDLGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASENTRYDLGA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASENTRYDLGA").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("szEntry", &self.szEntry).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASENTRYDLGA {
     type Abi = Self;
 }
@@ -6716,12 +6652,6 @@ impl ::core::marker::Copy for RASENTRYDLGW {}
 impl ::core::clone::Clone for RASENTRYDLGW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASENTRYDLGW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASENTRYDLGW").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("szEntry", &self.szEntry).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7345,12 +7275,6 @@ impl ::core::clone::Clone for RASPBDLGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASPBDLGA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASPBDLGA").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("dwCallbackId", &self.dwCallbackId).field("pCallback", &self.pCallback.map(|f| f as usize)).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASPBDLGA {
     type Abi = Self;
 }
@@ -7395,12 +7319,6 @@ impl ::core::marker::Copy for RASPBDLGW {}
 impl ::core::clone::Clone for RASPBDLGW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASPBDLGW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RASPBDLGW").field("dwSize", &self.dwSize).field("hwndOwner", &self.hwndOwner).field("dwFlags", &self.dwFlags).field("xDlg", &self.xDlg).field("yDlg", &self.yDlg).field("dwCallbackId", &self.dwCallbackId).field("pCallback", &self.pCallback.map(|f| f as usize)).field("dwError", &self.dwError).field("reserved", &self.reserved).field("reserved2", &self.reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9398,7 +9316,7 @@ impl ::core::clone::Clone for RTM_ENTITY_EXPORT_METHODS {
 }
 impl ::core::fmt::Debug for RTM_ENTITY_EXPORT_METHODS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTM_ENTITY_EXPORT_METHODS").field("NumMethods", &self.NumMethods).field("Methods", &self.Methods).finish()
+        f.debug_struct("RTM_ENTITY_EXPORT_METHODS").field("NumMethods", &self.NumMethods).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RTM_ENTITY_EXPORT_METHODS {

@@ -6503,11 +6503,6 @@ impl ::core::clone::Clone for MTP_COMMAND_DATA_IN {
         *self
     }
 }
-impl ::core::fmt::Debug for MTP_COMMAND_DATA_IN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MTP_COMMAND_DATA_IN").field("OpCode", &self.OpCode).field("NumParams", &self.NumParams).field("Params", &self.Params).field("NextPhase", &self.NextPhase).field("CommandWriteDataSize", &self.CommandWriteDataSize).field("CommandWriteData", &self.CommandWriteData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_IN {
     type Abi = Self;
 }
@@ -6535,11 +6530,6 @@ impl ::core::marker::Copy for MTP_COMMAND_DATA_OUT {}
 impl ::core::clone::Clone for MTP_COMMAND_DATA_OUT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MTP_COMMAND_DATA_OUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MTP_COMMAND_DATA_OUT").field("ResponseCode", &self.ResponseCode).field("NumParams", &self.NumParams).field("Params", &self.Params).field("CommandReadDataSize", &self.CommandReadDataSize).field("CommandReadData", &self.CommandReadData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_OUT {

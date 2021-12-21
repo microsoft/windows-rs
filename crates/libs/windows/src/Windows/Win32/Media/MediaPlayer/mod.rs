@@ -19244,11 +19244,6 @@ impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
         *self
     }
 }
-impl ::core::fmt::Debug for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC").field("dwCurrentTransactionID", &self.dwCurrentTransactionID).field("dwReturnedObjectCount", &self.dwReturnedObjectCount).field("dwUnretrievedObjectCount", &self.dwUnretrievedObjectCount).field("dwDeletedObjectStartingOffset", &self.dwDeletedObjectStartingOffset).field("dwFlags", &self.dwFlags).field("wsObjectPathnameList", &self.wsObjectPathnameList).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     type Abi = Self;
 }
@@ -19273,11 +19268,6 @@ impl ::core::marker::Copy for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {}
 impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE").field("dwChangesSinceTransactionID", &self.dwChangesSinceTransactionID).field("dwResultSetStartingIndex", &self.dwResultSetStartingIndex).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {

@@ -4832,11 +4832,6 @@ impl ::core::clone::Clone for PXE_DHCPV6_OPTION {
         *self
     }
 }
-impl ::core::fmt::Debug for PXE_DHCPV6_OPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PXE_DHCPV6_OPTION").field("OptionCode", &self.OptionCode).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_OPTION {
     type Abi = Self;
 }

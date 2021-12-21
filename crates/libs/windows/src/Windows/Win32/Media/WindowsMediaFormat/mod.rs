@@ -14374,11 +14374,6 @@ impl ::core::clone::Clone for WMT_TIMECODE_EXTENSION_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for WMT_TIMECODE_EXTENSION_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_TIMECODE_EXTENSION_DATA").field("wRange", &self.wRange).field("dwTimecode", &self.dwTimecode).field("dwUserbits", &self.dwUserbits).field("dwAmFlags", &self.dwAmFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WMT_TIMECODE_EXTENSION_DATA {
     type Abi = Self;
 }
@@ -15029,11 +15024,6 @@ impl ::core::clone::Clone for WM_LEAKY_BUCKET_PAIR {
         *self
     }
 }
-impl ::core::fmt::Debug for WM_LEAKY_BUCKET_PAIR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_LEAKY_BUCKET_PAIR").field("dwBitrate", &self.dwBitrate).field("msBufferWindow", &self.msBufferWindow).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WM_LEAKY_BUCKET_PAIR {
     type Abi = Self;
 }
@@ -15122,12 +15112,6 @@ impl ::core::marker::Copy for WM_PICTURE {}
 impl ::core::clone::Clone for WM_PICTURE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WM_PICTURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_PICTURE").field("pwszMIMEType", &self.pwszMIMEType).field("bPictureType", &self.bPictureType).field("pwszDescription", &self.pwszDescription).field("dwDataLen", &self.dwDataLen).field("pbData", &self.pbData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15298,12 +15282,6 @@ impl ::core::clone::Clone for WM_STREAM_PRIORITY_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WM_STREAM_PRIORITY_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_STREAM_PRIORITY_RECORD").field("wStreamNumber", &self.wStreamNumber).field("fMandatory", &self.fMandatory).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WM_STREAM_PRIORITY_RECORD {
     type Abi = Self;
 }
@@ -15331,11 +15309,6 @@ impl ::core::marker::Copy for WM_STREAM_TYPE_INFO {}
 impl ::core::clone::Clone for WM_STREAM_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WM_STREAM_TYPE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_STREAM_TYPE_INFO").field("guidMajorType", &self.guidMajorType).field("cbFormat", &self.cbFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WM_STREAM_TYPE_INFO {
@@ -15368,12 +15341,6 @@ impl ::core::marker::Copy for WM_SYNCHRONISED_LYRICS {}
 impl ::core::clone::Clone for WM_SYNCHRONISED_LYRICS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WM_SYNCHRONISED_LYRICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_SYNCHRONISED_LYRICS").field("bTimeStampFormat", &self.bTimeStampFormat).field("bContentType", &self.bContentType).field("pwszContentDescriptor", &self.pwszContentDescriptor).field("dwLyricsLen", &self.dwLyricsLen).field("pbLyrics", &self.pbLyrics).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15432,12 +15399,6 @@ impl ::core::clone::Clone for WM_USER_TEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WM_USER_TEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_USER_TEXT").field("pwszDescription", &self.pwszDescription).field("pwszText", &self.pwszText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WM_USER_TEXT {
     type Abi = Self;
 }
@@ -15468,12 +15429,6 @@ impl ::core::marker::Copy for WM_USER_WEB_URL {}
 impl ::core::clone::Clone for WM_USER_WEB_URL {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WM_USER_WEB_URL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_USER_WEB_URL").field("pwszDescription", &self.pwszDescription).field("pwszURL", &self.pwszURL).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

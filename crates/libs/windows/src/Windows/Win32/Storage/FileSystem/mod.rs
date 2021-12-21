@@ -15491,11 +15491,6 @@ impl ::core::clone::Clone for TXF_ID_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for TXF_ID_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TXF_ID_0").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TXF_ID_0 {
     type Abi = Self;
 }
@@ -15605,11 +15600,6 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_TRUNCATE {
         *self
     }
 }
-impl ::core::fmt::Debug for TXF_LOG_RECORD_TRUNCATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TXF_LOG_RECORD_TRUNCATE").field("Version", &self.Version).field("RecordType", &self.RecordType).field("RecordLength", &self.RecordLength).field("Flags", &self.Flags).field("TxfFileId", &self.TxfFileId).field("KtmGuid", &self.KtmGuid).field("NewFileSize", &self.NewFileSize).field("FileNameLength", &self.FileNameLength).field("FileNameByteOffsetInStructure", &self.FileNameByteOffsetInStructure).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_TRUNCATE {
     type Abi = Self;
 }
@@ -15651,23 +15641,6 @@ impl ::core::marker::Copy for TXF_LOG_RECORD_WRITE {}
 impl ::core::clone::Clone for TXF_LOG_RECORD_WRITE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for TXF_LOG_RECORD_WRITE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TXF_LOG_RECORD_WRITE")
-            .field("Version", &self.Version)
-            .field("RecordType", &self.RecordType)
-            .field("RecordLength", &self.RecordLength)
-            .field("Flags", &self.Flags)
-            .field("TxfFileId", &self.TxfFileId)
-            .field("KtmGuid", &self.KtmGuid)
-            .field("ByteOffsetInFile", &self.ByteOffsetInFile)
-            .field("NumBytesWritten", &self.NumBytesWritten)
-            .field("ByteOffsetInStructure", &self.ByteOffsetInStructure)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("FileNameByteOffsetInStructure", &self.FileNameByteOffsetInStructure)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_WRITE {

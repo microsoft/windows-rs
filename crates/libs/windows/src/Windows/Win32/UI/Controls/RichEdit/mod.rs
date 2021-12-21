@@ -583,12 +583,6 @@ impl ::core::clone::Clone for CLIPBOARDFORMAT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CLIPBOARDFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLIPBOARDFORMAT").field("nmhdr", &self.nmhdr).field("cf", &self.cf).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLIPBOARDFORMAT {
     type Abi = Self;
 }
@@ -701,11 +695,6 @@ impl ::core::marker::Copy for EDITSTREAM {}
 impl ::core::clone::Clone for EDITSTREAM {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for EDITSTREAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EDITSTREAM").field("dwCookie", &self.dwCookie).field("dwError", &self.dwError).field("pfnCallback", &self.pfnCallback.map(|f| f as usize)).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EDITSTREAM {
@@ -988,12 +977,6 @@ impl ::core::clone::Clone for ENCORRECTTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENCORRECTTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENCORRECTTEXT").field("nmhdr", &self.nmhdr).field("chrg", &self.chrg).field("seltyp", &self.seltyp).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENCORRECTTEXT {
     type Abi = Self;
 }
@@ -1024,12 +1007,6 @@ impl ::core::marker::Copy for ENDCOMPOSITIONNOTIFY {}
 impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENDCOMPOSITIONNOTIFY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENDCOMPOSITIONNOTIFY").field("nmhdr", &self.nmhdr).field("dwCode", &self.dwCode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1074,12 +1051,6 @@ impl ::core::clone::Clone for ENDROPFILES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENDROPFILES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENDROPFILES").field("nmhdr", &self.nmhdr).field("hDrop", &self.hDrop).field("cp", &self.cp).field("fProtected", &self.fProtected).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENDROPFILES {
     type Abi = Self;
 }
@@ -1116,12 +1087,6 @@ impl ::core::clone::Clone for ENLINK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENLINK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENLINK").field("nmhdr", &self.nmhdr).field("msg", &self.msg).field("wParam", &self.wParam).field("lParam", &self.lParam).field("chrg", &self.chrg).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENLINK {
     type Abi = Self;
 }
@@ -1152,12 +1117,6 @@ impl ::core::marker::Copy for ENLOWFIRTF {}
 impl ::core::clone::Clone for ENLOWFIRTF {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENLOWFIRTF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENLOWFIRTF").field("nmhdr", &self.nmhdr).field("szControl", &self.szControl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1246,12 +1205,6 @@ impl ::core::clone::Clone for ENOLEOPFAILED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENOLEOPFAILED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENOLEOPFAILED").field("nmhdr", &self.nmhdr).field("iob", &self.iob).field("lOper", &self.lOper).field("hr", &self.hr).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENOLEOPFAILED {
     type Abi = Self;
 }
@@ -1288,12 +1241,6 @@ impl ::core::clone::Clone for ENPROTECTED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENPROTECTED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENPROTECTED").field("nmhdr", &self.nmhdr).field("msg", &self.msg).field("wParam", &self.wParam).field("lParam", &self.lParam).field("chrg", &self.chrg).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ENPROTECTED {
     type Abi = Self;
 }
@@ -1325,12 +1272,6 @@ impl ::core::marker::Copy for ENSAVECLIPBOARD {}
 impl ::core::clone::Clone for ENSAVECLIPBOARD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENSAVECLIPBOARD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENSAVECLIPBOARD").field("nmhdr", &self.nmhdr).field("cObjectCount", &self.cObjectCount).field("cch", &self.cch).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1437,12 +1378,6 @@ impl ::core::clone::Clone for FINDTEXTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FINDTEXTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FINDTEXTA").field("chrg", &self.chrg).field("lpstrText", &self.lpstrText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDTEXTA {
     type Abi = Self;
 }
@@ -1474,12 +1409,6 @@ impl ::core::marker::Copy for FINDTEXTEXA {}
 impl ::core::clone::Clone for FINDTEXTEXA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FINDTEXTEXA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FINDTEXTEXA").field("chrg", &self.chrg).field("lpstrText", &self.lpstrText).field("chrgText", &self.chrgText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1517,12 +1446,6 @@ impl ::core::clone::Clone for FINDTEXTEXW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FINDTEXTEXW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FINDTEXTEXW").field("chrg", &self.chrg).field("lpstrText", &self.lpstrText).field("chrgText", &self.chrgText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDTEXTEXW {
     type Abi = Self;
 }
@@ -1553,12 +1476,6 @@ impl ::core::marker::Copy for FINDTEXTW {}
 impl ::core::clone::Clone for FINDTEXTW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FINDTEXTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FINDTEXTW").field("chrg", &self.chrg).field("lpstrText", &self.lpstrText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1595,12 +1512,6 @@ impl ::core::marker::Copy for FORMATRANGE {}
 impl ::core::clone::Clone for FORMATRANGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for FORMATRANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FORMATRANGE").field("hdc", &self.hdc).field("hdcTarget", &self.hdcTarget).field("rc", &self.rc).field("rcPage", &self.rcPage).field("chrg", &self.chrg).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1657,12 +1568,6 @@ impl ::core::clone::Clone for GETCONTEXTMENUEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GETCONTEXTMENUEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GETCONTEXTMENUEX").field("chrg", &self.chrg).field("dwFlags", &self.dwFlags).field("pt", &self.pt).field("pvReserved", &self.pvReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GETCONTEXTMENUEX {
     type Abi = Self;
 }
@@ -1696,12 +1601,6 @@ impl ::core::marker::Copy for GETTEXTEX {}
 impl ::core::clone::Clone for GETTEXTEX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GETTEXTEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GETTEXTEX").field("cb", &self.cb).field("flags", &self.flags).field("codepage", &self.codepage).field("lpDefaultChar", &self.lpDefaultChar).field("lpUsedDefChar", &self.lpUsedDefChar).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1790,11 +1689,6 @@ impl ::core::marker::Copy for HYPHENATEINFO {}
 impl ::core::clone::Clone for HYPHENATEINFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for HYPHENATEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HYPHENATEINFO").field("cbSize", &self.cbSize).field("dxHyphenateZone", &self.dxHyphenateZone).field("pfnHyphenate", &self.pfnHyphenate).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HYPHENATEINFO {
@@ -9898,12 +9792,6 @@ impl ::core::clone::Clone for MSGFILTER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MSGFILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSGFILTER").field("nmhdr", &self.nmhdr).field("msg", &self.msg).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MSGFILTER {
     type Abi = Self;
 }
@@ -9935,12 +9823,6 @@ impl ::core::marker::Copy for OBJECTPOSITIONS {}
 impl ::core::clone::Clone for OBJECTPOSITIONS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OBJECTPOSITIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OBJECTPOSITIONS").field("nmhdr", &self.nmhdr).field("cObjectCount", &self.cObjectCount).field("pcpPositions", &self.pcpPositions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10308,12 +10190,6 @@ impl ::core::clone::Clone for PUNCTUATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PUNCTUATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PUNCTUATION").field("iSize", &self.iSize).field("szPunctuation", &self.szPunctuation).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PUNCTUATION {
     type Abi = Self;
 }
@@ -10457,12 +10333,6 @@ impl ::core::clone::Clone for REPASTESPECIAL {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for REPASTESPECIAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REPASTESPECIAL").field("dwAspect", &self.dwAspect).field("dwParam", &self.dwParam).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for REPASTESPECIAL {
     type Abi = Self;
 }
@@ -10496,12 +10366,6 @@ impl ::core::clone::Clone for REQRESIZE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for REQRESIZE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REQRESIZE").field("nmhdr", &self.nmhdr).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for REQRESIZE {
     type Abi = Self;
 }
@@ -10529,12 +10393,6 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub Type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS,
     pub pwszAlternateText: super::super::super::Foundation::PWSTR,
     pub pIStream: ::core::option::Option<super::super::super::System::Com::IStream>,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for RICHEDIT_IMAGE_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RICHEDIT_IMAGE_PARAMETERS").field("xWidth", &self.xWidth).field("yHeight", &self.yHeight).field("Ascent", &self.Ascent).field("Type", &self.Type).field("pwszAlternateText", &self.pwszAlternateText).field("pIStream", &self.pIStream).finish()
-    }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for RICHEDIT_IMAGE_PARAMETERS {
@@ -10620,12 +10478,6 @@ impl ::core::marker::Copy for SELCHANGE {}
 impl ::core::clone::Clone for SELCHANGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SELCHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SELCHANGE").field("nmhdr", &self.nmhdr).field("chrg", &self.chrg).field("seltyp", &self.seltyp).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10933,12 +10785,6 @@ impl ::core::clone::Clone for TEXTRANGEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TEXTRANGEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TEXTRANGEA").field("chrg", &self.chrg).field("lpstrText", &self.lpstrText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TEXTRANGEA {
     type Abi = Self;
 }
@@ -10969,12 +10815,6 @@ impl ::core::marker::Copy for TEXTRANGEW {}
 impl ::core::clone::Clone for TEXTRANGEW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TEXTRANGEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TEXTRANGEW").field("chrg", &self.chrg).field("lpstrText", &self.lpstrText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11166,12 +11006,6 @@ impl ::core::marker::Copy for _grouptypingchange {}
 impl ::core::clone::Clone for _grouptypingchange {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for _grouptypingchange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_grouptypingchange").field("nmhdr", &self.nmhdr).field("fGroupTyping", &self.fGroupTyping).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

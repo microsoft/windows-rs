@@ -21613,12 +21613,6 @@ impl ::core::clone::Clone for GENERIC_XML_TOKEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GENERIC_XML_TOKEN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GENERIC_XML_TOKEN").field("createDate", &self.createDate).field("expiryDate", &self.expiryDate).field("xmlToken", &self.xmlToken).field("internalTokenReference", &self.internalTokenReference).field("externalTokenReference", &self.externalTokenReference).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GENERIC_XML_TOKEN {
     type Abi = Self;
 }

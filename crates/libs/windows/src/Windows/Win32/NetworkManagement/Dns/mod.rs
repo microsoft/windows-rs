@@ -1152,11 +1152,6 @@ impl ::core::clone::Clone for DNS_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for DNS_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_HEADER").field("Xid", &self.Xid).field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).field("QuestionCount", &self.QuestionCount).field("AnswerCount", &self.AnswerCount).field("NameServerCount", &self.NameServerCount).field("AdditionalCount", &self.AdditionalCount).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DNS_HEADER {
     type Abi = Self;
 }
@@ -1182,11 +1177,6 @@ impl ::core::marker::Copy for DNS_HEADER_EXT {}
 impl ::core::clone::Clone for DNS_HEADER_EXT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DNS_HEADER_EXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_HEADER_EXT").field("_bitfield", &self._bitfield).field("chRcode", &self.chRcode).field("chVersion", &self.chVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DNS_HEADER_EXT {
@@ -4116,11 +4106,6 @@ impl ::core::clone::Clone for DNS_WIRE_QUESTION {
         *self
     }
 }
-impl ::core::fmt::Debug for DNS_WIRE_QUESTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_WIRE_QUESTION").field("QuestionType", &self.QuestionType).field("QuestionClass", &self.QuestionClass).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DNS_WIRE_QUESTION {
     type Abi = Self;
 }
@@ -4147,11 +4132,6 @@ impl ::core::marker::Copy for DNS_WIRE_RECORD {}
 impl ::core::clone::Clone for DNS_WIRE_RECORD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DNS_WIRE_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_WIRE_RECORD").field("RecordType", &self.RecordType).field("RecordClass", &self.RecordClass).field("TimeToLive", &self.TimeToLive).field("DataLength", &self.DataLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DNS_WIRE_RECORD {

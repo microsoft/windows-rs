@@ -15,11 +15,6 @@ impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for APPLICATION_EVENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPLICATION_EVENT_DATA").field("cbApplicationEventData", &self.cbApplicationEventData).field("ApplicationId", &self.ApplicationId).field("EndpointId", &self.EndpointId).field("dwEventId", &self.dwEventId).field("cbEventData", &self.cbEventData).field("bEventData", &self.bEventData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for APPLICATION_EVENT_DATA {
     type Abi = Self;
 }
@@ -52,11 +47,6 @@ impl ::core::clone::Clone for CONTENT_MISSING_EVENT_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for CONTENT_MISSING_EVENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONTENT_MISSING_EVENT_DATA").field("cbContentMissingEventData", &self.cbContentMissingEventData).field("ApplicationId", &self.ApplicationId).field("EndpointId", &self.EndpointId).field("ContentId", &self.ContentId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONTENT_MISSING_EVENT_DATA {
     type Abi = Self;
 }
@@ -81,11 +71,6 @@ impl ::core::marker::Copy for DEVICE_USER_CHANGE_EVENT_DATA {}
 impl ::core::clone::Clone for DEVICE_USER_CHANGE_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICE_USER_CHANGE_EVENT_DATA").field("cbDeviceUserChangeEventData", &self.cbDeviceUserChangeEventData).field("wszUser", &self.wszUser).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
@@ -114,11 +99,6 @@ impl ::core::marker::Copy for EVENT_DATA_HEADER {}
 impl ::core::clone::Clone for EVENT_DATA_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for EVENT_DATA_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EVENT_DATA_HEADER").field("cbEventDataHeader", &self.cbEventDataHeader).field("guidEventType", &self.guidEventType).field("dwVersion", &self.dwVersion).field("cbEventDataSid", &self.cbEventDataSid).finish()
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_DATA_HEADER {
@@ -991,11 +971,6 @@ impl ::core::marker::Copy for NEW_EVENT_DATA_AVAILABLE {}
 impl ::core::clone::Clone for NEW_EVENT_DATA_AVAILABLE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for NEW_EVENT_DATA_AVAILABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NEW_EVENT_DATA_AVAILABLE").field("cbNewEventDataAvailable", &self.cbNewEventDataAvailable).field("dwVersion", &self.dwVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for NEW_EVENT_DATA_AVAILABLE {

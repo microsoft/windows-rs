@@ -105,12 +105,6 @@ impl ::core::clone::Clone for GLOBALENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GLOBALENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GLOBALENTRY").field("dwSize", &self.dwSize).field("dwAddress", &self.dwAddress).field("dwBlockSize", &self.dwBlockSize).field("hBlock", &self.hBlock).field("wcLock", &self.wcLock).field("wcPageLock", &self.wcPageLock).field("wFlags", &self.wFlags).field("wHeapPresent", &self.wHeapPresent).field("hOwner", &self.hOwner).field("wType", &self.wType).field("wData", &self.wData).field("dwNext", &self.dwNext).field("dwNextAlt", &self.dwNextAlt).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GLOBALENTRY {
     type Abi = Self;
 }
@@ -218,12 +212,6 @@ impl ::core::marker::Copy for MODULEENTRY {}
 impl ::core::clone::Clone for MODULEENTRY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MODULEENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MODULEENTRY").field("dwSize", &self.dwSize).field("szModule", &self.szModule).field("hModule", &self.hModule).field("wcUsage", &self.wcUsage).field("szExePath", &self.szExePath).field("wNext", &self.wNext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

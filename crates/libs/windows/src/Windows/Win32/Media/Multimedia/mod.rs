@@ -37,11 +37,6 @@ impl ::core::clone::Clone for ADPCMCOEFSET {
         *self
     }
 }
-impl ::core::fmt::Debug for ADPCMCOEFSET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADPCMCOEFSET").field("iCoef1", &self.iCoef1).field("iCoef2", &self.iCoef2).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ADPCMCOEFSET {
     type Abi = Self;
 }
@@ -69,12 +64,6 @@ impl ::core::marker::Copy for ADPCMEWAVEFORMAT {}
 impl ::core::clone::Clone for ADPCMEWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for ADPCMEWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADPCMEWAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -113,12 +102,6 @@ impl ::core::clone::Clone for ADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for ADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADPCMWAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).field("wNumCoef", &self.wNumCoef).field("aCoef", &self.aCoef).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for ADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -148,12 +131,6 @@ impl ::core::marker::Copy for APTXWAVEFORMAT {}
 impl ::core::clone::Clone for APTXWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for APTXWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APTXWAVEFORMAT").field("wfx", &self.wfx).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -189,12 +166,6 @@ impl ::core::clone::Clone for AUDIOFILE_AF10WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for AUDIOFILE_AF10WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIOFILE_AF10WAVEFORMAT").field("wfx", &self.wfx).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for AUDIOFILE_AF10WAVEFORMAT {
     type Abi = Self;
 }
@@ -224,12 +195,6 @@ impl ::core::marker::Copy for AUDIOFILE_AF36WAVEFORMAT {}
 impl ::core::clone::Clone for AUDIOFILE_AF36WAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for AUDIOFILE_AF36WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIOFILE_AF36WAVEFORMAT").field("wfx", &self.wfx).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1757,12 +1722,6 @@ impl ::core::clone::Clone for CONTRESCR10WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for CONTRESCR10WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONTRESCR10WAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for CONTRESCR10WAVEFORMAT {
     type Abi = Self;
 }
@@ -1793,12 +1752,6 @@ impl ::core::marker::Copy for CONTRESVQLPCWAVEFORMAT {}
 impl ::core::clone::Clone for CONTRESVQLPCWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for CONTRESVQLPCWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONTRESVQLPCWAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1839,12 +1792,6 @@ impl ::core::clone::Clone for CREATIVEADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for CREATIVEADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREATIVEADPCMWAVEFORMAT").field("wfx", &self.wfx).field("wRevision", &self.wRevision).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for CREATIVEADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -1875,12 +1822,6 @@ impl ::core::marker::Copy for CREATIVEFASTSPEECH10WAVEFORMAT {}
 impl ::core::clone::Clone for CREATIVEFASTSPEECH10WAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for CREATIVEFASTSPEECH10WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREATIVEFASTSPEECH10WAVEFORMAT").field("wfx", &self.wfx).field("wRevision", &self.wRevision).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1917,12 +1858,6 @@ impl ::core::clone::Clone for CREATIVEFASTSPEECH8WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for CREATIVEFASTSPEECH8WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREATIVEFASTSPEECH8WAVEFORMAT").field("wfx", &self.wfx).field("wRevision", &self.wRevision).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH8WAVEFORMAT {
     type Abi = Self;
 }
@@ -1954,12 +1889,6 @@ impl ::core::marker::Copy for CSIMAADPCMWAVEFORMAT {}
 impl ::core::clone::Clone for CSIMAADPCMWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for CSIMAADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CSIMAADPCMWAVEFORMAT").field("wfx", &self.wfx).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -2072,12 +2001,6 @@ impl ::core::clone::Clone for DIALOGICOKIADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for DIALOGICOKIADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DIALOGICOKIADPCMWAVEFORMAT").field("ewf", &self.ewf).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for DIALOGICOKIADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -2111,12 +2034,6 @@ impl ::core::clone::Clone for DIGIADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for DIGIADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DIGIADPCMWAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for DIGIADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -2146,12 +2063,6 @@ impl ::core::marker::Copy for DIGIFIXWAVEFORMAT {}
 impl ::core::clone::Clone for DIGIFIXWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for DIGIFIXWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DIGIFIXWAVEFORMAT").field("wfx", &self.wfx).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -2188,12 +2099,6 @@ impl ::core::clone::Clone for DIGIREALWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for DIGIREALWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DIGIREALWAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for DIGIREALWAVEFORMAT {
     type Abi = Self;
 }
@@ -2223,12 +2128,6 @@ impl ::core::marker::Copy for DIGISTDWAVEFORMAT {}
 impl ::core::clone::Clone for DIGISTDWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for DIGISTDWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DIGISTDWAVEFORMAT").field("wfx", &self.wfx).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -2266,12 +2165,6 @@ impl ::core::marker::Copy for DOLBYAC2WAVEFORMAT {}
 impl ::core::clone::Clone for DOLBYAC2WAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for DOLBYAC2WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOLBYAC2WAVEFORMAT").field("wfx", &self.wfx).field("nAuxBitsCode", &self.nAuxBitsCode).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -2351,12 +2244,6 @@ impl ::core::clone::Clone for DRMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for DRMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRMWAVEFORMAT").field("wfx", &self.wfx).field("wReserved", &self.wReserved).field("ulContentId", &self.ulContentId).field("wfxSecure", &self.wfxSecure).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for DRMWAVEFORMAT {
     type Abi = Self;
 }
@@ -2397,12 +2284,6 @@ impl ::core::clone::Clone for DRVCONFIGINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DRVCONFIGINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRVCONFIGINFO").field("dwDCISize", &self.dwDCISize).field("lpszDCISectionName", &self.lpszDCISectionName).field("lpszDCIAliasName", &self.lpszDCIAliasName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRVCONFIGINFO {
     type Abi = Self;
 }
@@ -2435,12 +2316,6 @@ impl ::core::marker::Copy for DRVCONFIGINFOEX {}
 impl ::core::clone::Clone for DRVCONFIGINFOEX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DRVCONFIGINFOEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRVCONFIGINFOEX").field("dwDCISize", &self.dwDCISize).field("lpszDCISectionName", &self.lpszDCISectionName).field("lpszDCIAliasName", &self.lpszDCIAliasName).field("dnDevNode", &self.dnDevNode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2489,11 +2364,6 @@ impl ::core::marker::Copy for DRVM_IOCTL_DATA {}
 impl ::core::clone::Clone for DRVM_IOCTL_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DRVM_IOCTL_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRVM_IOCTL_DATA").field("dwSize", &self.dwSize).field("dwCmd", &self.dwCmd).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRVM_IOCTL_DATA {
@@ -2597,12 +2467,6 @@ impl ::core::marker::Copy for DVIADPCMWAVEFORMAT {}
 impl ::core::clone::Clone for DVIADPCMWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for DVIADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DVIADPCMWAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -2980,12 +2844,6 @@ impl ::core::clone::Clone for ECHOSC1WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for ECHOSC1WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ECHOSC1WAVEFORMAT").field("wfx", &self.wfx).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for ECHOSC1WAVEFORMAT {
     type Abi = Self;
 }
@@ -3016,12 +2874,6 @@ impl ::core::marker::Copy for EXBMINFOHEADER {}
 impl ::core::clone::Clone for EXBMINFOHEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for EXBMINFOHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EXBMINFOHEADER").field("bmi", &self.bmi).field("biExtDataOffset", &self.biExtDataOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3207,12 +3059,6 @@ impl ::core::clone::Clone for FMTOWNS_SND_WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for FMTOWNS_SND_WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FMTOWNS_SND_WAVEFORMAT").field("wfx", &self.wfx).field("wRevision", &self.wRevision).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for FMTOWNS_SND_WAVEFORMAT {
     type Abi = Self;
 }
@@ -3243,12 +3089,6 @@ impl ::core::marker::Copy for G721_ADPCMWAVEFORMAT {}
 impl ::core::clone::Clone for G721_ADPCMWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for G721_ADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("G721_ADPCMWAVEFORMAT").field("wfx", &self.wfx).field("nAuxBlockSize", &self.nAuxBlockSize).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -3286,12 +3126,6 @@ impl ::core::clone::Clone for G723_ADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for G723_ADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("G723_ADPCMWAVEFORMAT").field("wfx", &self.wfx).field("cbExtraSize", &self.cbExtraSize).field("nAuxBlockSize", &self.nAuxBlockSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for G723_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -3322,12 +3156,6 @@ impl ::core::marker::Copy for GSM610WAVEFORMAT {}
 impl ::core::clone::Clone for GSM610WAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for GSM610WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GSM610WAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -5243,12 +5071,6 @@ impl ::core::clone::Clone for IMAADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for IMAADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAADPCMWAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for IMAADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -5437,40 +5259,6 @@ impl ::core::clone::Clone for JOYCAPS2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JOYCAPS2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOYCAPS2A")
-            .field("wMid", &self.wMid)
-            .field("wPid", &self.wPid)
-            .field("szPname", &self.szPname)
-            .field("wXmin", &self.wXmin)
-            .field("wXmax", &self.wXmax)
-            .field("wYmin", &self.wYmin)
-            .field("wYmax", &self.wYmax)
-            .field("wZmin", &self.wZmin)
-            .field("wZmax", &self.wZmax)
-            .field("wNumButtons", &self.wNumButtons)
-            .field("wPeriodMin", &self.wPeriodMin)
-            .field("wPeriodMax", &self.wPeriodMax)
-            .field("wRmin", &self.wRmin)
-            .field("wRmax", &self.wRmax)
-            .field("wUmin", &self.wUmin)
-            .field("wUmax", &self.wUmax)
-            .field("wVmin", &self.wVmin)
-            .field("wVmax", &self.wVmax)
-            .field("wCaps", &self.wCaps)
-            .field("wMaxAxes", &self.wMaxAxes)
-            .field("wNumAxes", &self.wNumAxes)
-            .field("wMaxButtons", &self.wMaxButtons)
-            .field("szRegKey", &self.szRegKey)
-            .field("szOEMVxD", &self.szOEMVxD)
-            .field("ManufacturerGuid", &self.ManufacturerGuid)
-            .field("ProductGuid", &self.ProductGuid)
-            .field("NameGuid", &self.NameGuid)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JOYCAPS2A {
     type Abi = Self;
 }
@@ -5525,39 +5313,6 @@ impl ::core::clone::Clone for JOYCAPS2W {
         *self
     }
 }
-impl ::core::fmt::Debug for JOYCAPS2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOYCAPS2W")
-            .field("wMid", &self.wMid)
-            .field("wPid", &self.wPid)
-            .field("szPname", &self.szPname)
-            .field("wXmin", &self.wXmin)
-            .field("wXmax", &self.wXmax)
-            .field("wYmin", &self.wYmin)
-            .field("wYmax", &self.wYmax)
-            .field("wZmin", &self.wZmin)
-            .field("wZmax", &self.wZmax)
-            .field("wNumButtons", &self.wNumButtons)
-            .field("wPeriodMin", &self.wPeriodMin)
-            .field("wPeriodMax", &self.wPeriodMax)
-            .field("wRmin", &self.wRmin)
-            .field("wRmax", &self.wRmax)
-            .field("wUmin", &self.wUmin)
-            .field("wUmax", &self.wUmax)
-            .field("wVmin", &self.wVmin)
-            .field("wVmax", &self.wVmax)
-            .field("wCaps", &self.wCaps)
-            .field("wMaxAxes", &self.wMaxAxes)
-            .field("wNumAxes", &self.wNumAxes)
-            .field("wMaxButtons", &self.wMaxButtons)
-            .field("szRegKey", &self.szRegKey)
-            .field("szOEMVxD", &self.szOEMVxD)
-            .field("ManufacturerGuid", &self.ManufacturerGuid)
-            .field("ProductGuid", &self.ProductGuid)
-            .field("NameGuid", &self.NameGuid)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JOYCAPS2W {
     type Abi = Self;
 }
@@ -5607,37 +5362,6 @@ impl ::core::marker::Copy for JOYCAPSA {}
 impl ::core::clone::Clone for JOYCAPSA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for JOYCAPSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOYCAPSA")
-            .field("wMid", &self.wMid)
-            .field("wPid", &self.wPid)
-            .field("szPname", &self.szPname)
-            .field("wXmin", &self.wXmin)
-            .field("wXmax", &self.wXmax)
-            .field("wYmin", &self.wYmin)
-            .field("wYmax", &self.wYmax)
-            .field("wZmin", &self.wZmin)
-            .field("wZmax", &self.wZmax)
-            .field("wNumButtons", &self.wNumButtons)
-            .field("wPeriodMin", &self.wPeriodMin)
-            .field("wPeriodMax", &self.wPeriodMax)
-            .field("wRmin", &self.wRmin)
-            .field("wRmax", &self.wRmax)
-            .field("wUmin", &self.wUmin)
-            .field("wUmax", &self.wUmax)
-            .field("wVmin", &self.wVmin)
-            .field("wVmax", &self.wVmax)
-            .field("wCaps", &self.wCaps)
-            .field("wMaxAxes", &self.wMaxAxes)
-            .field("wNumAxes", &self.wNumAxes)
-            .field("wMaxButtons", &self.wMaxButtons)
-            .field("szRegKey", &self.szRegKey)
-            .field("szOEMVxD", &self.szOEMVxD)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5692,36 +5416,6 @@ impl ::core::clone::Clone for JOYCAPSW {
         *self
     }
 }
-impl ::core::fmt::Debug for JOYCAPSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOYCAPSW")
-            .field("wMid", &self.wMid)
-            .field("wPid", &self.wPid)
-            .field("szPname", &self.szPname)
-            .field("wXmin", &self.wXmin)
-            .field("wXmax", &self.wXmax)
-            .field("wYmin", &self.wYmin)
-            .field("wYmax", &self.wYmax)
-            .field("wZmin", &self.wZmin)
-            .field("wZmax", &self.wZmax)
-            .field("wNumButtons", &self.wNumButtons)
-            .field("wPeriodMin", &self.wPeriodMin)
-            .field("wPeriodMax", &self.wPeriodMax)
-            .field("wRmin", &self.wRmin)
-            .field("wRmax", &self.wRmax)
-            .field("wUmin", &self.wUmin)
-            .field("wUmax", &self.wUmax)
-            .field("wVmin", &self.wVmin)
-            .field("wVmax", &self.wVmax)
-            .field("wCaps", &self.wCaps)
-            .field("wMaxAxes", &self.wMaxAxes)
-            .field("wNumAxes", &self.wNumAxes)
-            .field("wMaxButtons", &self.wMaxButtons)
-            .field("szRegKey", &self.szRegKey)
-            .field("szOEMVxD", &self.szOEMVxD)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JOYCAPSW {
     type Abi = Self;
 }
@@ -5772,11 +5466,6 @@ impl ::core::clone::Clone for JOYINFO {
         *self
     }
 }
-impl ::core::fmt::Debug for JOYINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOYINFO").field("wXpos", &self.wXpos).field("wYpos", &self.wYpos).field("wZpos", &self.wZpos).field("wButtons", &self.wButtons).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for JOYINFO {
     type Abi = Self;
 }
@@ -5812,11 +5501,6 @@ impl ::core::marker::Copy for JOYINFOEX {}
 impl ::core::clone::Clone for JOYINFOEX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for JOYINFOEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JOYINFOEX").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwXpos", &self.dwXpos).field("dwYpos", &self.dwYpos).field("dwZpos", &self.dwZpos).field("dwRpos", &self.dwRpos).field("dwUpos", &self.dwUpos).field("dwVpos", &self.dwVpos).field("dwButtons", &self.dwButtons).field("dwButtonNumber", &self.dwButtonNumber).field("dwPOV", &self.dwPOV).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JOYINFOEX {
@@ -5979,11 +5663,6 @@ impl ::core::marker::Copy for JPEGINFOHEADER {}
 impl ::core::clone::Clone for JPEGINFOHEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for JPEGINFOHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JPEGINFOHEADER").field("JPEGSize", &self.JPEGSize).field("JPEGProcess", &self.JPEGProcess).field("JPEGColorSpaceID", &self.JPEGColorSpaceID).field("JPEGBitsPerSample", &self.JPEGBitsPerSample).field("JPEGHSubSampling", &self.JPEGHSubSampling).field("JPEGVSubSampling", &self.JPEGVSubSampling).finish()
     }
 }
 unsafe impl ::windows::core::Abi for JPEGINFOHEADER {
@@ -6489,12 +6168,6 @@ impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_ANIM_OPEN_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_ANIM_OPEN_PARMSA").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).field("dwStyle", &self.dwStyle).field("hWndParent", &self.hWndParent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSA {
     type Abi = Self;
 }
@@ -6533,12 +6206,6 @@ impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_ANIM_OPEN_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_ANIM_OPEN_PARMSW").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).field("dwStyle", &self.dwStyle).field("hWndParent", &self.hWndParent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSW {
     type Abi = Self;
 }
@@ -6572,11 +6239,6 @@ impl ::core::marker::Copy for MCI_ANIM_PLAY_PARMS {}
 impl ::core::clone::Clone for MCI_ANIM_PLAY_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MCI_ANIM_PLAY_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_ANIM_PLAY_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).field("dwSpeed", &self.dwSpeed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCI_ANIM_PLAY_PARMS {
@@ -6627,12 +6289,6 @@ impl ::core::clone::Clone for MCI_ANIM_RECT_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_ANIM_RECT_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_ANIM_RECT_PARMS").field("dwCallback", &self.dwCallback).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_ANIM_RECT_PARMS {
     type Abi = Self;
 }
@@ -6674,11 +6330,6 @@ impl ::core::clone::Clone for MCI_ANIM_STEP_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_ANIM_STEP_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_ANIM_STEP_PARMS").field("dwCallback", &self.dwCallback).field("dwFrames", &self.dwFrames).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_ANIM_STEP_PARMS {
     type Abi = Self;
 }
@@ -6711,12 +6362,6 @@ impl ::core::marker::Copy for MCI_ANIM_UPDATE_PARMS {}
 impl ::core::clone::Clone for MCI_ANIM_UPDATE_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for MCI_ANIM_UPDATE_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_ANIM_UPDATE_PARMS").field("dwCallback", &self.dwCallback).field("rc", &self.rc).field("hDC", &self.hDC).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6767,12 +6412,6 @@ impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_ANIM_WINDOW_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_ANIM_WINDOW_PARMSA").field("dwCallback", &self.dwCallback).field("hWnd", &self.hWnd).field("nCmdShow", &self.nCmdShow).field("lpstrText", &self.lpstrText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSA {
     type Abi = Self;
 }
@@ -6805,12 +6444,6 @@ impl ::core::marker::Copy for MCI_ANIM_WINDOW_PARMSW {}
 impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_ANIM_WINDOW_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_ANIM_WINDOW_PARMSW").field("dwCallback", &self.dwCallback).field("hWnd", &self.hWnd).field("nCmdShow", &self.nCmdShow).field("lpstrText", &self.lpstrText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6869,12 +6502,6 @@ impl ::core::marker::Copy for MCI_BREAK_PARMS {}
 impl ::core::clone::Clone for MCI_BREAK_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_BREAK_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_BREAK_PARMS").field("dwCallback", &self.dwCallback).field("nVirtKey", &self.nVirtKey).field("hwndBreak", &self.hwndBreak).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6974,12 +6601,6 @@ impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_CAPTURE_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_CAPTURE_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrFileName", &self.lpstrFileName).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSA {
     type Abi = Self;
 }
@@ -7011,12 +6632,6 @@ impl ::core::marker::Copy for MCI_DGV_CAPTURE_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_CAPTURE_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_CAPTURE_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrFileName", &self.lpstrFileName).field("rc", &self.rc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7061,12 +6676,6 @@ impl ::core::clone::Clone for MCI_DGV_COPY_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_COPY_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_COPY_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).field("rc", &self.rc).field("dwAudioStream", &self.dwAudioStream).field("dwVideoStream", &self.dwVideoStream).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_COPY_PARMS {
     type Abi = Self;
 }
@@ -7104,11 +6713,6 @@ impl ::core::clone::Clone for MCI_DGV_CUE_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_DGV_CUE_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_CUE_PARMS").field("dwCallback", &self.dwCallback).field("dwTo", &self.dwTo).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_DGV_CUE_PARMS {
     type Abi = Self;
 }
@@ -7144,12 +6748,6 @@ impl ::core::marker::Copy for MCI_DGV_CUT_PARMS {}
 impl ::core::clone::Clone for MCI_DGV_CUT_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_CUT_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_CUT_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).field("rc", &self.rc).field("dwAudioStream", &self.dwAudioStream).field("dwVideoStream", &self.dwVideoStream).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7193,12 +6791,6 @@ impl ::core::marker::Copy for MCI_DGV_DELETE_PARMS {}
 impl ::core::clone::Clone for MCI_DGV_DELETE_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_DELETE_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_DELETE_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).field("rc", &self.rc).field("dwAudioStream", &self.dwAudioStream).field("dwVideoStream", &self.dwVideoStream).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7305,12 +6897,6 @@ impl ::core::clone::Clone for MCI_DGV_INFO_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_INFO_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_INFO_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrReturn", &self.lpstrReturn).field("dwRetSize", &self.dwRetSize).field("dwItem", &self.dwItem).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSA {
     type Abi = Self;
 }
@@ -7343,12 +6929,6 @@ impl ::core::marker::Copy for MCI_DGV_INFO_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_INFO_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_INFO_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_INFO_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrReturn", &self.lpstrReturn).field("dwRetSize", &self.dwRetSize).field("dwItem", &self.dwItem).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7417,12 +6997,6 @@ impl ::core::clone::Clone for MCI_DGV_LIST_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_LIST_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_LIST_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrReturn", &self.lpstrReturn).field("dwLength", &self.dwLength).field("dwNumber", &self.dwNumber).field("dwItem", &self.dwItem).field("lpstrAlgorithm", &self.lpstrAlgorithm).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSA {
     type Abi = Self;
 }
@@ -7457,12 +7031,6 @@ impl ::core::marker::Copy for MCI_DGV_LIST_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_LIST_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_LIST_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_LIST_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrReturn", &self.lpstrReturn).field("dwLength", &self.dwLength).field("dwNumber", &self.dwNumber).field("dwItem", &self.dwItem).field("lpstrAlgorithm", &self.lpstrAlgorithm).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7520,11 +7088,6 @@ impl ::core::clone::Clone for MCI_DGV_MONITOR_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_DGV_MONITOR_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_MONITOR_PARMS").field("dwCallback", &self.dwCallback).field("dwSource", &self.dwSource).field("dwMethod", &self.dwMethod).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_DGV_MONITOR_PARMS {
     type Abi = Self;
 }
@@ -7570,12 +7133,6 @@ impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_OPEN_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_OPEN_PARMSA").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).field("dwStyle", &self.dwStyle).field("hWndParent", &self.hWndParent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSA {
     type Abi = Self;
 }
@@ -7611,12 +7168,6 @@ impl ::core::marker::Copy for MCI_DGV_OPEN_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_OPEN_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_OPEN_PARMSW").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).field("dwStyle", &self.dwStyle).field("hWndParent", &self.hWndParent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7663,12 +7214,6 @@ impl ::core::marker::Copy for MCI_DGV_PASTE_PARMS {}
 impl ::core::clone::Clone for MCI_DGV_PASTE_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_PASTE_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_PASTE_PARMS").field("dwCallback", &self.dwCallback).field("dwTo", &self.dwTo).field("rc", &self.rc).field("dwAudioStream", &self.dwAudioStream).field("dwVideoStream", &self.dwVideoStream).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7726,12 +7271,6 @@ impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_QUALITY_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_QUALITY_PARMSA").field("dwCallback", &self.dwCallback).field("dwItem", &self.dwItem).field("lpstrName", &self.lpstrName).field("lpstrAlgorithm", &self.lpstrAlgorithm).field("dwHandle", &self.dwHandle).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSA {
     type Abi = Self;
 }
@@ -7765,12 +7304,6 @@ impl ::core::marker::Copy for MCI_DGV_QUALITY_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_QUALITY_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_QUALITY_PARMSW").field("dwCallback", &self.dwCallback).field("dwItem", &self.dwItem).field("lpstrName", &self.lpstrName).field("lpstrAlgorithm", &self.lpstrAlgorithm).field("dwHandle", &self.dwHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7819,12 +7352,6 @@ impl ::core::clone::Clone for MCI_DGV_RECORD_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_RECORD_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_RECORD_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).field("rc", &self.rc).field("dwAudioStream", &self.dwAudioStream).field("dwVideoStream", &self.dwVideoStream).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_RECORD_PARMS {
     type Abi = Self;
 }
@@ -7859,12 +7386,6 @@ impl ::core::marker::Copy for MCI_DGV_RECT_PARMS {}
 impl ::core::clone::Clone for MCI_DGV_RECT_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_RECT_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_RECT_PARMS").field("dwCallback", &self.dwCallback).field("rc", &self.rc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7904,12 +7425,6 @@ impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_RESERVE_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_RESERVE_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrPath", &self.lpstrPath).field("dwSize", &self.dwSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSA {
     type Abi = Self;
 }
@@ -7941,12 +7456,6 @@ impl ::core::marker::Copy for MCI_DGV_RESERVE_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_RESERVE_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_RESERVE_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrPath", &self.lpstrPath).field("dwSize", &self.dwSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7990,12 +7499,6 @@ impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_RESTORE_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_RESTORE_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrFileName", &self.lpstrFileName).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSA {
     type Abi = Self;
 }
@@ -8027,12 +7530,6 @@ impl ::core::marker::Copy for MCI_DGV_RESTORE_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_RESTORE_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_RESTORE_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrFileName", &self.lpstrFileName).field("rc", &self.rc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8074,12 +7571,6 @@ impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_SAVE_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_SAVE_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrFileName", &self.lpstrFileName).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSA {
     type Abi = Self;
 }
@@ -8111,12 +7602,6 @@ impl ::core::marker::Copy for MCI_DGV_SAVE_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_SAVE_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_SAVE_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrFileName", &self.lpstrFileName).field("rc", &self.rc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8179,12 +7664,6 @@ impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_SETAUDIO_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_SETAUDIO_PARMSA").field("dwCallback", &self.dwCallback).field("dwItem", &self.dwItem).field("dwValue", &self.dwValue).field("dwOver", &self.dwOver).field("lpstrAlgorithm", &self.lpstrAlgorithm).field("lpstrQuality", &self.lpstrQuality).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSA {
     type Abi = Self;
 }
@@ -8219,12 +7698,6 @@ impl ::core::marker::Copy for MCI_DGV_SETAUDIO_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_SETAUDIO_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_SETAUDIO_PARMSW").field("dwCallback", &self.dwCallback).field("dwItem", &self.dwItem).field("dwValue", &self.dwValue).field("dwOver", &self.dwOver).field("lpstrAlgorithm", &self.lpstrAlgorithm).field("lpstrQuality", &self.lpstrQuality).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8330,12 +7803,6 @@ impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_SETVIDEO_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_SETVIDEO_PARMSA").field("dwCallback", &self.dwCallback).field("dwItem", &self.dwItem).field("dwValue", &self.dwValue).field("dwOver", &self.dwOver).field("lpstrAlgorithm", &self.lpstrAlgorithm).field("lpstrQuality", &self.lpstrQuality).field("dwSourceNumber", &self.dwSourceNumber).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSA {
     type Abi = Self;
 }
@@ -8371,12 +7838,6 @@ impl ::core::marker::Copy for MCI_DGV_SETVIDEO_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_SETVIDEO_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_SETVIDEO_PARMSW").field("dwCallback", &self.dwCallback).field("dwItem", &self.dwItem).field("dwValue", &self.dwValue).field("dwOver", &self.dwOver).field("lpstrAlgorithm", &self.lpstrAlgorithm).field("lpstrQuality", &self.lpstrQuality).field("dwSourceNumber", &self.dwSourceNumber).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8456,11 +7917,6 @@ impl ::core::clone::Clone for MCI_DGV_SET_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_DGV_SET_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_SET_PARMS").field("dwCallback", &self.dwCallback).field("dwTimeFormat", &self.dwTimeFormat).field("dwAudio", &self.dwAudio).field("dwFileFormat", &self.dwFileFormat).field("dwSpeed", &self.dwSpeed).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_DGV_SET_PARMS {
     type Abi = Self;
 }
@@ -8499,11 +7955,6 @@ impl ::core::marker::Copy for MCI_DGV_SIGNAL_PARMS {}
 impl ::core::clone::Clone for MCI_DGV_SIGNAL_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MCI_DGV_SIGNAL_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_SIGNAL_PARMS").field("dwCallback", &self.dwCallback).field("dwPosition", &self.dwPosition).field("dwPeriod", &self.dwPeriod).field("dwUserParm", &self.dwUserParm).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCI_DGV_SIGNAL_PARMS {
@@ -8604,12 +8055,6 @@ impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_STATUS_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_STATUS_PARMSA").field("dwCallback", &self.dwCallback).field("dwReturn", &self.dwReturn).field("dwItem", &self.dwItem).field("dwTrack", &self.dwTrack).field("lpstrDrive", &self.lpstrDrive).field("dwReference", &self.dwReference).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSA {
     type Abi = Self;
 }
@@ -8644,12 +8089,6 @@ impl ::core::marker::Copy for MCI_DGV_STATUS_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_STATUS_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_STATUS_PARMSW").field("dwCallback", &self.dwCallback).field("dwReturn", &self.dwReturn).field("dwItem", &self.dwItem).field("dwTrack", &self.dwTrack).field("lpstrDrive", &self.lpstrDrive).field("dwReference", &self.dwReference).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8730,11 +8169,6 @@ impl ::core::clone::Clone for MCI_DGV_STEP_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_DGV_STEP_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_STEP_PARMS").field("dwCallback", &self.dwCallback).field("dwFrames", &self.dwFrames).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_DGV_STEP_PARMS {
     type Abi = Self;
 }
@@ -8771,12 +8205,6 @@ impl ::core::marker::Copy for MCI_DGV_UPDATE_PARMS {}
 impl ::core::clone::Clone for MCI_DGV_UPDATE_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for MCI_DGV_UPDATE_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_UPDATE_PARMS").field("dwCallback", &self.dwCallback).field("rc", &self.rc).field("hDC", &self.hDC).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8831,12 +8259,6 @@ impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_WINDOW_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_WINDOW_PARMSA").field("dwCallback", &self.dwCallback).field("hWnd", &self.hWnd).field("nCmdShow", &self.nCmdShow).field("lpstrText", &self.lpstrText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSA {
     type Abi = Self;
 }
@@ -8869,12 +8291,6 @@ impl ::core::marker::Copy for MCI_DGV_WINDOW_PARMSW {}
 impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_DGV_WINDOW_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_DGV_WINDOW_PARMSW").field("dwCallback", &self.dwCallback).field("hWnd", &self.hWnd).field("nCmdShow", &self.nCmdShow).field("lpstrText", &self.lpstrText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8972,11 +8388,6 @@ impl ::core::clone::Clone for MCI_GENERIC_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_GENERIC_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_GENERIC_PARMS").field("dwCallback", &self.dwCallback).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_GENERIC_PARMS {
     type Abi = Self;
 }
@@ -9022,11 +8433,6 @@ impl ::core::marker::Copy for MCI_GETDEVCAPS_PARMS {}
 impl ::core::clone::Clone for MCI_GETDEVCAPS_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MCI_GETDEVCAPS_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_GETDEVCAPS_PARMS").field("dwCallback", &self.dwCallback).field("dwReturn", &self.dwReturn).field("dwItem", &self.dwItem).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCI_GETDEVCAPS_PARMS {
@@ -9080,12 +8486,6 @@ impl ::core::clone::Clone for MCI_INFO_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_INFO_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_INFO_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrReturn", &self.lpstrReturn).field("dwRetSize", &self.dwRetSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_INFO_PARMSA {
     type Abi = Self;
 }
@@ -9117,12 +8517,6 @@ impl ::core::marker::Copy for MCI_INFO_PARMSW {}
 impl ::core::clone::Clone for MCI_INFO_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_INFO_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_INFO_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrReturn", &self.lpstrReturn).field("dwRetSize", &self.dwRetSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9177,12 +8571,6 @@ impl ::core::clone::Clone for MCI_LOAD_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_LOAD_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_LOAD_PARMSA").field("dwCallback", &self.dwCallback).field("lpfilename", &self.lpfilename).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSA {
     type Abi = Self;
 }
@@ -9213,12 +8601,6 @@ impl ::core::marker::Copy for MCI_LOAD_PARMSW {}
 impl ::core::clone::Clone for MCI_LOAD_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_LOAD_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_LOAD_PARMSW").field("dwCallback", &self.dwCallback).field("lpfilename", &self.lpfilename).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9305,12 +8687,6 @@ impl ::core::clone::Clone for MCI_OPEN_DRIVER_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OPEN_DRIVER_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OPEN_DRIVER_PARMS").field("wDeviceID", &self.wDeviceID).field("lpstrParams", &self.lpstrParams).field("wCustomCommandTable", &self.wCustomCommandTable).field("wType", &self.wType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_OPEN_DRIVER_PARMS {
     type Abi = Self;
 }
@@ -9351,12 +8727,6 @@ impl ::core::clone::Clone for MCI_OPEN_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OPEN_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OPEN_PARMSA").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSA {
     type Abi = Self;
 }
@@ -9390,12 +8760,6 @@ impl ::core::marker::Copy for MCI_OPEN_PARMSW {}
 impl ::core::clone::Clone for MCI_OPEN_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OPEN_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OPEN_PARMSW").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9447,12 +8811,6 @@ impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_LOAD_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_LOAD_PARMSA").field("dwCallback", &self.dwCallback).field("lpfilename", &self.lpfilename).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSA {
     type Abi = Self;
 }
@@ -9484,12 +8842,6 @@ impl ::core::marker::Copy for MCI_OVLY_LOAD_PARMSW {}
 impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_LOAD_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_LOAD_PARMSW").field("dwCallback", &self.dwCallback).field("lpfilename", &self.lpfilename).field("rc", &self.rc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9533,12 +8885,6 @@ impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_OPEN_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_OPEN_PARMSA").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).field("dwStyle", &self.dwStyle).field("hWndParent", &self.hWndParent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSA {
     type Abi = Self;
 }
@@ -9574,12 +8920,6 @@ impl ::core::marker::Copy for MCI_OVLY_OPEN_PARMSW {}
 impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_OPEN_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_OPEN_PARMSW").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).field("dwStyle", &self.dwStyle).field("hWndParent", &self.hWndParent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9628,12 +8968,6 @@ impl ::core::clone::Clone for MCI_OVLY_RECT_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_RECT_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_RECT_PARMS").field("dwCallback", &self.dwCallback).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_OVLY_RECT_PARMS {
     type Abi = Self;
 }
@@ -9668,12 +9002,6 @@ impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_SAVE_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_SAVE_PARMSA").field("dwCallback", &self.dwCallback).field("lpfilename", &self.lpfilename).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSA {
     type Abi = Self;
 }
@@ -9705,12 +9033,6 @@ impl ::core::marker::Copy for MCI_OVLY_SAVE_PARMSW {}
 impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_SAVE_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_SAVE_PARMSW").field("dwCallback", &self.dwCallback).field("lpfilename", &self.lpfilename).field("rc", &self.rc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9769,12 +9091,6 @@ impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_WINDOW_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_WINDOW_PARMSA").field("dwCallback", &self.dwCallback).field("hWnd", &self.hWnd).field("nCmdShow", &self.nCmdShow).field("lpstrText", &self.lpstrText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSA {
     type Abi = Self;
 }
@@ -9807,12 +9123,6 @@ impl ::core::marker::Copy for MCI_OVLY_WINDOW_PARMSW {}
 impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_OVLY_WINDOW_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_OVLY_WINDOW_PARMSW").field("dwCallback", &self.dwCallback).field("hWnd", &self.hWnd).field("nCmdShow", &self.nCmdShow).field("lpstrText", &self.lpstrText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9854,11 +9164,6 @@ impl ::core::marker::Copy for MCI_PLAY_PARMS {}
 impl ::core::clone::Clone for MCI_PLAY_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MCI_PLAY_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_PLAY_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCI_PLAY_PARMS {
@@ -9916,11 +9221,6 @@ impl ::core::clone::Clone for MCI_RECORD_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_RECORD_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_RECORD_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_RECORD_PARMS {
     type Abi = Self;
 }
@@ -9969,12 +9269,6 @@ impl ::core::clone::Clone for MCI_SAVE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_SAVE_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_SAVE_PARMSA").field("dwCallback", &self.dwCallback).field("lpfilename", &self.lpfilename).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSA {
     type Abi = Self;
 }
@@ -10008,12 +9302,6 @@ impl ::core::clone::Clone for MCI_SAVE_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_SAVE_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_SAVE_PARMSW").field("dwCallback", &self.dwCallback).field("lpfilename", &self.lpfilename).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSW {
     type Abi = Self;
 }
@@ -10043,11 +9331,6 @@ impl ::core::marker::Copy for MCI_SEEK_PARMS {}
 impl ::core::clone::Clone for MCI_SEEK_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MCI_SEEK_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_SEEK_PARMS").field("dwCallback", &self.dwCallback).field("dwTo", &self.dwTo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCI_SEEK_PARMS {
@@ -10108,11 +9391,6 @@ impl ::core::marker::Copy for MCI_SEQ_SET_PARMS {}
 impl ::core::clone::Clone for MCI_SEQ_SET_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MCI_SEQ_SET_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_SEQ_SET_PARMS").field("dwCallback", &self.dwCallback).field("dwTimeFormat", &self.dwTimeFormat).field("dwAudio", &self.dwAudio).field("dwTempo", &self.dwTempo).field("dwPort", &self.dwPort).field("dwSlave", &self.dwSlave).field("dwMaster", &self.dwMaster).field("dwOffset", &self.dwOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCI_SEQ_SET_PARMS {
@@ -10190,11 +9468,6 @@ impl ::core::clone::Clone for MCI_SET_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_SET_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_SET_PARMS").field("dwCallback", &self.dwCallback).field("dwTimeFormat", &self.dwTimeFormat).field("dwAudio", &self.dwAudio).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_SET_PARMS {
     type Abi = Self;
 }
@@ -10243,11 +9516,6 @@ impl ::core::marker::Copy for MCI_STATUS_PARMS {}
 impl ::core::clone::Clone for MCI_STATUS_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MCI_STATUS_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_STATUS_PARMS").field("dwCallback", &self.dwCallback).field("dwReturn", &self.dwReturn).field("dwItem", &self.dwItem).field("dwTrack", &self.dwTrack).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCI_STATUS_PARMS {
@@ -10305,12 +9573,6 @@ impl ::core::clone::Clone for MCI_SYSINFO_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_SYSINFO_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_SYSINFO_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrReturn", &self.lpstrReturn).field("dwRetSize", &self.dwRetSize).field("dwNumber", &self.dwNumber).field("wDeviceType", &self.wDeviceType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSA {
     type Abi = Self;
 }
@@ -10344,12 +9606,6 @@ impl ::core::marker::Copy for MCI_SYSINFO_PARMSW {}
 impl ::core::clone::Clone for MCI_SYSINFO_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_SYSINFO_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_SYSINFO_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrReturn", &self.lpstrReturn).field("dwRetSize", &self.dwRetSize).field("dwNumber", &self.dwNumber).field("wDeviceType", &self.wDeviceType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10404,12 +9660,6 @@ impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_VD_ESCAPE_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_VD_ESCAPE_PARMSA").field("dwCallback", &self.dwCallback).field("lpstrCommand", &self.lpstrCommand).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSA {
     type Abi = Self;
 }
@@ -10440,12 +9690,6 @@ impl ::core::marker::Copy for MCI_VD_ESCAPE_PARMSW {}
 impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_VD_ESCAPE_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_VD_ESCAPE_PARMSW").field("dwCallback", &self.dwCallback).field("lpstrCommand", &self.lpstrCommand).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10508,11 +9752,6 @@ impl ::core::clone::Clone for MCI_VD_PLAY_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_VD_PLAY_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_VD_PLAY_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).field("dwSpeed", &self.dwSpeed).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_VD_PLAY_PARMS {
     type Abi = Self;
 }
@@ -10565,11 +9804,6 @@ impl ::core::clone::Clone for MCI_VD_STEP_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_VD_STEP_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_VD_STEP_PARMS").field("dwCallback", &self.dwCallback).field("dwFrames", &self.dwFrames).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_VD_STEP_PARMS {
     type Abi = Self;
 }
@@ -10599,11 +9833,6 @@ impl ::core::marker::Copy for MCI_WAVE_DELETE_PARMS {}
 impl ::core::clone::Clone for MCI_WAVE_DELETE_PARMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MCI_WAVE_DELETE_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_WAVE_DELETE_PARMS").field("dwCallback", &self.dwCallback).field("dwFrom", &self.dwFrom).field("dwTo", &self.dwTo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MCI_WAVE_DELETE_PARMS {
@@ -10650,12 +9879,6 @@ impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_WAVE_OPEN_PARMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_WAVE_OPEN_PARMSA").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).field("dwBufferSeconds", &self.dwBufferSeconds).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSA {
     type Abi = Self;
 }
@@ -10690,12 +9913,6 @@ impl ::core::marker::Copy for MCI_WAVE_OPEN_PARMSW {}
 impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MCI_WAVE_OPEN_PARMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_WAVE_OPEN_PARMSW").field("dwCallback", &self.dwCallback).field("wDeviceID", &self.wDeviceID).field("lpstrDeviceType", &self.lpstrDeviceType).field("lpstrElementName", &self.lpstrElementName).field("lpstrAlias", &self.lpstrAlias).field("dwBufferSeconds", &self.dwBufferSeconds).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10759,27 +9976,6 @@ impl ::core::clone::Clone for MCI_WAVE_SET_PARMS {
         *self
     }
 }
-impl ::core::fmt::Debug for MCI_WAVE_SET_PARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCI_WAVE_SET_PARMS")
-            .field("dwCallback", &self.dwCallback)
-            .field("dwTimeFormat", &self.dwTimeFormat)
-            .field("dwAudio", &self.dwAudio)
-            .field("wInput", &self.wInput)
-            .field("wOutput", &self.wOutput)
-            .field("wFormatTag", &self.wFormatTag)
-            .field("wReserved2", &self.wReserved2)
-            .field("nChannels", &self.nChannels)
-            .field("wReserved3", &self.wReserved3)
-            .field("nSamplesPerSec", &self.nSamplesPerSec)
-            .field("nAvgBytesPerSec", &self.nAvgBytesPerSec)
-            .field("nBlockAlign", &self.nBlockAlign)
-            .field("wReserved4", &self.wReserved4)
-            .field("wBitsPerSample", &self.wBitsPerSample)
-            .field("wReserved5", &self.wReserved5)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCI_WAVE_SET_PARMS {
     type Abi = Self;
 }
@@ -10834,12 +10030,6 @@ impl ::core::clone::Clone for MEDIASPACEADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for MEDIASPACEADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEDIASPACEADPCMWAVEFORMAT").field("wfx", &self.wfx).field("wRevision", &self.wRevision).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for MEDIASPACEADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -10869,11 +10059,6 @@ impl ::core::marker::Copy for MIDIOPENSTRMID {}
 impl ::core::clone::Clone for MIDIOPENSTRMID {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIDIOPENSTRMID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIOPENSTRMID").field("dwStreamID", &self.dwStreamID).field("uDeviceID", &self.uDeviceID).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIDIOPENSTRMID {
@@ -10947,12 +10132,6 @@ impl ::core::clone::Clone for MIXEROPENDESC {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for MIXEROPENDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXEROPENDESC").field("hmx", &self.hmx).field("pReserved0", &self.pReserved0).field("dwCallback", &self.dwCallback).field("dwInstance", &self.dwInstance).field("dnDevNode", &self.dnDevNode).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for MIXEROPENDESC {
     type Abi = Self;
 }
@@ -10983,11 +10162,6 @@ impl ::core::marker::Copy for MMCKINFO {}
 impl ::core::clone::Clone for MMCKINFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MMCKINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMCKINFO").field("ckid", &self.ckid).field("cksize", &self.cksize).field("fccType", &self.fccType).field("dwDataOffset", &self.dwDataOffset).field("dwFlags", &self.dwFlags).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MMCKINFO {
@@ -11065,29 +10239,6 @@ impl ::core::marker::Copy for MMIOINFO {}
 impl ::core::clone::Clone for MMIOINFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MMIOINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMIOINFO")
-            .field("dwFlags", &self.dwFlags)
-            .field("fccIOProc", &self.fccIOProc)
-            .field("pIOProc", &self.pIOProc.map(|f| f as usize))
-            .field("wErrorRet", &self.wErrorRet)
-            .field("htask", &self.htask)
-            .field("cchBuffer", &self.cchBuffer)
-            .field("pchBuffer", &self.pchBuffer)
-            .field("pchNext", &self.pchNext)
-            .field("pchEndRead", &self.pchEndRead)
-            .field("pchEndWrite", &self.pchEndWrite)
-            .field("lBufOffset", &self.lBufOffset)
-            .field("lDiskOffset", &self.lDiskOffset)
-            .field("adwInfo", &self.adwInfo)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("hmmio", &self.hmmio)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14279,12 +13430,6 @@ impl ::core::clone::Clone for MSAUDIO1WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for MSAUDIO1WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSAUDIO1WAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).field("wEncodeOptions", &self.wEncodeOptions).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for MSAUDIO1WAVEFORMAT {
     type Abi = Self;
 }
@@ -14343,12 +13488,6 @@ impl ::core::marker::Copy for NMS_VBXADPCMWAVEFORMAT {}
 impl ::core::clone::Clone for NMS_VBXADPCMWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for NMS_VBXADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NMS_VBXADPCMWAVEFORMAT").field("wfx", &self.wfx).field("wSamplesPerBlock", &self.wSamplesPerBlock).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -16794,12 +15933,6 @@ impl ::core::clone::Clone for OLIADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for OLIADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLIADPCMWAVEFORMAT").field("wfx", &self.wfx).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for OLIADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -16829,12 +15962,6 @@ impl ::core::marker::Copy for OLICELPWAVEFORMAT {}
 impl ::core::clone::Clone for OLICELPWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for OLICELPWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLICELPWAVEFORMAT").field("wfx", &self.wfx).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -16870,12 +15997,6 @@ impl ::core::clone::Clone for OLIGSMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for OLIGSMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLIGSMWAVEFORMAT").field("wfx", &self.wfx).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for OLIGSMWAVEFORMAT {
     type Abi = Self;
 }
@@ -16908,12 +16029,6 @@ impl ::core::clone::Clone for OLIOPRWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for OLIOPRWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLIOPRWAVEFORMAT").field("wfx", &self.wfx).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for OLIOPRWAVEFORMAT {
     type Abi = Self;
 }
@@ -16943,12 +16058,6 @@ impl ::core::marker::Copy for OLISBCWAVEFORMAT {}
 impl ::core::clone::Clone for OLISBCWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for OLISBCWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLISBCWAVEFORMAT").field("wfx", &self.wfx).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -17050,12 +16159,6 @@ impl ::core::clone::Clone for SIERRAADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for SIERRAADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIERRAADPCMWAVEFORMAT").field("wfx", &self.wfx).field("wRevision", &self.wRevision).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for SIERRAADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -17086,12 +16189,6 @@ impl ::core::marker::Copy for SONARCWAVEFORMAT {}
 impl ::core::clone::Clone for SONARCWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for SONARCWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SONARCWAVEFORMAT").field("wfx", &self.wfx).field("wCompType", &self.wCompType).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -17159,11 +16256,6 @@ impl ::core::clone::Clone for TIMEREVENT {
         *self
     }
 }
-impl ::core::fmt::Debug for TIMEREVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TIMEREVENT").field("wDelay", &self.wDelay).field("wResolution", &self.wResolution).field("lpFunction", &self.lpFunction.map(|f| f as usize)).field("dwUser", &self.dwUser).field("wFlags", &self.wFlags).field("wReserved1", &self.wReserved1).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TIMEREVENT {
     type Abi = Self;
 }
@@ -17193,12 +16285,6 @@ impl ::core::marker::Copy for TRUESPEECHWAVEFORMAT {}
 impl ::core::clone::Clone for TRUESPEECHWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for TRUESPEECHWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TRUESPEECHWAVEFORMAT").field("wfx", &self.wfx).field("wRevision", &self.wRevision).field("nSamplesPerBlock", &self.nSamplesPerBlock).field("abReserved", &self.abReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -17439,12 +16525,6 @@ impl ::core::marker::Copy for WAVEOPENDESC {}
 impl ::core::clone::Clone for WAVEOPENDESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for WAVEOPENDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEOPENDESC").field("hWave", &self.hWave).field("lpFormat", &self.lpFormat).field("dwCallback", &self.dwCallback).field("dwInstance", &self.dwInstance).field("uMappedDeviceID", &self.uMappedDeviceID).field("dnDevNode", &self.dnDevNode).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -18057,12 +17137,6 @@ impl ::core::clone::Clone for WMAUDIO2WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for WMAUDIO2WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMAUDIO2WAVEFORMAT").field("wfx", &self.wfx).field("dwSamplesPerBlock", &self.dwSamplesPerBlock).field("wEncodeOptions", &self.wEncodeOptions).field("dwSuperBlockAlign", &self.dwSuperBlockAlign).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::core::Abi for WMAUDIO2WAVEFORMAT {
     type Abi = Self;
 }
@@ -18102,12 +17176,6 @@ impl ::core::marker::Copy for WMAUDIO3WAVEFORMAT {}
 impl ::core::clone::Clone for WMAUDIO3WAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for WMAUDIO3WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMAUDIO3WAVEFORMAT").field("wfx", &self.wfx).field("wValidBitsPerSample", &self.wValidBitsPerSample).field("dwChannelMask", &self.dwChannelMask).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("wEncodeOptions", &self.wEncodeOptions).field("wReserved3", &self.wReserved3).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -18352,12 +17420,6 @@ impl ::core::marker::Copy for YAMAHA_ADPCMWAVEFORMAT {}
 impl ::core::clone::Clone for YAMAHA_ADPCMWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::fmt::Debug for YAMAHA_ADPCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("YAMAHA_ADPCMWAVEFORMAT").field("wfx", &self.wfx).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]

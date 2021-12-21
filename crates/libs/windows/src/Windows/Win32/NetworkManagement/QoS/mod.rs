@@ -4041,11 +4041,6 @@ impl ::core::clone::Clone for TCG_PCClientPCREventStruct {
         *self
     }
 }
-impl ::core::fmt::Debug for TCG_PCClientPCREventStruct {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TCG_PCClientPCREventStruct").field("pcrIndex", &self.pcrIndex).field("eventType", &self.eventType).field("digest", &self.digest).field("eventDataSize", &self.eventDataSize).field("event", &self.event).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TCG_PCClientPCREventStruct {
     type Abi = Self;
 }
@@ -4071,11 +4066,6 @@ impl ::core::marker::Copy for TCG_PCClientTaggedEventStruct {}
 impl ::core::clone::Clone for TCG_PCClientTaggedEventStruct {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for TCG_PCClientTaggedEventStruct {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TCG_PCClientTaggedEventStruct").field("EventID", &self.EventID).field("EventDataSize", &self.EventDataSize).field("EventData", &self.EventData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TCG_PCClientTaggedEventStruct {
@@ -4667,22 +4657,6 @@ impl ::core::clone::Clone for WBCL_Iterator {
         *self
     }
 }
-impl ::core::fmt::Debug for WBCL_Iterator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WBCL_Iterator")
-            .field("firstElementPtr", &self.firstElementPtr)
-            .field("logSize", &self.logSize)
-            .field("currentElementPtr", &self.currentElementPtr)
-            .field("currentElementSize", &self.currentElementSize)
-            .field("digestSize", &self.digestSize)
-            .field("logFormat", &self.logFormat)
-            .field("numberOfDigests", &self.numberOfDigests)
-            .field("digestSizes", &self.digestSizes)
-            .field("supportedAlgorithms", &self.supportedAlgorithms)
-            .field("hashAlgorithm", &self.hashAlgorithm)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WBCL_Iterator {
     type Abi = Self;
 }
@@ -4709,11 +4683,6 @@ impl ::core::marker::Copy for WBCL_LogHdr {}
 impl ::core::clone::Clone for WBCL_LogHdr {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WBCL_LogHdr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WBCL_LogHdr").field("signature", &self.signature).field("version", &self.version).field("entries", &self.entries).field("length", &self.length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WBCL_LogHdr {
@@ -4923,11 +4892,6 @@ impl ::core::clone::Clone for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
         *self
     }
 }
-impl ::core::fmt::Debug for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD").field("SignAlgID", &self.SignAlgID).field("SignatureLength", &self.SignatureLength).field("Signature", &self.Signature).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     type Abi = Self;
 }
@@ -4954,11 +4918,6 @@ impl ::core::marker::Copy for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
 impl ::core::clone::Clone for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD").field("CreationTime", &self.CreationTime).field("DigestLength", &self.DigestLength).field("HashAlgID", &self.HashAlgID).field("Digest", &self.Digest).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
@@ -4992,11 +4951,6 @@ impl ::core::clone::Clone for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
         *self
     }
 }
-impl ::core::fmt::Debug for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1").field("PayloadVersion", &self.PayloadVersion).field("VarDataOffset", &self.VarDataOffset).field("HashAlgID", &self.HashAlgID).field("DigestLength", &self.DigestLength).field("Options", &self.Options).field("SignersCount", &self.SignersCount).field("VarData", &self.VarData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     type Abi = Self;
 }
@@ -5024,11 +4978,6 @@ impl ::core::marker::Copy for tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
 impl ::core::clone::Clone for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tag_SIPAEVENT_SI_POLICY_PAYLOAD").field("PolicyVersion", &self.PolicyVersion).field("PolicyNameLength", &self.PolicyNameLength).field("HashAlgID", &self.HashAlgID).field("DigestLength", &self.DigestLength).field("VarLengthData", &self.VarLengthData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
@@ -5108,11 +5057,6 @@ impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
 impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tag_SIPAEVENT_VSM_IDK_RSA_INFO").field("KeyBitLength", &self.KeyBitLength).field("PublicExpLengthBytes", &self.PublicExpLengthBytes).field("ModulusSizeBytes", &self.ModulusSizeBytes).field("PublicKeyData", &self.PublicKeyData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_RSA_INFO {

@@ -1772,11 +1772,6 @@ impl ::core::clone::Clone for DEVICEDUMP_PRIVATE_SUBSECTION {
         *self
     }
 }
-impl ::core::fmt::Debug for DEVICEDUMP_PRIVATE_SUBSECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_PRIVATE_SUBSECTION").field("dwFlags", &self.dwFlags).field("GPLogId", &self.GPLogId).field("bData", &self.bData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DEVICEDUMP_PRIVATE_SUBSECTION {
     type Abi = Self;
 }
@@ -1806,12 +1801,6 @@ impl ::core::marker::Copy for DEVICEDUMP_PUBLIC_SUBSECTION {}
 impl ::core::clone::Clone for DEVICEDUMP_PUBLIC_SUBSECTION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DEVICEDUMP_PUBLIC_SUBSECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_PUBLIC_SUBSECTION").field("dwFlags", &self.dwFlags).field("GPLogTable", &self.GPLogTable).field("szDescription", &self.szDescription).field("bData", &self.bData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1881,21 +1870,6 @@ impl ::core::clone::Clone for DEVICEDUMP_SECTION_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for DEVICEDUMP_SECTION_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_SECTION_HEADER")
-            .field("guidDeviceDataId", &self.guidDeviceDataId)
-            .field("sOrganizationID", &self.sOrganizationID)
-            .field("dwFirmwareRevision", &self.dwFirmwareRevision)
-            .field("sModelNumber", &self.sModelNumber)
-            .field("szDeviceManufacturingID", &self.szDeviceManufacturingID)
-            .field("dwFlags", &self.dwFlags)
-            .field("bRestrictedPrivateDataVersion", &self.bRestrictedPrivateDataVersion)
-            .field("dwFirmwareIssueId", &self.dwFirmwareIssueId)
-            .field("szIssueDescriptionString", &self.szIssueDescriptionString)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DEVICEDUMP_SECTION_HEADER {
     type Abi = Self;
 }
@@ -1925,11 +1899,6 @@ impl ::core::marker::Copy for DEVICEDUMP_STORAGEDEVICE_DATA {}
 impl ::core::clone::Clone for DEVICEDUMP_STORAGEDEVICE_DATA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DEVICEDUMP_STORAGEDEVICE_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_STORAGEDEVICE_DATA").field("Descriptor", &self.Descriptor).field("SectionHeader", &self.SectionHeader).field("dwBufferSize", &self.dwBufferSize).field("dwReasonForCollection", &self.dwReasonForCollection).field("PublicData", &self.PublicData).field("RestrictedData", &self.RestrictedData).field("PrivateData", &self.PrivateData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGEDEVICE_DATA {
@@ -2044,11 +2013,6 @@ impl ::core::clone::Clone for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0").field("dwAtaPortSpecific", &self.dwAtaPortSpecific).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
     type Abi = Self;
 }
@@ -2074,11 +2038,6 @@ impl ::core::clone::Clone for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1").field("dwReserved", &self.dwReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     type Abi = Self;
 }
@@ -2102,11 +2061,6 @@ impl ::core::marker::Copy for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {}
 impl ::core::clone::Clone for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2").field("SrbTag", &self.SrbTag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
@@ -2136,11 +2090,6 @@ impl ::core::clone::Clone for DEVICEDUMP_STRUCTURE_VERSION {
         *self
     }
 }
-impl ::core::fmt::Debug for DEVICEDUMP_STRUCTURE_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_STRUCTURE_VERSION").field("dwSignature", &self.dwSignature).field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DEVICEDUMP_STRUCTURE_VERSION {
     type Abi = Self;
 }
@@ -2168,11 +2117,6 @@ impl ::core::marker::Copy for DEVICEDUMP_SUBSECTION_POINTER {}
 impl ::core::clone::Clone for DEVICEDUMP_SUBSECTION_POINTER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DEVICEDUMP_SUBSECTION_POINTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDUMP_SUBSECTION_POINTER").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwOffset", &self.dwOffset).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICEDUMP_SUBSECTION_POINTER {
@@ -4745,11 +4689,6 @@ impl ::core::marker::Copy for DRIVERSTATUS {}
 impl ::core::clone::Clone for DRIVERSTATUS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DRIVERSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRIVERSTATUS").field("bDriverError", &self.bDriverError).field("bIDEError", &self.bIDEError).field("bReserved", &self.bReserved).field("dwReserved", &self.dwReserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRIVERSTATUS {
@@ -8153,11 +8092,6 @@ impl ::core::clone::Clone for GETVERSIONINPARAMS {
         *self
     }
 }
-impl ::core::fmt::Debug for GETVERSIONINPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GETVERSIONINPARAMS").field("bVersion", &self.bVersion).field("bRevision", &self.bRevision).field("bReserved", &self.bReserved).field("bIDEDeviceMap", &self.bIDEDeviceMap).field("fCapabilities", &self.fCapabilities).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GETVERSIONINPARAMS {
     type Abi = Self;
 }
@@ -8509,11 +8443,6 @@ impl ::core::marker::Copy for GP_LOG_PAGE_DESCRIPTOR {}
 impl ::core::clone::Clone for GP_LOG_PAGE_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for GP_LOG_PAGE_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GP_LOG_PAGE_DESCRIPTOR").field("LogAddress", &self.LogAddress).field("LogSectors", &self.LogSectors).finish()
     }
 }
 unsafe impl ::windows::core::Abi for GP_LOG_PAGE_DESCRIPTOR {
@@ -11447,11 +11376,6 @@ impl ::core::clone::Clone for REASSIGN_BLOCKS_EX {
         *self
     }
 }
-impl ::core::fmt::Debug for REASSIGN_BLOCKS_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REASSIGN_BLOCKS_EX").field("Reserved", &self.Reserved).field("Count", &self.Count).field("BlockNumber", &self.BlockNumber).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for REASSIGN_BLOCKS_EX {
     type Abi = Self;
 }
@@ -14075,11 +13999,6 @@ impl ::core::clone::Clone for SENDCMDINPARAMS {
         *self
     }
 }
-impl ::core::fmt::Debug for SENDCMDINPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SENDCMDINPARAMS").field("cBufferSize", &self.cBufferSize).field("irDriveRegs", &self.irDriveRegs).field("bDriveNumber", &self.bDriveNumber).field("bReserved", &self.bReserved).field("dwReserved", &self.dwReserved).field("bBuffer", &self.bBuffer).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SENDCMDINPARAMS {
     type Abi = Self;
 }
@@ -14105,11 +14024,6 @@ impl ::core::marker::Copy for SENDCMDOUTPARAMS {}
 impl ::core::clone::Clone for SENDCMDOUTPARAMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SENDCMDOUTPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SENDCMDOUTPARAMS").field("cBufferSize", &self.cBufferSize).field("DriverStatus", &self.DriverStatus).field("bBuffer", &self.bBuffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SENDCMDOUTPARAMS {

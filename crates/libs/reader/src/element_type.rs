@@ -194,6 +194,14 @@ impl ElementType {
         }
     }
 
+    pub fn is_callback_array(&self) -> bool {
+        match self {
+            Self::Array((kind, _)) => 
+                kind.kind.is_callback(),
+            _ => false,
+        }
+    }
+
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_primitive(),

@@ -19170,11 +19170,6 @@ impl ::core::clone::Clone for MxdcEscapeHeader {
         *self
     }
 }
-impl ::core::fmt::Debug for MxdcEscapeHeader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MxdcEscapeHeader").field("cbInput", &self.cbInput).field("cbOutput", &self.cbOutput).field("opCode", &self.opCode).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MxdcEscapeHeader {
     type Abi = Self;
 }
@@ -19199,11 +19194,6 @@ impl ::core::marker::Copy for MxdcGetFileNameData {}
 impl ::core::clone::Clone for MxdcGetFileNameData {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MxdcGetFileNameData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MxdcGetFileNameData").field("cbOutput", &self.cbOutput).field("wszData", &self.wszData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MxdcGetFileNameData {
@@ -19281,11 +19271,6 @@ impl ::core::clone::Clone for MxdcPrintTicketPassthrough {
         *self
     }
 }
-impl ::core::fmt::Debug for MxdcPrintTicketPassthrough {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MxdcPrintTicketPassthrough").field("dwDataSize", &self.dwDataSize).field("bData", &self.bData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MxdcPrintTicketPassthrough {
     type Abi = Self;
 }
@@ -19310,11 +19295,6 @@ impl ::core::marker::Copy for MxdcS0PageData {}
 impl ::core::clone::Clone for MxdcS0PageData {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MxdcS0PageData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MxdcS0PageData").field("dwSize", &self.dwSize).field("bData", &self.bData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MxdcS0PageData {
@@ -19428,11 +19408,6 @@ impl ::core::marker::Copy for MxdcXpsS0PageResource {}
 impl ::core::clone::Clone for MxdcXpsS0PageResource {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MxdcXpsS0PageResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MxdcXpsS0PageResource").field("dwSize", &self.dwSize).field("dwResourceType", &self.dwResourceType).field("szUri", &self.szUri).field("dwDataSize", &self.dwDataSize).field("bData", &self.bData).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MxdcXpsS0PageResource {

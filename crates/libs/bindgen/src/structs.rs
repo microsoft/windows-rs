@@ -199,7 +199,7 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
 }
 
 fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    if gen.sys || def.is_union() || def.has_explicit() {
+    if gen.sys || def.is_union() || def.has_explicit() || def.class_layout().is_some() {
         quote! {}
     } else {
         let name = ident.as_str();
@@ -214,6 +214,8 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
                 let signature = f.signature(Some(def));
                 if signature.is_callback() {
                     quote! { .field(#name, &self.#ident.map(|f| f as usize)) }
+                } else if signature.is_callback_array() {
+                    quote! {}
                 } else {
                     quote! { .field(#name, &self.#ident) }
                 }

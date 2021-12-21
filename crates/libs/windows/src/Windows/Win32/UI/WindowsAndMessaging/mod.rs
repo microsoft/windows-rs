@@ -2096,11 +2096,6 @@ impl ::core::clone::Clone for DLGITEMTEMPLATE {
         *self
     }
 }
-impl ::core::fmt::Debug for DLGITEMTEMPLATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DLGITEMTEMPLATE").field("style", &self.style).field("dwExtendedStyle", &self.dwExtendedStyle).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("id", &self.id).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DLGITEMTEMPLATE {
     type Abi = Self;
 }
@@ -2133,11 +2128,6 @@ impl ::core::marker::Copy for DLGTEMPLATE {}
 impl ::core::clone::Clone for DLGTEMPLATE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DLGTEMPLATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DLGTEMPLATE").field("style", &self.style).field("dwExtendedStyle", &self.dwExtendedStyle).field("cdit", &self.cdit).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DLGTEMPLATE {

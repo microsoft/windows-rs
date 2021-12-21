@@ -38,6 +38,10 @@ impl Signature {
         self.pointers == 0 && self.kind.is_callback()
     }
 
+    pub fn is_callback_array(&self) -> bool {
+        self.pointers == 0 && self.kind.is_callback_array()
+    }
+
     pub fn size(&self) -> usize {
         if self.pointers > 0 {
             1

@@ -678,13 +678,6 @@ impl ::core::clone::Clone for FDISPILLFILE {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDISPILLFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FDISPILLFILE").field("ach", &self.ach).field("cbFile", &self.cbFile).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDISPILLFILE {
     type Abi = Self;
 }

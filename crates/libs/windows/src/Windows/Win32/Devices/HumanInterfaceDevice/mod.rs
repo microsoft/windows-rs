@@ -6022,11 +6022,6 @@ impl ::core::clone::Clone for HIDD_CONFIGURATION {
         *self
     }
 }
-impl ::core::fmt::Debug for HIDD_CONFIGURATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIDD_CONFIGURATION").field("cookie", &self.cookie).field("size", &self.size).field("RingBufferSize", &self.RingBufferSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HIDD_CONFIGURATION {
     type Abi = Self;
 }
@@ -6392,11 +6387,6 @@ impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
         *self
     }
 }
-impl ::core::fmt::Debug for HIDP_EXTENDED_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIDP_EXTENDED_ATTRIBUTES").field("NumGlobalUnknowns", &self.NumGlobalUnknowns).field("Reserved", &self.Reserved).field("GlobalUnknowns", &self.GlobalUnknowns).field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HIDP_EXTENDED_ATTRIBUTES {
     type Abi = Self;
 }
@@ -6514,11 +6504,6 @@ impl ::core::marker::Copy for HIDP_LINK_COLLECTION_NODE {}
 impl ::core::clone::Clone for HIDP_LINK_COLLECTION_NODE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for HIDP_LINK_COLLECTION_NODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIDP_LINK_COLLECTION_NODE").field("LinkUsage", &self.LinkUsage).field("LinkUsagePage", &self.LinkUsagePage).field("Parent", &self.Parent).field("NumberOfChildren", &self.NumberOfChildren).field("NextSibling", &self.NextSibling).field("FirstChild", &self.FirstChild).field("_bitfield", &self._bitfield).field("UserContext", &self.UserContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HIDP_LINK_COLLECTION_NODE {

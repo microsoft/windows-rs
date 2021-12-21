@@ -96,13 +96,6 @@ impl ::core::clone::Clone for D3DADAPTER_IDENTIFIER9 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for D3DADAPTER_IDENTIFIER9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DADAPTER_IDENTIFIER9").field("Driver", &self.Driver).field("Description", &self.Description).field("DeviceName", &self.DeviceName).field("DriverVersion", &self.DriverVersion).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DeviceIdentifier", &self.DeviceIdentifier).field("WHQLLevel", &self.WHQLLevel).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3DADAPTER_IDENTIFIER9 {
     type Abi = Self;
 }
@@ -175,12 +168,6 @@ impl ::core::marker::Copy for D3DAES_CTR_IV {}
 impl ::core::clone::Clone for D3DAES_CTR_IV {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for D3DAES_CTR_IV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DAES_CTR_IV").field("IV", &self.IV).field("Count", &self.Count).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -1083,13 +1070,6 @@ impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {}
 impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT").field("Output", &self.Output).field("DeviceHandle", &self.DeviceHandle).field("CryptoSessionHandle", &self.CryptoSessionHandle).field("OutputIDIndex", &self.OutputIDIndex).field("OutputID", &self.OutputID).finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -3163,12 +3143,6 @@ impl ::core::clone::Clone for D3DMEMORYPRESSURE {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for D3DMEMORYPRESSURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DMEMORYPRESSURE").field("BytesEvictedFromProcess", &self.BytesEvictedFromProcess).field("SizeOfInefficientAllocation", &self.SizeOfInefficientAllocation).field("LevelOfEfficiency", &self.LevelOfEfficiency).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for D3DMEMORYPRESSURE {
     type Abi = Self;
 }
@@ -3488,12 +3462,6 @@ impl ::core::marker::Copy for D3DPRESENTSTATS {}
 impl ::core::clone::Clone for D3DPRESENTSTATS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for D3DPRESENTSTATS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DPRESENTSTATS").field("PresentCount", &self.PresentCount).field("PresentRefreshCount", &self.PresentRefreshCount).field("SyncRefreshCount", &self.SyncRefreshCount).field("SyncQPCTime", &self.SyncQPCTime).field("SyncGPUTime", &self.SyncGPUTime).finish()
     }
 }
 #[cfg(target_arch = "x86")]

@@ -103,11 +103,6 @@ impl ::core::clone::Clone for AsnObjectIdentifier {
         *self
     }
 }
-impl ::core::fmt::Debug for AsnObjectIdentifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AsnObjectIdentifier").field("idLength", &self.idLength).field("ids", &self.ids).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AsnObjectIdentifier {
     type Abi = Self;
 }
@@ -136,12 +131,6 @@ impl ::core::marker::Copy for AsnOctetString {}
 impl ::core::clone::Clone for AsnOctetString {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AsnOctetString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AsnOctetString").field("stream", &self.stream).field("length", &self.length).field("dynamic", &self.dynamic).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1769,12 +1758,6 @@ impl ::core::marker::Copy for SnmpVarBindList {}
 impl ::core::clone::Clone for SnmpVarBindList {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SnmpVarBindList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SnmpVarBindList").field("list", &self.list).field("len", &self.len).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

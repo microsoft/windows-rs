@@ -10388,12 +10388,6 @@ impl ::core::clone::Clone for NMLVKEYDOWN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NMLVKEYDOWN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NMLVKEYDOWN").field("hdr", &self.hdr).field("wVKey", &self.wVKey).field("flags", &self.flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NMLVKEYDOWN {
     type Abi = Self;
 }
@@ -10725,12 +10719,6 @@ impl ::core::marker::Copy for NMPGSCROLL {}
 impl ::core::clone::Clone for NMPGSCROLL {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NMPGSCROLL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NMPGSCROLL").field("hdr", &self.hdr).field("fwKeys", &self.fwKeys).field("rcParent", &self.rcParent).field("iDir", &self.iDir).field("iXpos", &self.iXpos).field("iYpos", &self.iYpos).field("iScroll", &self.iScroll).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11527,12 +11515,6 @@ impl ::core::clone::Clone for NMTCKEYDOWN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NMTCKEYDOWN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NMTCKEYDOWN").field("hdr", &self.hdr).field("wVKey", &self.wVKey).field("flags", &self.flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NMTCKEYDOWN {
     type Abi = Self;
 }
@@ -12306,12 +12288,6 @@ impl ::core::marker::Copy for NMTVKEYDOWN {}
 impl ::core::clone::Clone for NMTVKEYDOWN {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NMTVKEYDOWN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NMTVKEYDOWN").field("hdr", &self.hdr).field("wVKey", &self.wVKey).field("flags", &self.flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15822,12 +15798,6 @@ impl ::core::marker::Copy for TASKDIALOG_BUTTON {}
 impl ::core::clone::Clone for TASKDIALOG_BUTTON {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TASKDIALOG_BUTTON {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TASKDIALOG_BUTTON").field("nButtonID", &self.nButtonID).field("pszButtonText", &self.pszButtonText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

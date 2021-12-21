@@ -1042,11 +1042,6 @@ impl ::core::clone::Clone for DOT11_SECURITY_PACKET_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for DOT11_SECURITY_PACKET_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOT11_SECURITY_PACKET_HEADER").field("PeerMac", &self.PeerMac).field("usEtherType", &self.usEtherType).field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DOT11_SECURITY_PACKET_HEADER {
     type Abi = Self;
 }

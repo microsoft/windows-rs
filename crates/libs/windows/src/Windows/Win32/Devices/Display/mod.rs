@@ -7910,11 +7910,6 @@ impl ::core::clone::Clone for MC_TIMING_REPORT {
         *self
     }
 }
-impl ::core::fmt::Debug for MC_TIMING_REPORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MC_TIMING_REPORT").field("dwHorizontalFrequencyInHZ", &self.dwHorizontalFrequencyInHZ).field("dwVerticalFrequencyInHZ", &self.dwVerticalFrequencyInHZ).field("bTimingStatusByte", &self.bTimingStatusByte).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MC_TIMING_REPORT {
     type Abi = Self;
 }
@@ -9404,12 +9399,6 @@ impl ::core::marker::Copy for PHYSICAL_MONITOR {}
 impl ::core::clone::Clone for PHYSICAL_MONITOR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PHYSICAL_MONITOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PHYSICAL_MONITOR").field("hPhysicalMonitor", &self.hPhysicalMonitor).field("szPhysicalMonitorDescription", &self.szPhysicalMonitorDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -1097,11 +1097,6 @@ impl ::core::clone::Clone for BTH_INFO_REQ {
         *self
     }
 }
-impl ::core::fmt::Debug for BTH_INFO_REQ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BTH_INFO_REQ").field("btAddr", &self.btAddr).field("infoType", &self.infoType).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BTH_INFO_REQ {
     type Abi = Self;
 }
@@ -1516,11 +1511,6 @@ impl ::core::clone::Clone for BTH_PING_REQ {
         *self
     }
 }
-impl ::core::fmt::Debug for BTH_PING_REQ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BTH_PING_REQ").field("btAddr", &self.btAddr).field("dataLen", &self.dataLen).field("data", &self.data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BTH_PING_REQ {
     type Abi = Self;
 }
@@ -1576,11 +1566,6 @@ impl ::core::marker::Copy for BTH_QUERY_DEVICE {}
 impl ::core::clone::Clone for BTH_QUERY_DEVICE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for BTH_QUERY_DEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BTH_QUERY_DEVICE").field("LAP", &self.LAP).field("length", &self.length).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BTH_QUERY_DEVICE {
@@ -1684,12 +1669,6 @@ impl ::core::marker::Copy for BTH_SET_SERVICE {}
 impl ::core::clone::Clone for BTH_SET_SERVICE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BTH_SET_SERVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BTH_SET_SERVICE").field("pSdpVersion", &self.pSdpVersion).field("pRecordHandle", &self.pRecordHandle).field("fCodService", &self.fCodService).field("Reserved", &self.Reserved).field("ulRecordLength", &self.ulRecordLength).field("pRecord", &self.pRecord).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3563,11 +3542,6 @@ impl ::core::marker::Copy for SOCKADDR_BTH {}
 impl ::core::clone::Clone for SOCKADDR_BTH {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SOCKADDR_BTH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SOCKADDR_BTH").field("addressFamily", &self.addressFamily).field("btAddr", &self.btAddr).field("serviceClassId", &self.serviceClassId).field("port", &self.port).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SOCKADDR_BTH {

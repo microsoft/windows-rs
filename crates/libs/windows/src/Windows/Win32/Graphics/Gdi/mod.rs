@@ -534,11 +534,6 @@ impl ::core::clone::Clone for BITMAPFILEHEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for BITMAPFILEHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BITMAPFILEHEADER").field("bfType", &self.bfType).field("bfSize", &self.bfSize).field("bfReserved1", &self.bfReserved1).field("bfReserved2", &self.bfReserved2).field("bfOffBits", &self.bfOffBits).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BITMAPFILEHEADER {
     type Abi = Self;
 }
@@ -11373,11 +11368,6 @@ impl ::core::marker::Copy for METAHEADER {}
 impl ::core::clone::Clone for METAHEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for METAHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("METAHEADER").field("mtType", &self.mtType).field("mtHeaderSize", &self.mtHeaderSize).field("mtVersion", &self.mtVersion).field("mtSize", &self.mtSize).field("mtNoObjects", &self.mtNoObjects).field("mtMaxRecord", &self.mtMaxRecord).field("mtNoParameters", &self.mtNoParameters).finish()
     }
 }
 unsafe impl ::windows::core::Abi for METAHEADER {

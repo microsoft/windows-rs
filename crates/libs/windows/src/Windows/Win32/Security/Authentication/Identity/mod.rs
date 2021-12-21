@@ -7393,11 +7393,6 @@ impl ::core::clone::Clone for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
         *self
     }
 }
-impl ::core::fmt::Debug for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL").field("Version", &self.Version).field("Flags", &self.Flags).field("CredentialKey", &self.CredentialKey).field("CredentialKeyType", &self.CredentialKeyType).field("EncryptedCredsSize", &self.EncryptedCredsSize).field("EncryptedCreds", &self.EncryptedCreds).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     type Abi = Self;
 }
@@ -20336,46 +20331,6 @@ impl ::core::marker::Copy for USER_ALL_INFORMATION {}
 impl ::core::clone::Clone for USER_ALL_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for USER_ALL_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USER_ALL_INFORMATION")
-            .field("LastLogon", &self.LastLogon)
-            .field("LastLogoff", &self.LastLogoff)
-            .field("PasswordLastSet", &self.PasswordLastSet)
-            .field("AccountExpires", &self.AccountExpires)
-            .field("PasswordCanChange", &self.PasswordCanChange)
-            .field("PasswordMustChange", &self.PasswordMustChange)
-            .field("UserName", &self.UserName)
-            .field("FullName", &self.FullName)
-            .field("HomeDirectory", &self.HomeDirectory)
-            .field("HomeDirectoryDrive", &self.HomeDirectoryDrive)
-            .field("ScriptPath", &self.ScriptPath)
-            .field("ProfilePath", &self.ProfilePath)
-            .field("AdminComment", &self.AdminComment)
-            .field("WorkStations", &self.WorkStations)
-            .field("UserComment", &self.UserComment)
-            .field("Parameters", &self.Parameters)
-            .field("LmPassword", &self.LmPassword)
-            .field("NtPassword", &self.NtPassword)
-            .field("PrivateData", &self.PrivateData)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .field("UserId", &self.UserId)
-            .field("PrimaryGroupId", &self.PrimaryGroupId)
-            .field("UserAccountControl", &self.UserAccountControl)
-            .field("WhichFields", &self.WhichFields)
-            .field("LogonHours", &self.LogonHours)
-            .field("BadPasswordCount", &self.BadPasswordCount)
-            .field("LogonCount", &self.LogonCount)
-            .field("CountryCode", &self.CountryCode)
-            .field("CodePage", &self.CodePage)
-            .field("LmPasswordPresent", &self.LmPasswordPresent)
-            .field("NtPasswordPresent", &self.NtPasswordPresent)
-            .field("PasswordExpired", &self.PasswordExpired)
-            .field("PrivateDataSensitive", &self.PrivateDataSensitive)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

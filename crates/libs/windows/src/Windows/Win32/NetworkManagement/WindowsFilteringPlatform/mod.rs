@@ -15225,11 +15225,6 @@ impl ::core::clone::Clone for IPTLS_METADATA {
         *self
     }
 }
-impl ::core::fmt::Debug for IPTLS_METADATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPTLS_METADATA").field("SequenceNumber", &self.SequenceNumber).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for IPTLS_METADATA {
     type Abi = Self;
 }
@@ -18246,11 +18241,6 @@ impl ::core::clone::Clone for tcp_hdr {
         *self
     }
 }
-impl ::core::fmt::Debug for tcp_hdr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_hdr").field("th_sport", &self.th_sport).field("th_dport", &self.th_dport).field("th_seq", &self.th_seq).field("th_ack", &self.th_ack).field("_bitfield", &self._bitfield).field("th_flags", &self.th_flags).field("th_win", &self.th_win).field("th_sum", &self.th_sum).field("th_urp", &self.th_urp).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for tcp_hdr {
     type Abi = Self;
 }
@@ -18308,11 +18298,6 @@ impl ::core::marker::Copy for tcp_opt_mss {}
 impl ::core::clone::Clone for tcp_opt_mss {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for tcp_opt_mss {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_opt_mss").field("Kind", &self.Kind).field("Length", &self.Length).field("Mss", &self.Mss).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tcp_opt_mss {
@@ -18373,11 +18358,6 @@ impl ::core::clone::Clone for tcp_opt_sack_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for tcp_opt_sack_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_opt_sack_0").field("Left", &self.Left).field("Right", &self.Right).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for tcp_opt_sack_0 {
     type Abi = Self;
 }
@@ -18435,11 +18415,6 @@ impl ::core::marker::Copy for tcp_opt_ts {}
 impl ::core::clone::Clone for tcp_opt_ts {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for tcp_opt_ts {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_opt_ts").field("Kind", &self.Kind).field("Length", &self.Length).field("Val", &self.Val).field("EcR", &self.EcR).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tcp_opt_ts {

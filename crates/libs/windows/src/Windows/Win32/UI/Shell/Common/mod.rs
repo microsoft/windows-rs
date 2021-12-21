@@ -408,11 +408,6 @@ impl ::core::clone::Clone for SHITEMID {
         *self
     }
 }
-impl ::core::fmt::Debug for SHITEMID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SHITEMID").field("cb", &self.cb).field("abID", &self.abID).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SHITEMID {
     type Abi = Self;
 }

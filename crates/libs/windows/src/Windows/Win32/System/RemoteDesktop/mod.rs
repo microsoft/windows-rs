@@ -214,12 +214,6 @@ impl ::core::clone::Clone for CHANNEL_DEF {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CHANNEL_DEF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHANNEL_DEF").field("name", &self.name).field("options", &self.options).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHANNEL_DEF {
     type Abi = Self;
 }
@@ -10127,12 +10121,6 @@ impl ::core::clone::Clone for RFX_GFX_MONITOR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RFX_GFX_MONITOR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MONITOR_INFO").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).field("physicalWidth", &self.physicalWidth).field("physicalHeight", &self.physicalHeight).field("orientation", &self.orientation).field("primary", &self.primary).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RFX_GFX_MONITOR_INFO {
     type Abi = Self;
 }
@@ -10199,12 +10187,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE").field("channelHdr", &self.channelHdr).field("reserved", &self.reserved).field("monitorCount", &self.monitorCount).field("MonitorData", &self.MonitorData).field("clientUniqueId", &self.clientUniqueId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     type Abi = Self;
 }
@@ -10267,11 +10249,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
         *self
     }
 }
-impl ::core::fmt::Debug for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY").field("channelHdr", &self.channelHdr).field("ulWidth", &self.ulWidth).field("ulHeight", &self.ulHeight).field("ulBpp", &self.ulBpp).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     type Abi = Self;
 }
@@ -10297,11 +10274,6 @@ impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
 impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_DESKTOP_INPUT_RESET").field("channelHdr", &self.channelHdr).field("ulWidth", &self.ulWidth).field("ulHeight", &self.ulHeight).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
@@ -10361,11 +10333,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
         *self
     }
 }
-impl ::core::fmt::Debug for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_DISCONNECT_NOTIFY").field("channelHdr", &self.channelHdr).field("DisconnectReason", &self.DisconnectReason).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DISCONNECT_NOTIFY {
     type Abi = Self;
 }
@@ -10390,11 +10357,6 @@ impl ::core::marker::Copy for RFX_GFX_MSG_HEADER {}
 impl ::core::clone::Clone for RFX_GFX_MSG_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RFX_GFX_MSG_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_MSG_HEADER").field("uMSGType", &self.uMSGType).field("cbSize", &self.cbSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_HEADER {
@@ -10458,11 +10420,6 @@ impl ::core::marker::Copy for RFX_GFX_RECT {}
 impl ::core::clone::Clone for RFX_GFX_RECT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for RFX_GFX_RECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RFX_GFX_RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
 unsafe impl ::windows::core::Abi for RFX_GFX_RECT {

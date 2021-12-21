@@ -81,11 +81,6 @@ impl ::core::clone::Clone for FXECHO_INITDATA {
         *self
     }
 }
-impl ::core::fmt::Debug for FXECHO_INITDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FXECHO_INITDATA").field("MaxDelay", &self.MaxDelay).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FXECHO_INITDATA {
     type Abi = Self;
 }
@@ -123,11 +118,6 @@ impl ::core::marker::Copy for FXECHO_PARAMETERS {}
 impl ::core::clone::Clone for FXECHO_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for FXECHO_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FXECHO_PARAMETERS").field("WetDryMix", &self.WetDryMix).field("Feedback", &self.Feedback).field("Delay", &self.Delay).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FXECHO_PARAMETERS {
@@ -195,24 +185,6 @@ impl ::core::clone::Clone for FXEQ_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for FXEQ_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FXEQ_PARAMETERS")
-            .field("FrequencyCenter0", &self.FrequencyCenter0)
-            .field("Gain0", &self.Gain0)
-            .field("Bandwidth0", &self.Bandwidth0)
-            .field("FrequencyCenter1", &self.FrequencyCenter1)
-            .field("Gain1", &self.Gain1)
-            .field("Bandwidth1", &self.Bandwidth1)
-            .field("FrequencyCenter2", &self.FrequencyCenter2)
-            .field("Gain2", &self.Gain2)
-            .field("Bandwidth2", &self.Bandwidth2)
-            .field("FrequencyCenter3", &self.FrequencyCenter3)
-            .field("Gain3", &self.Gain3)
-            .field("Bandwidth3", &self.Bandwidth3)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FXEQ_PARAMETERS {
     type Abi = Self;
 }
@@ -256,11 +228,6 @@ impl ::core::clone::Clone for FXMASTERINGLIMITER_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for FXMASTERINGLIMITER_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FXMASTERINGLIMITER_PARAMETERS").field("Release", &self.Release).field("Loudness", &self.Loudness).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FXMASTERINGLIMITER_PARAMETERS {
     type Abi = Self;
 }
@@ -298,11 +265,6 @@ impl ::core::marker::Copy for FXREVERB_PARAMETERS {}
 impl ::core::clone::Clone for FXREVERB_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for FXREVERB_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FXREVERB_PARAMETERS").field("Diffusion", &self.Diffusion).field("RoomSize", &self.RoomSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for FXREVERB_PARAMETERS {
@@ -1842,11 +1804,6 @@ impl ::core::clone::Clone for XAPO_LOCKFORPROCESS_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for XAPO_LOCKFORPROCESS_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAPO_LOCKFORPROCESS_PARAMETERS").field("pFormat", &self.pFormat).field("MaxFrameCount", &self.MaxFrameCount).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XAPO_LOCKFORPROCESS_PARAMETERS {
     type Abi = Self;
 }
@@ -1882,11 +1839,6 @@ impl ::core::clone::Clone for XAPO_PROCESS_BUFFER_PARAMETERS {
         *self
     }
 }
-impl ::core::fmt::Debug for XAPO_PROCESS_BUFFER_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAPO_PROCESS_BUFFER_PARAMETERS").field("pBuffer", &self.pBuffer).field("BufferFlags", &self.BufferFlags).field("ValidFrameCount", &self.ValidFrameCount).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XAPO_PROCESS_BUFFER_PARAMETERS {
     type Abi = Self;
 }
@@ -1919,22 +1871,6 @@ impl ::core::marker::Copy for XAPO_REGISTRATION_PROPERTIES {}
 impl ::core::clone::Clone for XAPO_REGISTRATION_PROPERTIES {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for XAPO_REGISTRATION_PROPERTIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAPO_REGISTRATION_PROPERTIES")
-            .field("clsid", &self.clsid)
-            .field("FriendlyName", &self.FriendlyName)
-            .field("CopyrightInfo", &self.CopyrightInfo)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("Flags", &self.Flags)
-            .field("MinInputBufferCount", &self.MinInputBufferCount)
-            .field("MaxInputBufferCount", &self.MaxInputBufferCount)
-            .field("MinOutputBufferCount", &self.MinOutputBufferCount)
-            .field("MaxOutputBufferCount", &self.MaxOutputBufferCount)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for XAPO_REGISTRATION_PROPERTIES {
@@ -2020,25 +1956,6 @@ impl ::core::marker::Copy for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {}
 impl ::core::clone::Clone for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2FX_REVERB_I3DL2_PARAMETERS")
-            .field("WetDryMix", &self.WetDryMix)
-            .field("Room", &self.Room)
-            .field("RoomHF", &self.RoomHF)
-            .field("RoomRolloffFactor", &self.RoomRolloffFactor)
-            .field("DecayTime", &self.DecayTime)
-            .field("DecayHFRatio", &self.DecayHFRatio)
-            .field("Reflections", &self.Reflections)
-            .field("ReflectionsDelay", &self.ReflectionsDelay)
-            .field("Reverb", &self.Reverb)
-            .field("ReverbDelay", &self.ReverbDelay)
-            .field("Diffusion", &self.Diffusion)
-            .field("Density", &self.Density)
-            .field("HFReference", &self.HFReference)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
@@ -2175,37 +2092,6 @@ impl ::core::clone::Clone for XAUDIO2FX_REVERB_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for XAUDIO2FX_REVERB_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2FX_REVERB_PARAMETERS")
-            .field("WetDryMix", &self.WetDryMix)
-            .field("ReflectionsDelay", &self.ReflectionsDelay)
-            .field("ReverbDelay", &self.ReverbDelay)
-            .field("RearDelay", &self.RearDelay)
-            .field("SideDelay", &self.SideDelay)
-            .field("PositionLeft", &self.PositionLeft)
-            .field("PositionRight", &self.PositionRight)
-            .field("PositionMatrixLeft", &self.PositionMatrixLeft)
-            .field("PositionMatrixRight", &self.PositionMatrixRight)
-            .field("EarlyDiffusion", &self.EarlyDiffusion)
-            .field("LateDiffusion", &self.LateDiffusion)
-            .field("LowEQGain", &self.LowEQGain)
-            .field("LowEQCutoff", &self.LowEQCutoff)
-            .field("HighEQGain", &self.HighEQGain)
-            .field("HighEQCutoff", &self.HighEQCutoff)
-            .field("RoomFilterFreq", &self.RoomFilterFreq)
-            .field("RoomFilterMain", &self.RoomFilterMain)
-            .field("RoomFilterHF", &self.RoomFilterHF)
-            .field("ReflectionsGain", &self.ReflectionsGain)
-            .field("ReverbGain", &self.ReverbGain)
-            .field("DecayTime", &self.DecayTime)
-            .field("Density", &self.Density)
-            .field("RoomSize", &self.RoomSize)
-            .field("DisableLateField", &self.DisableLateField)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for XAUDIO2FX_REVERB_PARAMETERS {
     type Abi = Self;
 }
@@ -2234,11 +2120,6 @@ impl ::core::marker::Copy for XAUDIO2FX_VOLUMEMETER_LEVELS {}
 impl ::core::clone::Clone for XAUDIO2FX_VOLUMEMETER_LEVELS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for XAUDIO2FX_VOLUMEMETER_LEVELS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2FX_VOLUMEMETER_LEVELS").field("pPeakLevels", &self.pPeakLevels).field("pRMSLevels", &self.pRMSLevels).field("ChannelCount", &self.ChannelCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XAUDIO2FX_VOLUMEMETER_LEVELS {
@@ -2278,11 +2159,6 @@ impl ::core::clone::Clone for XAUDIO2_BUFFER {
         *self
     }
 }
-impl ::core::fmt::Debug for XAUDIO2_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_BUFFER").field("Flags", &self.Flags).field("AudioBytes", &self.AudioBytes).field("pAudioData", &self.pAudioData).field("PlayBegin", &self.PlayBegin).field("PlayLength", &self.PlayLength).field("LoopBegin", &self.LoopBegin).field("LoopLength", &self.LoopLength).field("LoopCount", &self.LoopCount).field("pContext", &self.pContext).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XAUDIO2_BUFFER {
     type Abi = Self;
 }
@@ -2307,11 +2183,6 @@ impl ::core::marker::Copy for XAUDIO2_BUFFER_WMA {}
 impl ::core::clone::Clone for XAUDIO2_BUFFER_WMA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for XAUDIO2_BUFFER_WMA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_BUFFER_WMA").field("pDecodedPacketCumulativeBytes", &self.pDecodedPacketCumulativeBytes).field("PacketCount", &self.PacketCount).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XAUDIO2_BUFFER_WMA {
@@ -2349,12 +2220,6 @@ impl ::core::marker::Copy for XAUDIO2_DEBUG_CONFIGURATION {}
 impl ::core::clone::Clone for XAUDIO2_DEBUG_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for XAUDIO2_DEBUG_CONFIGURATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_DEBUG_CONFIGURATION").field("TraceMask", &self.TraceMask).field("BreakMask", &self.BreakMask).field("LogThreadID", &self.LogThreadID).field("LogFileline", &self.LogFileline).field("LogFunctionName", &self.LogFunctionName).field("LogTiming", &self.LogTiming).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2405,12 +2270,6 @@ impl ::core::clone::Clone for XAUDIO2_EFFECT_CHAIN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for XAUDIO2_EFFECT_CHAIN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_EFFECT_CHAIN").field("EffectCount", &self.EffectCount).field("pEffectDescriptors", &self.pEffectDescriptors).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for XAUDIO2_EFFECT_CHAIN {
     type Abi = Self;
 }
@@ -2435,12 +2294,6 @@ pub struct XAUDIO2_EFFECT_DESCRIPTOR {
     pub pEffect: ::core::option::Option<::windows::core::IUnknown>,
     pub InitialState: super::super::super::Foundation::BOOL,
     pub OutputChannels: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for XAUDIO2_EFFECT_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_EFFECT_DESCRIPTOR").field("pEffect", &self.pEffect).field("InitialState", &self.InitialState).field("OutputChannels", &self.OutputChannels).finish()
-    }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for XAUDIO2_EFFECT_DESCRIPTOR {
@@ -2481,11 +2334,6 @@ impl ::core::marker::Copy for XAUDIO2_FILTER_PARAMETERS {}
 impl ::core::clone::Clone for XAUDIO2_FILTER_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for XAUDIO2_FILTER_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_FILTER_PARAMETERS").field("Type", &self.Type).field("Frequency", &self.Frequency).field("OneOverQ", &self.OneOverQ).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XAUDIO2_FILTER_PARAMETERS {
@@ -2594,26 +2442,6 @@ impl ::core::clone::Clone for XAUDIO2_PERFORMANCE_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for XAUDIO2_PERFORMANCE_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_PERFORMANCE_DATA")
-            .field("AudioCyclesSinceLastQuery", &self.AudioCyclesSinceLastQuery)
-            .field("TotalCyclesSinceLastQuery", &self.TotalCyclesSinceLastQuery)
-            .field("MinimumCyclesPerQuantum", &self.MinimumCyclesPerQuantum)
-            .field("MaximumCyclesPerQuantum", &self.MaximumCyclesPerQuantum)
-            .field("MemoryUsageInBytes", &self.MemoryUsageInBytes)
-            .field("CurrentLatencyInSamples", &self.CurrentLatencyInSamples)
-            .field("GlitchesSinceEngineStarted", &self.GlitchesSinceEngineStarted)
-            .field("ActiveSourceVoiceCount", &self.ActiveSourceVoiceCount)
-            .field("TotalSourceVoiceCount", &self.TotalSourceVoiceCount)
-            .field("ActiveSubmixVoiceCount", &self.ActiveSubmixVoiceCount)
-            .field("ActiveResamplerCount", &self.ActiveResamplerCount)
-            .field("ActiveMatrixMixCount", &self.ActiveMatrixMixCount)
-            .field("ActiveXmaSourceVoices", &self.ActiveXmaSourceVoices)
-            .field("ActiveXmaStreams", &self.ActiveXmaStreams)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XAUDIO2_PERFORMANCE_DATA {
     type Abi = Self;
 }
@@ -2639,11 +2467,6 @@ pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1u32;
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: u32,
     pub pOutputVoice: ::core::option::Option<IXAudio2Voice>,
-}
-impl ::core::fmt::Debug for XAUDIO2_SEND_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_SEND_DESCRIPTOR").field("Flags", &self.Flags).field("pOutputVoice", &self.pOutputVoice).finish()
-    }
 }
 unsafe impl ::windows::core::Abi for XAUDIO2_SEND_DESCRIPTOR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
@@ -2679,11 +2502,6 @@ impl ::core::clone::Clone for XAUDIO2_VOICE_DETAILS {
         *self
     }
 }
-impl ::core::fmt::Debug for XAUDIO2_VOICE_DETAILS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_VOICE_DETAILS").field("CreationFlags", &self.CreationFlags).field("ActiveFlags", &self.ActiveFlags).field("InputChannels", &self.InputChannels).field("InputSampleRate", &self.InputSampleRate).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XAUDIO2_VOICE_DETAILS {
     type Abi = Self;
 }
@@ -2716,11 +2534,6 @@ impl ::core::clone::Clone for XAUDIO2_VOICE_SENDS {
         *self
     }
 }
-impl ::core::fmt::Debug for XAUDIO2_VOICE_SENDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_VOICE_SENDS").field("SendCount", &self.SendCount).field("pSends", &self.pSends).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for XAUDIO2_VOICE_SENDS {
     type Abi = Self;
 }
@@ -2746,11 +2559,6 @@ impl ::core::marker::Copy for XAUDIO2_VOICE_STATE {}
 impl ::core::clone::Clone for XAUDIO2_VOICE_STATE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for XAUDIO2_VOICE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("XAUDIO2_VOICE_STATE").field("pCurrentBufferContext", &self.pCurrentBufferContext).field("BuffersQueued", &self.BuffersQueued).field("SamplesPlayed", &self.SamplesPlayed).finish()
     }
 }
 unsafe impl ::windows::core::Abi for XAUDIO2_VOICE_STATE {

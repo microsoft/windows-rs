@@ -103,12 +103,6 @@ impl ::core::clone::Clone for DWM_BLURBEHIND {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for DWM_BLURBEHIND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DWM_BLURBEHIND").field("dwFlags", &self.dwFlags).field("fEnable", &self.fEnable).field("hRgnBlur", &self.hRgnBlur).field("fTransitionOnMaximized", &self.fTransitionOnMaximized).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DWM_BLURBEHIND {
     type Abi = Self;
 }
@@ -157,12 +151,6 @@ impl ::core::marker::Copy for DWM_PRESENT_PARAMETERS {}
 impl ::core::clone::Clone for DWM_PRESENT_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DWM_PRESENT_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DWM_PRESENT_PARAMETERS").field("cbSize", &self.cbSize).field("fQueue", &self.fQueue).field("cRefreshStart", &self.cRefreshStart).field("cBuffer", &self.cBuffer).field("fUseSourceRate", &self.fUseSourceRate).field("rateSource", &self.rateSource).field("cRefreshesPerFrame", &self.cRefreshesPerFrame).field("eSampling", &self.eSampling).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -253,12 +241,6 @@ impl ::core::clone::Clone for DWM_THUMBNAIL_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DWM_THUMBNAIL_PROPERTIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DWM_THUMBNAIL_PROPERTIES").field("dwFlags", &self.dwFlags).field("rcDestination", &self.rcDestination).field("rcSource", &self.rcSource).field("opacity", &self.opacity).field("fVisible", &self.fVisible).field("fSourceClientAreaOnly", &self.fSourceClientAreaOnly).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWM_THUMBNAIL_PROPERTIES {
     type Abi = Self;
 }
@@ -324,52 +306,6 @@ impl ::core::marker::Copy for DWM_TIMING_INFO {}
 impl ::core::clone::Clone for DWM_TIMING_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for DWM_TIMING_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DWM_TIMING_INFO")
-            .field("cbSize", &self.cbSize)
-            .field("rateRefresh", &self.rateRefresh)
-            .field("qpcRefreshPeriod", &self.qpcRefreshPeriod)
-            .field("rateCompose", &self.rateCompose)
-            .field("qpcVBlank", &self.qpcVBlank)
-            .field("cRefresh", &self.cRefresh)
-            .field("cDXRefresh", &self.cDXRefresh)
-            .field("qpcCompose", &self.qpcCompose)
-            .field("cFrame", &self.cFrame)
-            .field("cDXPresent", &self.cDXPresent)
-            .field("cRefreshFrame", &self.cRefreshFrame)
-            .field("cFrameSubmitted", &self.cFrameSubmitted)
-            .field("cDXPresentSubmitted", &self.cDXPresentSubmitted)
-            .field("cFrameConfirmed", &self.cFrameConfirmed)
-            .field("cDXPresentConfirmed", &self.cDXPresentConfirmed)
-            .field("cRefreshConfirmed", &self.cRefreshConfirmed)
-            .field("cDXRefreshConfirmed", &self.cDXRefreshConfirmed)
-            .field("cFramesLate", &self.cFramesLate)
-            .field("cFramesOutstanding", &self.cFramesOutstanding)
-            .field("cFrameDisplayed", &self.cFrameDisplayed)
-            .field("qpcFrameDisplayed", &self.qpcFrameDisplayed)
-            .field("cRefreshFrameDisplayed", &self.cRefreshFrameDisplayed)
-            .field("cFrameComplete", &self.cFrameComplete)
-            .field("qpcFrameComplete", &self.qpcFrameComplete)
-            .field("cFramePending", &self.cFramePending)
-            .field("qpcFramePending", &self.qpcFramePending)
-            .field("cFramesDisplayed", &self.cFramesDisplayed)
-            .field("cFramesComplete", &self.cFramesComplete)
-            .field("cFramesPending", &self.cFramesPending)
-            .field("cFramesAvailable", &self.cFramesAvailable)
-            .field("cFramesDropped", &self.cFramesDropped)
-            .field("cFramesMissed", &self.cFramesMissed)
-            .field("cRefreshNextDisplayed", &self.cRefreshNextDisplayed)
-            .field("cRefreshNextPresented", &self.cRefreshNextPresented)
-            .field("cRefreshesDisplayed", &self.cRefreshesDisplayed)
-            .field("cRefreshesPresented", &self.cRefreshesPresented)
-            .field("cRefreshStarted", &self.cRefreshStarted)
-            .field("cPixelsReceived", &self.cPixelsReceived)
-            .field("cPixelsDrawn", &self.cPixelsDrawn)
-            .field("cBuffersEmpty", &self.cBuffersEmpty)
-            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for DWM_TIMING_INFO {
@@ -912,11 +848,6 @@ impl ::core::clone::Clone for MilMatrix3x2D {
         *self
     }
 }
-impl ::core::fmt::Debug for MilMatrix3x2D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MilMatrix3x2D").field("S_11", &self.S_11).field("S_12", &self.S_12).field("S_21", &self.S_21).field("S_22", &self.S_22).field("DX", &self.DX).field("DY", &self.DY).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MilMatrix3x2D {
     type Abi = Self;
 }
@@ -941,11 +872,6 @@ impl ::core::marker::Copy for UNSIGNED_RATIO {}
 impl ::core::clone::Clone for UNSIGNED_RATIO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for UNSIGNED_RATIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UNSIGNED_RATIO").field("uiNumerator", &self.uiNumerator).field("uiDenominator", &self.uiDenominator).finish()
     }
 }
 unsafe impl ::windows::core::Abi for UNSIGNED_RATIO {

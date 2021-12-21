@@ -81,29 +81,6 @@ impl ::core::clone::Clone for ACMDRIVERDETAILSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for ACMDRIVERDETAILSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMDRIVERDETAILSA")
-            .field("cbStruct", &self.cbStruct)
-            .field("fccType", &self.fccType)
-            .field("fccComp", &self.fccComp)
-            .field("wMid", &self.wMid)
-            .field("wPid", &self.wPid)
-            .field("vdwACM", &self.vdwACM)
-            .field("vdwDriver", &self.vdwDriver)
-            .field("fdwSupport", &self.fdwSupport)
-            .field("cFormatTags", &self.cFormatTags)
-            .field("cFilterTags", &self.cFilterTags)
-            .field("hicon", &self.hicon)
-            .field("szShortName", &self.szShortName)
-            .field("szLongName", &self.szLongName)
-            .field("szCopyright", &self.szCopyright)
-            .field("szLicensing", &self.szLicensing)
-            .field("szFeatures", &self.szFeatures)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for ACMDRIVERDETAILSA {
     type Abi = Self;
 }
@@ -148,29 +125,6 @@ impl ::core::marker::Copy for ACMDRIVERDETAILSW {}
 impl ::core::clone::Clone for ACMDRIVERDETAILSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::fmt::Debug for ACMDRIVERDETAILSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMDRIVERDETAILSW")
-            .field("cbStruct", &self.cbStruct)
-            .field("fccType", &self.fccType)
-            .field("fccComp", &self.fccComp)
-            .field("wMid", &self.wMid)
-            .field("wPid", &self.wPid)
-            .field("vdwACM", &self.vdwACM)
-            .field("vdwDriver", &self.vdwDriver)
-            .field("fdwSupport", &self.fdwSupport)
-            .field("cFormatTags", &self.cFormatTags)
-            .field("cFilterTags", &self.cFilterTags)
-            .field("hicon", &self.hicon)
-            .field("szShortName", &self.szShortName)
-            .field("szLongName", &self.szLongName)
-            .field("szCopyright", &self.szCopyright)
-            .field("szLicensing", &self.szLicensing)
-            .field("szFeatures", &self.szFeatures)
-            .finish()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -234,11 +188,6 @@ impl ::core::clone::Clone for ACMDRVFORMATSUGGEST {
         *self
     }
 }
-impl ::core::fmt::Debug for ACMDRVFORMATSUGGEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMDRVFORMATSUGGEST").field("cbStruct", &self.cbStruct).field("fdwSuggest", &self.fdwSuggest).field("pwfxSrc", &self.pwfxSrc).field("cbwfxSrc", &self.cbwfxSrc).field("pwfxDst", &self.pwfxDst).field("cbwfxDst", &self.cbwfxDst).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ACMDRVFORMATSUGGEST {
     type Abi = Self;
 }
@@ -284,33 +233,6 @@ impl ::core::clone::Clone for ACMDRVSTREAMHEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for ACMDRVSTREAMHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMDRVSTREAMHEADER")
-            .field("cbStruct", &self.cbStruct)
-            .field("fdwStatus", &self.fdwStatus)
-            .field("dwUser", &self.dwUser)
-            .field("pbSrc", &self.pbSrc)
-            .field("cbSrcLength", &self.cbSrcLength)
-            .field("cbSrcLengthUsed", &self.cbSrcLengthUsed)
-            .field("dwSrcUser", &self.dwSrcUser)
-            .field("pbDst", &self.pbDst)
-            .field("cbDstLength", &self.cbDstLength)
-            .field("cbDstLengthUsed", &self.cbDstLengthUsed)
-            .field("dwDstUser", &self.dwDstUser)
-            .field("fdwConvert", &self.fdwConvert)
-            .field("padshNext", &self.padshNext)
-            .field("fdwDriver", &self.fdwDriver)
-            .field("dwDriver", &self.dwDriver)
-            .field("fdwPrepared", &self.fdwPrepared)
-            .field("dwPrepared", &self.dwPrepared)
-            .field("pbPreparedSrc", &self.pbPreparedSrc)
-            .field("cbPreparedSrcLength", &self.cbPreparedSrcLength)
-            .field("pbPreparedDst", &self.pbPreparedDst)
-            .field("cbPreparedDstLength", &self.cbPreparedDstLength)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ACMDRVSTREAMHEADER {
     type Abi = Self;
 }
@@ -345,11 +267,6 @@ impl ::core::clone::Clone for ACMDRVSTREAMINSTANCE {
         *self
     }
 }
-impl ::core::fmt::Debug for ACMDRVSTREAMINSTANCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMDRVSTREAMINSTANCE").field("cbStruct", &self.cbStruct).field("pwfxSrc", &self.pwfxSrc).field("pwfxDst", &self.pwfxDst).field("pwfltr", &self.pwfltr).field("dwCallback", &self.dwCallback).field("dwInstance", &self.dwInstance).field("fdwOpen", &self.fdwOpen).field("fdwDriver", &self.fdwDriver).field("dwDriver", &self.dwDriver).field("has", &self.has).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ACMDRVSTREAMINSTANCE {
     type Abi = Self;
 }
@@ -376,11 +293,6 @@ impl ::core::marker::Copy for ACMDRVSTREAMSIZE {}
 impl ::core::clone::Clone for ACMDRVSTREAMSIZE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ACMDRVSTREAMSIZE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMDRVSTREAMSIZE").field("cbStruct", &self.cbStruct).field("fdwSize", &self.fdwSize).field("cbSrcLength", &self.cbSrcLength).field("cbDstLength", &self.cbDstLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ACMDRVSTREAMSIZE {
@@ -437,29 +349,6 @@ impl ::core::clone::Clone for ACMFILTERCHOOSEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACMFILTERCHOOSEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFILTERCHOOSEA")
-            .field("cbStruct", &self.cbStruct)
-            .field("fdwStyle", &self.fdwStyle)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pwfltr", &self.pwfltr)
-            .field("cbwfltr", &self.cbwfltr)
-            .field("pszTitle", &self.pszTitle)
-            .field("szFilterTag", &self.szFilterTag)
-            .field("szFilter", &self.szFilter)
-            .field("pszName", &self.pszName)
-            .field("cchName", &self.cchName)
-            .field("fdwEnum", &self.fdwEnum)
-            .field("pwfltrEnum", &self.pwfltrEnum)
-            .field("hInstance", &self.hInstance)
-            .field("pszTemplateName", &self.pszTemplateName)
-            .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFILTERCHOOSEA {
     type Abi = Self;
 }
@@ -513,29 +402,6 @@ impl ::core::clone::Clone for ACMFILTERCHOOSEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACMFILTERCHOOSEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFILTERCHOOSEW")
-            .field("cbStruct", &self.cbStruct)
-            .field("fdwStyle", &self.fdwStyle)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pwfltr", &self.pwfltr)
-            .field("cbwfltr", &self.cbwfltr)
-            .field("pszTitle", &self.pszTitle)
-            .field("szFilterTag", &self.szFilterTag)
-            .field("szFilter", &self.szFilter)
-            .field("pszName", &self.pszName)
-            .field("cchName", &self.cchName)
-            .field("fdwEnum", &self.fdwEnum)
-            .field("pwfltrEnum", &self.pwfltrEnum)
-            .field("hInstance", &self.hInstance)
-            .field("pszTemplateName", &self.pszTemplateName)
-            .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFILTERCHOOSEW {
     type Abi = Self;
 }
@@ -586,12 +452,6 @@ impl ::core::clone::Clone for ACMFILTERDETAILSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACMFILTERDETAILSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFILTERDETAILSA").field("cbStruct", &self.cbStruct).field("dwFilterIndex", &self.dwFilterIndex).field("dwFilterTag", &self.dwFilterTag).field("fdwSupport", &self.fdwSupport).field("pwfltr", &self.pwfltr).field("cbwfltr", &self.cbwfltr).field("szFilter", &self.szFilter).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFILTERDETAILSA {
     type Abi = Self;
 }
@@ -624,11 +484,6 @@ impl ::core::marker::Copy for ACMFILTERDETAILSW {}
 impl ::core::clone::Clone for ACMFILTERDETAILSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ACMFILTERDETAILSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFILTERDETAILSW").field("cbStruct", &self.cbStruct).field("dwFilterIndex", &self.dwFilterIndex).field("dwFilterTag", &self.dwFilterTag).field("fdwSupport", &self.fdwSupport).field("pwfltr", &self.pwfltr).field("cbwfltr", &self.cbwfltr).field("szFilter", &self.szFilter).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ACMFILTERDETAILSW {
@@ -674,12 +529,6 @@ impl ::core::clone::Clone for ACMFILTERTAGDETAILSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACMFILTERTAGDETAILSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFILTERTAGDETAILSA").field("cbStruct", &self.cbStruct).field("dwFilterTagIndex", &self.dwFilterTagIndex).field("dwFilterTag", &self.dwFilterTag).field("cbFilterSize", &self.cbFilterSize).field("fdwSupport", &self.fdwSupport).field("cStandardFilters", &self.cStandardFilters).field("szFilterTag", &self.szFilterTag).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFILTERTAGDETAILSA {
     type Abi = Self;
 }
@@ -712,11 +561,6 @@ impl ::core::marker::Copy for ACMFILTERTAGDETAILSW {}
 impl ::core::clone::Clone for ACMFILTERTAGDETAILSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ACMFILTERTAGDETAILSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFILTERTAGDETAILSW").field("cbStruct", &self.cbStruct).field("dwFilterTagIndex", &self.dwFilterTagIndex).field("dwFilterTag", &self.dwFilterTag).field("cbFilterSize", &self.cbFilterSize).field("fdwSupport", &self.fdwSupport).field("cStandardFilters", &self.cStandardFilters).field("szFilterTag", &self.szFilterTag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ACMFILTERTAGDETAILSW {
@@ -768,29 +612,6 @@ impl ::core::marker::Copy for ACMFORMATCHOOSEA {}
 impl ::core::clone::Clone for ACMFORMATCHOOSEA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACMFORMATCHOOSEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFORMATCHOOSEA")
-            .field("cbStruct", &self.cbStruct)
-            .field("fdwStyle", &self.fdwStyle)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pwfx", &self.pwfx)
-            .field("cbwfx", &self.cbwfx)
-            .field("pszTitle", &self.pszTitle)
-            .field("szFormatTag", &self.szFormatTag)
-            .field("szFormat", &self.szFormat)
-            .field("pszName", &self.pszName)
-            .field("cchName", &self.cchName)
-            .field("fdwEnum", &self.fdwEnum)
-            .field("pwfxEnum", &self.pwfxEnum)
-            .field("hInstance", &self.hInstance)
-            .field("pszTemplateName", &self.pszTemplateName)
-            .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
-            .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -847,29 +668,6 @@ impl ::core::clone::Clone for ACMFORMATCHOOSEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACMFORMATCHOOSEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFORMATCHOOSEW")
-            .field("cbStruct", &self.cbStruct)
-            .field("fdwStyle", &self.fdwStyle)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pwfx", &self.pwfx)
-            .field("cbwfx", &self.cbwfx)
-            .field("pszTitle", &self.pszTitle)
-            .field("szFormatTag", &self.szFormatTag)
-            .field("szFormat", &self.szFormat)
-            .field("pszName", &self.pszName)
-            .field("cchName", &self.cchName)
-            .field("fdwEnum", &self.fdwEnum)
-            .field("pwfxEnum", &self.pwfxEnum)
-            .field("hInstance", &self.hInstance)
-            .field("pszTemplateName", &self.pszTemplateName)
-            .field("lCustData", &self.lCustData)
-            .field("pfnHook", &self.pfnHook.map(|f| f as usize))
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFORMATCHOOSEW {
     type Abi = Self;
 }
@@ -920,12 +718,6 @@ impl ::core::clone::Clone for ACMFORMATDETAILSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACMFORMATDETAILSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFORMATDETAILSA").field("cbStruct", &self.cbStruct).field("dwFormatIndex", &self.dwFormatIndex).field("dwFormatTag", &self.dwFormatTag).field("fdwSupport", &self.fdwSupport).field("pwfx", &self.pwfx).field("cbwfx", &self.cbwfx).field("szFormat", &self.szFormat).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFORMATDETAILSA {
     type Abi = Self;
 }
@@ -972,12 +764,6 @@ impl ::core::clone::Clone for ACMFORMATTAGDETAILSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACMFORMATTAGDETAILSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFORMATTAGDETAILSA").field("cbStruct", &self.cbStruct).field("dwFormatTagIndex", &self.dwFormatTagIndex).field("dwFormatTag", &self.dwFormatTag).field("cbFormatSize", &self.cbFormatSize).field("fdwSupport", &self.fdwSupport).field("cStandardFormats", &self.cStandardFormats).field("szFormatTag", &self.szFormatTag).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFORMATTAGDETAILSA {
     type Abi = Self;
 }
@@ -1010,11 +796,6 @@ impl ::core::marker::Copy for ACMFORMATTAGDETAILSW {}
 impl ::core::clone::Clone for ACMFORMATTAGDETAILSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ACMFORMATTAGDETAILSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMFORMATTAGDETAILSW").field("cbStruct", &self.cbStruct).field("dwFormatTagIndex", &self.dwFormatTagIndex).field("dwFormatTag", &self.dwFormatTag).field("cbFormatSize", &self.cbFormatSize).field("fdwSupport", &self.fdwSupport).field("cStandardFormats", &self.cStandardFormats).field("szFormatTag", &self.szFormatTag).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ACMFORMATTAGDETAILSW {
@@ -1065,25 +846,6 @@ impl ::core::clone::Clone for ACMSTREAMHEADER {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for ACMSTREAMHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMSTREAMHEADER")
-            .field("cbStruct", &self.cbStruct)
-            .field("fdwStatus", &self.fdwStatus)
-            .field("dwUser", &self.dwUser)
-            .field("pbSrc", &self.pbSrc)
-            .field("cbSrcLength", &self.cbSrcLength)
-            .field("cbSrcLengthUsed", &self.cbSrcLengthUsed)
-            .field("dwSrcUser", &self.dwSrcUser)
-            .field("pbDst", &self.pbDst)
-            .field("cbDstLength", &self.cbDstLength)
-            .field("cbDstLengthUsed", &self.cbDstLengthUsed)
-            .field("dwDstUser", &self.dwDstUser)
-            .field("dwReservedDriver", &self.dwReservedDriver)
-            .finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for ACMSTREAMHEADER {
     type Abi = Self;
 }
@@ -1124,25 +886,6 @@ impl ::core::marker::Copy for ACMSTREAMHEADER {}
 impl ::core::clone::Clone for ACMSTREAMHEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for ACMSTREAMHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACMSTREAMHEADER")
-            .field("cbStruct", &self.cbStruct)
-            .field("fdwStatus", &self.fdwStatus)
-            .field("dwUser", &self.dwUser)
-            .field("pbSrc", &self.pbSrc)
-            .field("cbSrcLength", &self.cbSrcLength)
-            .field("cbSrcLengthUsed", &self.cbSrcLengthUsed)
-            .field("dwSrcUser", &self.dwSrcUser)
-            .field("pbDst", &self.pbDst)
-            .field("cbDstLength", &self.cbDstLength)
-            .field("cbDstLengthUsed", &self.cbDstLengthUsed)
-            .field("dwDstUser", &self.dwDstUser)
-            .field("dwReservedDriver", &self.dwReservedDriver)
-            .finish()
     }
 }
 #[cfg(target_arch = "x86")]
@@ -1716,12 +1459,6 @@ impl ::core::clone::Clone for AUXCAPS2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUXCAPS2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUXCAPS2A").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("wTechnology", &self.wTechnology).field("wReserved1", &self.wReserved1).field("dwSupport", &self.dwSupport).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUXCAPS2A {
     type Abi = Self;
 }
@@ -1759,11 +1496,6 @@ impl ::core::clone::Clone for AUXCAPS2W {
         *self
     }
 }
-impl ::core::fmt::Debug for AUXCAPS2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUXCAPS2W").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("wTechnology", &self.wTechnology).field("wReserved1", &self.wReserved1).field("dwSupport", &self.dwSupport).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AUXCAPS2W {
     type Abi = Self;
 }
@@ -1799,12 +1531,6 @@ impl ::core::clone::Clone for AUXCAPSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUXCAPSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUXCAPSA").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("wTechnology", &self.wTechnology).field("wReserved1", &self.wReserved1).field("dwSupport", &self.dwSupport).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUXCAPSA {
     type Abi = Self;
 }
@@ -1837,11 +1563,6 @@ impl ::core::marker::Copy for AUXCAPSW {}
 impl ::core::clone::Clone for AUXCAPSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for AUXCAPSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUXCAPSW").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("wTechnology", &self.wTechnology).field("wReserved1", &self.wReserved1).field("dwSupport", &self.dwSupport).finish()
     }
 }
 unsafe impl ::windows::core::Abi for AUXCAPSW {
@@ -2307,11 +2028,6 @@ impl ::core::marker::Copy for ECHOWAVEFILTER {}
 impl ::core::clone::Clone for ECHOWAVEFILTER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for ECHOWAVEFILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ECHOWAVEFILTER").field("wfltr", &self.wfltr).field("dwVolume", &self.dwVolume).field("dwDelay", &self.dwDelay).finish()
     }
 }
 unsafe impl ::windows::core::Abi for ECHOWAVEFILTER {
@@ -8641,11 +8357,6 @@ impl ::core::clone::Clone for MIDIEVENT {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDIEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIEVENT").field("dwDeltaTime", &self.dwDeltaTime).field("dwStreamID", &self.dwStreamID).field("dwEvent", &self.dwEvent).field("dwParms", &self.dwParms).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIDIEVENT {
     type Abi = Self;
 }
@@ -8680,12 +8391,6 @@ impl ::core::marker::Copy for MIDIHDR {}
 impl ::core::clone::Clone for MIDIHDR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIDIHDR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIHDR").field("lpData", &self.lpData).field("dwBufferLength", &self.dwBufferLength).field("dwBytesRecorded", &self.dwBytesRecorded).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).field("lpNext", &self.lpNext).field("reserved", &self.reserved).field("dwOffset", &self.dwOffset).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8728,12 +8433,6 @@ impl ::core::clone::Clone for MIDIINCAPS2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIDIINCAPS2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIINCAPS2A").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwSupport", &self.dwSupport).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIDIINCAPS2A {
     type Abi = Self;
 }
@@ -8769,11 +8468,6 @@ impl ::core::clone::Clone for MIDIINCAPS2W {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDIINCAPS2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIINCAPS2W").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwSupport", &self.dwSupport).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIDIINCAPS2W {
     type Abi = Self;
 }
@@ -8807,12 +8501,6 @@ impl ::core::clone::Clone for MIDIINCAPSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIDIINCAPSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIINCAPSA").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwSupport", &self.dwSupport).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIDIINCAPSA {
     type Abi = Self;
 }
@@ -8843,11 +8531,6 @@ impl ::core::marker::Copy for MIDIINCAPSW {}
 impl ::core::clone::Clone for MIDIINCAPSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIDIINCAPSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIINCAPSW").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwSupport", &self.dwSupport).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIDIINCAPSW {
@@ -8890,12 +8573,6 @@ impl ::core::clone::Clone for MIDIOUTCAPS2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIDIOUTCAPS2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIOUTCAPS2A").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("wTechnology", &self.wTechnology).field("wVoices", &self.wVoices).field("wNotes", &self.wNotes).field("wChannelMask", &self.wChannelMask).field("dwSupport", &self.dwSupport).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIDIOUTCAPS2A {
     type Abi = Self;
 }
@@ -8935,11 +8612,6 @@ impl ::core::clone::Clone for MIDIOUTCAPS2W {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDIOUTCAPS2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIOUTCAPS2W").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("wTechnology", &self.wTechnology).field("wVoices", &self.wVoices).field("wNotes", &self.wNotes).field("wChannelMask", &self.wChannelMask).field("dwSupport", &self.dwSupport).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIDIOUTCAPS2W {
     type Abi = Self;
 }
@@ -8974,12 +8646,6 @@ impl ::core::marker::Copy for MIDIOUTCAPSA {}
 impl ::core::clone::Clone for MIDIOUTCAPSA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIDIOUTCAPSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIOUTCAPSA").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("wTechnology", &self.wTechnology).field("wVoices", &self.wVoices).field("wNotes", &self.wNotes).field("wChannelMask", &self.wChannelMask).field("dwSupport", &self.dwSupport).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9019,11 +8685,6 @@ impl ::core::clone::Clone for MIDIOUTCAPSW {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDIOUTCAPSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIOUTCAPSW").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("wTechnology", &self.wTechnology).field("wVoices", &self.wVoices).field("wNotes", &self.wNotes).field("wChannelMask", &self.wChannelMask).field("dwSupport", &self.dwSupport).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIDIOUTCAPSW {
     type Abi = Self;
 }
@@ -9052,11 +8713,6 @@ impl ::core::clone::Clone for MIDIPROPTEMPO {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDIPROPTEMPO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIPROPTEMPO").field("cbStruct", &self.cbStruct).field("dwTempo", &self.dwTempo).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIDIPROPTEMPO {
     type Abi = Self;
 }
@@ -9081,11 +8737,6 @@ impl ::core::marker::Copy for MIDIPROPTIMEDIV {}
 impl ::core::clone::Clone for MIDIPROPTIMEDIV {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIDIPROPTIMEDIV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDIPROPTIMEDIV").field("cbStruct", &self.cbStruct).field("dwTimeDiv", &self.dwTimeDiv).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIDIPROPTIMEDIV {
@@ -9121,11 +8772,6 @@ impl ::core::marker::Copy for MIDISTRMBUFFVER {}
 impl ::core::clone::Clone for MIDISTRMBUFFVER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIDISTRMBUFFVER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIDISTRMBUFFVER").field("dwVersion", &self.dwVersion).field("dwMid", &self.dwMid).field("dwOEMVersion", &self.dwOEMVersion).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIDISTRMBUFFVER {
@@ -9205,12 +8851,6 @@ impl ::core::clone::Clone for MIXERCAPS2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERCAPS2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCAPS2A").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("fdwSupport", &self.fdwSupport).field("cDestinations", &self.cDestinations).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIXERCAPS2A {
     type Abi = Self;
 }
@@ -9247,11 +8887,6 @@ impl ::core::clone::Clone for MIXERCAPS2W {
         *self
     }
 }
-impl ::core::fmt::Debug for MIXERCAPS2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCAPS2W").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("fdwSupport", &self.fdwSupport).field("cDestinations", &self.cDestinations).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIXERCAPS2W {
     type Abi = Self;
 }
@@ -9286,12 +8921,6 @@ impl ::core::clone::Clone for MIXERCAPSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERCAPSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCAPSA").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("fdwSupport", &self.fdwSupport).field("cDestinations", &self.cDestinations).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIXERCAPSA {
     type Abi = Self;
 }
@@ -9323,11 +8952,6 @@ impl ::core::marker::Copy for MIXERCAPSW {}
 impl ::core::clone::Clone for MIXERCAPSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIXERCAPSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCAPSW").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("fdwSupport", &self.fdwSupport).field("cDestinations", &self.cDestinations).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIXERCAPSW {
@@ -9434,12 +9058,6 @@ impl ::core::clone::Clone for MIXERCONTROLA_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERCONTROLA_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLA_0_0").field("lMinimum", &self.lMinimum).field("lMaximum", &self.lMaximum).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIXERCONTROLA_0_0 {
     type Abi = Self;
 }
@@ -9470,12 +9088,6 @@ impl ::core::marker::Copy for MIXERCONTROLA_0_1 {}
 impl ::core::clone::Clone for MIXERCONTROLA_0_1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERCONTROLA_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLA_0_1").field("dwMinimum", &self.dwMinimum).field("dwMaximum", &self.dwMaximum).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9611,11 +9223,6 @@ impl ::core::clone::Clone for MIXERCONTROLDETAILS_BOOLEAN {
         *self
     }
 }
-impl ::core::fmt::Debug for MIXERCONTROLDETAILS_BOOLEAN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLDETAILS_BOOLEAN").field("fValue", &self.fValue).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIXERCONTROLDETAILS_BOOLEAN {
     type Abi = Self;
 }
@@ -9644,12 +9251,6 @@ impl ::core::marker::Copy for MIXERCONTROLDETAILS_LISTTEXTA {}
 impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTA {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERCONTROLDETAILS_LISTTEXTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLDETAILS_LISTTEXTA").field("dwParam1", &self.dwParam1).field("dwParam2", &self.dwParam2).field("szName", &self.szName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9683,11 +9284,6 @@ impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTW {
         *self
     }
 }
-impl ::core::fmt::Debug for MIXERCONTROLDETAILS_LISTTEXTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLDETAILS_LISTTEXTW").field("dwParam1", &self.dwParam1).field("dwParam2", &self.dwParam2).field("szName", &self.szName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIXERCONTROLDETAILS_LISTTEXTW {
     type Abi = Self;
 }
@@ -9713,11 +9309,6 @@ impl ::core::clone::Clone for MIXERCONTROLDETAILS_SIGNED {
         *self
     }
 }
-impl ::core::fmt::Debug for MIXERCONTROLDETAILS_SIGNED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLDETAILS_SIGNED").field("lValue", &self.lValue).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIXERCONTROLDETAILS_SIGNED {
     type Abi = Self;
 }
@@ -9741,11 +9332,6 @@ impl ::core::marker::Copy for MIXERCONTROLDETAILS_UNSIGNED {}
 impl ::core::clone::Clone for MIXERCONTROLDETAILS_UNSIGNED {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIXERCONTROLDETAILS_UNSIGNED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLDETAILS_UNSIGNED").field("dwValue", &self.dwValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIXERCONTROLDETAILS_UNSIGNED {
@@ -9834,11 +9420,6 @@ impl ::core::clone::Clone for MIXERCONTROLW_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for MIXERCONTROLW_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLW_0_0").field("lMinimum", &self.lMinimum).field("lMaximum", &self.lMaximum).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIXERCONTROLW_0_0 {
     type Abi = Self;
 }
@@ -9863,11 +9444,6 @@ impl ::core::marker::Copy for MIXERCONTROLW_0_1 {}
 impl ::core::clone::Clone for MIXERCONTROLW_0_1 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIXERCONTROLW_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERCONTROLW_0_1").field("dwMinimum", &self.dwMinimum).field("dwMaximum", &self.dwMaximum).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIXERCONTROLW_0_1 {
@@ -10054,26 +9630,6 @@ impl ::core::clone::Clone for MIXERLINEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERLINEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERLINEA")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwDestination", &self.dwDestination)
-            .field("dwSource", &self.dwSource)
-            .field("dwLineID", &self.dwLineID)
-            .field("fdwLine", &self.fdwLine)
-            .field("dwUser", &self.dwUser)
-            .field("dwComponentType", &self.dwComponentType)
-            .field("cChannels", &self.cChannels)
-            .field("cConnections", &self.cConnections)
-            .field("cControls", &self.cControls)
-            .field("szShortName", &self.szShortName)
-            .field("szName", &self.szName)
-            .field("Target", &self.Target)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MIXERLINEA {
     type Abi = Self;
 }
@@ -10108,12 +9664,6 @@ impl ::core::marker::Copy for MIXERLINEA_0 {}
 impl ::core::clone::Clone for MIXERLINEA_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MIXERLINEA_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERLINEA_0").field("dwType", &self.dwType).field("dwDeviceID", &self.dwDeviceID).field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10283,25 +9833,6 @@ impl ::core::clone::Clone for MIXERLINEW {
         *self
     }
 }
-impl ::core::fmt::Debug for MIXERLINEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERLINEW")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwDestination", &self.dwDestination)
-            .field("dwSource", &self.dwSource)
-            .field("dwLineID", &self.dwLineID)
-            .field("fdwLine", &self.fdwLine)
-            .field("dwUser", &self.dwUser)
-            .field("dwComponentType", &self.dwComponentType)
-            .field("cChannels", &self.cChannels)
-            .field("cConnections", &self.cConnections)
-            .field("cControls", &self.cControls)
-            .field("szShortName", &self.szShortName)
-            .field("szName", &self.szName)
-            .field("Target", &self.Target)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIXERLINEW {
     type Abi = Self;
 }
@@ -10330,11 +9861,6 @@ impl ::core::marker::Copy for MIXERLINEW_0 {}
 impl ::core::clone::Clone for MIXERLINEW_0 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MIXERLINEW_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIXERLINEW_0").field("dwType", &self.dwType).field("dwDeviceID", &self.dwDeviceID).field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MIXERLINEW_0 {
@@ -10508,11 +10034,6 @@ impl ::core::marker::Copy for PCMWAVEFORMAT {}
 impl ::core::clone::Clone for PCMWAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PCMWAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PCMWAVEFORMAT").field("wf", &self.wf).field("wBitsPerSample", &self.wBitsPerSample).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PCMWAVEFORMAT {
@@ -10793,24 +10314,6 @@ pub struct SpatialAudioHrtfActivationParams {
     pub Orientation: *mut f32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SpatialAudioHrtfActivationParams {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioHrtfActivationParams")
-            .field("ObjectFormat", &self.ObjectFormat)
-            .field("StaticObjectTypeMask", &self.StaticObjectTypeMask)
-            .field("MinDynamicObjectCount", &self.MinDynamicObjectCount)
-            .field("MaxDynamicObjectCount", &self.MaxDynamicObjectCount)
-            .field("Category", &self.Category)
-            .field("EventHandle", &self.EventHandle)
-            .field("NotifyObject", &self.NotifyObject)
-            .field("DistanceDecay", &self.DistanceDecay)
-            .field("Directivity", &self.Directivity)
-            .field("Environment", &self.Environment)
-            .field("Orientation", &self.Orientation)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfActivationParams {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -10846,25 +10349,6 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SpatialAudioHrtfActivationParams2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioHrtfActivationParams2")
-            .field("ObjectFormat", &self.ObjectFormat)
-            .field("StaticObjectTypeMask", &self.StaticObjectTypeMask)
-            .field("MinDynamicObjectCount", &self.MinDynamicObjectCount)
-            .field("MaxDynamicObjectCount", &self.MaxDynamicObjectCount)
-            .field("Category", &self.Category)
-            .field("EventHandle", &self.EventHandle)
-            .field("NotifyObject", &self.NotifyObject)
-            .field("DistanceDecay", &self.DistanceDecay)
-            .field("Directivity", &self.Directivity)
-            .field("Environment", &self.Environment)
-            .field("Orientation", &self.Orientation)
-            .field("Options", &self.Options)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfActivationParams2 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -10894,11 +10378,6 @@ impl ::core::clone::Clone for SpatialAudioHrtfDirectivity {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialAudioHrtfDirectivity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioHrtfDirectivity").field("Type", &self.Type).field("Scaling", &self.Scaling).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfDirectivity {
     type Abi = Self;
 }
@@ -10923,11 +10402,6 @@ impl ::core::marker::Copy for SpatialAudioHrtfDirectivityCardioid {}
 impl ::core::clone::Clone for SpatialAudioHrtfDirectivityCardioid {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SpatialAudioHrtfDirectivityCardioid {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioHrtfDirectivityCardioid").field("directivity", &self.directivity).field("Order", &self.Order).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfDirectivityCardioid {
@@ -10955,11 +10429,6 @@ impl ::core::marker::Copy for SpatialAudioHrtfDirectivityCone {}
 impl ::core::clone::Clone for SpatialAudioHrtfDirectivityCone {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for SpatialAudioHrtfDirectivityCone {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioHrtfDirectivityCone").field("directivity", &self.directivity).field("InnerAngle", &self.InnerAngle).field("OuterAngle", &self.OuterAngle).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfDirectivityCone {
@@ -11026,11 +10495,6 @@ impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecay {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialAudioHrtfDistanceDecay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioHrtfDistanceDecay").field("Type", &self.Type).field("MaxGain", &self.MaxGain).field("MinGain", &self.MinGain).field("UnityGainDistance", &self.UnityGainDistance).field("CutoffDistance", &self.CutoffDistance).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfDistanceDecay {
     type Abi = Self;
 }
@@ -11087,11 +10551,6 @@ impl ::core::clone::Clone for SpatialAudioMetadataItemsInfo {
         *self
     }
 }
-impl ::core::fmt::Debug for SpatialAudioMetadataItemsInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioMetadataItemsInfo").field("FrameCount", &self.FrameCount).field("ItemCount", &self.ItemCount).field("MaxItemCount", &self.MaxItemCount).field("MaxValueBufferLength", &self.MaxValueBufferLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialAudioMetadataItemsInfo {
     type Abi = Self;
 }
@@ -11127,12 +10586,6 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SpatialAudioObjectRenderStreamActivationParams {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioObjectRenderStreamActivationParams").field("ObjectFormat", &self.ObjectFormat).field("StaticObjectTypeMask", &self.StaticObjectTypeMask).field("MinDynamicObjectCount", &self.MinDynamicObjectCount).field("MaxDynamicObjectCount", &self.MaxDynamicObjectCount).field("Category", &self.Category).field("EventHandle", &self.EventHandle).field("NotifyObject", &self.NotifyObject).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamActivationParams {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11162,12 +10615,6 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub EventHandle: super::super::Foundation::HANDLE,
     pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SpatialAudioObjectRenderStreamActivationParams2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioObjectRenderStreamActivationParams2").field("ObjectFormat", &self.ObjectFormat).field("StaticObjectTypeMask", &self.StaticObjectTypeMask).field("MinDynamicObjectCount", &self.MinDynamicObjectCount).field("MaxDynamicObjectCount", &self.MaxDynamicObjectCount).field("Category", &self.Category).field("EventHandle", &self.EventHandle).field("NotifyObject", &self.NotifyObject).field("Options", &self.Options).finish()
-    }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamActivationParams2 {
@@ -11201,23 +10648,6 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MaxMetadataItemCount: u16,
     pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for SpatialAudioObjectRenderStreamForMetadataActivationParams {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioObjectRenderStreamForMetadataActivationParams")
-            .field("ObjectFormat", &self.ObjectFormat)
-            .field("StaticObjectTypeMask", &self.StaticObjectTypeMask)
-            .field("MinDynamicObjectCount", &self.MinDynamicObjectCount)
-            .field("MaxDynamicObjectCount", &self.MaxDynamicObjectCount)
-            .field("Category", &self.Category)
-            .field("EventHandle", &self.EventHandle)
-            .field("MetadataFormatId", &self.MetadataFormatId)
-            .field("MaxMetadataItemCount", &self.MaxMetadataItemCount)
-            .field("MetadataActivationParams", &self.MetadataActivationParams)
-            .field("NotifyObject", &self.NotifyObject)
-            .finish()
-    }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams {
@@ -11254,24 +10684,6 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::fmt::Debug for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialAudioObjectRenderStreamForMetadataActivationParams2")
-            .field("ObjectFormat", &self.ObjectFormat)
-            .field("StaticObjectTypeMask", &self.StaticObjectTypeMask)
-            .field("MinDynamicObjectCount", &self.MinDynamicObjectCount)
-            .field("MaxDynamicObjectCount", &self.MaxDynamicObjectCount)
-            .field("Category", &self.Category)
-            .field("EventHandle", &self.EventHandle)
-            .field("MetadataFormatId", &self.MetadataFormatId)
-            .field("MaxMetadataItemCount", &self.MaxMetadataItemCount)
-            .field("MetadataActivationParams", &self.MetadataActivationParams)
-            .field("NotifyObject", &self.NotifyObject)
-            .field("Options", &self.Options)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -11299,11 +10711,6 @@ impl ::core::marker::Copy for VOLUMEWAVEFILTER {}
 impl ::core::clone::Clone for VOLUMEWAVEFILTER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for VOLUMEWAVEFILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VOLUMEWAVEFILTER").field("wfltr", &self.wfltr).field("dwVolume", &self.dwVolume).finish()
     }
 }
 unsafe impl ::windows::core::Abi for VOLUMEWAVEFILTER {
@@ -11346,11 +10753,6 @@ impl ::core::clone::Clone for WAVEFILTER {
         *self
     }
 }
-impl ::core::fmt::Debug for WAVEFILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEFILTER").field("cbStruct", &self.cbStruct).field("dwFilterTag", &self.dwFilterTag).field("fdwFilter", &self.fdwFilter).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WAVEFILTER {
     type Abi = Self;
 }
@@ -11378,11 +10780,6 @@ impl ::core::marker::Copy for WAVEFORMAT {}
 impl ::core::clone::Clone for WAVEFORMAT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WAVEFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEFORMAT").field("wFormatTag", &self.wFormatTag).field("nChannels", &self.nChannels).field("nSamplesPerSec", &self.nSamplesPerSec).field("nAvgBytesPerSec", &self.nAvgBytesPerSec).field("nBlockAlign", &self.nBlockAlign).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WAVEFORMAT {
@@ -11414,11 +10811,6 @@ impl ::core::marker::Copy for WAVEFORMATEX {}
 impl ::core::clone::Clone for WAVEFORMATEX {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WAVEFORMATEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEFORMATEX").field("wFormatTag", &self.wFormatTag).field("nChannels", &self.nChannels).field("nSamplesPerSec", &self.nSamplesPerSec).field("nAvgBytesPerSec", &self.nAvgBytesPerSec).field("nBlockAlign", &self.nBlockAlign).field("wBitsPerSample", &self.wBitsPerSample).field("cbSize", &self.cbSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WAVEFORMATEX {
@@ -11512,12 +10904,6 @@ impl ::core::clone::Clone for WAVEHDR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WAVEHDR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEHDR").field("lpData", &self.lpData).field("dwBufferLength", &self.dwBufferLength).field("dwBytesRecorded", &self.dwBytesRecorded).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).field("dwLoops", &self.dwLoops).field("lpNext", &self.lpNext).field("reserved", &self.reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WAVEHDR {
     type Abi = Self;
 }
@@ -11559,12 +10945,6 @@ impl ::core::clone::Clone for WAVEINCAPS2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WAVEINCAPS2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEINCAPS2A").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwFormats", &self.dwFormats).field("wChannels", &self.wChannels).field("wReserved1", &self.wReserved1).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WAVEINCAPS2A {
     type Abi = Self;
 }
@@ -11602,11 +10982,6 @@ impl ::core::clone::Clone for WAVEINCAPS2W {
         *self
     }
 }
-impl ::core::fmt::Debug for WAVEINCAPS2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEINCAPS2W").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwFormats", &self.dwFormats).field("wChannels", &self.wChannels).field("wReserved1", &self.wReserved1).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WAVEINCAPS2W {
     type Abi = Self;
 }
@@ -11642,12 +11017,6 @@ impl ::core::clone::Clone for WAVEINCAPSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WAVEINCAPSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEINCAPSA").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwFormats", &self.dwFormats).field("wChannels", &self.wChannels).field("wReserved1", &self.wReserved1).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WAVEINCAPSA {
     type Abi = Self;
 }
@@ -11680,11 +11049,6 @@ impl ::core::marker::Copy for WAVEINCAPSW {}
 impl ::core::clone::Clone for WAVEINCAPSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WAVEINCAPSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEINCAPSW").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwFormats", &self.dwFormats).field("wChannels", &self.wChannels).field("wReserved1", &self.wReserved1).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WAVEINCAPSW {
@@ -11732,12 +11096,6 @@ impl ::core::clone::Clone for WAVEOUTCAPS2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WAVEOUTCAPS2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEOUTCAPS2A").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwFormats", &self.dwFormats).field("wChannels", &self.wChannels).field("wReserved1", &self.wReserved1).field("dwSupport", &self.dwSupport).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WAVEOUTCAPS2A {
     type Abi = Self;
 }
@@ -11776,11 +11134,6 @@ impl ::core::clone::Clone for WAVEOUTCAPS2W {
         *self
     }
 }
-impl ::core::fmt::Debug for WAVEOUTCAPS2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEOUTCAPS2W").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwFormats", &self.dwFormats).field("wChannels", &self.wChannels).field("wReserved1", &self.wReserved1).field("dwSupport", &self.dwSupport).field("ManufacturerGuid", &self.ManufacturerGuid).field("ProductGuid", &self.ProductGuid).field("NameGuid", &self.NameGuid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WAVEOUTCAPS2W {
     type Abi = Self;
 }
@@ -11817,12 +11170,6 @@ impl ::core::clone::Clone for WAVEOUTCAPSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WAVEOUTCAPSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEOUTCAPSA").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwFormats", &self.dwFormats).field("wChannels", &self.wChannels).field("wReserved1", &self.wReserved1).field("dwSupport", &self.dwSupport).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WAVEOUTCAPSA {
     type Abi = Self;
 }
@@ -11856,11 +11203,6 @@ impl ::core::marker::Copy for WAVEOUTCAPSW {}
 impl ::core::clone::Clone for WAVEOUTCAPSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for WAVEOUTCAPSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WAVEOUTCAPSW").field("wMid", &self.wMid).field("wPid", &self.wPid).field("vDriverVersion", &self.vDriverVersion).field("szPname", &self.szPname).field("dwFormats", &self.dwFormats).field("wChannels", &self.wChannels).field("wReserved1", &self.wReserved1).field("dwSupport", &self.dwSupport).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WAVEOUTCAPSW {
@@ -13545,12 +12887,6 @@ impl ::core::clone::Clone for tACMDRVOPENDESCA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for tACMDRVOPENDESCA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tACMDRVOPENDESCA").field("cbStruct", &self.cbStruct).field("fccType", &self.fccType).field("fccComp", &self.fccComp).field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("dwError", &self.dwError).field("pszSectionName", &self.pszSectionName).field("pszAliasName", &self.pszAliasName).field("dnDevNode", &self.dnDevNode).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for tACMDRVOPENDESCA {
     type Abi = Self;
 }
@@ -13591,12 +12927,6 @@ impl ::core::clone::Clone for tACMDRVOPENDESCW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for tACMDRVOPENDESCW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tACMDRVOPENDESCW").field("cbStruct", &self.cbStruct).field("fccType", &self.fccType).field("fccComp", &self.fccComp).field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("dwError", &self.dwError).field("pszSectionName", &self.pszSectionName).field("pszAliasName", &self.pszAliasName).field("dnDevNode", &self.dnDevNode).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for tACMDRVOPENDESCW {
     type Abi = Self;
 }
@@ -13629,11 +12959,6 @@ impl ::core::marker::Copy for tACMFORMATDETAILSW {}
 impl ::core::clone::Clone for tACMFORMATDETAILSW {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for tACMFORMATDETAILSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tACMFORMATDETAILSW").field("cbStruct", &self.cbStruct).field("dwFormatIndex", &self.dwFormatIndex).field("dwFormatTag", &self.dwFormatTag).field("fdwSupport", &self.fdwSupport).field("pwfx", &self.pwfx).field("cbwfx", &self.cbwfx).field("szFormat", &self.szFormat).finish()
     }
 }
 unsafe impl ::windows::core::Abi for tACMFORMATDETAILSW {
