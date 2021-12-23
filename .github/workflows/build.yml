@@ -159,7 +159,7 @@ jobs:
       shell: bash
       run: git diff --exit-code || (echo '::error::Generated `windows_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p windows_${{ matrix.generator }}`'; exit 1)
 
-  cargo_sys:
+  check_sys:
     name: Check windows-sys
     runs-on: windows-latest
     steps:
@@ -168,4 +168,14 @@ jobs:
 
     - name: Run cargo check
       run: cargo check -p windows-sys --all-features
+  
+  check_windows:
+    name: Check windows
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Run cargo check
+      run: cargo check -p windows --all-features
   
